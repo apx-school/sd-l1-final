@@ -10,11 +10,7 @@ class PelisController {
     if (options.id){
       return this.peliculas.getById(options.id)
     } else if (options.search){
-      return this.peliculas.search(options.search.title)
-    } else if (options.search){
-      return this.peliculas.search(options.search.tags)
-    } else if (options.search){
-      return this.peliculas.search(options.search.title) && this.peliculas.search(options.search.tags)
+      return this.peliculas.search(options.search)
     } else {
       return this.peliculas.getAll()
     };

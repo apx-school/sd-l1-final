@@ -4,7 +4,7 @@ class Peli {
   id: number;
   title: string;
   tags: string[];
-}
+};
 
 class PelisCollection {
   getAll(): Promise<any> {
@@ -23,11 +23,10 @@ class PelisCollection {
 
   search (options: any) : Promise <any>{
     return this.getAll().then((peliculas) =>{
-      if (options.title && options.tags){
+      if (options.title && options.tag){
         return peliculas.filter((p) =>{
-          p.title.includes(options.title)
-          p.tags.includes(options.tags)
-
+          return p.title.includes(options.title) &&
+          p.tags.includes(options.tag)
         });
       } 
       else if (options.title){
@@ -35,9 +34,9 @@ class PelisCollection {
           return p.title.includes(options.title)
         });
       }
-      else if (options.tags){
+      else if (options.tag){
         return peliculas.filter((p) => {
-          return p.tags.includes(options.tags)
+          return p.tags.includes(options.tag)
         });
       };
     });
@@ -48,9 +47,9 @@ class PelisCollection {
       if (exist){
         return false
       } else {
-           const promesaDos = this.getAll().then((peliculas) =>{
-           peliculas.push(peli)
-           return jsonfile.writeFile("./pelis.json", peliculas);
+        const promesaDos = this.getAll().then((peliculas) =>{ 
+          peliculas.push(peli)
+          return jsonfile.writeFile("./pelis.json", peliculas);
          });
          return promesaDos.then(() =>{
            return true
