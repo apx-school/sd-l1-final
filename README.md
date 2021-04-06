@@ -45,8 +45,11 @@
 `ts-node index.ts get 4411`
 
 `ts-node index.ts search --title="a"`
+
 `ts-node index.ts search --tag="classic"`
+
 `ts-node index.ts search --title="x" --tag="action"`
+
 `ts-node index.ts`
 
 Este último comando debe devolver todas las peliculas
