@@ -72,6 +72,9 @@ Este último comando debe devolver todas las peliculas
 # Para enviar el desafío
 Correr los test localmente para chequear (de todas formas se van a correr cuando hagan el PR) y si pasan, generar un PR al repositorio original y enviar la URL del PR al box del desafío
 
+![image](https://user-images.githubusercontent.com/1208547/113758360-2740bd80-96ea-11eb-992e-6402d46cf2e7.png)
+
+
 Para ejecutar los tests localmente corren el comando
 
 `npm run test`
