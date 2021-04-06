@@ -29,7 +29,7 @@ El archivo se puede llamar como quieran y debe tener al menos 3 películas con e
   - si objeto **options** tiene la propiedad **tag** debe devolver todas las
   películas que tengan ese string en sus tags. (Por ejemplo si **tags** es "classic" debe devolverme todas las peliculas que tengan el tag "classic")
 
-  - tener un método add(peli:Peli) reciba una Peli y la guarde en el archivo debe devolver un boolean que indique si se agregó correctamente la peli. No debe admitir agregar IDs repetidos.
+- tener un método add(peli:Peli) reciba una Peli y la guarde en el archivo debe devolver un boolean que indique si se agregó correctamente la peli. No debe admitir agregar IDs repetidos.
 
 ### Dentro de controller.ts tomar la estructura base y completar la clase PelisController.
 
