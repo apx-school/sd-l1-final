@@ -2,6 +2,17 @@
 
 ### Forkear y clonar este repo
 
+## Crear un archivo JSON con peliculas. El archivo se puede llamar como quieran y debe tener al menos 3 películas con el siguiente formato:
+
+```
+{
+  id: number;
+  title: string;
+  tags: string[];
+}
+```
+
+
 ### Dentro de models.ts tomar la estructura base y completar la clase PelisCollection.
 
 #### La clase debe tener esta serie de métodos asincrónicos. O sea que todos deben devolver una promesa que a su vez devuelva lo indicado en cada método):
