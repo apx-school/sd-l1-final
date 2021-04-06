@@ -36,21 +36,24 @@ El archivo se puede llamar como quieran y debe tener al menos 3 películas con e
 #### La clase debe tener esta serie de métodos asincrónicos que usen los métodos del modelo para interactuar con la data.
 
 - instanciar el modelo **PelisCollection** y guardarlo en una propiedad interna del controller
-- tener un método get() que reciba un objeto con opciones.
+- tener un método get(options?) que reciba un objeto con opciones.
 
-  - si el objeto tiene la propiedad **id** (Ej: {id:1234}) debe devolver la película con ese id
+  - si el objeto tiene la propiedad **id** (Ej: { id:1234 }) debe devolver la película con ese id
 
   - si el objeto tiene la propiedad **search** (objeto) y:
 
     - el objeto "search" tiene la propiedad "title" debe buscar las pelis que tengan ese string en el título
     - el objeto "search" tiene la propiedad "tag" debe y buscar las pelis que tengan ese tag
     - puede recibir las dos opciones
+   
+  - si no recibe ningun parametro debe devolver todas las peliculas
 
 - tener un método **add** que reciba un objeto y cree una peli en base a ese objeto. (Ej { add: { id:4421, title:"Una peli", tags:["classic","action"] } })
 
-  - si no recibe ningun parametro debe devolver todas las peliculas
 
-- Parsea los argumentos de la terminal en el **index.ts** usando minimist. Los comandos que debe aceptar son los siguientes:
+## Parsea los argumentos de la terminal en el **index.ts** 
+
+Usar la librería minimist. Los comandos que deberían funcionar son los siguientes:
 
 `ts-node index.ts add --id=4411 --title="Titulo de la nueva peli" --tags=action --tags=classic`
 
@@ -66,7 +69,8 @@ El archivo se puede llamar como quieran y debe tener al menos 3 películas con e
 
 Este último comando debe devolver todas las peliculas
 
-- Correr los test localmente para chequear (de todas formas se van a correr cuando hagan el PR) y si pasan generar un PR al repositorio original y enviar la URL del PR al box del desafío
+# Para enviar el desafío
+Correr los test localmente para chequear (de todas formas se van a correr cuando hagan el PR) y si pasan, generar un PR al repositorio original y enviar la URL del PR al box del desafío
 
 Para ejecutar los tests localmente corren el comando
 
