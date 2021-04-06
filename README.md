@@ -22,14 +22,14 @@ El archivo se puede llamar como quieran y debe tener al menos 3 películas con e
 - tener un método getAll() que devuelva un array del tipo Peli con todas las pelis que se encuentren guardadas en el archvivo de pelis (se puede llamar como quieras)
 - tener un método getById(id:number) que devuelva la peli que tenga ese id
 
-- tener un método search(options) que reciba un objeto con opciones
-- si objeto **options** tiene la propiedad **title** debe devolver todas las
+- tener un método search(options:any) que reciba un objeto con opciones
+  - si objeto **options** tiene la propiedad **title** debe devolver todas las
   películas que tengan ese string en su title. (Por ejemplo si **search** es "a" debe devolverme todas las peliculas que tengan la letra "a" en su **title**)
 
-- si objeto **options** tiene la propiedad **tag** debe devolver todas las
+  - si objeto **options** tiene la propiedad **tag** debe devolver todas las
   películas que tengan ese string en sus tags. (Por ejemplo si **tags** es "classic" debe devolverme todas las peliculas que tengan el tag "classic")
 
-- tener un método add(peli:Peli) reciba una Peli y la guarde en el archivo debe devolver un boolean que indique si se agregó correctamente la peli. No debe admitir agregar IDs repetidos.
+  - tener un método add(peli:Peli) reciba una Peli y la guarde en el archivo debe devolver un boolean que indique si se agregó correctamente la peli. No debe admitir agregar IDs repetidos.
 
 ### Dentro de controller.ts tomar la estructura base y completar la clase PelisController.
 
