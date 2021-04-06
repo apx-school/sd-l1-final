@@ -2,7 +2,9 @@
 
 ### Forkear y clonar este repo
 
-## Crear un archivo JSON con peliculas. El archivo se puede llamar como quieran y debe tener al menos 3 películas con el siguiente formato:
+## Crear un archivo JSON con peliculas. 
+
+El archivo se puede llamar como quieran y debe tener al menos 3 películas con el siguiente formato:
 
 ```
 {
