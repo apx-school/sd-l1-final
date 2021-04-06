@@ -40,7 +40,7 @@ El archivo se puede llamar como quieran y debe tener al menos 3 películas con e
 
   - si el objeto tiene la propiedad **id** (Ej: {id:1234}) debe devolver la película con ese id
 
-  - si el objeto tiene la propiedad **search** y:
+  - si el objeto tiene la propiedad **search** (objeto) y:
 
     - el objeto "search" tiene la propiedad "title" debe buscar las pelis que tengan ese string en el título
     - el objeto "search" tiene la propiedad "tag" debe y buscar las pelis que tengan ese tag
