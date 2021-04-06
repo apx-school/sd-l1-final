@@ -4,10 +4,9 @@
 
 ### Dentro de models.ts tomar la estructura base y completar la clase PelisCollection.
 
-#### La clase debe tener esta serie de métodos asincrónicos. O sea que todos deben devolver una promesa que a su vez devuelva lo indicado en cada módulo):
+#### La clase debe tener esta serie de métodos asincrónicos. O sea que todos deben devolver una promesa que a su vez devuelva lo indicado en cada método):
 
 - tener un método getAll() que devuelva un array del tipo Peli con todas las pelis que se encuentren guardadas en el archvivo de pelis (se puede llamar como quieras)
--
 - tener un método getById(id:number) que devuelva la peli que tenga ese id
 
 - tener un método search(options) que reciba un objeto con opciones
