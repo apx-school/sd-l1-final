@@ -1,4 +1,5 @@
 import * as jsonfile from "jsonfile";
+import * as concat from "lodash/concat"
 
 // no modificar estas propiedades, agregar todas las que quieras
 class Peli {
@@ -9,6 +10,7 @@ class Peli {
 
 class PelisCollection {
   peliculas: Peli[] = [];
+  
   getAll(): Promise<Peli[]> {
     return jsonfile("./pelis.json").then((json) => {
       // la respuesta de la promesa
@@ -33,7 +35,7 @@ class PelisCollection {
     if (this.peliculas.includes(peli)) {
       flag = false;
     } else {
-      this.peliculas.push(peli);
+      this.peliculas = concat(this.peliculas, peli);
       this.peliculas = jsonfile.writeFile("./pelis.json", this.peliculas);
       flag = true;
     }
