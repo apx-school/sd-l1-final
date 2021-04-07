@@ -1,1 +1,8 @@
-[]
+[
+   { "id": 123, "title": "Lord of the rings", "tags": ["Buenisima", "saga"] },
+   { "id": 56, "title": "Avengers", "tags": ["Buenisima", "saga", "Favorite movie"] },
+   { "id": 987, "title": "The Lion King", "tags": ["Buenisima", "Cartoons", "Childhood"] },
+   { "id": 3456, "title": "abc asd", "tags": ["tt", "rr"] },
+   { "id": 1234, "title": "una peli", "tags": ["classic", "action"] },
+   { "id": 7878, "title": "asd fgh", "tags": ["yy", "uu"] }
+]
