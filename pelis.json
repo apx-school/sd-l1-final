@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "Rapido y furioso",
+    "tags": "accion"
+  },
+  {
+    "id": 2,
+    "title": "Mi villano favorito",
+    "tags": "aventura"
+  },
+  {
+    "id": 3,
+    "title": "Madagascar",
+    "tags": "dibujos animados"
+  }
+]

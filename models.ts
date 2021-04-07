@@ -7,12 +7,15 @@ class Peli {
   tags: string[];
 }
 
-class PelisCollection {
+class PelisCollection extends Peli {
   getAll(): Promise<Peli[]> {
     return jsonfile("...laRutaDelArchivo").then(() => {
       // la respuesta de la promesa
       return [];
     });
   }
+  getById(id: number) {}
+  search(options: any) {}
+  add(peli: Peli) {}
 }
 export { PelisCollection, Peli };
