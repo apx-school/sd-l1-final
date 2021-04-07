@@ -1,1 +1,37 @@
-[]
+[
+    {
+        "title": "El Señor de los Anillos",
+        "rating": 8,
+        "tags": ["aventura","favorita","clasica"]
+    },
+    {
+        "title": "Harry Potter y la piedra filosofal",
+        "rating": 9,
+        "tags": ["aventura","favorita","magos","clasica","saga"]
+    },
+    {
+        "title": "Harry Potter y la cámara secreta",
+        "rating": 7,
+        "tags": ["aventura","favorita","magos","clasica","saga"]
+    },
+    {
+        "title": "Harry Potter y el prisionero de Azkaban",
+        "rating": 8,
+        "tags": ["aventura","favorita","magos","clasica","saga"]
+    },
+    {
+        "title": "Harry Potter y el cáliz de fuego",
+        "rating": 8,
+        "tags": ["aventura","favorita","magos","clasica","saga"]
+    },
+    {
+        "title": "El Resplandor",
+        "rating": 9,
+        "tags": ["terror","clasica","psicológica"]
+    },
+    {
+        "title": "Borat",
+        "rating": 7,
+        "tags": ["parodia","mockumental","comedia"]
+    }  
+]
