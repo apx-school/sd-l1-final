@@ -19,6 +19,11 @@ test.before(async (t) => {
       title: "una peli",
       tags: ["classic", "action"],
    });
+   await instance.add({
+      id: 5643,
+      title: "otra peli un poco más aburrida",
+      tags: ["action"],
+   });
 });
 
 test("Testeo PelisController get id (creado desde la terminal)", async (t) => {
