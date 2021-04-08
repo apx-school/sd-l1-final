@@ -22,7 +22,7 @@ test.before(async (t) => {
   await instance.add({
     id: 5643,
     title: "otra peli un poco más aburrida",
-    tags: ["aburrida"],
+    tags: ["action"],
   });
 });
 
