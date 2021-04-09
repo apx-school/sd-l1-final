@@ -21,20 +21,21 @@ class PelisCollection {
     });
   }
 
-  search(options: any): Promise<Peli[]> {
+  search(options:any): Promise<Peli[]> {
     return this.getAll().then((json) => {
       if (options.title && options.tag) {
         return json.filter(
           (item) =>
-            item.title.includes(options.title) && item.tags.includes(options.tag)
+            item.title.includes(options.title) &&
+            item.tags.includes(options.tag)
         );
       }
 
-      if (options.title && !options.tag) {
+      if (options.title) {
         return json.filter((item) => item.title.includes(options.title));
       }
 
-      if (options.tags && !options.title) {
+      if (options.tags) {
         return json.filter((item) => item.tags.includes(options.tag));
       }
     });
