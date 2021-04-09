@@ -1,1 +1,26 @@
-[]
+[
+    {
+        "id": 1,
+        "title": "Peli1",
+        "tags": [
+            "comedia",
+            "accion"
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Peli2",
+        "tags": [
+            "drama",
+            "accion"
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Peli3",
+        "tags": [
+            "romance",
+            "aventura"
+        ]
+    }
+]
