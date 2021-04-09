@@ -1,5 +1,4 @@
 import * as minimist from "minimist";
-import * as has from "lodash/has";
 import * as isEmpty from "lodash/isEmpty";
 import { PelisController } from "./controllers";
 
