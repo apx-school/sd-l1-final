@@ -10,63 +10,37 @@ function parseaParams(argv) {
 
 function options(result) {
   const controller = new PelisController();
-  if (result._[0] == "get") {
-    const getValue = result._[1];
-    return controller.get({ id: getValue }).then((p) => {
-      if (isEmpty(p)) {
-        return "No existe una pelicula con ese id";
-      } else {
-        return p;
-      }
-    });
-  }
-  if (result._[0] == "add") {
-    let objectAdd = {
-      id: result.id,
-      title: result.title,
-      tags: result.tags,
-    };
-    return controller.add(objectAdd).then((p) => {
+  if (result._ == "add") {
+    delete result._;
+    return controller.peliculas.add(result).then((p) => {
       if (p) {
-        return "La pelicula se agregó con exito";
+        return "La pelicula se agrego correctamente";
       } else {
-        return "La pelicula no se guardó, intente ingresando con un id diferente";
+        return "La pelicula no se pudo agregar correctamente, intente con otro id";
       }
     });
   }
-  if (result._[0] == "search") {
-    let objectSearch = {};
-    if (has(result, "tag")) {
-      objectSearch = {
-        search: {
-          tag: result.tag,
-        },
-      };
-    }
-    if (has(result, "title")) {
-      objectSearch = {
-        search: {
-          title: result.title,
-        },
-      };
-    }
-    if (has(result, "title") && has(result, "tag")) {
-      objectSearch = {
-        search: {
-          title: result.title,
-          tag: result.tag,
-        },
-      };
-    }
-    return controller.get(objectSearch).then((p) => {
+  if (result._[0] == "get") {
+    const byId = result._[1];
+    return controller.peliculas.getById(byId).then((p) => {
+      if (p) {
+        return p;
+      } else {
+        return "No se encontro ninguna pelicula con el id ingresado";
+      }
+    });
+  }
+  if (result._ == "search") {
+    delete result._;
+    return controller.peliculas.search(result).then((p) => {
       if (isEmpty(p)) {
-        return "No hay peliculas que coincidan con su busqueda";
+        return "No se encontro ninguna pelicula en base a su busqueda";
       } else {
         return p;
       }
     });
   } else {
-    return controller.get({}).then((p) => {
+    return controller.peliculas.getAll().then((p) => {
       return p;
     });
   }
