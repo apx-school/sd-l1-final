@@ -1,5 +1,6 @@
 import * as jsonfile from "jsonfile";
 import * as filtrar from "lodash/filter"
+import * as find from "lodash/find"
 // no modificar estas propiedades, agregar todas las que quieras
 class Peli {
   title: string;
@@ -27,29 +28,33 @@ class PelisCollection {
       if(options.title){
         aux = filtrar(aux, function(item) { return item.title.includes(options.title)})
       }
-      if(options.tags){
-        aux = filtrar(aux, function(item) { return item.tags.includes(options.tags)})
+      if(options.tag){
+        aux = filtrar(aux, function(item) { return item.tags.includes(options.tag)})
       }
       return aux;
     });
   }
 
-  add(movie: Peli) {
-    return this.getAll().then((json) => {
-      if (json.find(item => item.id == movie.id)){
-        return false;
+  add(peli: Peli): Promise<any> {
+    return this.getAll().then((file) => {
+      if (!find(file, { id: peli.id })) {
+        file.push(peli);
+        return jsonfile
+          .writeFile("./pelis.json", file)
+          .then(() => {
+            return true;
+          })
+          .catch(() => {
+            return false;
+          });
       } else {
-        let aux = json;
-        aux.push(movie)
-        jsonfile.writeFile("./pelis.json", aux).then(() =>{
-          return true;
-        });
+        return false;
       }
-    })
+    });
   }
-
-
 }
+
+
 
 export { PelisCollection, Peli };
 

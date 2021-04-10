@@ -1,4 +1,5 @@
 import { PelisCollection, Peli } from "./models";
+import * as isEmpty from "lodash/isEmpty"
 
 class PelisController {
   movies: PelisCollection;
@@ -9,9 +10,11 @@ class PelisController {
   get(options: any) {
     if (options.hasOwnProperty("id")) {
       return this.movies.getById(options.id)
-    } else if (options.hasOwnProperty("search")) {
+    } 
+    if (options.hasOwnProperty("search")) {
       return this.movies.search(options.search)
-    } else {
+    } 
+    if(isEmpty(options)) {
       return this.movies.getAll();
     }
   }

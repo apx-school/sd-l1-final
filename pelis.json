@@ -94,21 +94,5 @@
             "cienciaficcion",
             "accion"
         ]
-    },
-    {
-        "id": 99,
-        "title": "Tobias peli",
-        "tags": [
-            "accion",
-            "comedia"
-        ]
-    },
-    {
-        "id": 3456,
-        "title": "abc asd",
-        "tags": [
-            "tt",
-            "rr"
-        ]
     }
 ]
