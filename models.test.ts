@@ -38,15 +38,14 @@ test("Testeo el método getById", async (t) => {
   t.is(a.title, b.title);
 });
 
-/* test("Testeo el método search", async (t) => {
+test("Testeo el método search", async (t) => {
   const collection = t.context.instance;
   const all = t.context.all;
   const a = all[0];
-  const b = await collection.search({ title: "asd" });
+  const b = await collection.search("asd");
   const ids = b.map((b) => b.id);
   t.deepEqual(ids, [3456, 7878]);
 
-  const c = await collection.search({ title: "asd", tag: "yy" });
+  const c = await collection.search("yy");
   t.deepEqual(c[0].id, 7878);
 });
- */
