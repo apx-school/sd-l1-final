@@ -1,17 +1,7 @@
 [
-  {
-    "id": 1,
-    "title": "Rapido y furioso",
-    "tags": "accion"
-  },
-  {
-    "id": 2,
-    "title": "Mi villano favorito",
-    "tags": "aventura"
-  },
-  {
-    "id": 3,
-    "title": "Madagascar",
-    "tags": "dibujos animados"
-  }
+  { "id": 1, "title": "Rapido y furioso", "tags": ["accion"] },
+  { "id": 2, "title": "Mi villano favorito", "tags": ["aventura"] },
+  { "id": 3, "title": "Madagascar", "tags": ["dibujos animados"] },
+  { "id": 3456, "title": "abc asd", "tags": ["tt", "rr"] },
+  { "id": 7878, "title": "asd fgh", "tags": ["yy", "uu"] }
 ]
