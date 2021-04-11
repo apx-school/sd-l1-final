@@ -1,7 +1,6 @@
 import * as jsonfile from "jsonfile";
 import * as filtrar from "lodash/filter"
 import * as find from "lodash/find"
-import * as isEmpty from "lodash/isEmpty"
 // no modificar estas propiedades, agregar todas las que quieras
 class Peli {
   title: string;
