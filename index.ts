@@ -18,7 +18,7 @@ function main() {
   
   else if (params._[0] === "search") {
     delete params._
-    return controller.get(params)
+    return controller.movies.search(params)
       .then(res => console.log(res))
       .catch(err => console.log(err))
   } else if (params._[0] === "add") {
