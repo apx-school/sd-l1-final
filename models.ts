@@ -1,6 +1,7 @@
 import * as jsonfile from "jsonfile";
 import * as filtrar from "lodash/filter"
 import * as find from "lodash/find"
+import * as isEmpty from "lodash/isEmpty"
 // no modificar estas propiedades, agregar todas las que quieras
 class Peli {
   title: string;
@@ -36,22 +37,17 @@ class PelisCollection {
   }
 
   add(peli: Peli): Promise<any> {
-    return this.getAll().then((file) => {
-      if (!find(file, { id: peli.id })) {
-        file.push(peli);
-        return jsonfile
-          .writeFile("./pelis.json", file)
-          .then(() => {
-            return true;
-          })
-          .catch(() => {
-            return false;
-          });
+    return this.getAll().then((json) => {
+      let repeatedId = find(json,function(item) {return item.id === peli.id});
+      if(!repeatedId){
+        json.push(peli)
+        return jsonfile.writeFile("./pelis.json", json).then(() => true);
       } else {
+        console.log("Error, pelicula ya agregada");
         return false;
       }
-    });
-  }
+    })
+}
 }
 
 
