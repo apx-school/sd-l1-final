@@ -11,7 +11,7 @@ function options(result) {
   const controller = new PelisController();
   if (result._ == "add") {
     delete result._;
-    return controller.peliculas.add(result).then((p) => {
+    return controller.add(result).then((p) => {
       if (p) {
         return "La pelicula se agrego correctamente";
       } else {
@@ -20,8 +20,8 @@ function options(result) {
     });
   }
   if (result._[0] == "get") {
-    const byId = result._[1];
-    return controller.peliculas.getById(byId).then((p) => {
+    const idParam = result._[1];
+    return controller.get({ id: idParam }).then((p) => {
       if (p) {
         return p;
       } else {
@@ -31,7 +31,7 @@ function options(result) {
   }
   if (result._ == "search") {
     delete result._;
-    return controller.peliculas.search(result).then((p) => {
+    return controller.get({ search: result }).then((p) => {
       if (isEmpty(p)) {
         return "No se encontro ninguna pelicula en base a su busqueda";
       } else {
@@ -39,7 +39,7 @@ function options(result) {
       }
     });
   } else {
-    return controller.peliculas.getAll().then((p) => {
+    return controller.get({}).then((p) => {
       return p;
     });
   }
