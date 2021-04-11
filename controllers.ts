@@ -8,13 +8,14 @@ class PelisController {
   }
 
   get(options): Promise<any> {
-    if (options.id) {
-      const idSearched = options.id;
-      return this.pelisCollection.getById(idSearched);
-    }
 
     if (options === null) {
       return this.pelisCollection.getAll();
+    }
+    
+    if (options.id) {
+      const idSearched = options.id;
+      return this.pelisCollection.getById(idSearched);
     }
 
     if (options.search) {
