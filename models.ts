@@ -13,12 +13,12 @@ class PelisCollection extends Peli {
       return res;
     });
   }
-  getById(id: number): Promise<Peli> {
+  getById(id: number): Promise<any> {
     return this.getAll().then((archivo) => {
       return find(archivo, { id: id });
     });
   }
-  search(options: any) {
+  search(options: any): Promise<any> {
     return this.getAll().then((archivo) => {
       var pelisEncontradas = archivo;
       if (options.title) {
@@ -39,7 +39,7 @@ class PelisCollection extends Peli {
       return pelisEncontradas;
     });
   }
-  add(peli: Peli) {
+  add(peli: Peli): Promise<any> {
     return this.getAll().then((archivo) => {
       const existe = find(archivo, { id: peli.id });
       if (!existe) {
