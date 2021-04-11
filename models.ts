@@ -38,7 +38,7 @@ class PelisCollection {
   }
   add(peli: Peli): Promise<any> {
     return this.getAll().then((file) => {
-      if (!find(file, { id: peli.id })) {
+      if (!find(file, { id: peli.id }) && peli.title && peli.tags) {
         file.push(peli);
         return jsonfile
           .writeFile("./pelis.json", file)
