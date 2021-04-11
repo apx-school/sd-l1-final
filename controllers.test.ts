@@ -15,7 +15,7 @@ test.before(async (t) => {
     tags: ["classic", "action"],
   });
   await instance.add({
-    id: 5643,
+    id: 1234,
     title: "una peli",
     tags: ["classic", "action"],
   });
