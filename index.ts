@@ -9,38 +9,33 @@ function parseaParams(argv) {
 
 function options(result) {
   const controller = new PelisController();
-  if (result._ == "add") {
-    delete result._;
-    return controller.add(result).then((p) => {
-      if (p) {
-        return "La pelicula se agrego correctamente";
-      } else {
-        return "La pelicula no se pudo agregar correctamente, intente con otro id";
-      }
+  const resultado = result._[0];
+  if (isEmpty(resultado)) {
+    return controller.get({}).then((p) => {
+      return p;
     });
   }
-  if (result._[0] == "get") {
-    const idParam = result._[1];
-    return controller.get({ id: idParam }).then((p) => {
-      if (p) {
-        return p;
-      } else {
-        return "No se encontro ninguna pelicula con el id ingresado";
-      }
+  if (resultado == "get") {
+    return controller.get({ id: result._[1] }).then((p) => {
+      return p ? p : "No se encontraron peliculas con ese id";
     });
   }
-  if (result._ == "search") {
+  if (resultado == "search") {
     delete result._;
     return controller.get({ search: result }).then((p) => {
       if (isEmpty(p)) {
-        return "No se encontro ninguna pelicula en base a su busqueda";
+        return " No se encontro pelicula en base a su busqueda";
       } else {
         return p;
       }
     });
-  } else {
-    return controller.get({}).then((p) => {
-      return p;
+  }
+  if (resultado == "add") {
+    delete result._;
+    return controller.add(result).then((p) => {
+      return p
+        ? "Se agrego correctamente la pelicula"
+        : "No se agrego la pelicula, intente con otro id o ingrese todos los campos";
     });
   }
 }
