@@ -19,35 +19,35 @@ class PelisCollection {
     return PromesaJSON;
   }
 
-  getById(id: number): Promise<Peli> {
+  getById(id: number): Promise<any> {
     return this.getAll().then((promise) => {
       const peliBuscada = promise.find((peli) => {
-        return (peli.id = id);
+        return peli.id == id;
       });
       return peliBuscada;
     });
   }
 
-  search(options: any): Promise<Peli[]> {
+  search(options: any): Promise<any> {
     return this.getAll().then((promise) => {
       const resultadoFinal = promise.filter((peli) => {
-        let optionsAsId = peli.title.toLowerCase().includes(options);
-        let optionsAsTag = peli.tags.includes(options);
-        let resultado;
+        let searchResult;
 
-        if (optionsAsId) {
-          resultado = optionsAsId;
+        if (options.title) {
+          searchResult = peli.title.toLowerCase().includes(options.title);
         }
-        if (optionsAsTag) {
-          resultado = optionsAsTag;
+
+        if (options.tags) {
+          searchResult = peli.tags.includes(options.tags);
         }
-        return resultado;
+
+        return searchResult;
       });
       return resultadoFinal;
     });
   }
 
-  add(peli: Peli): Promise<boolean> {
+  add(peli: Peli): Promise<any> {
     return this.getAll().then((promise) => {
       let resultado: boolean;
       let peliIds = _.map(promise, "id");
@@ -58,8 +58,17 @@ class PelisCollection {
 
       if (!_.includes(peliIds, peli.id)) {
         promise.push(peli);
-        jsonfile.writeFile("./pelis.json", promise);
-        return (resultado = true);
+        const writeFilePromise = jsonfile.writeFile("./pelis.json", promise, {
+          spaces: 1,
+        });
+
+        if (writeFilePromise.then()) {
+          return (resultado = true);
+        }
+
+        if (writeFilePromise.catch()) {
+          return (resultado = false);
+        }
       }
     });
   }
@@ -67,15 +76,14 @@ class PelisCollection {
 
 export { PelisCollection, Peli };
 
-//const test = new PelisCollection();
+/* const test = new PelisCollection();
 
-/* const testPeli = {
-  id: 111,
+const testPeli = {
+  id: 1235,
   title: "peli prueba",
   tags: ["tag prueba 1", "tag prueba 2"],
 };
 
-test.add(testPeli).then((r) => {
+test.getById(4).then((r) => {
   console.log(r);
-});
- */
+}); */

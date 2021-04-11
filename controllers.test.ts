@@ -1,7 +1,7 @@
-import anyTest, { TestInterface } from "ava";
+/* import anyTest, { TestInterface } from "ava";
 import { PelisController } from "./controllers";
 
-/* const test = anyTest as TestInterface<{
+const test = anyTest as TestInterface<{
   con: PelisController;
 }>;
 
@@ -15,7 +15,7 @@ test.before(async (t) => {
     tags: ["classic", "action"],
   });
   await instance.add({
-    id: 1234,
+    id: 5643,
     title: "una peli",
     tags: ["classic", "action"],
   });
@@ -49,4 +49,5 @@ test("Testeo PelisController search tag", async (t) => {
   const ids = pelis.map((b) => b.id);
   t.deepEqual(ids, [1234, 5643]);
 });
+
  */
