@@ -1,1 +1,137 @@
-[]
+[
+    {
+        "title": "Tenet",
+        "id": 1,
+        "tags": [
+            "accion",
+            "cienciaficcion"
+        ]
+    },
+    {
+        "title": "The 40 year old virgin",
+        "id": 2,
+        "tags": [
+            "comedia",
+            "romance"
+        ]
+    },
+    {
+        "title": "Eternal Sunshine",
+        "id": 3,
+        "tags": [
+            "romance",
+            "cienciaficcion"
+        ]
+    },
+    {
+        "title": "Mad Max: fury road",
+        "id": 4,
+        "tags": [
+            "accion",
+            "aventura"
+        ]
+    },
+    {
+        "title": "Munich",
+        "id": 5,
+        "tags": [
+            "suspenso",
+            "drama"
+        ]
+    },
+    {
+        "title": "Timbuktu",
+        "id": 6,
+        "tags": [
+            "drama",
+            "politica"
+        ]
+    },
+    {
+        "title": "The hurt locker",
+        "id": 7,
+        "tags": [
+            "belico",
+            "accion"
+        ]
+    },
+    {
+        "title": "Sangre, sudor y gloria",
+        "id": 8,
+        "tags": [
+            "accion",
+            "crimen"
+        ]
+    },
+    {
+        "title": "21 Jump Street",
+        "id": 9,
+        "tags": [
+            "comedia",
+            "accion"
+        ]
+    },
+    {
+        "title": "Star Wars IV",
+        "id": 10,
+        "tags": [
+            "cienciaficcion",
+            "accion"
+        ]
+    },
+    {
+        "title": "Star Wars: El imperio Contraataca",
+        "id": 11,
+        "tags": [
+            "cienciaficcion",
+            "accion"
+        ]
+    },
+    {
+        "title": "Star Wars VI: El retorno del jedi",
+        "id": 12,
+        "tags": [
+            "cienciaficcion",
+            "accion"
+        ]
+    },
+    {
+        "id": 4411,
+        "title": "nueva pel 9999",
+        "tags": [
+            "rr",
+            "ww"
+        ]
+    },
+    {
+        "id": 3456,
+        "title": "abc asd",
+        "tags": [
+            "tt",
+            "rr"
+        ]
+    },
+    {
+        "id": 7878,
+        "title": "asd fgh",
+        "tags": [
+            "yy",
+            "uu"
+        ]
+    },
+    {
+        "id": 1234,
+        "title": "una peli",
+        "tags": [
+            "classic",
+            "action"
+        ]
+    },
+    {
+        "id": 5643,
+        "title": "otra peli un poco más aburrida",
+        "tags": [
+            "action"
+        ]
+    }
+]
