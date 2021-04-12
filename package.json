@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "test": "ts-node index.ts add --id=4411 --title=\"nueva pel 9999\" --tags=rr --tags=ww && ava",
+    "test": "ts-node index.ts add --id=4411 --title='nueva pel 9999' --tags=rr --tags=ww && ava",
     "start": "ts-node index.ts"
   },
   "ava": {
