@@ -39,13 +39,14 @@ class PelisCollection {
     return buscar;
   }
 
-  add(peli: Peli) {
-    let addData = this.getAll();
-    addData.then((x) => x.push(peli));
-    addData.then((x) => jsonfile.writeFile("./pelis.json", x));
-    addData.then((x) => x);
-
-    return addData;
+  add(peli: Peli): Promise<Boolean> {
+    return this.getAll().then((x) => {
+      const comprobar = x.find((i: Peli) => i.id === peli.id);
+      if (!comprobar) {
+        x.push(peli);
+        return jsonfile.writeFile("./pelis.json", x).then(() => true);
+      }
+    });
   }
 }
 

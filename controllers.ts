@@ -1,5 +1,7 @@
 import { PelisCollection, Peli } from "./models";
+import * as isEmpty from "lodash/isEmpty";
 
+/*
 class PelisController {
   pelis: PelisCollection;
   constructor() {
@@ -24,9 +26,30 @@ class PelisController {
   }
 
   add(params) {
-    let result = this.pelis.add(params);
+    let result = this.pelis.getById(params);
 
     return result;
+  }
+}*/
+
+class PelisController {
+  pelis: PelisCollection;
+  constructor() {
+    this.pelis = new PelisCollection();
+  }
+  get(options) {
+    if (options.id) {
+      return this.pelis.getById(options.id);
+    }
+    if (options.search) {
+      return this.pelis.search(options.search);
+    }
+    if (isEmpty(options)) {
+      return this.pelis.getAll();
+    }
+  }
+  add(peli) {
+    return this.pelis.add(peli);
   }
 }
 
