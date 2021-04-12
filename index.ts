@@ -10,27 +10,23 @@ function parseaParams(argv) {
 function options(result) {
   const controller = new PelisController();
   const resultado = result._[0];
-  if (isEmpty(resultado)) {
-    return controller.get({}).then((p) => {
-      return p;
-    });
-  }
-  if (resultado == "get") {
-    return controller.get({ id: result._[1] }).then((p) => {
-      return p ? p : "No se encontraron peliculas con ese id";
-    });
-  }
-  if (resultado == "search") {
-    delete result._;
-    return controller.get({ search: result }).then((p) => {
+  if (resultado != "add") {
+    var params = {};
+    if (resultado == "get") {
+      params = { id: result._[1] };
+    }
+    if (resultado == "search") {
+      delete result._;
+      params = { search: result };
+    }
+    return controller.get(params).then((p) => {
       if (isEmpty(p)) {
-        return " No se encontro pelicula en base a su busqueda";
+        return "No se encontraron peliculas en base a su busqueda";
       } else {
         return p;
       }
     });
-  }
-  if (resultado == "add") {
+  } else {
     delete result._;
     return controller.add(result).then((p) => {
       return p
