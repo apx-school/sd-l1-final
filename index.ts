@@ -6,50 +6,45 @@ function parseaParams(argv) {
   return resultado;
 }
 
-function main() {
-  let params = parseaParams(process.argv.slice(2));
+function opcionIngresada(obj) {
   const peliController = new PelisController();
 
-  if (params._[0] == "get") {
-    const idSearched = params._[1];
-    peliController.get({ id: idSearched }).then((res) => {
-      console.log(res);
+  if (obj._[0] == "get") {
+    const idSearched = obj._[1];
+    return peliController.get({ id: idSearched }).then((res) => {
+      return res;
     });
   }
 
-  if (params._.length < 1) {
-    peliController.get(null).then((res) => {
-      console.log(res);
-    });
-  }
-
-  if (params._[0] == "search") {
+  if (obj._[0] == "search") {
     const buscado = {
       search: {
-        title: params.title,
-        tags: params.tag,
+        title: obj.title,
+        tags: obj.tag,
       },
     };
-    peliController.get(buscado).then((res) => {
-      console.log(res);
+    return peliController.get(buscado).then((res) => {
+      return res;
     });
   }
 
-  if (params._[0] == "add") {
+  if (obj._[0] == "add") {
     const added = {
-      id: params.id,
-      title: params.title,
-      tags: params.tags,
+      id: obj.id,
+      title: obj.title,
+      tags: obj.tags,
     };
-    const respuesta = peliController.add(added);
-    respuesta.then((res) => {
-      res
-        ? console.table(res)
-        : console.error(
-            "Error, la pelicula que intenta agregar ya se encuentra en el listado"
-          );
-    });
+    return peliController.add(added).then((res) => res ? res : "Error, la pelicula que intenta agregar ya se encuentra en el listado");
   }
+  return peliController.get(null).then((res) => {
+    return res;
+  });
+}
+
+function main() {
+  let params = parseaParams(process.argv.slice(2));
+  let resp = opcionIngresada(params);
+  resp.then( r => console.log(r));
 }
 
 main();

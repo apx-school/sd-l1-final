@@ -2,23 +2,56 @@
   {
     "id": 1,
     "title": "batman: the dark knight returns",
-    "tags": ["action", "drama", "crime"]
+    "tags": [
+      "action",
+      "drama",
+      "crime"
+    ]
   },
   {
     "id": 2,
     "title": "avengers: endgame",
-    "tags": ["action", "sci-fi", "comedy"]
+    "tags": [
+      "action",
+      "sci-fi",
+      "comedy"
+    ]
   },
-  { "id": 3, "title": "soul", "tags": ["animation", "comedy", "drama"] },
-  { "id": 4, "title": "birdman", "tags": ["comedy", "drama", "thriller"] },
+  {
+    "id": 3,
+    "title": "soul",
+    "tags": [
+      "animation",
+      "comedy",
+      "drama"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "birdman",
+    "tags": [
+      "comedy",
+      "drama",
+      "thriller"
+    ]
+  },
   {
     "id": 5,
     "title": "gladiador",
-    "tags": ["action", "aventure", "drama", "classic"]
+    "tags": [
+      "action",
+      "aventure",
+      "drama",
+      "classic"
+    ]
   },
   {
     "id": 6,
     "title": "john wick 3: parabellum",
-    "tags": ["action", "crime", "thriller"]
+    "tags": [
+      "action",
+      "crime",
+      "thriller"
+    ]
   }
 ]
