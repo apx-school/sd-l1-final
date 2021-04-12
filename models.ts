@@ -19,7 +19,7 @@ class PelisCollection {
     return PromesaJSON;
   }
 
-  getById(id: number): Promise<any> {
+  getById(id: number): Promise<Peli> {
     return this.getAll().then((promise) => {
       const peliBuscada = promise.find((peli) => {
         return peli.id == id;
@@ -28,26 +28,27 @@ class PelisCollection {
     });
   }
 
-  search(options: any): Promise<any> {
+  search(options: any): Promise<Peli[]> {
     return this.getAll().then((promise) => {
-      const resultadoFinal = promise.filter((peli) => {
-        let searchResult;
+      let tmp = promise
+      let aux
+ 
+      if (options.title) {
+       aux = tmp.filter((peli) => {return peli.title.toLowerCase().includes(options.title)})
+       tmp = aux}
+ 
+ 
+      if (options.tags) {
+       aux = tmp.filter((peli) => {return peli.tags.includes(options.tags)})
+       tmp = aux}
+ 
+ 
+      return tmp
+    })}
 
-        if (options.title) {
-          searchResult = peli.title.toLowerCase().includes(options.title);
-        }
 
-        if (options.tags) {
-          searchResult = peli.tags.includes(options.tags);
-        }
 
-        return searchResult;
-      });
-      return resultadoFinal;
-    });
-  }
-
-  add(peli: Peli): Promise<any> {
+  add(peli: Peli): Promise<boolean> {
     return this.getAll().then((promise) => {
       let resultado: boolean;
       let peliIds = _.map(promise, "id");
@@ -77,13 +78,16 @@ class PelisCollection {
 export { PelisCollection, Peli };
 
 /* const test = new PelisCollection();
+ */
 
-const testPeli = {
+
+/* const testPeli = {
   id: 1235,
   title: "peli prueba",
   tags: ["tag prueba 1", "tag prueba 2"],
-};
+}; */
 
-test.getById(4).then((r) => {
+
+/* test.search({title:"wind",tags:"drama"}).then((r) => {
   console.log(r);
 }); */

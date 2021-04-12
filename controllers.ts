@@ -8,7 +8,7 @@ class PelisController {
     this.pelisCollection = new PelisCollection();
   }
 
-  get(options) {
+  get(options):Promise<Peli> | Promise<Peli[]>{
     // Agrege que si get no recibe nada, devuelva el array completo.
     if (_.isEmpty(options)) {
       return this.pelisCollection.getAll();
@@ -19,22 +19,7 @@ class PelisController {
     }
 
     if (options.search) {
-      if (options.search.tags && options.search.title) {
-        let result = this.pelisCollection.search(options.search);
-
-        // Aca hice este filter para asegurarme que si o si la peli que concuerde con tags y title
-        // solamente me de los titulos que concuerden con options.search.title.
-        let resultadoFinal = result.then((resultado) => {
-          return resultado.filter((item) => {
-            let searchTitleParams = options.search.title.toLowerCase();
-            let peliConTags = item.title.toLowerCase();
-            return peliConTags.includes(searchTitleParams);
-          });
-        });
-
-        return resultadoFinal;
-      }
-
+      
       if (options.search.title) {
         return this.pelisCollection.search(options.search);
       }
@@ -49,14 +34,9 @@ class PelisController {
     }
   }
 
-  add(options) {
+  add(options):Promise<boolean> {
     if (options.add) {
-      let resultadoAdd;
-
-      resultadoAdd = this.pelisCollection.add(options.add);
-
-      return resultadoAdd;
-    }
+      return this.pelisCollection.add(options.add);}
   }
 }
 
@@ -64,13 +44,17 @@ export { PelisController };
 
 /* const testController = new PelisController();
 
-testController.get({ id: 2 }).then((r) => console.log(r));
+testController.get({ id: 4 }).then((r) => console.log(r));
+
 
 testController
-  .get({ search: { tags: "fantasy", title: "p" } })
+  .get({ search: { tags: "art", title: "c" } })
   .then((r) => console.log(r));
 
+
+  
 testController
   .add({ add: { id: 30, title: "test add", tags: ["tag1", "tag2"] } })
   .then((r) => console.log(r));
+
  */
