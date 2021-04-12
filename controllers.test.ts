@@ -19,6 +19,11 @@ test.before(async (t) => {
     title: "una peli",
     tags: ["classic", "action"],
   });
+  await instance.add({
+    id: 5643,
+    title: "otra peli un poco más aburrida",
+    tags: ["action"],
+  });
 });
 
 test("Testeo PelisController get id (creado desde la terminal)", async (t) => {
@@ -32,7 +37,7 @@ test("Testeo PelisController get id", async (t) => {
   const collection = t.context.con;
   const peli = await collection.get({ id: 1234 });
   t.is(peli.title, "una peli");
-});
+}); 
 
 test("Testeo PelisController search title", async (t) => {
   const collection = t.context.con;
@@ -48,6 +53,4 @@ test("Testeo PelisController search tag", async (t) => {
   });
   const ids = pelis.map((b) => b.id);
   t.deepEqual(ids, [1234, 5643]);
-});
-
-
+});  
