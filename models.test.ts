@@ -1,4 +1,4 @@
-/* import anyTest, { TestInterface } from "ava";
+import anyTest, { TestInterface } from "ava";
 import { PelisCollection, Peli } from "./models";
 
 const test = anyTest as TestInterface<{
@@ -49,4 +49,4 @@ test("Testeo el método search", async (t) => {
   const c = await collection.search({ title: "asd", tags: "yy" });
   t.deepEqual(c[0].id, 7878);
 });
- */
+

@@ -76,18 +76,3 @@ class PelisCollection {
 }
 
 export { PelisCollection, Peli };
-
-/* const test = new PelisCollection();
- */
-
-
-/* const testPeli = {
-  id: 1235,
-  title: "peli prueba",
-  tags: ["tag prueba 1", "tag prueba 2"],
-}; */
-
-
-/* test.search({title:"wind",tags:"drama"}).then((r) => {
-  console.log(r);
-}); */

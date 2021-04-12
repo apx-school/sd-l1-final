@@ -8,7 +8,7 @@ class PelisController {
     this.pelisCollection = new PelisCollection();
   }
 
-  get(options):Promise<Peli> | Promise<Peli[]>{
+  get(options):Promise<any>{
     // Agrege que si get no recibe nada, devuelva el array completo.
     if (_.isEmpty(options)) {
       return this.pelisCollection.getAll();
@@ -34,27 +34,10 @@ class PelisController {
     }
   }
 
-  add(options):Promise<boolean> {
+  add(options):Promise<any> {
     if (options.add) {
       return this.pelisCollection.add(options.add);}
   }
 }
 
 export { PelisController };
-
-/* const testController = new PelisController();
-
-testController.get({ id: 4 }).then((r) => console.log(r));
-
-
-testController
-  .get({ search: { tags: "art", title: "c" } })
-  .then((r) => console.log(r));
-
-
-  
-testController
-  .add({ add: { id: 30, title: "test add", tags: ["tag1", "tag2"] } })
-  .then((r) => console.log(r));
-
- */

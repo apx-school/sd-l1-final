@@ -1,4 +1,4 @@
-/* import anyTest, { TestInterface } from "ava";
+import anyTest, { TestInterface } from "ava";
 import { PelisController } from "./controllers";
 
 const test = anyTest as TestInterface<{
@@ -50,4 +50,4 @@ test("Testeo PelisController search tag", async (t) => {
   t.deepEqual(ids, [1234, 5643]);
 });
 
- */
+
