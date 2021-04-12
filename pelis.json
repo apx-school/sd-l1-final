@@ -1,0 +1,33 @@
+[
+  {
+    "id": 3476,
+    "title": "skyscraper",
+    "tags": ["accion", "aventura", "suspenso"]
+  },
+  {
+    "id": 7365,
+    "title": "doctor Strange",
+    "tags": ["accion", "ciencia", "magia"]
+  },
+  {
+    "id": 4411,
+    "title": "godzilla",
+    "tags": ["accion", "ciencia", "fantasia"]
+  },
+  { "id": 5798, "title": "avengers", "tags": ["accion", "aventura", "drama"] },
+  { "id": 2369, "title": "violet", "tags": ["aventura", "drama", "romance"] },
+  {
+    "id": 1276,
+    "title": "spiderman",
+    "tags": ["accion", "aventura", "ciencia"]
+  },
+  { "id": 3984, "title": "ironman", "tags": ["accion", "ciencia", "fantasia"] },
+  { "id": 2365, "title": "magic", "tags": ["aventura", "ciencia", "magia"] },
+  { "id": 9826, "title": "anabelle", "tags": ["terror", "suspenso"] },
+  {
+    "id": 1257,
+    "title": "resident evil",
+    "tags": ["terror", "accion", "suspenso"]
+  },
+  { "id": 3692, "title": "x-men", "tags": ["accion", "ciencia", "fantasia"] }
+]
