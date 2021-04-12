@@ -1,56 +1,28 @@
 import { PelisCollection, Peli } from "./models";
-import * as isEmpty from "lodash/isEmpty";
 
-/*
 class PelisController {
-  pelis: PelisCollection;
+  controladorPelis: PelisCollection;
+
   constructor() {
-    this.pelis = new PelisCollection();
-    this.pelis.getAll();
+    this.controladorPelis = new PelisCollection();
   }
 
-  get(options?) {
-    let result;
-
-    if (!options) {
-      result = this.pelis.getAll();
-    } else if (options.id) {
-      result = this.pelis.getById(options.id);
-    } else if (options.search.title) {
-      result = this.pelis.search(options.search);
-    } else if (options.search.tag) {
-      result = this.pelis.search(options.search);
+  get(options): Promise<any> {
+    if (options == null) {
+      return this.controladorPelis.getAll();
     }
 
-    return result;
-  }
-
-  add(params) {
-    let result = this.pelis.getById(params);
-
-    return result;
-  }
-}*/
-
-class PelisController {
-  pelis: PelisCollection;
-  constructor() {
-    this.pelis = new PelisCollection();
-  }
-  get(options) {
     if (options.id) {
-      return this.pelis.getById(options.id);
+      return this.controladorPelis.getById(options.id);
     }
+
     if (options.search) {
-      return this.pelis.search(options.search);
-    }
-    if (isEmpty(options)) {
-      return this.pelis.getAll();
+      return this.controladorPelis.search(options.search);
     }
   }
-  add(peli) {
-    return this.pelis.add(peli);
+
+  add(peli): Promise<Boolean> {
+    return this.controladorPelis.add(peli);
   }
 }
-
 export { PelisController };
