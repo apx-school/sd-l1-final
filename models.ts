@@ -11,7 +11,7 @@ class Peli {
 class PelisCollection {
   pelisData: Peli[];
 
-  getAll(): Promise<Peli[]> {
+  getAll(): Promise<any> {
     const PromesaJSON = jsonfile.readFile("./pelis.json");
     PromesaJSON.then((json) => {
       this.pelisData = json;
@@ -19,7 +19,7 @@ class PelisCollection {
     return PromesaJSON;
   }
 
-  getById(id: number): Promise<Peli> {
+  getById(id: number): Promise<any> {
     return this.getAll().then((promise) => {
       const peliBuscada = promise.find((peli) => {
         return peli.id == id;
@@ -28,38 +28,48 @@ class PelisCollection {
     });
   }
 
-  search(options: any): Promise<Peli[]> {
-    return this.getAll().then((promise) => {
-      let tmp = promise
-      let aux
- 
+  search(options: any): Promise<any> {
+    return this.getAll().then((result) => {
+      let tmp = result
+
       if (options.title) {
-       aux = tmp.filter((peli) => {return peli.title.toLowerCase().includes(options.title)})
-       tmp = aux}
- 
+         tmp = tmp.filter((peli) => {
+         let peliTitle = peli.title.toLowerCase()
+         let searchTitle = options.title
+         return peliTitle.includes(searchTitle)
+        })}
  
       if (options.tags) {
-       aux = tmp.filter((peli) => {return peli.tags.includes(options.tags)})
-       tmp = aux}
- 
- 
+         tmp = tmp.filter((peli) => {
+         let peliTags = peli.tags
+         let searchTags = options.tags
+         return peliTags.includes(searchTags)
+        })} else
+
+      if (options.tag) {
+        tmp = tmp.filter((peli) => {
+        let peliTags = peli.tags
+        let searchTags = options.tag  
+        return peliTags.includes(searchTags)
+        })}
+
       return tmp
     })}
 
 
-
-  add(peli: Peli): Promise<boolean> {
-    return this.getAll().then((promise) => {
+  
+  add(peli: Peli): Promise<any> {
+    return this.getById(peli.id).then((peliData) => {
       let resultado: boolean;
-      let peliIds = _.map(promise, "id");
+      let peliFiltered = peliData;
 
-      if (_.includes(peliIds, peli.id)) {
+      if (_.includes(peliFiltered, peli.id)) {
         return (resultado = false);
       }
 
-      if (!_.includes(peliIds, peli.id)) {
-        promise.push(peli);
-        const writeFilePromise = jsonfile.writeFile("./pelis.json", promise, {
+      if (!_.includes(peliFiltered, peli.id)) {
+        this.pelisData.push(peli);
+        const writeFilePromise = jsonfile.writeFile("./pelis.json", this.pelisData, {
           spaces: 1,
         });
 

@@ -46,7 +46,9 @@ test("Testeo el método search", async (t) => {
   const ids = b.map((b) => b.id);
   t.deepEqual(ids, [3456, 7878]);
 
-  const c = await collection.search({ title: "asd", tags: "yy" });
+  // Marce aca correji el tema de que tuve que cambiar el tag a tags,
+  // lo adapte para que me lo tome de ambas formas.
+  const c = await collection.search({ title: "asd", tag: "yy" });
   t.deepEqual(c[0].id, 7878);
 });
 
