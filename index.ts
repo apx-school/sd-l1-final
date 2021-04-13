@@ -1,71 +1,59 @@
 import * as minimist from "minimist";
 import { PelisController } from "./controllers";
 
-let esAdd = false;
-let esGet = false;
-let esSearch = false;
-let esVacio = false;
-
-function parseaParams(parametros) {
-  const argv = minimist(parametros);
+function processOptionsArgv(argv) {
+  const controller = new PelisController();
   const opcionStrg = argv._.toString();
   if (opcionStrg == "") {
-    return (esVacio = true);
+    const esVacio = true;
+    return { promesa: controller.get(esVacio) };
   }
   if (opcionStrg == "add") {
     const peli = { id: argv.id, title: argv.title, tags: argv.tags };
-    esAdd = true;
-    return peli;
+    const promesaAdd = controller.add(peli);
+    const respuesta = promesaAdd.then((x) => {
+      if (x) {
+        return "La pelicula se guardo correctamente!";
+      } else {
+        return "El ID ya existe! Pruebe con otro ID";
+      }
+    });
+    return { promesa: promesaAdd, texto: respuesta };
   }
   if (opcionStrg.startsWith("get")) {
     const id = argv._[1];
-    esGet = true;
-    return id;
+    return { promesa: controller.get({ id: id }) };
   }
   if (opcionStrg == "search") {
-    esSearch = true;
+    let paramsSearch = {};
     if (argv.title && argv.tag) {
-      return { title: argv.title, tags: argv.tag };
+      paramsSearch = { title: argv.title, tags: argv.tag };
     } else if (argv.title) {
-      return { title: argv.title };
+      paramsSearch = { title: argv.title };
     } else if (argv.tag) {
-      return { tag: argv.tag };
+      paramsSearch = { tag: argv.tag };
     }
+    return { promesa: controller.get({ search: paramsSearch }) };
   }
 }
 
-function main() {
-  const controller = new PelisController();
-  const params = parseaParams(process.argv.slice(2));
+function parseaParams(parametros) {
+  const argv = minimist(parametros);
+  return argv;
+}
 
-  if (esAdd) {
-    const promesaAdd = controller.add(params);
-    promesaAdd.then((x) => {
-      if (x == true) {
-        console.log("La pelicula se guardo correctamente!");
-      } else {
-        console.log("El ID ya existe! Pruebe con otro ID");
-      }
-    });
-  }
-  if (esGet) {
-    const promesaGet = controller.get({ id: params });
-    promesaGet.then((x) => {
-      console.log(x);
-    });
-  }
-  if (esSearch) {
-    const promesaSearch = controller.get({ search: params });
-    promesaSearch.then((x) => {
-      console.table(x);
-    });
-  }
-  if (esVacio) {
-    const promesaVacio = controller.get(esVacio);
-    promesaVacio.then((x) => {
-      console.table(x);
-    });
-  }
+function main() {
+  const params = parseaParams(process.argv.slice(2));
+  const Resultado = processOptionsArgv(params);
+  Resultado.promesa.then((resultado) => {
+    if (Resultado.texto) {
+      Resultado.texto.then((texto) => {
+        console.log(texto);
+      });
+    } else {
+      console.table(resultado);
+    }
+  });
 }
 
 main();
