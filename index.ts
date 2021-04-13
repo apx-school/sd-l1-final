@@ -44,10 +44,10 @@ function parseaParams(parametros) {
 
 function main() {
   const params = parseaParams(process.argv.slice(2));
-  const Resultado = processOptionsArgv(params);
-  Resultado.promesa.then((resultado) => {
-    if (Resultado.texto) {
-      Resultado.texto.then((texto) => {
+  const resultado = processOptionsArgv(params);
+  resultado.promesa.then((resultado) => {
+    if (resultado.texto) {
+      resultado.texto.then((texto) => {
         console.log(texto);
       });
     } else {
