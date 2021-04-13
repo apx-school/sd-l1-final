@@ -1,5 +1,6 @@
 import * as jsonfile from "jsonfile";
 import * as filtrar from "lodash/filter"
+import * as find from "lodash/find"
 
 
 // no modificar estas propiedades, agregar todas las que quieras
@@ -43,22 +44,18 @@ class PelisCollection {
          return respuesta
       });
    }
-   add(Peli: Peli) {
-      return this.getAll().then((res) => {
-         if (
-            res.find((p) => {
-               return p.id == Peli.id;
-            })
-         ) {
-            return false;
-         } else {
-            res.push(Peli);
-            jsonfile.writeFile("./pelis.json", res).then(() => {
-               return true;
-            });
-         }
-      });
-   }
+   add(peli: Peli): Promise<any> {
+      return this.getAll().then((json) => {
+        let repeatedId = find(json,function(item) {return item.id === peli.id});
+        if(!repeatedId){
+          json.push(peli)
+          return jsonfile.writeFile("./pelis.json", json).then(() => true);
+        } else {
+          console.log("Error, pelicula ya agregada");
+          return false;
+        }
+      })
+  }
 }
 
 export { PelisCollection, Peli }
