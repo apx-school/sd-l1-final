@@ -37,7 +37,7 @@ test("Testeo PelisController get id", async (t) => {
   const collection = t.context.con;
   const peli = await collection.get({ id: 1234 });
   t.is(peli.title, "una peli");
-});
+}); 
 
 test("Testeo PelisController search title", async (t) => {
   const collection = t.context.con;
@@ -53,4 +53,4 @@ test("Testeo PelisController search tag", async (t) => {
   });
   const ids = pelis.map((b) => b.id);
   t.deepEqual(ids, [1234, 5643]);
-});
+});  
