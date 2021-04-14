@@ -7,14 +7,25 @@ class PelisController {
   constructor() {
     this.collection = new PelisCollection();
   }
-  chooseMethod() {
-    return this.get();
+  async get(obj) {
+    if ("id" in obj) {
+      return this.collection.getById(obj.id);
+    }
+    if ("search" in obj) {
+      return this.collection.search(obj.search);
+    }
+    if (obj._ != undefined) {
+      // Si el argumento es ingresado desde la terminal la libreria minimist guarda el objeto search dentro
+      // de la propiedad "_"
+      if (obj._.includes("search")) {
+        return this.collection.search(obj);
+      }
+    } else {
+      return this.collection.getAll();
+    }
   }
-  get() {
-    return this.collection.getById(2);
-  }
-  add(obj: Peli) {
-    this.collection.add(obj);
+  add(peli: Peli) {
+    return this.collection.add(peli);
   }
 }
 export { PelisController };

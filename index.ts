@@ -5,8 +5,6 @@ import { PelisController } from "./controllers";
 
 function parseaParams(argv) {
   const resultado = minimist(argv);
-  /* const resultadoMap = new Map(resultado);
-  console.log(resultadoMap); */
   return resultado;
 }
 
@@ -14,7 +12,33 @@ function main() {
   const controller = new PelisController();
   const params = parseaParams(process.argv.slice(2));
 
-  controller.add({ id: 4, title: "piratas del caribe", tags: ["aventura"] });
+  chooseMethod(params);
+  function chooseMethod(params) {
+    // Funcion encargada de recibir los argumentos de la terminal y ejecutar los metodos correspondientes
+    if (params._.length == 0) {
+      controller.get(params._).then((r) => {
+        console.table(r);
+      });
+    } else {
+      if (params._.includes("get")) {
+        controller.get(params).then((r) => {
+          console.table(r);
+        });
+      }
+      if (params._.includes("search")) {
+        /* console.log(params); */
+        controller.get(params).then((r) => {
+          console.table(r);
+        });
+      }
+      if (params._.includes("add")) {
+        const peliAdd = { ...params };
+        delete peliAdd._;
+        controller.add(peliAdd).then((r) => {
+          console.table(r);
+        });
+      }
+    }
+  }
 }
-
 main();

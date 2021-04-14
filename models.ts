@@ -29,6 +29,9 @@ class PelisCollection {
         pelisFiltered = item;
       }
     });
+    if (pelisFiltered == undefined) {
+      return false;
+    }
     return pelisFiltered;
   }
   async search(options: any) {
@@ -49,10 +52,16 @@ class PelisCollection {
     const pelis = await this.getAll();
 
     const flag = pelis.filter((item) => item.id == peli.id);
+    //Si la longitud del array es 0 significa que el metodo filter
+    // no encontró ninguna pelicula existente con ese ID
     if (flag.length == 0) {
       pelis.push(peli);
       jsonfile.writeFile("pelis.json", pelis);
+      return true;
     } else {
+      console.error(
+        "La peli no se ha podido añadir, ID existente o formato incorrecto"
+      );
       return false;
     }
   }
