@@ -1,15 +1,22 @@
+import { PelisController, PelisControllerOptions } from "./controllers";
 import * as minimist from "minimist";
 
-function parseaParams(argv) {
+function parseaParams(argv): PelisControllerOptions {
   const resultado = minimist(argv);
 
-  return resultado;
+  return {
+    action: resultado.action,
+    params: JSON.parse(resultado.params),
+  };
 }
 
 function main() {
-  const params = parseaParams(process.argv.slice(2));
-
-  console.log(params);
+  const controller = new PelisController();
+  controller.promesa.then(() => {
+    const params = parseaParams(process.argv.slice(2));
+    const result = controller.procesOptions(params);
+    console.log(result);
+  });
 }
 
 main();

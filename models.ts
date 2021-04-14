@@ -1,7 +1,7 @@
 import * as jsonfile from "jsonfile";
-import * as concat from "lodash/concat"
+import * as concat from "lodash/concat";
+import * as find from "lodash/find";
 
-// no modificar estas propiedades, agregar todas las que quieras
 class Peli {
   id: number;
   title: string;
@@ -10,36 +10,41 @@ class Peli {
 
 class PelisCollection {
   peliculas: Peli[] = [];
-  
-  getAll(): Promise<Peli[]> {
-    return jsonfile("./pelis.json").then((json) => {
-      // la respuesta de la promesa
-      this.peliculas = json;
-      return this.peliculas;
+
+  getAll(): Promise<any> {
+    return jsonfile.readFile("./peliculas.json").then((pelis) => {
+      return pelis;
     });
   }
+
   getById(id: number): Peli {
-    return this.peliculas.find((p) => {
-      return p.id == id;
-    });
+    let encontrada = find(this.peliculas, { id: id });
+    return encontrada;
   }
   search(options: any): Peli {
-    if(Object.keys.(options).includes("title")){
-      return this.peliculas.find((p)=>{
-        return p.title == options
-      })
+    if (options["title"]) {
+      return find(this.peliculas, { title: options });
+    } else if (options["tag"]) {
+      return find(this.peliculas, { tags: options });
     }
   }
   add(peli: Peli) {
     let flag: Boolean;
-    if (this.peliculas.includes(peli)) {
+
+    if (!find(this.peliculas, peli)) {
       flag = false;
+      return flag;
     } else {
-      this.peliculas = concat(this.peliculas, peli);
-      this.peliculas = jsonfile.writeFile("./pelis.json", this.peliculas);
-      flag = true;
+      const data = new Promise((resolve) => {
+        resolve(concat(peli, this.peliculas));
+      });
+      data.then(() => {
+        this.peliculas = jsonfile.writeFile("./pelis.json", this.peliculas);
+        flag = true;
+        return flag;
+      });
     }
-    return flag;
   }
 }
+
 export { PelisCollection, Peli };

@@ -1,4 +1,4 @@
-import test from "ava";
+import anyTest, { TestInterface } from "ava";
 import { PelisController } from "./controllers";
 
 const test = anyTest as TestInterface<{
@@ -21,9 +21,16 @@ test.before(async (t) => {
   });
   await instance.add({
     id: 5643,
-    title: "otra peli",
+    title: "otra peli un poco más aburrida",
     tags: ["action"],
   });
+});
+
+test("Testeo PelisController get id (creado desde la terminal)", async (t) => {
+  // testeo peli agregada desde el script test del package
+  const collection = t.context.con;
+  const peli = await collection.get({ id: 4411 });
+  t.is(peli.title, "nueva pel 9999");
 });
 
 test("Testeo PelisController get id", async (t) => {
@@ -34,7 +41,7 @@ test("Testeo PelisController get id", async (t) => {
 
 test("Testeo PelisController search title", async (t) => {
   const collection = t.context.con;
-  const pelis = await collection.get({ search: { title: "una peli" } });
+  const pelis = await collection.get({ search: { title: "una p" } });
   t.is(pelis.length, 1);
   t.is(pelis[0].id, 1234);
 });
