@@ -1,1 +1,32 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "película 1",
+    "tags": ["acción", "tiros", "un tag"]
+  },
+  {
+    "id": 2,
+    "title": "película 2",
+    "tags": ["fantasía", "animada", "otro tag"]
+  },
+  {
+    "id": 3,
+    "title": "película 3",
+    "tags": ["acción", "tiros", "dos tags"]
+  },
+  {
+    "id": 4,
+    "title": "película 4",
+    "tags": ["terror", "cuarto tag"]
+  },
+  {
+    "id": 5,
+    "title": "película 5",
+    "tags": ["fantasía", "animada", "otro tag"]
+  },
+  {
+    "id": 6,
+    "title": "película 6",
+    "tags": ["romántica", "amor", "quinto tag"]
+  }
+]
