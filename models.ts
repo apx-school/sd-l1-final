@@ -9,7 +9,6 @@ class Peli {
 }
 
 class PelisCollection {
-
   getAll(): Promise<any> {
     return jsonfile.readFile("./pelis.json")
       .then((res) => {
@@ -34,8 +33,7 @@ class PelisCollection {
         if(options.title){
         return  res.filter((item) =>
           item.title.includes(options.title)
-          );
-          
+          ); 
         }
         if(options.tag){
           return res.filter((item) =>
@@ -44,20 +42,6 @@ class PelisCollection {
         }
       })
   }
-
-
-
- /* add(peli:Peli){
-
-    return this.getAll().then((res) => {
-      const existe = res.find((item: Peli) => item.id == peli.id);
-      if (!existe) {
-        res.push(peli);
-        return jsonfile.writeFile("./pelis.json", res).then(() => true);
-      }
-    });
-  }*/
-
   add(peli:Peli){
   return this.getById(peli.id).then(res => {
     const existe = res; 
@@ -68,13 +52,9 @@ class PelisCollection {
         res.push(peli);
         return jsonfile.writeFile("./pelis.json", res).then(() => true);
       })
-      
     }
   })
 }
-
-    
- 
 }
 
 

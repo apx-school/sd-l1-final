@@ -41,7 +41,6 @@ const parametros =  (parametros) => {
     .catch((err) => {
       console.log(err)
     })
-    
   }
 
   if(parametros._[0] == "get"){
@@ -57,8 +56,6 @@ const parametros =  (parametros) => {
     })
   }
 }
-
-
 
 function main() {
   const params = parseaParams(process.argv.slice(2));

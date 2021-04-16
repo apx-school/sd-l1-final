@@ -20,7 +20,6 @@ class PelisController {
   add(peli){
   return this.peliculasController.add(peli);
   }
-
 }
 
 
