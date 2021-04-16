@@ -50,11 +50,8 @@ class PelisCollection {
   }
   async add(peli: Peli) {
     const pelis = await this.getAll();
-
-    const flag = pelis.filter((item) => item.id == peli.id);
-    //Si la longitud del array es 0 significa que el metodo filter
-    // no encontró ninguna pelicula existente con ese ID
-    if (flag.length == 0) {
+    const idExistente = await this.getById(peli.id);
+    if (idExistente == false) {
       pelis.push(peli);
       jsonfile.writeFile("pelis.json", pelis);
       return true;

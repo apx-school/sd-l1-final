@@ -16,7 +16,14 @@ function main() {
   function chooseMethod(params) {
     // Funcion encargada de recibir los argumentos de la terminal y ejecutar los metodos correspondientes
     if (params._.length == 0) {
-      controller.get(params._).then((r) => {
+      controller.get({ all: "all" }).then((r) => {
+        console.table(r);
+      });
+    }
+    if (params._.length == 2) {
+      const idObject = { id: 0 };
+      idObject.id = params._[1];
+      controller.get(idObject).then((r) => {
         console.table(r);
       });
     } else {

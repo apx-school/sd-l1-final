@@ -20,7 +20,8 @@ class PelisController {
       if (obj._.includes("search")) {
         return this.collection.search(obj);
       }
-    } else {
+    }
+    if ("all" in obj) {
       return this.collection.getAll();
     }
   }
