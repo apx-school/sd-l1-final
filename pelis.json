@@ -1,1 +1,160 @@
-[]
+[
+    {
+        "id": 1,
+        "title": "Pirates of the Caribbean: Dead Men Tell No Tales",
+        "tags": [
+            "Acción",
+            "Aventura",
+            "Comedia",
+            "Fantasia",
+            "Secuela"
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Monster Hunter",
+        "tags": [
+            "Acción",
+            "Aventura",
+            "Estrenos",
+            "Fantastico",
+            "Videojuegos"
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Contra lo imposible (Ford v. Ferrari)",
+        "tags": [
+            "Acción",
+            "Drama"
+        ]
+    },
+    {
+        "id": 4,
+        "title": "Escuadrón suicida (Suicide Squad)",
+        "tags": [
+            "Acción",
+            "Aventura",
+            "Comedia",
+            "Fantasia",
+            "Crimen",
+            "Suspenso"
+        ]
+    },
+    {
+        "id": 5,
+        "title": "Shrek 2",
+        "tags": [
+            "Animación e Infantil",
+            "Aventura",
+            "Comedia",
+            "Familiar",
+            "Fantasia"
+        ]
+    },
+    {
+        "id": 6,
+        "title": "El viaje de Arlo / Un Gran Dinosaurio / Dinosapiens",
+        "tags": [
+            "Animación e Infantil",
+            "Aventura",
+            "Comedia",
+            "Familiar",
+            "Fantasia"
+        ]
+    },
+    {
+        "id": 7,
+        "title": "Frozen: Una aventura congelada / Frozen: El reino del hielo",
+        "tags": [
+            "Animación e Infantil",
+            "Comedia",
+            "Familiar",
+            "Fantasia",
+            "Musical",
+            "Navideñas"
+        ]
+    },
+    {
+        "id": 8,
+        "title": "Toy Story 4",
+        "tags": [
+            "Animación e Infantil",
+            "Aventura",
+            "Fantastico",
+            "Secuela"
+        ]
+    },
+    {
+        "id": 9,
+        "title": "La huérfana (Orphan)",
+        "tags": [
+            "Misterio",
+            "Suspenso",
+            "Terror"
+        ]
+    },
+    {
+        "id": 10,
+        "title": "El Juego del Miedo 6 (Saw 6)",
+        "tags": [
+            "Crimen",
+            "Secuela",
+            "Suspenso",
+            "Terror"
+        ]
+    },
+    {
+        "id": 11,
+        "title": "It. Capítulo 2 (It. Chapter Two)",
+        "tags": [
+            "Fantastico",
+            "Terror"
+        ]
+    },
+    {
+        "id": 12,
+        "title": "La maldicion de Chucky (Chucky 6)",
+        "tags": [
+            "Secuela",
+            "Suspenso",
+            "Terror"
+        ]
+    },
+    {
+        "id": 13,
+        "title": "Annabelle 3: Viene a casa (Annabelle Comes Home)",
+        "tags": [
+            "Secuela",
+            "Terror"
+        ]
+    },
+    {
+        "id": 14,
+        "title": "Bad Boys para siempre (Bad Boys for Life)",
+        "tags": [
+            "Acción",
+            "Comedia",
+            "Estrenos",
+            "Suspenso"
+        ]
+    },
+    {
+        "id": 15,
+        "title": "Guardianes de la Galaxia (Guardians of the Galaxy)",
+        "tags": [
+            "Acción",
+            "Aventura",
+            "Comedia",
+            "Superheroes",
+            "Ciencia Ficcion"
+        ]
+    },
+    {
+        "id": 16,
+        "title": "Dale Duro (Get Hard)",
+        "tags": [
+            "Comedia"
+        ]
+    }
+]
