@@ -13,7 +13,7 @@ class PelisCollection {
     return jsonfile
       .readFile("./pelis.json")
       .then((res) => {
-        return (this.listaDePelis = res);
+        return this.listaDePelis = res;
       })
       .catch((getError) => {
         console.log("Error del get", getError);
@@ -25,9 +25,7 @@ class PelisCollection {
       .then(() => {
         return this.listaDePelis.find((j) => j.id == id);
       })
-      .catch((n) => {
-        return n;
-      })
+      
       .catch((d) => {
         console.log("error del add", d);
         return d;
@@ -36,7 +34,8 @@ class PelisCollection {
     return promesaId;
   }
 
-  search(options:any) {
+  search(options:any):Promise<Peli[]> {
+   
     let promesaSearch = this.getAll()
       .then(() => {
         let nuevaListaDePelis = this.listaDePelis;
@@ -50,16 +49,19 @@ class PelisCollection {
             });
           }
           if (key == "tag") {
-            nuevaListaDePelis = nuevaListaDePelis.filter((n) => {
-              if (n.tags.includes(options[key])) {
-                return true;
-              }
-            });
-          }
-        }
-
-        return nuevaListaDePelis;
-      })
+            nuevaListaDePelis = nuevaListaDePelis.filter(n => {
+              
+           return   n.tags.includes(options[key]);
+            
+              
+            
+          });
+              
+      
+         }
+        } 
+         return nuevaListaDePelis;
+        })
       .catch((n) => {
         console.error(n);
         return n;
@@ -68,7 +70,7 @@ class PelisCollection {
     return promesaSearch;
   }
 
-  add(peli: Peli) {
+  add(peli: Peli):Promise<Peli[]> {
     let promesaDeAdd = this.getAll()
       .then(() => {
         let encontrado = this.listaDePelis.find((n) => n.id == peli.id);

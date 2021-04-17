@@ -33,6 +33,7 @@ function main() {
   controller.promesaController.then(() => {
     const params = parseaParams(process.argv.slice(2));
     controller.get(params).then((n) => {
+      console.log(n);
       return n;
     });
   });
