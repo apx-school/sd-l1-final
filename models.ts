@@ -1,5 +1,5 @@
 import * as jsonfile from "jsonfile";
-import { constants } from "node:buffer";
+import * as _ from "lodash";
 
 // no modificar estas propiedades, agregar todas las que quieras
 class Peli {
@@ -8,16 +8,17 @@ class Peli {
   tags: string[];
 }
 class PelisCollection {
-  data: Peli[] = [];
+  data: Peli[];
+  promise: Promise<any>
   
   getAll():Promise<Peli[]> {
-    const promesa = jsonfile.readFile("./pelis.json");
-    promesa.then((json =>{
+    this.promise = jsonfile.readFile("./pelis.json")
+    .then((json =>{
       this.data = json;
-      
+      return json
     }));
 
-   return promesa;
+   return this.promise;
   }
 
   getById(id){
@@ -27,32 +28,25 @@ class PelisCollection {
       return promesaNueva;
     };
 
-  search(options: any){
-    const promesa = this.getAll().then(() =>{
-      let listaDePeliculas = this.data
-      for(const key in options){
-        if(key == "title"){
-          listaDePeliculas = listaDePeliculas.filter(function (pelicula){
-              if(pelicula.title.search(options.title)>=0){
-                return true;
-              }
-            });
-    }
-    if(key == "tag"){
-      listaDePeliculas = listaDePeliculas.filter((n) =>{
-        if(n.tags.includes(options[key]))
-        {
-          return true;
-        }
+    search(options: any): Promise<any> {
+      return this.promise.then((obj) => {
+        const filtrado = _.filter(obj, (x) => {
+          if (options.tag && options.title) {
+            return (
+              _.includes(x.tags, options.tag) &&
+              x.title.toLowerCase().includes(options.title.toLowerCase())
+            );
+          }
+          if (options.title && !options.tag) {
+            return x.title.toLowerCase().includes(options.title.toLowerCase());
+          }
+          if (!options.title && options.tag) {
+            return _.includes(x.tags, options.tag);
+          }
+        });
+        return filtrado;
       });
-      
-    };
-    
-  }
-  return listaDePeliculas;
-})
-return promesa;
-}
+    }
   add(peli:Peli){
     let promesa = this.getAll().then(() =>{
       let encontrado = this.data.find(n => n.id == peli.id);
