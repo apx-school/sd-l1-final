@@ -33,7 +33,7 @@ function main() {
   coll.promesa.then(() => {
   const params = parseaParams(process.argv.slice(2));
   coll.get(params).then((n =>{
-    console.table(n);
+    console.log(n);
 
   }))
 
