@@ -45,7 +45,6 @@ test("Testeo el método search", async (t) => {
   const b = await collection.search({ title: "asd" });
   const ids = b.map((b) => b.id);
   t.deepEqual(ids, [3456, 7878]);
-
   const c = await collection.search({ title: "asd", tag: "yy" });
   t.deepEqual(c[0].id, 7878);
 });

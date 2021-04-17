@@ -1,1 +1,12 @@
-[]
+[
+  { "id": 1, "title": "Jack Sparrow", "tags": ["accion", "aventura"] },
+  { "id": 2, "title": "Matrix", "tags": ["accion", "aventura"] },
+  { "id": 3, "title": "Titanic", "tags": ["drama", "antiguo"] },
+  { "id": 4411, "title": "nueva pel 9999", "tags": ["rr", "ww"] },
+  { "id": 1234, "title": "una peli", "tags": ["classic", "action"] },
+  { "id": 5643, "title": "otra peli un poco más aburrida", "tags": ["action"] },
+  { "id": 3456, "title": "abc asd", "tags": ["tt", "rr"] },
+  { "id": 7878, "title": "asd fgh", "tags": ["yy", "uu"] },
+  { "id": 205332, "title": "del test 205332", "tags": [] },
+  { "id": 210297, "title": "del test 210297", "tags": [] }
+]
