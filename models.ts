@@ -9,11 +9,13 @@ class Peli {
 
 class PelisCollection {
   data: Peli[];
+  promise: Promise<any>;
   getAll(): Promise<Peli[]> {
-    return jsonfile.readFile("./pelis.json").then((obj) => {
+    this.promise = jsonfile.readFile("./pelis.json").then((obj) => {
       this.data = obj;
       return obj;
     });
+    return this.promise;
   }
   getById(id: number): Promise<any> {
     return this.getAll().then((obj) => {
@@ -22,7 +24,7 @@ class PelisCollection {
     });
   }
   search(options: any): Promise<any> {
-    return this.getAll().then((obj) => {
+    return this.promise.then((obj) => {
       const filtrado = _.filter(obj, (x) => {
         if (options.tag && options.title) {
           return (
