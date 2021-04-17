@@ -1,24 +1,44 @@
 import * as minimist from "minimist";
-import { PelisController } from "./controllers";
-import { PelisCollection } from "./models";
+import {PelisController} from "./controllers";
+import {PelisCollection} from "./models";
 
 function parseaParams(argv) {
   const resultado = minimist(argv);
-  var argv;
-  if ( argv ="get" && argv.id){
-    argv = this.pelis.getById(argv.id)
-  } 
-  return {
-    add: resultado.add,
-    get: resultado.get,
-  };
+  let aux: {} = {};
+  let prop: {} = {};
+
+  if (resultado._[0] == "search") {
+    for (const key in resultado) {
+      if (key != "") {
+        aux[key] = resultado[key];
+      }
+    }
+    prop = { search: aux };
+  }
+  if (resultado._[0] == "get") {
+    prop = { id: resultado._[1] };
+  }
+  if (resultado._[0] == "add") {
+    for (const key in resultado) {
+      if (key != "") aux[key] = resultado[key];
+    }
+    prop = { add: aux };
+  }
+
+  return prop;
 }
 
 function main() {
-  const controller = new PelisController();
+  const coll = new PelisController();
+  coll.promesa.then(() => {
+  const params = parseaParams(process.argv.slice(2));
+  coll.get(params).then((n =>{
+    console.table(n);
 
-  controller.promise.then(() => {
-    const params = parseaParams(process.argv.slice(2));
-    console.log(params)
-  });
+  }))
+
+  console.log(params);
+});
 }
+
+main();

@@ -1,0 +1,43 @@
+[
+    {
+        "id": 4411,
+        "title": "Título de la nueva peli",
+        "tags": [
+            "action",
+            "classic"
+        ]
+    },
+    {
+        "id": 3455,
+        "title": "Aquaman",
+        "tags": [
+            "action",
+            "adventure",
+            "fantasy"
+        ]
+    },
+    {
+        "id": 5522,
+        "title": "Justice League",
+        "tags": [
+            "action",
+            "fantasy"
+        ]
+    },
+    {
+        "id": 1237,
+        "title": "Pulp fiction",
+        "tags": [
+            "crime",
+            "drama"
+        ]
+    },
+    {
+        "id": 5879,
+        "title": "X men",
+        "tags": [
+            "action",
+            "fantasy"
+        ]
+    }
+]
