@@ -14,21 +14,20 @@ class PelisController {
     const promesa = this.pelis.getAll();
     this.promesa = promesa;
   }
+  get(){
+    this.pelis.getAll()
+    this.pelis.getById()
+    this.pelis.search()
+  }
+
+  add(algo){
+    this.pelis.add(algo)
+  }
 
   procesOptions(options: PelisControllerOptions) {
     let resultado;
 
-    if (options.action == "") {
-      let palabra = "hola";
-      return palabra;
-    } else if (options.action == "get") {
-      return true;
-    } else if (options.action == "add") {
-      return true;
-    } else if (options.action == "search") {
-      return true;
-    }
-  }
+    
 }
 
 export { PelisController };

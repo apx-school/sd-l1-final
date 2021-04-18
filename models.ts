@@ -26,9 +26,15 @@ class PelisCollection {
 
   search(options: any): Promise<any> {
     if (options["title"]) {
-      return find(this.peliculas, { title: options });
+      return this.getAll().then(() => {
+        return find(this.peliculas, { title: options });
+      });
     } else if (options["tag"]) {
-      return find(this.peliculas, { tags: options });
+      return this.getAll().then(() => {
+        return this.peliculas.find((p) => {
+          return p.tags.includes(options);
+        });
+      });
     }
   }
 
