@@ -1,7 +1,7 @@
 import { PelisCollection, Peli } from "./models";
 
 export class PelisControllerOptions {
-  action: "get" | "add" | "search" | "";
+  action: "get" | "add";
   params: any;
 }
 

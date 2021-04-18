@@ -13,24 +13,30 @@ class PelisCollection {
 
   getAll(): Promise<any> {
     return jsonfile.readFile("./peliculas.json").then((pelis) => {
-      return pelis;
+      this.peliculas = pelis;
     });
   }
 
-  getById(id: number): Peli {
-    let encontrada = find(this.peliculas, { id: id });
-    return encontrada;
+  getById(id: number): Promise<any> {
+    const pelis = this.getAll();
+    return pelis.then(() => {
+      find(this.peliculas, { id: id });
+    });
   }
-  search(options: any): Peli {
+
+  search(options: any): Promise<any> {
     if (options["title"]) {
       return find(this.peliculas, { title: options });
     } else if (options["tag"]) {
       return find(this.peliculas, { tags: options });
     }
   }
-  add(peli: Peli) {
-    let flag: Boolean;
 
+  //mètodo en proceso
+  add(peli: Peli): Promise<any> {
+    let flag: Boolean;
+    let pelis = this.getAll();
+    pelis.then((pelis) => {});
     if (!find(this.peliculas, peli)) {
       flag = false;
       return flag;
