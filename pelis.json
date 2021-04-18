@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "capitan america",
+    "tags": ["accion", "ficcion", "superheroes"]
+  },
+  {
+    "id": 2,
+    "title": "gambito de dama",
+    "tags": ["juegos de mesa", "romance"]
+  },
+  {
+    "id": 3,
+    "title": "volver al futuro",
+    "tags": ["comedia", "ficcion", "ciencia"]
+  }
+]
