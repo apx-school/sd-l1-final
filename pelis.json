@@ -1,17 +1,1 @@
-[
-  {
-    "id": 1,
-    "title": "capitan america",
-    "tags": ["accion", "ficcion", "superheroes"]
-  },
-  {
-    "id": 2,
-    "title": "gambito de dama",
-    "tags": ["juegos de mesa", "romance"]
-  },
-  {
-    "id": 3,
-    "title": "volver al futuro",
-    "tags": ["comedia", "ficcion", "ciencia"]
-  }
-]
+[{"id":1,"title":"capitan america","tags":["accion","ficcion","superheroes"]},{"id":2,"title":"gambito de dama","tags":["juegos de mesa","romance"]},{"id":3,"title":"volver al futuro","tags":["comedia","ficcion","ciencia"]},{"_":["add"],"id":4411,"title":"nueva pel 9999","tags":["rr","ww"]},{"id":3456,"title":"abc asd","tags":["tt","rr"]},{"id":7878,"title":"asd fgh","tags":["yy","uu"]},{"id":175427,"title":"del test 175427","tags":[]},{"id":1234,"title":"una peli","tags":["classic","action"]},{"id":5643,"title":"otra peli un poco más aburrida","tags":["action"]}]

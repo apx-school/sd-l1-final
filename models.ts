@@ -26,7 +26,6 @@ class PelisCollection {
     return PELIFILTRADA;
   }
   search(options: any) {
-    console.log(options);
     let searchPelis = this.getAll().then((res) => {
       let resultadoBusqueda = res;
 
