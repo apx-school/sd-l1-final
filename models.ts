@@ -40,21 +40,15 @@ class PelisCollection {
 
   //mètodo en proceso
   add(peli: Peli): Promise<any> {
-    let flag: Boolean;
+    let operacionExitos: Promise<any>;
     let pelis = this.getAll();
-    pelis.then((pelis) => {});
-    if (!find(this.peliculas, peli)) {
-      flag = false;
-      return flag;
-    } else {
-      const data = new Promise((resolve) => {
-        resolve(concat(peli, this.peliculas));
-      });
-      data.then(() => {
-        this.peliculas = jsonfile.writeFile("./pelis.json", this.peliculas);
-        flag = true;
-        return flag;
-      });
+    let encontrada = pelis.then(() => {
+      find(pelis, peli);
+    });
+    if (encontrada) {
+      return; // si fue encontrada no deveria hacer nada, solo mostrar mensaje
+    } else if (!encontrada) {
+      return; //agarrar las pelis, y agregarle la peli ... despues guardar y retornar la flag
     }
   }
 }
