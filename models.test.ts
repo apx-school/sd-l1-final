@@ -49,3 +49,16 @@ test("Testeo el método search", async (t) => {
   const c = await collection.search({ title: "asd", tag: "yy" });
   t.deepEqual(c[0].id, 7878);
 });
+test("Testeo el método add", async (t) => {
+  const randomNumber = Math.floor(Math.random() * 100000);
+  const newID = 111222 + randomNumber;
+  const collection = t.context.instance;
+  const title = "del test " + newID;
+  await collection.add({
+    id: newID,
+    title: title,
+    tags: [],
+  });
+  const found = await collection.getById(newID);
+  t.is(found.title, title);
+});
