@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "id": 1234,
+    "title": "Harry Potter",
+    "tags": ["action", "fantasy film", "drama"]
+  },
+  {
+    "id": 4567,
+    "title": "Match Point",
+    "tags": ["comedy", "romantic comedy", "musical film"]
+  },
+  {
+    "id": 2123,
+    "title": "Musica Amigos Y Fiesta",
+    "tags": ["musical film", "comedy", "educational film"]
+  }
+]
