@@ -13,7 +13,7 @@ function main() {
   controller.promesa.then(() =>{
     const params = parseaParams(process.argv.slice(2));
     const resultado = controller.procesaOpciones(params)
-   console.log(params)
+   console.log(resultado)
   })
   
 }

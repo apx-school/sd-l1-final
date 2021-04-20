@@ -29,19 +29,20 @@ class PelisController {
       respuesta = this.peliculas.getById(options.id)
     }  
    else if (options.hasOwnProperty("title")){
-    respuesta = this.peliculas.search(options.title)
+    respuesta = this.peliculas.search(options)
     }
    else if (options.hasOwnProperty("tags")){
-      respuesta = this.peliculas.search(options.tags)
-    } else if (options.search.hasOwnProperty("title")){
+      respuesta = this.peliculas.search(options)
+    } 
+    else if (options.search.hasOwnProperty("title")){
       respuesta = this.peliculas.search(options.search)
-    } else if (options.search.hasOwnProperty("tags")){
+    }
+     else if (options.search.hasOwnProperty("tags")){
       respuesta = this.peliculas.search(options.search)
     }
   
 
     return respuesta;
-   
 
   };
 
