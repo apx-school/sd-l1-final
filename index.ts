@@ -35,8 +35,5 @@ function main() {
       return res;
     }))
   })
-  
 }
-
 main();
-
