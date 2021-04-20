@@ -6,7 +6,7 @@ function parseaParams(argv): PelisControllerOptions {
 
   return {
     action: resultado.action,
-    params: JSON.parse(resultado.params),
+    params: resultado.params,
   };
 }
 

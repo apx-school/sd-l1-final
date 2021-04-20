@@ -40,15 +40,30 @@ class PelisCollection {
 
   //mètodo en proceso
   add(peli: Peli): Promise<any> {
-    let operacionExitos: Promise<any>;
+    let operacionExitosa: Promise<any>;
     let pelis = this.getAll();
     let encontrada = pelis.then(() => {
       find(pelis, peli);
     });
     if (encontrada) {
-      return; // si fue encontrada no deveria hacer nada, solo mostrar mensaje
+      // si fue encontrada no deveria hacer nada, solo mostrar mensaje
+      return operacionExitosa.then((resolve) => {
+        resolve("Pelicula existente - No se puede agregar papurri");
+      });
     } else if (!encontrada) {
-      return; //agarrar las pelis, y agregarle la peli ... despues guardar y retornar la flag
+      //agarrar las pelis, y agregarle la peli ... despues guardar y retornar la flag
+      pelis
+        .then((p) => {
+          concat(p, peli);
+        })
+        .then(() => {
+          return jsonfile.writeFile("./pelis.json", this.peliculas);
+        })
+        .then(() => {
+          return operacionExitosa.then(() => {
+            console.log("pelicula agregada");
+          });
+        });
     }
   }
 }
