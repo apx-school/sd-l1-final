@@ -13,7 +13,7 @@ class PelisCollection {
   getAll():Promise<Peli[]> {
     const promesa = jsonfile.readFile("./pelis.json");
     promesa.then((res=>{
-      this.data = res;
+      return this.data = res;
 
     }))
     return promesa;
@@ -46,8 +46,8 @@ class PelisCollection {
               return(r.tags.includes(options[k]));
         }))
       }
-      return listaDePeliculas;
       }
+      return listaDePeliculas;
       })
       return promesa;
       
