@@ -17,8 +17,6 @@ class PelisController {
       resultado = this.add(opciones)
      } else if (opciones._.includes("search") || opciones._.includes("get")){
      resultado = this.get(opciones)
-     }else{
-       resultado = this.peliculas
      };
      return resultado;
   };
@@ -29,12 +27,17 @@ class PelisController {
     if (options.hasOwnProperty("id")){
       respuesta = this.peliculas.getById(options.id)
     }  
-    if (options.hasOwnProperty("title")){
+   else if (options.hasOwnProperty("title")){
     respuesta = this.peliculas.search(options)
+    //.then((r)=>{return r})
     }
-    if (options.hasOwnProperty("tags")){
+   else if (options.hasOwnProperty("tags")){
       respuesta = this.peliculas.search(options)
-    }
+     // .then((r)=>{return r})
+
+    } else {respuesta = this.peliculas.getAll()
+    //  .then((r)=>{return r})
+  }
     return respuesta;
    
 

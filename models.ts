@@ -45,17 +45,20 @@ class PelisCollection {
   };
 
   search(options:any){
-  
-       let resultado;
+    
+   //  return this.getAll().then(()=>{
+       let resultado = this.pelis
       
-       if (options.title){
+      if (options.title){
          resultado = this.getByTitle(this.pelis,options.title)
       }
       if (options.tags){
         resultado = this.getByTags(this.pelis,options.tags)
       }
   
-      return resultado; 
+      return resultado;   
+    // })
+      
   
     };
   
