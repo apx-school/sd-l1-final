@@ -17,27 +17,29 @@ class PelisController {
       resultado = this.add(opciones)
      } else if (opciones._.includes("search") || opciones._.includes("get")){
      resultado = this.get(opciones)
-     };
+     } else {resultado = this.peliculas}
      return resultado;
   };
 
   get(options){
     
-    let respuesta;
+  let respuesta;
+
     if (options.hasOwnProperty("id")){
       respuesta = this.peliculas.getById(options.id)
     }  
    else if (options.hasOwnProperty("title")){
-    respuesta = this.peliculas.search(options)
-    //.then((r)=>{return r})
+    respuesta = this.peliculas.search(options.title)
     }
    else if (options.hasOwnProperty("tags")){
-      respuesta = this.peliculas.search(options)
-     // .then((r)=>{return r})
+      respuesta = this.peliculas.search(options.tags)
+    } else if (options.search.hasOwnProperty("title")){
+      respuesta = this.peliculas.search(options.search)
+    } else if (options.search.hasOwnProperty("tags")){
+      respuesta = this.peliculas.search(options.search)
+    }
+  
 
-    } else {respuesta = this.peliculas.getAll()
-    //  .then((r)=>{return r})
-  }
     return respuesta;
    
 
@@ -58,3 +60,7 @@ return this.peliculas.add(pelicula)
 };
 
 export { PelisController };
+
+
+
+  

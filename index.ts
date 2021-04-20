@@ -6,7 +6,6 @@ function parseaParams(argv) {
   return resultado;
 }
 
-
 function main() {
   
   const controller = new PelisController
@@ -14,10 +13,9 @@ function main() {
   controller.promesa.then(() =>{
     const params = parseaParams(process.argv.slice(2));
     const resultado = controller.procesaOpciones(params)
-   console.log(resultado)
+   console.log(params)
   })
   
 }
 
 main();
-

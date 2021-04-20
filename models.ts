@@ -45,8 +45,7 @@ class PelisCollection {
   };
 
   search(options:any){
-    
-   //  return this.getAll().then(()=>{
+
        let resultado = this.pelis
       
       if (options.title){
@@ -57,9 +56,7 @@ class PelisCollection {
       }
   
       return resultado;   
-    // })
       
-  
     };
   
 
