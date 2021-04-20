@@ -8,41 +8,63 @@ class Peli {
 }
 
 class PelisCollection {
-  data: Promise<any>;
+  data: Peli[] = [];
   getAll(): Promise<Peli[]> {
-    return jsonfile.readFile("./pelis.json").then((res) => {
+    const promesa = jsonfile.readFile("./pelis.json");
+    promesa.then((res) => {
       this.data = res;
-      return [];
     });
+    return promesa;
   }
+
   getById(id: number) {
-    return this.data.then((res) => {
+    return this.getAll().then((res) => {
       return res.find((item) => {
         return item.id == id;
       });
     });
   }
+
   search(options: any) {
-    return this.data.then((res) => {
-      if (options.hasOwnProperty("title")) {
-        return res.filter((item) => {
+    return this.getAll().then((res) => {
+      let listaPelis = res;
+      if (options.hasOwnProperty("title") && options.hasOwnProperty("tag")) {
+        listaPelis = res.filter((item) => {
           return item.title.includes(options.title);
         });
+        listaPelis = listaPelis.filter((item) => {
+          return item.tags.includes(options.tag);
+        });
+        return listaPelis;
       } else if (options.hasOwnProperty("title")) {
-        return res.filter((item) => {
+        listaPelis = res.filter((item) => {
           return item.title.includes(options.title);
         });
+        return listaPelis;
+      }
+      if (options.hasOwnProperty("tag")) {
+        listaPelis = listaPelis.filter((item) => {
+          return item.tags.includes(options.tag);
+        });
+        return listaPelis;
+      }
+    });
+  }
+
+  add(peli: Peli) {
+    return this.getAll().then((res) => {
+      const encontrado = res.find((item) => {
+        return item.id == peli.id;
+      });
+      if (encontrado) {
+        return false;
+      } else {
+        this.data.push(peli);
+        jsonfile.writeFile("./pelis.json", this.data);
+        return true;
       }
     });
   }
 }
-
-const main = () => {
-  const prueba = new PelisCollection();
-  console.log(prueba.getAll());
-  console.log(prueba.data);
-};
-
-main();
 
 export { PelisCollection, Peli };

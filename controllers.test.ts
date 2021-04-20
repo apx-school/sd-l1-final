@@ -24,6 +24,7 @@ test.before(async (t) => {
     title: "otra peli un poco más aburrida",
     tags: ["action"],
   });
+  console.log(instance);
 });
 
 test("Testeo PelisController get id (creado desde la terminal)", async (t) => {
@@ -36,6 +37,7 @@ test("Testeo PelisController get id (creado desde la terminal)", async (t) => {
 test("Testeo PelisController get id", async (t) => {
   const collection = t.context.con;
   const peli = await collection.get({ id: 1234 });
+  console.log(peli);
   t.is(peli.title, "una peli");
 });
 
