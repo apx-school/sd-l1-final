@@ -2,7 +2,6 @@ import { PelisCollection, Peli } from "./models";
 
 class PelisController {
   peliculas: PelisCollection;
-  promesa: Promise<any>;
 
   constructor() {
     this.peliculas = new PelisCollection();
