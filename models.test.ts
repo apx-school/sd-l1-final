@@ -46,9 +46,10 @@ test("Testeo el método search", async (t) => {
   const ids = b.map((b) => b.id);
   t.deepEqual(ids, [3456, 7878]);
 
-  const c = await collection.search({ title: "asd", tag: "yy" });
+  const c = await collection.search({ title: "asd", tags: "yy" });
   t.deepEqual(c[0].id, 7878);
 });
+
 test("Testeo el método add", async (t) => {
   const randomNumber = Math.floor(Math.random() * 100000);
   const newID = 111222 + randomNumber;
