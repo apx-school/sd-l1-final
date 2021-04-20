@@ -1,1 +1,13 @@
-[{"id":1,"title":"The Truman Show","tags":["ficción","favorita","drama"]},{"id":2,"title":"Her","tags":["distopica","tecnología","drama"]},{"id":3,"title":"Donnie Darko","tags":["distopica","tecnología","suspenso","drama"]},{"add":{"id":4411,"title":"nueva pel 9999"}}]
+[
+  {
+    "id": 1,
+    "title": "The Truman Show",
+    "tags": ["ficción", "favorita", "drama"]
+  },
+  { "id": 2, "title": "Her", "tags": ["distopica", "tecnología", "drama"] },
+  {
+    "id": 3,
+    "title": "Donnie Darko",
+    "tags": ["distopica", "tecnología", "suspenso", "drama"]
+  }
+]

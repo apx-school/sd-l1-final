@@ -10,7 +10,7 @@ class Peli {
 class PelisCollection {
   peliculas: Peli[];
 
-  getAll() {
+  getAll(): Promise<any> {
     return jsonfile.readFile("./pelis.json").then((json) => {
       this.peliculas = json;
       return this.peliculas;
@@ -24,11 +24,27 @@ class PelisCollection {
   }
   search(options: any) {
     return this.getAll().then((json) => {
-      if (options.title) {
-        return json.filter((p) => p.title.includes(options.title));
+      let resultado = json;
+      if (options.hasOwnProperty("title") && options.hasOwnProperty("tag")) {
+        resultado = json.filter((p) => {
+          return p.title.includes(options.title);
+        });
+        resultado = json.filter((p) => {
+          return p.tags.includes(options.tag);
+        });
+        return resultado;
       }
-      if (options.tag) {
-        return json.filter((p) => p.tags.includes(options.tag));
+      if (options.hasOwnProperty("title")) {
+        resultado = json.filter((p) => {
+          return p.title.includes(options.title);
+        });
+        return resultado;
+      }
+      if (options.hasOwnProperty("tag")) {
+        resultado = json.filter((p) => {
+          return p.tags.includes(options.tag);
+        });
+        return resultado;
       }
     });
   }
@@ -38,11 +54,13 @@ class PelisCollection {
         return p.id == Peli.id;
       });
       if (existe) {
+        console.log("Este id ya existe :(");
         return false;
       } else {
-        json.push(Peli);
-        jsonfile.writeFile("./pelis.json", json).then(() => {
-          return true;
+        return this.getAll().then((json) => {
+          json.push(Peli);
+          console.log("¡Peli guardada!");
+          return jsonfile.writeFile("./pelis.json", json).then(() => true);
         });
       }
     });

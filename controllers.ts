@@ -8,16 +8,14 @@ class PelisController {
     this.peliculas = new PelisCollection();
   }
   get(options) {
-    var resultado;
     if (options.hasOwnProperty("id")) {
-      resultado = this.peliculas.getById(options.id);
+      return this.peliculas.getById(options.id);
     }
     if (options.hasOwnProperty("search")) {
-      resultado = this.peliculas.search(options.search);
+      return this.peliculas.search(options.search);
     } else {
-      resultado = this.peliculas.getAll();
+      return this.peliculas.getAll();
     }
-    return resultado;
   }
 
   add(peli) {

@@ -16,7 +16,7 @@ function actions(argv) {
     });
   }
   if (argv._[0] == "search") {
-    let resSearch = {};
+    let resultadoSearch = {};
     if (argv.title && argv.tag) {
       resSearch: {
         title: argv.title;
@@ -32,19 +32,19 @@ function actions(argv) {
         tags: argv.tag;
       }
     }
-    return controller.get({ search: resSearch }).then((res) => {
+    return controller.get({ search: resultadoSearch }).then((res) => {
       return res;
     });
   }
   if (argv._[0] == "add") {
-    let newPeli = {
+    let nuevaPeli = {
       add: {
         id: argv.id,
         title: argv.title,
         tags: argv.tag,
       },
     };
-    return controller.add(newPeli).then((res) => {
+    return controller.add(nuevaPeli).then((res) => {
       return res;
     });
   }
@@ -56,10 +56,10 @@ function actions(argv) {
 }
 
 function main() {
-  const params = parseaParams(process.argv.slice(2));
-  const resultado = actions(params);
-  resultado.then((r) => {
-    console.log(r);
+  const parametros = parseaParams(process.argv.slice(2));
+  const resultadoFinal = actions(parametros);
+  resultadoFinal.then((res) => {
+    console.log(res);
   });
 }
 
