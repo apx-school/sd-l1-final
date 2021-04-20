@@ -10,10 +10,9 @@ class Peli {
 class PelisCollection {
   peliculas: Peli[];
 
-  getAll(): Promise<any> {
+  getAll() {
     return jsonfile.readFile("./pelis.json").then((json) => {
-      this.peliculas = json;
-      return this.peliculas;
+      return json;
     });
   }
   getById(id: number) {
@@ -24,43 +23,31 @@ class PelisCollection {
   }
   search(options: any) {
     return this.getAll().then((json) => {
-      let resultado = json;
-      if (options.hasOwnProperty("title") && options.hasOwnProperty("tag")) {
-        resultado = json.filter((p) => {
-          return p.title.includes(options.title);
+      if (options.title) {
+        return json.filter((json) => {
+          json.title.includes(options.title);
         });
-        resultado = json.filter((p) => {
-          return p.tags.includes(options.tag);
-        });
-        return resultado;
       }
-      if (options.hasOwnProperty("title")) {
-        resultado = json.filter((p) => {
-          return p.title.includes(options.title);
+      if (options.tag) {
+        return json.filter((json) => {
+          json.tags.includes(options.tags);
         });
-        return resultado;
-      }
-      if (options.hasOwnProperty("tag")) {
-        resultado = json.filter((p) => {
-          return p.tags.includes(options.tag);
-        });
-        return resultado;
       }
     });
   }
+
   add(Peli: Peli) {
     return this.getAll().then((json) => {
-      const existe = json.find((p) => {
-        return p.id == Peli.id;
-      });
-      if (existe) {
-        console.log("Este id ya existe :(");
+      if (
+        json.find((p) => {
+          return p.id == Peli.id;
+        })
+      ) {
         return false;
       } else {
-        return this.getAll().then((json) => {
-          json.push(Peli);
-          console.log("¡Peli guardada!");
-          return jsonfile.writeFile("./pelis.json", json).then(() => true);
+        json.push(Peli);
+        jsonfile.writeFile("./pelis.json", json).then(() => {
+          return true;
         });
       }
     });
