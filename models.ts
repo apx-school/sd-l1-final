@@ -12,7 +12,8 @@ class PelisCollection {
 
   getAll() {
     return jsonfile.readFile("./pelis.json").then((json) => {
-      return json;
+      this.peliculas = json;
+      return this.peliculas;
     });
   }
   getById(id: number) {
@@ -23,6 +24,14 @@ class PelisCollection {
   }
   search(options: any) {
     return this.getAll().then((json) => {
+      if (options.title && options.tag) {
+        return json.filter(
+          (json) =>
+            json.title.includes(options.title) &&
+            json.tags.includes(options.tag)
+        );
+      }
+
       if (options.title) {
         return json.filter((json) => {
           json.title.includes(options.title);

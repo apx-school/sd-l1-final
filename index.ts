@@ -16,23 +16,13 @@ function actions(argv) {
     });
   }
   if (argv._[0] == "search") {
-    let resultadoSearch = {};
-    if (argv.title && argv.tag) {
-      resSearch: {
-        title: argv.title;
-        tags: argv.tag;
-      }
-    }
-    if (argv.title) {
-      resSearch: {
-        title: argv.title;
-      }
-    } else if (argv.tag) {
-      resSearch: {
-        tags: argv.tag;
-      }
-    }
-    return controller.get({ search: resultadoSearch }).then((res) => {
+    const buscado = {
+      search: {
+        title: argv.title,
+        tags: argv.tag,
+      },
+    };
+    return controller.get(buscado).then((res) => {
       return res;
     });
   }
@@ -58,9 +48,7 @@ function actions(argv) {
 function main() {
   const parametros = parseaParams(process.argv.slice(2));
   const resultadoFinal = actions(parametros);
-  resultadoFinal.then((res) => {
-    console.log(res);
-  });
+  resultadoFinal.then((r) => console.log(r));
 }
 
 main();
