@@ -12,8 +12,7 @@ class PelisCollection {
 
   getAll() {
     return jsonfile.readFile("./pelis.json").then((json) => {
-      this.peliculas = json;
-      return this.peliculas;
+      return json;
     });
   }
   getById(id: number) {
@@ -24,23 +23,11 @@ class PelisCollection {
   }
   search(options: any) {
     return this.getAll().then((json) => {
-      if (options.title && options.tag) {
-        return json.filter(
-          (json) =>
-            json.title.includes(options.title) &&
-            json.tags.includes(options.tag)
-        );
-      }
-
       if (options.title) {
-        return json.filter((json) => {
-          json.title.includes(options.title);
-        });
+        return json.filter((item) => item.title.includes(options.title));
       }
       if (options.tag) {
-        return json.filter((json) => {
-          json.tags.includes(options.tags);
-        });
+        return json.filter((item) => item.tags.includes(options.tag));
       }
     });
   }

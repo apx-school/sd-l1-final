@@ -16,26 +16,35 @@ function actions(argv) {
     });
   }
   if (argv._[0] == "search") {
-    const buscado = {
-      search: {
+    let params = {};
+    if (argv.title && argv.tags) {
+      params = {
         title: argv.title,
+        tags: argv.tags,
+      };
+    }
+    if (argv.title) {
+      params = {
+        title: argv.title,
+      };
+    }
+    if (argv.tags) {
+      params = {
         tags: argv.tag,
-      },
-    };
-    return controller.get(buscado).then((res) => {
+      };
+    }
+    return controller.get({ search: params }).then((res) => {
       return res;
     });
   }
   if (argv._[0] == "add") {
     let nuevaPeli = {
-      add: {
-        id: argv.id,
-        title: argv.title,
-        tags: argv.tag,
-      },
+      id: argv.id,
+      title: argv.title,
+      tags: argv.tags,
     };
     return controller.add(nuevaPeli).then((res) => {
-      return res;
+      console.log("Peli agregada");
     });
   }
   if (argv._.length == 0) {
