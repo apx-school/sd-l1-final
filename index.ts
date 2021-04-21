@@ -20,7 +20,7 @@ function actions(argv) {
     if (argv.title && argv.tag) {
       params = {
         title: argv.title,
-        tags: argv.tags,
+        tags: argv.tag,
       };
     }
     if (argv.title) {
@@ -43,7 +43,7 @@ function actions(argv) {
       title: argv.title,
       tags: argv.tags,
     };
-    return controller.add(nuevaPeli).then((res) => {
+    return controller.add(nuevaPeli).then(() => {
       console.log("Peli agregada");
     });
   }
