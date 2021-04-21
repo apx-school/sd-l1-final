@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "The exorcist",
+    "tags": ["classic", "horror", "suspense"]
+  },
+  {
+    "id": 2,
+    "title": "Pulp Ficction",
+    "tags": ["classic", "crime", "drama"]
+  },
+  {
+    "id": 3,
+    "title": "Star Wars",
+    "tags": ["classic", "adventure", "fantasy"]
+  }
+]

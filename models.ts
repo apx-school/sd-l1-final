@@ -8,10 +8,21 @@ class Peli {
 }
 
 class PelisCollection {
+  data: Peli[] = [];
   getAll(): Promise<Peli[]> {
-    return jsonfile("...laRutaDelArchivo").then(() => {
-      // la respuesta de la promesa
-      return [];
+    const promesa = jsonfile.readFile("./pelis.json");
+    promesa.then((res: Peli[]) => {
+      this.data = res;
+    });
+    return promesa;
+  }
+  getById(id: number) {
+    const promesa = this.getAll();
+    promesa.then((res) => {
+      res.find((item) => {
+        return item.id == id;
+      });
+      return promesa;
     });
   }
 }
