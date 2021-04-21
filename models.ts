@@ -41,8 +41,7 @@ class PelisCollection {
           return item.title.includes(options.title);
         });
         return listaPelis;
-      }
-      if (options.hasOwnProperty("tag")) {
+      } else if (options.hasOwnProperty("tag")) {
         listaPelis = listaPelis.filter((item) => {
           return item.tags.includes(options.tag);
         });

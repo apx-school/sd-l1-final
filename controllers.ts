@@ -9,13 +9,11 @@ class PelisController {
     this.dataPromesa = nuevapromesa;
   }
 
-  get(options) {
-    console.log(options);
+  get(options): Promise<any> {
     if (options.hasOwnProperty("id")) {
       return this.dataModels.getById(options);
     }
     if (options.hasOwnProperty("search")) {
-      console.log(options.search);
       return this.dataModels.search(options.search);
     }
     return this.dataModels.getAll();

@@ -8,33 +8,33 @@ function parseaParams(argv) {
 
 function ejecutaComandos(params) {
   //Agrega la película pero no la imprime en consola, me dice undifined...
+  const objeto = {};
   if (params._ == "add") {
     const objeto = {
       id: params.id,
       title: params.title,
-      tag: params.tag,
+      tags: params.tags,
     };
-    const instancia = new PelisController();
-    return instancia.add(objeto);
+    const aux = new PelisController();
+    return aux.add(objeto);
   }
-  if (params._ == "search") {
-    const objeto = {
-      search: {
-        title: params.title,
-        tag: params.tag,
-      },
-    };
-    const instancia = new PelisController();
-    return instancia.get(objeto);
-  }
-  // if (params._[0] == "get") {
-  //   console.log(params);
+  // if (params._ == "search") {
   //   const objeto = {
-  //     id: params,
+  //     search: {
+  //       title: params.title,
+  //       tag: params.tag,
+  //     },
   //   };
-  //   const instancia = new PelisController();
-  //   return instancia.get(objeto.id);
+  //   return objeto;
   // }
+  //   // if (params._[0] == "get") {
+  //   //   console.log(params);
+  //   //   const objeto = {
+  //   //     id: params,
+  //   //   };
+  //   //   const instancia = new PelisController();
+  //   //   return instancia.get(objeto.id);
+  //   // }
 }
 
 function main() {
