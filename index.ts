@@ -6,7 +6,7 @@ function parseaParams(argv) {
   return resultado;
 }
 
-function actions(argv) {
+function processOptions(argv) {
   const controller = new PelisController();
 
   if (argv._[0] == "get") {
@@ -17,12 +17,7 @@ function actions(argv) {
   }
   if (argv._[0] == "search") {
     let params = {};
-    if (argv.title && argv.tag) {
-      params = {
-        title: argv.title,
-        tags: argv.tag,
-      };
-    }
+
     if (argv.title) {
       params = {
         title: argv.title,
@@ -43,8 +38,8 @@ function actions(argv) {
       title: argv.title,
       tags: argv.tags,
     };
-    return controller.add(nuevaPeli).then(() => {
-      console.log("Peli agregada");
+    return controller.add(nuevaPeli).then((res) => {
+      return res;
     });
   }
   if (argv._.length == 0) {
@@ -56,7 +51,7 @@ function actions(argv) {
 
 function main() {
   const parametros = parseaParams(process.argv.slice(2));
-  const resultadoFinal = actions(parametros);
+  const resultadoFinal = processOptions(parametros);
   resultadoFinal.then((r) => console.log(r));
 }
 

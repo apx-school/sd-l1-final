@@ -58,5 +58,5 @@ test("Testeo PelisController search tag", async (t) => {
     search: { title: "peli", tag: SOME_TAG },
   });
   const ids = pelis.map((b) => b.id);
-  t.deepEqual(ids, [1234, 5643]);
+  t.deepEqual(ids, [TEST_ID, SECOND_TEST_ID]);
 });
