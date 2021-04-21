@@ -13,7 +13,7 @@ class PelisCollection {
   pelis: Peli [] = [];
 
   getAll(): Promise<Peli[]> {
-    const promesa = jsonfile.readFile("./pelis.json")
+    const promesa = jsonfile.readFile("./peliculas.json")
     promesa.then((json: Peli[]) => {
     this.pelis = json
     });    
@@ -67,7 +67,7 @@ class PelisCollection {
       return false
     } else {
       this.pelis.push(peli)
-      return jsonfile.writeFile("./pelis.json", this.pelis).then(()=>{
+      return jsonfile.writeFile("./peliculas.json", this.pelis).then(()=>{
        return true 
       })
       
