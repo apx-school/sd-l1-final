@@ -17,7 +17,7 @@ function actions(argv) {
   }
   if (argv._[0] == "search") {
     let params = {};
-    if (argv.title && argv.tags) {
+    if (argv.title && argv.tag) {
       params = {
         title: argv.title,
         tags: argv.tags,
@@ -29,8 +29,9 @@ function actions(argv) {
       };
     }
     if (argv.tags) {
+      console.log("entro");
       params = {
-        tags: argv.tag,
+        tags: argv.tags,
       };
     }
     return controller.get({ search: params }).then((res) => {

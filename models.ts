@@ -23,11 +23,18 @@ class PelisCollection {
   }
   search(options: any) {
     return this.getAll().then((json) => {
+      if (options.title && options.tags) {
+        return json.filter(
+          (item) =>
+            item.title.includes(options.title) &&
+            item.tags.includes(options.tags)
+        );
+      }
       if (options.title) {
         return json.filter((item) => item.title.includes(options.title));
       }
-      if (options.tag) {
-        return json.filter((item) => item.tags.includes(options.tag));
+      if (options.tags) {
+        return json.filter((item) => item.tags.includes(options.tags));
       }
     });
   }
