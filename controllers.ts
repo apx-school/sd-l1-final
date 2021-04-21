@@ -8,13 +8,14 @@ class PelisController {
     const promesa = this.data.getAll();
     this.promesa = promesa;
   }
-  processOptions(option) {
-    let resultado;
-    resultado = this.data;
-    return resultado;
-  }
   get(options: any) {
-    return this.data.getAll();
+    let resultado;
+
+    resultado = this.data.getAll().then((res) => {
+      return res;
+    });
+
+    return resultado;
   }
 }
 export { PelisController };

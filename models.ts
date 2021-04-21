@@ -11,7 +11,7 @@ class PelisCollection {
   data: Peli[] = [];
   getAll(): Promise<Peli[]> {
     const promesa = jsonfile.readFile("./pelis.json");
-    promesa.then((res: Peli[]) => {
+    promesa.then((res) => {
       this.data = res;
     });
     return promesa;

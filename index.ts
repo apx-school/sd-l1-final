@@ -11,8 +11,9 @@ function main() {
   const controller = new PelisController();
   controller.promesa.then(() => {
     const params = parseaParams(process.argv.slice(2));
-    const resultado = controller.processOptions(params);
-    console.log(resultado);
+    controller.get(params).then((res) => {
+      console.log(res);
+    });
   });
 }
 
