@@ -25,11 +25,12 @@ class PelisCollection {
   }
 
   search(options: any): Promise<any> {
-    if (options["title"]) {
+    if (options.title) {
       return this.getAll().then(() => {
         return find(this.peliculas, { title: options });
       });
-    } else if (options["tag"]) {
+    }
+    if (options.tag) {
       return this.getAll().then(() => {
         return this.peliculas.find((p) => {
           return p.tags.includes(options);
