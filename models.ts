@@ -17,8 +17,7 @@ class PelisCollection {
   }
   getById(id: number) {
     return this.getAll().then((json) => {
-      const encuentraId = json.find((item) => item.id == id);
-      return encuentraId;
+      return json.find((item) => item.id == id);
     });
   }
   search(options: any) {
@@ -41,17 +40,12 @@ class PelisCollection {
 
   add(Peli: Peli) {
     return this.getAll().then((json) => {
-      if (
-        json.find((p) => {
-          return p.id == Peli.id;
-        })
-      ) {
-        return false;
-      } else {
+      const exist = json.find((p) => {
+        return p.id == Peli.id;
+      });
+      if (!exist) {
         json.push(Peli);
-        jsonfile.writeFile("./pelis.json", json).then(() => {
-          return true;
-        });
+        return jsonfile.writeFile("./pelis.json", json);
       }
     });
   }
