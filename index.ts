@@ -28,10 +28,9 @@ function actions(argv) {
         title: argv.title,
       };
     }
-    if (argv.tags) {
-      console.log("entro");
+    if (argv.tag) {
       params = {
-        tags: argv.tags,
+        tags: argv.tag,
       };
     }
     return controller.get({ search: params }).then((res) => {
