@@ -33,7 +33,6 @@ test.before(async (t) => {
 });
 
 test("Testeo PelisController get id (creado desde la terminal)", async (t) => {
-  // testeo peli agregada desde el script test del package
   const collection = t.context.con;
   const peli = await collection.get({ id: 4321865 });
   t.is(peli.title, "peli de la terminal 4321865");
