@@ -10,16 +10,18 @@ class PelisController {
   }
 
   get(options): Promise<any> {
+    if (!options) {
+      return this.dataModels.getAll();
+    }
     if (options.hasOwnProperty("id")) {
-      return this.dataModels.getById(options);
+      return this.dataModels.getById(options.id);
     }
     if (options.hasOwnProperty("search")) {
       return this.dataModels.search(options.search);
     }
-    return this.dataModels.getAll();
   }
   add(objeto) {
-    this.dataModels.add(objeto);
+    return this.dataModels.add(objeto.add);
   }
 }
 

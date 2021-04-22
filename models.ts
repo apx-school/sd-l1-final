@@ -28,7 +28,7 @@ class PelisCollection {
   search(options: any) {
     return this.getAll().then((res) => {
       let listaPelis = res;
-      if (options.hasOwnProperty("title") && options.hasOwnProperty("tag")) {
+      if (options.title && options.tag) {
         listaPelis = res.filter((item) => {
           return item.title.includes(options.title);
         });
@@ -36,12 +36,12 @@ class PelisCollection {
           return item.tags.includes(options.tag);
         });
         return listaPelis;
-      } else if (options.hasOwnProperty("title")) {
+      } else if (options.title) {
         listaPelis = res.filter((item) => {
           return item.title.includes(options.title);
         });
         return listaPelis;
-      } else if (options.hasOwnProperty("tag")) {
+      } else if (options.tag) {
         listaPelis = listaPelis.filter((item) => {
           return item.tags.includes(options.tag);
         });
