@@ -30,6 +30,7 @@ test.before(async (t) => {
     title: "otra peli un poco más divertida",
     tags: [SOME_TAG],
   });
+  console.log(instance);
 });
 
 test("Testeo PelisController get id (creado desde la terminal)", async (t) => {
@@ -41,8 +42,9 @@ test("Testeo PelisController get id (creado desde la terminal)", async (t) => {
 
 test("Testeo PelisController get id", async (t) => {
   const collection = t.context.con;
-  const peli = await collection.get({ id: TEST_ID });
-  t.is(peli.title, SOME_TITLE);
+  const peli = await collection.get({ id: 1234 });
+  console.log(peli);
+  t.is(peli.title, "una peli");
 });
 
 test("Testeo PelisController search title", async (t) => {

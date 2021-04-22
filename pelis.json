@@ -1,1 +1,6 @@
-[]
+[
+  { "id": 1111, "title": "Pelicula N°1", "tags": ["accion", "tiros"] },
+  { "id": 2222, "title": "Pelicula N°2", "tags": ["fantasia", "animada"] },
+  { "id": 5555, "title": "Otro peliculo", "tags": ["fantasia", "animada"] },
+  { "id": 3333, "title": "Pelicula N°3", "tags": ["romantica", "besos"] }
+]
