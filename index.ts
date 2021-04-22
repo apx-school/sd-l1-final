@@ -32,7 +32,7 @@ function main() {
   const controlador = new PelisController();
   controlador.dataPromesa.then(() => {
     const params = parseaParams(process.argv.slice(2));
-    // const resultadoGet = controlador.get(params);
+    const resultadoGet = controlador.get(params);
     // resultadoGet.then((res) => {
     //   console.log(res);
     // });
