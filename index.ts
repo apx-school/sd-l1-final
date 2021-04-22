@@ -32,14 +32,17 @@ function main() {
   const controlador = new PelisController();
   controlador.dataPromesa.then(() => {
     const params = parseaParams(process.argv.slice(2));
-    const resultadoGet = controlador.get(params);
-    // resultadoGet.then((res) => {
-    //   console.log(res);
-    // });
-    const resultadoAdd = controlador.add(params);
-    // resultadoAdd.then((res) => {
-    //   console.log(res);
-    // });
+
+    if (params == undefined) {
+      const resultado = controlador.get(params);
+      return resultado.then((res) => console.log(res));
+    } else if (params.hasOwnProperty("add")) {
+      const resultado = controlador.add(params);
+      return resultado.then((res) => console.log(res));
+    } else {
+      const resultado = controlador.get(params);
+      return resultado.then((res) => console.log(res));
+    }
   });
 }
 
