@@ -14,9 +14,15 @@ function processOptions(argv) {
     return controller.get({ id: id }).then((res) => {
       return res;
     });
-  }
-  if (argv._[0] == "search") {
+  } else if (argv._[0] == "search") {
     let params = {};
+
+    if (argv.title && argv.tag) {
+      params = {
+        title: argv.title,
+        tags: argv.tag,
+      };
+    }
 
     if (argv.title) {
       params = {
@@ -31,8 +37,7 @@ function processOptions(argv) {
     return controller.get({ search: params }).then((res) => {
       return res;
     });
-  }
-  if (argv._[0] == "add") {
+  } else if (argv._[0] == "add") {
     let nuevaPeli = {
       id: argv.id,
       title: argv.title,
@@ -41,8 +46,7 @@ function processOptions(argv) {
     return controller.add(nuevaPeli).then((res) => {
       return res;
     });
-  }
-  if (argv._.length == 0) {
+  } else if (argv._.length == 0) {
     return controller.get([]).then((res) => {
       return res;
     });
