@@ -15,7 +15,7 @@ class PelisCollection {
   }
   getById(id: number): Promise<any> {
     return this.getAll().then((file) => {
-      return find(file, { id: id });
+      // return find(file, { id: id });
     });
   }
   search(options: any): Promise<any> {
