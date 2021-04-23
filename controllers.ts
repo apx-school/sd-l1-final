@@ -12,8 +12,10 @@ class PelisController {
   }
 
   get(options){
-    return this.promesa.then(()=>{
-  let respuesta;
+  return this.promesa.then(()=>{
+  
+    let respuesta;
+   
 
     if (options.hasOwnProperty("id")){
       respuesta = this.peliculas.getById(options.id)
@@ -25,15 +27,14 @@ class PelisController {
       respuesta = this.peliculas.search(options)
     } 
     else if (options.search.hasOwnProperty("title")){
-      respuesta = this.peliculas.search(options.search)
+      respuesta =this.peliculas.search(options.search)
     }
      else if (options.search.hasOwnProperty("tags")){
       respuesta = this.peliculas.search(options.search)
     } else {respuesta = this.peliculas}
+
     return respuesta;    
-    })
-    
-  
+   })
    
   };
 
@@ -44,8 +45,8 @@ return this.promesa.then(()=> {
  pelicula.id = object.id
  pelicula.tags = object.tags
  pelicula.title = object.title
-
-return this.peliculas.add(pelicula)
+ 
+ return this.peliculas.add(pelicula)
  })
  
  };
@@ -54,10 +55,21 @@ return this.peliculas.add(pelicula)
 
 export { PelisController };
 
+
+// async function prueba() {
+//  const prueba = new PelisController
+//  await prueba.add({
+//   id: 77,
+//   title: "otra peli un poco más divertida",
+//   tags: ["SOME_TAG"],
+// });
+// const pelis = await prueba.get({
+//   search: { title: "peli", tag: "SOME_TAG" },
+// });
+// console.log(pelis);
+
+// }
+
+// prueba()
   
 
-// let prueba = new PelisController
-
-//  let peliP =  new Peli 
-//  peliP = {title: "una peli", id : 55, tags : []}
-//  prueba.add(peliP).then((r=>{console.log(r)}))

@@ -11,7 +11,6 @@ function procesaOpciones (controller:PelisController, params){
   if (params._ == "add"){
 
    controller.add(params)
-   .then((r)=>{console.log (r)})
 
    } else if (params._ == "search" || params._ =="get"){
   

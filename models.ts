@@ -49,7 +49,7 @@ class PelisCollection {
 
   search(options:any){
       return this.getAll().then(()=>{
-        let resultado = this.pelis
+      let resultado 
       
       if (options.title){
          resultado = this.getByTitle(this.pelis,options.title)
@@ -69,9 +69,12 @@ class PelisCollection {
     if (buscaPeli){
       return false
     } else {
-      this.pelis.push(peli)
-      jsonfile.writeFile("./peliculas.json", this.pelis)
-      return true     
+    this.pelis.push(peli)
+    return jsonfile.writeFile("./peliculas.json", this.pelis).
+    then(()=>{
+      return true
+    })  
+     
     } 
   });
 }
@@ -81,24 +84,3 @@ class PelisCollection {
 };
 
 export { PelisCollection, Peli };
-
-
-
-// prueba.getAll().then(()=>{
-//   prueba.search({title:"yo"}).then((r)=>{console.log(r)})
-// })
-
-// async function prueba() {
-//  const prueba = new PelisCollection 
-//  await prueba.add({
-//   id: 55,
-//   title: "TEST_TITLE",
-//   tags: ["tt", "rr"],
-// });
-// const all = await prueba.getAll();
-//   const a = all[0];
-//   const b = await prueba.getById(a.id);
-//   console.log(a.title, b.title);
-// }
-
-// prueba()
