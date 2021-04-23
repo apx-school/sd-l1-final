@@ -8,10 +8,10 @@ class Peli {
 }
 
 class PelisCollection {
-  data: Peli[] = [];
+  peliculas: Peli[] = [];
   getAll(): Promise<Peli[]> {
     return jsonfile.readFile("./pelis.json").then((json) => {
-      this.data = json;
+      this.peliculas = json;
       return json;
     });
   }
@@ -43,9 +43,8 @@ class PelisCollection {
       if (peliExistente) {
         return false;
       } else {
-        // magia que agrega la pelicula a un objeto data
-        this.data.push(peli);
-        const promesaDos = jsonfile.writeFile("./pelis.json", this.data);
+        this.peliculas.push(peli);
+        const promesaDos = jsonfile.writeFile("./pelis.json", this.peliculas);
 
         return promesaDos.then(() => {
           return true;
