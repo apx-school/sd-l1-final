@@ -23,14 +23,6 @@ class PelisCollection {
   search(options: any) {
     return this.getAll().then((json) => {
       let peliculas = json;
-      if (options.title && options.tag) {
-        peliculas = peliculas.filter((pelicula) => {
-          return (
-            pelicula.title.includes(options.title) &&
-            pelicula.tags.includes(options.tag)
-          );
-        });
-      }
 
       if (options.title) {
         peliculas = peliculas.filter((pelicula) => {

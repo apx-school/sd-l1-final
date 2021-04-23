@@ -16,16 +16,12 @@ function processOptions(argv) {
     });
   } else if (argv._[0] == "search") {
     let parametros = {};
-    if (argv.title && argv.tag) {
-      parametros = {
-        title: argv.title,
-        tags: argv.tag,
-      };
-    } else if (argv.title) {
+    if (argv.title) {
       parametros = {
         title: argv.title,
       };
-    } else {
+    }
+    if (argv.tag) {
       parametros = {
         tag: argv.tag,
       };
