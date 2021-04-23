@@ -56,16 +56,3 @@ test.serial("Testeo el método search", async (t) => {
   });
   t.deepEqual(c[0].id, SECOND_TEST_ID);
 });
-test("Testeo el método add", async (t) => {
-  const randomNumber = Math.floor(Math.random() * 100000);
-  const newID = 111222 + randomNumber;
-  const collection = t.context.instance;
-  const title = "del test " + newID;
-  await collection.add({
-    id: newID,
-    title: title,
-    tags: [],
-  });
-  const found = await collection.getById(newID);
-  t.is(found.title, title);
-});

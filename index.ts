@@ -11,10 +11,9 @@ function processOptions(argv) {
 
   if (argv._[0] == "get") {
     const id = argv._[1];
-    return controller.get({ id: id }).then((res) => {
-      return res;
-    });
-  } else if (argv._[0] == "search") {
+    return controller.get({ id: id });
+  }
+  if (argv._[0] == "search") {
     let params = {};
 
     if (argv.title && argv.tag) {
@@ -37,7 +36,8 @@ function processOptions(argv) {
     return controller.get({ search: params }).then((res) => {
       return res;
     });
-  } else if (argv._[0] == "add") {
+  }
+  if (argv._[0] == "add") {
     let nuevaPeli = {
       id: argv.id,
       title: argv.title,
@@ -46,7 +46,8 @@ function processOptions(argv) {
     return controller.add(nuevaPeli).then((res) => {
       return res;
     });
-  } else if (argv._.length == 0) {
+  }
+  if (argv._.length == 0) {
     return controller.get([]).then((res) => {
       return res;
     });
