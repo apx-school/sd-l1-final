@@ -15,26 +15,23 @@ function processOptions(argv) {
       return res;
     });
   } else if (argv._[0] == "search") {
-    let params = {};
-
+    let parametros = {};
     if (argv.title && argv.tag) {
-      params = {
+      parametros = {
         title: argv.title,
         tags: argv.tag,
+      };
+    } else if (argv.title) {
+      parametros = {
+        title: argv.title,
+      };
+    } else {
+      parametros = {
+        tag: argv.tag,
       };
     }
 
-    if (argv.title) {
-      params = {
-        title: argv.title,
-      };
-    }
-    if (argv.tag) {
-      params = {
-        tags: argv.tag,
-      };
-    }
-    return controller.get({ search: params }).then((res) => {
+    return controller.get({ search: parametros }).then((res) => {
       return res;
     });
   } else if (argv._[0] == "add") {
@@ -43,6 +40,8 @@ function processOptions(argv) {
       title: argv.title,
       tags: argv.tags,
     };
+    // console.log(nuevaPeli);
+
     return controller.add(nuevaPeli).then((res) => {
       return res;
     });

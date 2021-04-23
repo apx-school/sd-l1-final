@@ -8,7 +8,7 @@ class Peli {
 }
 
 class PelisCollection {
-  peliculas: Peli[] = [];
+  peliculas: Peli[];
   getAll(): Promise<Peli[]> {
     return jsonfile.readFile("./pelis.json").then((json) => {
       this.peliculas = json;
@@ -16,25 +16,33 @@ class PelisCollection {
     });
   }
   getById(id: number) {
-    return this.getAll().then((res) => {
-      return res.find((item) => item.id == id);
+    return this.getAll().then((json) => {
+      return json.find((item) => item.id == id);
     });
   }
   search(options: any) {
-    return this.getAll().then((res) => {
+    return this.getAll().then((json) => {
+      let peliculas = json;
       if (options.title && options.tag) {
-        return res.filter(
-          (item) =>
-            item.title.includes(options.title) &&
-            item.tags.includes(options.tag)
-        );
+        peliculas = peliculas.filter((pelicula) => {
+          return (
+            pelicula.title.includes(options.title) &&
+            pelicula.tags.includes(options.tag)
+          );
+        });
       }
+
       if (options.title) {
-        return res.filter((item) => item.title.includes(options.title));
+        peliculas = peliculas.filter((pelicula) => {
+          return pelicula.title.includes(options.title);
+        });
       }
       if (options.tag) {
-        return res.filter((item) => item.tags.includes(options.tag));
+        peliculas = peliculas.filter((pelicula) => {
+          return pelicula.tags.includes(options.tag);
+        });
       }
+      return peliculas;
     });
   }
 
