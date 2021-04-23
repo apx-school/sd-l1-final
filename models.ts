@@ -41,7 +41,7 @@ class PelisCollection {
   }
 
   //mètodo en proceso
-  add(peli: Peli): Promise<Boolean> {
+  addi(peli: Peli): Promise<Boolean> {
     let operacionExitosa: Promise<Boolean>;
     let pelis = this.getAll();
     let encontrada = pelis.then(() => {
@@ -67,8 +67,28 @@ class PelisCollection {
           return operacionExitosa.then(() => {
             console.log("pelicula agregada correctamente!");
           });
+        })
+        .then(() => {
+          return true;
         });
     }
+  }
+  add(peli: Peli): Promise<boolean> {
+    const promesaUno = this.getById(peli.id).then((peliExistente) => {
+      if (peliExistente) {
+        return false;
+      } else {
+        // magia que agrega la pelicula a un objeto data
+        this.peliculas.push(peli);
+        const promesaDos = jsonfile.writeFile("./pelis.json", this.peliculas);
+
+        return promesaDos.then(() => {
+          return true;
+        });
+      }
+    });
+
+    return promesaUno;
   }
 }
 

@@ -39,6 +39,7 @@ function parseaParams(argv) {
   if (resultado._[0] == "add") {
     let options = {
       action: "add",
+
       id: resultado.id,
       title: resultado.title,
       tags: resultado.tags,
@@ -50,14 +51,14 @@ function parseaParams(argv) {
 function main() {
   const collection = new PelisController();
   collection.promesa.then(() => {
-    const params = parseaParams(process.argv.slice(2));
-    if (params.action !== "add") {
-      collection.get(params).then((res) => {
-        console.log(res);
+    const res = parseaParams(process.argv.slice(2));
+    if (res.action !== "add") {
+      collection.get(res).then((r) => {
+        console.log(r);
       });
     } else {
-      collection.add(params).then((res) => {
-        console.log(res);
+      collection.add(res).then((r) => {
+        console.log(r);
       });
     }
   });
