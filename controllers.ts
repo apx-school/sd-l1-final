@@ -10,16 +10,6 @@ class PelisController {
     const laPreomesa = this.peliculas.getAll();
     this.promesa = laPreomesa;
   }
-  procesaOpciones (opciones){
-
-    let resultado;
-    if (opciones._.includes("add")){
-      resultado = this.add(opciones)
-     } else if (opciones._.includes("search") || opciones._.includes("get")){
-     resultado = this.get(opciones)
-     } else {resultado = this.peliculas}
-     return resultado;
-  };
 
   get(options){
     
@@ -39,29 +29,32 @@ class PelisController {
     }
      else if (options.search.hasOwnProperty("tags")){
       respuesta = this.peliculas.search(options.search)
-    }
-  
-
+    } else {respuesta = this.peliculas}
     return respuesta;
-
+   
   };
 
   
- add(object){
-
-let pelicula = new Peli
+add(object){
+return this.promesa.then(()=> {
+  let pelicula = new Peli
  pelicula.id = object.id
  pelicula.tags = object.tags
  pelicula.title = object.title
 
 return this.peliculas.add(pelicula)
-   
-  };
+ })
+ 
+ };
 
 };
 
 export { PelisController };
 
-
-
   
+
+// let prueba = new PelisController
+
+//  let peliP =  new Peli 
+//  peliP = {title: "una peli", id : 55, tags : []}
+//  prueba.add(peliP).then((r=>{console.log(r)}))

@@ -21,7 +21,10 @@ class PelisCollection {
   };
     
   getById(id:number){
-    return find (this.pelis,["id",id])
+    return this.getAll().then((r)=>{
+     return find (r,["id",id])
+    })
+     
   }
 
   getByTitle(listaDePelis,title:string){
@@ -45,8 +48,8 @@ class PelisCollection {
   };
 
   search(options:any){
-
-       let resultado = this.pelis
+      return this.getAll().then(()=>{
+        let resultado = this.pelis
       
       if (options.title){
          resultado = this.getByTitle(this.pelis,options.title)
@@ -55,33 +58,26 @@ class PelisCollection {
         resultado = this.getByTags(this.pelis,options.tags)
       }
   
-      return resultado;   
-      
-    };
+      return resultado; 
+      })
+  };
   
 
  add(peli:Peli){
   return this.getAll().then((r)=>{
-    let buscaPeli = find (r,["id", peli.id])
+    let buscaPeli = find (this.pelis,["id", peli.id])
     if (buscaPeli){
       return false
     } else {
       this.pelis.push(peli)
-      return jsonfile.writeFile("./peliculas.json", this.pelis).then(()=>{
-       return true 
-      })
-      
+      jsonfile.writeFile("./peliculas.json", this.pelis)
+      return true     
     } 
   });
- };
+}
    
  // fin clase PelisCollection
 
 };
 
 export { PelisCollection, Peli };
-
-
-
-
-
