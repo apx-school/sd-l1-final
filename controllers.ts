@@ -1,47 +1,39 @@
 import { PelisCollection, Peli } from "./models";
-import * as vacio from "lodash/isEmpty"
-
-class PelisControllerOptions {
-  action: "get" | "add" | "search";
-  params: Peli;
-}
 
 class PelisController {
   pelis: PelisCollection;
-  promesa:Promise<any>;
+  promesa: Promise<any>;
+
   constructor() {
     this.pelis = new PelisCollection();
     let promesa = this.pelis.getAll();
-    this.promesa = promesa
+    this.promesa = promesa;
   }
-  
-  get(options:any){
-    if(vacio(options)){
 
-      let res = this.pelis.getAll() 
-      return res
-
-    }else if(options.id){
-
-      let res = this.pelis.getById(options.id)
-      return res
-
-    }else if(options.search){
-
-      let res = this.pelis.search(options.res)
-      return res
-
+  get(options: any) {
+    if (options.action == "esta vacio") {
+      return this.pelis.getAll();
+    }
+    if (options.action == "get") {
+      return this.pelis.getById(options.id);
+    }
+    if (options.action == "search" && options.params == "title") {
+      return this.pelis.getAll().then(() => {
+        return this.pelis.search(options.params, options.do);
+      });
+    }
+    if (options.params == "tags") {
+      return this.pelis.getAll().then(() => {
+        return this.pelis.search(options.params, options.do);
+      });
     }
   }
 
-  add(peli:any){
-    this.pelis.add(peli)
+  add(options: any) {
+    return this.pelis.getAll().then(() => {
+      return this.pelis.add(options);
+    });
   }
-
-  procesOptions(options: PelisControllerOptions) {
-    let resultado;
-
-    
 }
 
-export{ PelisController,PelisControllerOptions };
+export { PelisController };

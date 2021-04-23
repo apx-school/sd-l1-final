@@ -10,30 +10,32 @@ class Peli {
 
 class PelisCollection {
   peliculas: Peli[] = [];
-
+  promesa: Promise<any>;
   getAll(): Promise<any> {
-    return jsonfile.readFile("./peliculas.json").then((pelis) => {
+    return jsonfile.readFile("./pelis.json").then((pelis) => {
       this.peliculas = pelis;
+      return this.peliculas;
     });
   }
 
   getById(id: number): Promise<any> {
-    const pelis = this.getAll();
-    return pelis.then(() => {
-      find(this.peliculas, { id: id });
+    return this.getAll().then((p) => {
+      return find(p, { id: id });
     });
   }
 
-  search(options: any): Promise<any> {
-    if (options.title) {
+  search(action, objetivo): Promise<any> {
+    if (action == "title") {
       return this.getAll().then(() => {
-        return find(this.peliculas, { title: options });
+        return find(this.peliculas, { title: objetivo });
       });
     }
-    if (options.tag) {
-      return this.getAll().then(() => {
-        return this.peliculas.find((p) => {
-          return p.tags.includes(options);
+    if (action == "tags") {
+      return this.getAll().then((pelis) => {
+        return this.peliculas.forEach((p) => {
+          return this.peliculas.filter(() => {
+            return p.tags.includes(objetivo);
+          });
         });
       });
     }
@@ -46,6 +48,7 @@ class PelisCollection {
     let encontrada = pelis.then(() => {
       find(pelis, peli);
     });
+
     if (encontrada) {
       // si fue encontrada no deveria hacer nada, solo mostrar mensaje
       return operacionExitosa.then((resolve) => {
