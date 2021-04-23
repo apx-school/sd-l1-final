@@ -22,13 +22,6 @@ class PelisCollection {
   }
   search(options: any) {
     return this.getAll().then((res) => {
-      if (options.title && options.tag) {
-        return res.filter(
-          (item) =>
-            item.title.includes(options.title) &&
-            item.tags.includes(options.tag)
-        );
-      }
       if (options.title) {
         return res.filter((item) => item.title.includes(options.title));
       }

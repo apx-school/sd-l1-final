@@ -11,17 +11,12 @@ function processOptions(argv) {
 
   if (argv._[0] == "get") {
     const id = argv._[1];
-    return controller.get({ id: id });
+    return controller.get({ id: id }).then((res) => {
+      return res;
+    });
   }
   if (argv._[0] == "search") {
     let params = {};
-
-    if (argv.title && argv.tag) {
-      params = {
-        title: argv.title,
-        tags: argv.tag,
-      };
-    }
 
     if (argv.title) {
       params = {
