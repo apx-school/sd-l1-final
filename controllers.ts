@@ -48,7 +48,17 @@ class PelisController {
     }
     return resultado;
   }
+  // aqui me quede
+  add(object) {
+    var pelicula = new Peli();
+    pelicula.id = object.id;
+    pelicula.tags = object.tags;
+    pelicula.title = object.title;
+    return this.pelis.add(pelicula);
+  }
 
-  add(options) {}
+  //add(options: Promise<any>) {
+  //  return true;
+  //}
 }
 export { PelisController };
