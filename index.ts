@@ -1,4 +1,3 @@
-
 import * as minimist from "minimist";
 import { PelisController } from "./controllers";
 function parseaParams(argv) {

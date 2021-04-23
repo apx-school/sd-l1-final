@@ -1,4 +1,3 @@
-
 import { PelisCollection, Peli } from "./models";
 class PelisController {
   peliculas:PelisCollection
