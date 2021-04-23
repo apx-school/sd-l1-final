@@ -22,7 +22,7 @@ class PelisController {
         return this.pelis.search(options.params, options.do);
       });
     }
-    if (options.params == "tags") {
+    if (options.action == "search" && options.params == "tags") {
       return this.pelis.getAll().then(() => {
         return this.pelis.search(options.params, options.do);
       });

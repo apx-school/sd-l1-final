@@ -4,6 +4,7 @@ import * as vacio from "lodash/isEmpty";
 
 function parseaParams(argv) {
   const resultado = minimist(argv);
+  //el "_" de resultado representa el array que genera minimist dentro del objeto respuesta
 
   if (vacio(resultado._)) {
     let options = {
@@ -26,7 +27,7 @@ function parseaParams(argv) {
     };
     return options;
   }
-  if (resultado._includes("search") && resultado.tag) {
+  if (resultado._.includes("search") && resultado.tag) {
     let options = {
       action: "search",
       params: "tags",
@@ -37,6 +38,7 @@ function parseaParams(argv) {
 
   if (resultado._[0] == "add") {
     let options = {
+      action: "add",
       id: resultado.id,
       title: resultado.title,
       tags: resultado.tags,
@@ -49,9 +51,15 @@ function main() {
   const collection = new PelisController();
   collection.promesa.then(() => {
     const params = parseaParams(process.argv.slice(2));
-    collection.get(params).then((res) => {
-      console.log(res);
-    });
+    if (params.action !== "add") {
+      collection.get(params).then((res) => {
+        console.log(res);
+      });
+    } else {
+      collection.add(params).then((res) => {
+        console.log(res);
+      });
+    }
   });
 }
 main();

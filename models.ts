@@ -26,24 +26,23 @@ class PelisCollection {
 
   search(action, objetivo): Promise<any> {
     if (action == "title") {
-      return this.getAll().then(() => {
-        return find(this.peliculas, { title: objetivo });
+      return this.getAll().then((res) => {
+        return find(res, { title: objetivo });
       });
     }
+
     if (action == "tags") {
       return this.getAll().then((pelis) => {
-        return this.peliculas.forEach((p) => {
-          return this.peliculas.filter(() => {
-            return p.tags.includes(objetivo);
-          });
+        return pelis.filter((p) => {
+          return p.tags.includes(objetivo);
         });
       });
     }
   }
 
   //mètodo en proceso
-  add(peli: Peli): Promise<any> {
-    let operacionExitosa: Promise<any>;
+  add(peli: Peli): Promise<Boolean> {
+    let operacionExitosa: Promise<Boolean>;
     let pelis = this.getAll();
     let encontrada = pelis.then(() => {
       find(pelis, peli);
@@ -51,8 +50,9 @@ class PelisCollection {
 
     if (encontrada) {
       // si fue encontrada no deveria hacer nada, solo mostrar mensaje
-      return operacionExitosa.then((resolve) => {
-        resolve("Pelicula existente - No se puede agregar papurri");
+      return operacionExitosa.then(() => {
+        console.log("Pelicula existente - No se puede agregar papurri");
+        return false;
       });
     } else if (!encontrada) {
       //agarrar las pelis, y agregarle la peli ... despues guardar y retornar la flag
@@ -65,7 +65,7 @@ class PelisCollection {
         })
         .then(() => {
           return operacionExitosa.then(() => {
-            console.log("pelicula agregada");
+            console.log("pelicula agregada correctamente!");
           });
         });
     }
