@@ -12,7 +12,7 @@ class PelisController {
   }
 
   get(options){
-    
+    return this.promesa.then(()=>{
   let respuesta;
 
     if (options.hasOwnProperty("id")){
@@ -30,7 +30,10 @@ class PelisController {
      else if (options.search.hasOwnProperty("tags")){
       respuesta = this.peliculas.search(options.search)
     } else {respuesta = this.peliculas}
-    return respuesta;
+    return respuesta;    
+    })
+    
+  
    
   };
 

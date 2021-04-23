@@ -81,3 +81,24 @@ class PelisCollection {
 };
 
 export { PelisCollection, Peli };
+
+
+
+// prueba.getAll().then(()=>{
+//   prueba.search({title:"yo"}).then((r)=>{console.log(r)})
+// })
+
+// async function prueba() {
+//  const prueba = new PelisCollection 
+//  await prueba.add({
+//   id: 55,
+//   title: "TEST_TITLE",
+//   tags: ["tt", "rr"],
+// });
+// const all = await prueba.getAll();
+//   const a = all[0];
+//   const b = await prueba.getById(a.id);
+//   console.log(a.title, b.title);
+// }
+
+// prueba()
