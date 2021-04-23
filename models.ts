@@ -1,6 +1,4 @@
 import * as jsonfile from "jsonfile";
-import { domainToASCII } from "node:url";
-
 
 // no modificar estas propiedades, agregar todas las que quieras
 class Peli {
@@ -58,7 +56,9 @@ class PelisCollection {
     if(pe){
       return false;
     }else{
-      const datos = this.data.push(peli);
+      let datos;
+       this.data.push(peli);
+       datos = this.data;
       const promesaDos = jsonfile.writeFile("./pelis.json", datos);
       return promesaDos.then(()=>{
         return true;
