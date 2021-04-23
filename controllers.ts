@@ -10,7 +10,7 @@ class PelisController {
     this.promesa = promesa;
   }
 
-  get(options: any) {
+  get(options): Promise<any> {
     var resultado: Promise<any>;
 
     if (options.id) {

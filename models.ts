@@ -13,23 +13,22 @@ class PelisCollection {
   getAll(): Promise<Peli[]> {
     const promesa = jsonfile.readFile("./pelis.json");
     promesa.then((pel) => {
-      this.data = pel;
+      return (this.data = pel); // se pusieron parentesis no se por que. cualquier cosa sacarla
     });
     return promesa;
   }
 
-  getById(id) {
-    const promesaPeliId = this.getAll().then((pel) => {
-      return pel.find((item) => {
-        return item.id == id;
-      });
+  getById(id: number) {
+    const promesaPeliId = this.getAll().then(() => {
+      return this.data.find((item) => item.id == id);
     });
     return promesaPeliId;
   }
   // pasa cuando quiere
-  search(options: any) {
+  search(options: any): Promise<any> {
     return this.getAll().then((pel) => {
-      var datos = pel;
+      console.log(pel);
+      let datos = pel;
       if (options.hasOwnProperty("title") && options.hasOwnProperty("tag")) {
         datos = pel.filter((p) => {
           return p.title.includes(options.title);
@@ -58,16 +57,19 @@ class PelisCollection {
   // pasa cuando quiere
   add(peli: Peli) {
     return this.getAll().then((pel) => {
-      const repetida = this.data.find((i) => {
+      const cargaDePeli = pel.find((i) => {
         return i.id == peli.id;
       });
-      if (repetida) {
+      if (cargaDePeli) {
         false;
       } else {
-        this.data.push(peli);
-        jsonfile.writeFile("./pelis.json", this.data);
-        return true;
+        const datos = this.data.push(peli);
+        const cargaDePeli2 = jsonfile.writeFile("./pelis.json", datos);
+        return cargaDePeli2.then(() => {
+          return true;
+        });
       }
+      return cargaDePeli;
     });
   }
 }

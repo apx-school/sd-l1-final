@@ -7,6 +7,7 @@ function parseaParams(argv) {
 }
 
 function processOptions(argv) {
+  //console.log(argv);
   const controller = new PelisController();
   // este metodo esta bien . el resto conrolar en el  model. metodo  del serch
   if (argv._[0] == "get") {
@@ -55,7 +56,7 @@ function processOptions(argv) {
 function main() {
   const params = parseaParams(process.argv.slice(2));
   const resultad = processOptions(params);
-  resultad.then((pel) => console.log(pel));
+  resultad.then((r) => console.log(r));
 }
-
+// no tocar en index pasa bien los parametros desde la terminal
 main();
