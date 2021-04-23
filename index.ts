@@ -51,7 +51,7 @@ function processOptions(argv) {
 
 function main() {
   const parametros = parseaParams(process.argv.slice(2));
-  let resultadoFinal = processOptions(parametros);
+  const resultadoFinal = processOptions(parametros);
   resultadoFinal.then((r) => console.log(r));
 }
 
