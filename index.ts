@@ -7,17 +7,13 @@ function parseaParams(argv) {
   //el "_" de resultado representa el array que genera minimist dentro del objeto respuesta
 
   if (vacio(resultado._)) {
-    let options = {
-      action: "esta vacio",
-    };
-    return options;
+    return { action: "esta vacio" };
   }
   if (resultado._.includes("get")) {
-    let options = {
+    return {
       action: "get",
       id: resultado._[1],
     };
-    return options;
   }
   if (resultado._.includes("search") && resultado.title) {
     let options = {
