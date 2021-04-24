@@ -1,5 +1,5 @@
-import anyTest, { TestInterface } from "ava";
-import { PelisCollection, Peli } from "./models";
+import anyTest, { TestInterface } from 'ava';
+import { PelisCollection, Peli } from './models';
 
 export const getRandomId = () => {
   const randomNumber = Math.floor(Math.random() * 100000);
@@ -14,10 +14,10 @@ const test = anyTest as TestInterface<{
 }>;
 
 const TEST_ID = getRandomId();
-const TEST_TITLE = "title " + SESSION_ID + TEST_ID;
+const TEST_TITLE = 'title ' + SESSION_ID + TEST_ID;
 
 const SECOND_TEST_ID = getRandomId();
-const SECOND_TEST_TITLE = "title " + SESSION_ID + SECOND_TEST_ID;
+const SECOND_TEST_TITLE = 'title ' + SESSION_ID + SECOND_TEST_ID;
 
 test.before(async (t) => {
   const instance = new PelisCollection();
@@ -26,24 +26,24 @@ test.before(async (t) => {
   await instance.add({
     id: TEST_ID,
     title: TEST_TITLE,
-    tags: ["tt", "rr"],
+    tags: ['tt', 'rr'],
   });
   await instance.add({
     id: SECOND_TEST_ID,
     title: SECOND_TEST_TITLE,
-    tags: ["yy", "uu"],
+    tags: ['yy', 'uu'],
   });
 
   await instance.add({
     id: SECOND_TEST_ID,
     title: SECOND_TEST_TITLE,
-    tags: ["yy", "tt"],
+    tags: ['yy', 'tt'],
   });
 
   t.context.all = await instance.getAll();
 });
 
-test("Testeo el método getById", async (t) => {
+test('Testeo el método getById', async (t) => {
   const collection = t.context.instance;
   const all = t.context.all;
   const a = all[0];
@@ -51,7 +51,7 @@ test("Testeo el método getById", async (t) => {
   t.is(a.title, b.title);
 });
 
-test("Testeo el método search", async (t) => {
+test('Testeo el método search', async (t) => {
   const collection = t.context.instance;
   const all = t.context.all;
   const a = all[0];
@@ -61,7 +61,7 @@ test("Testeo el método search", async (t) => {
 
   const c = await collection.search({
     title: SECOND_TEST_ID,
-    tag: "yy",
+    tag: 'yy',
   });
   t.deepEqual(c[0].id, SECOND_TEST_ID);
 });
