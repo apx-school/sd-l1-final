@@ -1,5 +1,4 @@
 import * as minimist from "minimist";
-
 import { PelisController } from "./controllers";
 
 function parseaParams(argv) {
@@ -15,18 +14,14 @@ function processOptions(argv) {
     return controller.get({ id: id }).then((res) => {
       return res;
     });
-  } else if (argv._[0] == "search") {
-    let parametros = {};
-    if (argv.title) {
-      parametros = {
-        title: argv.title,
-      };
-    }
-    if (argv.tag) {
-      parametros = {
-        tag: argv.tag,
-      };
-    }
+  }
+  if (argv._[0] == "search") {
+    let parametros = {
+      title:argv.title,
+      tags:argv.tag
+    };
+  console.log("dsafasdfasd",parametros)
+   
 
     return controller.get({ search: parametros }).then((res) => {
       return res;
@@ -37,8 +32,6 @@ function processOptions(argv) {
       title: argv.title,
       tags: argv.tags,
     };
-    // console.log(nuevaPeli);
-
     return controller.add(nuevaPeli).then((res) => {
       return res;
     });
