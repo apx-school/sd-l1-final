@@ -17,7 +17,12 @@ function procesaOpciones (controller:PelisController, params){
     controller.get(params)
     .then((r) =>{console.log(r)})
 
-   } else 
+   } else if (params._.includes("get")){
+    
+    controller.get(params._[1])
+    .then((r)=>{console.log(r)})
+
+   } else
    {controller.promesa
     .then((r)=>{console.log(r)})
   }
@@ -29,7 +34,7 @@ function main() {
   const controller = new PelisController()
   const params = parseaParams(process.argv.slice(2));
   procesaOpciones(controller, params)
-  //console.log(params)
+ // console.log(params)
   
 }
 

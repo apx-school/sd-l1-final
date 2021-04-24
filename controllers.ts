@@ -10,26 +10,29 @@ class PelisController {
     const laPreomesa = this.peliculas.getAll();
     this.promesa = laPreomesa;
   }
-
+  
   get(options){
   return this.promesa.then(()=>{
   
     let respuesta;
    
-
-    if (options.hasOwnProperty("id")){
+    if(typeof options === "number"){
+      console.log(true)
+      respuesta = this.peliculas.getById(options)
+    }
+   else if (options.hasOwnProperty("id")){
       respuesta = this.peliculas.getById(options.id)
     }  
    else if (options.hasOwnProperty("title")){
     respuesta = this.peliculas.search(options)
     }
-   else if (options.hasOwnProperty("tags")){
+   else if (options.hasOwnProperty("tag")){
       respuesta = this.peliculas.search(options)
     } 
     else if (options.search.hasOwnProperty("title")){
       respuesta =this.peliculas.search(options.search)
     }
-     else if (options.search.hasOwnProperty("tags")){
+     else if (options.search.hasOwnProperty("tag")){
       respuesta = this.peliculas.search(options.search)
     } else {respuesta = this.peliculas}
 
