@@ -35,7 +35,10 @@ class PelisController {
     peli.id = options.id;
     peli.title = options.title;
     peli.tags = options.tags;
-    return this.pelis.add(peli);
+
+    return this.pelis.getAll().then(() => {
+      return this.pelis.add(peli);
+    });
   }
 }
 

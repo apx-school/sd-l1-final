@@ -5,6 +5,7 @@ import * as vacio from "lodash/isEmpty";
 function parseaParams(argv) {
   const resultado = minimist(argv);
   //el "_" de resultado representa el array que genera minimist dentro del objeto respuesta
+  let controller = new PelisController();
 
   if (vacio(resultado._)) {
     let options = {
@@ -39,11 +40,10 @@ function parseaParams(argv) {
   if (resultado._[0] == "add") {
     let options = {
       action: "add",
-      peli: {
-        id: resultado.id,
-        title: resultado.title,
-        tags: resultado.tags,
-      },
+
+      id: resultado.id,
+      title: resultado.title,
+      tags: resultado.tags,
     };
     return options;
   }

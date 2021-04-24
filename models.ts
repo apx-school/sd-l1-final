@@ -11,6 +11,7 @@ class Peli {
 class PelisCollection {
   peliculas: Peli[] = [];
   promesa: Promise<any>;
+
   getAll(): Promise<any> {
     return jsonfile.readFile("./pelis.json").then((pelis) => {
       this.peliculas = pelis;
@@ -45,6 +46,7 @@ class PelisCollection {
   add(peli: Peli): Promise<boolean> {
     const promesaUno = this.getById(peli.id).then((peliExistente) => {
       if (peliExistente) {
+        console.log("ya existe");
         return false;
       } else {
         // magia que agrega la pelicula a un objeto data
@@ -52,6 +54,7 @@ class PelisCollection {
         const promesaDos = jsonfile.writeFile("./pelis.json", this.peliculas);
 
         return promesaDos.then(() => {
+          console.log("peli agregada correctamente");
           return true;
         });
       }
