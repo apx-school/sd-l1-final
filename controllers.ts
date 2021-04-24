@@ -1,13 +1,5 @@
 import { PelisCollection, Peli } from "./models";
 
-function crearPeli(obj) {
-  let aux = new Peli();
-  aux.id = obj.peli.id;
-  aux.title = obj.peli.title;
-  aux.tags = obj.peli.tags;
-  return aux;
-}
-
 class PelisController {
   pelis: PelisCollection;
   promesa: Promise<any>;
@@ -39,18 +31,11 @@ class PelisController {
 
   add(options: any) {
     let peli = new Peli();
-    let promesa = new Promise((peli) => {
-      peli.id = options.peli.id;
-      peli.title = options.peli.title;
-      peli.tags = options.peli.tags;
-      return peli;
-    });
-    return this.pelis
-      .getAll()
-      .then(() => {})
-      .then(() => {
-        return this.pelis.add(peli);
-      });
+
+    peli.id = options.id;
+    peli.title = options.title;
+    peli.tags = options.tags;
+    return this.pelis.add(peli);
   }
 }
 
