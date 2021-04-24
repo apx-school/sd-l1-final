@@ -5,7 +5,6 @@ import * as vacio from "lodash/isEmpty";
 function parseaParams(argv) {
   const resultado = minimist(argv);
   //el "_" de resultado representa el array que genera minimist dentro del objeto respuesta
-  let controller = new PelisController();
 
   if (vacio(resultado._)) {
     let options = {

@@ -1,5 +1,1 @@
-[
-  { "id": 133, "title": "nobody", "tags": ["accion", "violencia", "drama"] },
-  { "id": 58, "title": "john wick", "tags": ["accion", "lucha", "drama"] },
-  { "id": 888, "title": "pablo kpo", "tags": "accion" }
-]
+[{"id":133,"title":"nobody","tags":["accion","violencia","drama"]},{"id":58,"title":"john wick","tags":["accion","lucha","drama"]},{"id":888,"title":"pablo kpo","tags":"accion"},{"id":4321865,"title":"peli de la terminal 4321865","tags":["rr","ww"]}]
