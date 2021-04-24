@@ -1,12 +1,10 @@
-import { PelisCollection, Peli } from "./models";
+import { PelisCollection } from "./models";
+
 class PelisController {
-  peliculas:PelisCollection
-  promesa: Promise <any>
+  peliculas: PelisCollection;
+
   constructor() {
-    let pelis = new PelisCollection
-    this.peliculas = pelis
-    const laPreomesa = this.peliculas.getAll();
-    this.promesa = laPreomesa;
+    this.peliculas = new PelisCollection();
   }
   get(options): Promise<any> {
     if (options.id) {
@@ -22,6 +20,5 @@ class PelisController {
   add(peli) {
     return this.peliculas.add(peli);
   }
-
 }
 export { PelisController };
