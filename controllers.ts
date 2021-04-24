@@ -14,17 +14,17 @@ class PelisController {
     if (options.action == "esta vacio") {
       return this.pelis.getAll();
     }
-    if (options.action == "get") {
+    if (options.id) {
       return this.pelis.getById(options.id);
     }
-    if (options.action == "search" && options.params == "title") {
+    if (options.title) {
       return this.pelis.getAll().then(() => {
-        return this.pelis.search(options.params, options.do);
+        return this.pelis.search(options);
       });
     }
-    if (options.action == "search" && options.params == "tags") {
+    if (options.tags) {
       return this.pelis.getAll().then(() => {
-        return this.pelis.search(options.params, options.do);
+        return this.pelis.search(options);
       });
     }
   }

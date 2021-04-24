@@ -18,16 +18,14 @@ function parseaParams(argv) {
   if (resultado._.includes("search") && resultado.title) {
     let options = {
       action: "search",
-      params: "title",
-      do: resultado.title,
+      title: resultado.title,
     };
     return options;
   }
-  if (resultado._.includes("search") && resultado.tag) {
+  if (resultado._.includes("search") && resultado.tags) {
     let options = {
       action: "search",
-      params: "tags",
-      do: resultado.tag,
+      tags: resultado.tags,
     };
     return options;
   }

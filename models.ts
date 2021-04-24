@@ -24,17 +24,17 @@ class PelisCollection {
     });
   }
 
-  search(action, objetivo): Promise<any> {
-    if (action == "title") {
+  search(options): Promise<any> {
+    if (options.title) {
       return this.getAll().then((res) => {
-        return find(res, { title: objetivo });
+        return find(res, { title: options.title });
       });
     }
 
-    if (action == "tags") {
+    if (options.tags) {
       return this.getAll().then((pelis) => {
         return pelis.filter((p) => {
-          return p.tags.includes(objetivo);
+          return p.tags.includes(options.tags);
         });
       });
     }
