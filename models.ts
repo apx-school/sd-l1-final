@@ -1,5 +1,6 @@
 import * as jsonfile from "jsonfile";
 import * as find from "lodash/find"
+import { time } from "node:console";
 
 // no modificar estas propiedades, agregar todas las que quieras
 class Peli {
@@ -37,10 +38,10 @@ class PelisCollection {
     return pelisEncontradas;
   };
 
-  getByTags(listaDePelis,tags:string){
+  getByTags(listaDePelis,tag:string){
     let pelisEncontradasTag = []
   listaDePelis.forEach(element => {
-      if (element.tags.includes(tags)){
+      if (element.tags.includes(tag)){
         pelisEncontradasTag.push(element)
       };
     });
@@ -49,13 +50,18 @@ class PelisCollection {
 
   search(options:any){
       return this.getAll().then(()=>{
-      let resultado 
+     
+      let resultado = []
       
       if (options.title){
          resultado = this.getByTitle(this.pelis,options.title)
       }
-      if (options.tags){
-        resultado = this.getByTags(this.pelis,options.tags)
+      if (options.tag){
+        resultado = this.getByTags(this.pelis,options.tag)
+      }
+      if (options.title && options.tag){
+        resultado = this.getByTitle(this.pelis,options.title)
+        resultado = this.getByTags(resultado,options.tag)
       }
   
       return resultado; 
