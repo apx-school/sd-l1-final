@@ -18,14 +18,10 @@ class PelisController {
       return this.pelis.getById(options.id);
     }
     if (options.title) {
-      return this.pelis.getAll().then(() => {
-        return this.pelis.search(options);
-      });
+      return this.pelis.search(options);
     }
     if (options.tags) {
-      return this.pelis.getAll().then(() => {
-        return this.pelis.search(options);
-      });
+      return this.pelis.search(options);
     }
   }
 

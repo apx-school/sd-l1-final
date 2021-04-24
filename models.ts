@@ -1,5 +1,5 @@
 import * as jsonfile from "jsonfile";
-import * as concat from "lodash/concat";
+//import * as concat from "lodash/concat";
 import * as find from "lodash/find";
 
 class Peli {
@@ -24,22 +24,40 @@ class PelisCollection {
     });
   }
 
-  search(options): Promise<any> {
-    if (options.title) {
-      return this.getAll().then((res) => {
-        return find(res, { title: options.title });
-      });
-    }
+  // search(options): Promise<any> {
+  //   if (options.title) {
+  //     return this.getAll().then((res) => {
+  //       return find(res, { title: options.title });
+  //     });
+  //   }
 
-    if (options.tags) {
-      return this.getAll().then((pelis) => {
-        return pelis.filter((p) => {
-          return p.tags.includes(options.tags);
-        });
-      });
-    }
+  //   if (options.tags) {
+  //     return this.getAll().then((pelis) => {
+  //       return pelis.filter((p) => {
+  //         return p.tags.includes(options.tags);
+  //       });
+  //     });
+  //   }
+  // }
+  search(options: any): Promise<Peli[]> {
+    return this.getAll().then((json) => {
+      if (options.title && options.tag) {
+        return json.filter(
+          (item) =>
+            item.title.includes(options.title) &&
+            item.tags.includes(options.tag)
+        );
+      }
+
+      if (options.title) {
+        return json.filter((item) => item.title.includes(options.title));
+      }
+
+      if (options.tags) {
+        return json.filter((item) => item.tags.includes(options.tag));
+      }
+    });
   }
-
   //mètodo en proceso
 
   add(peli: Peli): Promise<boolean> {
