@@ -17,7 +17,6 @@ class PelisController {
     let respuesta;
    
     if(typeof options === "number"){
-      console.log(true)
       respuesta = this.peliculas.getById(options)
     }
    else if (options.hasOwnProperty("id")){
