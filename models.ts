@@ -41,48 +41,19 @@ class PelisCollection {
   }
 
   //mètodo en proceso
-  addi(peli: Peli): Promise<Boolean> {
-    let operacionExitosa: Promise<Boolean>;
-    let pelis = this.getAll();
-    let encontrada = pelis.then(() => {
-      find(pelis, peli);
-    });
 
-    if (encontrada) {
-      // si fue encontrada no deveria hacer nada, solo mostrar mensaje
-      return operacionExitosa.then(() => {
-        console.log("Pelicula existente - No se puede agregar papurri");
-        return false;
-      });
-    } else if (!encontrada) {
-      //agarrar las pelis, y agregarle la peli ... despues guardar y retornar la flag
-      pelis
-        .then((p) => {
-          concat(p, peli);
-        })
-        .then(() => {
-          return jsonfile.writeFile("./pelis.json", this.peliculas);
-        })
-        .then(() => {
-          return operacionExitosa.then(() => {
-            console.log("pelicula agregada correctamente!");
-          });
-        })
-        .then(() => {
-          return true;
-        });
-    }
-  }
   add(peli: Peli): Promise<boolean> {
     const promesaUno = this.getById(peli.id).then((peliExistente) => {
       if (peliExistente) {
+        console.log("ya existe");
         return false;
       } else {
         // magia que agrega la pelicula a un objeto data
-        this.peliculas.push(peli);
+        concat(this.peliculas, peli);
         const promesaDos = jsonfile.writeFile("./pelis.json", this.peliculas);
 
         return promesaDos.then(() => {
+          console.log("peli agregada correctamente");
           return true;
         });
       }

@@ -39,10 +39,11 @@ function parseaParams(argv) {
   if (resultado._[0] == "add") {
     let options = {
       action: "add",
-
-      id: resultado.id,
-      title: resultado.title,
-      tags: resultado.tags,
+      peli: {
+        id: resultado.id,
+        title: resultado.title,
+        tags: resultado.tags,
+      },
     };
     return options;
   }
