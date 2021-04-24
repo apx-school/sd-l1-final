@@ -19,41 +19,32 @@ const TEST_TITLE = 'title ' + SESSION_ID + TEST_ID;
 const SECOND_TEST_ID = getRandomId();
 const SECOND_TEST_TITLE = 'title ' + SESSION_ID + SECOND_TEST_ID;
 
-test.before(async (t) => {
-  const instance = new PelisCollection();
-  t.context.instance = instance;
-
-  await instance.add({
+test.serial('Testeo el método getById', async (t) => {
+  const collection = new PelisCollection();
+  await collection.add({
     id: TEST_ID,
     title: TEST_TITLE,
     tags: ['tt', 'rr'],
   });
-  await instance.add({
-    id: SECOND_TEST_ID,
-    title: SECOND_TEST_TITLE,
-    tags: ['yy', 'uu'],
-  });
-
-  await instance.add({
-    id: SECOND_TEST_ID,
-    title: SECOND_TEST_TITLE,
-    tags: ['yy', 'tt'],
-  });
-
-  t.context.all = await instance.getAll();
-});
-
-test('Testeo el método getById', async (t) => {
-  const collection = t.context.instance;
-  const all = t.context.all;
+  const all = await collection.getAll();
   const a = all[0];
   const b = await collection.getById(a.id);
   t.is(a.title, b.title);
 });
 
-test('Testeo el método search', async (t) => {
-  const collection = t.context.instance;
-  const all = t.context.all;
+test.serial('Testeo el método search', async (t) => {
+  const collection = new PelisCollection();
+  await collection.add({
+    id: TEST_ID,
+    title: TEST_TITLE,
+    tags: ['tt', 'rr'],
+  });
+  await collection.add({
+    id: SECOND_TEST_ID,
+    title: SECOND_TEST_TITLE,
+    tags: ['yy', 'uu'],
+  });
+  const all = await collection.getAll();
   const a = all[0];
   const b = await collection.search({ title: SESSION_ID });
   const ids = b.map((b) => b.id);
