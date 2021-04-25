@@ -42,15 +42,18 @@ class PelisCollection {
       let result: Peli[] = [];
       if (params.title && params.tag) {
         result = json.filter((e) => {
-          return e.title.includes(params.title) && e.tags.includes(params.tag);
+          return (
+            e.title.toLowerCase().includes(params.title.toLowerCase()) &&
+            e.tags.includes(params.tag.toLowerCase())
+          );
         });
       } else if (params.title) {
         result = json.filter((e) => {
-          return e.title.includes(params.title);
+          return e.title.toLowerCase().includes(params.title.toLowerCase());
         });
       } else if (params.tag) {
         result = json.filter((e) => {
-          return e.tags.includes(params.tag);
+          return e.tags.includes(params.tag.toLowerCase());
         });
       }
       return result;
