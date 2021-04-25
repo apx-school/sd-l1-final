@@ -12,7 +12,7 @@ function parseaParams(argv) {
   } else if (params._[0] == "search") {
     return {
       search: {
-        title: params.title,
+        title: params.title.toLowerCase(),
         tag: params.tag,
       },
     };
