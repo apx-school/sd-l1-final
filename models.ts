@@ -1,5 +1,4 @@
 import * as jsonfile from "jsonfile";
-import * as startsWith from "lodash/startsWith";
 // no modificar estas propiedades, agregar todas las que quieras
 class Peli {
   id: number;
@@ -20,31 +19,40 @@ class PelisCollection {
       return json.find((e) => e.id == id);
     });
   }
-  add(peli: Peli): Promise<boolean> {
-    const promesaUno = this.getById(peli.id).then((peliExistente) => {
-      if (peliExistente) {
+  //este método lo hice con la ayuda que da el artículo
+  add(movie: Peli): Promise<boolean> {
+    const promise = this.getById(movie.id).then((movieAlreadyExists) => {
+      if (movieAlreadyExists) {
         return false;
       } else {
-        this.data.push(peli);
-        const promesaDos = jsonfile.writeFile("./pelis.json", this.data);
+        this.data.push(movie);
+        const promiseTwo = jsonfile.writeFile("./pelis.json", this.data);
 
-        return promesaDos.then(() => {
+        return promiseTwo.then(() => {
           return true;
         });
       }
     });
 
-    return promesaUno;
+    return promise;
   }
 
   search(params: any): Promise<Peli[]> {
     return this.getAll().then((json) => {
       let result: Peli[] = [];
-      json.map((e) => {
-        if (startsWith(e.title, params.title) || e.tags.includes(params.tag)) {
-          result.push(e);
-        }
-      });
+      if (params.title && params.tag) {
+        result = json.filter((e) => {
+          return e.title.includes(params.title) && e.tags.includes(params.tag);
+        });
+      } else if (params.title) {
+        result = json.filter((e) => {
+          return e.title.includes(params.title);
+        });
+      } else if (params.tag) {
+        result = json.filter((e) => {
+          return e.tags.includes(params.tag);
+        });
+      }
       return result;
     });
   }

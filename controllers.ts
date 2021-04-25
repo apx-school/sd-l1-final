@@ -11,15 +11,17 @@ class PelisController {
         return res;
       });
     }
-    if (params.title || params.tag) {
-      console.log(params);
-      console.log("llegué a params.search y voy a retornar");
-      return this.movies.search(params).then((res) => {
+    if (params.search) {
+      let aux = {
+        title: params.search.title,
+        tag: params.search.tag,
+        rating: params.search.rating,
+      };
+      return this.movies.search(aux).then((res) => {
         return res;
       });
     }
     if (Object.keys(params).length === 0) {
-      //console.log("no tengo contenido");
       return this.movies.getAll().then((res) => {
         return res;
       });

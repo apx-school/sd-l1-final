@@ -2,21 +2,23 @@ import * as minimist from "minimist";
 import { PelisController } from "./controllers";
 
 function parseaParams(argv) {
-  const resultado = minimist(argv);
-  if (resultado._[0] == "add") {
+  const params = minimist(argv);
+  if (params._[0] == "add") {
     return {
-      id: resultado.id,
-      title: resultado.title,
-      tags: resultado.tags,
+      id: params.id,
+      title: params.title,
+      tags: params.tags,
     };
-  } else if (resultado._[0] == "search") {
+  } else if (params._[0] == "search") {
     return {
-      title: resultado.title,
-      tag: resultado.tag,
+      search: {
+        title: params.title,
+        tag: params.tag,
+      },
     };
-  } else if (resultado._[0] == "get") {
+  } else if (params._[0] == "get") {
     return {
-      id: resultado._[1],
+      id: params._[1],
     };
   } else {
     return {};
@@ -26,7 +28,6 @@ function parseaParams(argv) {
 function main() {
   const newPelisController = new PelisController();
   const params = parseaParams(process.argv.slice(2));
-  console.log("parámetros que salen desde la terminal", params);
   newPelisController.PelisControllerOptions(params);
 }
 

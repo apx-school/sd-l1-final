@@ -1,11 +1,18 @@
 [
-  { "id": 4411, "title": "nueva pel 9999", "tags": ["rr", "ww"] },
-  { "id": 208575, "title": "title 223561208575", "tags": ["tt", "rr"] },
-  { "id": 179185, "title": "title 223561179185", "tags": ["yy", "uu"] },
+  { "id": 1, "title": "Joker", "tags": ["thriller", "drama", "dc comics"] },
   {
-    "id": 134892,
-    "title": "una peli 134892",
-    "tags": ["classic", "tag 134892"]
+    "id": 2,
+    "title": "Inception",
+    "tags": ["thriller", "ciencia ficcion", "accion", "suspenso"]
   },
-  { "id": 142676, "title": "title 208242142676", "tags": ["yy", "uu"] }
+  {
+    "id": 3,
+    "title": "Gravity",
+    "tags": ["thriller", "drama", "espacio", "aventura"]
+  },
+  {
+    "id": 4,
+    "title": "Dunkirk",
+    "tags": ["belico", "drama", "segunda guerra mundial"]
+  }
 ]
