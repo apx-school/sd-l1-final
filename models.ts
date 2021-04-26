@@ -13,7 +13,7 @@ class PelisCollection {
   getAll(): Promise<Peli[]> {
     const promesa = jsonfile.readFile("./pelis.json");
     promesa.then((pel) => {
-      return (this.data = pel); // se pusieron parentesis no se por que. cualquier cosa sacarla
+      return (this.data = pel);
     });
     return promesa;
   }
@@ -24,44 +24,33 @@ class PelisCollection {
     });
     return promesaPeliId;
   }
-  // pasa cuando quiere
+
   search(options: any): Promise<any> {
-    return this.getAll().then((pel) => {
-      console.log(pel);
-      let datos = pel;
-      if (options.hasOwnProperty("title") && options.hasOwnProperty("tag")) {
-        datos = pel.filter((p) => {
-          return p.title.includes(options.title);
-        });
+    //console.log(options);
+    let promesa = this.getAll().then((pel) => {
+      let datos = this.data;
 
-        datos = datos.filter((p) => {
-          return p.tags.includes(options.tag);
-        });
-
-        return datos;
+      for (const k in options) {
+        if (k == "title") {
+          datos = datos.filter((p) => {
+            if (p.title.search(options.title) >= 0) return true;
+          });
+        }
+        if (k == "tag") {
+          datos = datos.filter((p) => {
+            return p.tags.includes(options[k]);
+          });
+        }
       }
-      if (options.hasOwnProperty("title")) {
-        datos = pel.filter((p) => {
-          return p.title.includes(options.title);
-        });
-        return datos;
-      }
-      if (options.hasOwnProperty("tag")) {
-        datos = datos.filter((p) => {
-          return p.tags.includes(options.tag);
-        });
-        return datos;
-      }
+      return datos;
     });
+    return promesa;
   }
-  // pasa cuando quiere
-  add(peli: Peli) {
-    return this.getAll().then((pel) => {
-      const cargaDePeli = pel.find((i) => {
-        return i.id == peli.id;
-      });
-      if (cargaDePeli) {
-        false;
+
+  add(peli: Peli): Promise<boolean> {
+    const cargaDePelis = this.getById(peli.id).then((pel) => {
+      if (pel) {
+        return false;
       } else {
         const datos = this.data.push(peli);
         const cargaDePeli2 = jsonfile.writeFile("./pelis.json", datos);
@@ -69,8 +58,8 @@ class PelisCollection {
           return true;
         });
       }
-      return cargaDePeli;
     });
+    return cargaDePelis;
   }
 }
 export { PelisCollection, Peli };

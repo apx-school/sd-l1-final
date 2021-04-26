@@ -7,21 +7,22 @@ function parseaParams(argv) {
 }
 
 function processOptions(argv) {
-  //console.log(argv);
   const controller = new PelisController();
-  // este metodo esta bien . el resto conrolar en el  model. metodo  del serch
+  // al controller llega este metodo bien
   if (argv._[0] == "get") {
     const id = argv._[1];
     return controller.get({ id: id }).then((pel) => {
       return pel;
     });
+    // los serach tb llegan bien
+    //el problema es cuando se le pasa el tag y el title juntos
   } else if (argv._[0] == "search") {
     var params = {};
 
-    if (argv.title && argv.tags) {
+    if (argv.title && argv.tag) {
       params = {
         title: argv.title,
-        tags: argv.tags,
+        tags: argv.tag,
       };
     }
     if (argv.title) {
@@ -29,9 +30,9 @@ function processOptions(argv) {
         title: argv.title,
       };
     }
-    if (argv.tags) {
+    if (argv.tag) {
       params = {
-        tags: argv.tags,
+        tags: argv.tag,
       };
     }
     return controller.get({ search: params }).then((pel) => {
@@ -41,11 +42,12 @@ function processOptions(argv) {
     var nuevaPeli = {
       id: argv.id,
       title: argv.title,
-      tags: argv.tags,
+      tags: argv.tag,
     };
     return controller.add(nuevaPeli).then((pel) => {
       return pel;
     });
+    // aqui me entrega un array vacio
   } else if (argv._.length == 0) {
     return controller.get({}).then((pel) => {
       return pel;
@@ -58,5 +60,5 @@ function main() {
   const resultad = processOptions(params);
   resultad.then((r) => console.log(r));
 }
-// no tocar en index pasa bien los parametros desde la terminal
+
 main();

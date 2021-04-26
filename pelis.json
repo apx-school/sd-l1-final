@@ -1,13 +1,1 @@
-[
-  {
-    "id": 1,
-    "title": "rapido y furioso",
-    "tags": ["ficción", "favorita", "accion"]
-  },
-  { "id": 2, "title": "rambo", "tags": ["historia", "deportes", "drama"] },
-  {
-    "id": 3,
-    "title": "titanic",
-    "tags": ["amor", "oldies", "suspenso", "drama"]
-  }
-]
+

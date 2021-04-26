@@ -11,36 +11,16 @@ class PelisController {
   }
 
   get(options): Promise<any> {
+    console.log(options);
     var resultado: Promise<any>;
-
-    if (options.id) {
-      resultado = this.pelis.getById(options.id).then((pel) => {
-        return pel;
-      });
-      return resultado;
+    if (options.get) {
+      resultado = this.pelis.getById(options.get);
     } else if (options.add) {
-      resultado = this.pelis.add(options.add).then((pel) => {
-        return pel;
-      });
-      return resultado;
+      resultado = this.pelis.add(options.add);
+    } else if (options.id) {
+      resultado = this.pelis.getById(options.id);
     } else if (options.search) {
-      if (options.search.title) {
-        resultado = this.pelis.search(options.search.title).then((pel) => {
-          return pel;
-        });
-      } else if (options.search.tags) {
-        resultado = this.pelis.search(options.search.tags).then((pel) => {
-          return pel;
-        });
-      }
-    } else if (options.search.title && options.search.tags) {
-      resultado = this.pelis.search(options.search.title).then((pel) => {
-        return pel;
-      });
-      resultado = this.pelis.search(options.search.tags).then((pel) => {
-        return pel;
-      });
-      return resultado;
+      resultado = this.pelis.search(options.search);
     } else {
       resultado = this.pelis.getAll().then((pel) => {
         return pel;
@@ -49,16 +29,14 @@ class PelisController {
     return resultado;
   }
   // aqui me quede
-  add(object) {
+  add(peli: Peli) {
     var pelicula = new Peli();
-    pelicula.id = object.id;
-    pelicula.tags = object.tags;
-    pelicula.title = object.title;
+    pelicula.id = peli.id;
+    pelicula.tags = peli.tags;
+    pelicula.title = peli.title;
     return this.pelis.add(pelicula);
   }
-
-  //add(options: Promise<any>) {
-  //  return true;
-  //}
 }
 export { PelisController };
+
+// mañana seguir con el index p. pasa bien los parametros pero no se porque el serach no los hace  bien
