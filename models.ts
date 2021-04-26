@@ -16,14 +16,43 @@ class PelisCollection {
     });
     return promesa;
   }
-  getById(id: number) {
-    const promesa = this.getAll();
-    promesa.then((res) => {
-      res.find((item) => {
-        return item.id == id;
-      });
-      return promesa;
+  getById(id: number): Promise<any> {
+    const promesa = this.getAll().then(() => {
+      return this.data.find((item) => item.id == id);
     });
+    return promesa;
+  }
+  search(search: any): Promise<any> {
+    return this.getAll().then((item) => {
+      let peliculas = item;
+      if (search.title) {
+        peliculas = peliculas.filter((pelicula) => {
+          return pelicula.title.includes(search.title);
+        });
+      }
+      if (search.tags) {
+        peliculas = peliculas.filter((pelicula) => {
+          return pelicula.tags.includes(search.tags);
+        });
+      }
+      return peliculas;
+    });
+  }
+  add(peli: Peli): Promise<boolean> {
+    const promesaUno = this.getById(peli.id).then((peliRepetida) => {
+      if (peliRepetida) {
+        return false;
+      } else {
+        this.data.push(peli);
+        const promesaDos = jsonfile.writeFile("./pelis.json", this.data);
+
+        return promesaDos.then(() => {
+          return true;
+        });
+      }
+    });
+
+    return promesaUno;
   }
 }
 export { PelisCollection, Peli };
