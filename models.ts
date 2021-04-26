@@ -39,23 +39,30 @@ class PelisCollection {
   //     });
   //   }
   // }
-  search(options: any): Promise<Peli[]> {
-    return this.getAll().then((json) => {
-      if (options.title && options.tag) {
-        return json.filter(
-          (item) =>
-            item.title.includes(options.title) &&
-            item.tags.includes(options.tag)
+  search(options: any) {
+    return this.getAll().then((res) => {
+      let pelis = res;
+
+      if (options.title && options.tags) {
+        return (
+          find(pelis, { title: options.title }) &&
+          filter(pelis, function (peli) {
+            return peli.tags.includes(options.tags);
+          })
         );
       }
 
       if (options.title) {
-        return json.filter((item) => item.title.includes(options.title));
+        pelis = pelis.filter((p) => {
+          return p.title.includes(options.title);
+        });
       }
-
       if (options.tags) {
-        return json.filter((item) => item.tags.includes(options.tag));
+        pelis = pelis.filter((p) => {
+          return p.tags.includes(options.tags);
+        });
       }
+      return pelis;
     });
   }
   //mètodo en proceso
