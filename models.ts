@@ -52,8 +52,10 @@ class PelisCollection {
 
       if (addMovie == true) {
         movies.push(peli);
-        jsonfile.writeFile('pelis.json', movies);
-        return true;
+        const movieAdded = jsonfile.writeFile('pelis.json', movies);
+        return movieAdded.then(() => {
+          return true;
+        });
       } else if (addMovie == false) {
         return false;
       }
@@ -62,9 +64,3 @@ class PelisCollection {
 }
 
 export { PelisCollection, Peli };
-
-// const test = new PelisCollection();
-// const result = test.getById(3);
-// result.then((r) => {
-//   console.log(r);
-// });

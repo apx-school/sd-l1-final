@@ -7,7 +7,7 @@ function parseaParams(argv) {
 
   if (resultado._[0] == 'get') {
     return {
-      get: resultado._[1],
+      get: { id: resultado._[1] },
     };
   } else if (resultado._[0] == 'search') {
     return {
@@ -36,7 +36,7 @@ function main() {
         console.log('Was Your Movie Added ? => ', r);
       });
     } else if (params.get) {
-      controller.get(params).then((r) => {
+      controller.get(params.get).then((r) => {
         console.log(r);
       });
     } else if (params.search) {
@@ -50,4 +50,5 @@ function main() {
     }
   });
 }
+
 main();
