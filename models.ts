@@ -22,7 +22,7 @@ class PelisCollection {
   }
   search(options: any) {
     return this.getAll().then((json) => {
-      var peliculas = json;
+      let peliculas = json;
 
       if (options.title) {
         peliculas = peliculas.filter((pelicula) => {
@@ -56,4 +56,3 @@ class PelisCollection {
   }
 }
 export { PelisCollection, Peli };
-

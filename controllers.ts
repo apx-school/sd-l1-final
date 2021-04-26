@@ -1,27 +1,24 @@
 import { PelisCollection, Peli } from "./models";
 
 class PelisController {
-  pelis: PelisCollection;
-  promesa:Promise<any>
+  peliculas: PelisCollection;
+
   constructor() {
-    this.pelis = new PelisCollection();
-   
+    this.peliculas = new PelisCollection();
   }
   get(options): Promise<any> {
     if (options.id) {
-      return this.pelis.getById(options.id);
+      return this.peliculas.getById(options.id);
     }
     if (options.search) {
-      return this.pelis.search(options.search);
+      return this.peliculas.search(options.search);
     } else {
-      
-      return this.pelis.getAll();
+      return this.peliculas.getAll();
     }
-    
   }
 
   add(peli) {
-    return this.pelis.add(peli);
+    return this.peliculas.add(peli);
   }
 }
 export { PelisController };

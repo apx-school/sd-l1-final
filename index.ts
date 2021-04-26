@@ -14,14 +14,18 @@ function processOptions(argv) {
     return controller.get({ id: id }).then((res) => {
       return res;
     });
-  }
-  if (argv._[0] == "search") {
-    let parametros = {
-      title:argv.title,
-      tags:argv.tag
-    };
-  console.log("dsafasdfasd",parametros)
-   
+  } else if (argv._[0] == "search") {
+    let parametros = {};
+    if (argv.title) {
+      parametros = {
+        title: argv.title,
+      };
+    }
+    if (argv.tag) {
+      parametros = {
+        tag: argv.tag,
+      };
+    }
 
     return controller.get({ search: parametros }).then((res) => {
       return res;
@@ -32,6 +36,8 @@ function processOptions(argv) {
       title: argv.title,
       tags: argv.tags,
     };
+    // console.log(nuevaPeli);
+
     return controller.add(nuevaPeli).then((res) => {
       return res;
     });
@@ -43,7 +49,6 @@ function processOptions(argv) {
 }
 
 function main() {
- 
   const parametros = parseaParams(process.argv.slice(2));
   const resultadoFinal = processOptions(parametros);
   resultadoFinal.then((r) => console.log(r));
