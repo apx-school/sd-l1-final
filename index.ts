@@ -3,8 +3,6 @@ import { PelisController } from "./controllers";
 
 function parseaParams(argv) {
   const resultado = minimist(argv);
-  console.log("Este es el input:");
-  console.log(resultado);
 
   let objetoInput = {};
 
@@ -22,9 +20,6 @@ function parseaParams(argv) {
     objetoInput["title"] = resultado.title;
     objetoInput["tags"] = resultado.tag;
   }
-  console.log("este es el objeto que se va a pasar al controller:");
-  console.log(objetoInput);
-
   return objetoInput;
 }
 
