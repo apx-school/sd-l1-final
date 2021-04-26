@@ -1,5 +1,4 @@
 import { PelisCollection, Peli } from "./models";
-import * as _ from "lodash";
 
 class PelisController {
   pelisCollection: PelisCollection;
@@ -28,4 +27,5 @@ class PelisController {
     return this.pelisCollection.add(pelicula);
   }
 }
+
 export { PelisController };

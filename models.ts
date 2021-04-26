@@ -1,6 +1,7 @@
 import * as jsonfile from "jsonfile";
 import * as _ from "lodash";
 
+
 // no modificar estas propiedades, agregar todas las que quieras
 class Peli {
   id: number;
@@ -26,23 +27,21 @@ class PelisCollection {
     })
   }
 
-  search(options: any): Promise<any> {
-    return this.promise.then((obj) => {
-      const filtrado = _.filter(obj, (x) => {
-        if (options.tag && options.title) {
-          return (
-            _.includes(x.tags, options.tag) &&
-            x.title.toLowerCase().includes(options.title.toLowerCase())
-          );
-        }
-        if (options.title && !options.tag) {
-          return x.title.toLowerCase().includes(options.title.toLowerCase());
-        }
-        if (!options.title && options.tag) {
-          return _.includes(x.tags, options.tag);
-        }
-      });
-      return filtrado;
+  search(options: any) {
+    return this.getAll().then((json) => {
+      let peliculas = json;
+
+      if (options.title) {
+        peliculas = peliculas.filter((pelicula) => {
+          return pelicula.title.includes(options.title);
+        });
+      }
+      if (options.tag) {
+        peliculas = peliculas.filter((pelicula) => {
+          return pelicula.tags.includes(options.tag);
+        });
+      }
+      return peliculas;
     });
   }
 
@@ -56,6 +55,6 @@ class PelisCollection {
       }
     });
   }
-  
+
 }
 export { PelisCollection, Peli };

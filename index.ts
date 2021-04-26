@@ -1,6 +1,7 @@
 import * as minimist from "minimist";
 import { PelisController } from "./controllers";
 
+
 function parseaParams(argv) {
   const resultado = minimist(argv);
 
@@ -25,7 +26,6 @@ function main() {
   const controller = new PelisController();
   parametros(controller, params);
   console.log(params);
-
 }
 
 main();
