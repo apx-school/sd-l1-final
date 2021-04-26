@@ -4,64 +4,49 @@ import * as vacio from "lodash/isEmpty";
 
 function parseaParams(argv) {
   const resultado = minimist(argv);
-  //el "_" de resultado representa el array que genera minimist dentro del objeto respuesta
-  let controller = new PelisController();
+  return resultado;
+}
+
+function proccesOptions(resultado) {
+  const controller = new PelisController();
 
   if (vacio(resultado._)) {
-    let options = {
-      action: "esta vacio",
-    };
-    return options;
+    let res = { action: "esta vacio" };
+    return controller.get(res);
   }
+
   if (resultado._.includes("get")) {
-    let options = {
-      action: "get",
-      id: resultado._[1],
-    };
-    return options;
+    let res = { id: resultado._[1] };
+    return controller.get(res);
   }
   if (resultado._.includes("search") && resultado.title) {
-    let options = {
-      action: "search",
-      params: "title",
-      do: resultado.title,
-    };
-    return options;
+    let res = { title: resultado.title };
+    return controller.get(res);
   }
   if (resultado._.includes("search") && resultado.tag) {
-    let options = {
-      action: "search",
-      params: "tags",
-      do: resultado.tag,
-    };
-    return options;
+    let res = { tags: resultado.tag };
+    return controller.get(res);
+  }
+  if (resultado._.includes("search") && resultado.tag && resultado.title) {
+    let res = { tags: resultado.tags, title: resultado.title };
+    return controller.get(res);
   }
 
   if (resultado._[0] == "add") {
-    let options = {
-      action: "add",
-
+    let res = {
       id: resultado.id,
       title: resultado.title,
       tags: resultado.tags,
     };
-    return options;
+    return controller.add(res);
   }
 }
 
 function main() {
-  const collection = new PelisController();
-  collection.promesa.then(() => {
-    const res = parseaParams(process.argv.slice(2));
-    if (res.action !== "add") {
-      collection.get(res).then((r) => {
-        console.log(r);
-      });
-    } else {
-      collection.add(res).then((r) => {
-        console.log(r);
-      });
-    }
+  const res = parseaParams(process.argv.slice(2));
+  const resultado = proccesOptions(res);
+  resultado.then((res) => {
+    console.table(res);
   });
 }
 main();

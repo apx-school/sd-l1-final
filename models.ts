@@ -1,5 +1,4 @@
 import * as jsonfile from "jsonfile";
-import * as concat from "lodash/concat";
 import * as find from "lodash/find";
 
 class Peli {
@@ -10,7 +9,6 @@ class Peli {
 
 class PelisCollection {
   peliculas: Peli[] = [];
-  promesa: Promise<any>;
 
   getAll(): Promise<any> {
     return jsonfile.readFile("./pelis.json").then((pelis) => {
@@ -25,36 +23,43 @@ class PelisCollection {
     });
   }
 
-  search(action, objetivo): Promise<any> {
-    if (action == "title") {
-      return this.getAll().then((res) => {
-        return find(res, { title: objetivo });
-      });
-    }
-
-    if (action == "tags") {
-      return this.getAll().then((pelis) => {
-        return pelis.filter((p) => {
-          return p.tags.includes(objetivo);
+  search(options: any): Promise<any> {
+    return this.getAll().then((res) => {
+      let pelis = res;
+      let aux;
+      if (options.title) {
+        aux = pelis.filter((p) => {
+          return p.title.includes(options.title);
         });
-      });
-    }
+      }
+      if (options.tags) {
+        aux = pelis.filter((p) => {
+          return p.tags.includes(options.tags);
+        });
+      }
+      if (options.tags && options.title) {
+        aux = pelis.filter((p) => {
+          return (
+            p.tags.includes(options.tags) && p.title.includes(options.title)
+          );
+        });
+      } else {
+        aux = "no hay tal peli";
+      }
+      return aux;
+    });
   }
-
   //mètodo en proceso
 
   add(peli: Peli): Promise<boolean> {
     const promesaUno = this.getById(peli.id).then((peliExistente) => {
       if (peliExistente) {
-        console.log("ya existe");
         return false;
       } else {
-        // magia que agrega la pelicula a un objeto data
         this.peliculas.push(peli);
         const promesaDos = jsonfile.writeFile("./pelis.json", this.peliculas);
 
         return promesaDos.then(() => {
-          console.log("peli agregada correctamente");
           return true;
         });
       }
