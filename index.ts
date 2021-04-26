@@ -36,7 +36,7 @@ function processOptions(argv) {
       title: argv.title,
       tags: argv.tags,
     };
-    // console.log(nuevaPeli);
+   
 
     return controller.add(nuevaPeli).then((res) => {
       return res;
