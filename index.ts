@@ -11,7 +11,7 @@ function proccesOptions(resultado) {
   const controller = new PelisController();
 
   if (vacio(resultado._)) {
-    let res = { action: "esta vacio" };
+    let res = { action: "esta vacio papurri" };
     return controller.get(res);
   }
 

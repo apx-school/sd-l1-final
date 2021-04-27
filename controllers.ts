@@ -8,14 +8,23 @@ class PelisController {
   }
 
   get(options: any) {
-    if (options.action == "esta vacio") {
+    if (options.action == "esta vacio papurri") {
       return this.pelis.getAll();
     }
     if (options.id) {
       return this.pelis.getById(options.id);
     }
+    // if (options.search) {
+    //   return this.pelis.search(options);
+    // }
     if (options.search) {
-      return this.pelis.search(options);
+      let aux = {
+        title: options.search.title,
+        tag: options.search.tag,
+      };
+      return this.pelis.search(aux).then((res) => {
+        return res;
+      });
     }
   }
 
