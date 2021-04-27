@@ -25,22 +25,32 @@ class PelisCollection {
 
   search(options: any): Promise<any> {
     return this.getAll().then((res) => {
-      let peliculas = res;
-
       if (options.search.title) {
+        let peliculas = res;
         peliculas = peliculas.filter((pelicula) => {
           return pelicula.title.includes(options.search.title);
         });
+        return peliculas;
       }
-      if (options.search.tags) {
+      if (options.search.tag) {
+        let peliculas = res;
         peliculas = peliculas.filter((pelicula) => {
-          return pelicula.tags.includes(options.search.tags);
+          return pelicula.tags.includes(options.search.tag);
         });
+        return peliculas;
+      }
+      if (options.search.tag && options.search.title) {
+        let peliculas = res;
+        peliculas = peliculas.filter((pelicula) => {
+          return (
+            pelicula.tags.includes(options.search.tag) &&
+            pelicula.title.includes(options.search.title)
+          );
+        });
+        return peliculas;
       } else {
         return false;
       }
-
-      return peliculas;
     });
   }
   //mètodo en proceso

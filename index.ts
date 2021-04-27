@@ -23,7 +23,7 @@ function proccesOptions(resultado) {
     let res = {
       search: {
         title: resultado.title,
-        tags: resultado.tag,
+        tag: resultado.tag,
       },
     };
     return controller.get(res);
