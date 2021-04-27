@@ -19,16 +19,13 @@ function proccesOptions(resultado) {
     let res = { id: resultado._[1] };
     return controller.get(res);
   }
-  if (resultado._.includes("search") && resultado.title) {
-    let res = { title: resultado.title };
-    return controller.get(res);
-  }
-  if (resultado._.includes("search") && resultado.tag) {
-    let res = { tags: resultado.tag };
-    return controller.get(res);
-  }
-  if (resultado._.includes("search") && resultado.tag && resultado.title) {
-    let res = { tags: resultado.tags, title: resultado.title };
+  if (resultado._.includes("search")) {
+    let res = {
+      search: {
+        title: resultado.title,
+        tags: resultado.tag,
+      },
+    };
     return controller.get(res);
   }
 

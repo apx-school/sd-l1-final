@@ -8,12 +8,13 @@ class PelisController {
   }
 
   get(options: any) {
-    if (options.action) {
+    if (options.action == "esta vacio") {
       return this.pelis.getAll();
     }
     if (options.id) {
       return this.pelis.getById(options.id);
-    } else {
+    }
+    if (options.search) {
       return this.pelis.search(options);
     }
   }
