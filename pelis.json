@@ -1,16 +1,1 @@
-[
-  {
-    "id": 1,
-    "title": "titanic",
-    "tags": ["ficción", "favorita", "amor"]
-  },
-  { "id": 2,
-    "title": "it",
-    "tags": ["terror", "suspenso", "classic"] },
-  {
-    "id": 3,
-    "title": "rapido y furioso",
-    "tags": ["action", "carreras", "favorita", "autos"]
-  }
-]
-
+[{"id":1,"title":"titanic","tags":["ficción","favorita","amor"]},{"id":2,"title":"it","tags":["terror","suspenso","classic"]},{"id":3,"title":"rapido y furioso","tags":["action","carreras","favorita","autos"]}]

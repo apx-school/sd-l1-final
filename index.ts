@@ -27,7 +27,7 @@ function processOptions(argv) {
     let nuevaPeli = {
       id: argv.id,
       title: argv.title,
-      tags: argv.tag,
+      tags: argv.tags,
     };
     return controller.add(nuevaPeli).then((pel) => {
       return pel;

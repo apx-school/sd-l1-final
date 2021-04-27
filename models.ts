@@ -23,8 +23,7 @@ class PelisCollection {
     });
   }
 
-  search(options: any): Promise<any> {
-    console.log("lo que llega al serch del model", options);
+  search(options: any) {
     return this.getAll().then((json) => {
       let datos = json;
 
@@ -33,9 +32,9 @@ class PelisCollection {
           return p.title.includes(options.title);
         });
       }
-      if (options.tag) {
+      if (options.tags) {
         datos = datos.filter((p) => {
-          return p.tags.includes(options.tag);
+          return p.tags.includes(options.tags);
         });
       }
       return datos;
@@ -48,7 +47,7 @@ class PelisCollection {
         return false;
       } else {
         this.data.push(peli);
-        const cargaDePeli2 = jsonfile.writeFile("./pelis.json", peli);
+        const cargaDePeli2 = jsonfile.writeFile("./pelis.json", this.data);
         return cargaDePeli2.then(() => {
           return true;
         });

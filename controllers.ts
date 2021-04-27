@@ -8,7 +8,6 @@ class PelisController {
   }
 
   get(options): Promise<any> {
-    console.log("console del options get del  controller", options);
     let resultado: Promise<any>;
     if (options.get) {
       resultado = this.pelis.getById(options.get);
@@ -17,7 +16,6 @@ class PelisController {
     } else if (options.id) {
       resultado = this.pelis.getById(options.id);
     } else if (options.search) {
-      // console.log("console del options SEARCH", options.search);
       resultado = this.pelis.search(options.search);
     } else {
       resultado = this.pelis.getAll().then((pel) => {
