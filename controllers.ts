@@ -13,14 +13,7 @@ class PelisController {
     }
     if (options.id) {
       return this.pelis.getById(options.id);
-    }
-    if (options.title) {
-      return this.pelis.search(options);
-    }
-    if (options.tags) {
-      return this.pelis.search(options);
-    }
-    if (options.title && options.tags) {
+    } else {
       return this.pelis.search(options);
     }
   }
