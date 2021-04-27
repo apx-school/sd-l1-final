@@ -30,9 +30,9 @@ class PelisCollection {
           return pelicula.title.includes(search.title);
         });
       }
-      if (search.tags) {
+      if (search.tag) {
         peliculas = peliculas.filter((pelicula) => {
-          return pelicula.tags.includes(search.tags);
+          return pelicula.tags.includes(search.tag);
         });
       }
       return peliculas;

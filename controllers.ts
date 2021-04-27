@@ -8,37 +8,19 @@ class PelisController {
     const promesa = this.data.getAll();
     this.promesa = promesa;
   }
-  get(objetoInput: any) {
-    let resultado;
-
-    if (
-      objetoInput.hasOwnProperty("id") &&
-      objetoInput.hasOwnProperty("title") &&
-      objetoInput.hasOwnProperty("tags")
-    ) {
-      resultado = this.add(objetoInput).then((res) => {
-        return res;
-      });
-    } else if (
-      objetoInput.hasOwnProperty("title") ||
-      objetoInput.hasOwnProperty("tags")
-    ) {
-      resultado = this.data.search(objetoInput).then((res) => {
-        return res;
-      });
-    } else if (objetoInput.hasOwnProperty("id")) {
-      resultado = this.data.getById(objetoInput.id).then((res) => {
-        return res;
-      });
-    } else
-      resultado = this.data.getAll().then((res) => {
-        return res;
-      });
-
-    return resultado;
+  get(options): Promise<any> {
+    if (options.id) {
+      return this.data.getById(options.id);
+    }
+    if (options.search) {
+      return this.data.search(options.search);
+    } else {
+      return this.data.getAll();
+    }
   }
-  add(objetoInput: any) {
-    return this.data.add(objetoInput);
+
+  add(peliNueva) {
+    return this.data.add(peliNueva);
   }
 }
 export { PelisController };
