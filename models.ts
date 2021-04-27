@@ -23,56 +23,6 @@ class PelisCollection {
     });
   }
 
-  // search(options: any): Promise<any> {
-  //   return this.getAll().then((res) => {
-  //     if (options.search.title) {
-  //       let peliculas = res;
-  //       peliculas = peliculas.filter((pelicula) => {
-  //         return pelicula.title.includes(options.search.title);
-  //       });
-  //       return peliculas;
-  //     }
-  //     if (options.search.tag) {
-  //       let peliculas = res;
-  //       peliculas = peliculas.filter((pelicula) => {
-  //         return pelicula.tags.includes(options.search.tag);
-  //       });
-  //       return peliculas;
-  //     }
-  //     if (options.search.tag && options.search.title) {
-  //       let peliculas = res;
-  //       peliculas = peliculas.filter((pelicula) => {
-  //         return (
-  //           pelicula.tags.includes(options.search.tag) &&
-  //           pelicula.title.includes(options.search.title)
-  //         );
-  //       });
-  //       return peliculas;
-  //     } else {
-  //       return false;
-  //     }
-  //   });
-  // }
-  //mètodo en proceso
-  // search(options: any) {
-  //   let buscar = this.getAll();
-
-  //   if (options.title) {
-  //     let encontrarTitle = buscar.then((x) =>
-  //       x.filter((x) => x.title.includes(options.title))
-  //     );
-  //     buscar = encontrarTitle;
-  //   }
-
-  //   if (options.tag) {
-  //     let encontrarTag = buscar.then((x) =>
-  //       x.filter((x) => x.tags.includes(options.tag))
-  //     );
-  //     buscar = encontrarTag;
-  //   }
-
-  //   return buscar;
-  // }
   search(params: any): Promise<Peli[]> {
     return this.getAll().then((pelis) => {
       let res: Peli[] = [];
