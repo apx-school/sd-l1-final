@@ -7,8 +7,13 @@ class Peli {
 }
 
 class PelisCollection {
+  listOfmovies: Peli[] = [];
+
   getAll(): Promise<Peli[]> {
-    return jsonfile.readFile('pelis.json');
+    return jsonfile.readFile('./pelis.json').then((pelis) => {
+      this.listOfmovies = pelis;
+      return this.listOfmovies;
+    });
   }
 
   getById(id: number) {
@@ -41,23 +46,15 @@ class PelisCollection {
   }
 
   add(peli: Peli) {
-    return this.getAll().then((movies) => {
-      const addMovie = movies.every((movie) => {
-        if (peli.id == movie.id || !peli.id) {
-          return false;
-        } else if (peli.id != movie.id) {
-          return true;
-        }
-      });
-
-      if (addMovie == true) {
-        movies.push(peli);
-        const movieAdded = jsonfile.writeFile('pelis.json', movies);
+    return this.getById(peli.id).then((movieToAdd) => {
+      if (movieToAdd) {
+        return false;
+      } else if (!movieToAdd) {
+        this.listOfmovies.push(peli);
+        const movieAdded = jsonfile.writeFile('pelis.json', this.listOfmovies);
         return movieAdded.then(() => {
           return true;
         });
-      } else if (addMovie == false) {
-        return false;
       }
     });
   }
