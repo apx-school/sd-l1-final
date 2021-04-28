@@ -15,10 +15,13 @@ function processOptions(argv) {
       return pel;
     });
   } else if (argv._[0] == "search") {
-    let params = {
-      title: argv.title,
-      tag: argv.tag,
-    };
+    let params = {};
+    if (argv.title) {
+      params["title"] = argv.title;
+    }
+    if (argv.tag) {
+      params["tag"] = argv.tag;
+    }
 
     return controller.get({ search: params }).then((pel) => {
       return pel;

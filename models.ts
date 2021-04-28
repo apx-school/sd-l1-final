@@ -32,9 +32,9 @@ class PelisCollection {
           return p.title.includes(options.title);
         });
       }
-      if (options.tags) {
+      if (options.tag) {
         datos = datos.filter((p) => {
-          return p.tags.includes(options.tags);
+          return p.tags.includes(options.tag);
         });
       }
       return datos;
