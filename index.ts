@@ -26,29 +26,32 @@ function parseaParams(argv) {
   }
 }
 
-function main() {
+function processOptions(params) {
   const controller = new PelisController();
-  controller.promise.then(() => {
-    const params = parseaParams(process.argv.slice(2));
 
-    if (params.add) {
-      controller.add(params.add).then((r) => {
-        console.log('Was Your Movie Added ? => ', r);
-      });
-    } else if (params.get) {
-      controller.get(params.get).then((r) => {
-        console.log(r);
-      });
-    } else if (params.search) {
-      controller.get(params).then((r) => {
-        console.log(r);
-      });
-    } else if (params.result) {
-      controller.get(params).then((listOfMovies) => {
-        console.log(listOfMovies);
-      });
-    }
-  });
+  if (params.add) {
+    return controller.add(params.add).then((r) => {
+      return 'Was Your Movie Added ? => ' + r;
+    });
+  } else if (params.get) {
+    return controller.get(params.get).then((r) => {
+      return r;
+    });
+  } else if (params.search) {
+    return controller.get(params).then((r) => {
+      return r;
+    });
+  } else if (params.result) {
+    return controller.get(params).then((listOfMovies) => {
+      return listOfMovies;
+    });
+  }
+}
+
+function main() {
+  const params = parseaParams(process.argv.slice(2));
+  const result = processOptions(params);
+  result.then((r) => console.log(r));
 }
 
 main();
