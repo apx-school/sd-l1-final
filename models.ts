@@ -1,6 +1,7 @@
 import * as jsonfile from "jsonfile";
 
 
+
 class Peli {
   id: number;
   title: string;
@@ -27,16 +28,19 @@ class PelisCollection {
 
   search(options:any){
     return this.getAll().then((pelis)=>{
+      var respuesta = pelis;
+
       if (options.title){
-        return pelis.filter((peli)=>{
+        respuesta = respuesta.filter((peli)=>{
           return peli.title.includes(options.title);
         });
       };
-       if (options.tag){
-        return pelis.filter((peli)=>{
+      if (options.tag){
+        respuesta = respuesta.filter((peli)=>{
           return peli.tags.includes(options.tag);
         });
-      }
+      }; 
+      return respuesta;
     });
 
   }
@@ -59,4 +63,3 @@ class PelisCollection {
   }
 }
 export { PelisCollection, Peli };
-

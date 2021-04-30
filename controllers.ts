@@ -14,7 +14,7 @@ class PelisController {
   get(options:any):Promise <any>{
     
     if (options.id){
-      return  this.pelis.getById(options.id).then((result)=>{return result});
+      return this.pelis.getById(options.id).then((result)=>{return result});
     }
 
     if (options.search){

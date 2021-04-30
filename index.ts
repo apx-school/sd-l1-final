@@ -27,10 +27,11 @@ function paramsOptions (controller, params){
     if (params.tag){
       options["tag"] = params.tag;
     }
+   
     return resultado = controller.get({search: options}).then((result)=>{return result});
   }
   if (params._.length == 0){
-    return resultado = controller.get ({}).then((result)=>{return result});
+    return resultado =  controller.get ({}).then((result)=>{return result});
   }
  
   return resultado;
@@ -40,6 +41,7 @@ function paramsOptions (controller, params){
 
 function main() {
   const params = parseaParams(process.argv.slice(2));
+  
   const controller = new PelisController();
   paramsOptions(controller, params).then((result)=>{console.log (result)});
   
