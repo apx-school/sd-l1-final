@@ -1,1 +1,61 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "francotirador",
+    "tags": ["accion", "drama", "suspenso"]
+  },
+  { "id": 2, "title": "el conjuro", "tags": ["terror", "drama", "suspenso"] },
+  {
+    "id": 3,
+    "title": "harry potter",
+    "tags": ["accion", "aventura", "suspenso", "emotiva"]
+  },
+  { "id": 4, "title": "rocky", "tags": ["accion", "aventura", "emotiva"] },
+  {
+    "id": 4321865,
+    "title": "peli de la terminal 4321865",
+    "tags": ["rr", "ww"]
+  },
+  { "id": 224232, "title": "title 227403224232", "tags": ["tt", "rr"] },
+  { "id": 214223, "title": "title 227403214223", "tags": ["yy", "uu"] },
+  { "id": 147106, "title": "title 181828147106", "tags": ["tt", "rr"] },
+  { "id": 191879, "title": "title 181828191879", "tags": ["yy", "uu"] },
+  {
+    "id": 157875,
+    "title": "una peli 157875",
+    "tags": ["classic", "tag 157875"]
+  },
+  {
+    "id": 179290,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 157875"]
+  },
+  { "id": 204836, "title": "title 197853204836", "tags": ["tt", "rr"] },
+  { "id": 203985, "title": "title 197853203985", "tags": ["yy", "uu"] },
+  {
+    "id": 187784,
+    "title": "una peli 187784",
+    "tags": ["classic", "tag 187784"]
+  },
+  { "id": 163737, "title": "title 195911163737", "tags": ["tt", "rr"] },
+  { "id": 159768, "title": "title 195911159768", "tags": ["yy", "uu"] },
+  {
+    "id": 168260,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 187784"]
+  },
+  { "id": 229680, "title": "title 214379229680", "tags": ["tt", "rr"] },
+  { "id": 195868, "title": "title 214379195868", "tags": ["yy", "uu"] },
+  { "id": 160347, "title": "title 164834160347", "tags": ["tt", "rr"] },
+  { "id": 158332, "title": "title 164834158332", "tags": ["yy", "uu"] },
+  {
+    "id": 172588,
+    "title": "una peli 172588",
+    "tags": ["classic", "tag 172588"]
+  },
+  {
+    "id": 145401,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 172588"]
+  }
+]

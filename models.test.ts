@@ -7,7 +7,6 @@ export const getRandomId = () => {
 };
 
 const SESSION_ID = getRandomId();
-
 const test = anyTest as TestInterface<{
   instance: PelisCollection;
   all: Peli[];
