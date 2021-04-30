@@ -17,8 +17,8 @@ class PelisCollection {
   }
 
   getById(id: number) {
-    return this.getAll().then((movies: Peli[]) => {
-      return movies.find((movie) => {
+    return this.getAll().then(() => {
+      return this.listOfmovies.find((movie) => {
         return movie.id == id;
       });
     });
