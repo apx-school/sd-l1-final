@@ -1,6 +1,5 @@
-import * as jsonfile from "jsonfile";
+import * as jsonfile from 'jsonfile';
 
-// no modificar estas propiedades, agregar todas las que quieras
 class Peli {
   id: number;
   title: string;
@@ -8,11 +7,62 @@ class Peli {
 }
 
 class PelisCollection {
+  listOfmovies: Peli[] = [];
+
   getAll(): Promise<Peli[]> {
-    return jsonfile("...laRutaDelArchivo").then(() => {
-      // la respuesta de la promesa
-      return [];
+    return jsonfile.readFile('./pelis.json').then((pelis) => {
+      this.listOfmovies = pelis;
+      return this.listOfmovies;
+    });
+  }
+
+  getById(id: number) {
+    return this.getAll().then(() => {
+      return this.listOfmovies.find((movie) => {
+        return movie.id == id;
+      });
+    });
+  }
+
+  search(options: any) {
+    return this.getAll().then((movies) => {
+      return movies.filter((movie) => {
+        const titleWanted = options.title;
+        const movieTitle = movie.title;
+        const tagsWanted = options.tag;
+        const movietags = movie.tags;
+
+        if (titleWanted && !tagsWanted) {
+          return movieTitle.includes(titleWanted);
+        } else if (tagsWanted && !titleWanted) {
+          return movietags.includes(tagsWanted);
+        } else if (tagsWanted && titleWanted) {
+          return (
+            movieTitle.includes(titleWanted) && movietags.includes(tagsWanted)
+          );
+        }
+      });
+    });
+  }
+
+  add(peli: Peli) {
+    return this.getById(peli.id).then((movieToAdd) => {
+      if (
+        movieToAdd ||
+        peli.id == undefined ||
+        peli.tags == undefined ||
+        peli.title == undefined
+      ) {
+        return false;
+      } else if (!movieToAdd) {
+        this.listOfmovies.push(peli);
+        const movieAdded = jsonfile.writeFile('pelis.json', this.listOfmovies);
+        return movieAdded.then(() => {
+          return true;
+        });
+      }
     });
   }
 }
+
 export { PelisCollection, Peli };
