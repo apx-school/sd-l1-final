@@ -19,4 +19,6 @@ class PelisController {
     return this.pelis.add(peli)
  }
 }
+
+
 export { PelisController };

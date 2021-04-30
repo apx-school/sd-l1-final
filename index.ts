@@ -33,7 +33,7 @@ function processOptions(argv){
     return control.add(peliNueva).then((res)=>{
       return res
     });
-  } if(argv._[0] === 0){
+  } if(argv._.length === 0){
     return control.get([]).then((res)=>{
       return res
     })

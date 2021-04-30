@@ -25,14 +25,18 @@ class PelisCollection {
   }
   search(options:any){
     return this.getAll().then((res)=>{
-    
+    let peliculas = res
       if(options.title) {
-        return res.filter((item)=>item.title.includes(options.title))
+        peliculas = peliculas.filter((item)=>{
+          return item.title.includes(options.title)
+        })
       }
       if (options.tag) {
-        return res.filter((item)=>item.tags.includes(options.tag))
+        peliculas = peliculas.filter((item)=>{
+          return item.tags.includes(options.tag)
+        })
       }
-      return res
+      return peliculas
     })
   }
   add(peli:Peli):Promise<boolean>{
