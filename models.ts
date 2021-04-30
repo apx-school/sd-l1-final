@@ -10,17 +10,19 @@ class Peli {
 
 class PelisCollection {
   data: Peli[]
-  getAll(): Promise<Peli[]> {
-    return jsonfile.readFile("./pelis.json").then((data) => {
-      this.data = data
-      return data 
-    });
+  getAll(): Promise<any> {
+    const promesa = jsonfile.readFile("./pelis.json");
+    promesa.then((data)=>{
+    this.data = data
+    })
+    return promesa
   }
 
   getById(id:number){
     return this.getAll().then(()=>{
       return this.data.find((i)=> i.id == id)
     })
+   
   }
   search(options:any){
     return this.getAll().then((pelis)=>{
@@ -55,23 +57,7 @@ class PelisCollection {
 }
 export { PelisCollection, Peli };
 
-// const params = {
-//   title: "el",
-//   tags: "aventura"
-// }
-// const peli = {
-//   id: 10,
-//   title: "peli nueva 2",
-//   tags: ["accion", "aventura"]
-// }
-// const mock = new PelisCollection()
-// mock.getAll().then(()=>{
-// const resultado = mock.add(peli)
-// resultado.then(()=>{
-//   console.log(mock.data);
+
   
-// })
-  
-// })
 
 

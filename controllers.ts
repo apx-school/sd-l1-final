@@ -2,9 +2,12 @@ import { PelisCollection, Peli } from "./models";
 
 class PelisController {
   pelis: PelisCollection
+  promesa:Promise<any>
   constructor() {
     const pelis = new PelisCollection()
     this.pelis = pelis
+    const promesa = this.pelis.getAll()
+    this.promesa = promesa
   }
   get(options:any){
     if (options.id) {

@@ -7,10 +7,9 @@ function parseaParams(argv) {
   return resultado;
 }
 
-function main() {
-  const params = parseaParams(process.argv.slice(2));
+function proceso(params){
   const controller = new PelisController()
-  if(params._ == "add"){
+  if(params._[0] == "add"){
     const peliNueva = {
       id: params.id,
       title: params.title,
@@ -18,21 +17,29 @@ function main() {
     }
     controller.add(peliNueva)
   }
-  if(params._ == "get"){
+  if(params._[0] == "get"){
    const respuesta = controller.get(params)
-   respuesta.then(()=>{
-     console.log(respuesta);
+   respuesta.then((x)=>{
+      console.log(x);
    })
   }
-  if(params._=="search"){
-    console.log(params);
+  if(params._[0]=="search"){
+    const objeto = {
+      search:{
+      title: params.title,
+      tag: params.tag
+      } 
+    }
+    const respuesta = controller.get(objeto)
+    respuesta.then((x)=>{
+    console.log(x);
     
-    const respuesta = controller.get(params)
-    respuesta.then(()=>{
-      console.log(respuesta);
-      
     })
   }
+}
+function main() {
+  const params = parseaParams(process.argv.slice(2));
+ proceso(params)
 }
 
 main();
