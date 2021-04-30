@@ -47,7 +47,7 @@ class PelisCollection {
 
   add(peli: Peli) {
     return this.getById(peli.id).then((movieToAdd) => {
-      if (movieToAdd) {
+      if (movieToAdd || !peli) {
         return false;
       } else if (!movieToAdd) {
         this.listOfmovies.push(peli);
