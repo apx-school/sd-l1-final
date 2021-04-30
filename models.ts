@@ -10,6 +10,8 @@ class Peli {
 
 class PelisCollection {
   data: Peli[]
+
+  //metodo que carga el archivo json de peliculas
   getAll(): Promise<any> {
     const promesa = jsonfile.readFile("./pelis.json");
     promesa.then((data)=>{
@@ -18,12 +20,15 @@ class PelisCollection {
     return promesa
   }
 
+ //metodo que obtiene una pelicula segun su id
   getById(id:number){
     return this.getAll().then(()=>{
       return this.data.find((i)=> i.id == id)
     })
    
   }
+
+  //metodo que filtra peliculas segun su titulo y sus tags 
   search(options:any){
     return this.getAll().then((pelis)=>{
       let tmp = pelis
@@ -36,12 +41,14 @@ class PelisCollection {
     })
   }
 
+ //metodo que agrega una pelicula a data y luego lo guarda en el json
+ //si el id de la pelicula que se esta por agregar ya existe en el json devuelve false
   add(peli: Peli): Promise<boolean> {
     const promesaUno = this.getById(peli.id).then((peliExistente) => {
       if (peliExistente) {
         return false;
       } else {
-        // magia que agrega la pelicula a un objeto data
+    
        this.data.push(peli)
         const data = this.data
         const promesaDos = jsonfile.writeFile("./pelis.json", data);
