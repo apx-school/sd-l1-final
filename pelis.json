@@ -12,6 +12,5 @@
   { "id": 7, "title": "bañeros 4", "tags": ["comedia", "romantica", "nueva"] },
   { "id": 8, "title": "think like a dog", "tags": ["comedia", "infantil"] },
   { "id": 9, "title": "jumanji", "tags": ["aventura", "accion", "vieja"] },
-  { "id": 10, "title": "the notebook", "tags": ["romantica", "vieja"] },
-  {}
+  { "id": 10, "title": "the notebook", "tags": ["romantica", "vieja"] }
 ]

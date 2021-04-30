@@ -47,7 +47,12 @@ class PelisCollection {
 
   add(peli: Peli) {
     return this.getById(peli.id).then((movieToAdd) => {
-      if (movieToAdd || !peli) {
+      if (
+        movieToAdd ||
+        peli.id == undefined ||
+        peli.tags == undefined ||
+        peli.title == undefined
+      ) {
         return false;
       } else if (!movieToAdd) {
         this.listOfmovies.push(peli);
