@@ -7,8 +7,9 @@ function parseaParams(argv) {
 
   return resultado;
 }
-function processInput(input) {
 
+function processInput(input) { //processInput selecciona que funcion aplicar en base al input ingresado en la terminal
+  
   const controller = new PelisController;
 
   if (input._[0] == "add"){
@@ -29,14 +30,14 @@ function processInput(input) {
     });
 
   }else if (input._[0] == "search"){
-    let param = {};
+    let param = {}; //param fijara los parametros de busqueda, ya que pueden ser 1 o 2, para la funcion get
     if (input.title){
-      param["title"] = input.title;
+      param["title"] = input.title; //si ingresaron buscar un title, se agregará
     }
     if (input.tag){
-      param["tag"] = input.tag;
+      param["tag"] = input.tag; //si ingresaron buscar un tag, se agregará
     }
-    return controller.get({search: param}).then((r)=>{
+    return controller.get({search: param}).then((r)=>{ //agregue {search:} como key para la propiedad y objeto params, para poder buscarla
       return r;
     });
   } else {
