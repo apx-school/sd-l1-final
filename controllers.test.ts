@@ -12,15 +12,15 @@ const test = anyTest as TestInterface<{
   con: PelisController;
 }>;
 
-// test.serial(
-//   "Testeo PelisController get id (creado desde la terminal)",
-//   async (t) => {
-//     // testeo peli agregada desde el script test del package
-//     const controller = new PelisController();
-//     const peli = await controller.get({ id: 4321865 });
-//     t.is(peli.title, "peli de la terminal 4321865");
-//   }
-// );
+test.serial(
+  "Testeo PelisController get id (creado desde la terminal)",
+  async (t) => {
+    // testeo peli agregada desde el script test del package
+    const controller = new PelisController();
+    const peli = await controller.get({ id: 4321865 });
+    t.is(peli.title, "peli de la terminal 4321865");
+  }
+);
 
 test.serial("Testeo PelisController get id", async (t) => {
   const controller = new PelisController();
