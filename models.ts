@@ -18,7 +18,7 @@ class PelisCollection {
 
   getById(id: number): Promise<Peli> {
     return this.getAll().then((movies) => {
-      return movies.find((movie) => movie.id == id);
+      return movies.find(movie => movie.id == id);
     });
   }
 
