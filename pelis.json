@@ -1,1 +1,112 @@
-[]
+[
+  { "id": 0, "title": "El Padrino", "tags": ["Crime", "Drama"] },
+  { "id": 1, "title": "Sueño de Libertad", "tags": ["Drama"] },
+  {
+    "id": 2,
+    "title": "La lista de Schindler",
+    "tags": ["Biography", "Drama", "History"]
+  },
+  { "id": 3, "title": "Toro salvaje", "tags": ["Biography", "Drama", "Sport"] },
+  { "id": 4, "title": "Casablanca", "tags": ["Drama", "Romance", "War"] },
+  { "id": 5, "title": "El ciudadano", "tags": ["Drama", "Mystery"] },
+  {
+    "id": 6,
+    "title": "Lo que el viento se llevó",
+    "tags": ["Drama", "History", "Romance"]
+  },
+  {
+    "id": 7,
+    "title": "El mago de Oz",
+    "tags": ["Adventure", "Family", "Fantasy"]
+  },
+  { "id": 8, "title": "Atrapado sin salida", "tags": ["Drama"] },
+  { "id": 9, "title": "Psicosis", "tags": ["Horror", "Mystery", "Thriller"] },
+  { "id": 10, "title": "El Padrino: Parte 2", "tags": ["Crime", "Drama"] },
+  {
+    "id": 11,
+    "title": "La guerra de las galaxias",
+    "tags": ["Action", "Adventure", "Fantasy"]
+  },
+  {
+    "id": 12,
+    "title": "2001: Odisea del espacio",
+    "tags": ["Adventure", "Sci-Fi"]
+  },
+  {
+    "id": 13,
+    "title": "E.T. the Extra-Terrestrial",
+    "tags": ["Family", "Sci-Fi"]
+  },
+  {
+    "id": 14,
+    "title": "El silencio de los inocentes",
+    "tags": ["Crime", "Drama", "Thriller"]
+  },
+  {
+    "id": 15,
+    "title": "Cantando en la lluvia",
+    "tags": ["Comedy", "Musical", "Romance"]
+  },
+  { "id": 16, "title": "Apocalipsis Now", "tags": ["Drama", "Mystery", "War"] },
+  {
+    "id": 17,
+    "title": "El señor de los anillos: El retorno del rey",
+    "tags": ["Action", "Adventure", "Drama"]
+  },
+  { "id": 18, "title": "Gladiador", "tags": ["Action", "Adventure", "Drama"] },
+  { "id": 19, "title": "Titanic", "tags": ["Drama", "Romance"] },
+  {
+    "id": 20,
+    "title": "Rescatando al soldado Ryan",
+    "tags": ["Action", "War", "History"]
+  },
+  {
+    "id": 21,
+    "title": "Los cazadores del arca perdida",
+    "tags": ["Action", "Adventure"]
+  },
+  { "id": 22, "title": "Rocky", "tags": ["Drama", "Sport"] },
+  { "id": 23, "title": "Un tranvía llamado deseo", "tags": ["Drama"] },
+  {
+    "id": 24,
+    "title": "La naranja mecánica",
+    "tags": ["Crime", "Drama", "Sci-Fi"]
+  },
+  {
+    "id": 25,
+    "title": "Corazón valiente",
+    "tags": ["Biography", "Drama", "History"]
+  },
+  {
+    "id": 26,
+    "title": "Jurassic Park",
+    "tags": ["Action", "Adventure", "Sci-Fi"]
+  },
+  { "id": 27, "title": "El Exorcista", "tags": ["Horror"] },
+  { "id": 28, "title": "El pianista", "tags": ["Biography", "Drama", "Music"] },
+  {
+    "id": 29,
+    "title": "Buenos muchachos",
+    "tags": ["Biography", "Crime", "Drama"]
+  },
+  { "id": 30, "title": "Viñas de ira", "tags": ["Drama", "History"] },
+  {
+    "id": 31,
+    "title": "Milagros inesperados",
+    "tags": ["Crime", "Drama", "Fantasy"]
+  },
+  {
+    "id": 32,
+    "title": "Encuentros cercanos del tercer tipo",
+    "tags": ["Drama", "Sci-Fi"]
+  },
+  {
+    "id": 33,
+    "title": "Tiempos violentos (Pulp Fiction)",
+    "tags": ["Crime", "Drama"]
+  },
+  { "id": 34, "title": "En busca del destino", "tags": ["Drama", "Romance"] },
+  { "id": 35, "title": "El gran dictador", "tags": ["Comedy", "Drama", "War"] },
+  { "id": 36, "title": "Taxi Driver", "tags": ["Crime", "Drama"] },
+  { "id": 37, "title": "La ventana indiscreta", "tags": ["Mystery", "Thrill"] }
+]
