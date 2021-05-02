@@ -30,10 +30,14 @@ function main() {
   const control = new PelisController();
   //console.log(params);
 
-  if (params.get || params.search) {
-    control.get(params).then((res) => console.log(res));
+  if (params.get) {
+    control.get(params.get).then((res) => console.log(res));
+  } else if (params.search) {
+    control.get(params.search).then((res) => console.log(res));
   } else if (params.add) {
     control.add(params.add).then((res) => console.log(res));
+  } else {
+    control.pelisColl.getAll().then((res) => console.log(res));
   }
 }
 

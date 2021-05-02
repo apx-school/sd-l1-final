@@ -23,8 +23,8 @@ class PelisController {
     return response;
   }
   add(peli: Peli) {
-    return this.pelisColl.add(peli).then((r) => {
-      return r;
+    return this.pelisColl.add(peli).then((res) => {
+      return res;
     });
   }
 }
