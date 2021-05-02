@@ -28,12 +28,16 @@ class PelisCollection {
   }
   search(options: any) {
     return this.getAll().then((collection) => {
+      let response = collection;
       if (options.title) {
-        return collection.filter((item) => item.title.includes(options.title));
+        response = response.filter((item) =>
+          item.title.includes(options.title)
+        );
       }
       if (options.tag) {
-        return collection.filter((item) => item.tags.includes(options.tag));
+        response = response.filter((item) => item.tags.includes(options.tag));
       }
+      return response;
     });
   }
 

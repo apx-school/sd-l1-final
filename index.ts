@@ -28,6 +28,7 @@ function parseaParams(argv) {
 function main() {
   const params = parseaParams(process.argv.slice(2));
   const control = new PelisController();
+  //console.log(params);
 
   if (params.get || params.search) {
     control.get(params).then((res) => console.log(res));
