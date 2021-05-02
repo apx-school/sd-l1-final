@@ -16,7 +16,7 @@ function processOptions(argv) {
     });
 
   }else if (argv._[0] == "search") {
-    var params = {};
+    var params = [];
     if (argv.title) {
       params["title"] = argv.title;
     }
@@ -38,7 +38,7 @@ function processOptions(argv) {
       return movie;
     });
   } else if (argv._.length == 0) {
-    return controller.get({}).then((movie) => {
+    return controller.get([]).then((movie) => {
       return movie;
     });
   }
@@ -47,7 +47,7 @@ function processOptions(argv) {
 function main() {
   const params = parseaParams(process.argv.slice(2));
   const result = processOptions(params);
-  result.then((r)=>console.log(r));
+  result.then((r) => console.log(r));
 }
 
 main();
