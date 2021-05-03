@@ -52,6 +52,6 @@ function optionParams (params){
 function main() {
     const params = parseaParams(process.argv.slice(2));
     const finalResult = optionParams(params);
-    
+    finalResult.then((res)=> console.log(res));
 }
 main()
