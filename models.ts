@@ -14,7 +14,7 @@ class PelisCollection {
     });
   }
   getAll(): Promise<Peli[]> {
-    return jsonfile.readFile("./pelis.json").then((pelis) => {
+    return jsonfile.readFile(__dirname + "/pelis.json").then((pelis) => {
       return (this.data = pelis);
     });
   }
@@ -49,7 +49,10 @@ class PelisCollection {
         } else {
           const data = coll;
           coll.push(peli);
-          const promesaDos = jsonfile.writeFile("./pelis.json", data);
+          const promesaDos = jsonfile.writeFile(
+            __dirname + "/pelis.json",
+            data
+          );
           return promesaDos.then(() => {
             return true;
           });
