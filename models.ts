@@ -10,7 +10,7 @@ class Peli {
 class PelisCollection {
   data: Peli[]
   getAll(): Promise<Peli[]> {
-    return jsonfile.readFile(__dirname + "./pelis.json").then((json) => {
+    return jsonfile.readFile("./pelis.json").then((json) => {
     this.data = json    
       return json;
     });
@@ -23,11 +23,12 @@ class PelisCollection {
      });
   }
   search(options:any){
+    
     return this.getAll().then(json =>{
       let resultado = json;
       if(options.title){ 
           resultado = resultado.filter((item)=>{
-            return item.title.includes(options.title) || item.title.toLocaleLowerCase().includes(options.title)
+            return item.title.includes(options.title) || item.title.toLowerCase().includes(options.title)
           })
          
         }
@@ -37,6 +38,7 @@ class PelisCollection {
           })
           
       }
+      
       return resultado
      })
     }
