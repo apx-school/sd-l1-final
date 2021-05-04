@@ -38,7 +38,7 @@ function optionParams (params){
      return res
    })
 
- } else if (params.length == 0){
+ } else if (params._.length == 0){
    return resultado = controller.get([]).then((res)=> {
      return res
    })
