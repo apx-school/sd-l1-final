@@ -16,6 +16,7 @@ class PelisCollection {
       return json;
     });
   }
+
   getById(id: number) {
     return this.getAll().then((pelis) => {
       return pelis.find((peli) => {
@@ -44,15 +45,17 @@ class PelisCollection {
 
   search(options: any) {
     const promesa = this.getAll().then((p) => {
-      if (options.title && options.tag) {
+      if (options.title && options.tags) {
         return p.filter(
-          (r) => r.title.includes(options.title) && r.tags.includes(options.tag)
+          (r) =>
+            r.title.includes(options.title) && r.tags.includes(options.tags)
         );
       }
       if (options.title) {
         return p.filter((r) => r.title.includes(options.title));
-      } else if (options.tag) {
-        return p.filter((r) => r.tags.includes(options.tag));
+      }
+      if (options.tags) {
+        return p.filter((r) => r.tags.includes(options.tags));
       }
     });
     return promesa;

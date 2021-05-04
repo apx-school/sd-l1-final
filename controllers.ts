@@ -6,7 +6,7 @@ class PelisController {
   constructor() {
     this.data = new PelisCollection();
   }
-  //Me quede aca #######################
+
   get(options: any): Promise<any> {
     if (options.id) {
       const result = this.data.getById(options.id).then((r) => {
@@ -18,7 +18,7 @@ class PelisController {
       const result = this.data.search(options.search);
       return result;
     }
-    if (options) {
+    if (options[0] == null) {
       const result = this.data.getAll().then((r) => {
         return r;
       });
@@ -33,5 +33,3 @@ class PelisController {
   }
 }
 export { PelisController };
-
-const test = new PelisController();
