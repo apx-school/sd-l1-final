@@ -5,17 +5,15 @@ class PelisController {
   constructor() {
     this.pelisColl = new PelisCollection();
   }
-  get(options) {
+  get(options: any): Promise<any> {
     if (options.id) {
       return this.pelisColl.getById(options.id).then((r) => r);
     }
-    if (options.search) {
-      return this.pelisColl.search(options.search).then((r) => r);
-    } else {
-      return this.pelisColl.getAll().then((r) => r);
+    if (options) {
+      return this.pelisColl.search(options).then((r) => r);
     }
   }
-  add(peli: Peli) {
+  add(peli: Peli): Promise<boolean> {
     return this.pelisColl.add(peli).then((r) => r);
   }
 }

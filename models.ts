@@ -19,14 +19,14 @@ class PelisCollection {
     });
   }
 
-  getById(id: number) {
+  getById(id: number): Promise<Peli> {
     return this.getAll().then((collection) => {
       return collection.find((item) => {
         return item.id == id;
       });
     });
   }
-  search(options: any) {
+  search(options: any): Promise<Peli | Peli[]> {
     return this.getAll().then((collection) => {
       if (options.title && options.tag) {
         return collection.filter(

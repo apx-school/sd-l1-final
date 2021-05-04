@@ -1,44 +1,51 @@
 import * as minimist from "minimist";
 import { PelisController } from "./controllers";
 
-function parseaParams(argv) {
+function parseaParams(argv): any {
+  const operacion = argv.slice(0, 1);
   const resultado = minimist(argv);
-  let obj = resultado;
 
-  if ([resultado._].length > 0 && resultado._[0] == "get") {
-    return (obj = {
-      [resultado._[0]]: { id: resultado._[1] },
-    });
-  } else if (resultado._[0] == "get" || resultado._[0] == "search") {
-    return (obj = {
-      [resultado._[0]]: resultado,
-    });
-  } else if (resultado._[0] == "add") {
-    return (obj = {
-      [resultado._[0]]: {
-        id: resultado.id,
-        title: resultado.title,
-        tags: resultado.tags,
-      },
-    });
+  if (operacion == "get") {
+    if (resultado.id) {
+      return resultado;
+    } else {
+      return { id: resultado._[1] };
+    }
   }
-  return obj;
+
+  if (operacion == "search") {
+    if (resultado.title && resultado.tag) {
+      return { title: resultado.title, tag: resultado.tag };
+    }
+    if (resultado.title) {
+      return { title: resultado.title };
+    }
+    if (resultado.tag) {
+      return { tag: resultado.tag };
+    }
+  }
+
+  if (operacion == "add") {
+    return { id: resultado.id, title: resultado.title, tags: resultado.tags };
+  }
+}
+
+function operar(): Promise<any> {
+  const control = new PelisController();
+  const params = parseaParams(process.argv.slice(2));
+  const operacion = process.argv.slice(2).slice(0, 1)[0];
+
+  if (operacion == "get" || operacion == "search") {
+    return control.get(params);
+  } else if (operacion == "add") {
+    return control.add(params);
+  } else {
+    return control.pelisColl.getAll();
+  }
 }
 
 function main() {
-  const params = parseaParams(process.argv.slice(2));
-  const control = new PelisController();
-  //console.log(params);
-
-  if (params.get) {
-    control.get(params.get).then((res) => console.log(res));
-  } else if (params.search) {
-    control.get(params.search).then((res) => console.log(res));
-  } else if (params.add) {
-    control.add(params.add).then((res) => console.log(res));
-  } else {
-    control.pelisColl.getAll().then((res) => console.log(res));
-  }
+  operar().then((res) => console.log(res));
 }
 
 main();
