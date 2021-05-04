@@ -30,18 +30,18 @@ class PelisCollection {
           resultado = resultado.filter((item)=>{
             return item.title.includes(options.title) || item.title.toLowerCase().includes(options.title)
           })
-         
-        }
+        };
+
       if (options.tag){
           resultado = resultado.filter((item)=>{
             return item.tags.includes(options.tag)
           })
-          
       }
       
       return resultado
      })
     }
+
    add(peli:Peli):Promise<boolean>{
     const promesaUno = this.getById(peli.id).then((peliExistente) => {
       if (peliExistente) {

@@ -9,10 +9,11 @@ function parseaParams(argv) {
 
 function optionParams (params){
   const controller = new PelisController
+  var resultado;
 
   if (params._[0] == "get"){
     const id = params._[1];
-    return  controller.get({id:id}).then((res)=> {
+    return resultado = controller.get({id:id}).then((res)=> {
       return res});
 
   } else if(params._[0] == "add"){
@@ -21,35 +22,36 @@ function optionParams (params){
       title: params.title,
       tags: params.tags
     }
-    return  controller.add(peli).then((res)=>{
+    return resultado = controller.add(peli).then((res)=>{
       return res
     })
+
   } else if (params._[0] == "search"){
    let opciones = {}
-   if (params.title || params.tags){
+   if (params.title || params.tag){
     opciones = { 
       title: params.title,
-      tags: params.tags
-    } ;
+      tag: params.tag
+    };
    }
-   if (params.tags){
-     opciones = {
-       tags: params.tags
-   }
-  }
-   return  controller.get({search:opciones}).then((res)=>{
+   return resultado = controller.get({search:opciones}).then((res)=>{
      return res
    })
+
  } else if (params.length == 0){
-   return controller.get([]).then((res)=> {
+   return resultado = controller.get([]).then((res)=> {
      return res
    })
  }
+ 
+ return resultado
 }
 
 function main() {
     const params = parseaParams(process.argv.slice(2));
     const finalResult = optionParams(params);
-    finalResult.then((res)=> console.log(res));
+    finalResult.then((res) => {
+      console.log(res);
+    })
 }
 main()
