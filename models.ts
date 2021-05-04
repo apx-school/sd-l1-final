@@ -45,17 +45,16 @@ class PelisCollection {
 
   search(options: any) {
     const promesa = this.getAll().then((p) => {
-      if (options.title && options.tags) {
+      if (options.title && options.tag) {
         return p.filter(
-          (r) =>
-            r.title.includes(options.title) && r.tags.includes(options.tags)
+          (r) => r.title.includes(options.title) && r.tags.includes(options.tag)
         );
       }
       if (options.title) {
         return p.filter((r) => r.title.includes(options.title));
       }
-      if (options.tags) {
-        return p.filter((r) => r.tags.includes(options.tags));
+      if (options.tag) {
+        return p.filter((r) => r.tags.includes(options.tag));
       }
     });
     return promesa;
