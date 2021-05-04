@@ -10,7 +10,7 @@ class Peli {
 class PelisCollection {
   data: Peli[]
   getAll(): Promise<Peli[]> {
-    return jsonfile.readFile("./pelis.json").then((json) => {
+    return jsonfile.readFile(__dirname + "./pelis.json").then((json) => {
     this.data = json    
       return json;
     });

@@ -11,9 +11,9 @@ function optionParams (params){
   var resultado;
   const controller = new PelisController
 
-  if (params[0] == "get"){
+  if (params._[0] == "get"){
     const id = params[1];
-    return controller.get({id:id}).then((res)=> {
+    return resultado = controller.get({id:id}).then((res)=> {
       return res});
   };
   if(params[0] == "add"){
@@ -38,14 +38,15 @@ function optionParams (params){
        tags: params.tags
    }
   }
-   return controller.get({search:opciones}).then((res)=>{
+   return resultado = controller.get({search:opciones}).then((res)=>{
      return res
    })
  } else if (params.length == 0){
-   return controller.get({}).then((res)=> {
+   return resultado = controller.get({}).then((res)=> {
      return res
    })
  }
+ console.log(resultado)
  return resultado
 }
 
