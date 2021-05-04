@@ -26,7 +26,7 @@ class PelisCollection {
       });
     });
   }
-  search(options: any): Promise<Peli | Peli[]> {
+  search(options: any) {
     return this.getAll().then((collection) => {
       if (options.title && options.tag) {
         return collection.filter(
@@ -53,7 +53,7 @@ class PelisCollection {
           return false;
         } else {
           const data = coll;
-          coll.push(peli);
+          data.push(peli);
           const promesaDos = jsonfile.writeFile(
             __dirname + "/pelis.json",
             data

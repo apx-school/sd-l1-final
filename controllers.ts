@@ -5,16 +5,20 @@ class PelisController {
   constructor() {
     this.pelisColl = new PelisCollection();
   }
-  get(options: any): Promise<any> {
+  get(options): Promise<any> {
     if (options.id) {
       return this.pelisColl.getById(options.id).then((r) => r);
-    }
-    if (options) {
-      return this.pelisColl.search(options).then((r) => r);
+    } else {
+      return this.pelisColl.search(options.search).then((r) => r);
     }
   }
-  add(peli: Peli): Promise<boolean> {
-    return this.pelisColl.add(peli).then((r) => r);
+  add(peli): Promise<boolean> {
+    const pelicula = new Peli();
+    pelicula.id = peli.id;
+    pelicula.title = peli.title;
+    pelicula.tags = peli.tags;
+
+    return this.pelisColl.add(pelicula).then((r) => r);
   }
 }
 export { PelisController };

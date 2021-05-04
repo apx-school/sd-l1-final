@@ -1,36 +1,39 @@
 import * as minimist from "minimist";
 import { PelisController } from "./controllers";
 
-function parseaParams(argv): any {
+function parseaParams(argv) {
   const operacion = argv.slice(0, 1);
   const resultado = minimist(argv);
 
   if (operacion == "get") {
     if (resultado.id) {
-      return resultado;
+      return { get: resultado };
     } else {
-      return { id: resultado._[1] };
+      return { get: { id: resultado._[1] } };
     }
   }
-
   if (operacion == "search") {
     if (resultado.title && resultado.tag) {
-      return { title: resultado.title, tag: resultado.tag };
+      return { search: { title: resultado.title, tag: resultado.tag } };
     }
     if (resultado.title) {
-      return { title: resultado.title };
+      return { search: { title: resultado.title } };
     }
     if (resultado.tag) {
-      return { tag: resultado.tag };
+      return { search: { tag: resultado.tag } };
     }
   }
 
   if (operacion == "add") {
-    return { id: resultado.id, title: resultado.title, tags: resultado.tags };
+    return {
+      id: resultado.id,
+      title: resultado.title,
+      tags: resultado.tags,
+    };
   }
 }
 
-function operar(): Promise<any> {
+function operar() {
   const control = new PelisController();
   const params = parseaParams(process.argv.slice(2));
   const operacion = process.argv.slice(2).slice(0, 1)[0];
