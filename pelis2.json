@@ -1,0 +1,16 @@
+[{
+  "id": 1,
+  "title": "Titanic",
+  "tags": ["amor", "accion", "aventura"]
+},
+{
+  "id": 2,
+  "title": "Harry Potter",
+  "tags": ["aventura", "fantasia", "accion"]
+},
+{
+  "id": 3,
+  "title": "Invictus",
+  "tags": ["deportes", "accion", "drama"]
+}
+]
