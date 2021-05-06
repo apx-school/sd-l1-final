@@ -38,7 +38,9 @@ function operar() {
   const params = parseaParams(process.argv.slice(2));
   const operacion = process.argv.slice(2).slice(0, 1)[0];
 
-  if (operacion == "get" || operacion == "search") {
+  if (operacion == "get") {
+    return control.get(params.get);
+  } else if (operacion == "search") {
     return control.get(params);
   } else if (operacion == "add") {
     return control.add(params);
