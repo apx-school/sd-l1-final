@@ -22,28 +22,3 @@ class PelisController {
 }
 export { PelisController };
 
-// function pruebas (){
-//   const controlador = new PelisController;
-  // console.log(controlador.data)
-
-  // //pruebas de get
-  // const opt = {
-  //   search: {
-  //     title: "i",
-  //     tag: "amor"
-  //   }
-  // }
-  // controlador.get(opt).then((c) => console.log(c))
-
-  //pruebas de .add
-//   const peli = new Peli;
-//   peli.id = 4;
-//   peli.title = "La isla"
-//   peli.tags = ["accion"];
-//   controlador.add(peli).then((p) => console.log(p));
-
-
-// }
-
-
-// pruebas();
