@@ -22,13 +22,21 @@ class PelisCollection {
       })
   }
   search(options: any): Promise<Peli[]>{
-    if (options.title){
+    if (options.title && options.tag) {
+      return jsonfile.readFile("./pelis2.json")
+        .then((p) => {
+          var resp;
+          resp = p.filter((c) => includes(c.title, options.title))
+          return resp = resp.filter((c) => includes(c.tags, options.tag))
+        })
+    }
+    else if (options.title){
       return jsonfile.readFile("./pelis2.json")
         .then((p) => {
           return p.filter((c) => includes(c.title, options.title))
         });
     }
-    if (options.tag){
+    else if (options.tag){
       return jsonfile.readFile("./pelis2.json")
         .then((p) => {
           return p.filter((c) => includes(c.tags, options.tag))
@@ -64,37 +72,38 @@ export { PelisCollection, Peli };
 //   //nueva collection
 //   const col = new PelisCollection;
 
-//   //pruebas de .getAll
-//   const promesa = col.getAll();
-//   promesa.then((p)=>
-//     console.table(p)
-//   )
+  // //pruebas de .getAll
+  // const promesa = col.getAll();
+  // promesa.then((p)=>
+  //   console.table(p)
+  // )
 
-//   //pruebas de .getById
-//   const getbyid = col.getById(1)
-//   getbyid.then((p)=>{
-//     if (p) {
-//       console.table(p)
-//     }
-//     else {
-//       console.log("No coincide ninguna id")
-//     }
+  // //pruebas de .getById
+  // const getbyid = col.getById(1)
+  // getbyid.then((p)=>{
+  //   if (p) {
+  //     console.table(p)
+  //   }
+  //   else {
+  //     console.log("No coincide ninguna id")
+  //   }
     
-//   })
+  // })
 
-//   // pruebas de .search
-//   const opt = {
-//     title: "Harry"
-//   }
-//   const prom = col.search(opt)
-//   prom.then((p) => console.table(p))
+  // pruebas de .search
+  // const opt = {
+  //   title: "i",
+  //   tag: "amor"
+  // }
+  // const prom = col.search(opt)
+  // prom.then((p) => console.table(p))
 
-//   //pruebas de .add
-//   const peli = new Peli;
-//   peli.id = 4;
-//   peli.title = "La isla siniestra"
-//   peli.tags = ["accion"];
-//   col.add(peli).then((p) => console.log(p));
+  // //pruebas de .add
+  // const peli = new Peli;
+  // peli.id = 4;
+  // peli.title = "La isla siniestra"
+  // peli.tags = ["accion"];
+  // col.add(peli).then((p) => console.log(p));
 // }
 
 // pruebas();

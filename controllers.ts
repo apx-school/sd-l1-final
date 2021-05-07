@@ -9,43 +9,41 @@ class PelisController {
     if (options.id){
       return this.data.getById(options.id)
     }
-    if (options.search.title && options.search.tag) {
-      return this.data.search(options.search)
-    }
-    if (options.search.title){
-      return this.data.search(options.search)
-    }
-    if (options.search.tag){
-      return this.data.search(options.search)
+    else if (options.search) {
+      return this.data.search(options.search);
     }
     else {
       return this.data.getAll();
     }
   }
-
   add(peli: Peli){
-
+    return this.data.add(peli);
   }
 }
 export { PelisController };
 
-function pruebas (){
-  const controlador = new PelisController;
-  console.log(controlador.data)
+// function pruebas (){
+//   const controlador = new PelisController;
+  // console.log(controlador.data)
 
-  //pruebas de get
-  const opt = {
-    search: {
-      // title: "Titanic",
-      // tag: "accion"
-    }
-  }
-  controlador.get(opt).then((p) => console.table(p))
+  // //pruebas de get
+  // const opt = {
+  //   search: {
+  //     title: "i",
+  //     tag: "amor"
+  //   }
+  // }
+  // controlador.get(opt).then((c) => console.log(c))
 
-  //pruebas de add
+  //pruebas de .add
+//   const peli = new Peli;
+//   peli.id = 4;
+//   peli.title = "La isla"
+//   peli.tags = ["accion"];
+//   controlador.add(peli).then((p) => console.log(p));
 
 
-}
+// }
 
 
-pruebas();
+// pruebas();
