@@ -10,26 +10,26 @@ class Peli {
 
 class PelisCollection {
   getAll(): Promise<Peli[]> {
-    return jsonfile.readFile("./pelis.json")
+    return jsonfile.readFile("./pelis2.json")
       .then((p) => {
         return p;
       });
   }
   getById(id: number): Promise<Peli>{
-    return jsonfile.readFile("./pelis.json")
+    return jsonfile.readFile("./pelis2.json")
       .then((p) => {
         return p.find((c) => c.id == id)
       })
   }
   search(options: any): Promise<Peli[]>{
     if (options.title){
-      return jsonfile.readFile("./pelis.json")
+      return jsonfile.readFile("./pelis2.json")
         .then((p) => {
           return p.filter((c) => includes(c.title, options.title))
         });
     }
     if (options.tag){
-      return jsonfile.readFile("./pelis.json")
+      return jsonfile.readFile("./pelis2.json")
         .then((p) => {
           return p.filter((c) => includes(c.tags, options.tag))
         });
@@ -41,10 +41,10 @@ class PelisCollection {
         return false;
       } else {
         // magia que agrega la pelicula a un objeto data
-        const data = jsonfile.readFile("./pelis.json");
+        const data = jsonfile.readFile("./pelis2.json");
         data.then((d) => {
           const data = d.concat(peli);
-          const promesaDos = jsonfile.writeFile("./pelis.json", data)
+          const promesaDos = jsonfile.writeFile("./pelis2.json", data)
             .then(() => {
             return true;
             });
@@ -92,8 +92,8 @@ export { PelisCollection, Peli };
 //   //pruebas de .add
 //   const peli = new Peli;
 //   peli.id = 4;
-//   peli.tags = ["accion"];
 //   peli.title = "La isla siniestra"
+//   peli.tags = ["accion"];
 //   col.add(peli).then((p) => console.log(p));
 // }
 
