@@ -1,1 +1,17 @@
-[]
+[{
+    "id": 1,
+    "title": "Tiempos violentos",
+     "tags": ["crimen", "estados unidos", "1994" ]
+},
+
+{
+    "id": 2,
+    "title": "El Padrino",
+     "tags": ["drama", "estados unidos", "1972" ]
+},
+
+{
+    "id": 3,
+    "title": "La vida es bella",
+     "tags": ["comedia dramatica", "italia", "1997" ]
+}]
