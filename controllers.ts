@@ -1,28 +1,39 @@
+import { runInThisContext } from "node:vm";
+import { threadId } from "node:worker_threads";
 import { PelisCollection, Peli } from "./models";
+
 
 class PelisController {
   listaDePeliculas : PelisCollection;
-  constructor() {
-    this.listaDePeliculas = new PelisCollection();
-  }
-  //Métodos--
-  get(options){
+  promesa : Promise<any>
+  constructor(){
+  this.listaDePeliculas = new PelisCollection()
+  const promesa = this.listaDePeliculas.getAll();
+  this.promesa = promesa
+ };
+
+
+  get(options):Promise<any>{
+    let resultado;
     if(options.id){
-      return this.listaDePeliculas.getById(options.id);
-    }else if(options.search.title){
-      return this.listaDePeliculas.peliculas.filter((p) => p.title.includes(options.search.title));
-    }else if(options.search.tag){
-      return this.listaDePeliculas.peliculas.filter((p) => p.tags == options.search.tag)
-    }else if(options.search.title && options.search.tag){
-      return this.listaDePeliculas.peliculas.filter((p) => {
-        p.title.includes(options.search.title) && p.tags.includes(options.search.tag )
-      })
-    }else {
-      return this.listaDePeliculas.getAll()
+      //console.log("options.id del controller",options.id)
+      resultado = this.listaDePeliculas.getById(options.id)
     }
-};
+    if(options.search){
+      //console.log("options.search controller",options.search)
+      resultado = this.listaDePeliculas.search(options.search)
+    }
+    if(options.search){
+      resultado = this.listaDePeliculas.search(options.search)
+    } 
+    return resultado.then((res)=>{return res})
+    
+  }
+
   add(peli:Peli){
-    return this.listaDePeliculas.add(peli)
+    return this.listaDePeliculas.add(peli).then((res)=>{return res})
   };
 }
 export { PelisController };
+
+  

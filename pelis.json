@@ -1,1 +1,63 @@
-[]
+[
+    {
+        "id": 1,
+        "title": "Dota",
+        "tags": [
+            "aventura",
+            "fantasia",
+            "acción",
+            "serie animada"
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Parasite",
+        "tags": [
+            "fantasia",
+            "acción",
+            "serie animada"
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Peaky Blinders",
+        "tags": [
+            "drama histórico",
+            "acción"
+        ]
+    },
+    {
+        "id": 4,
+        "title": "Dragon Ball Z",
+        "tags": [
+            "aventura",
+            "fantasia",
+            "acción",
+            "serie animada"
+        ]
+    },
+    {
+        "id": 5,
+        "title": "The Walking Dead",
+        "tags": [
+            "aventura",
+            "ciencia ficción",
+            "acción"
+        ]
+    },
+    {
+        "id": 6,
+        "title": "Oye Arnold",
+        "tags": [
+            "serie animada"
+        ]
+    },
+    {
+        "id": 4411,
+        "title": "Título de la nueva peli",
+        "tags": [
+            "action",
+            "classic"
+        ]
+    }
+]
