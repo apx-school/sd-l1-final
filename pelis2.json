@@ -1,1 +1,5 @@
-[{"id":1,"title":"Titanic","tags":["amor","accion","aventura"]},{"id":2,"title":"Harry Potter","tags":["aventura","fantasia","accion"]},{"id":3,"title":"Invictus","tags":["deportes","accion","drama"]},{"id":4321865,"title":"peli de la terminal 4321865","tags":["rr","ww"]},{"id":188295,"title":"title 139320188295","tags":["tt","rr"]},{"id":201490,"title":"title 139320201490","tags":["yy","uu"]}]
+[
+  { "id": 1, "title": "Titanic", "tags": ["amor"] },
+  { "id": 2, "title": "Harry Potter", "tags": ["accion"] },
+  { "id": 3, "title": "Invictus", "tags": ["deportes"] }
+]
