@@ -9,22 +9,22 @@ function parseaParams(argv) {
 }
 
 function options(params): any {
+  const misPelis = new PelisController();
+
   if (params._ == "add") {
     const opt = {
-      metodo: "add",
       parametros: {
         id: params.id,
         title: params.title,
         tags: params.tags,
       },
     };
-    return opt;
+    return misPelis.add(opt.parametros).then((p) => p);
   } else if (params._.includes("get")) {
-    const opt = { metodo: "get", parametros: { id: params._[1] } };
-    return opt;
+    const opt = { parametros: { id: params._[1] } };
+    return misPelis.get(opt.parametros).then((p) => p);
   } else if (params._ == "search") {
     const opt = {
-      metodo: "get",
       parametros: {
         search: {
           title: params.title,
@@ -32,28 +32,17 @@ function options(params): any {
         },
       },
     };
-    return opt;
+    return misPelis.get(opt.parametros).then((p) => p);
   } else {
     const opt = { metodo: "get", parametros: [{}] };
-    return opt;
+    return misPelis.get(opt.parametros).then((p) => p);
   }
 }
 
 function main() {
   const params = parseaParams(process.argv.slice(2));
   const ejecutor = options(params);
-
-  const misPelis = new PelisController();
-  if (ejecutor.metodo == "get") {
-    misPelis.get(ejecutor.parametros).then((p) => console.log(p));
-  }
-  if (ejecutor.metodo == "add") {
-    const nuevaPeli = new Peli();
-    nuevaPeli.id = ejecutor.parametros.id;
-    nuevaPeli.title = ejecutor.parametros.title;
-    nuevaPeli.tags = ejecutor.parametros.tags;
-    return misPelis.add(nuevaPeli).then((p) => console.log(p));
-  }
+  ejecutor.then((p) => console.log(p));
 }
 
 main();
