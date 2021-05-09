@@ -17,8 +17,8 @@ class PelisCollection {
     });
   }
   getById(id:number): Promise<any>{
-    return this.getAll().then((pelcoll) => {
-      return pelcoll.find((item) => {
+    return this.getAll().then(() => {
+      return find(this.data, (item) => {
        return item.id == id})
 
        
