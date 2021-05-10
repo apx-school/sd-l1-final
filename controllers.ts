@@ -31,10 +31,3 @@ class PelisController {
   }
 }
 export { PelisController };
-
-const prueba = new PelisController();
-const opciones = {
-  title: "el hobbit",
-};
-
-prueba.get;
