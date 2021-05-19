@@ -8,11 +8,28 @@ class Peli {
 }
 
 class PelisCollection {
+  data: Peli[]=[];
   getAll(): Promise<Peli[]> {
-    return jsonfile("...laRutaDelArchivo").then(() => {
-      // la respuesta de la promesa
-      return [];
+    const promise = jsonfile.readFile("./pelis.json").then((json) => {
+      return this.data = json;
+    });
+    return promise
+  }
+  getById(id:number){
+    return this.getAll().then((movie)=>{
+      const result = movie.find((mov)=>{
+        return mov.id == id;
+      });
+      return result;
     });
   }
 }
-export { PelisCollection, Peli };
+
+export{PelisCollection,Peli}
+
+/*const object = new PelisCollection();
+object.getById(14223).then((resultado)=>{
+  console.log(resultado);
+})*/
+
+
