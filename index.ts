@@ -35,6 +35,11 @@ function paramsOptions(controller, params){
       return res;
     });
   }
+  if(params._.length == 0){
+    return (resultado = controller.get({}).then((res)=>{
+      return res;
+    }));
+  }
   return resultado;
 }
 
