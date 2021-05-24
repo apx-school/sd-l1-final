@@ -15,7 +15,7 @@ function getController(controller, params) {
     delete params._;
     controller.get({ search: params }).then((res) => console.log(res));
   } else {
-    controller.get().then((res) => console.log(res));
+    controller.get({}).then((res) => console.log(res));
   }
 }
 
