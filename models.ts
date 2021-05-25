@@ -23,6 +23,16 @@ class PelisCollection {
       return result;
     });
   }
+  search(options:any):Promise<any>{
+    return this.getAll().then((mov)=>{
+      const findMov =  mov.filter((m)=>{
+        return(
+          m.title.includes(options.title)
+        );
+      });
+      return findMov;
+     })
+  }
 }
 
 export{PelisCollection,Peli}

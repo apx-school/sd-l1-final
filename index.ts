@@ -3,13 +3,23 @@ import{PelisController} from "./controllers"
 
 function parseaParams(argv) {
   const resultMin = minimist(argv);
-  if(resultMin.get){
-    return{ get: resultMin.get}
-  }else{
-    return{};
-  }
+  if(resultMin._[0]=="get"){
+    
+    return{ get: resultMin._[1]}
   
+  }else if(resultMin._[0]=="search"){
+    
+    let object = {};
+    
+    if(resultMin.title){
+      object = {
+        title:resultMin.title
+      };
+    }
+  }
+    return{};
 }
+
 
 function main() {
   const params = parseaParams(process.argv.slice(2));
