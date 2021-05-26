@@ -1,5 +1,9 @@
 [
-  { "id": 1, "title": "Your name", "tags": ["Japan", "Anime", "Romantic"] },
+  {
+    "id": 1,
+    "title": "Your name",
+    "tags": ["Japan", "Anime", "Romantic"]
+  },
   {
     "id": 2,
     "title": "Predestinacion",
@@ -10,8 +14,16 @@
     "title": "Avatar",
     "tags": ["Science fiction", "Adventure", "Action"]
   },
-  { "id": 4, "title": "Fight club", "tags": ["Drama", "Black comedy"] },
-  { "id": 5, "title": "El profesional", "tags": ["Drama", "Suspense"] },
+  {
+    "id": 4,
+    "title": "Fight club",
+    "tags": ["Drama", "Black comedy"]
+  },
+  {
+    "id": 5,
+    "title": "El profesional",
+    "tags": ["Drama", "Suspense"]
+  },
   {
     "id": 6,
     "title": "El lobo de Wall Street",
@@ -22,5 +34,9 @@
     "title": "500 Days of Summer",
     "tags": ["Romantic", "Dramatic comedy"]
   },
-  { "id": 8, "title": "El irlandés", "tags": ["Epic", "Gangsters"] }
+  {
+    "id": 8,
+    "title": "El irlandés",
+    "tags": ["Epic", "Gangsters"]
+  }
 ]

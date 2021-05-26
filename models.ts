@@ -9,7 +9,7 @@ class Peli {
 class PelisCollection {
   data: Peli[] = [];
 
-  getAll(): Promise<Peli[]> {
+  getAll(): Promise<any> {
     return jsonfile.readFile("./pelis.json").then((datos) => {
       return (this.data = datos);
     });
@@ -29,11 +29,11 @@ class PelisCollection {
       return pelis.filter((r) => {
         if (options.title && options.tag) {
           return (
-            r.title.includes(options.title) &&
+            r.title.toLowerCase().includes(options.title.toLowerCase()) &&
             r.tags.includes(options.tag.toString())
           );
         } else if (options.title) {
-          return r.title.includes(options.title);
+          return r.title.toLowerCase().includes(options.title.toLowerCase());
         } else if (options.tag) {
           return r.tags.includes(options.tag.toString());
         } else {
