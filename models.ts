@@ -25,17 +25,21 @@ class PelisCollection {
   }
 
   search(options: any) {
-    // {"tag": 1, "title":"Peli 1"}
     return this.getAll().then((pelis) => {
       return pelis.filter((r) => {
-        if (options.title) {
-          return r.title.includes(options.title);
-        } else if (options.tags) {
-          return r.tags.includes(options.tags);
-        } else if (options.title && options.tags)
+        if (options.title && options.tag) {
+          // {"tag": 1, "title":"Peli 1"}
           return (
-            r.title.includes(options.title) && r.tags.includes(options.tags)
+            r.title.includes(options.title) && r.tags.includes(options.tag)
           );
+        } else if (options.title) {
+          // {"title":"Peli 1"}
+          return r.title.includes(options.title);
+        } else if (options.tag) {
+          return r.tags.includes(options.tag);
+        } else {
+          return this.getAll();
+        }
       });
     });
   }
@@ -60,3 +64,8 @@ class PelisCollection {
 }
 
 export { PelisCollection, Peli };
+
+// const obj = new PelisCollection();
+// obj.search(false).then((r) => {
+//   console.log(r);
+// });
