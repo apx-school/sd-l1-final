@@ -15,7 +15,7 @@ class PelisCollection {
     });
     return promise
   }
-  getById(id:number){
+  getById(id:number):Promise<Peli>{
     return this.getAll().then((movie)=>{
       const result = movie.find((mov)=>{
         return mov.id == id;
@@ -23,15 +23,17 @@ class PelisCollection {
       return result;
     });
   }
-  search(options:any):Promise<any>{
-    return this.getAll().then((mov)=>{
-      const findMov =  mov.filter((m)=>{
-        return(
-          m.title.includes(options.title)
-        );
-      });
+  search(options:any){
+    const promise = this.getAll().then((arrayMovs)=>{
+      if (options){ 
+        const findMov =  arrayMovs.filter((m)=>{
+          return ( m.title.includes(options)|| m.title.toLocaleLowerCase().includes(options))
+        });        
       return findMov;
-     })
+      }
+    })
+
+    return promise;
   }
 }
 

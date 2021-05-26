@@ -13,11 +13,19 @@ function parseaParams(argv) {
     
     if(resultMin.title){
       object = {
-        title:resultMin.title
+        title:resultMin.title,
       };
     }
-  }
+    if(resultMin.tags){
+      object = {
+        title:resultMin.tags,
+      };
+    }
+    return object;
+
+  }else{
     return{};
+  }
 }
 
 

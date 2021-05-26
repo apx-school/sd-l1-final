@@ -9,9 +9,9 @@ class PelisController {
   processOptions(options){
     if(options.get){
       return this.movies.getById(options.get);
-    }else if(options.title){
+    }if(options.title){
       return this.movies.search(options.title);
-    }else if(options.tags){
+    }if(options.tags){
       return this.movies.search(options.tags);
     }else{
       return this.movies.getAll();      
