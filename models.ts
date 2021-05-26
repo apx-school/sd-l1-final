@@ -23,9 +23,18 @@ class PelisCollection {
   }
   search(options: any) {
     return this.getAll().then((pelis) => {
+      if (options["tag"] && options["title"]) {
+        const filterPorTag = pelis.filter((i) =>
+          _.includes(i.tags, options["tag"])
+        );
+        return filterPorTag.filter((i) =>
+          _.includes(i.title, options["title"])
+        );
+      }
       if (options["title"]) {
         return pelis.filter((i) => _.includes(i.title, options["title"]));
-      } else {
+      }
+      if (options["tag"]) {
         return pelis.filter((i) => _.includes(i.tags, options["tag"]));
       }
     });
@@ -54,15 +63,3 @@ class PelisCollection {
 }
 
 export { PelisCollection, Peli };
-
-// const a = new PelisCollection();
-// const s = a.search({ title: "Veng" }).then((obj) => console.log(obj));
-/*
-//s.then((obj) => {}); 
-// a.getById(4).then((obj) => console.log(obj));
-a.add({
-  id: 2100,
-  title: "El padrino",
-  tags: ["crimen", "drama"],
-}).then((i) => console.log(i));
-*/
