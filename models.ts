@@ -29,11 +29,11 @@ class PelisCollection {
       return pelis.filter((r) => {
         if (options.title && options.tag) {
           return (
-            r.title.toLowerCase().includes(options.title.toLowerCase()) &&
+            r.title.includes(options.title) &&
             r.tags.includes(options.tag.toString())
           );
         } else if (options.title) {
-          return r.title.toLowerCase().includes(options.title.toLowerCase());
+          return r.title.includes(options.title);
         } else if (options.tag) {
           return r.tags.includes(options.tag.toString());
         } else {
