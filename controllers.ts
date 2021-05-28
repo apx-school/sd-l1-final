@@ -9,9 +9,7 @@ class PelisController {
     get(options: any) {
         if (options.id) {
             return this.pelisCollection.getById(options.id);
-        }
-
-        if (options.search) {
+        } else if (options.search) {
             return this.pelisCollection.search(options.search);
         } else {
             return this.pelisCollection.getAll();

@@ -10,7 +10,7 @@ class Peli {
 class PelisCollection {
     peliculas: Peli[];
 
-    getAll(): Promise<Peli[]> {
+    getAll() /* : Promise<Peli[]> */ {
         const todasLasPelis = jsonfile
             .readFile("./pelis.json")
             .then((pelis) => {
@@ -28,19 +28,28 @@ class PelisCollection {
         return buscarPorId;
     }
     search(options: any) {
-        const search = this.getAll().then((pelis) => {
-            return pelis.filter((item) => {
-                if (options.title) {
-                    return item.title
-                        .toLocaleLowerCase()
-                        .includes(options.title);
-                }
-                if (options.tags) {
-                    return item.tags.includes(options.tags);
-                }
-            });
+        return this.getAll().then((pelis) => {
+            let resultado = pelis;
+
+            if (options.title && options.tags) {
+                return resultado.filter(
+                    (item) =>
+                        item.title
+                            .toLocaleLowerCase()
+                            .includes(options.title) &&
+                        item.tags.includes(options.tags)
+                );
+            } else if (options.title) {
+                resultado = pelis.filter((item) =>
+                    item.title.toLocaleLowerCase().includes(options.title)
+                );
+            } else if (options.tags) {
+                resultado = pelis.filter((item) =>
+                    item.tags.includes(options.tags)
+                );
+            }
+            return resultado;
         });
-        return search;
     }
 
     add(peli: Peli) {
