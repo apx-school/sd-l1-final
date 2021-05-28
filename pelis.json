@@ -1,1 +1,27 @@
-[]
+[
+    {
+        "id": 5,
+        "title": "El Increíble Hulk",
+        "tags": ["accion", "ficcion", "monstruo"]
+    },
+    {
+        "id": 6,
+        "title": "Capitán América: El primer Vengador",
+        "tags": ["venganza", "guerra", "amistad"]
+    },
+    {
+        "id": 1,
+        "title": "Thor: El mundo oscuro",
+        "tags": ["accion", "magia", "fantasia"]
+    },
+    {
+        "id": 7,
+        "title": "Iron Man 2",
+        "tags": ["tecnologia", "poderes", "volar"]
+    },
+    {
+        "id": 3,
+        "title": "Capitana Marvel",
+        "tags": ["accion", "mujer", "heroina"]
+    }
+]
