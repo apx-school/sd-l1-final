@@ -7,43 +7,53 @@ class Peli {
 }
 
 class PelisCollection {
-  data: Peli[] = [];
-  getAll(): Promise<Peli[]> {
-    return jsonfile.readFile("./pelis.json").then((item) => {
-      return (this.data = item);
+  data: Peli[];
+
+  getAll(): Promise<any[]> {
+    const pelis = jsonfile.readFile("./pelis.json").then((pelis) => {
+      return (this.data = pelis);
     });
+    return pelis;
   }
-  getById(id: number): Promise<any> {
-    return this.getAll().then((pelis) => {
-      const resultado = pelis.find((peli) => {
-        return peli.id == id;
+
+  getById(id: number) {
+    const resolve = this.getAll().then((p) => {
+      return p.find((i) => {
+        return i.id == id;
       });
-      return resultado;
     });
+    return resolve;
   }
-  search(options: any): Promise<any> {
+  search(options: any) {
     return this.getAll().then((pelis) => {
-      var resolve = pelis;
-      if (options.title) {
-        resolve = resolve.filter((peli) => {
-          return peli.title.includes(options.title);
-        });
+      let respuesta = pelis;
+
+      if (options.title && options.tag) {
+        return respuesta.filter(
+          (item) =>
+            item.title.toLowerCase().includes(options.title) &&
+            item.tags.includes(options.tag)
+        );
+      } else if (options.title) {
+        respuesta = pelis.filter((i) =>
+          i.title.toLowerCase().includes(options.title)
+        );
+      } else if (options.tag) {
+        respuesta = pelis.filter((i) => i.tags.includes(options.tag));
       }
-      if (options.tag) {
-        resolve = resolve.filter((peli) => {
-          return peli.tags.includes(options.tag);
-        });
-      }
-      return resolve;
+      return respuesta;
     });
   }
-  add(peli: Peli): Promise<boolean> {
+
+  add(peli: Peli) {
     const promesaUno = this.getById(peli.id).then((peliExistente) => {
       if (peliExistente) {
         return false;
       } else {
         this.data.push(peli);
-        const promesaDos = jsonfile.writeFile("./pelis.json", this.data);
+        const data = this.data;
+        const promesaDos = jsonfile.writeFile("./pelis.json", data);
+
         return promesaDos.then(() => {
           return true;
         });
@@ -52,5 +62,4 @@ class PelisCollection {
     return promesaUno;
   }
 }
-
 export { PelisCollection, Peli };

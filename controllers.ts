@@ -5,11 +5,10 @@ class PelisController {
   constructor() {
     this.pelis = new PelisCollection();
   }
-  get(options: any): Promise<any> {
+  get(options: any) {
     if (options.id) {
       return this.pelis.getById(options.id);
-    }
-    if (options.search) {
+    } else if (options.search) {
       return this.pelis.search(options.search);
     } else {
       return this.pelis.getAll();

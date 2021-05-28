@@ -7,42 +7,46 @@ function parseaParams(argv) {
 }
 
 function getOption(controller, params) {
-  var parametros;
-  if (params._[0] == "add") {
-    let peli = {
+  var response;
+
+  if (params._[0] == ["add"]) {
+    const objeto = {
       id: params.id,
       title: params.title,
       tags: params.tags,
     };
-    return (parametros = controller.add(peli).then((e) => {
-      return e;
-    }));
+    response = controller.add(objeto).then((i) => {
+      return i;
+    });
   }
-  if (params._[0] == "get") {
-    return (parametros = controller
-      .get({ id: params._[1] })
-      .then((respuesta) => {
-        return respuesta;
-      }));
+
+  if (params._[0] == ["get"]) {
+    const obj = { id: params._[1] };
+    response = controller.get(obj).then((i) => {
+      return i;
+    });
   }
+
   if (params._[0] == "search") {
-    let opc = {};
+    let objeto = {};
     if (params.title) {
-      opc["title"] = params.title;
+      objeto["title"] = params.title.toLowerCase();
     }
     if (params.tag) {
-      opc["tag"] == params.tag;
+      objeto["tag"] = params.tag;
     }
-    return (parametros = controller.get({ search: opc }).then((i) => {
-      return i;
-    }));
+    response = controller.get({ search: objeto }).then((result) => {
+      console.log({ search: objeto });
+      return result;
+    });
   }
+
   if (params._.length == 0) {
-    return (parametros = controller.get({}).then((e) => {
-      return e;
-    }));
+    response = controller.get({}).then((result) => {
+      return result;
+    });
   }
-  return parametros;
+  return response;
 }
 
 function main() {
