@@ -35,7 +35,7 @@ function opcionesDeParametros(params, controller) {
             objeto["title"] = params.title;
         }
         if (params.tag) {
-            objeto["tags"] = params.tag;
+            objeto["tag"] = params.tag;
         }
         resultadoFinal = controller.get({ search: objeto }).then((result) => {
             console.log({ search: objeto });

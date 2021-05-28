@@ -10,7 +10,7 @@ class Peli {
 class PelisCollection {
     peliculas: Peli[];
 
-    getAll() /* : Promise<Peli[]> */ {
+    getAll(): Promise<any[]> {
         const todasLasPelis = jsonfile
             .readFile("./pelis.json")
             .then((pelis) => {
@@ -31,21 +31,21 @@ class PelisCollection {
         return this.getAll().then((pelis) => {
             let resultado = pelis;
 
-            if (options.title && options.tags) {
+            if (options.title && options.tag) {
                 return resultado.filter(
                     (item) =>
                         item.title
                             .toLocaleLowerCase()
                             .includes(options.title) &&
-                        item.tags.includes(options.tags)
+                        item.tags.includes(options.tag)
                 );
             } else if (options.title) {
                 resultado = pelis.filter((item) =>
                     item.title.toLocaleLowerCase().includes(options.title)
                 );
-            } else if (options.tags) {
+            } else if (options.tag) {
                 resultado = pelis.filter((item) =>
-                    item.tags.includes(options.tags)
+                    item.tags.includes(options.tag)
                 );
             }
             return resultado;

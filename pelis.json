@@ -1,1 +1,27 @@
-[{"id":5,"title":"El Increíble Hulk","tags":["accion","ficcion","monstruo"]},{"id":6,"title":"Capitán América: El primer Vengador","tags":["venganza","guerra","amistad"]},{"id":1,"title":"Thor: El mundo oscuro","tags":["accion","magia","fantasia"]},{"id":7,"title":"Iron Man 2","tags":["tecnologia","poderes","volar"]},{"id":3,"title":"Capitana Marvel","tags":["accion","mujer","heroina"]},{"id":4321865,"title":"peli de la terminal 4321865","tags":["rr","ww"]},{"id":212637,"title":"title 164990212637","tags":["tt","rr"]},{"id":147079,"title":"title 164990147079","tags":["yy","uu"]},{"id":200620,"title":"title 203818200620","tags":["tt","rr"]},{"id":173266,"title":"title 203818173266","tags":["yy","uu"]},{"id":211610,"title":"una peli 211610","tags":["classic","tag 211610"]},{"id":161591,"title":"otra peli un poco más divertida","tags":["tag 211610"]}]
+[
+    {
+        "id": 5,
+        "title": "El Increíble Hulk",
+        "tags": ["accion", "ficcion", "monstruo"]
+    },
+    {
+        "id": 6,
+        "title": "Capitán América: El primer Vengador",
+        "tags": ["venganza", "guerra", "amistad"]
+    },
+    {
+        "id": 1,
+        "title": "Thor: El mundo oscuro",
+        "tags": ["accion", "magia", "fantasia"]
+    },
+    {
+        "id": 7,
+        "title": "Iron Man 2",
+        "tags": ["tecnologia", "poderes", "volar"]
+    },
+    {
+        "id": 3,
+        "title": "Capitana Marvel",
+        "tags": ["accion", "mujer", "heroina"]
+    }
+]
