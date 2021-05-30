@@ -37,7 +37,7 @@ function processOptions(params, controller) {
       objeto["tag"] = params.tag;
     }
 
-    resultado = controller.get({ search: objeto }).the((result) => {
+    resultado = controller.get({ search: objeto }).then((result) => {
       console.log({ search: objeto });
       return result;
     });
