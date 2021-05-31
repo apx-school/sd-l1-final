@@ -10,15 +10,19 @@ function parseaParams(argv) {
   }else if(resultMin._[0]=="search"){
     
     let object = {};
-    
-    if(resultMin.title){
+
+    if(resultMin.title && resultMin.tags){
+      object = {
+        title:resultMin.title,
+        tags:resultMin.tags,
+      };
+    }else if(resultMin.title){
       object = {
         title:resultMin.title,
       };
-    }
-    if(resultMin.tags){
+    }else if(resultMin.tags){
       object = {
-        title:resultMin.tags,
+        tags:resultMin.tags,
       };
     }
     return object;

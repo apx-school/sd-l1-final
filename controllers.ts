@@ -9,10 +9,12 @@ class PelisController {
   processOptions(options){
     if(options.get){
       return this.movies.getById(options.get);
-    }if(options.title){
-      return this.movies.search(options.title);
-    }if(options.tags){
-      return this.movies.search(options.tags);
+    }else if(options.title && options.tags){
+      return this.movies.search(options);
+    }else if(options.title){
+      return this.movies.search(options);
+    }else if(options.tags){
+      return this.movies.search(options);
     }else{
       return this.movies.getAll();      
     }
