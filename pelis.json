@@ -1,1 +1,5 @@
-[]
+[
+  { "id": 1, "title": "La Monja", "tags": ["terror", "misterio"] },
+  { "id": 2, "title": "Godzilla", "tags": ["misterio", "accion"] },
+  { "id": 3, "title": "Los Millers", "tags": ["comedia", "romantico"] }
+]
