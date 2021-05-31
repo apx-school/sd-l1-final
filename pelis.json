@@ -1,1 +1,53 @@
-[]
+[
+    {
+        "id": 1,
+        "title": "kung fu panda",
+        "tags": ["accion","nueva","comedia"]
+      },
+      {
+        "id": 2,
+        "title": "Volver al futuro",
+        "tags": ["ciencia ficcion","clasico","comedia"]
+      },
+      {
+        "id": 3,
+        "title": "rapidos y furiosos 8",
+        "tags": ["accion","nueva","carreras"]
+      },
+      {
+        "id": 4,
+        "title": "guardianes de la galaxia",
+        "tags": ["ciencia ficcion","nueva","comedia"]
+      },
+      {
+        "id": 5,
+        "title": "rambo",
+        "tags": ["accion","clasico","belica"]
+      },
+      {
+        "id": 6,
+        "title": "la princesa mononoke",
+        "tags": ["animacion","clasico","accion"]
+      },
+      {
+        "id": 7,
+        "title": "anabelle",
+        "tags": ["terror","nueva","suspenso"]
+      },
+      {
+        "id": 8,
+        "title": "la noche del demonio",
+        "tags": ["terror","nueva","suspenso"]
+      },
+      {
+        "id": 9,
+        "title": "el transportador",
+        "tags": ["accion","clasico","peleas"]
+      },
+      {
+        "id": 10,
+        "title": "buscando a nemo",
+        "tags": ["animada","clasico","comedia"]
+      }
+
+]
