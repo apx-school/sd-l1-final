@@ -26,10 +26,10 @@ class PelisCollection {
   }
   search(option){
 
-if (option.search){
+if (option.title){
    return this.getAll().then((pelis)=>{
    return  pelis.filter((item)=>{
-     return item.title.includes(option.search)
+     return item.title.includes(option.title)
    })
      })
   }else if(option.tag){
@@ -39,15 +39,30 @@ if (option.search){
       })
     })
   }
+}
+add(peli: Peli): Promise<boolean> {
+  const promesaUno = this.getById(peli.id).then((peliExistente) => {
+    if (peliExistente) {
+      return false;
+    } else {
+      // magia que agrega la pelicula a un objeto data
+      const data = {peli};
+      const promesaDos = jsonfile.writeFile("./pelis.json", data);
 
- }
+      return promesaDos.then(() => {
+        return true;
+      });
+    }
+  });
+
+  return promesaUno;
+} 
 }
 export { PelisCollection, Peli };
 
-const prueba = new PelisCollection
+const prueba = new PelisCollection()
 
-prueba.search({search:"u"}).then((item)=>{
-  console.log(item)
-})
+
+
 
 
