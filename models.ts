@@ -10,13 +10,16 @@ class Peli {
 }
 
 class PelisCollection {
+  data:Peli[]=[]
+
   getAll(): Promise<Peli[]> {
-    return jsonfile.readFile("./pelis.json").then((pelis) => {
+    const fileData = jsonfile.readFile("./pelis.json").then((pelis) => {
       // la respuesta de la promesa
       return pelis;
     });
+    return
   }
-  getById(id:number){
+  getById(id:number): Promise<Peli[]>{
     return this.getAll().then((pelis)=>{
       const lista = pelis.find((peli)=>{
         return peli.id == id;
@@ -46,8 +49,8 @@ add(peli: Peli): Promise<boolean> {
       return false;
     } else {
       // magia que agrega la pelicula a un objeto data
-      const data = {peli};
-      const promesaDos = jsonfile.writeFile("./pelis.json", data);
+      this.data.push(peli)
+      const promesaDos = jsonfile.writeFile("./pelis.json",this.data);
 
       return promesaDos.then(() => {
         return true;
