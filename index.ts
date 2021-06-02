@@ -30,7 +30,7 @@ function processOptions(argv){
     var peli = {
       id: argv.id,
       title: argv.title,
-      tags: argv.tag
+      tags: argv.tags
     }
     return controller.add(peli)
       .then((respuesta)=>{return respuesta})
