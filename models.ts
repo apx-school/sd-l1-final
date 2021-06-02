@@ -12,14 +12,14 @@ class Peli {
 class PelisCollection {
   data:Peli[]=[]
 
-  getAll(): Promise<Peli[]> {
+  getAll() {
     const fileData = jsonfile.readFile("./pelis.json").then((pelis) => {
       // la respuesta de la promesa
-      return pelis;
+      return this.data = pelis;
     });
-    return
+    return fileData
   }
-  getById(id:number): Promise<Peli[]>{
+  getById(id:number){
     return this.getAll().then((pelis)=>{
       const lista = pelis.find((peli)=>{
         return peli.id == id;
@@ -35,17 +35,17 @@ if (option.title){
      return item.title.includes(option.title)
    })
      })
-  }else if(option.tag){
+  }else if(option.tags){
     return this.getAll().then((pelis)=>{
       return pelis.filter((item)=>{
-     return item.tags.includes(option.tag)
+     return item.tags.includes(option.tags)
       })
     })
   }
 }
 add(peli: Peli): Promise<boolean> {
   const promesaUno = this.getById(peli.id).then((peliExistente) => {
-    if (peliExistente) {
+    if (peliExistente ) {
       return false;
     } else {
       // magia que agrega la pelicula a un objeto data
@@ -64,6 +64,9 @@ add(peli: Peli): Promise<boolean> {
 export { PelisCollection, Peli };
 
 const prueba = new PelisCollection()
+prueba.add({id:12,title:"peli 12",tags:["accion,terror,pelea"]}).then((item)=>{
+  console.log(item)
+})
 
 
 

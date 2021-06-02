@@ -18,7 +18,9 @@ class PelisController {
        return this.peliculas.search(options.parametro2.tags)
      }
   }
-  add(peli:Peli){}
+  add(peli:Peli){
+    
+  }
 }
 export { PelisController };
 

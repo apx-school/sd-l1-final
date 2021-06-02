@@ -1,4 +1,5 @@
 import * as minimist from "minimist";
+import { PelisCollection } from "./models";
 
 function parseaParams(argv) {          //parcea el process argv para que devuelva un objeto con los parametros que escribamos en la consola
   const resultado = minimist(argv);
@@ -28,6 +29,13 @@ function parametros (objeto){
     }
   }
 
+  if (objeto._[0]=="add"){
+    return{
+      id:objeto.id,
+      title:objeto.title,
+      tags:objeto.tags
+    }
+  }
 }
 
 

@@ -32,7 +32,7 @@ test.serial("Testeo el método getById", async (t) => {
   t.is(a.title, b.title);
 });
 
-/*test.serial("Testeo el método search", async (t) => {
+test.serial("Testeo el método search", async (t) => {
   const collection = new PelisCollection();
   await collection.add({
     id: TEST_ID,
@@ -55,4 +55,4 @@ test.serial("Testeo el método getById", async (t) => {
     tag: "yy",
   });
   t.deepEqual(c[0].id, SECOND_TEST_ID);
-});*/
+});
