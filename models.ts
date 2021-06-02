@@ -31,18 +31,18 @@ class PelisCollection {
       let peliEcontrada =  peliculas
       if(options.title){
         peliEcontrada = peliEcontrada.filter((item)=>{
-          return item.title.toLowerCase().includes(options.title.toLowerCase())
+          return item.title.includes(options.title)
         })
       }
       if(options.tag){
         peliEcontrada = peliEcontrada.filter((item)=>{
-          return item.tags.toString().toLocaleLowerCase().includes(options.tag.toString().toLowerCase())
+          return item.tags.includes(options.tag)
         })        
       }
       if(options.title && options.tag){
         peliEcontrada = peliEcontrada.filter((item)=>{
-          return item.title.toLowerCase().includes(options.title.toLowerCase()) &&
-          item.tags.toString().toLocaleLowerCase().includes(options.tag.toString().toLowerCase())
+          return item.title.includes(options.title) &&
+          item.tags.includes(options.tag)
         })
       }
       return peliEcontrada
