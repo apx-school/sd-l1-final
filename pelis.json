@@ -13,5 +13,20 @@
     "id": 3,
     "title": "El rey leon",
     "tags": ["animada", "comedia", "aventura"]
+  },
+  {
+    "id": 4,
+    "title": "Avengers",
+    "tags": ["heroes", "accion", "aventura"]
+  },
+  {
+    "id": 5,
+    "title": "Hercules",
+    "tags": ["animada", "comedia", "aventura"]
+  },
+  {
+    "id": 3,
+    "title": "El exorcista",
+    "tags": ["terror", "vieja", "suspenso"]
   }
 ]
