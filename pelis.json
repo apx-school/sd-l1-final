@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "Piratas del caribe",
+    "tags": ["comedia", "accion", "aventura"]
+  },
+  {
+    "id": 2,
+    "title": "Midsommar",
+    "tags": ["horror", "suspenso", "psicologica"]
+  },
+  {
+    "id": 3,
+    "title": "El rey leon",
+    "tags": ["animada", "comedia", "aventura"]
+  }
+]
