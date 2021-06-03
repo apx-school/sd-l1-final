@@ -1,1 +1,13 @@
-[]
+[{
+    "id":1 ,
+    "title": "Lord Of the Rings", 
+    "tags":[ "accion", "aventura"]
+},{
+    "id":2 ,
+    "title": "It", 
+    "tags":[ "accion", "terror"]
+},{
+    "id":3 ,
+    "title": "Kill Bill", 
+    "tags":[ "accion"]
+}]
