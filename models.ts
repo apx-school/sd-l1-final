@@ -28,7 +28,9 @@ class PelisCollection {
     if (option.title) {
       promesas = this.getAll().then((pelis) => {
         const pelisPorLetra = pelis.filter(function (peli) {
-          return peli.title.toLowerCase().includes(option.title.toLowerCase());
+          return peli.title
+            .toLowerCase()
+            .includes(option.title.toString().toLowerCase());
         });
         return pelisPorLetra;
       });
