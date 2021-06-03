@@ -12,7 +12,7 @@ function parseaParams(argv) {
       tags: resultado.tags,
     };
     const controlador = new PelisController();
-    controlador.modelo.add(peli);
+    controlador.add(peli);
   }
 
   let argId;

@@ -14,7 +14,7 @@ class PelisController {
     const modelo = new PelisCollection();
     this.modelo = modelo;
   }
-  get(options: Options) {
+  get(options) {
     if (options.id) {
       return this.modelo.getById(options.id).then((resultado) => {
         return resultado;
@@ -30,6 +30,12 @@ class PelisController {
         return resultado;
       });
     }
+  }
+
+  add(peli: Peli) {
+    return this.modelo.add(peli).then((res) => {
+      return res;
+    });
   }
 }
 export { PelisController };
