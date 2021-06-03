@@ -42,6 +42,7 @@ class PelisCollection {
  });
  }); 
 }
+//metodo add
 add(peli: Peli): Promise<boolean> {
   const promesaUno = this.getById(peli.id).then((peliExistente) => {
     if (peliExistente) {

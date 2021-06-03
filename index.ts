@@ -7,7 +7,7 @@ function parseaParams(argv) {
   return resultado;
 }
 
-function Options (peliControl , parametros){ 
+function Options(peliControl,parametros){ 
  if (parametros._[0] == "get"){ 
   return peliControl.get({id: parametros._[1]});
  } else if (parametros._[0] == "search") {
@@ -23,10 +23,9 @@ function Options (peliControl , parametros){
 } 
 
 function main() {
-  const argumentos = process.argv.slice(2); 
-  const parametros = parseaParams(argumentos);
-  const pelicontrol = new PelisController();
-  Options(pelicontrol,parametros).then((resultado)=>{
+  const parametros = parseaParams(process.argv.slice(2));
+  const peliculaControl = new PelisController();
+  Options(peliculaControl,parametros).then((resultado)=>{
     console.log(resultado);
   })
 
