@@ -5,7 +5,7 @@ class PelisController {
   constructor() {
     this.pelis = new PelisCollection();
   }
-  get(options) {
+  get(options: any) {
     if (options.id) {
       return this.pelis.getById(options.id);
     }

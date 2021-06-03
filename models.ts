@@ -10,10 +10,10 @@ class Peli {
 
 class PelisCollection {
   data: Peli[];
-  getAll() {
+  getAll(): Promise<any> {
     const pelis = jsonfile.readFile("./pelis.json").then((json) => {
       // la respuesta de la promesa
-      this.data = json;
+      //this.data = json;
       return json;
     });
     return pelis;
@@ -28,15 +28,19 @@ class PelisCollection {
   }
   search(options: any) {
     return this.getAll().then((json) => {
+      var jsonGuardado = json;
       if (options.title) {
-        return json.filter((obj) =>
+        jsonGuardado = jsonGuardado.filter((obj) =>
           obj.title.toLowerCase().includes(options.title)
         );
       }
 
       if (options.tag) {
-        return json.filter((obj) => obj.tags.includes(options.tag));
+        jsonGuardado = jsonGuardado.filter((obj) =>
+          obj.tags.includes(options.tag)
+        );
       }
+      return jsonGuardado;
     });
   }
   add(peli: Peli): Promise<boolean> {
@@ -55,8 +59,8 @@ class PelisCollection {
     return promesaUno;
   }
 }
-/* const objeto = new PelisCollection();
-objeto.getById(3).then((obj) => {
+const objeto = new PelisCollection();
+objeto.search({ tag: "terror" }).then((obj) => {
   console.log(obj);
-}); */
+});
 export { Peli, PelisCollection };
