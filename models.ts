@@ -16,15 +16,17 @@ class PelisCollection {
   }
   getById(id: number) {
     return this.getAll().then((pelis) => {
-      const encontrada = pelis.find((peli) => {
+      const pelisPorId = pelis.find((peli) => {
         return peli.id == id;
       });
-      return encontrada;
+      return pelisPorId;
     });
   }
   search(option: any) {
+    let promesas;
+
     if (option.title) {
-      return this.getAll().then((pelis) => {
+      promesas = this.getAll().then((pelis) => {
         const pelisPorLetra = pelis.filter(function (peli) {
           return peli.title.toLowerCase().includes(option.title.toLowerCase());
         });
@@ -33,7 +35,7 @@ class PelisCollection {
     }
 
     if (option.tag) {
-      return this.getAll().then((pelis) => {
+      promesas = this.getAll().then((pelis) => {
         const pelisPorTag = pelis.filter(function (peli) {
           const buscadorTags = peli.tags.find(function (tags) {
             return tags.toLocaleLowerCase() == option.tag.toLowerCase();
@@ -43,6 +45,7 @@ class PelisCollection {
         return pelisPorTag;
       });
     }
+    return promesas;
   }
 
   add(peli: Peli): Promise<boolean> {

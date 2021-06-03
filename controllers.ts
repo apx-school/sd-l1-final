@@ -25,9 +25,7 @@ class PelisController {
       return this.modelo.search(options.search).then((resultado) => {
         return resultado;
       });
-    }
-
-    if (options.id == undefined && options.search == undefined) {
+    } else {
       return this.modelo.getAll().then((resultado) => {
         return resultado;
       });
@@ -36,15 +34,15 @@ class PelisController {
 }
 export { PelisController };
 
-// MOCK
+// // MOCK
 
-const controller = new PelisController();
-const opciones = new Options();
-// opciones.id = 3;
+// const controller = new PelisController();
+// const opciones = new Options();
+// // opciones.id = 3;
 
-// opciones.search.tag = "o";
-const resultado = controller.get(opciones);
+// // opciones.search.tag = "o";
+// const resultado = controller.get(opciones);
 
-resultado.then((resuelto) => {
-  console.log(resuelto);
-});
+// resultado.then((resuelto) => {
+//   console.log(resuelto);
+// });
