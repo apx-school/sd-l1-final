@@ -27,6 +27,7 @@ class PelisCollection {
     });
     return resultado;
     });
+   
 }
 //metodo search 
  search(options:any){ 
@@ -48,7 +49,7 @@ add(peli: Peli): Promise<boolean> {
     if (peliExistente) {
       return false;
     } else {
-      const data = this.pelis.push(peli)
+      const data = this.pelis.concat(peli)
       const promesaDos = jsonfile.writeFile("./pelis.json", data);
 
       return promesaDos.then(() => {

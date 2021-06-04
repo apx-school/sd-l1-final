@@ -1,13 +1,1 @@
-[{
-    "id":1 ,
-    "title": "Lord Of the Rings", 
-    "tags":[ "accion", "aventura"]
-},{
-    "id":2 ,
-    "title": "It", 
-    "tags":[ "accion", "terror"]
-},{
-    "id":3 ,
-    "title": "Kill Bill", 
-    "tags":[ "accion"]
-}]
+[{"id":1,"title":"Lord Of the Rings","tags":["accion","aventura"]},{"id":2,"title":"It","tags":["accion","terror"]},{"id":3,"title":"Kill Bill","tags":["accion"]},{"id":4411,"title":"Título de la nueva peli","tags":["action","classic"]},{"id":4321865,"title":"peli de la terminal 4321865","tags":["rr","ww"]}]

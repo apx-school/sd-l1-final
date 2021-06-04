@@ -13,11 +13,11 @@ class PelisController {
     return this.peliculas.search(options.search); 
    }
   else {
-     this.peliculas.getAll(); 
+     return this.peliculas.getAll(); 
   }
   }
   add(peli: Peli){ 
-   this.peliculas.add(peli);
+   return this.peliculas.add(peli);
   }
 }
 export { PelisController };
