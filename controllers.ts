@@ -6,14 +6,14 @@ class PelisController {
     this.pelis = new PelisCollection();
   }
   get(options: any) {
+    if (options == null) {
+      return this.pelis.getAll();
+    }
     if (options.id) {
       return this.pelis.getById(options.id);
     }
     if (options.search) {
       return this.pelis.search(options.search);
-    }
-    if (options == null) {
-      return this.pelis.getAll();
     }
   }
   add(peli: Peli) {

@@ -17,34 +17,28 @@
   { "id": 4, "title": "Avengers", "tags": ["heroes", "accion", "aventura"] },
   { "id": 5, "title": "Hercules", "tags": ["animada", "comedia", "aventura"] },
   { "id": 6, "title": "El exorcista", "tags": ["terror", "vieja", "suspenso"] },
-  { "id": 4321865, "title": "peli de la terminal 4321865" },
-  { "id": 170749, "title": "title 169535170749", "tags": ["tt", "rr"] },
-  { "id": 189196, "title": "title 169535189196", "tags": ["yy", "uu"] },
   {
-    "id": 130523,
-    "title": "una peli 130523",
-    "tags": ["classic", "tag 130523"]
+    "id": 4411,
+    "title": "Título de la nueva peli",
+    "tags": ["action", "classic"]
   },
   {
-    "id": 222635,
+    "id": 4321865,
+    "title": "peli de la terminal 4321865",
+    "tags": ["rr", "ww"]
+  },
+  { "id": 217845, "title": "title 227170217845", "tags": ["tt", "rr"] },
+  { "id": 167198, "title": "title 227170167198", "tags": ["yy", "uu"] },
+  {
+    "id": 182868,
+    "title": "una peli 182868",
+    "tags": ["classic", "tag 182868"]
+  },
+  {
+    "id": 146285,
     "title": "otra peli un poco más divertida",
-    "tags": ["tag 130523"]
+    "tags": ["tag 182868"]
   },
-  { "id": 189623, "title": "title 176493189623", "tags": ["tt", "rr"] },
-  { "id": 220802, "title": "title 176493220802", "tags": ["yy", "uu"] },
-  { "id": 215192, "title": "title 225011215192", "tags": ["tt", "rr"] },
-  { "id": 180806, "title": "title 225011180806", "tags": ["yy", "uu"] },
-  {
-    "id": 191833,
-    "title": "una peli 191833",
-    "tags": ["classic", "tag 191833"]
-  },
-  {
-    "id": 154180,
-    "title": "otra peli un poco más divertida",
-    "tags": ["tag 191833"]
-  },
-  { "id": 195470, "title": "title 187023195470", "tags": ["tt", "rr"] },
-  { "id": 188293, "title": "title 187023188293", "tags": ["yy", "uu"] },
-  { "id": 4411, "title": "Título de la nueva peli" }
+  { "id": 178503, "title": "title 220181178503", "tags": ["tt", "rr"] },
+  { "id": 149521, "title": "title 220181149521", "tags": ["yy", "uu"] }
 ]

@@ -16,7 +16,7 @@ function controllerOptions(obj) {
     const objeto = {
       search: {
         title: obj.title,
-        tags: obj.tag,
+        tag: obj.tag,
       },
     };
     return peliController.get(objeto).then((obj) => obj);
@@ -25,7 +25,7 @@ function controllerOptions(obj) {
     const objeto = {
       id: obj.id,
       title: obj.title,
-      tags: obj.tag,
+      tags: obj.tags,
     };
     return peliController.add(objeto).then((obj) => obj);
   }

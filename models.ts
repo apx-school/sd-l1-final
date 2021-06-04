@@ -1,7 +1,6 @@
 import * as jsonfile from "jsonfile";
 import * as find from "lodash/find";
 
-// no modificar estas propiedades, agregar todas las que quieras
 class Peli {
   id: number;
   title: string;
@@ -13,7 +12,7 @@ class PelisCollection {
   getAll(): Promise<any> {
     const pelis = jsonfile.readFile("./pelis.json").then((json) => {
       // la respuesta de la promesa
-      //this.data = json;
+      this.data = json;
       return json;
     });
     return pelis;
@@ -30,15 +29,14 @@ class PelisCollection {
     return this.getAll().then((json) => {
       var jsonGuardado = json;
       if (options.title) {
-        jsonGuardado = jsonGuardado.filter((obj) =>
-          obj.title.toLowerCase().includes(options.title)
-        );
+        jsonGuardado = jsonGuardado.filter((obj) => {
+          return obj.title.toLowerCase().includes(options.title);
+        });
       }
-
       if (options.tag) {
-        jsonGuardado = jsonGuardado.filter((obj) =>
-          obj.tags.includes(options.tag)
-        );
+        jsonGuardado = jsonGuardado.filter((obj) => {
+          return obj.tags.includes(options.tag);
+        });
       }
       return jsonGuardado;
     });
@@ -60,7 +58,7 @@ class PelisCollection {
   }
 }
 const objeto = new PelisCollection();
-objeto.search({ tag: "terror" }).then((obj) => {
+objeto.search({ tag: "rr" }).then((obj) => {
   console.log(obj);
 });
 export { Peli, PelisCollection };
