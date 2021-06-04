@@ -8,7 +8,7 @@ class Peli {
 }
 
 class PelisCollection {
-  getAll(): Promise<Peli[]> {
+  getAll(): Promise<any> {
     return jsonfile.readFile("./pelis.json").then((json) => {
       // la respuesta de la promesa
       return json;
@@ -23,31 +23,27 @@ class PelisCollection {
     });
   }
   search(option: any) {
-    let promesas;
+    return this.getAll().then((pelis) => {
+      let collection;
 
-    if (option.title) {
-      promesas = this.getAll().then((pelis) => {
-        const pelisPorLetra = pelis.filter(function (peli) {
+      if (option.title) {
+        collection = pelis.filter(function (peli) {
           return peli.title
             .toLowerCase()
             .includes(option.title.toString().toLowerCase());
         });
-        return pelisPorLetra;
-      });
-    }
+      }
 
-    if (option.tag) {
-      promesas = this.getAll().then((pelis) => {
-        const pelisPorTag = pelis.filter(function (peli) {
+      if (option.tag) {
+        collection = pelis.filter(function (peli) {
           const buscadorTags = peli.tags.find(function (tags) {
-            return tags.toLocaleLowerCase() == option.tag.toLowerCase();
+            return tags.toLowerCase() == option.tag.toLowerCase();
           });
           return buscadorTags;
         });
-        return pelisPorTag;
-      });
-    }
-    return promesas;
+      }
+      return collection;
+    });
   }
 
   add(peli: Peli): Promise<boolean> {
