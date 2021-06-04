@@ -12,7 +12,7 @@ class PelisCollection {
   getAll(): Promise<any> {
     const pelis = jsonfile.readFile("./pelis.json").then((json) => {
       // la respuesta de la promesa
-      this.data = json;
+      //this.data = json;
       return json;
     });
     return pelis;
@@ -57,8 +57,5 @@ class PelisCollection {
     return promesaUno;
   }
 }
-const objeto = new PelisCollection();
-objeto.search({ tag: "rr" }).then((obj) => {
-  console.log(obj);
-});
+
 export { Peli, PelisCollection };
