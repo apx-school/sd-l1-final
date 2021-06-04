@@ -1,1 +1,27 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "Star Wars: Rogue One",
+    "tags": ["accion", "ciencia ficcion", "star wars"]
+  },
+  {
+    "id": 2,
+    "title": "Han Solo",
+    "tags": ["accion", "ciencia ficcion", "star wars"]
+  },
+  {
+    "id": 3,
+    "title": "Joker",
+    "tags": ["accion", "drama", "dc"]
+  },
+  {
+    "id": 4,
+    "title": "Mortal Kombat",
+    "tags": ["accion", "ciencia ficcion", "peleas"]
+  },
+  {
+    "id": 5,
+    "title": "Doctor Strange",
+    "tags": ["accion", "ciencia ficcion", "marvel", "superheroes"]
+  }
+]
