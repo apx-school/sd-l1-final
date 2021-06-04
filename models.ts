@@ -35,10 +35,10 @@ class PelisCollection {
  return peliculas.find((collection)=>{
   if(options.title){
     return collection.title.includes(options.title)
-  } else if(options.tags){
-    return collection.tags.includes(options.tags);
+  } else if(options.tag){
+    return collection.tags.includes(options.tag);
   }else if (options.title && options.tags){ 
-    return ( collection.title.includes(options.title) && collection.tags.includes(options.tags));
+    return ( collection.title.includes(options.title) && collection.tags.includes(options.tag));
   }
  });
  }); 
