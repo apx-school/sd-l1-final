@@ -12,7 +12,7 @@ class PelisCollection {
   getAll(): Promise<any> {
     const pelis = jsonfile.readFile("./pelis.json").then((json) => {
       // la respuesta de la promesa
-      //this.data = json;
+      this.data = json;
       return json;
     });
     return pelis;
