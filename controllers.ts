@@ -30,27 +30,25 @@ class PelisController {
 
     return respuesta
   }
-
   get(options){
+    let respuesta
+
     if (options.id) {
-      return this.pelisCollection.getById(options.id)
+      respuesta =  this.pelisCollection.getById(options.id)
     } if (options.title) {
-      return this.pelisCollection.search(options)
+      respuesta =  this.pelisCollection.search(options)
     } if (options.tag) {
-      return this.pelisCollection.search(options)
+      respuesta =  this.pelisCollection.search(options)
+    } if (options.hasOwnProperty("search")){
+      respuesta = this.pelisCollection.search(options.search)
     }
+
+    return respuesta
   }
 
   add(peli:Peli) {
     return this.pelisCollection.add(peli)
   }
 }
-
-function main() {
-  const controller =  new PelisController()
-  controller.get({id:2}).then(res=>console.log(res.title))
-}
-
-main()
 
 export { PelisController };

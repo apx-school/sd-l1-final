@@ -15,11 +15,6 @@ function main() {
       console.table(res)
     })
   })
-  // const params = parseaParams(process.argv.slice(2));
-  // console.log(params._.length);
-  // console.log(params.length);
-  // { _: [] }
-
 }
 
 main();
