@@ -6,22 +6,101 @@
   },
   {
     "id": 2,
-    "title": "Han Solo",
+    "title": "Han solo",
     "tags": ["accion", "ciencia ficcion", "star wars"]
   },
   {
-    "id": 3,
-    "title": "Joker",
-    "tags": ["accion", "drama", "dc"]
+    "id": 4321865,
+    "title": "peli de la terminal 4321865",
+    "tags": ["rr", "ww"]
+  },
+  { "id": 162346, "title": "title 135289162346", "tags": ["tt", "rr"] },
+  { "id": 132425, "title": "title 135289132425", "tags": ["yy", "uu"] },
+  {
+    "id": 148419,
+    "title": "una peli 148419",
+    "tags": ["classic", "tag 148419"]
   },
   {
-    "id": 4,
-    "title": "Mortal Kombat",
-    "tags": ["accion", "ciencia ficcion", "peleas"]
+    "id": 150899,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 148419"]
+  },
+  { "id": 159083, "title": "title 204608159083", "tags": ["tt", "rr"] },
+  { "id": 139442, "title": "title 204608139442", "tags": ["yy", "uu"] },
+  { "id": 210520, "title": "title 224598210520", "tags": ["tt", "rr"] },
+  { "id": 148502, "title": "title 224598148502", "tags": ["yy", "uu"] },
+  { "id": 229196, "title": "title 195057229196", "tags": ["tt", "rr"] },
+  { "id": 151421, "title": "title 195057151421", "tags": ["yy", "uu"] },
+  {
+    "id": 182422,
+    "title": "una peli 182422",
+    "tags": ["classic", "tag 182422"]
   },
   {
-    "id": 5,
-    "title": "Doctor Strange",
-    "tags": ["accion", "ciencia ficcion", "marvel", "superheroes"]
-  }
+    "id": 220818,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 182422"]
+  },
+  { "id": 153099, "title": "title 220568153099", "tags": ["tt", "rr"] },
+  { "id": 146416, "title": "title 220568146416", "tags": ["yy", "uu"] },
+  { "id": 179555, "title": "title 138801179555", "tags": ["tt", "rr"] },
+  { "id": 226647, "title": "title 138801226647", "tags": ["yy", "uu"] },
+  {
+    "id": 198188,
+    "title": "una peli 198188",
+    "tags": ["classic", "tag 198188"]
+  },
+  {
+    "id": 172888,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 198188"]
+  },
+  { "id": 137734, "title": "title 133442137734", "tags": ["tt", "rr"] },
+  { "id": 203228, "title": "title 133442203228", "tags": ["yy", "uu"] },
+  { "id": 164550, "title": "title 178881164550", "tags": ["tt", "rr"] },
+  { "id": 140217, "title": "title 178881140217", "tags": ["yy", "uu"] },
+  {
+    "id": 205261,
+    "title": "una peli 205261",
+    "tags": ["classic", "tag 205261"]
+  },
+  {
+    "id": 132059,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 205261"]
+  },
+  { "id": 162409, "title": "title 187340162409", "tags": ["tt", "rr"] },
+  { "id": 157331, "title": "title 187340157331", "tags": ["yy", "uu"] },
+  {
+    "id": 222915,
+    "title": "una peli 222915",
+    "tags": ["classic", "tag 222915"]
+  },
+  {
+    "id": 221683,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 222915"]
+  },
+  { "id": 167315, "title": "title 220518167315", "tags": ["tt", "rr"] },
+  { "id": 221122, "title": "title 220518221122", "tags": ["yy", "uu"] },
+  {
+    "id": 4411,
+    "title": "Título de la nueva peli",
+    "tags": ["action", "classic"]
+  },
+  { "id": 203751, "title": "title 200295203751", "tags": ["tt", "rr"] },
+  { "id": 227892, "title": "title 200295227892", "tags": ["yy", "uu"] },
+  {
+    "id": 147899,
+    "title": "una peli 147899",
+    "tags": ["classic", "tag 147899"]
+  },
+  {
+    "id": 135410,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 147899"]
+  },
+  { "id": 138794, "title": "title 164993138794", "tags": ["tt", "rr"] },
+  { "id": 197265, "title": "title 164993197265", "tags": ["yy", "uu"] }
 ]

@@ -8,13 +8,14 @@ class Peli {
 }
 
 class PelisCollection {
+  pelis: Peli[] = [];
   getAll(): Promise<Peli[]> {
-    return jsonfile("pelis.json").then((p) => {
+    return jsonfile.readFile("./pelis.json").then((p) => {
       // la respuesta de la promesa
-      return [p];
+      return (this.pelis = p);
     });
   }
-  getById(id: number) {
+  getById(id: number): Promise<Peli> {
     return this.getAll().then((productos) => {
       const producto = productos.find((p) => {
         return p.id == id;
@@ -23,32 +24,41 @@ class PelisCollection {
     });
   }
 
-  search(options: any) {
-    if (options.title) {
-      return this.getAll().then((productos) => {
-        const resultado = productos.filter((p) => {
-          return p.title.includes(options.title);
+  search(options: any): Promise<any> {
+    return this.getAll().then((pelis) => {
+      var collection = pelis;
+      if (options.title) {
+        collection = collection.filter((p) => {
+          return p.title
+            .toLowerCase()
+            .includes(options.title.toString().toLowerCase());
         });
-        return resultado;
-      });
-    } else if (options.tag) {
-      return this.getAll().then((productos) => {
-        const resultado = productos.filter((p) => {
+      }
+      if (options.tag) {
+        collection = collection.filter((p) => {
           return p.tags.includes(options.tag);
         });
-        return resultado;
-      });
-    }
+      }
+      if (options.title && options.tag) {
+        collection = collection.filter((p) => {
+          return (
+            p.title.toLowerCase().includes(options.title) &&
+            p.tags.includes(options.tag)
+          );
+        });
+      }
+      return collection;
+    });
   }
 
-  add(peli: Peli): Promise<boolean> {
-    const promesaUno = this.getById(peli.id).then((peliExistente) => {
+  add(pelicula: Peli): Promise<boolean> {
+    const promesaUno = this.getById(pelicula.id).then((peliExistente) => {
       if (peliExistente) {
         return false;
       } else {
         // magia que agrega la pelicula a un objeto data
-        const data = { peli };
-        const promesaDos = jsonfile.writeFile("./pelis.json", data);
+        this.pelis.push(pelicula);
+        const promesaDos = jsonfile.writeFile("./pelis.json", this.pelis);
 
         return promesaDos.then(() => {
           return true;
