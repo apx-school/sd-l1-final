@@ -8,18 +8,18 @@ class PelisController {
     this.peliculas = new PelisCollection()
   }
   get(options){
-     if (options.action == "id"){
-       return this.peliculas.getById(options.parametro2.id)
+     if (options.id){
+       return this.peliculas.getById(options.id)
      }
-     else if(options.action == "search" && options.parametro2.title){
-       return this.peliculas.search(options.parametro2.title)
+     else if(options.search){
+       return this.peliculas.search(options.search)
      }
-     else if(options.action == "search" && options.parametro2.tags){
-       return this.peliculas.search(options.parametro2.tags)
+     else if(options.tags){
+       return this.peliculas.search(options.tags)
      }
   }
   add(peli:Peli){
-    
+    return this.peliculas.add(peli)
   }
 }
 export { PelisController };

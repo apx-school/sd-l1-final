@@ -1,5 +1,6 @@
 import * as minimist from "minimist";
 import { PelisCollection } from "./models";
+import {PelisController} from "./controllers"
 
 function parseaParams(argv) {          //parcea el process argv para que devuelva un objeto con los parametros que escribamos en la consola
   const resultado = minimist(argv);
@@ -25,7 +26,7 @@ function parametros (objeto){
     return{tags:objeto.tags}
   }
   if(objeto.title){                   // lo mismo si solo contiene title
-    return{title:objeto.title}
+    return{search:{title:objeto.title}}
     }
   }
 
@@ -44,8 +45,12 @@ function parametros (objeto){
 function main() {
   const params = parseaParams(process.argv.slice(2));
   const objetos = parametros(params)
-  console.log(params);
-  console.log(objetos)
+// const controles = new PelisController
+
+//controles.get(objetos).then((resultado)=>{
+  //console.log(resultado)
+//})  
+console.log(objetos)
 }
 
 main();
