@@ -29,19 +29,30 @@ class PelisCollection {
     });
    
 }
-//metodo search 
- search(options:any){ 
- return this.getAll().then((peliculas)=>{
- return peliculas.find((collection)=>{
-  if(options.title){
-    return collection.title.includes(options.title)
-  } else if(options.tag){
-    return collection.tags.includes(options.tag);
-  }else if (options.title && options.tags){ 
-    return ( collection.title.includes(options.title) && collection.tags.includes(options.tag));
-  }
- });
- }); 
+//metodo search con ayuda de discord
+search(options: any): Promise<any> {
+  return this.getAll().then((pelis) => {
+    var collection = pelis;
+    if (options.title) {
+      collection = collection.filter((peli) => {
+        return peli.title.toLowerCase().includes(options.title.toString().toLowerCase());
+      });
+    }
+    if (options.tag) {
+      collection = collection.filter((pelis) => {
+        return pelis.tags.includes(options.tag);
+      });
+    }
+    if (options.title && options.tag) {
+      collection = collection.filter((pelis) => {
+        return (
+          pelis.title.toLowerCase().includes(options.title) &&
+          pelis.tags.includes(options.tag)
+        );
+      });
+    }
+    return collection;
+  });
 }
 //metodo add
 add(peli: Peli): Promise<boolean> {

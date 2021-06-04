@@ -6,7 +6,7 @@ function parseaParams(argv) {
 
   return resultado;
 }
-
+//fuction muy gloogeada
 function Options(peliControl,parametros){ 
  if (parametros._[0] == "get"){ 
   return peliControl.get({id: parametros._[1]});

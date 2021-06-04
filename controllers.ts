@@ -6,17 +6,18 @@ class PelisController {
     this.peliculas = new PelisCollection();
 
   }
-  get(options:any){ 
-  if (options.id){ 
-     return this.peliculas.getById(options.id); 
-  } else if( options.search){
-    return this.peliculas.search(options.search); 
-   }
-  else {
-     return this.peliculas.getAll(); 
+  get(options) {
+    if (options.id) {
+      return this.peliculas.getById(options.id); //en caso de fallo probar con then()
+    }
+
+    if (options.search) {
+      return this.peliculas.search(options.search);
+    } else {
+      return this.peliculas.getAll();
+    }
   }
-  }
-  add(peli: Peli){ 
+  add(peli: Peli) :Promise<any>{ 
    return this.peliculas.add(peli);
   }
 }
