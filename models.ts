@@ -34,16 +34,16 @@ class PelisCollection {
 
   search(options: any) {
     return this.promise.then((pelis) => {
-      return pelis.filter((i) => {
+      return this.pelis.filter((i) => {
         if (options.title && options.tag) {
           return (
-            i.title.toLowerCase().includes(options.title.toLowerCase()) &&
-            i.tags.toString().toLowerCase().includes(options.tags.toLowerCase())
+            i.title.toLowerCase().includes(options.title) &&
+            i.tags.includes(options.tag)
           );
         } else if (options.tag) {
-          return i.tags.toLowerCase().includes(options.tag.toLowerCase());
+          return i.tags.includes(options.tag);
         } else if (options.title) {
-          return i.title.toLowerCase().includes(options.title.toLowerCase());
+          return i.title.toLowerCase().includes(options.title);
         } else {
           return this.getAll();
         }
