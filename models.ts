@@ -12,7 +12,8 @@ class PelisCollection {
   getAll(): Promise<Peli[]> {
     return jsonfile.readFile("./pelis.json").then((p) => {
       // la respuesta de la promesa
-      return [p];
+
+      return p;
     });
   }
    getById(id:number){
@@ -34,15 +35,15 @@ class PelisCollection {
   }
   if(options.tags){
     return this.getAll().then((pelis)=>{
-      const pTags = pelis.filter((p)=>{
-        const tagsFinder = p.tags.find((t)=>{
-          return t.toLocaleLowerCase() = options.tags.toLowerCase()
-        });
-        return tagsFinder;
+      const tagFinder = pelis.filter((p)=>{
+        return p.tags.includes(options.tags)
       });
-      return pTags;
+      return tagFinder;
     });
   }
+   }
+   add(peli:Peli){
+     
    }
 }
 export { PelisCollection, Peli };
