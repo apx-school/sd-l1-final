@@ -24,10 +24,10 @@ class PelisCollection {
   }
   search(option: any) {
     return this.getAll().then((pelis) => {
-      let collection;
+      let collection = pelis;
 
       if (option.title) {
-        collection = pelis.filter(function (peli) {
+        collection = collection.filter(function (peli) {
           return peli.title
             .toLowerCase()
             .includes(option.title.toString().toLowerCase());
@@ -35,7 +35,7 @@ class PelisCollection {
       }
 
       if (option.tag) {
-        collection = pelis.filter(function (peli) {
+        collection = collection.filter(function (peli) {
           const buscadorTags = peli.tags.find(function (tags) {
             return tags.toLowerCase() == option.tag.toLowerCase();
           });
