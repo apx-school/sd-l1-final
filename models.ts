@@ -9,6 +9,7 @@ class Peli {
 }
 
 class PelisCollection {
+  peliculas: Peli[];
   getAll(): Promise<Peli[]> {
     return jsonfile.readFile("./pelis.json").then((p) => {
       // la respuesta de la promesa
@@ -42,13 +43,22 @@ class PelisCollection {
     });
   }
    }
-   add(peli:Peli){
-     
+   add(peli:Peli): Promise<boolean>{
+     const promesaUno = this.getById(peli.id).then((peliExistente)=>{
+      console.log(peli)
+      if(peliExistente){
+        return false;
+      }else{
+        this.peliculas.push(peli);
+        const data = this.peliculas;
+        const promesaDos = jsonfile.writeFile("./pelis.json", data);
+        return promesaDos.then(()=>{
+          return true;
+        });
+      }
+    });
+    return promesaUno;
    }
 }
 export { PelisCollection, Peli };
 
-const obj = new PelisCollection();
-obj.search({title:"Harry Potter y la piedra filosofal"}).then((r)=>{
-  console.log(r)
-})
