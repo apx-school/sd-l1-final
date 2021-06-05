@@ -21,6 +21,11 @@ class PelisCollection {
   }
   search(options: any): Promise<Peli[]> {
     return this.getAll().then((listaPelis) => {
+      if (options.title && options.tag){
+        return listaPelis.filter((item)=>{
+          return item.title.includes(options.title) && item.tags.includes(options.tag);
+        });
+      }
       if (options.title) {
         return listaPelis.filter((item) => {
           return item.title.includes(options.title);

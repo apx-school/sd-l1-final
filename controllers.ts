@@ -12,17 +12,8 @@ class PelisController {
       if (options.id) {
         return this.pelisCollection.getById(options.id);
       }
-      if (options.search.title && options.search.tag) {
-         const primerFiltro = this.pelisCollection.search({title: options.search.title});
-         return primerFiltro.then((resultado)=>{
-           return resultado.filter((item)=>{
-            return item.tags.includes(options.search.tag);
-           });
-         });
-      } else {
-        if (options.search.title || options.search.tag) {
-          return this.pelisCollection.search(options.search);
-        }
+      if (options.search.title || options.search.tag) {
+        return this.pelisCollection.search(options.search);
       }
     }
   }
