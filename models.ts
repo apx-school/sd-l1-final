@@ -38,17 +38,12 @@ class PelisCollection {
         if (options.title && options.tag) {
           return (
             i.title.toLowerCase().includes(options.title.toLowerCase()) &&
-            i.tags
-              .toString()
-              .toLocaleLowerCase()
-              .includes(options.tags.toLocaleLowerCase())
+            i.tags.toString().toLowerCase().includes(options.tags.toLowerCase())
           );
         } else if (options.tag) {
           return i.tags.toLowerCase().includes(options.tag.toLowerCase());
         } else if (options.title) {
-          return i.title
-            .toLowerCase()
-            .includes(options.title.toLocaleLowerCase());
+          return i.title.toLowerCase().includes(options.title.toLowerCase());
         } else {
           return this.getAll();
         }
