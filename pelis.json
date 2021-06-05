@@ -1,1 +1,100 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "Había una vez en Hollywood",
+    "year": 2019,
+    "tags": ["Comedia", "Drama"],
+    "rating": 7.6
+  },
+  {
+    "id": 2,
+    "title": "Los 8 más odiados",
+    "year": 2015,
+    "tags": ["Crimen", "Drama", "Misterio"],
+    "rating": 7.8
+  },
+  {
+    "id": 3,
+    "title": "Django sin cadenas",
+    "year": 2012,
+    "tags": ["Drama", "Western"],
+    "rating": 8.4
+  },
+  {
+    "id": 4,
+    "title": "Bastardos sin gloria",
+    "year": 2009,
+    "tags": ["Aventura", "Drama", "Guerra"],
+    "rating": 8.3
+  },
+  {
+    "id": 5,
+    "title": "A prueba de muerte",
+    "year": 2007,
+    "tags": ["Acción", "Aventura", "Thriller"],
+    "rating": 7
+  },
+  {
+    "id": 6,
+    "title": "Grindhouse",
+    "year": 2007,
+    "tags": ["Acción", "Horror", "Thriller"],
+    "rating": 7.5
+  },
+  {
+    "id": 7,
+    "title": "La ciudad del pecado",
+    "year": 2005,
+    "tags": ["Crimen", "Thriller"],
+    "rating": 8
+  },
+  {
+    "id": 8,
+    "title": "Kill Bill, la venganza: Volumen II",
+    "year": 2004,
+    "tags": ["Acción", "Crimen", "Thriller"],
+    "rating": 8
+  },
+  {
+    "id": 9,
+    "title": "Kill Bill, la venganza: Volumen I",
+    "year": 2003,
+    "tags": ["Acción", "Crimen", "Drama"],
+    "rating": 8.1
+  },
+  {
+    "id": 10,
+    "title": "Jackie Brown: Triple traición",
+    "year": 1997,
+    "tags": ["Crimen", "Drama", "Thriller"],
+    "rating": 7.5
+  },
+  {
+    "id": 11,
+    "title": "Cuatro habitaciones",
+    "year": 1995,
+    "tags": ["Comedia"],
+    "rating": 6.8
+  },
+  {
+    "id": 12,
+    "title": "Tiempos violentos",
+    "year": 1994,
+    "tags": ["Crimen", "Drama"],
+    "rating": 8.9
+  },
+  {
+    "id": 13,
+    "title": "Perros de la calle",
+    "year": 1992,
+    "tags": ["Crimen", "Drama", "Thriller"],
+    "rating": 8.3
+  },
+  {
+    "id": 14,
+    "title": "El cumpleaños de mi mejor amigo",
+    "year": 1987,
+    "tags": ["Comedia"],
+    "rating": 5.6
+  }
+]
