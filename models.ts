@@ -4,8 +4,6 @@ class Peli {
   id: number;
   title: string;
   tags: string[];
-  year: number;
-  rating: number;
 }
 
 class PelisCollection {
@@ -52,13 +50,3 @@ class PelisCollection {
   }
 }
 export { PelisCollection, Peli };
-
-// pruebas
-// const obj = new Peli();
-// obj.id = 40;
-// obj.title = "titulo";
-// obj.year = 2000;
-// const temp = new PelisCollection();
-// temp.search({tag: "crimen"}).then((resultado) => {
-//   console.log(resultado);
-// });

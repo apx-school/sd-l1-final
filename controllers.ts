@@ -31,13 +31,3 @@ class PelisController {
   }
 }
 export { PelisController };
-
-// prueba
-// const obj = new Peli();
-// obj.id = 40;
-// obj.title = "titulo";
-// obj.year = 2000;
-// const obj2 = new PelisController();
-// obj2.add(obj).then((respuesta) => {
-//   console.log(respuesta);
-// });
