@@ -9,7 +9,7 @@ function processOptions(controller, argumentos) {
   } else if (argumentos.get) {
     return controller.get(argumentos.get);
   } else {
-    return controller.pelis;
+    return controller.pelis.getAll();
   }
 }
 function parseaParams(argv) {

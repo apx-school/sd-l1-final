@@ -19,6 +19,7 @@ class PelisCollection {
   getAll(): Promise<any> {
     const promise = jsonfile.readFile("./pelis.json").then((i) => {
       this.pelis = i;
+      return this.pelis;
     });
     return promise;
   }
@@ -34,7 +35,7 @@ class PelisCollection {
   search(options: any) {
     return this.promise.then((pelis) => {
       return this.pelis.filter((i) => {
-        if (options.title && options.tags) {
+        if (options.title && options.tag) {
           return (
             i.title
               .toLocaleLowerCase()
@@ -45,7 +46,7 @@ class PelisCollection {
               .includes(options.tags.toLocaleLowerCase())
           );
         } else if (options.tags) {
-          return i.tags.includes(options.tags.toString().toLocaleLowerCase());
+          return i.tags.includes(options.tags.toLocaleLowerCase());
         } else if (options.title) {
           return i.title
             .toLocaleLowerCase()
