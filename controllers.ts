@@ -1,6 +1,6 @@
 import { PelisCollection, Peli } from "./models";
 
 class PelisController {
-  constructor() {}
+  constructor() {}  
 }
 export { PelisController };

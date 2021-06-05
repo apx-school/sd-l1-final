@@ -1,1 +1,38 @@
-[]
+[
+    {
+        "id": 1,
+        "title": "Harry Potter y la piedra filosofal",
+        "tags": ["Novela","aventura"]
+    },
+    {
+        "id": 2,
+        "title": "Harry Potter y la camara secreta",
+        "tags": ["Novela","literatura fantastica"]
+    },
+    {
+        "id": 3,
+        "title": "Harry Potter y el prisionero de azkaban",
+        "tags": ["Novela","literatura juvenil"]
+    },
+    {
+        "id": 4,
+        "title": "Harry Potter y el caliz de fuego",
+        "tags": ["Novela de aventuras","aventura"]
+    },
+    {
+        "id": 5,
+        "title": "Harry Potter y la orden del fenix",
+        "tags": ["Novela","literatura fantastica"]
+    },
+    {
+        "id": 6,
+        "title": "Harry Potter y lel misterio del principe",
+        "tags": ["literatura juvenil","aventura"]
+    },
+    {
+        "id": 7,
+        "title": "Harry Potter y las reliquias de la muerte 1 y 2",
+        "tags": ["Novela","literatura fantastica"]
+    }
+
+]
