@@ -34,22 +34,20 @@ class PelisCollection {
 
   search(options: any) {
     return this.promise.then((pelis) => {
-      return this.pelis.filter((i) => {
+      return pelis.filter((i) => {
         if (options.title && options.tag) {
           return (
-            i.title
-              .toLocaleLowerCase()
-              .includes(options.title.toLocaleLowerCase()) &&
+            i.title.toLowerCase().includes(options.title.toLowerCase()) &&
             i.tags
               .toString()
               .toLocaleLowerCase()
               .includes(options.tags.toLocaleLowerCase())
           );
-        } else if (options.tags) {
-          return i.tags.includes(options.tags.toLocaleLowerCase());
+        } else if (options.tag) {
+          return i.tags.toLowerCase().includes(options.tag.toLowerCase());
         } else if (options.title) {
           return i.title
-            .toLocaleLowerCase()
+            .toLowerCase()
             .includes(options.title.toLocaleLowerCase());
         } else {
           return this.getAll();

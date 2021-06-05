@@ -16,7 +16,7 @@ function parseaParams(argv) {
   const resultadoMinimist = minimist(argv);
   if (resultadoMinimist._[0] == "search") {
     return {
-      search: { title: resultadoMinimist.title, tags: resultadoMinimist.tag },
+      search: { title: resultadoMinimist.title, tag: resultadoMinimist.tag },
     };
   } else if (resultadoMinimist._[0] == "add") {
     return {
