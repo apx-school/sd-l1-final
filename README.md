@@ -1,4 +1,4 @@
-<!-- # Desafío del módulo 2 -->
+  <!-- # Desafío del módulo 2 -->
 Forkeá y cloná este repo: https://github.com/zapaiamarce/dwf-m2-desafio
 Creá un archivo JSON con películas. El archivo se puede llamar como quieras y debe tener al menos 3 películas con este formato:
 {

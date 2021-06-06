@@ -1,1 +1,29 @@
-{"id":133286,"title":"title 215126133286","tags":["tt","rr"]}
+[{"title": "Mortal kombat",
+    "id": 1,
+    "tags": ["accion", "ficcion"]
+    },
+    
+    {"title": "Mision imposible",
+        "id": 2,
+        "tags": ["aventura", "ficcion"]
+    },
+    
+    {"title": "La forma del agua",
+        "id": 3,
+        "tags": ["romantica"]
+    },
+    
+    {"title": "Intensamente",
+        "id": 4,
+        "tags": ["niños", "animacion"]
+    },
+    
+    {"title": "Hereditary",
+        "id":5,
+        "tags": ["terror", "suspenso"]
+    },
+    
+    {"title": "Pacific rim",
+        "id": 6,
+        "tags": ["ficcion"]
+    }]
