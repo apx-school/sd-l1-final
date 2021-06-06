@@ -25,7 +25,7 @@ class PelisCollection {
        return res;
      });
    }
-   search(options:any){
+   search(options:any):Promise<any>{
   if(options.title){
     return this.getAll().then((pelis)=>{
       const letter = pelis.filter((p)=>{
