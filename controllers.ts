@@ -25,7 +25,7 @@ class PelisController {
 }
 export { PelisController };
 
-const prueba = new PelisController
-prueba.get({search:{title:"a",tags:"terror"}}).then((item)=>{
-  console.log(item)
-})
+//const prueba = new PelisController
+//prueba.get({search:{title:"a",tags:"terror"}}).then((item)=>{
+  //console.log(item)
+//})
