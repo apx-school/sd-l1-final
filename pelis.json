@@ -1,1 +1,48 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "Había una vez en Hollywood",
+    "tags": ["Comedia", "Drama"]
+  },
+  {
+    "id": 2,
+    "title": "Los 8 más odiados",
+    "tags": ["Crimen", "Drama", "Misterio"]
+  },
+  { "id": 3, "title": "Django sin cadenas", "tags": ["Drama", "Western"] },
+  {
+    "id": 4,
+    "title": "Bastardos sin gloria",
+    "tags": ["Aventura", "Drama", "Guerra"]
+  },
+  {
+    "id": 5,
+    "title": "A prueba de muerte",
+    "tags": ["Acción", "Aventura", "Thriller"]
+  },
+  { "id": 6, "title": "Grindhouse", "tags": ["Acción", "Horror", "Thriller"] },
+  { "id": 7, "title": "La ciudad del pecado", "tags": ["Crimen", "Thriller"] },
+  {
+    "id": 8,
+    "title": "Kill Bill, la venganza: Volumen II",
+    "tags": ["Acción", "Crimen", "Thriller"]
+  },
+  {
+    "id": 9,
+    "title": "Kill Bill, la venganza: Volumen I",
+    "tags": ["Acción", "Crimen", "Drama"]
+  },
+  {
+    "id": 10,
+    "title": "Jackie Brown: Triple traición",
+    "tags": ["Crimen", "Drama", "Thriller"]
+  },
+  { "id": 11, "title": "Cuatro habitaciones", "tags": ["Comedia"] },
+  { "id": 12, "title": "Tiempos violentos", "tags": ["Crimen", "Drama"] },
+  {
+    "id": 13,
+    "title": "Perros de la calle",
+    "tags": ["Crimen", "Drama", "Thriller"]
+  },
+  { "id": 14, "title": "El cumpleaños de mi mejor amigo", "tags": ["Comedia"] }
+]
