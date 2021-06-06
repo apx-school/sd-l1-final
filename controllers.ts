@@ -1,5 +1,4 @@
 import { PelisCollection } from "./models";
-
 class PelisController {
   data: PelisCollection;
   constructor() {
@@ -21,9 +20,8 @@ class PelisController {
       });
     }
   }
-
-  add(obj): Promise<boolean> {
-    return this.data.add(obj).then((res) => {
+  add(peli): Promise<boolean> {
+    return this.data.add(peli).then((res) => {
       return res;
     });
   }

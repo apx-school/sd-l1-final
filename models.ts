@@ -1,4 +1,5 @@
 import * as jsonfile from "jsonfile";
+import * as _ from "lodash";
 class Peli {
   id: number;
   title: string;
@@ -9,37 +10,38 @@ class PelisCollection {
   data: Peli[] = [];
 
   getAll(): Promise<Peli[]> {
-    return jsonfile.readFile("./pelis.json").then((datos) => {
-      return (this.data = datos);
+    return jsonfile.readFile("./pelis.json").then((res) => {
+      return (this.data = res);
     });
   }
   getById(id: number): Promise<Peli> {
-    const resultado = this.getAll().then((pelis) => {
+    return this.getAll().then((pelis) => {
       const resp = pelis.find((res) => {
         return res.id == id;
       });
       return resp;
     });
-
-    return resultado;
   }
-  search(options: any): Promise<any> {
-    return this.getAll().then((datos) => {
-      return datos.filter((res) => {
-        var resultados;
-
-        if (options.title && options.tag) {
-          resultados =
-            res.title.includes(options.title) && res.tags.includes(options.tag);
-        } else if (options.title) {
-          resultados = res.title.includes(options.title);
-        } else if (options.tag) {
-          resultados = res.tags.includes(options.tag);
-        }
-        return resultados;
-      });
+  search(options: any) {
+    return this.getAll().then((pelis) => {
+      if (options["tag"] && options["title"]) {
+        const filterPorTag = pelis.filter((i) =>
+          _.includes(i.tags, options["tag"])
+        );
+        return filterPorTag.filter((i) =>
+          _.includes(i.title, options["title"])
+        );
+      }
+      if (options["title"]) {
+        return pelis.filter((i) => _.includes(i.title, options["title"]));
+      } else {
+      }
+      if (options["tag"]) {
+        return pelis.filter((i) => _.includes(i.tags, options["tag"]));
+      }
     });
   }
+
   add(peli: Peli): Promise<boolean> {
     const primerRespuesta = this.getById(peli.id).then((peliExistente) => {
       if (peliExistente) {

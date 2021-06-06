@@ -3,26 +3,46 @@ import * as minimist from "minimist";
 
 function parseaParams(argv) {
   let arg = minimist(argv);
-  return {
-    action: arg._[0],
-    id: arg.id,
-    search: { title: arg.title, tags: arg.tags },
-  };
+  return arg;
 }
 
 function requestHandler(parametros) {
+  let response;
   const controller = new PelisController();
-  if (parametros.action == "search") {
-    return controller.get(parametros);
-  }
-  if (parametros.action == "add") {
-    const peli = {
+  if (parametros._[0] == "add") {
+    let peli = {
       id: parametros.id,
-      title: parametros.search.title,
-      tags: parametros.search.tags,
+      title: parametros.title,
+      tags: parametros.tags,
     };
-    return controller.add(peli);
+    response = controller.add(peli).then((res) => {
+      return res;
+    });
   }
+  if (parametros._[0] == "get") {
+    response = controller.get({ id: parametros._[1] }).then((res) => {
+      return res;
+    });
+  }
+  if (parametros._[0] == "search") {
+    let options = {};
+    if (parametros.title) {
+      options["title"] = parametros.title;
+    }
+    if (parametros.tag) {
+      options["tag"] = parametros.tag;
+    }
+    response = controller.get({ search: options }).then((res) => {
+      return res;
+    });
+  }
+  if (parametros._.length == 0) {
+    response = controller.get({}).then((res) => {
+      return res;
+    });
+  }
+
+  return response;
 }
 
 function main() {

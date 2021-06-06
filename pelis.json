@@ -1,7 +1,6 @@
 [
-  { "id": 71, "title": "Salvando al soldado Ryan", "tags": "action" },
-  { "id": 254, "title": "Rosa", "tags": "drama" },
-  { "id": 873, "title": "Test peli", "tags": "action,drama" },
-  { "id": 3214, "title": "Nico intentando programar, v2", "tags": "comedia" },
-  { "id": 648, "title": "Pasara el test?", "tags": "drama,action" }
+  { "id": 1, "title": "salvando al soldado ryan", "tags": ["action"] },
+  { "id": 2, "title": "rosa", "tags": ["drama", "comedia"] },
+  { "id": 3, "title": "test peli", "tags": ["action", "drama"] },
+  { "id": 4, "title": "nico intentando programar, v2", "tags": ["comedia"] }
 ]
