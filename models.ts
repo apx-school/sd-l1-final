@@ -43,13 +43,12 @@ class PelisCollection {
       if (respuesta) {
         return false;
       } else {
-        this.getAll().then((lista) => {
+        return this.getAll().then((lista) => {
           lista.push(peli);
           return jsonfile.writeFile("./pelis.json", lista).then(() => {
             return true;
           });
         });
-        return true;
       }
     });
   }
