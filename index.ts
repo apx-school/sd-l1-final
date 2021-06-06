@@ -17,13 +17,14 @@ function parametros (objeto){
  if (objeto._[0]=="search"){          //busca en la lista de la primera propiedad la palabra ""search"
   
   if(objeto.title && objeto.tags){    //creamos un objeto con 2 propiedades y que la primera sea title cuyo valor sera la del objeto 
-    return{                           //parceado por minimist (en este caso objeto.title), y que la segunda sea tags con el valor del 
-      title:objeto.title,             //objeto parceado tags (importante: poner siempre el objeto que tendra mas parametros primero )
-      tags:objeto.tags
+    return{ search: 
+      {title:objeto.title,             //objeto parceado tags (importante: poner siempre el objeto que tendra mas parametros primero )
+      tags:objeto.tags}                      //parceado por minimist (en este caso objeto.title), y que la segunda sea tags con el valor del 
+      
   } 
 }
   if(objeto.tags){                    // en el caso que solo contenga tags creamos el objeto con ese solo parametro
-    return{tags:objeto.tags}
+    return{search:{tags:objeto.tags}}
   }
   if(objeto.title){                   // lo mismo si solo contiene title
     return{search:{title:objeto.title}}
