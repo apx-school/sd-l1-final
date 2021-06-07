@@ -1,1 +1,20 @@
-[]
+[
+  { "id": 1, "title": "La era del hielo", "tags": ["animacion", "aventura"] },
+  { "id": 2, "title": "Star wars", "tags": ["accion", "aventura"] },
+  { "id": 3, "title": "Volver al futuro", "tags": ["fantasia", "aventura"] },
+  { "id": 4, "title": "Coco", "tags": ["animacion"] },
+  { "id": 5, "title": "Rocky", "tags": ["accion"] },
+  { "id": 6, "title": "El padrino", "tags": ["suspenso"] },
+  { "id": 7, "title": "Iron man", "tags": ["accion", "aventura", "fantasia"] },
+  { "id": 8, "title": "Shrek", "tags": ["animacion", "aventura"] },
+  { "id": 9, "title": "Atrapame si puedes", "tags": ["accion", "suspenso"] },
+  { "id": 10, "title": "Terminator", "tags": ["accion", "aventura"] },
+  { "id": 11, "title": "El resplandor", "tags": ["terror", "suspenso"] },
+  { "id": 12, "title": "Host", "tags": ["terror", "suspenso"] },
+  { "id": 23, "title": "Valen's moovie", "tags": ["accion"] },
+  {
+    "id": 4411,
+    "title": "Título de la nueva peli",
+    "tags": ["action", "classic"]
+  }
+]
