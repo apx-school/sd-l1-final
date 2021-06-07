@@ -1,13 +1,11 @@
 import * as jsonfile from "jsonfile";
 
-
 // no modificar estas propiedades, agregar todas las que quieras
 class Peli {
   id: number;
   title: string;
   tags: string[];
 }
-
 
 class PelisCollection {
   data: Peli[] = [];
@@ -57,15 +55,3 @@ class PelisCollection {
   }
 }
 export { PelisCollection, Peli };
-
-
-
-
-
-
-
-
-
-
-
-
