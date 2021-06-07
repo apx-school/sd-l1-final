@@ -1,14 +1,1 @@
-[{"id":1,"title":"it","tags":["accion","terror","fantasia"]},
-{"id":2,"title":"el demoledor","tags":["accion","suspenso","fantasia"]},
-{"id":3,"title":"star wars","tags":["accion","belica","fantasia"]},
-{"id":4,"title":"los vengadores","tags":["accion","carreras","fantasia"]},
-{"id":5,"title":"la liga de la justicia","tags":["accion","ciencia ficcion","fantasia"]},
-{"id":6,"title":"watchmen","tags":["accion","drama","fantasia"]},
-{"id":7,"title":"los increibles","tags":["accion","comedia","fantasia"]},
-{"id":8,"title":"boss level","tags":["accion","comedia","fantasia"]},
-{"id":9,"title":"peli nueve","tags":["accion","comedia","fantasia"]},
-{"id":10,"title":"peli diez","tags":["accion","comedia","fantasia"]},
-{"id":11,"title":"peli once","tags":["accion","comedia","fantasia"]},
-{"id":12,"title":"pakapaka","tags":["accion","terror","pelea"]},
-{"id":44,"title":"Título de la nueva peli","tags":["action","classic"]}
-]
+[{"id":1,"title":"it","tags":["accion","terror","fantasia"]},{"id":2,"title":"el demoledor","tags":["accion","suspenso","fantasia"]},{"id":3,"title":"star wars","tags":["accion","belica","fantasia"]},{"id":4,"title":"los vengadores","tags":["accion","carreras","fantasia"]},{"id":5,"title":"la liga de la justicia","tags":["accion","ciencia ficcion","fantasia"]},{"id":6,"title":"watchmen","tags":["accion","drama","fantasia"]},{"id":7,"title":"los increibles","tags":["accion","comedia","fantasia"]},{"id":8,"title":"boss level","tags":["accion","comedia","fantasia"]},{"id":9,"title":"peli nueve","tags":["accion","comedia","fantasia"]},{"id":10,"title":"peli diez","tags":["accion","comedia","fantasia"]},{"id":11,"title":"peli once","tags":["accion","comedia","fantasia"]},{"id":12,"title":"pakapaka","tags":["accion","terror","pelea"]},{"id":44,"title":"Título de la nueva peli","tags":["action","classic"]},{"id":45,"title":"Título de la nueva peli2","tags":["action","classic"]},{"id":4321865,"title":"peli de la terminal 4321865","tags":["rr","ww"]},{"id":220026,"title":"title 132470220026","tags":["tt","rr"]},{"id":152725,"title":"title 132470152725","tags":["yy","uu"]},{"id":138361,"title":"title 200123138361","tags":["tt","rr"]},{"id":213161,"title":"title 200123213161","tags":["yy","uu"]},{"id":144203,"title":"una peli 144203","tags":["classic","tag 144203"]},{"id":180243,"title":"otra peli un poco más divertida","tags":["tag 144203"]}]

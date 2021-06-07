@@ -18,24 +18,19 @@ var resultado;
   })
  }
  if (objeto._[0]=="search"){                                           
-  
-  if(objeto.title && objeto.tags){                                      
-    return resultado = controller.get({search:{title:objeto.title,tags:objeto.tags}}).then((res)=>{
-      return res
-    })                                              
-      
-  } 
-}
-  if(objeto.tags){                                                       
-    return resultado = controller.get({search:{tags:objeto.tags}}).then((res)=>{
+   
+  if(objeto.tag){                                                       
+     return controller.get({search:{tag:objeto.tag}}).then((res)=>{
       return res
     })
-  }
-  if(objeto.title){                                                      
-    return resultado = controller.get({search:{title:objeto.title}}).then((res)=>{
+  } 
+  if(objeto.title){                                                  
+     return controller.get({search:{title:objeto.title}}).then((res)=>{
       return res
     })
     }
+}
+  
   if (objeto._[0]=="add"){
     return resultado = controller.add({id:objeto.id,title:objeto.title,tags:objeto.tags}).then((res)=>{
       return res
