@@ -21,7 +21,7 @@ class PelisController {
     }
   }
   add(peli:Peli){
-    this.data.push(peli);
+  return this.data.push(peli);
   }
 }
 export { PelisController };
