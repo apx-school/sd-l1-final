@@ -52,7 +52,7 @@ test.serial("Testeo el método search", async (t) => {
 
   const c = await collection.search({
     title: SECOND_TEST_ID,
-    tag: "yy",
+    tags: "yy",
   });
   t.deepEqual(c[0].id, SECOND_TEST_ID);
 });
