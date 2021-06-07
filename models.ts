@@ -27,22 +27,25 @@ class PelisCollection {
       return lista
     })
   }
-  search(option){
-
-if (option.title){
-   return this.getAll().then((pelis)=>{
-   return  pelis.filter((item)=>{
-     return item.title.includes(option.title)
-   })
-     })
-  }else if(option.tags){
-    return this.getAll().then((pelis)=>{
-      return pelis.filter((item)=>{
-     return item.tags.includes(option.tags)
-      })
-    })
+  search(options: any): Promise<Peli[]> {
+    return this.getAll().then((listaPelis) => {
+      if (options.title && options.tag){
+        return listaPelis.filter((item)=>{
+          return item.title.includes(options.title) && item.tags.includes(options.tag);
+        });
+      }
+      if (options.title) {
+        return listaPelis.filter((item) => {
+          return item.title.includes(options.title);
+        });
+      }
+      if (options.tag) {
+        return listaPelis.filter((item) => {
+          return item.tags.includes(options.tag);
+        });
+      }
+    });
   }
-}
 add(peli: Peli): Promise<boolean> {
   const promesaUno = this.getById(peli.id).then((peliExistente) => {
     if (peliExistente ) {
@@ -63,10 +66,6 @@ add(peli: Peli): Promise<boolean> {
 }
 export { PelisCollection, Peli };
 
-const prueba = new PelisCollection()
-prueba.add({id:12,title:"peli 12",tags:["accion,terror,pelea"]}).then((item)=>{
-  console.log(item)
-})
 
 
 

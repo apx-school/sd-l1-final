@@ -11,12 +11,14 @@ class PelisController {
      if (options.id){                                       // esta funcion  
        return this.peliculas.getById(options.id)
      }
-     else if(options.search){
+      
+    else  if(options.search){
        return this.peliculas.search(options.search)
      }
      else if(options.search){
-       return this.peliculas.search(options.tags)
+       return this.peliculas.search(options.search)
      }
+  
      
   }
   add(peli:Peli){
@@ -25,7 +27,3 @@ class PelisController {
 }
 export { PelisController };
 
-//const prueba = new PelisController
-//prueba.get({search:{title:"a",tags:"terror"}}).then((item)=>{
-  //console.log(item)
-//})
