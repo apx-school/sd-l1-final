@@ -12,12 +12,12 @@ class PelisController {
        return this.peliculas.getById(options.id)
      }
       
-    else  if(options.search){
-       return this.peliculas.search(options.search)
-     }
-     else if(options.search){
-       return this.peliculas.search(options.search)
-     }
+     if (options.search) {
+      return this.peliculas.search(options.search);
+    } 
+    else {
+      return this.peliculas.getAll();
+    }
   
      
   }

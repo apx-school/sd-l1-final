@@ -37,8 +37,14 @@ var resultado;
     })
     
   }
+  if (objeto._.length == 0) {
+    resultado = controller.get({}).then((res) => {
+      return res;
+    });
+ }
   return resultado
   }
+  
 
   
   
@@ -50,12 +56,11 @@ var resultado;
 
 function main() {
   const params = parseaParams(process.argv.slice(2));
+  
   const controles = new PelisController
+  
   parametros(controles , params).then((res)=>{
     console.log(res)
   })
- 
-
-
- }
+}
 main();
