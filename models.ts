@@ -39,9 +39,9 @@ class PelisCollection {
           return item.title.includes(options.title);
         });
       }
-      if (options.tag) {
+      if (options.tags) {
         return listaPelis.filter((item) => {
-          return item.tags.includes(options.tag);
+          return item.tags.includes(options.tags);
         });
       }
     });

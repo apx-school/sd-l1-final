@@ -7,8 +7,8 @@ class PelisController {
   constructor() {
     this.peliculas = new PelisCollection()
   }
-  get(options){                                             // creamos las funciones get y add para la clase pelis controllers
-     if (options.id){                                       // esta funcion  
+  get(options){                                             
+     if (options.id){                                     
        return this.peliculas.getById(options.id)
      }
       
@@ -26,4 +26,9 @@ class PelisController {
   }
 }
 export { PelisController };
+
+//const prueba = new PelisController();
+//prueba.add({id: 445,title: 'Título de la nueva peli',tags: [ 'action', 'classic' ]}).then((item)=>{
+  //console.log(item)
+//})
 
