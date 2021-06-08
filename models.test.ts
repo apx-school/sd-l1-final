@@ -48,6 +48,7 @@ test.serial("Testeo el método search", async (t) => {
   const a = all[0];
   const b = await collection.search({ title: SESSION_ID });
   const ids = b.map((b) => b.id);
+
   t.deepEqual(ids, [TEST_ID, SECOND_TEST_ID]);
 
   const c = await collection.search({

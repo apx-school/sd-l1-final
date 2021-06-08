@@ -4,7 +4,6 @@ import { Peli } from "./models";
 
 function parseaParams(argv) {
   const resultado = minimist(argv);
-  console.log(resultado);
   if (resultado._[0] == "get") {
     const objeto = { get: { id: resultado._[1] } };
     return objeto;
@@ -20,7 +19,7 @@ function parseaParams(argv) {
       search: {
         id: resultado.id,
         title: resultado.title,
-        tags: resultado.tag || resultado.tags,
+        tag: resultado.tag || resultado.tags,
       },
     };
     return objeto;
@@ -30,7 +29,6 @@ function parseaParams(argv) {
 function main() {
   const params = parseaParams(process.argv.slice(2));
   const peliculasController = new PelisController();
-  console.log(params);
 
   peliculasController.processOptions(params).then((restpuesta) => {
     console.log(restpuesta);

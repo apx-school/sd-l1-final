@@ -25,18 +25,27 @@ class PelisCollection {
     });
     return resultado;
   }
-  search(options: any) {
-    if (options.title) {
+  search(options: any): Promise<any> {
+    if (options.title && options.tag) {
+      return this.getAll().then((p) => {
+        const encontrada = p.filter((f) => {
+          return (
+            f.title.includes(options.title) && f.tags.includes(options.tag)
+          );
+        });
+        return encontrada;
+      });
+    } else if (options.title) {
       return this.getAll().then((p) => {
         const encontrada = p.filter((f) => {
           return f.title.includes(options.title);
         });
         return encontrada;
       });
-    } else if (options.tags) {
+    } else if (options.tag) {
       return this.getAll().then((p) => {
         const tagsEncontrados = p.filter((f) => {
-          return f.tags.includes(options.tags);
+          return f.tags.includes(options.tag);
         });
         return tagsEncontrados;
       });
@@ -58,14 +67,4 @@ class PelisCollection {
     return promesaUno;
   }
 }
-
-// const objeto = new PelisCollection();
-// const peli = new Peli();
-// peli.id = 23;
-// peli.title = "valen's moovie";
-// peli.tags = ["accion"];
-
-// objeto.add(peli).then((x) => {
-//   console.log(x);
-// });
 export { PelisCollection, Peli };
