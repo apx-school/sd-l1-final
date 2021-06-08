@@ -1,5 +1,6 @@
 import { PelisCollection, Peli } from "./models";
 
+
 class PelisController {
   data: Peli[] = [];
   collectionPelis: PelisCollection;
@@ -7,21 +8,23 @@ class PelisController {
     this.collectionPelis = new PelisCollection();
     this.collectionPelis.getAll();
   }
-  get(options){
+  get(options:any) {
     if (options.id){
       return this.collectionPelis.getById(options.id);
     }
-    if (options.search.title){
-      return this.collectionPelis.search(options.search.title);
+    if (options.search.title && options.search.tags){
+      return this.collectionPelis.search(
+        options.search.title && options.search.tags);
     }
-    if (options.search.tags){
-      return this.collectionPelis.search(options.search.tags);
-    } else{
-      return this.collectionPelis.getAll();
+    else if (options.search){
+      return this.collectionPelis.search(options.search);
+
+    } else if(options.search){
+      return this.collectionPelis.search(options.search);
     }
   }
   add(peli:Peli){
-  return this.data.push(peli);
+   this.data.push(peli);
   }
 }
 export { PelisController };

@@ -7,19 +7,19 @@ function parseaParams(argv) {
   if (resultado.search){
     return {search: resultado.search};
   }else{
-
-    return resultado;
+    
+    console.log(resultado);
+    return {};
   }
-
 }
 
 function main() {
-  const params = parseaParams(process.argv.slice(2));
+  const params = process.argv.slice(2);
   const parsedArguments = parseaParams(params);
   const parsedController = new PelisController();
   parsedController.get(parsedArguments).then((r)=>{
 
-    console.log(params);  
+  //  console.log(r);  
   })
 
 
