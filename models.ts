@@ -32,8 +32,8 @@ class PelisCollection {
       if (options.title && options.tag){
         return listaPelis.filter((item)=>{
           return item.title.includes(options.title) && item.tags.includes(options.tag);
-        });
-      }
+           });
+          }
       if (options.title) {
         return listaPelis.filter((item) => {
           return item.title.includes(options.title);
@@ -65,6 +65,11 @@ add(peli: Peli): Promise<boolean> {
 } 
 }
 export { PelisCollection, Peli };
+
+//const prueba = new PelisCollection()
+//prueba.search({title:"a",tag:"terror"}).then((item)=>{
+  //console.log(item)
+//})
 
 
 

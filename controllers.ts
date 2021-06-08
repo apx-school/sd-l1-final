@@ -28,7 +28,7 @@ class PelisController {
 export { PelisController };
 
 //const prueba = new PelisController();
-//prueba.add({id: 445,title: 'Título de la nueva peli',tags: [ 'action', 'classic' ]}).then((item)=>{
+//prueba.get({search:{title:"a",tag:"terror"}}).then((item)=>{
   //console.log(item)
 //})
 

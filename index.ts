@@ -18,7 +18,11 @@ var resultado;
   })
  }
  if (objeto._[0]=="search"){                                           
-   
+   if(objeto.title && objeto.tag){
+      return controller.get({search:{title:objeto.title,tag:objeto.tag}}).then((res)=>{
+        return res
+      })
+    }
   if(objeto.tag){                                                       
      return controller.get({search:{tag:objeto.tag}}).then((res)=>{
       return res
@@ -29,6 +33,7 @@ var resultado;
       return res
     })
     }
+    
 }
   
   if (objeto._[0]=="add"){
