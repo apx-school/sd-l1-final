@@ -13,19 +13,32 @@ class PelisController {
         return p;
       });
     } 
-      if (options.id) {
+      if (options.id) {  //FUNCIONA
         return this.pelisCollection.getById(options.id).then((p)=>{
           console.table(p);
           return p;
         });
       
-      }
-      if (options.search.title) {
+      } else if (options.search.title) {
         return this.pelisCollection.search(options.search.title).then((p)=>{
           console.table(p);
           return p;
         });
+      } else if ( options.search.tag ) {
+        return this.pelisCollection.search(options.search.tag). then((p)=>{
+          console.table(p);
+          return p;
+        });
+      } else if ( options.search.title && options.search.tag ) {
+        return this.pelisCollection.search(options.search.title).then((p)=>{
+          console.table(p);
+          return p;
+        }) && this.pelisCollection.search(options.search.tag).then((p)=>{
+          console.table (p);
+          return p;
+        })
       }
+      
     }
     
    
@@ -38,7 +51,7 @@ class PelisController {
 }
 
 const peliControler = new PelisController;
-// const peliEncontrada = peliControler.get ({id: 6});
+// const peliEncontrada = peliControler.get ({id: 13});
 const peliEncontrada = peliControler.get({ search: { title: "Mi" } })
 console.table(peliEncontrada);
 
