@@ -9,33 +9,50 @@ function parseaParams(argv) {
     const objt = {get: {id: resultado._[1]}};
     return objt;
   }else if(resultado._[0] == "add"){
-    const peli = new Peli();
-    peli.id = resultado.id;
-    peli.title = resultado.title;
-    peli.tags = resultado.tags;
-
-    const objt = {add: peli};
-    return objt;    
+    if (resultado.tags && resultado.title){
+      return {search:{title:resultado.title, tags:resultado.tags}};
+    }else if (resultado.tag){
+      return {search:{tags: resultado.tags}};
+    }else if (resultado.title){
+      return {search:{title: resultado.title}};
+    }else return {};
 
   } else if (resultado._[0] == "search"){
-    const objt = {
-      search: {
-        id: resultado.id,
-        title: resultado.title,
-        tags: resultado.tags,
-      }
+    if (resultado.tags && resultado.title){
+      return {search:{title: resultado.title, tags: resultado.tags}};
+    }else if (resultado.tag){
+      return {search:{tags: resultado.tags}};
+    }else if (resultado.title){
+      return {search:{title: resultado.title}};
     }
-    return objt;
   }else return {};
+
+  if (resultado.search){
+    return this.get(resultado.search).then((r)=>{
+      const s = r.filter((p)=>{
+        return p.search.includes(resultado.search)
+      });
+      return s;
+    });
+
+  }
+  if (resultado.get){
+    return this.get(resultado.get).then((r)=>{
+      const s = r.filter((p)=>{
+        return p.get.includes(resultado.get)
+      });
+      return s;
+    });
+
+  }
+
 }
 
 function main() {
   const params = parseaParams(process.argv.slice(2));
   const parsedController = new PelisController();
-  parsedController.get(params).then((r)=>{
+  
 
-    console.log(r);  
-  })
 
 
 }
