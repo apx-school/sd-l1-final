@@ -20,12 +20,12 @@ class PelisController {
         });
       
       } else if (options.search.title) {
-        return this.pelisCollection.search(options.search.title).then((p)=>{
+        return this.pelisCollection.search(options.search).then((p)=>{
           console.table(p);
           return p;
         });
       } else if ( options.search.tag ) {
-        return this.pelisCollection.search(options.search.tag). then((p)=>{
+        return this.pelisCollection.search(options.search).then((p)=>{
           console.table(p);
           return p;
         });
@@ -40,19 +40,17 @@ class PelisController {
       }
       
     }
-    
-   
-       
-  
 
-  add(peli:Peli) {
+add(peli:Peli) {
     return this.pelisCollection.add(peli);
   }
 }
 
 const peliControler = new PelisController;
 // const peliEncontrada = peliControler.get ({id: 13});
-const peliEncontrada = peliControler.get({ search: { title: "Mi" } })
+const peliEncontrada = peliControler.get({ search: { tag: "accion" } }).then((p)=>{
+  return p;
+})
 console.table(peliEncontrada);
 
 export { PelisController };

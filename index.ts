@@ -10,15 +10,18 @@ function parseaParams(argv) {
 function main() {
   const params = parseaParams(process.argv.slice(2));
   const pelisCollection = new PelisCollection();
-  if (params._ == "search") {
-    console.log("El parametro llega asi:", params )
-//     if (params.title && params.tag) {
-//       return { search: {title: params.title, tag: params.tag} };
-//     } else if (params.tag) {
-//       return { search: { tag: params.tag } };
-//     } else if (params.title) {
-//       return { serach: { title: params.title }};
-//     } else return {}; 
-}
+  console.log(params);
+  if (params == null) {
+    pelisCollection.getAll().then((p)=>{
+      console.table(p);
+      return p;
+  })
+  }
+  // if (params._ == "search") {
+  //   console.log("El parametro llega asi:", params )
+  //   if ( params.title ) {
+  //     const pelisEncontradas = pelisCollection.search( params.title )
+  //     return pelisEncontradas;
+  //   }
 }
 main();
