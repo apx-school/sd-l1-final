@@ -1,10 +1,9 @@
 import * as minimist from "minimist";
 import {PelisController} from "./controllers";
-import {Peli} from "./models";
+import {PelisCollection} from "./models";
 
 function parseaParams(argv) {
   const resultado = minimist(argv);
-  console.log(resultado);
   if (resultado._[0] == "get"){
     const objt = {get: {id: resultado._[1]}};
     return objt;
@@ -50,8 +49,13 @@ function parseaParams(argv) {
 
 function main() {
   const params = parseaParams(process.argv.slice(2));
-  const parsedController = new PelisController();
-  
+  const peli = new PelisCollection();
+  if (params._ == null){
+    peli.getAll().then((p)=>{
+      console.log(p);
+      return p;
+    })
+  }
 
 
 
