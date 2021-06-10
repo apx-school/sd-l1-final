@@ -22,23 +22,23 @@ class PelisCollection {
   }
   search(options:any) {
     var resultado;
-    if(options.title){
+  if(options.tag && options.title){
+    return resultado = this.getAll().then((peliculas) => {
+      return peliculas.filter((item)=>
+        item.title.includes(options.title) &&
+        item.tags.includes(options.tag)
+      )
+    })
+  }else if(options.title){
       return resultado = this.getAll().then((peliculas) => {
         return peliculas.filter((item) => item.title.includes(options.title))
       });
-    }else if(options.tags){
+    }else if(options.tag){
       return resultado = this.getAll().then((pelicula) => {
-        return pelicula.filter((item) => item.tags.includes(options.tags))
-      })
-    }else if(options.tags && options.title){
-      return resultado = this.getAll().then((peliculas) => {
-        return peliculas.filter((item)=>
-          item.title.includes(options.title) &&
-          item.tags.includes(options.tags)
-        )
-      })
-    }
-}
+        return pelicula.filter((item) => item.tags.includes(options.tag))
+      });
+     };
+    };
   add(peli:Peli) {
     const promesaUno = this.getById(peli.id).then((pelicula) => {
       if(pelicula){

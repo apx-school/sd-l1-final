@@ -13,15 +13,14 @@ function objetos(params){
   if(params._ == "get"){
     return controller.get({id: params.id}).then((r) => {return r})
   }else if(params._ == "search"){
-    if(params.title){
+    if(params.tags && params.title){
+    return controller.get({search: {title: params.title, tags: params.tags}})
+    .then((r) => {return r})
+    }else if(params.title){
       return controller.get({search: {title: params.title}}).then((r) => {return r})
     }else if(params.tags){
       return controller.get({search: {tags: params.tags}}).then((r) => {return r})
 
-    }else if(params.tags && params.title){
-      return controller.get({search: {title: params.title, tags: params.tags}})
-      .then((r) => {return r})
- 
     }
     return controller.get(objeto).then((r) => {return r})
   }else if(params._ == "add"){
