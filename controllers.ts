@@ -19,24 +19,16 @@ class PelisController {
           return p;
         });
       
-      } else if (options.search.title) {
+      } else if (options.search.title) {  //FUNCIONA
         return this.pelisCollection.search(options.search).then((p)=>{
-          console.table(p);
           return p;
         });
-      } else if ( options.search.tag ) {
+      } else if ( options.search.tag ) {  //FUNCIONA 
         return this.pelisCollection.search(options.search).then((p)=>{
-          console.table(p);
           return p;
         });
       } else if ( options.search.title && options.search.tag ) {
-        return this.pelisCollection.search(options.search.title).then((p)=>{
-          console.table(p);
-          return p;
-        }) && this.pelisCollection.search(options.search.tag).then((p)=>{
-          console.table (p);
-          return p;
-        })
+        return this.pelisCollection.search(options);
       }
       
     }
@@ -46,11 +38,12 @@ add(peli:Peli) {
   }
 }
 
-const peliControler = new PelisController;
-// const peliEncontrada = peliControler.get ({id: 13});
-const peliEncontrada = peliControler.get({ search: { tag: "accion" } }).then((p)=>{
-  return p;
-})
-console.table(peliEncontrada);
+// const peliControler = new PelisController;
+// // const peliEncontrada = peliControler.get ({id: 13});
+// const peliEncontrada = peliControler.get({ search: { tag: "accion" } }).then((p)=>{
+//   console.table(p); 
+//   return p;
+// })
+// console.table(peliEncontrada);
 
 export { PelisController };

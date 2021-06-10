@@ -64,7 +64,7 @@ class PelisCollection {
 }
 
 
-// const peliNueva = new PelisCollection;
+const peliNueva = new PelisCollection;
 
 // const todasLasPelis = peliNueva.getAll().then ((p)=>{
 //   console.table(p);
@@ -86,7 +86,7 @@ class PelisCollection {
 //   return p;
 // })
 
-// const peliEncontrada = peliNueva.search({tag:"ficcion"}).then((p)=>{
+// const peliEncontrada = peliNueva.search({tag:"terror"}).then((p)=>{
 //   console.table(p);
 //   return p;
 
