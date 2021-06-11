@@ -2,48 +2,48 @@
   {
     "id": 1,
     "title": "Conectando",
-    "tags": ["Animación", "Adventura", "Comedia"]
+    "tags": ["animación", "adventura", "comedia"]
   },
   {
     "id": 2,
     "title": "Sin remordimientos",
-    "tags": ["Acción", "Aventura", "Thriller "]
+    "tags": ["acción", "aventura", "thriller "]
   },
   {
     "id": 3,
     "title": "Mortal Kombat",
-    "tags": ["Acción", "Animación", "Aventura"]
+    "tags": ["acción", "animación", "aventura"]
   },
   {
     "id": 4,
     "title": "La apariencia de las cosas",
-    "tags": ["Drama", "Horror", "Misterio"]
+    "tags": ["drama", "horror", "misterio"]
   },
-  { "id": 5, "title": "Nadie", "tags": ["Acción", "Crimen", "Drama"] },
+  { "id": 5, "title": "Nadie", "tags": ["acción", "crimen", "drama"] },
   {
     "id": 6,
     "title": "Pasajero inesperado",
-    "tags": ["Acción", "Thriller", "Drama"]
+    "tags": ["acción", "thriller", "drama"]
   },
   {
     "id": 7,
     "title": "La Liga de la Justicia de Zack Snyder",
-    "tags": ["Acción", "Aventura", "Fantasía"]
+    "tags": ["acción", "aventura", "fantasía"]
   },
   {
     "id": 8,
     "title": "Godzilla vs. Kong",
-    "tags": ["Acción", "Aventura", "Fantasía"]
+    "tags": ["acción", "aventura", "classic"]
   },
-  { "id": 9, "title": "El sonido del metal", "tags": ["Drama", "Música"] },
+  { "id": 9, "title": "El sonido del metal", "tags": ["drama", "música"] },
   {
     "id": 10,
     "title": "Amor y Monstruos",
-    "tags": ["Acción", "Aventura", "Comedia"]
+    "tags": ["acción", "aventura", "fantasia"]
   },
   {
     "id": 11,
     "title": "Espiral: El juego del miedo continúa ",
-    "tags": ["Crimen", "Horror", "Misterio"]
+    "tags": ["crimen", "horror", "misterio"]
   }
 ]

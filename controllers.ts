@@ -6,8 +6,8 @@ class PelisController {
     this.collection = new PelisCollection
   };
   get(options){
-    if(options.id){
-      return this.collection.getById(options.id)
+    if(options.get){
+      return this.collection.getById(options.get.id)
     }else if(options.search){
       return this.collection.search(options.search)
     }else {
