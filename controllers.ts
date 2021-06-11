@@ -12,8 +12,12 @@ class PelisController {
         console.table(p);
         return p;
       });
-    } 
-      if (options.id) {  //FUNCIONA
+    } else if ( options.title && options.tag ) {
+      console.log("Aca en el metodo get los params llegan asi:",options )
+      return this.pelisCollection.search(options).then((p)=>{
+        return p;
+      });
+    } else if (options.id) {  //FUNCIONA
         return this.pelisCollection.getById(options.id).then((p)=>{
           console.table(p);
           return p;
@@ -30,7 +34,6 @@ class PelisController {
       } else if ( options.title && options.tag ) {
         console.log("Aca en el metodo get los params llegan asi:",options )
         return this.pelisCollection.search(options).then((p)=>{
-          console.table(p);
           return p;
         });
       }

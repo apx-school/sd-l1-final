@@ -4,7 +4,7 @@ import * as jsonfile from "jsonfile";
 class Peli {
   title: string;
   id: number;
-  tag: string[];
+  tags: string[];
 }
 
 class PelisCollection {
@@ -31,7 +31,7 @@ class PelisCollection {
     return this.getAll().then((listaPelis) => {
       if (options.title && options.tag){
         return listaPelis.filter((item)=>{
-          return item.title.includes(options.title) && item.tag.includes(options.tag);
+          return item.title.includes(options.title) && item.tags.includes(options.tag);
         });
       }
       if (options.title) {
@@ -41,7 +41,7 @@ class PelisCollection {
       }
       if (options.tag) {
         return listaPelis.filter((item) => {
-          return item.tag.includes(options.tag);
+          return item.tags.includes(options.tag);
         });
       }
     });

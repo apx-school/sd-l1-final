@@ -33,7 +33,7 @@ function main() {
       const peliTagEncontrada = pelisController.get(params).then((p)=>{
         console.table(p);
         return p;
-      });
+      })
       console.table(peliTagEncontrada);
 
     } else if (params.title) { 
