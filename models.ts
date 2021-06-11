@@ -27,7 +27,7 @@ class PelisCollection {
 
   
   search(options?: any): Promise<Peli[]> {
-    console.log("Los parametros aca en el search llegan asi:", options);
+    // console.log("Los parametros aca en el search llegan asi:", options);
     return this.getAll().then((listaPelis) => {
       if (options.title && options.tag){
         return listaPelis.filter((item)=>{

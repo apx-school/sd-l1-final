@@ -24,7 +24,6 @@ class PelisController {
           return p;
         });
       } else if ( options.tag ) {  //FUNCIONA 
-        console.log("En el get con tag llega asi:", options.tag);
         return this.pelisCollection.search(options).then((p)=>{
           return p;
         });

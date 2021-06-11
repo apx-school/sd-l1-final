@@ -15,7 +15,7 @@ function main() {
   const pelisController = new PelisController();
   console.log ("los parametros llegan asi:", params)
 
-  
+
    if ( params._ == 'search' ){
     console.log("El comando que busca es", params._);
     // delete params._;
@@ -55,16 +55,15 @@ function main() {
     peliId.getById(params._[1]).then((p)=>{
       console.table(p);
       return p;
-    }
-    );
+    });
 
-  } else if ( params == {_: [] }) {
-    console.log("Entra en el if")
+  } else {
+    console.log("El listado de todas las peliculas es:")
     pelisController.get().then((p)=>{
-      console.table(p);
       return p;
     })
-  }
+   }
+  
 
 }
 
