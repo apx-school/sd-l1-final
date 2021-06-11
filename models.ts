@@ -26,7 +26,8 @@ class PelisCollection {
   }
 
   
-  search(options: any): Promise<Peli[]> {
+  search(options?: any): Promise<Peli[]> {
+    console.log("Los parametros aca en el search llegan asi:", options);
     return this.getAll().then((listaPelis) => {
       if (options.title && options.tag){
         return listaPelis.filter((item)=>{
@@ -62,36 +63,6 @@ class PelisCollection {
     });
   }
 }
-
-
-const peliNueva = new PelisCollection;
-
-// const todasLasPelis = peliNueva.getAll().then ((p)=>{
-//   console.table(p);
-//   return p;
-// });
-// console.table(todasLasPelis)
-
-// const peliEncontrada = peliNueva.getById(6).then((p)=> {
-//   console.table(p);
-//   return p;
-// })
-// console.log (peliEncontrada);
-
-// peliNueva.add({title: "el señor de los anillos",id: 14,
-// tag: ["adolescente", "acción", "ciencia ficción"]
-// });
-// peliNueva.getAll().then((p)=>{
-//   console.table(p);
-//   return p;
-// })
-
-// const peliEncontrada = peliNueva.search({tag:"terror"}).then((p)=>{
-//   console.table(p);
-//   return p;
-
-// })
-
 
 
 

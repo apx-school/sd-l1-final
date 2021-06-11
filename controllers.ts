@@ -7,7 +7,7 @@ class PelisController {
   }
 
   get(options?: any): Promise<any> {
-    if (!options) {
+    if (options == null) {
       return this.pelisCollection.getAll().then((p)=>{
         console.table(p);
         return p;
@@ -19,16 +19,21 @@ class PelisController {
           return p;
         });
       
-      } else if (options.search.title) {  //FUNCIONA
-        return this.pelisCollection.search(options.search).then((p)=>{
+      } else if (options.title) {  //FUNCIONA
+        return this.pelisCollection.search(options).then((p)=>{
           return p;
         });
-      } else if ( options.search.tag ) {  //FUNCIONA 
-        return this.pelisCollection.search(options.search).then((p)=>{
+      } else if ( options.tag ) {  //FUNCIONA 
+        console.log("En el get con tag llega asi:", options.tag);
+        return this.pelisCollection.search(options).then((p)=>{
           return p;
         });
-      } else if ( options.search.title && options.search.tag ) {
-        return this.pelisCollection.search(options);
+      } else if ( options.title && options.tag ) {
+        console.log("Aca en el metodo get los params llegan asi:",options )
+        return this.pelisCollection.search(options).then((p)=>{
+          console.table(p);
+          return p;
+        });
       }
       
     }
@@ -38,12 +43,5 @@ add(peli:Peli) {
   }
 }
 
-// const peliControler = new PelisController;
-// // const peliEncontrada = peliControler.get ({id: 13});
-// const peliEncontrada = peliControler.get({ search: { tag: "accion" } }).then((p)=>{
-//   console.table(p); 
-//   return p;
-// })
-// console.table(peliEncontrada);
 
 export { PelisController };
