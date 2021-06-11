@@ -28,7 +28,7 @@ function objetos(params){
        tags: params.tags
      };
      return controller.add(objeto)
-  }else if(params._.lenght == 0){
+  }else{ 
     return controller.get({}).then((r) => {return r})
   }
 
