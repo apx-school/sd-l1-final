@@ -26,14 +26,14 @@ class PelisCollection {
   search (options:any)  {
   return this.getAll().then((pelis) => {
 
-    if (options.title && options.tags )
+    if (options.title && options.tag )
 
     {return pelis.filter((p)=>{
-      return p.title.includes(options.title) && p.tags.includes(options.tags) })
+      return p.title.includes(options.title) && p.tags.includes(options.tag) })
      }
 
     else  if (options.title){return pelis.filter ((p) =>{return p.title.includes(options.title)})}
-     else if (options.tags){return pelis.filter((p) => {return p.tags.includes(options.tags)})}
+     else if (options.tag){return pelis.filter((p) => {return p.tags.includes(options.tag)})}
 
   })
 

@@ -26,11 +26,11 @@ function parametrosDeEjecucion (controller, parametros) {
 
   if (parametros._ == "search"){
 
-       if (parametros.tags && parametros.title){return controller.get (
-      {search:{title: parametros.title, tags: parametros.tags}}).then((p)=>{ return p})}
+       if (parametros.tag && parametros.title){return controller.get (
+      {search:{title: parametros.title, tag: parametros.tag}}).then((p)=>{ return p})}
   
       else if (parametros.title){return controller.get({search:{title: parametros.title}}).then((p)=>{return p})}
-      else if (parametros.tags){return controller.get({search: {tags: parametros.tags}}).then((p)=>{return p})}
+      else if (parametros.tag){return controller.get({search: {tag: parametros.tag}}).then((p)=>{return p})}
    }
 
   else if (parametros._ == "add")
