@@ -1,44 +1,49 @@
 import * as minimist from "minimist";
-import {PelisController} from "./controllers";
-import {PelisCollection} from "./models";
+import { PelisController } from "./controllers";
+import { PelisCollection } from "./models";
 
 function parseaParams(argv) {
   const resultado = minimist(argv);
-  if (resultado._[0] == "get"){
-    const objt = {get: {id: resultado._[1]}};
+  return resultado
+}
+
+function objetos(params) {
+
+  if (params._[0] == "get") {
+    const objt = { get: { id: params._[1] } };
     return objt;
-  }else if(resultado._[0] == "add"){
-    if (resultado.tags && resultado.title){
-      return {search:{title:resultado.title, tags:resultado.tags}};
-    }else if (resultado.tag){
-      return {search:{tags: resultado.tags}};
-    }else if (resultado.title){
-      return {search:{title: resultado.title}};
-    }else return {};
+  } else if (params._[0] == "add") {
+    if (params.tags && params.title) {
+      return { search: { title: params.title, tags: params.tags } };
+    } else if (params.tag) {
+      return { search: { tags: params.tags } };
+    } else if (params.title) {
+      return { search: { title: params.title } };
+    } else return {};
 
-  } else if (resultado._[0] == "search"){
-    if (resultado.tags && resultado.title){
-      return {search:{title: resultado.title, tags: resultado.tags}};
-    }else if (resultado.tag){
-      return {search:{tags: resultado.tags}};
-    }else if (resultado.title){
-      return {search:{title: resultado.title}};
+  } else if (params._[0] == "search") {
+    if (params.tags && params.title) {
+      return { search: { title: params.title, tags: params.tags } };
+    } else if (params.tag) {
+      return { search: { tags: params.tags } };
+    } else if (params.title) {
+      return { search: { title: params.title } };
     }
-  }else return {};
+  } else return {};
 
-  if (resultado.search){
-    return this.get(resultado.search).then((r)=>{
-      const s = r.filter((p)=>{
-        return p.search.includes(resultado.search)
+  if (params.search) {
+    return this.get(params.search).then((r) => {
+      const s = r.filter((p) => {
+        return p.search.includes(params.search)
       });
       return s;
     });
 
   }
-  if (resultado.get){
-    return this.get(resultado.get).then((r)=>{
-      const s = r.filter((p)=>{
-        return p.get.includes(resultado.get)
+  if (params.get) {
+    return this.get(params.get).then((r) => {
+      const s = r.filter((p) => {
+        return p.get.includes(params.get)
       });
       return s;
     });
@@ -47,15 +52,16 @@ function parseaParams(argv) {
 
 }
 
+
+
+
 function main() {
   const params = parseaParams(process.argv.slice(2));
-  const peli = new PelisCollection();
-  if (params._ == null){
-    peli.getAll().then((p)=>{
-      console.log(p);
-      return p;
-    })
-  }
+  const peli = new PelisController();
+  const result = objetos(params).then((resultado) => {
+    console.log(result);
+    console.log(resultado);
+  });
 
 
 
