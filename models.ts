@@ -27,22 +27,24 @@ class PelisCollection {
 
   
   search(options?: any): Promise<Peli[]> {
-    // console.log("Los parametros aca en el search llegan asi:", options);
+    console.log("Los parametros aca en el search llegan asi:", options);
+    
     return this.getAll().then((listaPelis) => {
       if (options.title && options.tag){
-        return listaPelis.filter((item)=>{
+         const peliEncontrada = listaPelis.filter((item)=>{
           return item.title.includes(options.title) && item.tags.includes(options.tag);
         });
-      }
-      if (options.title) {
-        return listaPelis.filter((item) => {
+        return peliEncontrada;
+      }else if (options.title) {
+        const peliTitleEncontrada = listaPelis.filter((item) => {
           return item.title.includes(options.title);
         });
-      }
-      if (options.tag) {
-        return listaPelis.filter((item) => {
+        return peliTitleEncontrada;
+      }else if (options.tag) {
+        const peliTagEncontrada = listaPelis.filter((item) => {
           return item.tags.includes(options.tag);
         });
+        return peliTagEncontrada;
       }
     });
   }

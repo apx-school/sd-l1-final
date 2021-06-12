@@ -31,13 +31,7 @@ class PelisController {
         return this.pelisCollection.search(options).then((p)=>{
           return p;
         });
-      } else if ( options.title && options.tag ) {
-        console.log("Aca en el metodo get los params llegan asi:",options )
-        return this.pelisCollection.search(options).then((p)=>{
-          return p;
-        });
-      }
-      
+      } 
     }
 
 add(peli:Peli) {
