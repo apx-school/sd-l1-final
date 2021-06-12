@@ -31,20 +31,17 @@ class PelisCollection {
     
     return this.getAll().then((listaPelis) => {
       if (options.title && options.tag){
-         const peliEncontrada = listaPelis.filter((item)=>{
+         return listaPelis.filter((item)=>{
           return item.title.includes(options.title) && item.tags.includes(options.tag);
         });
-        return peliEncontrada;
       }else if (options.title) {
-        const peliTitleEncontrada = listaPelis.filter((item) => {
+        return listaPelis.filter((item) => {
           return item.title.includes(options.title);
         });
-        return peliTitleEncontrada;
       }else if (options.tag) {
-        const peliTagEncontrada = listaPelis.filter((item) => {
+        return listaPelis.filter((item) => {
           return item.tags.includes(options.tag);
         });
-        return peliTagEncontrada;
       }
     });
   }
