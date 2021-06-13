@@ -17,7 +17,7 @@ class PelisCollection {
   }
 
 
-  getById(id: number): Promise<Peli> {
+  getById(id: any): Promise<Peli> {
     return this.getAll().then((listaPelis) => {
       return listaPelis.find((item) => {
         return item.id == id;
