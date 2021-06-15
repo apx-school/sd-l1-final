@@ -1,7 +1,8 @@
 import { Console } from "console";
 import * as jsonfile from "jsonfile";
 import { PelisController } from "./controllers";
-
+const filter = require("lodash/filter")
+const find = require("lodash/find")
 // no modificar estas propiedades, agregar todas las que quieras
 class Peli {
   id: number;
@@ -19,40 +20,29 @@ class PelisCollection {
   }
   getById(id:number){//listo
     return this.getAll().then((lista)=>{
-      const encontrado = lista.find((item)=>{
-        return item.id == id;
-      })
+      const encontrado = find(lista,(i)=>{return i.id == id;})
       return encontrado;
     })
   }
-  search(options:any){//listo
+  search(options:any):Promise<any>{//listo
     if(options.tag && options.title){
       return this.getAll().then((lista)=>{
-        const resultado = lista.filter((item)=>{
-          return item.title.includes(options.title);
+        const listaAMostrar = filter(lista,(i)=>{
+          return i.title.includes(options.title) && i.tags.includes(options.tag)
         })
-        const listaFinal = resultado.filter((i)=>{
-          return i.tags.includes(options.tag)
-        })
-        return listaFinal;
-      })
-    }else if(options.title){
-      return this.getAll().then((lista)=>{//listo
-        const listaAMostrar = lista.filter((item)=>{
-          return item.title.includes(options.title)
-        });
-        return  listaAMostrar;
-        
+        return listaAMostrar;
       });
+    }else if(options.title){
+      return this.getAll().then((lista)=>{
+        const resultado = filter(lista,(i)=>{return i.title.includes(options.title)})
+        return resultado;
+        });
     }else if(options.tag){
-      return this.getAll().then((lista)=>{//listo
-        const tagAMostrar = lista.filter((item)=>{
-          return item.tags.includes(options.tag)
-        })
-        return tagAMostrar
-      })
-    }
-    
+      return this.getAll().then((lista)=>{
+        const resultado = filter(lista,(i)=>{return i.tags.includes(options.tag)})
+        return resultado;
+      });
+    }    
   }
   add(peli: Peli): Promise<boolean> {
     const promesaUno = this.getById(peli.id).then((peliExistente) => {
@@ -65,18 +55,9 @@ class PelisCollection {
           return true;
         });
         return promesaDos;
-        
       }
-      
     });
-
     return promesaUno;
   }
-
 }
 export { PelisCollection, Peli };
-/*const objeto = new PelisCollection();
-objeto.search({"tag":"accion"}).then((resultado)=>{
-  console.log(resultado)
-})*/
-

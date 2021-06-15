@@ -1,6 +1,7 @@
 import * as minimist from "minimist";
 import {PelisController} from "./controllers";
 
+
 function parseaParams(argv) {
     const resultado = minimist(argv);
     return resultado
@@ -35,6 +36,6 @@ function indicador (params){
 
 function main(){
 const params = parseaParams(process.argv.slice(2));
-const resultado = indicador(params).then((resultado)=>{console.log(resultado)})
+const resultadoFinal = indicador(params).then((r)=>{console.log(r)})
 }
 main()
