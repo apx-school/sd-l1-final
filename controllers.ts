@@ -14,12 +14,17 @@ class PelisController {
         return p;
       })
       return peliEncontrada;
-    } else if (options._[0] == 'get') {
-      const objId = {id: options._[1] }
-      return this.pelisCollection.getById(objId).then((p)=>{
+    } else if (options._ == 'get') {
+      return this.pelisCollection.getById(options.id).then((p)=>{
         return p;
       })
-    } else return this.pelisCollection.getAll().then((p)=>{
+    } else if (options.id) {
+      return this.pelisCollection.getById(options.id).then((p)=>{
+        console.table(p)
+        return p;
+      })
+    }
+    else return this.pelisCollection.getAll().then((p)=>{
       return p;
     }) 
   }  
@@ -31,8 +36,5 @@ add(peli:Peli) {
     return this.pelisCollection.add(peli);
   }
 }
-
-
-
 
 export { PelisController };

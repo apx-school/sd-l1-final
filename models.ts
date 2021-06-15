@@ -17,7 +17,7 @@ class PelisCollection {
   }
 
 
-  getById(id: any): Promise<Peli> {
+  getById(id: number): Promise<Peli> {
     return this.getAll().then((listaPelis) => {
       return listaPelis.find((item) => {
         return item.id == id;
@@ -27,9 +27,9 @@ class PelisCollection {
 
   
   search(options?: any): Promise<Peli[]> {
-    console.log("Los parametros aca en el search llegan asi:", options);
     
     return this.getAll().then((listaPelis) => {
+
       if (options.title && options.tag){
          return listaPelis.filter((item)=>{
           return item.title.includes(options.title) && item.tags.includes(options.tag);
@@ -43,20 +43,19 @@ class PelisCollection {
           return item.tags.includes(options.tag);
         });
       }
+      
     });
   }
   
 
-  add(peli: Peli): Promise<boolean> {
+  add(peli: Peli): any{
     return this.getById(peli.id).then((idRepetido) => {
       if (idRepetido) {
         return false;
       } else {
         return this.getAll().then((lista) => {
           lista.push(peli);
-          return jsonfile.writeFile("./pelis.json", lista).then(() => {
-            return true;
-          });
+          return jsonfile.writeFile("./pelis.json", lista).then(() => {});
         });
       }
     });

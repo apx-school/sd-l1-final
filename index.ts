@@ -11,9 +11,8 @@ function ejecutador (params) {
   const pelisController = new PelisController
 
   const peliEncontrada = pelisController.get(params).then((p)=>{
-    console.table(p)
+    console.table(p);
   })
-  console.table(pelisController);
 
   if ( params._ == "add") {
       console.log ("Se agregará la siguiente película:", params.title);
@@ -28,10 +27,7 @@ return peliEncontrada;
 function main() {
   const params = parseaParams(process.argv.slice(2));
   console.log ("los parametros llegan asi:", params)
-  const resultado = ejecutador (params).then((p)=>{
-    console.table(resultado)
-    return p;
-  });
+  ejecutador (params)
 } 
 
 main();
