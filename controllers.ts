@@ -9,8 +9,8 @@ class PelisController {
 
   
   get(options?: any): Promise<any> {
-    if (options._ == 'search') {
-      const peliEncontrada = this.pelisCollection.search(options).then((p)=>{
+    if (options.search) {
+      const peliEncontrada = this.pelisCollection.search(options.search).then((p)=>{
         return p;
       })
       return peliEncontrada;

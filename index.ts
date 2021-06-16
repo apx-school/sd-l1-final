@@ -10,18 +10,20 @@ function parseaParams(argv) {
 function ejecutador (params) {
   const pelisController = new PelisController
 
-  const peliEncontrada = pelisController.get(params).then((p)=>{
-    console.table(p);
-  })
-
-  if ( params._ == "add") {
+  if (params._ == 'search') {
+    pelisController.get({search:{title: params.title, tag: params.tag}}).then((p)=>{
+      console.table(p);
+    })
+  } else if ( params._ == "add") {
       console.log ("Se agregará la siguiente película:", params.title);
       delete params._
       pelisController.add(params); 
 
-}
+}   else return pelisController.get(params).then((p)=>{
+  console.table(p);
+})
 
-return peliEncontrada;
+
 }
 
 function main() {
