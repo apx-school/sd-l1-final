@@ -27,7 +27,7 @@ function main() {
   const params = parseaParams(process.argv.slice(2));
   const optionPelis = options(params);
   optionPelis.then((resultado) => {
-    return (resultado);
+    console.log(resultado);
   })
   
 }
