@@ -52,8 +52,9 @@ class PelisCollection {
 
   add(peli: Peli): any{
     return this.getById(peli.id).then((idRepetido) => {
-      if (idRepetido) {
-        return false;
+      if (idRepetido.id == peli.id) {
+        console.log ("Ya se encuentra agregada la peli") ;
+        return false
       } else {
         return this.getAll().then((lista) => {
           lista.push(peli);

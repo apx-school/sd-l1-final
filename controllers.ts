@@ -14,8 +14,8 @@ class PelisController {
         return p;
       })
       return peliEncontrada;
-    } else if (options._ == 'get') {
-      return this.pelisCollection.getById(options.id).then((p)=>{
+    } else if (options._[0] == 'get') {
+      return this.pelisCollection.getById(options._[1]).then((p)=>{
         return p;
       })
     } else if (options.id) {
