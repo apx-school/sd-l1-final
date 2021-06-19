@@ -24,16 +24,14 @@ class PelisCollection {
     });
   }
   search(options:any){
-    console.log(options)
     const promise = this.getAll().then((arrayMovs)=>{
       
       if(options.title && options.tags){
        
         const normalizedTitle = options.title.toLocaleLowerCase();
-        const normalizedTags = options.tags.toLocaleLowerCase();
 
         const findTitleAndTag = arrayMovs.filter((titleAndTag)=>{
-          return ((titleAndTag.title.toLocaleLowerCase().includes(normalizedTitle) && titleAndTag.tags.includes(normalizedTags)))
+          return ((titleAndTag.title.toLocaleLowerCase().includes(normalizedTitle) && titleAndTag.tags.includes(options.tags)))
         })
 
       return findTitleAndTag;
@@ -58,13 +56,23 @@ class PelisCollection {
 
     return promise;
   }
+  add(movie:Peli):Promise<boolean> {
+    const firstPromise = this.getById(movie.id).then((listedMovie)=>{
+      if(listedMovie){
+        return false;
+      }else{
+        const data = this.data.push(movie);
+        const secondPromise = jsonfile.writeFile("./pelis.json",data);
+
+        return secondPromise.then(()=>{
+          return true;
+        });
+      }
+    });
+    return firstPromise;
+  }
 }
 
 export{PelisCollection,Peli}
-
-/*const object = new PelisCollection();
-object.getById(14223).then((resultado)=>{
-  console.log(resultado);
-})*/
 
 
