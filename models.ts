@@ -8,11 +8,58 @@ class Peli {
 }
 
 class PelisCollection {
-  getAll(): Promise<Peli[]> {
-    return jsonfile("...laRutaDelArchivo").then(() => {
-      // la respuesta de la promesa
-      return [];
+   peliculas: Peli[];
+  
+   getAll(): Promise<Peli[]> {
+    const todasLasPelis = jsonfile.readFile("./pelis.json").then((pelis) => {
+    this.peliculas = pelis
+    return pelis;
+  });
+  return todasLasPelis;
+}
+
+  getById(id:number): Promise<any> {
+    return this.getAll().then((peliculas) => {
+      return peliculas.find((peli) => {
+        return peli.id == id;
+      }) 
+    })
+  }
+
+  search(options:any){
+    if(options.title && options.tag) {
+      return this.getAll().then((peliculas) => {
+        return peliculas.filter((item) => {
+          return item.title.includes(options.title) && item.tags.includes(options.tag);
+        });
+      });
+    } else if(options.title){
+      return this.getAll().then((peliculas) => {
+        return peliculas.filter((item) => {
+          return item.title.includes(options.title);
+        });
+      });
+    } else if(options.tag){
+        return this.getAll().then((peliculas) => {
+          return peliculas.filter((item) => {
+            return item.tags.includes(options.tag);
+          });
+        });
+    }
+  }
+
+  add(peli: Peli): any{
+    return this.getById(peli.id).then((idRepetido) => {
+      if (idRepetido) {
+        return false;
+      } else {
+        return this.getAll().then((lista) => {
+          lista.push(peli);
+          return jsonfile.writeFile("./pelis.json", lista).then(() => {});
+        });
+      }
     });
   }
 }
-export { PelisCollection, Peli };
+
+export { Peli, PelisCollection };
