@@ -2,31 +2,33 @@ import { PelisCollection, Peli } from "./models";
 
 
 class PelisController {
-  data: Peli[] = [];
   collectionPelis: PelisCollection;
   constructor() {
     this.collectionPelis = new PelisCollection();
-    this.collectionPelis.getAll();
-  }
-  get(options: any) {
-    var resultado;
-    if (options.id) {
-      resultado = this.collectionPelis.getById(options.id);
+  };
+  get(options: any): Promise<any> {
+    if (options.search) {
+      const FoundedPeli = this.collectionPelis.search(options.search).then((p) => {
+        return p;
+      });
+      return FoundedPeli;
     }
-    if (options.search.title && options.search.tags) {
-      resultado = this.collectionPelis.search(
-        options.search.title && options.search.tags);
+    else if (options._ == "get") {
+      return this.collectionPelis.getById(
+        options.id).then((p) => { return p });
     }
-    else if (options.search) {
-      resultado = this.collectionPelis.search(options.search);
+    else if (options.id) {
+      return this.collectionPelis.getById(options.id).then((p) => {
+        return p;
+      });
 
-    } else if (options.search) {
-      resultado = this.collectionPelis.search(options.search);
-    }
-    return resultado;
+    } else return this.collectionPelis.getAll().then((p) => {
+      return p;
+    });
   }
   add(peli: Peli) {
-    this.data.push(peli);
+    return this.collectionPelis.add(peli);
   }
 }
+
 export { PelisController };

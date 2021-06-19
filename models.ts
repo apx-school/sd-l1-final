@@ -11,54 +11,51 @@ class Peli {
 class PelisCollection {
   peliculas: Peli[];
   getAll(): Promise<Peli[]> {
-    return jsonfile.readFile("./pelis.json").then((p) => {
-      // la respuesta de la promesa
-
+    const allPelis = jsonfile.readFile("./pelis.json").then((p) => {
+      this.peliculas = p
       return p;
-    });
+    }); return allPelis;
   }
-   getById(id:number){
-     return this.getAll().then((peli)=>{
-       const res = peli.find((p)=>{
-         return p.id == id;
-       });
-       return res;
-     });
-   }
-   search(options:any):Promise<any>{
-  if(options.title){
-    return this.getAll().then((pelis)=>{
-      const letter = pelis.filter((p)=>{
-        return p.title.includes(options.title);
+  getById(id: number): Promise<Peli> {
+    return this.getAll().then((peli) => {
+      return peli.find((p) => {
+        return p.id == id;
       });
-      return letter;
     });
   }
-  if(options.tags){
-    return this.getAll().then((pelis)=>{
-      const tagFinder = pelis.filter((p)=>{
-        return p.tags.includes(options.tags)
-      });
-      return tagFinder;
-    });
-  }
-   }
-   add(peli:Peli): Promise<boolean>{
-     const promesaUno = this.getById(peli.id).then((peliExistente)=>{
-      console.log(peli)
-      if(peliExistente){
-        return false;
-      }else{
-        this.peliculas.push(peli);
-        const data = this.peliculas;
-        const promesaDos = jsonfile.writeFile("./pelis.json", data);
-        return promesaDos.then(()=>{
-          return true;
+  search(options: any): Promise<any> {
+    return this.getAll().then((pelisList) => {
+      if (options.title && options.tag) {
+        return pelisList.filter((i) => {
+          return i.title.includes(options.title) && i.tags.includes(options.tag);
+        });
+      }
+      else if (options.title) {
+        return pelisList.filter((i) => {
+          return i.title.includes(options.title);
+        });
+      }
+      else if (options.tag) {
+        return pelisList.filter((i) => {
+          return i.tags.includes(options.tag);
         });
       }
     });
-    return promesaUno;
-   }
+  }
+  add(peli: Peli): any {
+    return this.getById(peli.id).then((idExistente) => {
+      console.log(peli)
+      if (idExistente) {
+        return false;
+      } else {
+        return this.getAll().then((list) => {
+          list.push(peli);
+          return jsonfile.writeFile("./pelis.json", list).then(() => { });
+        });
+
+      }
+    });
+  }
 }
 export { PelisCollection, Peli };
 
