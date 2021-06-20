@@ -9,13 +9,15 @@ class PelisController {
 
   
   get(options?: any): Promise<any> {
+    
     if (options.search) {
       const peliEncontrada = this.pelisCollection.search(options.search).then((p)=>{
         return p;
       })
       return peliEncontrada;
-    } else if (options._[0] == 'get') {
-      return this.pelisCollection.getById(options._[1]).then((p)=>{
+    } else if (options.get) {
+      return this.pelisCollection.getById(options.get.id).then((p)=>{
+        console.table(p)
         return p;
       })
     } else if (options.id) {

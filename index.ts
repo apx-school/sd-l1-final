@@ -19,7 +19,11 @@ function ejecutador (params) {
       delete params._
       pelisController.add(params); 
 
-}   else return pelisController.get(params).then((p)=>{
+} else if ( params._[0] =='get' ) {
+  pelisController.get({get:{id:params._[1]}})
+}  
+
+  else return pelisController.get(params).then((p)=>{
   console.table(p);
 })
 

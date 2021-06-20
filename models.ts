@@ -50,18 +50,23 @@ class PelisCollection {
   }
   
 
-  add(peli: Peli): any{
-    return this.getById(peli.id).then((idRepetido) => {
-      if (idRepetido.id == peli.id) {
-        console.log ("Ya se encuentra agregada la peli") ;
-        return false
+  add(peli:Peli):Promise<boolean> {
+    const promesaUno = this.getById(peli.id).then((peliExistente)=>{
+      if(peliExistente) {
+        console.log("pelicula ya existe")
+        return false;
       } else {
-        return this.getAll().then((lista) => {
-          lista.push(peli);
-          return jsonfile.writeFile("./pelis.json", lista).then(() => {});
-        });
+        this.peliculas.push(peli);
+        const data = this.peliculas;
+        const promesaDos = jsonfile.writeFile("./pelis.json", data);
+
+        return promesaDos.then(()=>{
+            return true;
+          
+        })
       }
-    });
+    })
+    return promesaUno;
   }
 }
 
