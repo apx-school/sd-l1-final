@@ -8,10 +8,11 @@ class PelisController {
 
   get(options?: any): Promise<any> {
     if (options.search) {
-      return this.coleccion.search(options.search).then((p)=>{
+      const peliEncontrada = this.coleccion.search(options.search).then((p)=>{
         return p;
       })
-    } else if (options._ == "id") {
+      return peliEncontrada;
+    } else if (options == 'get') {
       return this.coleccion.getById(options.id).then((p)=>{
         return p;
       })
@@ -19,15 +20,15 @@ class PelisController {
       return this.coleccion.getById(options.id).then((p)=>{
         return p;
       })
-    } else 
-    return this.coleccion.getAll().then((p)=>{
+    }
+    else return this.coleccion.getAll().then((p)=>{
       return p;
     }) 
-  }  
+  }
 
   add(peli: Peli) {
-      this.coleccion.add(peli);
-    }
+    this.coleccion.add(peli);
   }
+}
 
 export { PelisController };
