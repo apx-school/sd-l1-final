@@ -6,34 +6,33 @@ function parseaParams(argv) {
   return resultado;
 }
 
-function ejecutador (params) {
+function ejecutaArgumentos (params) {
   const pelisController = new PelisController;
+  
+  if(params._[0] == 'get') {
+      pelisController.get({id: params._[1]}).then((res) => {
+        console.log(res);
+      });
+  }
 
-  if (params._ == "get") {
-    pelisController.get({id: params._[1]}).then((res) => {
-      console.log(res)
-    });
-    
-    if (params._ == 'search') {
-      pelisController.get({ search: {title: params.title, tag: params.tag},
+  if (params._[0] == 'search') {
+    pelisController.get({search: {title: params.title, tag: params.tag},
     }).then((res)=> { 
       console.log(res);
     });
-  } 
-  else if ( params._ == "add") {
+  }
+
+  if (params._[0] == 'add') {
     console.log ("Se agregará la siguiente película:", params.title);
     pelisController.add(params); 
-    } else return pelisController.get(params).then((p)=>{
-      console.log(p);
-    })
-  }
+    } else return pelisController.get(params).then(()=>{
+    });
 }
 
 function main() {
-  const params = parseaParams(process.argv.slice(2));
-  console.log ("los parametros llegan asi:", params);
-  ejecutador(params);
+  const parametros = parseaParams(process.argv.slice(2));
+  ejecutaArgumentos(parametros);
+  console.log ("los parametros llegan asi:", parametros);
 }
 
 main();
-
