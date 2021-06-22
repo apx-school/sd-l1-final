@@ -13,8 +13,9 @@ class PelisCollection {
   // devolver todas las pelis
   getAll(): Promise<Peli[]> {
     return jsonfile.readFile("./pelis.json").then((pelis) => {
-      return (this.peliculas = pelis);
-    })
+      const respuesta = this.peliculas = pelis;
+      return respuesta
+    });
   };
   // buscar por ID 
   getById(id:number): Promise<Peli> {
