@@ -81,10 +81,11 @@ function parseaParams(argv: any): Response {
 
 function main() {
   const params = parseaParams(process.argv.slice(2));
-  console.log(params);
   const movController = new PelisController();
   movController.commands(params).then((result) => {
     console.table(result);
+  },(rejected)=>{
+    console.log("Rechazado: ",rejected)
   });
 }
 

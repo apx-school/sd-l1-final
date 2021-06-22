@@ -8,31 +8,34 @@ class PelisController {
     this.movies = new PelisCollection()
   }
 
-  commands (Response):Promise<any>{
-    if(Response.command = 'get')
-      return this.get(Response.value);
-    if(Response.command = 'add')
-      return this.add(Response.value);
-    if(Response.command = 'search')
-      return this.get(Response.value);
+  commands (response):Promise<any>{
+    if(response.command = 'get')
+      return this.get(response.value);
+    /*else if(response.command = 'add')
+      return this.add(response.value);*/
+    if(response.command = 'search')
+      return this.search(response.value);
     return Promise.reject(new Error("Comando erroneo"));
   }
   
   get(options): Promise<Peli | Peli[]> {
-    if(options.get){
-      return this.movies.getById(options.get);
-    }else if(options.title && options.tags){
+    console.log("el options de get",options);
+    if(options.id){
+      return this.movies.getById(options.id);
+    }
+  }
+  search(options):Promise<Peli|Peli[]>{
+    console.log("el options de Search", options)
+    if(options.title && options.tags){
       return this.movies.search(options);
     }else if(options.title){
       return this.movies.search(options);
     }else if(options.tags){
       return this.movies.search(options);
-    }else{
-      return this.movies.getAll();      
     }
   }
-  add(movie) {
+  /*add(movie): Promise<any> {
     return this.movies.add(movie)
-  }
+  }*/
 }
 export { PelisController };
