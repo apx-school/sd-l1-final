@@ -18,7 +18,7 @@ class PelisCollection {
     });
     return todasLasPelis;
   }
-
+  
   getById(id:number): Promise<Peli> {
 
     return this.getAll().then((peliculas) => {
@@ -28,41 +28,42 @@ class PelisCollection {
     });
   }
 
-  search(options: any): Promise<Peli[]> {
-
-      if (options.title && options.tag) {
-        return this.getAll().then(() => {
-          return this.peliculas.filter((item) => {
-            return item.title.includes(options.title && options.tag);
-          });
+  search(options?: any): Promise<any> {
+    
+    if(options.title && options.tag) {
+      return this.getAll().then(() => {
+        return this.peliculas.filter((item) => {
+          return item.title.includes(options.title) && item.tags.includes(options.tag);
         });
-
-      } else if (options.title) {
-        return this.getAll().then(() => {
-          return this.peliculas.filter((item) => {
-            return item.title.includes(options.title);
-          });
-        });
-
-      } else if (options.tag) {
-        return this.getAll().then(() => {
-          return this.peliculas.filter((item) => {
-            return item.tags.includes(options.tag);
-          });
       });
-    } 
+      
+    } else if (options.title) {
+      return this.getAll().then(() => {
+        return this.peliculas.filter((item) => {
+          return item.title.includes(options.title);
+        });
+      });
+      
+    } else if (options.tag) {
+      return this.getAll().then(() => {
+        return this.peliculas.filter((item) => {
+          return item.tags.includes(options.tag);
+        });
+      });
+    }
   }
-
+  
   add(peli: Peli): Promise<boolean> {
     const promesaUno = this.getById(peli.id).then((peliExistente) => {
       if (peliExistente) {
+        console.log("La peli ya está registrada!");
         return false;
       } else {
         this.peliculas.push(peli);
         const data = this.peliculas;
         const promesaDos = jsonfile.writeFile("./pelis.json", data);
         return promesaDos.then(() => {
-          console.log("Peli agregada!");
+          console.log("Peli agregada!", peli);
           return true;
         });
       }
