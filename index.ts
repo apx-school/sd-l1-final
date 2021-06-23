@@ -15,7 +15,7 @@ function ejecutador(parametros) {
         console.log(resp);
       });
   } else if (parametros._ == "add") {
-    console.log(parametros.title);
+    console.log("Se acaba de agregar la siguiente película:", parametros.title);
     delete parametros._;
     controllerPelis.add(parametros);
   } else if (parametros._[0] == "get") {
