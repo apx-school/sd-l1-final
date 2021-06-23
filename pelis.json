@@ -1,1 +1,5 @@
-[]
+[
+  { "id": 1, "title": "la isla siniestra", "tags": ["suspenso", "drama"] },
+  { "id": 2, "title": "madagascar", "tags": ["fantasia", "comédia"] },
+  { "id": 3, "title": "scarface", "tags": ["suspenso", "accion"] }
+]
