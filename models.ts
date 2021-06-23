@@ -15,7 +15,7 @@ class PelisCollection {
     })
   }
   getAll(): Promise<Peli[]> {
-    const pelis = jsonfile.readFile("../pelis.json").then((json) => {
+    const pelis = jsonfile.readFile("./pelis.json").then((json) => {
       return json;
     });
     return new Promise((resolve, reject) => resolve(pelis))
@@ -74,7 +74,7 @@ class PelisCollection {
         return false;
       } else {
         this.data.push(movie);
-        return jsonfile.writeFile("../pelis.json", this.data).then(() => {
+        return jsonfile.writeFile("./pelis.json", this.data).then(() => {
           return true;
         });;
       }
