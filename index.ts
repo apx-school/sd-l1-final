@@ -6,27 +6,27 @@ function parseaParams(argv) {
   return resultado;
 }
 
-const pelisController = new PelisController();
 
 function ejecutador (params) {
+  const pelisController = new PelisController();
 
-  if (params._ == 'search') {
-    pelisController.get({search:{title: params.title, tag: params.tag}})
-    .then((res)=>{console.log(res);
+  if (params._[0] == 'search') {
+      pelisController.get({search: {title: params.title, tag: params.tag}}).then((res) => {
+        console.log(res);
+    });
+
+  } else if(params._[0] == "get") {
+      pelisController.get({id: params._[1]}).then((res) => {
+      console.log(res);
     });
 
   } else if (params._[0] == "add") {
       console.log ("Se agregará la siguiente película:", params.title);
       delete params["_"];
       pelisController.add(params); 
-
-  } else if(params._[0] == "get") {
-      return pelisController.get({id: params._[1]}).then((res) => {
-      console.log(res);
-    });
-
+    
   } else {
-      return pelisController.coleccion.getAll().then((res) => {
+      pelisController.coleccion.getAll().then((res) => {
       console.log(res);
     });
   }
