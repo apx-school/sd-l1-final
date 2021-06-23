@@ -3,15 +3,15 @@ import { PelisCollection, Peli } from "./models";
 class PelisController {
   coleccion: PelisCollection;
   constructor() {
-    this.coleccion = new PelisCollection;
+    this.coleccion = new PelisCollection();
   }
 
   get(options?: any): Promise<any> {
-    
-    if(options == options.id) {
+
+    if(options.id) {
       return this.coleccion.getById(options.id);
 
-    } else if (options == options.search) {
+    } else if (options.search) {
       return this.coleccion.search(options.search);
 
     } else {
@@ -19,7 +19,7 @@ class PelisController {
     }
   }
   add(peli: Peli) {
-    this.coleccion.add(peli);
+    return this.coleccion.add(peli);
   }
 }
 
