@@ -1,102 +1,132 @@
 [
-    {   
-        "id": 1,
-        "title": "Ghost in the Shell",
-        "tag": ["ciencia-ficcion", "ciberpunk", "futurista", "accion"]
-    },
-    {
-        "id": 2,
-        "title": "Han Solo",
-        "tag": ["ciencia-ficcion", "aventura", "accion"]
-    },
-    {
-        "id": 3,
-        "title": "Los Increibles 2",
-        "tag": ["animacion", "accion", "aventura"]
-    },
-    {
-        "id": 4,
-        "title": "El Angel",
-        "tag": ["biografia", "crimen", "drama"]
-    },
-    {
-        "id": 5,
-        "title": "Bohemian Rapdsody",
-        "tag": ["biografia", "drama", "musica"]
-    },
-    {
-        "id": 6,
-        "title": "Glass",
-        "tag": ["ciencia-ficcion", "drama", "Suspenso"]
-    },
-    {
-        "id": 7,
-        "title": "Cementerio de Animales",
-        "tag": ["Terror", "misterio", "suspenso"]
-    },
-    {
-        "id": 8,
-        "title": "Ad Astra",
-        "tag": ["aventura", "drama", "misterio", "ciencia-ficcion"]
-    },
-    {
-        "id": 9,
-        "title": "Joker",
-        "tag": ["crimen", "drama", "suspenso"]
-    },
-    {
-        "id": 10,
-        "title": "El Robo del Siglo",
-        "tag": ["accion", "biografia", "comedia"]
-    },
-    {
-        "id": 11,
-        "title": "Doctor Strange",
-        "tag": ["ciencia-ficcion", "Fantasia", "aventura", "accion"]
-    },
-    {
-        "id": 12,
-        "title": "Ex Machina",
-        "tag": ["ciencia-ficcion", "drama", "Futurista", "suspenso"]
-    },
-    {
-        "id": 13,
-        "title": "Interestellar",
-        "tag": ["aventura", "drama", "ciencia-ficcion"]
-    },
-    {
-        "id": 14,
-        "title": "Logan",
-        "tag": ["accion", "drama", "ciencia-ficcion"]
-    },
-    {
-        "id": 15,
-        "title": "Lucy",
-        "tag": ["accion", "suspenso", "ciencia-ficcion"]
-    },
-    {
-        "id": 16,
-        "title": "Blade Runner 2049",
-        "tag": ["accion", "ciencia-ficcion", "suspenso"]
-    },
-    {
-        "id": 17,
-        "title": "Passengers",
-        "tag": ["drama", "Romance", "ciencia-ficcion"]
-    },
-    {
-        "id": 18,
-        "title": "Marte",
-        "tag": ["aventura", "ciencia-ficcion", "futurista", "drama"]
-    },
-    {
-        "id": 19,
-        "title": "Fragmentado",
-        "tag": ["terror", "ciencia-ficcion", "suspenso"]
-    },
-    {
-        "id": 20,
-        "title": "Venom",
-        "tag": ["accion", "aventura", "ciencia-ficcion"]
-    }
+  {
+    "id": 1,
+    "title": "Ghost in the Shell",
+    "tag": ["ciencia-ficcion", "ciberpunk", "futurista", "accion"]
+  },
+  {
+    "id": 2,
+    "title": "Han Solo",
+    "tag": ["ciencia-ficcion", "aventura", "accion"]
+  },
+  {
+    "id": 3,
+    "title": "Los Increibles 2",
+    "tag": ["animacion", "accion", "aventura"]
+  },
+  { "id": 4, "title": "El Angel", "tag": ["biografia", "crimen", "drama"] },
+  {
+    "id": 5,
+    "title": "Bohemian Rapdsody",
+    "tag": ["biografia", "drama", "musica"]
+  },
+  {
+    "id": 6,
+    "title": "Glass",
+    "tag": ["ciencia-ficcion", "drama", "Suspenso"]
+  },
+  {
+    "id": 7,
+    "title": "Cementerio de Animales",
+    "tag": ["Terror", "misterio", "suspenso"]
+  },
+  {
+    "id": 8,
+    "title": "Ad Astra",
+    "tag": ["aventura", "drama", "misterio", "ciencia-ficcion"]
+  },
+  { "id": 9, "title": "Joker", "tag": ["crimen", "drama", "suspenso"] },
+  {
+    "id": 10,
+    "title": "El Robo del Siglo",
+    "tag": ["accion", "biografia", "comedia"]
+  },
+  {
+    "id": 11,
+    "title": "Doctor Strange",
+    "tag": ["ciencia-ficcion", "Fantasia", "aventura", "accion"]
+  },
+  {
+    "id": 12,
+    "title": "Ex Machina",
+    "tag": ["ciencia-ficcion", "drama", "Futurista", "suspenso"]
+  },
+  {
+    "id": 13,
+    "title": "Interestellar",
+    "tag": ["aventura", "drama", "ciencia-ficcion"]
+  },
+  { "id": 14, "title": "Logan", "tag": ["accion", "drama", "ciencia-ficcion"] },
+  {
+    "id": 15,
+    "title": "Lucy",
+    "tag": ["accion", "suspenso", "ciencia-ficcion"]
+  },
+  {
+    "id": 16,
+    "title": "Blade Runner 2049",
+    "tag": ["accion", "ciencia-ficcion", "suspenso"]
+  },
+  {
+    "id": 17,
+    "title": "Passengers",
+    "tag": ["drama", "Romance", "ciencia-ficcion"]
+  },
+  {
+    "id": 18,
+    "title": "Marte",
+    "tag": ["aventura", "ciencia-ficcion", "futurista", "drama"]
+  },
+  {
+    "id": 19,
+    "title": "Fragmentado",
+    "tag": ["terror", "ciencia-ficcion", "suspenso"]
+  },
+  {
+    "id": 20,
+    "title": "Venom",
+    "tag": ["accion", "aventura", "ciencia-ficcion"]
+  },
+  { "id": 225161, "title": "title 130140225161", "tags": ["tt", "rr"] },
+  { "id": 213980, "title": "title 130140213980", "tags": ["yy", "uu"] },
+  { "id": 134909, "title": "title 133383134909", "tags": ["tt", "rr"] },
+  { "id": 172297, "title": "title 133383172297", "tags": ["yy", "uu"] },
+  {
+    "id": 153466,
+    "title": "una peli 153466",
+    "tags": ["classic", "tag 153466"]
+  },
+  {
+    "id": 135589,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 153466"]
+  },
+  { "id": 161571, "title": "title 144768161571", "tags": ["tt", "rr"] },
+  { "id": 169282, "title": "title 144768169282", "tags": ["yy", "uu"] },
+  {
+    "id": 150828,
+    "title": "una peli 150828",
+    "tags": ["classic", "tag 150828"]
+  },
+  {
+    "id": 197185,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 150828"]
+  },
+  { "id": 202944, "title": "title 198210202944", "tags": ["tt", "rr"] },
+  { "id": 223558, "title": "title 198210223558", "tags": ["yy", "uu"] },
+  { "id": 215046, "title": "title 215798215046", "tags": ["tt", "rr"] },
+  { "id": 186330, "title": "title 215798186330", "tags": ["yy", "uu"] },
+  { "id": 168386, "title": "title 208333168386", "tags": ["tt", "rr"] },
+  { "id": 170347, "title": "title 208333170347", "tags": ["yy", "uu"] },
+  {
+    "id": 166856,
+    "title": "una peli 166856",
+    "tags": ["classic", "tag 166856"]
+  },
+  {
+    "id": 211874,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 166856"]
+  }
 ]

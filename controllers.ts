@@ -13,7 +13,7 @@ class PelisController {
     } else if (options.search) {
       return this.pelis.search(options.search).then((x) => {
         return x;
-      }); //En esta funcion solo se llamo a search, la que tiene 3 opciones dentro
+      });
     } else {
       return this.pelis.getAll().then((x) => {
         return x;
@@ -21,7 +21,9 @@ class PelisController {
     }
   }
   add(peli: Peli) {
-    return this.pelis.add(peli);
+    return this.pelis.add(peli).then((x) => {
+      return x
+    });
   }
 }
 export { PelisController };

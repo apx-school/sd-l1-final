@@ -24,9 +24,9 @@ class PelisCollection {
   search(options: any) {
     if (options.title && options.tag) {
       return this.getAll().then((peliculas) => {
-        const byBoth = peliculas.filter((x) => {
-          x.title.includes(options.title) && x.tags.includes(options.tag);
-        });
+        const byBoth = peliculas.filter((x) =>
+           x.title.includes(options.title) && x.tags.includes(options.tag)
+        );
         return byBoth;
       });
     } else if (options.title) {
