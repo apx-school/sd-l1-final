@@ -34,7 +34,7 @@ function parseaParams(argv: any): Response {
   // Comando GETONE
   else if (resultMin._[0] == "get") {
     const id = resultMin._[1]
-    if(id){
+    if (id) {
       respuesta = {
         command: "get",
         value: {
@@ -84,8 +84,8 @@ function main() {
   const movController = new PelisController();
   movController.commands(params).then((result) => {
     console.table(result);
-  },(rejected)=>{
-    console.log("Rechazado: ",rejected)
+  }, (rejected) => {
+    console.log("Rechazado: ", rejected)
   });
 }
 
