@@ -5,7 +5,9 @@ class PelisController {
   constructor() {
     this.pelis = new PelisCollection();
   }
-  get(options) {
+
+  get(options?:any) {
+
     if (options.id) {
       return this.pelis.getById(options.id).then((x) => {
         return x;
@@ -22,8 +24,14 @@ class PelisController {
   }
   add(peli: Peli) {
     return this.pelis.add(peli).then((x) => {
-      return x
+      return x;
     });
   }
 }
+
+let object = new PelisController();
+object.get().then((x) => {
+  console.log(x);
+});
+
 export { PelisController };
