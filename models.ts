@@ -25,18 +25,18 @@ class PelisCollection {
       const result = movie.find((mov) => {
         return mov.id == id;
       });
+
       if (result) {
         return Promise.resolve(result);
       }
       //return Promise.reject("No se encontro la pelicula")
     });
   }
-  search(options: any) {
-    console.log(options);
+  search(options: any):Promise<any> {
     return this.getAll().then((arrayMovs) => {
 
       if (options.title && options.tags) {
-
+        
         const normalizedTitle = options.title.toLocaleLowerCase();
 
         const findTitleAndTag = arrayMovs.filter((titleAndTag) => {
@@ -52,7 +52,6 @@ class PelisCollection {
         const findMov = arrayMovs.filter((name) => {
           return (name.title.toLocaleLowerCase().includes(normalizedTitle))
         });
-        //return findMov;
         if (findMov) {
           return Promise.resolve(findMov)
         }

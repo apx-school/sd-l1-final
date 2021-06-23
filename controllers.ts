@@ -1,4 +1,5 @@
 
+import { resourceLimits } from "node:worker_threads";
 import { PelisCollection, Peli } from "./models";
 
 class PelisController {
@@ -7,31 +8,23 @@ class PelisController {
   constructor() {
     this.movies = new PelisCollection()
   }
-
-  commands(response): Promise<any> {
-    if (response.command == 'get')
-      return this.get(response.value);
-    if (response.command == 'add')
-      return this.add(response.value);
-    if (response.command == 'search')
-      return this.search(response.value);
-    return Promise.reject(new Error("Comando erroneo"));
-  }
-
-  get(options): Promise<Peli | Peli[]> {
-    console.log("el options de get", options);
+  get(options): Promise<any> {
+    let result
     if (options.id) {
-      return this.movies.getById(options.id);
+      result = this.movies.getById(options.id);
     }
-  }
-  search(options): Promise<Peli | Peli[]> {
-    console.log("el options de Search", options)
-    if (options.title && options.tags) {
-      return this.movies.search(options);
-    } else if (options.title) {
-      return this.movies.search(options);
-    } else if (options.tags) {
-      return this.movies.search(options);
+    if (options.search) {
+      result = this.movies.search(options.search);
+    }
+    if (options.add) {
+      result = this.add(options.add)
+    }
+    if(options.getAll){
+      result = this.movies.getAll()
+    }
+
+    if (result) {
+      return Promise.resolve(result)
     }
   }
   add(movie): Promise<any> {
