@@ -1,1 +1,102 @@
-[]
+[
+    {   
+        "id": 1,
+        "title": "Ghost in the Shell",
+        "tag": ["ciencia-ficcion", "ciberpunk", "futurista", "accion"]
+    },
+    {
+        "id": 2,
+        "title": "Han Solo",
+        "tag": ["ciencia-ficcion", "aventura", "accion"]
+    },
+    {
+        "id": 3,
+        "title": "Los Increibles 2",
+        "tag": ["animacion", "accion", "aventura"]
+    },
+    {
+        "id": 4,
+        "title": "El Angel",
+        "tag": ["biografia", "crimen", "drama"]
+    },
+    {
+        "id": 5,
+        "title": "Bohemian Rapdsody",
+        "tag": ["biografia", "drama", "musica"]
+    },
+    {
+        "id": 6,
+        "title": "Glass",
+        "tag": ["ciencia-ficcion", "drama", "Suspenso"]
+    },
+    {
+        "id": 7,
+        "title": "Cementerio de Animales",
+        "tag": ["Terror", "misterio", "suspenso"]
+    },
+    {
+        "id": 8,
+        "title": "Ad Astra",
+        "tag": ["aventura", "drama", "misterio", "ciencia-ficcion"]
+    },
+    {
+        "id": 9,
+        "title": "Joker",
+        "tag": ["crimen", "drama", "suspenso"]
+    },
+    {
+        "id": 10,
+        "title": "El Robo del Siglo",
+        "tag": ["accion", "biografia", "comedia"]
+    },
+    {
+        "id": 11,
+        "title": "Doctor Strange",
+        "tag": ["ciencia-ficcion", "Fantasia", "aventura", "accion"]
+    },
+    {
+        "id": 12,
+        "title": "Ex Machina",
+        "tag": ["ciencia-ficcion", "drama", "Futurista", "suspenso"]
+    },
+    {
+        "id": 13,
+        "title": "Interestellar",
+        "tag": ["aventura", "drama", "ciencia-ficcion"]
+    },
+    {
+        "id": 14,
+        "title": "Logan",
+        "tag": ["accion", "drama", "ciencia-ficcion"]
+    },
+    {
+        "id": 15,
+        "title": "Lucy",
+        "tag": ["accion", "suspenso", "ciencia-ficcion"]
+    },
+    {
+        "id": 16,
+        "title": "Blade Runner 2049",
+        "tag": ["accion", "ciencia-ficcion", "suspenso"]
+    },
+    {
+        "id": 17,
+        "title": "Passengers",
+        "tag": ["drama", "Romance", "ciencia-ficcion"]
+    },
+    {
+        "id": 18,
+        "title": "Marte",
+        "tag": ["aventura", "ciencia-ficcion", "futurista", "drama"]
+    },
+    {
+        "id": 19,
+        "title": "Fragmentado",
+        "tag": ["terror", "ciencia-ficcion", "suspenso"]
+    },
+    {
+        "id": 20,
+        "title": "Venom",
+        "tag": ["accion", "aventura", "ciencia-ficcion"]
+    }
+]

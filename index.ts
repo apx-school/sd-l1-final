@@ -2,7 +2,7 @@ import * as minimist from "minimist";
 
 function parseaParams(argv) {
   const resultado = minimist(argv);
-
+  //Como parametro podria ir otro nombre (ej: dataEntrada)
   return resultado;
 }
 
