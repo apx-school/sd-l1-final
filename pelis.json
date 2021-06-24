@@ -1,1 +1,90 @@
-[{"id":1,"title":"Ghost in the Shell","tags":["ciencia-ficcion","ciberpunk","accion"]},{"id":2,"title":"Han Solo","tags":["ciencia-ficcion","aventura","accion"]},{"id":3,"title":"Los Increibles 2","tags":["animacion","accion","aventura"]},{"id":4,"title":"El Angel","tags":["biografia","crimen","drama"]},{"id":5,"title":"Bohemian Rapdsody","tags":["biografia","drama","musica"]},{"id":6,"title":"Glass","tags":["ciencia-ficcion","drama","Suspenso"]},{"id":7,"title":"Cementerio de Animales","tags":["Terror","misterio","suspenso"]},{"id":8,"title":"Ad Astra","tags":["aventura","drama","misterio","ciencia-ficcion"]},{"id":9,"title":"Joker","tags":["crimen","drama","suspenso"]},{"id":10,"title":"El Robo del Siglo","tags":["accion","biografia","comedia"]},{"id":11,"title":"Doctor Strange","tags":["ciencia-ficcion","Fantasia","aventura","accion"]},{"id":12,"title":"Ex Machina","tags":["ciencia-ficcion","drama","Futurista","suspenso"]},{"id":13,"title":"Interestellar","tags":["aventura","drama","ciencia-ficcion"]},{"id":14,"title":"Logan","tags":["accion","drama","ciencia-ficcion"]},{"id":15,"title":"Lucy","tags":["accion","suspenso","ciencia-ficcion"]},{"id":16,"title":"Blade Runner 2049","tags":["accion","ciencia-ficcion","suspenso"]},{"id":17,"title":"Passengers","tags":["drama","Romance","ciencia-ficcion"]},{"id":18,"title":"Marte","tags":["aventura","ciencia-ficcion","futurista","drama"]},{"id":19,"title":"Fragmentado","tags":["terror","ciencia-ficcion","suspenso"]},{"id":168199,"title":"title 139808168199","tags":["tt","rr"]},{"id":183250,"title":"title 139808183250","tags":["yy","uu"]},{"id":206724,"title":"una peli 206724","tags":["classic","tag 206724"]},{"id":191994,"title":"otra peli un poco más divertida","tags":["tag 206724"]},{"id":190011,"title":"title 136139190011","tags":["tt","rr"]},{"id":130503,"title":"title 136139130503","tags":["yy","uu"]},{"id":161022,"title":"title 193012161022","tags":["tt","rr"]},{"id":173805,"title":"title 193012173805","tags":["yy","uu"]},{"id":200267,"title":"title 178310200267","tags":["tt","rr"]},{"id":219184,"title":"title 178310219184","tags":["yy","uu"]},{"id":136207,"title":"una peli 136207","tags":["classic","tag 136207"]},{"id":226619,"title":"otra peli un poco más divertida","tags":["tag 136207"]},{"id":144188,"title":"title 156867144188","tags":["tt","rr"]},{"id":137389,"title":"title 156867137389","tags":["yy","uu"]},{"id":211183,"title":"title 169274211183","tags":["tt","rr"]},{"id":159994,"title":"una peli 159994","tags":["classic","tag 159994"]},{"id":152334,"title":"otra peli un poco más divertida","tags":["tag 159994"]},{"id":132182,"title":"title 208931132182","tags":["tt","rr"]},{"id":132910,"title":"title 208931132910","tags":["yy","uu"]},{"id":169337,"title":"title 185277169337","tags":["tt","rr"]},{"id":131546,"title":"title 185277131546","tags":["yy","uu"]},{"id":133500,"title":"una peli 133500","tags":["classic","tag 133500"]},{"id":152689,"title":"otra peli un poco más divertida","tags":["tag 133500"]},{"id":173171,"title":"title 149294173171","tags":["tt","rr"]},{"id":148078,"title":"title 149294148078","tags":["yy","uu"]},{"id":160872,"title":"title 196277160872","tags":["tt","rr"]},{"id":166364,"title":"title 196277166364","tags":["yy","uu"]},{"id":172605,"title":"una peli 172605","tags":["classic","tag 172605"]},{"id":160642,"title":"otra peli un poco más divertida","tags":["tag 172605"]},{"id":135467,"title":"title 149872135467","tags":["tt","rr"]},{"id":214079,"title":"title 149872214079","tags":["yy","uu"]},{"id":195793,"title":"title 202354195793","tags":["tt","rr"]},{"id":141045,"title":"title 202354141045","tags":["yy","uu"]},{"id":214327,"title":"una peli 214327","tags":["classic","tag 214327"]},{"id":192083,"title":"otra peli un poco más divertida","tags":["tag 214327"]},{"id":146952,"title":"title 161124146952","tags":["tt","rr"]},{"id":168546,"title":"title 161124168546","tags":["yy","uu"]},{"id":221663,"title":"title 204906221663","tags":["tt","rr"]},{"id":207259,"title":"title 204906207259","tags":["yy","uu"]},{"id":170707,"title":"una peli 170707","tags":["classic","tag 170707"]},{"id":215325,"title":"otra peli un poco más divertida","tags":["tag 170707"]}]
+[
+  {
+    "id": 1,
+    "title": "Ghost in the Shell",
+    "tags": ["ciencia-ficcion", "ciberpunk", "accion"]
+  },
+  {
+    "id": 2,
+    "title": "Han Solo",
+    "tags": ["ciencia-ficcion", "aventura", "accion"]
+  },
+  {
+    "id": 3,
+    "title": "Los Increibles 2",
+    "tags": ["animacion", "accion", "aventura"]
+  },
+  { "id": 4, "title": "El Angel", "tags": ["biografia", "crimen", "drama"] },
+  {
+    "id": 5,
+    "title": "Bohemian Rapdsody",
+    "tags": ["biografia", "drama", "musica"]
+  },
+  {
+    "id": 6,
+    "title": "Glass",
+    "tags": ["ciencia-ficcion", "drama", "Suspenso"]
+  },
+  {
+    "id": 7,
+    "title": "Cementerio de Animales",
+    "tags": ["Terror", "misterio", "suspenso"]
+  },
+  {
+    "id": 8,
+    "title": "Ad Astra",
+    "tags": ["aventura", "drama", "misterio", "ciencia-ficcion"]
+  },
+  { "id": 9, "title": "Joker", "tags": ["crimen", "drama", "suspenso"] },
+  {
+    "id": 10,
+    "title": "El Robo del Siglo",
+    "tags": ["accion", "biografia", "comedia"]
+  },
+  {
+    "id": 11,
+    "title": "Doctor Strange",
+    "tags": ["ciencia-ficcion", "Fantasia", "aventura", "accion"]
+  },
+  {
+    "id": 12,
+    "title": "Ex Machina",
+    "tags": ["ciencia-ficcion", "drama", "Futurista", "suspenso"]
+  },
+  {
+    "id": 13,
+    "title": "Interestellar",
+    "tags": ["aventura", "drama", "ciencia-ficcion"]
+  },
+  {
+    "id": 14,
+    "title": "Logan",
+    "tags": ["accion", "drama", "ciencia-ficcion"]
+  },
+  {
+    "id": 15,
+    "title": "Lucy",
+    "tags": ["accion", "suspenso", "ciencia-ficcion"]
+  },
+  {
+    "id": 16,
+    "title": "Blade Runner 2049",
+    "tags": ["accion", "ciencia-ficcion", "suspenso"]
+  },
+  {
+    "id": 17,
+    "title": "Passengers",
+    "tags": ["drama", "Romance", "ciencia-ficcion"]
+  },
+  {
+    "id": 18,
+    "title": "Marte",
+    "tags": ["aventura", "ciencia-ficcion", "futurista", "drama"]
+  },
+  {
+    "id": 19,
+    "title": "Fragmentado",
+    "tags": ["terror", "ciencia-ficcion", "suspenso"]
+  },
+  { "id": 999, "title": "hola", "tags": ["test propio"] }
+]

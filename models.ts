@@ -12,67 +12,68 @@ class PelisCollection {
 
   getAll(): Promise<any> {
     const jsonpelis = jsonfile.readFile("./pelis.json").then((x) => {
-      this.allMovies = x
+      this.allMovies = x;
       return x;
-    }); return jsonpelis;
+    });
+    return jsonpelis;
   }
 
   getById(id: number) {
     return this.getAll().then((peliculas) => {
-      const byId = peliculas.find((x) => x.id == id);
-      return byId;
+      return peliculas.find((x) => x.id == id);
     });
   }
 
-  search(options) {
+  search(options?) {
     return this.getAll().then((peliculas) => {
       if (options.title && options.tag) {
-        return peliculas.filter((item) => {
+        return peliculas.filter((x) => {
           return (
-            item.title.includes(options.title) &&
-            item.tags.includes(options.tag)
+            x.title.includes(options.title) && x.tags.includes(options.tag)
           );
         });
       } else if (options.title) {
-        return peliculas.filter((item) => {
-          return item.title.includes(options.title);
+        return peliculas.filter((x) => {
+          return x.title.includes(options.title);
         });
       } else if (options.tag) {
-        return peliculas.filter((item) => {
-          return item.tags.includes(options.tag);
+        return peliculas.filter((x) => {
+          return x.tags.includes(options.tag);
         });
       }
     });
   }
 
-
-  add(peli:Peli) {
-    const promesaUno = this.getById(peli.id).then((idAlreadyTaken)=>{
-      if(idAlreadyTaken) {
+  add(peli: Peli) {
+    const promesaUno = this.getById(peli.id).then((peliExiste) => {
+      if (peliExiste) {
         return false;
       } else {
         this.allMovies.push(peli);
         const data = this.allMovies;
         const promesaDos = jsonfile.writeFile("./pelis.json", data);
 
-        return promesaDos.then(()=>{
-            return true;
-          
-        })
+        return promesaDos.then(() => {
+          return true;
+        });
       }
-    })
+    });
     return promesaUno;
   }
-
 }
 
 // let object = new PelisCollection();
-// object.search({tag: "accion"}).then((x) => {
+// object.getById(3).then((x) => {
 //   console.log(x);
 // });
 
-// let object = new PelisCollection();
-// object.getById(3).then((x) => {
+// let object2 = new PelisCollection();
+// object2.search({tag: "accion"}).then((x) => {
+//   console.log(x);
+// });
+
+// let object3 = new PelisCollection();
+// object3.add({id:999,title:"hola", tags:["test propio"]}).then((x) => {
 //   console.log(x);
 // });
 
