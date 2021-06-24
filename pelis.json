@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "id": 4321865,
+    "title": "peli de la terminal 4321865",
+    "tags": ["rr", "ww"]
+  },
+  { "id": 191437, "title": "title 178675191437", "tags": ["tt", "rr"] },
+  { "id": 214350, "title": "title 178675214350", "tags": ["yy", "uu"] },
+  { "id": 186362, "title": "title 133029186362", "tags": ["tt", "rr"] },
+  { "id": 138241, "title": "title 133029138241", "tags": ["classic", "uu"] },
+  {
+    "id": 4411,
+    "title": "Título de la nueva peli",
+    "tags": ["action", "classic"]
+  }
+]
