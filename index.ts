@@ -3,7 +3,6 @@ import { PelisController } from "./controllers";
 
 function parseaParams() {
   const resultado = minimist(process.argv.slice(2));
-  //Como parametro podria ir otro nombre (ej: dataEntrada)
   return resultado;
 }
 
