@@ -34,7 +34,7 @@ data: Peli[] = [];
         })
       } else if(options.title) {
         return peliculas.filter((item) => {
-          return item.title.includes(options.includes);
+          return item.title.includes(options.title);
         })
       } else if(options.tag) {
         return peliculas.filter((item) => {
