@@ -29,9 +29,5 @@ class PelisController {
   }
 }
 
-// let object = new PelisController();
-// object.get().then((x) => {
-//   console.log(x);
-// });
 
 export { PelisController };

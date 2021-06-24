@@ -86,5 +86,24 @@
     "title": "Fragmentado",
     "tags": ["terror", "ciencia-ficcion", "suspenso"]
   },
-  { "id": 999, "title": "hola", "tags": ["test propio"] }
+  { "id": 999, "title": "hola", "tags": ["test propio"] },
+  {
+    "id": 4321865,
+    "title": "peli de la terminal 4321865",
+    "tags": ["rr", "ww"]
+  },
+  { "id": 176694, "title": "title 132661176694", "tags": ["tt", "rr"] },
+  { "id": 156056, "title": "title 132661156056", "tags": ["yy", "uu"] },
+  { "id": 211070, "title": "title 138663211070", "tags": ["tt", "rr"] },
+  { "id": 204076, "title": "title 138663204076", "tags": ["yy", "uu"] },
+  {
+    "id": 178667,
+    "title": "una peli 178667",
+    "tags": ["classic", "tag 178667"]
+  },
+  {
+    "id": 169972,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 178667"]
+  }
 ]

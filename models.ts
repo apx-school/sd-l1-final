@@ -1,6 +1,5 @@
 import * as jsonfile from "jsonfile";
 
-// no modificar estas propiedades, agregar todas las que quieras
 class Peli {
   id: number;
   title: string;
@@ -61,20 +60,5 @@ class PelisCollection {
     return promesaUno;
   }
 }
-
-// let object = new PelisCollection();
-// object.getById(3).then((x) => {
-//   console.log(x);
-// });
-
-// let object2 = new PelisCollection();
-// object2.search({tag: "accion"}).then((x) => {
-//   console.log(x);
-// });
-
-// let object3 = new PelisCollection();
-// object3.add({id:999,title:"hola", tags:["test propio"]}).then((x) => {
-//   console.log(x);
-// });
 
 export { PelisCollection, Peli };
