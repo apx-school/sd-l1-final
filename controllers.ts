@@ -5,19 +5,18 @@ class PelisController {
 	constructor() {
 		this.pelis = new PelisCollection();
 	}
-	get(options: any): Promise<any> {
-		var respuesta;
-		if (options.id) {
-			respuesta = this.pelis.getById(options);
-		} else if (options.search) {
-			respuesta = this.pelis.search(options);
-		} else {
-			respuesta = this.pelis.getAll();
+	get(option: any) {
+		let resultado;
+		if (option.id) {
+			resultado = this.pelis.getById(option.params.id);
+		} else if (option.search) {
+			resultado = this.pelis.search(option.search);
+		} else if (option.add) {
+			resultado = this.pelis.add(option.id);
 		}
-		return respuesta;
 	}
 	add(peli: Peli) {
-		this.pelis.add(peli);
+		return this.pelis.add(peli);
 	}
 }
 export { PelisController };

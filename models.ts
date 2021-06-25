@@ -25,17 +25,7 @@ class PelisCollection {
 	}
 	search(option: any) {
 		return this.getAll().then((peliculas) => {
-			if (option.title) {
-				const filtradoPorTitulo = peliculas.filter((p) => {
-					return peliculas["title"].toLowerCase().includes(option.title);
-				});
-				return filtradoPorTitulo;
-			} else if (option.tags) {
-				const filtradoPortags = peliculas.filter((p) => {
-					return p.tags == option.tags;
-				});
-				return filtradoPortags;
-			} else if (option.tags && option.title) {
+			if (option.title && option.tags) {
 				const filtradoPorTitulo = peliculas.filter((p) => {
 					return peliculas["title"].toLowerCase().includes(option.title);
 				});
@@ -43,6 +33,16 @@ class PelisCollection {
 					return p.tags == option.tags;
 				});
 				return filtradoPortags;
+			} else if (option.tags) {
+				const filtradoPortags = peliculas.filter((p) => {
+					return p.tags == option.tags;
+				});
+				return filtradoPortags;
+			} else if (option.title) {
+				const filtradoPorTitulo = peliculas.filter((p) => {
+					return peliculas["title"].toLowerCase().includes(option.title);
+				});
+				return filtradoPorTitulo;
 			}
 		});
 	}
