@@ -26,43 +26,39 @@ class PelisCollection {
   }
   search(options: any) {
     return this.getAll().then((peliculas) => {
-      if (options.title && options.tags) {
-        let filtrandoPelisXtitle = peliculas.filter((p) => {
-          return p.title.includes(options.title);
+      if (options.title && options.tag) {
+        return peliculas.filter((x) => {
+          return (
+            x.title.includes(options.title) && x.tags.includes(options.tag)
+          );
         });
-        let filtrandoXtag = filtrandoPelisXtitle.filter((p) => {
-          return p.tags.includes(options.tags);
-        });
-        return filtrandoXtag;
-      } else if (options.tags) {
-        let filtrandoXtag = peliculas.filter((p) => {
-          return p.tags.includes(options.tags);
-        });
-        return filtrandoXtag;
       } else if (options.title) {
-        let filtrandoPelisXtitle = peliculas.filter((p) => {
-          return p.title.includes(options.title);
+        return peliculas.filter((x) => {
+          return x.title.includes(options.title);
         });
-        return filtrandoPelisXtitle;
+      } else if (options.tag) {
+        return peliculas.filter((x) => {
+          return x.tags.includes(options.tag);
+        });
       }
     });
   }
   add(peli: Peli): Promise<boolean> {
     const promesaUno = this.getById(peli.id).then((peliExistente) => {
       if (peliExistente) {
-        console.log(peliExistente);
         return false;
       } else {
         this.getAll().then((todasLasPelis) => {
           todasLasPelis.push(peli);
-          const promesaDos = jsonfile.writeFile("./pelis.json", todasLasPelis);
-          promesaDos.then(() => {
+          const data = todasLasPelis;
+          const promesaDos = jsonfile.writeFile("./pelis.json", data);
+
+          return promesaDos.then(() => {
             return true;
           });
-          return promesaDos;
         });
+        return true;
       }
-      return true;
     });
     return promesaUno;
   }

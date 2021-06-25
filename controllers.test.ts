@@ -47,7 +47,7 @@ test.serial("Testeo PelisController search title", async (t) => {
 });
 
 test.serial("Testeo PelisController search tag", async (t) => {
-  const controller = new PelisController();
+  const controller = new PelisController(); 
   await controller.add({
     id: SECOND_TEST_ID,
     title: "otra peli un poco más divertida",

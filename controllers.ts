@@ -5,35 +5,31 @@ class PelisController {
   constructor() {
     this.coleccion = new PelisCollection();
   }
-  get(options: any) {
+  get(options: any): Promise<any> {
     if (options.id) {
-      return this.coleccion.getById(options.id);
+      return this.coleccion.getById(options.id).then((res) => {
+        return res;
+      });
     } else if (options.search) {
-      return this.coleccion.search(options.search);
-    } else if (options.add) {
-      return this.coleccion.add(options.add);
+      return this.coleccion.search(options.search).then((res) => {
+        return res;
+      });
     } else {
-      return this.coleccion.getAll();
+      return this.coleccion.getAll().then((res) => {
+        return res;
+      });
     }
+  }
+  add(peli: Peli) {
+    return this.coleccion.add(peli).then((res) => {
+      return res;
+    });
   }
 }
 
 export { PelisController };
 /*
-const controllerTest = new PelisController();
-
-//const nuevaPeli = new Peli(133, "la llorona2", ["terror"]);
-
-controllerTest.get({ id: 3 }).then((res) => {
-  console.log(res);
-});
-
-controllerTest.get({ add: { nuevaPeli } }).then((res) => {
-  console.log(res);
-});
-
-
-controllerTest.get({ search: { tag: "accion", title: "r" } }).then((res) => {
-  console.log(res);
-});
-*/
+const prueba = new PelisController();
+prueba.get({ search: { title: "a" } }).then((r) => {
+  console.log(r);
+});*/
