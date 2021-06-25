@@ -10,7 +10,7 @@ class Peli {
 class PelisCollection {
   peliculas: Peli[];
 
-  getAll(): Promise<Peli[]> {
+  getAll(): Promise<any> {
     return jsonfile.readFile("./pelis.json").then((collection) => {
       this.peliculas = collection;
       return collection;
@@ -48,16 +48,13 @@ class PelisCollection {
       if (peliExistente) {
         return false;
       } else {
-        this.getAll().then((todasLasPelis) => {
-          todasLasPelis.push(peli);
-          const data = todasLasPelis;
-          const promesaDos = jsonfile.writeFile("./pelis.json", data);
+        this.peliculas.push(peli);
+        const data = this.peliculas;
+        const promesaDos = jsonfile.writeFile("./pelis.json", data);
 
-          return promesaDos.then(() => {
-            return true;
-          });
+        return promesaDos.then(() => {
+          return true;
         });
-        return true;
       }
     });
     return promesaUno;

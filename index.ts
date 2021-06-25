@@ -20,7 +20,7 @@ function parseaParams(argv) {
 }
 function selectorADDoGet(objeto) {
   const controller = new PelisController();
-  //console.log(objeto);
+
   if (objeto.add) {
     return controller.add(objeto.add).then((res) => {
       console.log(res);
