@@ -58,6 +58,4 @@ class PelisCollection {
         });
     }
 }
-// const d = new PelisCollection();
-// d.getAll().then((res) => console.log(res));
 export { PelisCollection, Peli };

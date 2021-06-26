@@ -4,7 +4,6 @@ import { PelisController } from "./controllers";
 function parseaParams(argv) {
     const resultado = minimist(argv);
     const accion = resultado._[0];
-    // return resultado;
     if (accion == "add") {
         return {
             [accion]: {
@@ -17,21 +16,20 @@ function parseaParams(argv) {
         return { [accion]: { id: resultado._[1] } };
     } else if (accion == "search") {
         return { [accion]: { title: resultado.title, tag: resultado.tag } };
-    } else if (accion == undefined) {
-        return true;
+    } else {
+        return {};
     }
 }
 
 function ejecutador(argumentos) {
     const controlador = new PelisController();
-    // return argumentos;
     if (argumentos.add) {
         return controlador.add(argumentos.add);
     } else if (argumentos.get) {
         return controlador.get(argumentos.get);
     } else if (argumentos.search) {
         return controlador.get(argumentos);
-    } else if (argumentos === true) {
+    } else {
         return controlador.get(argumentos);
     }
 }
