@@ -9,19 +9,25 @@ function parseaParams() {
 function arista(params) {
   const pelisController = new PelisController();
 
-  if (params._ == "search") {
-    pelisController.get({
+  if (params._ == "get") {
+    return pelisController.get({ id: params.id }).then((x) => {
+      return x;
+    });
+  } else if (params._ == "search") {
+    return pelisController
+      .get({
         search: {
           title: params.title,
-          tag: params.tag,
+          tag: params.tag
         },
-      }).then((x) => {
+      })
+      .then((x) => {
         return x;
       });
   } else if (params._ == "add") {
     console.log(`La pelicula ${params.title} se ha agregado a la lista`);
-    delete params._;
-    pelisController.add(params);
+    delete params._
+    return pelisController.add(params);
   } else {
     return pelisController.get(params).then((x) => {
       return x;
@@ -32,7 +38,9 @@ function arista(params) {
 function main() {
   const params = parseaParams();
   console.log(params);
-  arista(params);
+  arista(params).then((x) => {
+    console.log(x);
+  });
 }
 
 main();
