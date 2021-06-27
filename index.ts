@@ -9,8 +9,8 @@ function parseaParams() {
 function arista(params) {
   const pelisController = new PelisController();
 
-  if (params._ == "get") {
-    return pelisController.get({ id: params.id }).then((x) => {
+  if (params._[0] == "get") {
+    return pelisController.get({ id: params._[1]}).then((x) => {
       return x;
     });
   } else if (params._ == "search") {
