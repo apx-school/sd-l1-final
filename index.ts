@@ -17,9 +17,10 @@ function ejector(params) {
     console.log("Haz agregado una pelicula", params.title);
     delete params._
     pelisController.add(params);
-  } else return pelisController.get(params).then((p) => {
-    return p;
-  })
+  } else if (params._ == "get") {
+    pelisController.get({ get: { id: params._[1] } })
+  }
+  else return pelisController.get(params).then((p) => { return p });
 }
 function main() {
   const params = parseaParams(process.argv.slice(2));

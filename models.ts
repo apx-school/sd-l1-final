@@ -42,19 +42,23 @@ class PelisCollection {
       }
     });
   }
-  add(peli: Peli): any {
-    return this.getById(peli.id).then((idExistente) => {
-      console.log(peli)
-      if (idExistente) {
+  add(peli: Peli): Promise<Boolean> {
+    const promiseone = this.getById(peli.id).then((pe) => {
+      if (pe) {
+        console.log("Existe")
         return false;
       } else {
-        return this.getAll().then((list) => {
-          list.push(peli);
-          return jsonfile.writeFile("./pelis.json", list).then(() => { });
-        });
+        this.peliculas.push(peli);
+        const data = this.peliculas;
+        const promiseTwo = jsonfile.writeFile("./pelis.json", data);
 
+        return promiseTwo.then(() => {
+          return true;
+        })
       }
-    });
+    })
+    return promiseone;
+
   }
 }
 export { PelisCollection, Peli };
