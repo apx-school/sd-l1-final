@@ -1,1 +1,53 @@
-[]
+[
+    {
+      "title": "Harry Potter 1",
+      "rating": 4,
+      "tags": ["accion", "antigua", "fantasia"]
+    },
+    {
+      "title": "Shrek",
+      "rating": 5,
+      "tags": ["fantasia", "estreno"]
+    },
+    {
+      "title": "Busqueda implacable",
+      "rating": 3,
+      "tags": ["accion", "suspenso", "policial"]
+    },
+    {
+      "title": "Cenicienta",
+      "rating": 4,
+      "tags": ["ciencia ficcion", "fantasia", "antigua"]
+    },
+    {
+      "title": "Me quieren volver loco",
+      "rating": 3,
+      "tags": ["accion", "ciencia ficcion", "divertida"]
+    },
+    {
+      "title": "Harry Potter 3",
+      "rating": 1,
+      "tags": ["favorita", "estreno"]
+    },
+    {
+      "title": "El conjuro",
+      "rating": 4,
+      "tags": ["terror", "suspenso"]
+    },
+    {
+      "title": "Rapidos y furiosos",
+      "rating": 1,
+      "tags": ["accion", "policial"]
+    },
+    {
+      "title": "Rey Leon",
+      "rating": 5,
+      "tags": ["fantasia", "aventura", "dibujos"]
+    },
+    {
+      "title": "Harry Potter 4",
+      "rating": 4,
+      "tags": ["ciencia ficcion", "aventura"]
+    }
+  ]
+  
