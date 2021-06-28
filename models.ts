@@ -27,18 +27,16 @@ class PelisCollection {
 		return this.getAll().then((peliculas) => {
 			if (option.title && option.tag) {
 				return peliculas.filter((p) => {
-					return p.title.includes(option.title) && p.tags == option.tags;
+					return p.title.includes(option.title) && p.tags.includes(option.tag);
 				});
 			} else if (option.tag) {
 				return peliculas.filter((p) => {
-					return p.tags == option.tags;
+					return p.tags.includes(option.tag);
 				});
 			} else if (option.title) {
 				return peliculas.filter((p) => {
 					return p.title.includes(option.title);
 				});
-			} else {
-				console.log("no se ha encontrado ninguna pelicula relacionada");
 			}
 		});
 	}
