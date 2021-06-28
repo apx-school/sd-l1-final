@@ -2,16 +2,15 @@ import * as minimist from "minimist";
 import { PelisController } from "./controllers";
 
 function parseaParams(argv) {
-	const controller = new PelisController();
 	const resultado = minimist(argv);
 	if (resultado._[0] == "add") {
-		return controller.add({
-			id: resultado.id,
-			title: resultado.title,
-			tags: resultado.tags,
-		});
+		return {
+			add: { id: resultado.id, title: resultado.title, tags: resultado.tags },
+		};
 	} else if (resultado._[0] == "search" && resultado.title && resultado.tag) {
-		return { search: { title: resultado.title, tag: resultado.tag } };
+		return {
+			search: { title: resultado.title, tag: resultado.tag },
+		};
 	} else if (resultado._[0] == "search" && resultado.title) {
 		return { search: { title: resultado.title } };
 	} else if (resultado._[0] == "search" && resultado.tag) {
@@ -19,14 +18,27 @@ function parseaParams(argv) {
 	} else if (resultado._[0] == "get") {
 		return { id: resultado._[1] };
 	} else {
-		return controller.pelis.getAll();
+		return resultado;
+	}
+}
+function addOrGet(opcion) {
+	const controller = new PelisController();
+	if (opcion.add) {
+		controller.add(opcion.add).then((r) => {
+			console.log(r);
+			return r;
+		});
+	} else if (opcion.get) {
+		controller.get(opcion).then((r) => {
+			console.log(r);
+			return r;
+		});
 	}
 }
 
 function main() {
 	const params = parseaParams(process.argv.slice(2));
-	const parseados = parseaParams(params);
-	console.log(parseados);
+	const opcion = addOrGet(params);
 }
 
 main();
