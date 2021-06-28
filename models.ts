@@ -9,7 +9,7 @@ class Peli {
 
 class PelisCollection {
 	pelis: Peli[] = [];
-	getAll(): Promise<any> {
+	getAll() {
 		return jsonfile.readFile("./pelis.json").then((p) => {
 			// la respuesta de la promesa
 			return p;
@@ -27,16 +27,18 @@ class PelisCollection {
 		return this.getAll().then((peliculas) => {
 			if (option.title && option.tag) {
 				return peliculas.filter((p) => {
-					return p.title.includes(option.title) && p.tags.includes(option.tag);
+					return p.title.includes(option.title) && p.tags == option.tags;
 				});
 			} else if (option.tag) {
 				return peliculas.filter((p) => {
-					return p.tags.includes(option.tag);
+					return p.tags == option.tags;
 				});
 			} else if (option.title) {
 				return peliculas.filter((p) => {
 					return p.title.includes(option.title);
 				});
+			} else {
+				console.log("no se ha encontrado ninguna pelicula relacionada");
 			}
 		});
 	}

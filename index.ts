@@ -3,42 +3,37 @@ import { PelisController } from "./controllers";
 
 function parseaParams(argv) {
 	const resultado = minimist(argv);
-	if (resultado._[0] == "add") {
-		return {
-			add: { id: resultado.id, title: resultado.title, tags: resultado.tags },
-		};
-	} else if (resultado._[0] == "search" && resultado.title && resultado.tag) {
-		return {
-			search: { title: resultado.title, tag: resultado.tag },
-		};
-	} else if (resultado._[0] == "search" && resultado.title) {
-		return { search: { title: resultado.title } };
-	} else if (resultado._[0] == "search" && resultado.tag) {
-		return { search: { tag: resultado.tag } };
-	} else if (resultado._[0] == "get") {
-		return { id: resultado._[1] };
-	} else {
-		return resultado;
-	}
+	return resultado;
 }
 function addOrGet(opcion) {
 	const controller = new PelisController();
-	if (opcion.add) {
-		controller.add(opcion.add).then((r) => {
-			console.log(r);
-			return r;
+	if (opcion._[0] == "search") {
+		controller
+			.get({ search: { title: opcion.title, tag: opcion.tag } })
+			.then((res) => {
+				console.log(res);
+			});
+	} else if (opcion._[0] == "search" && opcion.title) {
+		controller.get({ search: { title: opcion.title } });
+	} else if (opcion._[0] == "search" && opcion.tags) {
+		controller.get({ search: { title: opcion.tags } });
+	} else if (opcion._[0] == "get") {
+		controller.get({ id: opcion._[1] }).then((res) => {
+			console.log(res);
 		});
-	} else if (opcion.get) {
-		controller.get(opcion).then((r) => {
-			console.log(r);
-			return r;
+	} else if (opcion._[0] == "add") {
+		console.log("La pelicula:", opcion.title, "a sido agregada a la lista");
+		controller.add(opcion);
+	} else {
+		controller.pelis.getAll().then((res) => {
+			console.log(res);
 		});
 	}
 }
 
 function main() {
 	const params = parseaParams(process.argv.slice(2));
-	const opcion = addOrGet(params);
+	addOrGet(params);
 }
 
 main();

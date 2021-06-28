@@ -7,16 +7,16 @@ class PelisController {
 	}
 	get(options: any): Promise<any> {
 		if (options.id) {
-			return this.pelis.getById(options.id).then((res) => {
-				return res;
+			return this.pelis.getById(options.id).then((r) => {
+				return r;
 			});
 		} else if (options.search) {
-			return this.pelis.search(options.search).then((res) => {
-				return res;
+			return this.pelis.search(options.search).then((r) => {
+				return r;
 			});
 		} else {
-			return this.pelis.getAll().then((res) => {
-				return res;
+			return this.pelis.getAll().then((r) => {
+				return r;
 			});
 		}
 	}
