@@ -20,7 +20,7 @@ function ejector(params) {
   } else if (params._ == "get") {
     pelisController.get({ get: { id: params._[1] } })
   }
-  else return pelisController.get(params).then((p) => { return p });
+  else return pelisController.get(params).then((p) => { console.log(p) });
 }
 function main() {
   const params = parseaParams(process.argv.slice(2));

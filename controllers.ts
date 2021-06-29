@@ -13,10 +13,7 @@ class PelisController {
       });
       return FoundedPeli;
     }
-    else if (options.get) {
-      return this.collectionPelis.getById(
-        options.get.id).then((p) => { return p });
-    }
+
     else if (options.id) {
       return this.collectionPelis.getById(options.id).then((p) => {
         return p;
