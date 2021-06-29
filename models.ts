@@ -21,7 +21,7 @@ class PelisCollection {
   }
   search(options: any) {
     const filtrado = this.getAll().then((pelis) => {
-      if (options.tittle && options.tag) {
+      if (options.title && options.tag) {
         let resultado = pelis;
 
         pelis.forEach((peli) => {
