@@ -28,7 +28,8 @@ class PelisController {
     }
   }
   add(movie): Promise<any> {
-    return this.movies.add(movie)
+    let result = this.movies.add(movie)
+      return Promise.resolve(result)
   }
 }
 export { PelisController };

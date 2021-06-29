@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "test": "ts-node index.ts add --id=4411 --title='nueva pel 9999' --tags=rr --tags=ww && ava",
+    "test": "ts-node index.ts add --id=4321865 --title=\"peli de la terminal 4321865\" --tags=rr --tags=ww && ava",
     "start": "ts-node index.ts"
   },
   "ava": {
@@ -22,7 +22,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/jsonfile": "^6.0.0",
     "@types/node": "^14.14.35",
     "ava": "^3.15.0",
     "ts-node": "^9.1.1",

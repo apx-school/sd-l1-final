@@ -19,7 +19,7 @@ function parseaParams(argv: any) {
         }
       }
     }
-  } 
+  }
   if (resultMin._ == 'search') {
     if (resultMin.title && resultMin.tags) {
       object = {
@@ -51,7 +51,7 @@ function parseaParams(argv: any) {
 function main() {
   const params = parseaParams(process.argv.slice(2));
   const movController = new PelisController();
-  movController.get(params).then((result) => {
+  movController.get(params)?.then((result) => {
     console.table(result);
   }, (rejected) => {
     console.log("Rechazado: ", rejected)
