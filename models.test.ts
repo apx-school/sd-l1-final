@@ -13,11 +13,11 @@ const test = anyTest as TestInterface<{
   all: Peli[];
 }>;
 
-const TEST_ID:number = getRandomId();
-const TEST_TITLE:string = "title " + SESSION_ID + TEST_ID;
+const TEST_ID = getRandomId();
+const TEST_TITLE = "title " + SESSION_ID + TEST_ID;
 
-const SECOND_TEST_ID:number = getRandomId();
-const SECOND_TEST_TITLE:string = "title " + SESSION_ID + SECOND_TEST_ID;
+const SECOND_TEST_ID = getRandomId();
+const SECOND_TEST_TITLE = "title " + SESSION_ID + SECOND_TEST_ID;
 
 test.serial("Testeo el método getById", async (t) => {
   const collection = new PelisCollection();

@@ -1,5 +1,5 @@
 
-import { resourceLimits } from "node:worker_threads";
+
 import { PelisCollection, Peli } from "./models";
 
 class PelisController {
