@@ -5,7 +5,7 @@ class PelisController {
   constructor() {
     this.pelis = new PelisCollection();
   }
-  get(options?) {
+  get(options) {
     if (options.id) {
       return this.pelis.getById(options.id);
     } else if (options.search) {
@@ -19,3 +19,6 @@ class PelisController {
   }
 }
 export { PelisController };
+
+const control = new PelisController
+
