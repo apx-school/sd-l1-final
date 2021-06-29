@@ -30,12 +30,12 @@ class PelisCollection {
         });
         return resultado.filter((peli) => {
           let nombreEnMinus = peli.title.toLowerCase();
-          return nombreEnMinus.includes(options.title.toLowerCase());
+          return nombreEnMinus.includes(options.title);
         });
       } else if (options.title) {
         return pelis.filter((peli) => {
           let nombreEnMinus = peli.title.toLowerCase();
-          return nombreEnMinus.includes(options.title.toLowerCase());
+          return nombreEnMinus.includes(options.title);
         });
       } else if (options.tag) {
         return pelis.filter((peli) => {
@@ -64,13 +64,3 @@ class PelisCollection {
   }
 }
 export { PelisCollection, Peli };
-// const pelis = new PelisCollection();
-
-// pelis.getAll().then(pelis=>console.log(pelis))
-// pelis.getById(2).then(peli=>console.log(peli))
-// pelis.search({ title: "el" }).then((a) => console.log(a));
-
-// const peli = new Peli();
-// peli.id = 17;
-// peli.title = "Para test";
-// peli.tags = ["accion"];
