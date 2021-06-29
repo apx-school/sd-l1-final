@@ -50,6 +50,24 @@ class PelisCollection {
     }))
     return filtrado
   }
+  add(peli: Peli): Promise<boolean> {
+    const promesaUno = this.getById(peli.id).then((peliExistente) => {
+      if (peliExistente) {
+        return false;
+      } 
+      // else {
+      //   // magia que agrega la pelicula a un objeto data
+      //   const data = {...};
+      //   const promesaDos = jsonfile.writeFile("./pelis.json", data);
+
+      //   return promesaDos.then(() => {
+      //     return true;
+      //   });
+      // }
+    });
+
+    return promesaUno;
+  }
 }
 export { PelisCollection, Peli };
 const pelis = new PelisCollection
@@ -58,3 +76,10 @@ const pelis = new PelisCollection
 // pelis.getAll().then(pelis=>console.log(pelis))
 // pelis.getById(2).then(peli=>console.log(peli))
 // pelis.search({title:"true",tag:"drama"}).then(a=>console.log(a))
+
+const peli = new Peli
+peli.id = 14
+peli.title = "Para test"
+peli.tags = ["accion"]
+
+pelis.add(peli).then(res=>console.log(res))
