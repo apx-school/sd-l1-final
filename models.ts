@@ -8,7 +8,7 @@ class Peli {
 }
 
 class PelisCollection {
-  getAll(): Promise<Peli[]> {
+  getAll(): Promise<any> {
     return jsonfile.readFile("./pelis.json").then((pelis) => {
       return pelis;
     });
@@ -30,22 +30,37 @@ class PelisCollection {
         });
       } else if (options.title) {
         return peliculas.filter((pelis) => {
-          return pelis.title.includes(options);
+          return pelis.title.includes(options.title);
           
          
         });
-      } else if (options.tags) {
+      } else if (options.tag) {
         return peliculas.filter((pelis) => {
-          return pelis.tags.includes(options.tags);
+          return pelis.tags.includes(options.tag);
         });
       }
     });
   }
+  add(peli: Peli): Promise<boolean> {
+    const promesaUno = this.getById(peli.id).then((peliExistente) => {
+      if (peliExistente) {
+        return false;
+      } else {
+        // magia que agrega la pelicula a un objeto data
+        const promesaDos = this.getAll().then((data) => {
+       data.push(peli)
+       return jsonfile.writeFile("./pelis.json", data);
+        })
+       
+        return promesaDos.then(() => {
+          return true;
+        });
+      }
+    });
+
+    return promesaUno
+}
 }
 
-const peli = new PelisCollection();
-peli.search({title:"ce"}).then((resultado) => {
-  console.log(resultado);
-});
 
 export { PelisCollection, Peli };
