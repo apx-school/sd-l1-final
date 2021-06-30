@@ -65,8 +65,5 @@ class PelisCollection {
     return promesaUno;
   }
 }
-const peli = new PelisCollection()
-peli.search({title:"cenicienta" , tag: "fantasia"}).then((e) => {
-  console.log(e)
-})
+
 export { PelisCollection, Peli };
