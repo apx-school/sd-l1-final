@@ -25,14 +25,15 @@ class PelisCollection {
     return this.getAll().then((peliculas) => {
       if (options.title && options.tags) {
         return peliculas.filter((objPelis) => {
-          const result =  objPelis.title.includes(options.title) && objPelis.tags.includes(options.tag)
-           return  result
+          const result =
+            objPelis.title.includes(options.title) &&
+            objPelis.tags.includes(options.tag);
+            console.log(result)
+          // return result;
         });
       } else if (options.title) {
         return peliculas.filter((pelis) => {
           return pelis.title.includes(options.title);
-          
-         
         });
       } else if (options.tag) {
         return peliculas.filter((pelis) => {
@@ -48,19 +49,21 @@ class PelisCollection {
       } else {
         // magia que agrega la pelicula a un objeto data
         const promesaDos = this.getAll().then((data) => {
-       data.push(peli)
-       return jsonfile.writeFile("./pelis.json", data);
-        })
-       
+          data.push(peli);
+          return jsonfile.writeFile("./pelis.json", data);
+        });
+
         return promesaDos.then(() => {
           return true;
         });
       }
     });
 
-    return promesaUno
+    return promesaUno;
+  }
 }
-}
-
-
+const peli = new PelisCollection()
+peli.search({title:"shrek", tag: ["accion"]}).then((e) => {
+  console.log(e)
+})
 export { PelisCollection, Peli };

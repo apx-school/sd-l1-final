@@ -19,5 +19,4 @@ class PelisController {
   }
 }
 
-
 export { PelisController };
