@@ -1,6 +1,5 @@
 import * as jsonfile from "jsonfile";
 
-// no modificar estas propiedades, agregar todas las que quieras
 class Peli {
   id: number;
   title: string;
@@ -8,11 +7,13 @@ class Peli {
 }
 
 class PelisCollection {
+  // devuelve las pelis en forma de promesa
   getAll(): Promise<any> {
     return jsonfile.readFile("./pelis.json").then((pelis) => {
       return pelis;
     });
   }
+  // devuelve la peli que tiene el id que le paso
   getById(id: number) {
     return this.getAll().then((pelis) => {
       const result = pelis.find((peli) => {
@@ -21,15 +22,16 @@ class PelisCollection {
       return result;
     });
   }
+  // busca la peli por el titulo y tag que le paso o solo titulo o solo por el tag
   search(options: any) {
     return this.getAll().then((peliculas) => {
-      if (options.title && options.tags) {
+      if (options.title && options.tag) {
         return peliculas.filter((objPelis) => {
           const result =
             objPelis.title.includes(options.title) &&
             objPelis.tags.includes(options.tag);
-            console.log(result)
-          // return result;
+            
+          return result;
         });
       } else if (options.title) {
         return peliculas.filter((pelis) => {
@@ -42,6 +44,7 @@ class PelisCollection {
       }
     });
   }
+  // se fija si existe una peli y si no existe la agrega y la escribe en el json en forma de promesa
   add(peli: Peli): Promise<boolean> {
     const promesaUno = this.getById(peli.id).then((peliExistente) => {
       if (peliExistente) {
@@ -63,7 +66,7 @@ class PelisCollection {
   }
 }
 const peli = new PelisCollection()
-peli.search({title:"shrek", tag: ["accion"]}).then((e) => {
+peli.search({title:"cenicienta" , tag: "fantasia"}).then((e) => {
   console.log(e)
 })
 export { PelisCollection, Peli };

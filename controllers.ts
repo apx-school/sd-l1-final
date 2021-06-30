@@ -5,6 +5,7 @@ class PelisController {
   constructor() {
     this.pelis = new PelisCollection();
   }
+  // si pasa ejecuto una funcion del models segun lo que le pase
   getOptions(options: any) {
     if (options.id) {
       return this.pelis.getById(options.id);
@@ -14,6 +15,7 @@ class PelisController {
       return this.pelis.getAll();
     }
   }
+  // agrego una peli
   add(peli: Peli) {
     return this.pelis.add(peli);
   }
