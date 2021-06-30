@@ -21,11 +21,11 @@ function parseaParams(argv: any) {
     }
   }
   if (resultMin._ == 'search') {
-    if (resultMin.title && resultMin.tags) {
+    if (resultMin.title && resultMin.tag) {
       object = {
         search: {
           title: resultMin.title,
-          tags: resultMin.tags
+          tag: resultMin.tag
         }
       }
     } else if (resultMin.title) {
@@ -34,10 +34,10 @@ function parseaParams(argv: any) {
           title: resultMin.title
         }
       }
-    } else if (resultMin.tags) {
+    } else if (resultMin.tag) {
       object = {
         search: {
-          tags: resultMin.tags
+          tag: resultMin.tag
         }
       }
     }

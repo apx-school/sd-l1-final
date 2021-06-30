@@ -2,9 +2,9 @@ import * as jsonfile from "jsonfile";
 
 // no modificar estas propiedades, agregar todas las que quieras
 class Peli {
-  id?: number;
-  title?: string;
-  tags?: string[];
+  id: number;
+  title: string;
+  tags: string[];
 }
 
 class PelisCollection {
@@ -26,39 +26,30 @@ class PelisCollection {
         return mov.id == id;
       });
 
-      if (result) {
-        return Promise.resolve(result);
-      }
-      //return Promise.reject("No se encontro la pelicula")
+      return result
     });
   }
-  search(options: any) {
+  search(options: any): Promise<any> {
     return this.getAll().then((arrayMovs) => {
-
-      if (options.title && options.tags) {
+      if (options.title && options.tag) {
         const findTitleAndTag = arrayMovs.filter((titleAndTag) => {
-          return ((titleAndTag.title.includes(options.title) && titleAndTag.tags.includes(options.tags)))
+          return ((titleAndTag.title.includes(options.title) && titleAndTag.tags.includes(options.tag)))
         })
-        //return findTitleAndTag;
-        if (findTitleAndTag) {
-          return Promise.resolve(findTitleAndTag);
-        }
+        return findTitleAndTag;
 
       } else if (options.title) {
         const findMov = arrayMovs.filter((name) => {
           return (name.title.includes(options.title))
         });
-        if (findMov) {
-          return Promise.resolve(findMov)
-        }
+        return findMov
 
-      } else if (options.tags) {
+      }
+      else if (options.tag) {
         const findTagMov = arrayMovs.filter((peli) => {
-          return (peli.tags.includes(options.tags))
+          return (peli.tags.includes(options.tag))
         });
-        if (findTagMov) {
-          return Promise.resolve(findTagMov)
-        }
+
+        return findTagMov
       }
     })
   }
