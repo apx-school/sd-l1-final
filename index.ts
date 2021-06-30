@@ -3,8 +3,8 @@ import { PelisController } from "./controllers";
 
 function ejecutarComandos(params){
   const controller = new PelisController
-  if(params.search || params.id){return controller.get(params).then(respuesta=>console.log(respuesta))}
-  else if(params.add){return controller.add(params).then(respuesta=>console.log(respuesta))}
+  if(params.title && params.id && params.tags){return controller.add(params).then(respuesta=>console.log(respuesta))}
+  else if(params.search || params.id){return controller.get(params).then(respuesta=>console.log(respuesta))}
   else if (params == 0){return controller.get({}).then(respuesta=>console.log(respuesta))}
 }
 
