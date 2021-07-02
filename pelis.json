@@ -24,11 +24,19 @@
         ]
     },
     {
-        "id": 90,
+        "id": 95,
         "title": "x",
         "tags": [
             "un tag",
             "action"
+        ]
+    },
+    {
+        "id": 4,
+        "title": "peli de prueba 'add'",
+        "tags": [
+            "un",
+            "otro"
         ]
     }
 ]

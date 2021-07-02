@@ -70,10 +70,12 @@ class PelisCollection {
   }
 }
 
-const prueba = new PelisCollection();
+//me olvidé de comentar esto para testear que todo estaba funcionando por consola, esto era lo que hacia que me imprimiera todas las peliculas
+
+/* const prueba = new PelisCollection();
 
 prueba.getAll().then(resultado => {
   console.log(resultado);
-})
+}) */
 
 export { PelisCollection, Peli };
