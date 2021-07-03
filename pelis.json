@@ -22,9 +22,6 @@
   {
     "id": 9,
     "title": "Friday the 13th",
-    "rating": 1,
-    "watched": false,
-    "language": "English",
     "tags": ["Horror", "Mystery", "Thriller"]
   },
   { "id": 10, "title": "Z", "tags": ["Drama", "Mystery", "Thriller"] },
@@ -45,9 +42,6 @@
   {
     "id": 17,
     "title": "Nutty Professor, The",
-    "rating": 3,
-    "watched": false,
-    "language": "Spanish",
     "tags": ["Comedy", "Fantasy", "Romance", "Sci-Fi"]
   },
   { "id": 18, "title": "Second Honeymoon", "tags": ["Comedy", "Romance"] },
