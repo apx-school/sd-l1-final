@@ -31,7 +31,7 @@ class PelisCollection {
       if (options.title && options.tag) {
         return pelis.filter((i) => {
           return (
-            i.title.includes(options.title) && i.tags.includes(options.tags)
+            i.title.includes(options.title) && i.tags.includes(options.tag)
           );
         });
       } else if (options.title) {
