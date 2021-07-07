@@ -1,7 +1,5 @@
 import * as jsonfile from "jsonfile";
-import { formatWithOptions } from "node:util";
 
-// no modificar estas propiedades, agregar todas las que quieras
 class Peli {
   id: number;
   title: string;
@@ -65,3 +63,7 @@ class PelisCollection {
 }
 
 export { PelisCollection, Peli };
+
+
+const obj = new PelisCollection();
+//obj.add({id: 8, title: "Fast and Furious", tags: ["action"]}).then((i) => console.log(i, "add FUNCIONA"));

@@ -17,7 +17,7 @@ class PelisController {
     }
   }
 
-  add(peli: Peli) {
+  add(peli: Peli): Promise<boolean> {
     return this.pelisColl.add(peli);
   }
 }
