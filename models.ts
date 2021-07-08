@@ -63,7 +63,3 @@ class PelisCollection {
 }
 
 export { PelisCollection, Peli };
-
-
-const obj = new PelisCollection();
-//obj.add({id: 8, title: "Fast and Furious", tags: ["action"]}).then((i) => console.log(i, "add FUNCIONA"));
