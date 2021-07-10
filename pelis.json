@@ -1,1 +1,30 @@
-[]
+[{"title":"el padrino",
+"id":1,
+"tags":["drama","gansters","classic"]},
+   
+{"title":"batman:the dark knight",
+"id":2,
+"tags":["accion","drama"]},
+
+{"title":"forrest gump",
+ "id":3,
+ "tags":["comedia","drama"]},
+ 
+{"title":"el Señor de los anillos: el retorno del rey",
+ "id":4,
+ "tags":["aventuras","fantasia epica"]},
+  
+{"title":"buenos muchachos",
+ "id":5,
+ "tags":["drama","gansters"]},
+   
+{"title":"sueños de libertad",
+ "id":6,
+ "tags":["drama"]},
+   
+{"title":"el silencio de los inocentes",
+ "id":7,
+ "tags":["terror","policial"]}
+    ]
+
+  
