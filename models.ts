@@ -26,29 +26,27 @@ class PelisCollection {
 
   search(options: any){
     return this.getAll().then((peliculas) => {
-      if (options.title && options.tags) {
-        let resultado = [];
-        peliculas.forEach((peli) => {
-          if (peli.tags.includes(options.tag.toLowerCase())) {
-            resultado.push(peli);
-          }
+      if (options.title && options.tag) {
+        return peliculas.filter((peliculas)=>{
+          return peliculas.title.includes(options.title) && peliculas.tags.includes(options.tag);
         });
-        return resultado.filter((peli) => {
-          let nombreEnMinus = peli.title.toLowerCase();
-          return nombreEnMinus.includes(options.title);
-        });
-      } else if (options.title) {
-        return peliculas.filter((peli) => {
-          let nombreEnMinus = peli.title.toLowerCase();
-          return nombreEnMinus.includes(options.title);
-        });
-      } else if (options.tags) {
-        return peliculas.filter((peli) => {
-          return peli.tags.includes(options.tags);
+      
+      }
+      else if (options.title){
+        return peliculas.filter((peliculas)=> {
+          return peliculas.title.includes(options.title)
         });
       }
-    });
-  }
+      else if (options.tag) {
+        return peliculas.filter((peliculas)=> {
+          return peliculas.tags.includes(options.tag);
+        });
+        
+       }
+
+      });
+
+    }
 
   add(peli: Peli): Promise<boolean> {
     const promesaUno = this.getById(peli.id).then((peliExistente) => {
