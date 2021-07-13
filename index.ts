@@ -19,7 +19,6 @@ function parseaParams(argv) {
   }
 }
 
-
 function ejecutarComandos(params){
 const controllerPelis = new PelisController;
 var resultado;
@@ -35,13 +34,9 @@ if(params.add){
 return resultado;
 }
 
-
-
-
 function main() {
   const params = parseaParams(process.argv.slice(2));
-
-  console.log(params);
+  ejecutarComandos(params);
 }
 
 main();

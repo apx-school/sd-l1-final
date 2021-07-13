@@ -9,15 +9,15 @@ class Peli {
 
 
 class PelisCollection {
-  getAll(): Promise<Peli[]> {
+  getAll() : Promise<Peli[]>  {
     return  jsonfile.readFile("./pelis.json").then((pelisJson) =>{
       return pelisJson;
     });
   }
 getById(id:number){
   return this.getAll().then((pelisCompletas) => {
-    const idPelis = pelisCompletas.find((pelis) => {
-        return pelis.id == id;
+    const idPelis = pelisCompletas.find((peli) => {
+        return peli.id == id;
     });
     return idPelis;
     });
@@ -62,7 +62,7 @@ return promesaUno;
 export { PelisCollection, Peli };
 
 
-const peliculas = new PelisCollection();
-peliculas.getById(70).then((pelisCompletas) =>{
-  console.log(pelisCompletas);
-});
+//const peliculas = new PelisCollection();
+//peliculas.getById(70).then((pelisCompletas) =>{
+//  console.log(pelisCompletas);
+//});
