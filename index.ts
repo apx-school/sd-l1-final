@@ -1,4 +1,3 @@
-  
 import * as minimist from "minimist";
 import { PelisController } from "./controllers";
 
