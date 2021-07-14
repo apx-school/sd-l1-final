@@ -5,22 +5,22 @@ class PelisController {
   constructor() {
     this.peliculas = new PelisCollection();
   }
-  get(options){
+get(options){
     var resultado;
-  if(options.id){
-    return resultado = this.peliculas.getById(options.id);
-  } else if (options.search){
+if(options.search){
     return resultado = this.peliculas.search(options.title);
-  } else if (options.search){
-   return resultado = this.peliculas.search(options.tag);
-  } else {
+}else if(options.search){
+  return resultado = this.peliculas.search(options.tag);
+} else if(options.id){
+    return resultado = this.peliculas.getById(options.id);
+} else {
     return this.peliculas.getAll();
-  };  
   }
-  add(peli:Peli){
+}
+add(peli:Peli){
     console.log(this.peliculas.add(peli));
   }
-  }
+}
   
   export { PelisController };
   

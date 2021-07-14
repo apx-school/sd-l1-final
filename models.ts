@@ -9,7 +9,7 @@ class Peli {
 
 
 class PelisCollection {
-  getAll() : Promise<Peli[]>  {
+  getAll() : Promise<any>  {
     return  jsonfile.readFile("./pelis.json").then((pelisJson) =>{
       return pelisJson;
     });
@@ -23,12 +23,10 @@ getById(id:number){
     });
   }  
 search(options:any){
-  var resultado;
-  return this.getAll().then((peliculas)=>{
+ return this.getAll().then((peliculas)=>{
     if(options.title && options.tag){
       return peliculas.filter((objPelis)=>{
-       objPelis.title.includes(options.title) && objPelis.tags.includes(options.tag);
-       return resultado;    
+        return  objPelis.title.includes(options.title) && objPelis.tags.includes(options.tag);    
       });
     } else if(options.title){
       return peliculas.filter((pelis) =>{
@@ -46,17 +44,18 @@ add(peli:Peli): Promise<boolean> {
 if(peliExistente){
   return false;
 } else { 
- const data = this.getAll();
- const promesaDos = jsonfile.writeFile("./pelis.json", data);
- return promesaDos.then((data) =>{
+const promesaDos = this.getAll().then((peliculas) =>{
+peliculas.push(peli);
+return jsonfile.writeFile("./pelis.json", peliculas);
+ });
+ return promesaDos.then(()=>{
    return true;
-  });
-  } 
+ });
+}
 });
 return promesaUno;
  }
 }
- 
 
 
 export { PelisCollection, Peli };
