@@ -5,7 +5,7 @@ import {PelisController} from "./controllers";
 function parseaParams(argv) {
   const resultado = minimist(argv);
   if(resultado[0] == "get"){
-    return {id: resultado._[1]};
+    return {id: resultado._[0]};
   } else if(resultado[0] == "search" && resultado.title && resultado.tag){
     return { search: {title: resultado.title, tag: resultado.tag}};
   } else if(resultado[0]== "search" && resultado.title){

@@ -7,6 +7,7 @@ class PelisController {
   }
 get(options){
     var resultado;
+console.log(options);
 if(options.search){
     return resultado = this.peliculas.search(options.title);
 }else if(options.search){
@@ -22,10 +23,11 @@ add(peli:Peli){
   }
 }
   
-  export { PelisController };
+export { PelisController };
+ 
+const control = new PelisController;
   
-  
-  //const objeto = new PelisController();
-  //objeto.peliculas.getAll().then((resultado) =>{
-  //  console.log(resultado);
-  //});
+  const objeto = new PelisController();
+  objeto.peliculas.getAll().then((resultado) =>{
+    console.log(resultado);
+  });
