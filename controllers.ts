@@ -5,7 +5,7 @@ class PelisController {
   constructor() {
     this.peliculas = new PelisCollection();
   }
-get(options){
+get(options:any){
     var resultado;
 console.log(options);
 if(options.search){
