@@ -1,33 +1,64 @@
 import * as minimist from "minimist";
 import { PelisController } from "./controllers";
+import { Peli, SearchOptions } from "./models";
 
 
-function parseaParams(argv) {
+class Params {
+  action: "add" | "get" | "search";
+  options?: { id?: number; search?: SearchOptions };
+  peli?: Peli;
+}
+
+function parseaParams(argv: string[]): Params {
   const resultado = minimist(argv);
-
-  return resultado;
-}
-function ejector(parametro) {
-  const pelisController = new PelisController
-
-  if (parametro._ == "search") {
-    pelisController.get({ search: { title: parametro.title, tag: parametro.tag } }).then((peli) => {
-      return peli;
-    })
-  } else if (parametro._ == "add") {
-    console.log("Haz agregado una pelicula", parametro.title);
-    delete parametro._
-    pelisController.add(parametro);
-
-  } else if (parametro._ == "get") {
-    pelisController.get({ get: { id: parametro._[1] } })
+  const action = resultado._;
+  if (action.includes("add")) {
+    return {
+      action: "add",
+      peli: {
+        id: resultado.id,
+        title: resultado.title,
+        tags: resultado.tags,
+      },
+    };
+  } else if (action.includes("get")) {
+    return {
+      action: "get",
+      options: {
+        id: action[1],
+      },
+    };
+  } else if (action.includes("search")) {
+    return {
+      action: "search",
+      options: {
+        search: {
+          title: resultado.title,
+          tag: resultado.tag,
+        },
+      },
+    };
+  } else {
+    return { action: "get", options: {} };
   }
-  else return pelisController.get(parametro).then((peli) => { console.log(peli) });
 }
+
+
 function main() {
-  const parametro = parseaParams(process.argv.slice(2));
-  console.log(parametro)
-  ejector(parametro)
+  const controller = new PelisController();
+  const params = parseaParams(process.argv.slice(2));
+
+  console.log(params);
+  if (params.action === "add") {
+    controller.add(params.peli).then((response) => {
+      console.log(response);
+    });
+  } else {
+    controller.get(params.options).then((response) => {
+      console.log(response);
+    });
+  }
+
 }
 
 main();

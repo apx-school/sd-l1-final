@@ -7,6 +7,11 @@ class Peli {
   tags: string[];
 }
 
+class SearchOptions {
+  title?: any;
+  tag?: string;
+}
+
 class PelisCollection {
   getAll(): Promise<Peli[]> {
     return jsonfile.readFile("./pelis.json").then((peliculas) => {
@@ -24,29 +29,26 @@ class PelisCollection {
     });
   }
 
-  search(options: any){
-    return this.getAll().then((peliculas) => {
-      if (options.title && options.tag) {
-        return peliculas.filter((peliculas)=>{
-          return peliculas.title.includes(options.title) && peliculas.tags.includes(options.tag);
-        });
-      
-      }
-      else if (options.title){
-        return peliculas.filter((peliculas)=> {
-          return peliculas.title.includes(options.title)
-        });
-      }
-      else if (options.tag) {
-        return peliculas.filter((peliculas)=> {
-          return peliculas.tags.includes(options.tag);
-        });
-        
-       }
-
+  search(options: SearchOptions): Promise<Peli[]> {
+    if (options.title && options.tag) {
+      return this.getAll().then((pelis) => {
+        return pelis.filter(
+          (peli) =>
+            peli.title.includes(options.title) &&
+            peli.tags.includes(options.tag)
+        );
       });
-
+    } else if (options.title) {
+      return this.searchBy("title", options.title);
+    } else if (options.tag) {
+      return this.searchBy("tags", options.tag);
     }
+  }
+  searchBy(searchByOption: "title" | "tags", param: string): Promise<Peli[]> {
+    return this.getAll().then((pelis) => {
+      return pelis.filter((peli) => peli[searchByOption].includes(param));
+    });
+  }
 
   add(peli: Peli): Promise<boolean> {
     const promesaUno = this.getById(peli.id).then((peliExistente) => {
@@ -69,5 +71,4 @@ class PelisCollection {
   }
 }
 
-export { PelisCollection, Peli };
-
+export { PelisCollection, Peli, SearchOptions };

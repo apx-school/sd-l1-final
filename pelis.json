@@ -1,13 +1,1 @@
-[
-  {"title":"el padrino",
-   "id":1,
-   "tags":["drama","gansters","classic"]},
-
-  {"title":"batman:the dark knight",
-   "id":2,
-   "tags":["accion","drama"]},
-
-  {"title":"forrest gump",
-   "id":3,
-   "tags":["comedia","drama"]}
-]
+[{"title":"el padrino","id":1,"tags":["drama","gansters","classic"]},{"title":"batman:the dark knight","id":2,"tags":["accion","drama"]},{"title":"forrest gump","id":3,"tags":["comedia","drama"]},{"title":"el Señor de los anillos: el retorno del rey","id":4,"tags":["aventuras","fantasia epica"]},{"title":"buenos muchachos","id":5,"tags":["drama","gansters"]},{"title":"sueños de libertad","id":6,"tags":["drama"]},{"title":"el silencio de los inocentes","id":7,"tags":["terror","policial"]},{"id":4321865,"title":"peli de la terminal 4321865","tags":["rr","ww"]},{"id":151842,"title":"title 157160151842","tags":["tt","rr"]},{"id":138069,"title":"title 157160138069","tags":["yy","uu"]},{"id":198289,"title":"title 218839198289","tags":["tt","rr"]},{"id":135650,"title":"title 218839135650","tags":["yy","uu"]},{"id":196840,"title":"una peli 196840","tags":["classic","tag 196840"]},{"id":206973,"title":"otra peli un poco más divertida","tags":["tag 196840"]},{"id":4411,"title":"Título de la nueva peli","tags":["action","classic"]}]
