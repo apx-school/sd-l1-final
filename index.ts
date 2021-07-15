@@ -1,5 +1,6 @@
 import * as minimist from "minimist";
 import {PelisController} from "./controllers";
+import { Peli } from "./models";
 
 
 function parseaParams(argv) {
@@ -11,7 +12,7 @@ function parseaParams(argv) {
   } else if(resultado[0]== "search" && resultado.title){
     return { search: {title: resultado.title}};
   } else if(resultado[0] == "search" && resultado.tag){
-    return {searc: {tag: resultado.tag}};
+    return {search: {tag: resultado.tag}};
   } else if( resultado[0] == "add"){
     return {title: resultado.title, id:resultado.id, tags: resultado.tags}; 
   } else {
@@ -19,24 +20,26 @@ function parseaParams(argv) {
   }
 }
 
+
 function ejecutarComandos(params){
-const controllerPelis = new PelisController;
-var resultado;
+const controllerPelis = new PelisController();
 if(params.add){
-  return resultado = controllerPelis.add(params);
-}else if(params.title && params.id && params.tags){
-  return resultado = controllerPelis.add(params);
-}else if(params.search || params.id){
-  return resultado = controllerPelis.get(params);
-}else if(params == 0){
-  return resultado = controllerPelis.get({});
+  return controllerPelis.add(params).then((resultado) => {console.log(resultado)});
+} else if(params.title && params.id && params.tags){
+  return controllerPelis.add(params).then((resultado) => {console.log(resultado)});
+} else if(params.search || params.id){
+  return controllerPelis.get(params).then((resultado) => {console.log(resultado)});
+} else if(params == 0){
+  return controllerPelis.get({}).then((resultado) => {console.log(resultado)});
 }
-return resultado;
 }
 
 function main() {
   const params = parseaParams(process.argv.slice(2));
-  ejecutarComandos(params);
+  const optionPelis = ejecutarComandos(params);
+  optionPelis.then((resultado) =>{
+   console.log(resultado);
+  });
 }
 
 main();

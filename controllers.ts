@@ -8,24 +8,25 @@ class PelisController {
 get(options:any){
     var resultado;
 console.log(options);
-if(options.search){
-    return resultado = this.peliculas.search(options.title);
-}else if(options.search){
-  return resultado = this.peliculas.search(options.tag);
-} else if(options.id){
-    return resultado = this.peliculas.getById(options.id);
-} else {
-    return this.peliculas.getAll();
+ if(options.search){
+  return resultado = this.peliculas.search(options.search);
+} else if(options.search){
+  return resultado = this.peliculas.search(options.search);
+} else if(options.search) {
+  return resultado = this.peliculas.search(options.search.tag);
+} else {    
+  return this.peliculas.getAll();
   }
+
 }
 add(peli:Peli){
-    console.log(this.peliculas.add(peli));
+    return this.peliculas.add(peli);
   }
 }
   
 export { PelisController };
  
-const control = new PelisController;
+const control = new PelisController();
   
   const objeto = new PelisController();
   objeto.peliculas.getAll().then((resultado) =>{
