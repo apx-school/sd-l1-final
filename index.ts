@@ -18,6 +18,7 @@ function ejector(parametro) {
     console.log("Haz agregado una pelicula", parametro.title);
     delete parametro._
     pelisController.add(parametro);
+
   } else if (parametro._ == "get") {
     pelisController.get({ get: { id: parametro._[1] } })
   }
