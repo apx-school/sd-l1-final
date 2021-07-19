@@ -23,27 +23,23 @@ class PelisCollection {
     });
   }
   search(options: any): Promise<any> {
-    if (options.title && options.tags) {
-      return this.getAll().then((peliculas) => {
+    return this.getAll().then((peliculas) => {
+      if (options.title && options.tag) {
         return peliculas.filter((tt) => {
           return (
-            tt.title.includes(options.title) && tt.tags.includes(options.tags)
+            tt.title.includes(options.title) && tt.tags.includes(options.tag)
           );
         });
-      });
-    } else if (options.tags) {
-      return this.getAll().then((peliculas) => {
+      } else if (options.tags) {
         return peliculas.filter((ta) => {
           return ta.tags.includes(options.tags);
         });
-      });
-    } else if (options.title) {
-      return this.getAll().then((peliculas) => {
+      } else if (options.title) {
         return peliculas.filter((ti) => {
           return ti.title.includes(options.title);
         });
-      });
-    }
+      }
+    });
   }
   add(peli: Peli): Promise<Boolean> {
     const promesa1 = this.getById(peli.id).then((peliencontrada) => {

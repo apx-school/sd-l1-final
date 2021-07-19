@@ -19,8 +19,18 @@ function ejecutor(params) {
   } else if (params._.includes("get")) {
     return controller.get({ id: params._[1] });
   } else if (params._.includes("search")) {
-    delete params._;
-    return controller.get({ search: { params } });
+    // return controller.get({ search: { params } });
+    if (params.title && params.tag) {
+      return controller.get({
+        search: { title: params.title, tags: params.tag },
+      });
+    } else if (params.title) {
+      return controller.get({ search: { title: params.title } });
+    } else {
+      return controller.get({ search: { tags: params.tag } });
+    }
+  } else {
+    return controller.get({});
   }
 }
 function main() {
@@ -29,7 +39,7 @@ function main() {
   final.then((final) => {
     console.log(final);
   });
-  // console.log(params);
+  // console.log(final);
 }
 
 main();
