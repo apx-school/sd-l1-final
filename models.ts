@@ -22,11 +22,11 @@ getById(id:number){
     return idPelis;
     });
   }  
-search(options:any){
+search(options:any): Promise<any>{
  return this.getAll().then((peliculas)=>{
     if(options.title && options.tag){
-      return peliculas.filter((objPelis)=>{
-        return objPelis.title.includes(options.title) && objPelis.tags.includes(options.tag);    
+      return peliculas.filter((pelis)=>{
+        return pelis.title.includes(options.title) && pelis.tags.includes(options.tag);    
       });
 
     } else if(options.title){

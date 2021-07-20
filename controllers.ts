@@ -7,7 +7,7 @@ class PelisController {
   }
 get(options:any){
     var resultado;
-    console.log(this.peliculas);
+console.log(this.peliculas);
 console.log(options);
  if(options.search){
   return resultado = this.peliculas.search(options.search);
@@ -22,7 +22,7 @@ console.log(options);
   }
 }
 add(peli:Peli){
-    return this.peliculas.add(peli);
+  return this.peliculas.add(peli);
   }
 }
 export { PelisController };
