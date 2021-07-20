@@ -1,6 +1,5 @@
 import * as minimist from "minimist";
 import { PelisController } from "./controllers";
-import { Peli, PelisCollection } from "./models";
 
 function parseaParams(argv) {
   const resultado = minimist(argv);

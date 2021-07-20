@@ -10,8 +10,8 @@ class Peli {
 class PelisCollection {
   getAll(): Promise<Peli[]> {
     return jsonfile.readFile("./pelis.json").then((json) => {
-      // la respuesta de la promesa
       return json;
+      // la respuesta de la promesa
     });
   }
   getById(id: number): Promise<Peli> {
