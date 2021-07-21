@@ -24,15 +24,15 @@ class PelisCollection {
   }
   search(options: any): Promise<any> {
     return this.getAll().then((peliculas) => {
-      if (options.title && options.tag) {
+      if (options.title && options.tags) {
         return peliculas.filter((tt) => {
           return (
             tt.title.includes(options.title) && tt.tags.includes(options.tag)
           );
         });
-      } else if (options.tags) {
+      } else if (options.tag) {
         return peliculas.filter((ta) => {
-          return ta.tags.includes(options.tags);
+          return ta.tags.includes(options.tag);
         });
       } else if (options.title) {
         return peliculas.filter((ti) => {
@@ -64,7 +64,7 @@ class PelisCollection {
 }
 export { PelisCollection, Peli };
 // const prob = new PelisCollection();
-// prob.search({ title: "si" }).then((a) => console.log(a));
+// prob.search({ title: "x", tag:"action" }).then((a) => console.log(a));
 // prob
 //   .add({ id: 3, title: "probando", tags: ["accion"] })
 //   .then((a) => console.log(a));

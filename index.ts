@@ -18,15 +18,14 @@ function ejecutor(params) {
   } else if (params._.includes("get")) {
     return controller.get({ id: params._[1] });
   } else if (params._.includes("search")) {
-    // return controller.get({ search: { params } });
     if (params.title && params.tag) {
       return controller.get({
-        search: { title: params.title, tags: params.tag },
+        search: { title: params.title, tag: params.tag },
       });
     } else if (params.title) {
       return controller.get({ search: { title: params.title } });
     } else {
-      return controller.get({ search: { tags: params.tag } });
+      return controller.get({ search: { tag: params.tag } });
     }
   } else {
     return controller.get({});
