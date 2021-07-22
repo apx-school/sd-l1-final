@@ -1,1 +1,32 @@
-[]
+[{
+    "id": 1,
+    "title": "pelicula 1",
+    "tags": ["accion","belica"]
+  },
+{
+    "id": 2,
+    "title": "pelicula 2",
+    "tags": ["comedia","animacion"]
+  },
+{
+    "id": 3,
+    "title": "pelicula 3",
+    "tags": ["terror","suspenso"]
+  },
+{
+    "id": 4,
+    "title": "pelicula 4",
+    "tags": ["accion","comedia"]
+  },
+{
+    "id": 5,
+    "title": "pelicula 5",
+    "tags": ["animacion","infantil"]
+  },
+{
+    "id": 6,
+    "title": "pelicula 6",
+    "tags": ["drama","suspenso"]
+  }
+
+]
