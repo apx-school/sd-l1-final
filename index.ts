@@ -1,50 +1,37 @@
 import * as minimist from "minimist";
 import { PelisController } from "./controllers";
 
+function ejecutarComandos(params) {
+  const controller = new PelisController();
+  if (params.title && params.id && params.tags) {
+    return controller.add(params).then((respuesta) => console.log(respuesta));
+  } else if (params.search || params.id) {
+    return controller.get(params).then((respuesta) => console.log(respuesta));
+  } else if (params == 0) {
+    return controller.get({}).then((respuesta) => console.log(respuesta));
+  }
+}
+
 function parseaParams(argv) {
-  const resultado = minimist(argv);
-  if (resultado[0] == "get") {
-    return { id: resultado._[0] };
-  } else if (resultado[0] == "search" && resultado.title && resultado.tag) {
-    return { search: { title: resultado.title, tag: resultado.tag } };
-  } else if (resultado[0] == "search" && resultado.title) {
-    return { search: { title: resultado.title } };
-  } else if (resultado[0] == "search" && resultado.tag) {
-    return { search: { title: resultado.tag } };
-  } else if (resultado[0] == "add") {
-    return { title: resultado.title, id: resultado.id, tags: resultado.tag };
+  const parseo = minimist(argv);
+  if (parseo._[0] == "get") {
+    return { id: parseo._[1] };
+  } else if (parseo._[0] == "search" && parseo.title && parseo.tag) {
+    return { search: { title: parseo.title, tag: parseo.tag } };
+  } else if (parseo._[0] == "search" && parseo.title) {
+    return { search: { title: parseo.title } };
+  } else if (parseo._[0] == "search" && parseo.tag) {
+    return { search: { tag: parseo.tag } };
+  } else if (parseo._[0] == "add") {
+    return { title: parseo.title, id: parseo.id, tags: parseo.tags };
   } else {
     return 0;
   }
 }
 
-function ejcutarComandos(params) {
-  const pelisController = new PelisController();
-  if (params.add) {
-    return pelisController.add(params).then((resultado) => {
-      console.log(resultado);
-    });
-  } else if (params.title && params.id && params.tags) {
-    return pelisController.add(params).then((resultado) => {
-      console.log(resultado);
-    });
-  } else if (params.search || params.id) {
-    return pelisController.get(params).then((resultado) => {
-      console.log(resultado);
-    });
-  } else if (params == 0) {
-    return pelisController.get({}).then((resultado) => {
-      console.log(resultado);
-    });
-  }
-}
-
 function main() {
   const params = parseaParams(process.argv.slice(2));
-  const optionPelis = ejcutarComandos(params);
-  optionPelis.then((resultado) => {
-    console.log(resultado);
-  });
+  ejecutarComandos(params);
 }
 
 main();

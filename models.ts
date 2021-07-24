@@ -21,7 +21,7 @@ class PelisCollection {
       return resultado;
     });
   }
-  search(options: any) {
+  search(options: any): Promise<any> {
     return this.getAll().then((peliculas) => {
       if (options.title && options.tag) {
         return peliculas.filter((peliculas) => {
