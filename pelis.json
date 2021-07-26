@@ -1,1 +1,34 @@
-[]
+[
+    {
+        "id": 1,
+        "title": "La vida es bella",
+        "tags": ["Drama", "Bélico", "Romance"]
+
+      },
+      {
+          "id": 2,
+          "title": "Siempre a tu lado",
+          "tags": ["Infantil", "Drama"]
+      },
+      {
+        "id": 3,
+        "title": "Los miserables",
+        "tags": ["Musical", "Romance"]
+      },
+      {
+        "id": 4,
+        "title": "El conjuro", 
+        "tags": ["Terror", "Suspenso"]
+      },
+      {
+        "id": 5,
+        "title": "Patch Adams",
+        "tags": ["Romance", "Comedia"]
+      },
+      {
+        "id": 6,
+        "title": "Avatar",
+        "tags": ["Aventura", "Ciencia ficción"]
+      }
+      
+]
