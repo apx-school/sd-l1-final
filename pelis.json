@@ -1,1 +1,143 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "Kill Bill: Volumen 1",
+    "rating": 8.1,
+    "tags": [
+      "acción",
+      "drama",
+      "crimen"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "(500) days of Summer",
+    "rating": 7.7,
+    "tags": [
+      "comedia",
+      "romance",
+      "drama"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Midnight in Paris",
+    "rating": 7.7,
+    "tags": [
+      "comedia",
+      "fantasía",
+      "romance"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Reservoir Dogs",
+    "rating": 8.3,
+    "tags": [
+      "crimen",
+      "drama",
+      "thriller"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Hiroshima, mon amour",
+    "rating": 7.9,
+    "tags": [
+      "drama",
+      "romance"
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Moulin Rouge",
+    "rating": 7.6,
+    "tags": [
+      "drama",
+      "musical",
+      "romance"
+    ]
+  },
+  {
+    "id": 7,
+    "title": "The King's speech",
+    "rating": 8,
+    "tags": [
+      "biografía",
+      "drama",
+      "historia"
+    ]
+  },
+  {
+    "id": 8,
+    "title": "The Dirty Dozen",
+    "rating": 7.7,
+    "tags": [
+      "acción",
+      "aventura",
+      "guerra"
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Le placard",
+    "rating": 7,
+    "tags": [
+      "comedia"
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Fried Green Tomatoes",
+    "rating": 7.7,
+    "tags": [
+      "drama"
+    ]
+  },
+  {
+    "id": 11,
+    "title": "The Pianist",
+    "rating": 8.5,
+    "tags": [
+      "biografía",
+      "drama",
+      "música"
+    ]
+  },
+  {
+    "id": 12,
+    "title": "The Matrix",
+    "rating": 8.7,
+    "tags": [
+      "acción",
+      "ciencia ficción"
+    ]
+  },
+  {
+    "id": 13,
+    "title": "The Shawshank Redemption",
+    "rating": 9.3,
+    "tags": [
+      "drama"
+    ]
+  },
+  {
+    "id": 14,
+    "title": "Inception",
+    "rating": 8.8,
+    "tags": [
+      "acción",
+      "aventura",
+      "ciencia ficción"
+    ]
+  },
+  {
+    "id": 15,
+    "title": "The Truman Show",
+    "rating": 8.1,
+    "tags": [
+      "comedia",
+      "drama"
+    ]
+  }
+]
