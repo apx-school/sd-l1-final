@@ -7,7 +7,7 @@ class Peli {
 }
 
 class PelisCollection {
-  getAll(): Promise<Peli[]> {
+  getAll(): Promise<any> {
     return jsonfile.readFile("./pelis.json").then((peliculas) => {
       return peliculas;
     });
@@ -21,7 +21,7 @@ class PelisCollection {
     return movies
   })};
 
-  search (options: any){
+  search (options: any) : Promise <any>{
     return this.getAll().then((peliculas) =>{
       if (options.title && options.tags){
         return peliculas.filter((p) =>{
