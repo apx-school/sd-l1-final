@@ -1,5 +1,4 @@
 import * as jsonfile from "jsonfile";
-import * as lodash from "lodash";
 // no modificar estas propiedades, agregar todas las que quieras
 class Peli {
   id: number;
@@ -27,7 +26,6 @@ class PelisCollection {
   }
   search(options: any) {
     if (options.search && options.tag) {
-      console.log("ahora estoy entrando aca");
       return this.getAll().then((peliTagYSerch) => {
         const parametrosEncontrados = peliTagYSerch.filter((peliEncontrada) => {
           return (
@@ -41,14 +39,12 @@ class PelisCollection {
     } else if (options.search) {
       return this.getAll().then((peliSerch) => {
         const parametroEncontrado = peliSerch.filter((peliEncontrada) => {
-          console.log("estoy entrando aca");
           return peliEncontrada.title.includes(options.search);
         });
         return parametroEncontrado;
       });
     } else if (options.tag) {
       return this.getAll().then((peliTag) => {
-        console.log("ultimo aca");
         const parametroTagEncontrado = peliTag.filter((peliEncontrada) => {
           return peliEncontrada.tags.includes(options.tag);
         });
@@ -61,7 +57,8 @@ class PelisCollection {
       if (peliExistente) {
         return false;
       } else {
-        const data = peli;
+        this.arrayPelis.push(peli);
+        const data = this.arrayPelis;
         const promesaDos = jsonfile.writeFile("./pelis.json", data);
 
         return promesaDos.then((peli) => {
@@ -75,29 +72,3 @@ class PelisCollection {
   }
 }
 export { PelisCollection, Peli };
-
-const pelis = new PelisCollection();
-const resultado1 = pelis
-  .add({
-    id: 42,
-    title: "Piratas del cari",
-    tags: ["Accion", "Aventura", "Drama"],
-  })
-  .then((i) => {
-    return console.log(i);
-  });
-
-//const pelis = new PelisCollection();
-//const resultado1 = pelis.search({ search: "L", tag: "Drama" }).then((i) => {
-//  return console.log(i);
-//});
-
-//const pelis = new PelisCollection();
-//const resultado1 = pelis.search({ search: "El" }).then((i) => {
-//  return console.log(i);
-//});
-
-//const peli = new PelisCollection();
-//const resultado = peli.search({ tag: "Romance" }).then((i) => {
-//  return console.log(i);
-//});
