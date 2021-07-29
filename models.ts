@@ -1,4 +1,5 @@
 import * as jsonfile from "jsonfile";
+import * as _ from "lodash";
 // no modificar estas propiedades, agregar todas las que quieras
 class Peli {
   id: number;
@@ -7,7 +8,7 @@ class Peli {
 }
 
 class PelisCollection {
-  arrayPelis: Peli[];
+  arrayPelis: Peli[] = [];
   getAll(): Promise<Peli[]> {
     const todasLasPelis = jsonfile
       .readFile("./pelis.json")
@@ -24,26 +25,28 @@ class PelisCollection {
       return peliculaEncontrada;
     });
   }
-  search(options: any) {
-    if (options.search && options.tag) {
+  search(options: any): Promise<any> {
+    console.log("estoy entrando aca");
+    if (options.title && options.tag) {
       return this.getAll().then((peliTagYSerch) => {
         const parametrosEncontrados = peliTagYSerch.filter((peliEncontrada) => {
           return (
-            peliEncontrada.title.includes(options.search) &&
+            peliEncontrada.title.includes(options.title) &&
             peliEncontrada.tags.includes(options.tag)
           );
         });
 
         return parametrosEncontrados;
       });
-    } else if (options.search) {
-      return this.getAll().then((peliSerch) => {
-        const parametroEncontrado = peliSerch.filter((peliEncontrada) => {
-          return peliEncontrada.title.includes(options.search);
+    } else if (options.title) {
+      return this.getAll().then((peliTitle) => {
+        const parametroTitleEncontrado = peliTitle.filter((peliEncontrada) => {
+          return peliEncontrada.title.includes(options.title);
         });
-        return parametroEncontrado;
+        return parametroTitleEncontrado;
       });
     } else if (options.tag) {
+      console.log("entro aca tambien");
       return this.getAll().then((peliTag) => {
         const parametroTagEncontrado = peliTag.filter((peliEncontrada) => {
           return peliEncontrada.tags.includes(options.tag);
@@ -72,3 +75,8 @@ class PelisCollection {
   }
 }
 export { PelisCollection, Peli };
+
+//const peli = new PelisCollection();
+//peli.search({ tag: "Drama" }).then((p) => {
+//  console.log(p);
+//});
