@@ -26,11 +26,6 @@ class PelisController {
   }
 }
 
-export class ContactsControllerOptions {
-  action: "get" | "search" | "add";
-  params: any;
-}
-
 function processOptions(option) {
   const peliculas = new PelisController();
   if (option._[0] == "get") {
@@ -39,11 +34,13 @@ function processOptions(option) {
       return console.log(p);
     });
   } else if (option._[0] == "search") {
-    const peliSearch = { search: { search: option.title, tag: option.tag } };
+    const peliSearch = { search: { title: option.search, tag: option.tag } };
     peliculas.get(peliSearch).then((p) => {
       return console.log(p);
     });
   } else if (option._[0] == "add") {
+    const peliAdd = { id: option.id, title: option.title, tags: [option.tag] };
+    peliculas.add(peliAdd);
   } else {
     peliculas.pelisCollection.getAll().then((p) => {
       console.log(p);
@@ -62,3 +59,8 @@ export { PelisController, processOptions };
 //});
 //const pelicula = new PelisController();
 //pelicula.add({ id: 2123, title: "Avengers", tags: ["Accion", "Ciencia"] })))
+
+//const pelis = new PelisCollection();
+//const resultado1 = pelis.search({ title: "L" }).then((i) => {
+//  return console.log(i);
+//});
