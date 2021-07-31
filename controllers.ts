@@ -39,7 +39,7 @@ function processOptions(option) {
       return console.log(p);
     });
   } else if (option._[0] == "add") {
-    const peliAdd = { id: option.id, title: option.title, tags: option.tag };
+    const peliAdd = { id: option.id, title: option.title, tags: option.tags };
     peliculas.add(peliAdd);
   } else {
     peliculas.pelisCollection.getAll().then((p) => {
