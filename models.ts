@@ -1,5 +1,5 @@
 import * as jsonfile from "jsonfile";
-import * as _ from "lodash";
+import * as Fili from "lodash/_arrayincludes";
 // no modificar estas propiedades, agregar todas las que quieras
 class Peli {
   id: number;
@@ -7,8 +7,9 @@ class Peli {
   tags: string[];
 }
 
+console.log(Fili);
 class PelisCollection {
-  arrayPelis: Peli[] = [];
+  arrayPelis: Peli[];
   getAll(): Promise<Peli[]> {
     const todasLasPelis = jsonfile
       .readFile("./pelis.json")
@@ -25,18 +26,21 @@ class PelisCollection {
       return peliculaEncontrada;
     });
   }
+
   search(options?: any) {
-    console.log("estoy entrando aca");
-    const parametros = this.getAll().then((p) => {
+    return this.getAll().then((p) => {
       if (options.title) {
         console.log(options.title);
-        const parametroTitleEncontrado = p.filter((peliEncontrada) => {
+        return p.filter((peliEncontrada) => {
           return peliEncontrada.title.includes(options.title);
         });
-        console.log(parametroTitleEncontrado);
-        return parametroTitleEncontrado;
+      } else if (options.tag) {
+        console.log("estoy entrando aca");
+        return p.filter((i) => {
+          return i.tags.includes(options.tag);
+        });
       }
-      return parametros;
+      // return parametros;
     });
     //if (options.title && options.tag) {
     //return this.getAll().then((peliTagYSerch) => {
@@ -49,23 +53,23 @@ class PelisCollection {
 
     //return parametrosEncontrados;
     //});
-  } //else if (options.title) {
-  //return this.getAll().then((peliTitle) => {
-  //const parametroTitleEncontrado = peliTitle.filter((peliEncontrada) => {
-  //return peliEncontrada.title.includes(options.title);
-  //});
-  //return parametroTitleEncontrado;
-  //});
-  //} else if (options.tag) {
-  //console.log("entro aca tambien");
-  //return this.getAll().then((peliTag) => {
-  //const parametroTagEncontrado = peliTag.filter((peliEncontrada) => {
-  //return peliEncontrada.tags.includes(options.tag);
-  //});
-  //return parametroTagEncontrado;
-  //});
-  // }
-  //}
+    //}else if (options.title) {
+    //return this.getAll().then((peliTitle) => {
+    //const parametroTitleEncontrado = peliTitle.filter((peliEncontrada) => {
+    //return peliEncontrada.title.includes(options.title);
+    //});
+    //return parametroTitleEncontrado;
+    //});
+    //} else if (options.tag) {
+    //console.log("entro aca tambien");
+    //return this.getAll().then((peliTag) => {
+    //const parametroTagEncontrado = peliTag.filter((peliEncontrada) => {
+    //return peliEncontrada.tags.includes(options.tag);
+    //});
+    //return parametroTagEncontrado;
+    //});
+  }
+
   add(peli: Peli): Promise<boolean> {
     const promesaUno = this.getById(peli.id).then((peliExistente) => {
       if (peliExistente) {
@@ -88,4 +92,6 @@ class PelisCollection {
 export { PelisCollection, Peli };
 
 const peli = new PelisCollection();
-peli.search({ title: "T" });
+peli.search({ title: "Avatar" }).then((p) => {
+  return console.log(p);
+});
