@@ -50,9 +50,7 @@ function processOptions(option) {
 
 export { PelisController, processOptions };
 
-//processOptions(["get", 1]).then((p) => {
-// console.log(p);
-//});
+//processOptions(["get", 1]);
 
 //peli.pelisCollection.getAll().then((p) => {
 // return console.log(p);
@@ -62,5 +60,5 @@ export { PelisController, processOptions };
 
 //const pelis = new PelisCollection();
 //const resultado1 = pelis.search({ title: "L" }).then((i) => {
-//  return console.log(i);
+//return console.log(i);
 //});

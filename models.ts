@@ -1,5 +1,5 @@
 import * as jsonfile from "jsonfile";
-import * as Fili from "lodash/_arrayincludes";
+
 // no modificar estas propiedades, agregar todas las que quieras
 class Peli {
   id: number;
@@ -7,7 +7,6 @@ class Peli {
   tags: string[];
 }
 
-console.log(Fili);
 class PelisCollection {
   arrayPelis: Peli[];
   getAll(): Promise<Peli[]> {
@@ -27,20 +26,29 @@ class PelisCollection {
     });
   }
 
-  search(options?: any) {
+  search(options: any) {
     return this.getAll().then((p) => {
-      if (options.title) {
-        console.log(options.title);
-        return p.filter((peliEncontrada) => {
-          return peliEncontrada.title.includes(options.title);
+      const arrayPelis = p.filter((i) => {
+        return i.title;
+      });
+
+      if (options.title && options.tag) {
+        return arrayPelis.filter((peliEncontrada) => {
+          return (
+            peliEncontrada.title.includes(options.title) &&
+            peliEncontrada.tags.includes(options.tag)
+          );
         });
       } else if (options.tag) {
-        console.log("estoy entrando aca");
         return p.filter((i) => {
           return i.tags.includes(options.tag);
         });
+      } else if (options.title) {
+        console.log("estoy entrando aca");
+        return arrayPelis.filter((peliEncontrada) => {
+          return peliEncontrada.title.includes(options.title);
+        });
       }
-      // return parametros;
     });
     //if (options.title && options.tag) {
     //return this.getAll().then((peliTagYSerch) => {
@@ -91,7 +99,7 @@ class PelisCollection {
 }
 export { PelisCollection, Peli };
 
-const peli = new PelisCollection();
-peli.search({ title: "Avatar" }).then((p) => {
-  return console.log(p);
-});
+//const peli = new PelisCollection();
+//peli.search({ title: "La" }).then((p) => {
+// return console.log(p);
+//});
