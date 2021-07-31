@@ -28,13 +28,11 @@ class PelisCollection {
 
   search(options: any) {
     return this.getAll().then((p) => {
-      //creé este nuevo array porque "p" me daba problemas con el include en option.title
       const arrayPelis = p.filter((i) => {
         return i;
       });
-      //console.log(arrayPelis);
+
       if (options.title && options.tag) {
-        //el include funciona bien acá
         return arrayPelis.filter((peliEncontrada) => {
           return (
             peliEncontrada.title.includes(options.title) &&
@@ -42,13 +40,10 @@ class PelisCollection {
           );
         });
       } else if (options.tag) {
-        //options.tag me genera el mismo problema de include que me generaba title antes de crear la const arrayPelis
         return arrayPelis.filter((i) => {
           return i.tags.includes(options.tag);
         });
       } else if (options.title) {
-        //el include funciona bien acá
-        console.log("estoy entrando aca");
         return arrayPelis.filter((peliEncontrada) => {
           return peliEncontrada.title.includes(options.title);
         });
@@ -59,6 +54,7 @@ class PelisCollection {
   add(peli: Peli): Promise<boolean> {
     const promesaUno = this.getById(peli.id).then((peliExistente) => {
       if (peliExistente) {
+        console.log("La pelicula con id:", peliExistente.id, "ya existe");
         return false;
       } else {
         this.arrayPelis.push(peli);
@@ -66,6 +62,7 @@ class PelisCollection {
         const promesaDos = jsonfile.writeFile("./pelis.json", data);
 
         return promesaDos.then((peli) => {
+          console.log("Pelicula agregada correctamente");
           return true;
         });
       }
@@ -75,8 +72,3 @@ class PelisCollection {
   }
 }
 export { PelisCollection, Peli };
-
-//const peli = new PelisCollection();
-//peli.search({ tag: "Drama" }).then((p) => {
-//return console.log(p);
-//});
