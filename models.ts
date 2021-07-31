@@ -28,11 +28,13 @@ class PelisCollection {
 
   search(options: any) {
     return this.getAll().then((p) => {
+      //creé este nuevo array porque "p" me daba problemas con el include en option.title
       const arrayPelis = p.filter((i) => {
-        return i.title;
+        return i;
       });
-
+      //console.log(arrayPelis);
       if (options.title && options.tag) {
+        //el include funciona bien acá
         return arrayPelis.filter((peliEncontrada) => {
           return (
             peliEncontrada.title.includes(options.title) &&
@@ -40,10 +42,12 @@ class PelisCollection {
           );
         });
       } else if (options.tag) {
-        return p.filter((i) => {
+        //options.tag me genera el mismo problema de include que me generaba title antes de crear la const arrayPelis
+        return arrayPelis.filter((i) => {
           return i.tags.includes(options.tag);
         });
       } else if (options.title) {
+        //el include funciona bien acá
         console.log("estoy entrando aca");
         return arrayPelis.filter((peliEncontrada) => {
           return peliEncontrada.title.includes(options.title);
@@ -72,3 +76,8 @@ class PelisCollection {
   }
 }
 export { PelisCollection, Peli };
+
+//const peli = new PelisCollection();
+//peli.search({ tag: "Drama" }).then((p) => {
+//return console.log(p);
+//});
