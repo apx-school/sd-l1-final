@@ -66,7 +66,6 @@ class PelisCollection {
         const promesaDos = jsonfile.writeFile("./pelis.json", data);
 
         return promesaDos.then((peli) => {
-          console.log("la pelicula se agrego correctamente");
           return true;
         });
       }
