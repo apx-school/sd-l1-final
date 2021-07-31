@@ -39,7 +39,7 @@ function processOptions(option) {
       return console.log(p);
     });
   } else if (option._[0] == "add") {
-    const peliAdd = { id: option.id, title: option.title, tags: [option.tag] };
+    const peliAdd = { id: option.id, title: option.title, tags: option.tag };
     peliculas.add(peliAdd);
   } else {
     peliculas.pelisCollection.getAll().then((p) => {
@@ -49,16 +49,3 @@ function processOptions(option) {
 }
 
 export { PelisController, processOptions };
-
-//processOptions(["get", 1]);
-
-//peli.pelisCollection.getAll().then((p) => {
-// return console.log(p);
-//});
-//const pelicula = new PelisController();
-//pelicula.add({ id: 2123, title: "Avengers", tags: ["Accion", "Ciencia"] })))
-
-//const pelis = new PelisCollection();
-//const resultado1 = pelis.search({ title: "L" }).then((i) => {
-//return console.log(i);
-//});

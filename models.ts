@@ -50,32 +50,6 @@ class PelisCollection {
         });
       }
     });
-    //if (options.title && options.tag) {
-    //return this.getAll().then((peliTagYSerch) => {
-    //const parametrosEncontrados = peliTagYSerch.filter((peliEncontrada) => {
-    //return (
-    //peliEncontrada.title.includes(options.title) &&
-    //peliEncontrada.tags.includes(options.tag)
-    //);
-    //});
-
-    //return parametrosEncontrados;
-    //});
-    //}else if (options.title) {
-    //return this.getAll().then((peliTitle) => {
-    //const parametroTitleEncontrado = peliTitle.filter((peliEncontrada) => {
-    //return peliEncontrada.title.includes(options.title);
-    //});
-    //return parametroTitleEncontrado;
-    //});
-    //} else if (options.tag) {
-    //console.log("entro aca tambien");
-    //return this.getAll().then((peliTag) => {
-    //const parametroTagEncontrado = peliTag.filter((peliEncontrada) => {
-    //return peliEncontrada.tags.includes(options.tag);
-    //});
-    //return parametroTagEncontrado;
-    //});
   }
 
   add(peli: Peli): Promise<boolean> {
@@ -98,8 +72,3 @@ class PelisCollection {
   }
 }
 export { PelisCollection, Peli };
-
-//const peli = new PelisCollection();
-//peli.search({ title: "La" }).then((p) => {
-// return console.log(p);
-//});
