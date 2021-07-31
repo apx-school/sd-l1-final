@@ -25,36 +25,47 @@ class PelisCollection {
       return peliculaEncontrada;
     });
   }
-  search(options: any): Promise<any> {
+  search(options?: any) {
     console.log("estoy entrando aca");
-    if (options.title && options.tag) {
-      return this.getAll().then((peliTagYSerch) => {
-        const parametrosEncontrados = peliTagYSerch.filter((peliEncontrada) => {
-          return (
-            peliEncontrada.title.includes(options.title) &&
-            peliEncontrada.tags.includes(options.tag)
-          );
-        });
-
-        return parametrosEncontrados;
-      });
-    } else if (options.title) {
-      return this.getAll().then((peliTitle) => {
-        const parametroTitleEncontrado = peliTitle.filter((peliEncontrada) => {
+    const parametros = this.getAll().then((p) => {
+      if (options.title) {
+        console.log(options.title);
+        const parametroTitleEncontrado = p.filter((peliEncontrada) => {
           return peliEncontrada.title.includes(options.title);
         });
+        console.log(parametroTitleEncontrado);
         return parametroTitleEncontrado;
-      });
-    } else if (options.tag) {
-      console.log("entro aca tambien");
-      return this.getAll().then((peliTag) => {
-        const parametroTagEncontrado = peliTag.filter((peliEncontrada) => {
-          return peliEncontrada.tags.includes(options.tag);
-        });
-        return parametroTagEncontrado;
-      });
-    }
-  }
+      }
+      return parametros;
+    });
+    //if (options.title && options.tag) {
+    //return this.getAll().then((peliTagYSerch) => {
+    //const parametrosEncontrados = peliTagYSerch.filter((peliEncontrada) => {
+    //return (
+    //peliEncontrada.title.includes(options.title) &&
+    //peliEncontrada.tags.includes(options.tag)
+    //);
+    //});
+
+    //return parametrosEncontrados;
+    //});
+  } //else if (options.title) {
+  //return this.getAll().then((peliTitle) => {
+  //const parametroTitleEncontrado = peliTitle.filter((peliEncontrada) => {
+  //return peliEncontrada.title.includes(options.title);
+  //});
+  //return parametroTitleEncontrado;
+  //});
+  //} else if (options.tag) {
+  //console.log("entro aca tambien");
+  //return this.getAll().then((peliTag) => {
+  //const parametroTagEncontrado = peliTag.filter((peliEncontrada) => {
+  //return peliEncontrada.tags.includes(options.tag);
+  //});
+  //return parametroTagEncontrado;
+  //});
+  // }
+  //}
   add(peli: Peli): Promise<boolean> {
     const promesaUno = this.getById(peli.id).then((peliExistente) => {
       if (peliExistente) {
@@ -76,7 +87,5 @@ class PelisCollection {
 }
 export { PelisCollection, Peli };
 
-//const peli = new PelisCollection();
-//peli.search({ tag: "Drama" }).then((p) => {
-//  console.log(p);
-//});
+const peli = new PelisCollection();
+peli.search({ title: "T" });
