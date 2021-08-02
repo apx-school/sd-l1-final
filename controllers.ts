@@ -7,7 +7,7 @@ class PelisController {
   constructor() {
     const pelis = new PelisCollection();
     this.pelis = pelis;
-    const promesa = this.pelis.getAll();
+    var promesa = this.pelis.getAll();
     this.promesa = promesa
 
   };
@@ -26,7 +26,7 @@ class PelisController {
   }
 
   add(peli:Peli){
-    return this.pelis.add(peli).then((result)=>{ return result});
+    return this.pelis.add(peli).then((result)=>{return result});
   }
 };
 
