@@ -27,27 +27,25 @@ class PelisCollection {
   };
 
 
-search(options:any) {
-return this.getAll().then((peliculas)=>{
-  if(options.title && options.tag){
-    return peliculas.filter((p)=>{
-      return p.title.includes(options.title) &&
-      p.tags.includes(options.tag)
-        });
+search(options:any){
+  return this.getAll().then((peliculas)=>{
+    
+    var respuesta = peliculas;
 
-  } else if(options.title){
-    return peliculas.filter((p)=>{
-      return p.title.includes(options.title)
-    })
+    if(options.title){
+      respuesta = respuesta.filter((peli)=>{
+        return peli.title.includes(options.title);
+      })
+    };
+    if(options.tag){
+      respuesta = respuesta.filter((peli)=>{
+        return peli.tags.includes(options.tag)
+      })
+    }
+    return respuesta;
+  })
 
-
-  } else if(options.tag){
-    return peliculas.filter((p)=>{
-      return p.tags.includes(options.tag);
-    })
-  }
-})
-};
+}
 
 
 add(peli:Peli): Promise<boolean> {

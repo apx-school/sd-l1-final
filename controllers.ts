@@ -5,7 +5,7 @@ class PelisController {
   promesa: Promise <any>
 
   constructor() {
-    const pelis = new PelisCollection;
+    const pelis = new PelisCollection();
     this.pelis = pelis;
     const promesa = this.pelis.getAll();
     this.promesa = promesa
@@ -17,7 +17,7 @@ class PelisController {
     if (options.id) {
       return this.pelis.getById(options.id).then((result)=>{return result})
     } 
-    else if(options.search) {
+    if(options.search) {
       return this.pelis.search(options.search).then((result)=>{return result})
     } 
     else {
