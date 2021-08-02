@@ -30,21 +30,21 @@ class PelisCollection {
       return result;
     });
   }
-  add(peli:Peli): Promise<boolean> {
-    return this.getById(peli.id).then((p) => {
-      if (p) {
+  add(peli: Peli): Promise<boolean> {
+    const promesaUno = this.getById(peli.id).then((peliExistente) => {
+      if (peliExistente) {
         return false;
       } else {
-        this.getAll().then((res) => {
-          const moviesList = res;
-          moviesList.push(peli);
-          jsonfile.writeFile("./pelis.json", moviesList).then(() => {
-            return true;
-          })
-          .catch(() => {return false});
+        const promesaDos = this.getAll().then((res) => {
+          res.push(peli);
+          return jsonfile.writeFile("./pelis.json", res);
+        }); 
+        return promesaDos.then(() => {
+          return true;
         });
       }
     });
+    return promesaUno;
   }
 }
 export { PelisCollection, Peli };
