@@ -1,1 +1,27 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "Godzilla, King of the Monsters",
+    "tags": ["kaiju", "action", "monster", "fantasy", "alfa"]
+  },
+  {
+    "id": 2,
+    "title": "Godzilla: Final Wars",
+    "tags": ["kaiju", "action", "monster", "mame", "japan"]
+  },
+  {
+    "id": 3,
+    "title": "Fast Five",
+    "tags": ["familia", "macho", "alfa", "unreal", "cars"]
+  },
+  {
+    "id": 4,
+    "title": "Fast & Furious 7",
+    "tags": ["familia", "macho", "fiction", "unreal", "cars"]
+  },
+  {
+    "id": 5,
+    "title": "Harry Potter and the Goblet of Fire",
+    "tags": ["rowling", "magic", "fantasy", "dragons", "adaptation"]
+  }
+]
