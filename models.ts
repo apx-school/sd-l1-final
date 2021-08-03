@@ -27,7 +27,7 @@ class PelisCollection {
   };
 
 
-search(options:any){
+search(options:any): Promise<any>{
   return this.getAll().then((peliculas)=>{
 
     var respuesta = peliculas;
@@ -66,11 +66,6 @@ add(peli:Peli): Promise<boolean> {
 }
 
 };
-
-const prueba = new PelisCollection();
-const search = prueba.search({tag:"dark"})
-search.then((result)=>{console.log(result)});
-
 
 
 
