@@ -9,12 +9,12 @@ class Peli {
 
 
 class PelisCollection {
-  getAll() : Promise<any>  {
+  getAll() : Promise<Peli[]>  {
     return  jsonfile.readFile("./pelis.json").then((pelisJson) =>{
       return pelisJson;
     });
   }
-getById(id:number){
+getById(id:number): Promise <Peli>{
   return this.getAll().then((pelisCompletas) => {
     const idPelis = pelisCompletas.find((peli) => {
         return peli.id == id;
@@ -41,28 +41,27 @@ search(options:any): Promise<any>{
   });
  }
 add(peli:Peli): Promise<boolean> {
-  const promesaUno = this.getById(peli.id).then((peliExistente) =>{
+ return this.getById(peli.id).then((peliExistente) =>{
 if(peliExistente){
   return false;
-} else { 
-const promesaDos = this.getAll().then((peliculas) =>{
+} else {   
+//this.getAll().then((peliculas) =>{
+const promesaCorrecta = this.getAll().then((peliculas) => {
 peliculas.push(peli);
 return jsonfile.writeFile("./pelis.json", peliculas);
- });
- return promesaDos.then(()=>{
-   return true;
- });
+});
+return promesaCorrecta.then(()=> {
+  return true;
+})
 }
 });
-return promesaUno;
- }
 }
-
+}
 
 export { PelisCollection, Peli };
 
 
 //const peliculas = new PelisCollection();
-//peliculas.getById(70).then((pelisCompletas) =>{
-//  console.log(pelisCompletas);
+//peliculas.getById(2).then((pelisCompletas) =>{
+ // console.log(pelisCompletas);
 //});
