@@ -1,6 +1,7 @@
 import anyTest, { TestInterface } from "ava";
 import { PelisController } from "./controllers";
 import { getRandomId } from "./models.test";
+import { PelisCollection } from "./models";
 
 const TEST_ID = getRandomId();
 const SOME_TITLE = "una peli " + TEST_ID;
@@ -28,6 +29,7 @@ test.serial("Testeo PelisController get id", async (t) => {
     id: TEST_ID,
     title: SOME_TITLE,
     tags: ["classic", SOME_TAG],
+    year: 2000,
   });
   const peli = await controller.get({ id: TEST_ID });
   t.is(peli.title, SOME_TITLE);
@@ -39,6 +41,7 @@ test.serial("Testeo PelisController search title", async (t) => {
     id: TEST_ID,
     title: SOME_TITLE,
     tags: ["classic", SOME_TAG],
+    year: 2000,
   });
 
   const pelis = await controller.get({ search: { title: TEST_ID.toString() } });
@@ -52,6 +55,7 @@ test.serial("Testeo PelisController search tag", async (t) => {
     id: SECOND_TEST_ID,
     title: "otra peli un poco más divertida",
     tags: [SOME_TAG],
+    year: 2000,
   });
   const pelis = await controller.get({
     search: { title: "peli", tag: SOME_TAG },
