@@ -26,7 +26,7 @@ function parseaParams(argv) {
   }else if (resultado._[0]== "search" && resultado.tag) {
     return {search: {tag: resultado.tag}}
   }else if (resultado._[0] == "add") {
-    return {title:resultado.title,tag:resultado.tag,id:resultado.id}
+    return {title:resultado.title,tags:resultado.tags,id:resultado.id}
   }else {
     return 0}
 }

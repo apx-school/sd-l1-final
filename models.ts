@@ -14,13 +14,13 @@ class PelisCollection {
       return pelis;
     });
   };
-  getById(id:number){
-    return this.getAll().then((peli)=>{
-        const resultado = peli.find((movie)=>{
-        return movie.id == id
-      })
-      return resultado
-    })
+  getById(id: number) {
+    return this.getAll().then((pelis) => {
+      const resultado = pelis.find((movies) => {
+        return movies.id == id;
+      });
+      return resultado;
+    });
   }
   search(options:any): Promise<any>{
     return this.getAll().then((pelis)=>{
@@ -61,7 +61,7 @@ export { PelisCollection, Peli };
 
 //instancias de prueba
 
-const peliDePrueba = new PelisCollection;
+// const peliDePrueba = new PelisCollection;
 // peliDePrueba.getAll().then((peli)=>{
 //   console.log(peli)
 // });
