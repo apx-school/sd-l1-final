@@ -48,5 +48,3 @@ function main() {
 }
 
 main();
-
-/* //ARREGLAR COMMANDS CON EL REPO DE SOFI */
