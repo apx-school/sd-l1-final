@@ -25,7 +25,6 @@ test.serial("Testeo el método getById", async (t) => {
     id: TEST_ID,
     title: TEST_TITLE,
     tags: ["tt", "rr"],
-    year: 1982,
   });
   const all = await collection.getAll();
   const a = all[0];
@@ -39,13 +38,11 @@ test.serial("Testeo el método search", async (t) => {
     id: TEST_ID,
     title: TEST_TITLE,
     tags: ["tt", "rr"],
-    year: 1960,
   });
   await collection.add({
     id: SECOND_TEST_ID,
     title: SECOND_TEST_TITLE,
     tags: ["yy", "uu"],
-    year: 1950,
   });
   const all = await collection.getAll();
   const a = all[0];

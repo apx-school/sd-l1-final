@@ -3,49 +3,50 @@ import * as minimist from "minimist";
 
 function parseaParams(argv) {
   const resultado = minimist(argv);
-
-  return resultado;
+  if (resultado._[0] == "get") {
+    return { id: resultado._[1] };
+  } else if (resultado._[0] == "search" && resultado.title) {
+    return { search: { title: resultado.title } };
+  } else if (resultado._[0] == "search" && resultado.tag) {
+    return { search: { tag: resultado.tag } };
+  } else if (resultado._[0] == "search" && resultado.title && resultado.tag)
+    return {
+      search: { title: resultado.title, tag: resultado.tag },
+    };
+  else if (resultado._[0] == "add") {
+    return {
+      id: resultado.id,
+      title: resultado.title,
+      tags: resultado.tags,
+    };
+  } else {
+    return 0;
+  }
 }
 
-function commands(params) {
-  const pelController = new PelisController();
-  if (params._[0] == "get") {
-    const found = params._[1];
-    return pelController.get({ id: found }).then((resolve) => {
-      return resolve
-    });
-  } else if ()
+function input(params) {
+  const peliController = new PelisController();
 
-}
-
-
-/*     return pelController.add(params).then((resolv) => console.log(resolv));
-  } else if (params.search) {
-    return pelController.get(params).then((resolv) => {
+  if (params.id && params.title && params.tags) {
+    return peliController.add(params).then((resolv) => {
       console.log(resolv);
     });
-  } else if (params.id) {
-    return pelController.get(params).then((resolv) => {
-      console.log(resolv);
-    });
-  } else if (params.year) {
-    return pelController.get(params).then((resolv) => {
+  } else if (params.search || params.id) {
+    return peliController.get(params).then((resolv) => {
       console.log(resolv);
     });
   } else if (params == 0) {
-    return pelController.get({}).then((resolv) => console.log(resolv));
+    return params.get({}).then((resolv) => {
+      console.log(resolv);
+    });
   }
-} */
+}
 
 function main() {
-  const params = process.argv.slice(2);
-  //console.log(params);
-  const parsed = parseaParams(params);
-  //console.log(parsed);
-  const exe = commands(parsed);
-  exe.then((resolve) => {
-    console.log(resolve);
-  });
+  const parsedArguments = parseaParams(process.argv.slice(2));
+  input(parsedArguments);
 }
 
 main();
+
+/* //ARREGLAR COMMANDS CON EL REPO DE SOFI */

@@ -4,13 +4,13 @@ class Peli {
   id: number;
   title: string;
   tags: string[];
-  year: number;
+  //year: number;
 }
 
 class PelisCollection {
   peli: Peli[];
 
-  getAll(): Promise<Peli[]> {
+  getAll(): Promise<any> {
     return jsonfile.readFile("./pelis.json").then((peli) => {
       return peli;
     });
@@ -25,7 +25,7 @@ class PelisCollection {
     });
   }
 
-  getByYear(year: number) {
+  /* getByYear(year: number) {
     return this.getAll().then((pelis) => {
       if (year) {
         return pelis.filter((pel) => {
@@ -35,7 +35,7 @@ class PelisCollection {
         return "YEAR NOT FOUND";
       }
     });
-  }
+  } */
 
   search(options: any) {
     return this.getAll().then((pelis) => {
@@ -54,29 +54,26 @@ class PelisCollection {
         return pelis.filter((p) => {
           return p.tags.includes(options.tags);
         });
-      } else if (options.year) {
+        /* } else if (options.year) {
         return pelis.filter((p) => {
           return p.year == options.year;
-        });
+        }); */
       }
     });
   }
 
   add(peli: Peli): Promise<Boolean> {
-    const firstPromise = this.getById(peli.id).then((peliExists) => {
+    return this.getById(peli.id).then((peliExists) => {
       if (peliExists) {
         return false;
-      } else {
-        const secondPromise = this.getAll().then((pelis) => {
+      } else
+        return this.getAll().then((pelis) => {
           pelis.push(peli);
-          return jsonfile.writeFile("./pelis.json", pelis);
+          return jsonfile.writeFile("./pelis.json", pelis).then(() => {
+            return true;
+          });
         });
-        return secondPromise.then(() => {
-          return true;
-        });
-      }
     });
-    return firstPromise;
   }
 }
 
@@ -93,18 +90,16 @@ obj.getById(7).then((resolve) => {
   console.log("soy get by id", resolve);
 });
 
-obj.getByYear(1930).then((resolve) => {
+/* obj.getByYear(1930).then((resolve) => {
   console.log("SOY GET BY YEAR", resolve);
-});
+}); */
 
-obj.search({ title: "anillo" }).then((resolve) => {
+/* obj.search({ title: "anillo" }).then((resolve) => {
   console.log("SOY SEARCH", resolve);
 });
 
-obj
-  .add({ id: 30, title: "Batman", tags: ["pep"], year: 1990 })
-  .then((resolve) => {
-    console.log("soy add", resolve);
-  });
- */
+obj.add({ id: 100, title: "pap", tags: ["paaap"] }).then((resolve) => {
+  console.log("soy add", resolve);
+});  */
+
 //METODO YEAR NO IMPRIME
