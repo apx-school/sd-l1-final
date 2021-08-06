@@ -4,7 +4,6 @@ class Peli {
   id: number;
   title: string;
   tags: string[];
-  //year: number;
 }
 
 class PelisCollection {
@@ -25,39 +24,31 @@ class PelisCollection {
     });
   }
 
-  /* getByYear(year: number) {
-    return this.getAll().then((pelis) => {
-      if (year) {
-        return pelis.filter((pel) => {
-          return pel.year == year;
-        });
-      } else {
-        return "YEAR NOT FOUND";
-      }
-    });
-  } */
-
   search(options: any) {
     return this.getAll().then((pelis) => {
-      if (options.title && options.tags) {
-        //<--ACA ARRIBA HABIA PUESTO OPTIONS.SEARCH Y .TAG
+      if (options.title && options.tag) {
         return pelis.filter((p) => {
           return (
-            p.title.includes(options.title) && p.tags.includes(options.tags)
+            p.title.includes(options.title) && p.tags.includes(options.tag)
           );
         });
-      } else if (options.title) {
+      } else {
+        console.log("MOVIE NOT FOUND");
+      }
+
+      if (options.title) {
         return pelis.filter((p) => {
           return p.title.includes(options.title);
         });
-      } else if (options.tags) {
+      } else {
+        console.log("MOVIE NOT FOUND");
+      }
+      if (options.tag) {
         return pelis.filter((p) => {
-          return p.tags.includes(options.tags);
+          return p.tags.includes(options.tag);
         });
-        /* } else if (options.year) {
-        return pelis.filter((p) => {
-          return p.year == options.year;
-        }); */
+      } else {
+        console.log("MOVIE NOT FOUND");
       }
     });
   }
@@ -65,10 +56,12 @@ class PelisCollection {
   add(peli: Peli): Promise<Boolean> {
     return this.getById(peli.id).then((peliExists) => {
       if (peliExists) {
+        console.log("THIS MOVIE ALREADY EXISTS");
         return false;
       } else
         return this.getAll().then((pelis) => {
           pelis.push(peli);
+          console.log("MOVIE ADDED TO FILE");
           return jsonfile.writeFile("./pelis.json", pelis).then(() => {
             return true;
           });
@@ -78,28 +71,3 @@ class PelisCollection {
 }
 
 export { PelisCollection, Peli };
-
-//CONSOLE.LOGS
-
-/* const obj = new PelisCollection();
-obj.getAll().then((resolve) => {
-  console.log("SOY GETALL", resolve);
-});
-
-obj.getById(7).then((resolve) => {
-  console.log("soy get by id", resolve);
-});
-
-/* obj.getByYear(1930).then((resolve) => {
-  console.log("SOY GET BY YEAR", resolve);
-}); */
-
-/* obj.search({ title: "anillo" }).then((resolve) => {
-  console.log("SOY SEARCH", resolve);
-});
-
-obj.add({ id: 100, title: "pap", tags: ["paaap"] }).then((resolve) => {
-  console.log("soy add", resolve);
-});  */
-
-//METODO YEAR NO IMPRIME

@@ -36,7 +36,7 @@ function input(params) {
       console.log(resolv);
     });
   } else if (params == 0) {
-    return params.get({}).then((resolv) => {
+    return peliController.get({}).then((resolv) => {
       console.log(resolv);
     });
   }
