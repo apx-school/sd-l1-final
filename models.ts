@@ -28,17 +28,23 @@ class PelisCollection {
       if (options.title && options.tag) {
         return peliculas.filter((peliculas) => {
           return (
-            peliculas.title.includes(options.title) &&
+            peliculas.title
+              .toLowerCase()
+              .includes(options.title.toLowerCase()) &&
             peliculas.tags.includes(options.tag)
           );
         });
       } else if (options.title) {
         return peliculas.filter((peliculas) => {
-          return peliculas.title.includes(options.title);
+          return peliculas.title
+            .toLowerCase()
+            .includes(options.title.toLowerCase());
         });
       } else if (options.tag) {
         return peliculas.filter((peliculas) => {
-          return peliculas.tags.includes(options.tag);
+          return peliculas.tags
+            .toLowerCase()
+            .includes(options.tag.toLowerCase());
         });
       }
     });

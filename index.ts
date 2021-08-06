@@ -8,7 +8,7 @@ function ejecutarComandos(params) {
     return controls.add(params).then((respuesta) => console.log(respuesta));
   } else if (params.search || params.id) {
     return controls.get(params).then((respuesta) => console.log(respuesta));
-  } else if (params == 0) {
+  } else {
     return controls.get({}).then((respuesta) => console.log(respuesta));
   }
 }
