@@ -32,23 +32,14 @@ class PelisCollection {
             p.title.includes(options.title) && p.tags.includes(options.tag)
           );
         });
-      } else {
-        console.log("MOVIE NOT FOUND");
-      }
-
-      if (options.title) {
+      } else if (options.title) {
         return pelis.filter((p) => {
           return p.title.includes(options.title);
         });
-      } else {
-        console.log("MOVIE NOT FOUND");
-      }
-      if (options.tag) {
+      } else if (options.tag) {
         return pelis.filter((p) => {
           return p.tags.includes(options.tag);
         });
-      } else {
-        console.log("MOVIE NOT FOUND");
       }
     });
   }
@@ -56,12 +47,10 @@ class PelisCollection {
   add(peli: Peli): Promise<Boolean> {
     return this.getById(peli.id).then((peliExists) => {
       if (peliExists) {
-        console.log("THIS MOVIE ALREADY EXISTS");
         return false;
       } else
         return this.getAll().then((pelis) => {
           pelis.push(peli);
-          console.log("MOVIE ADDED TO FILE");
           return jsonfile.writeFile("./pelis.json", pelis).then(() => {
             return true;
           });

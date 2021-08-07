@@ -44,7 +44,16 @@ function input(params) {
 
 function main() {
   const parsedArguments = parseaParams(process.argv.slice(2));
-  input(parsedArguments);
+  //input(parsedArguments);
+  const newController = new PelisController();
+  newController.get(parsedArguments).then((result) => {
+    if (result) {
+      console.log(result);
+    } else {
+      console.log("TITLE, TAG OR ID NOT FOUND"); //<-- *!
+    }
+  });
 }
-
 main();
+
+//*! INTENTÉ QUE FUNCIONARA CON SEARCH TITLE Y SEARCH TAG PERO SOLO FUNCIONA CON GET
