@@ -1,15 +1,16 @@
 import * as minimist from "minimist";
+import {PelisController} from"./controllers"
+import * as jsonfile from "jsonfile";
 
-function parseaParams(argv) {
-  const resultado = minimist(argv);
 
-  return resultado;
+function parseadora(argv:any){
+  
 }
 
-function main() {
-  const params = parseaParams(process.argv.slice(2));
+function main(){
 
-  console.log(params);
 }
-
 main();
+
+
+
