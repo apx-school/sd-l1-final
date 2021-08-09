@@ -45,7 +45,6 @@ add(peli:Peli): Promise<boolean> {
 if(peliExistente){
   return false;
 } else {   
-//this.getAll().then((peliculas) =>{
 const promesaCorrecta = this.getAll().then((peliculas) => {
 peliculas.push(peli);
 return jsonfile.writeFile("./pelis.json", peliculas);

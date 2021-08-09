@@ -21,9 +21,3 @@ add(peli:Peli){
 export { PelisController};
 
 
-const control = new PelisController();
-  
-  const objeto = new PelisController();
-  objeto.peliculas.getAll().then((resultado) =>{
-    console.log(resultado);
-  });
