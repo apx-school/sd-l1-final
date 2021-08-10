@@ -1,6 +1,5 @@
 import * as jsonfile from "jsonfile";
 import * as _ from "lodash";
-import { profileEnd } from "node:console";
 
 // no modificar estas propiedades, agregar todas las que quieras
 class Peli {
@@ -28,8 +27,7 @@ class PelisCollection {
   search(options:any) {
     return this.getAll().then(() => {
       if(options.title && options.tag){
-        this.data = this.data.filter((peli) => {return peli.title.includes(options.title)});
-        this.data = this.data.filter((peli) => {return peli.tags.includes(options.tag)});
+        this.data = this.data.filter((peli) => {return peli.title.includes(options.title) && peli.tags.includes(options.tag)});
       }else if(options.title){
         this.data = this.data.filter((peli) => {return peli.title.includes(options.title)})
       }else if(options.tag){
@@ -54,11 +52,3 @@ class PelisCollection {
   }
 }
 export { PelisCollection, Peli };
-
-//const prueba = new PelisCollection();
-//const option = {tags:["alfa", "familia"]}
-//const nuevaPeli:Peli = {id: 666, title: "Eragon", tags: ["basura", "adaptación", "Fiasco"]}
-//prueba.getAll().then(() => {console.log(prueba.data)});
-//prueba.getById(3).then((resultado) => {console.log(resultado)})
-//prueba.search(option).then(() => {console.log(prueba.data)});
-//prueba.add(nuevaPeli).then(()=>console.log(prueba.data))
