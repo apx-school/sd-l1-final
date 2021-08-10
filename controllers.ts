@@ -1,12 +1,13 @@
 import { PelisCollection, Peli } from "./models";
 
+
 class PelisController {
-  pelis: PelisCollection
+  peliculas: PelisCollection
   promesa: Promise <any>
 
   constructor() {
-    this.pelis  = new PelisCollection();
-    this.promesa = this.pelis.getAll();
+    this.peliculas = new PelisCollection();
+    this.promesa = this.peliculas.getAll();
     
 
   };
@@ -14,18 +15,18 @@ class PelisController {
   get(options:any):Promise <any>{
     
     if (options.id) {
-      return this.pelis.getById(options.id)
+      return this.peliculas.getById(options.id)
     } 
     if(options.search) {
-      return this.pelis.search(options.search)}
+      return this.peliculas.search(options.search)}
     else
      {
-      return this.pelis.getAll()
+      return this.peliculas.getAll()
     }
   }
 
   add(peli:Peli){
-    return this.pelis.add(peli)
+    return this.peliculas.add(peli)
   }
 };
 
