@@ -17,10 +17,18 @@
   {
     "id": 4,
     "title": "Fast & Furious 7",
-    "tags": ["familia", "macho", "fiction", "unreal", "cars"]
+    "tags": [
+      "familia",
+      "macho",
+      "fiction",
+      "unreal",
+      "cars",
+      "rapido y furioso"
+    ]
   },
   {
     "id": 5,
     "title": "Harry Potter and the Goblet of Fire",
     "tags": ["rowling", "magic", "fantasy", "dragons", "adaptation"]
-  }]
+  }
+]

@@ -27,11 +27,12 @@ class PelisCollection {
   search(options:any) {
     return this.getAll().then(() => {
       if(options.title && options.tag){
-        this.data = this.data.filter((peli) => {return peli.title.includes(options.title) && peli.tags.includes(options.tag)});
+        this.data = this.data.filter((peli) => {return peli.title.includes(options.title) && _.includes(peli.tags, options.tag)});
       }else if(options.title){
         this.data = this.data.filter((peli) => {return peli.title.includes(options.title)})
       }else if(options.tag){
-        this.data = this.data.filter((peli) => {return peli.tags.includes(options.tag)})
+        console.log(options)
+        this.data = this.data.filter((peli) => {return _.includes(peli.tags, options.tag)})
       }
     return this.data;
   })
