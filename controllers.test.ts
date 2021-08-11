@@ -1,6 +1,7 @@
 import anyTest, { TestInterface } from "ava";
 import { PelisController } from "./controllers";
 import { getRandomId } from "./models.test";
+import { PelisCollection } from "./models";
 
 const TEST_ID = getRandomId();
 const SOME_TITLE = "una peli " + TEST_ID;
