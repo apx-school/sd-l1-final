@@ -6,7 +6,7 @@ class PelisController {
     this.pelis = new PelisCollection();
   }
   processOptions(options){
-    if(options.search || options.get){
+    if(options.search || options.id){
       return this.get(options);
     }else if (options.add){
       return this.add(options.add);

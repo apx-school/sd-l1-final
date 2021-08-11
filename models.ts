@@ -31,7 +31,6 @@ class PelisCollection {
       }else if(options.title){
         this.data = this.data.filter((peli) => {return peli.title.includes(options.title)})
       }else if(options.tag){
-        console.log(options)
         this.data = this.data.filter((peli) => {return _.includes(peli.tags, options.tag)})
       }
     return this.data;
