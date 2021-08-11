@@ -3,22 +3,20 @@ import { PelisController } from "./controllers";
 
 function parseaParams(argv) {
   const resultado = minimist(argv);
+  let contr = new PelisController();
+
   if (resultado._[0] == "get") {
     return { id: resultado._[1] };
-  } else if (resultado._[0] == "search" && resultado.title) {
-    return { search: { title: resultado.title } };
-  } else if (resultado._[0] == "search" && resultado.tag) {
-    return { search: { tag: resultado.tag } };
-  } else if (resultado._[0] == "search" && resultado.title && resultado.tag)
+  } else if (resultado._[0] == "search") {
     return {
       search: { title: resultado.title, tag: resultado.tag },
     };
-  else if (resultado._[0] == "add") {
-    return {
-      id: resultado.id,
-      title: resultado.title,
-      tags: resultado.tags,
-    };
+  } else if (resultado._[0] == "add") {
+    return contr
+      .add({ id: resultado.id, title: resultado.title, tags: resultado.tags })
+      .then((res) => {
+        return res;
+      });
   } else {
     return 0;
   }
@@ -44,15 +42,15 @@ function input(params) {
 
 function main() {
   const parsedArguments = parseaParams(process.argv.slice(2));
-  //input(parsedArguments);
-  const newController = new PelisController();
+  input(parsedArguments);
+  /* const newController = new PelisController();
   newController.get(parsedArguments).then((result) => {
     if (result) {
       console.log(result);
     } else {
       console.log("TITLE, TAG OR ID NOT FOUND"); //<-- *!
     }
-  });
+  }); */
 }
 main();
 

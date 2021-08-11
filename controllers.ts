@@ -10,6 +10,7 @@ class PelisController {
     if (options.id) {
       return this.pelis.getById(options.id);
     } else if (options.search) {
+      //console.log("soy options", options);
       return this.pelis.search(options.search);
     } else {
       return this.pelis.getAll();
