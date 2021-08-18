@@ -13,15 +13,15 @@ class PelisController {
         } else if (options.search) {
             return this.collectionPelis.search(options.search).then((item) => {
                 return item;
-            });;
+            });
         } else if (options.getAll) {
             return this.collectionPelis.getAll().then((item) => {
                 return item;
-            });;
+            });
         }
     }
     add(peli: Peli) {
-        this.collectionPelis.add(peli);
+        return this.collectionPelis.add(peli);
     }
 }
 export { PelisController };
