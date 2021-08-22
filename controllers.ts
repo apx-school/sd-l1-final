@@ -12,7 +12,7 @@ class PelisController {
     if (options.search) {
       return this.pelis.search(options.search);
     }
-    return this.pelis.getAll();
+      return this.pelis.getAll();
   }
 
   add(peli: Peli) {
