@@ -24,11 +24,14 @@ class PelisCollection {
 		return this.getAll().then((p) => {
 			if (option.title && option.tag) {
 				return p.filter((i) => {
-					return i.title.includes(option.title) && i.tags.includes(option.tag);
+					return (
+						i.title.toLowerCase().includes(option.title) &&
+						i.tags.includes(option.tag)
+					);
 				});
 			} else if (option.title) {
 				return p.filter((i) => {
-					return i.title.includes(option.title);
+					return i.title.toLowerCase().includes(option.title);
 				});
 			} else if (option.tag) {
 				return p.filter((i) => {
