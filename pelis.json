@@ -1,1 +1,23 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "star wars",
+    "tags": ["accion", "ciencia ficcion", "fantasía"]
+  },
+  {
+    "id": 2,
+    "title": "El hombre araña",
+    "tags": ["accion", "ciencia ficcion"]
+  },
+  {
+    "id": 3,
+    "title": "La dama de negro",
+    "tags": ["terror", "fantasía", "horror"]
+  },
+  { "id": 4, "title": "hombre araña", "tags": ["accion"] },
+  {
+    "id": 4411,
+    "title": "Título de la nueva peli",
+    "tags": ["action", "classic"]
+  }
+]
