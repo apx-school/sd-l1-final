@@ -23,26 +23,25 @@ function pasaParametros(params) {
 	const controller = new PelisController();
 	if (params.id && params.title && params.tags) {
 		return controller.add(params).then((p) => {
-			return p;
+			console.log(p);
 		});
 	} else if (params.id) {
 		return controller.get(params).then((p) => {
-			return p;
+			console.log(p);
 		});
 	} else if (params.search) {
 		return controller.get(params).then((p) => {
-			return p;
+			console.log(p);
 		});
 	} else {
 		return controller.get(params).then((p) => {
-			return p;
+			console.log(p);
 		});
 	}
 }
 function main() {
 	const params = parseaParams(process.argv.slice(2));
-	const result = pasaParametros(params);
-	console.log(result);
+	pasaParametros(params);
 }
 
 main();
