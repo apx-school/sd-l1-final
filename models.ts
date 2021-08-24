@@ -1,7 +1,6 @@
 /** @format */
 
 import * as jsonfile from 'jsonfile';
-import { title } from 'node:process';
 
 // no modificar estas propiedades, agregar todas las que quieras
 class Peli {
@@ -39,6 +38,14 @@ class PelisCollection {
 					return pelis.tags.includes(options.tag);
 				});
 			}
+			if (options.title && options.tag) {
+				answer = answer.filter((pelis) => {
+					return (
+						pelis.title.includes(options.title) &&
+						pelis.tags.includes(options.tag)
+					);
+				});
+			}
 			return answer;
 		});
 	}
@@ -50,9 +57,12 @@ class PelisCollection {
 			} else {
 				return this.getAll().then((pelis) => {
 					pelis.push(peli);
-					return jsonfile.writeFile('./pelis.json', pelis);
+					return jsonfile.writeFile(
+						'./pelis.json',
+						pelis,
+						console.log('Haz agregado una pelcula')
+					);
 				});
-				return true;
 			}
 		});
 	}

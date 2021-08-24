@@ -6,7 +6,7 @@ import { PelisController } from './controllers';
 function parseaParams(argv) {
 	const resultado = minimist(argv);
 	if (resultado._[0] == 'search' && resultado.title && resultado.tag) {
-		return { search: { title: resultado.title, tags: resultado.tag } };
+		return { search: { title: resultado.title, tag: resultado.tag } };
 	} else if (resultado._[0] == 'search' && resultado.title) {
 		return { search: { title: resultado.title } };
 	} else if (resultado._[0] == 'search' && resultado.tag) {
