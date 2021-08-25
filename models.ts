@@ -1,15 +1,9 @@
 import * as jsonfile from "jsonfile";
 
-// no modificar estas propiedades, agregar todas las que quieras
 class Peli {
   id: number;
   title: string;
-  tag: string[];
-  constructor(id, title, tag) {
-    this.id = id;
-    this.title = title;
-    this.tag = tag;
-  }
+  tags: string[];
 }
 
 class PelisCollection {
@@ -31,13 +25,14 @@ class PelisCollection {
   search(options: any) {
     return this.getAll().then((pelis) => {
       return pelis.filter((r) => {
-        1;
         if (options.title && options.tag) {
-          return r.title.includes(options.title) && r.tag.includes(options.tag);
+          return (
+            r.title.includes(options.title) && r.tags.includes(options.tag)
+          );
         } else if (options.title) {
           return r.title.includes(options.title);
         } else if (options.tag) {
-          return r.tags.includes(options.tag);
+          return r.tags.includes(options.tag.toString());
         } else {
           return this.getAll();
         }
@@ -60,5 +55,4 @@ class PelisCollection {
     return promesaUno;
   }
 }
-
 export { PelisCollection, Peli };
