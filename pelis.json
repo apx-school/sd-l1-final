@@ -1,1 +1,61 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "Primera Pelicula",
+    "tags": ["Accion", "Nuevo", "Clasico"]
+  },
+  {
+    "id": 2,
+    "title": "Segunda Pelicula",
+    "tags": ["Drama", "Nuevo", "Clasico"]
+  },
+  {
+    "id": 3,
+    "title": "Tercera Pelicul",
+    "tags": ["Miedo", "Viejo", "Clasico"]
+  },
+  { "id": 4, "title": "Cuarta Peli", "tags": ["Comedia", "Viejo", "Antiguo"] },
+  {
+    "id": 5,
+    "title": "Quinta Pelicula",
+    "tags": ["Miedo", "Viejo", "Clasico"]
+  },
+  { "id": 6, "title": "Sexta Pelicula", "tags": ["Miedo", "Viejo", "Clasico"] },
+  {
+    "id": 4321865,
+    "title": "peli de la terminal 4321865",
+    "tags": ["rr", "ww"]
+  },
+  { "id": 157906, "title": "title 214970157906", "tags": ["tt", "rr"] },
+  { "id": 134984, "title": "title 214970134984", "tags": ["yy", "uu"] },
+  { "id": 212389, "title": "title 211463212389", "tags": ["tt", "rr"] },
+  { "id": 178338, "title": "title 211463178338", "tags": ["yy", "uu"] },
+  { "id": 191504, "title": "title 185970191504", "tags": ["tt", "rr"] },
+  { "id": 189005, "title": "title 185970189005", "tags": ["yy", "uu"] },
+  { "id": 190320, "title": "title 151477190320", "tags": ["tt", "rr"] },
+  { "id": 217549, "title": "title 151477217549", "tags": ["yy", "uu"] },
+  {
+    "id": 168591,
+    "title": "una peli 168591",
+    "tags": ["classic", "tag 168591"]
+  },
+  {
+    "id": 204950,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 168591"]
+  },
+  { "id": 147272, "title": "title 226517147272", "tags": ["tt", "rr"] },
+  { "id": 185084, "title": "title 226517185084", "tags": ["yy", "uu"] },
+  { "id": 140280, "title": "title 144976140280", "tags": ["tt", "rr"] },
+  { "id": 198359, "title": "title 144976198359", "tags": ["yy", "uu"] },
+  {
+    "id": 171388,
+    "title": "una peli 171388",
+    "tags": ["classic", "tag 171388"]
+  },
+  {
+    "id": 147363,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 171388"]
+  }
+]
