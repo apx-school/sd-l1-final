@@ -29,36 +29,36 @@ class PelisCollection {
     });
   }
   //Metodo para buscar por propiedades
-  ssearch(options: any) {
-    //Obtenemos todas las peliculas con la promesa
-    const promesaPelis = this.getAll();
+  // ssearch(options: any) {
+  //   //Obtenemos todas las peliculas con la promesa
+  //   const promesaPelis = this.getAll();
 
-    // hago el proceso
-    const promesaBusqueda = promesaPelis.then((p) => {
-      //variable auxiliar
-      let resultado: Peli[];
-      //ahora segun las opciones que nos brinda el usuario hacemos la busqueda
-      if (options.title && options.tags) {
-        resultado = p.filter((i) => {
-          i.title.includes(options.title) && i.tags.includes(options.tags);
-        });
-      }
-      //si solo hay titulo
-      else if (options.title) {
-        resultado = p.filter((i) => {
-          i.title.includes(options.title);
-        });
-      }
-      // si solo hay tags
-      else if (options.tags) {
-        resultado = p.filter((i) => {
-          i.tags.includes(options.tags);
-        });
-      }
-      return resultado;
-    });
-    return promesaBusqueda;
-  }
+  //   // hago el proceso
+  //   const promesaBusqueda = promesaPelis.then((p) => {
+  //     //variable auxiliar
+  //     let resultado: Peli[];
+  //     //ahora segun las opciones que nos brinda el usuario hacemos la busqueda
+  //     if (options.title && options.tags) {
+  //       resultado = p.filter((i) => {
+  //         i.title.includes(options.title) && i.tags.includes(options.tags);
+  //       });
+  //     }
+  //     //si solo hay titulo
+  //     else if (options.title) {
+  //       resultado = p.filter((i) => {
+  //         i.title.includes(options.title);
+  //       });
+  //     }
+  //     // si solo hay tags
+  //     else if (options.tags) {
+  //       resultado = p.filter((i) => {
+  //         i.tags.includes(options.tags);
+  //       });
+  //     }
+  //     return resultado;
+  //   });
+  //   return promesaBusqueda;
+  // }
   search(options: any) {
     return this.getAll().then((p) => {
       if (options.title && options.tag) {
@@ -99,26 +99,3 @@ class PelisCollection {
 }
 
 export { PelisCollection, Peli };
-
-// const objeto = new PelisCollection();
-// // const resultado = objeto.getAll().then((p) => {
-// //   console.log(p);
-// // });
-// const resultado2 = objeto.getById(2).then((p) => {
-//   console.log(p);
-// });
-
-// const pelii = {
-//   id: 6,
-//   title: "Sexta Pelicula",
-//   tags: ["Miedo", "Viejo", "Clasico"],
-// };
-// const resultado3 = objeto.add(pelii).then((p) => {
-//   console.log(p);
-// });
-// // const resultado = objeto.getAll().then((p) => {
-// //   console.log(p);
-// // });
-// const resultado4 = objeto.search(title).then((p) => {
-//   console.log(p);
-// });
