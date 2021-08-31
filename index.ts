@@ -15,10 +15,9 @@ function parseaParams(argv) {
   } else if (resultado._[0] == "search" && resultado.title) {
     return { search: { title: resultado.title } };
   } else if (resultado._[0] == "search" && resultado.tag) {
-    return { search: { tags: resultado.tag } };
+    return { search: { tag: resultado.tag } };
   } else if (resultado._[0] == "search" && resultado.title && resultado.tag) {
-    //{ search:{ tag:"action", title:"x" } }
-    return { search: { title: resultado.title, tags: resultado.tag } };
+    return { search: { title: resultado.title, tag: resultado.tag } };
   } else {
     return {};
   }

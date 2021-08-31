@@ -44,19 +44,19 @@ class PelisCollection {
     que tengan el tag "classic".)
     */
     return this.getAll().then((peliculas) => {
-      if (options.title && options.tags) {
+      if (options.title && options.tag) {
         return peliculas.filter((i) => {
           return (
-            i.title.includes(options.title) && i.tags.includes(options.tags)
+            i.title.includes(options.title) && i.tags.includes(options.tag)
           );
         });
       } else if (options.title) {
         return peliculas.filter((i) => {
           return i.title.includes(options.title);
         });
-      } else if (options.tags) {
+      } else if (options.tag) {
         return peliculas.filter((i) => {
-          return i.tags.includes(options.tags);
+          return i.tags.includes(options.tag);
         });
       }
     });
