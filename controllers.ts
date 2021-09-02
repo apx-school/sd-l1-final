@@ -33,7 +33,5 @@ class PelisController {
 
 }
 
-const prueba = new PelisController();
-prueba.add({id: 22,title:"Harry potter y el prisionero de Azkaban", tags:["magia"]}).then((p)=> console.log(p))
 
 export { PelisController };
