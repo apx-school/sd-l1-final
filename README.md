@@ -1,1 +1,1 @@
-# Desafío del módulo 2
+# Buscador de peliculas por title, tag y rating utilizando POO y Typescript
