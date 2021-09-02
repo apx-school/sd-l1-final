@@ -1,1 +1,1 @@
-# Buscador de peliculas por title, tag y rating utilizando Typescript
+# Buscador de peliculas por title, tag y rating utilizando POO y Typescript
