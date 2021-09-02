@@ -25,12 +25,8 @@ class PelisCollection {
   }
 
   search(options:any): Promise<Peli[]>{
-    return this.getAll().then((p)=>{
-      var resultado = p;
-      // if(options.title & options.tag){
-      //   resultado = resultado.filter((p)=>{
-      //     return p.title.includes(options.title) && p.tags.includes(options.tag);})
-      // }
+    return this.getAll().then((pelis)=>{
+      var resultado = pelis;
       if(options.title){
       resultado = resultado.filter((p)=>{
           return p.title.includes(options.title);})
@@ -52,17 +48,18 @@ class PelisCollection {
       return false;
     } else {
       // magia que agrega la pelicula a un objeto data
-      return this.getAll().then((peliculas)=> {
+     const promesaDos = this.getAll().then((peliculas)=> {
         peliculas.push(peli);
-        jsonfile.writeFile("./pelis.json", peliculas);
-        return true;
-      });
+        return jsonfile.writeFile("./pelis.json", peliculas);
+           }
+        );
+        return promesaDos.then(()=>{return true})
 
-    }
-  });
+      }
+   });
 
   return promesa;
-}
+  }
 }
 
 

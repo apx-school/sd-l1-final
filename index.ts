@@ -1,4 +1,3 @@
-import { PelisCollection, Peli } from "./models"
 import { PelisController } from "./controllers"
 import * as minimist from "minimist";
 

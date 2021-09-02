@@ -6,7 +6,7 @@ class PelisController {
     this.peliculas = new PelisCollection();
   }
 
-  get(options:any): Promise<Peli[]>{
+  get(options:any): Promise<any>{
     var resultado
     if(options.id){
      resultado = this.peliculas.getById(options.id).then((item)=>{
