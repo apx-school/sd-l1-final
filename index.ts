@@ -3,41 +3,43 @@ import { PelisController } from "./controllers";
 
 function parseaParams(argv) {
   const resultado = minimist(argv);
+  //return resultado;
 
   if (resultado._[0] == "add") {
-    return {
-      id: resultado.id,
-      title: resultado.title,
-      tags: resultado.tags,
-    };
+    return { id: resultado.id, title: resultado.title, tags: resultado.tags };
   } else if (resultado._[0] == "get") {
-    return { id: resultado._[1] }; //{ id: 4411 }
+    return { id: resultado._[1] };
+  } else if (resultado._[0] == "search" && resultado.title && resultado.tag) {
+    return { search: { title: resultado.title, tag: resultado.tag } };
   } else if (resultado._[0] == "search" && resultado.title) {
     return { search: { title: resultado.title } };
   } else if (resultado._[0] == "search" && resultado.tag) {
     return { search: { tag: resultado.tag } };
-  } else if (resultado._[0] == "search" && resultado.title && resultado.tag) {
-    return { search: { title: resultado.title, tag: resultado.tag } };
   } else {
     return {};
   }
 }
 
-//Función para ejecutar comandos
-function ejecutarComandos(params) {
-  const objeto = new PelisController();
-  if (params.title && params.id && params.tags) {
-    return objeto.add(params).then((respuesta) => console.log(respuesta));
-  } else if (params.search || params.id) {
-    return objeto.get(params).then((respuesta) => console.log(respuesta));
+function ejecutar(params) {
+  const objetoControlls = new PelisController();
+  if (params.id && params.title && params.tags) {
+    return objetoControlls.add(params).then((resultado) => {
+      console.log(resultado);
+    });
+  } else if (params.id || params.search) {
+    return objetoControlls.get(params).then((resultado) => {
+      console.log(resultado);
+    });
   } else {
-    return objeto.get({}).then((respuesta) => console.log(respuesta));
+    return objetoControlls.get({}).then((resultado) => {
+      console.log(resultado);
+    });
   }
 }
 
 function main() {
   const params = parseaParams(process.argv.slice(2));
-  ejecutarComandos(params);
+  ejecutar(params);
   //console.log(params);
 }
 

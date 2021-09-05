@@ -16,7 +16,8 @@ ts-node index.ts search --tag="classic"
 { \_: [ 'search' ], tag: 'classic' }
 
 ts-node index.ts search --title="x" --tag="action"
-{ \_: [ 'search' ], tag: 'classic' }
+{ _: [ 'search' ], title: 'x', tag: 'classic' }
+{ _: [ 'search' ], title: 'a', tag: 'classic' }
 
 ts-node index.ts (este último comando debe devolver todas las películas)
 { \_: [] }

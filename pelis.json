@@ -1,1 +1,5 @@
-[{"id":4,"title":"Hola","tags":["comedia"]},{"id":4411,"title":"a","tags":["action","classic"]},{"id":4321865,"title":"peli de la terminal 4321865","tags":["rr","ww"]},{"id":195440,"title":"title 196058195440","tags":["tt","rr"]},{"id":171103,"title":"title 196058171103","tags":["yy","uu"]}]
+[
+  { "id": "1", "title": "Rambo", "tags": ["action", "classic"] },
+  { "id": "2", "title": "Titanic", "tags": ["romantica", "classic"] },
+  { "id": "3", "title": "Matrix", "tags": ["action", "ciencia ficción"] }
+]
