@@ -12,15 +12,16 @@ class PelisCollection {
       return arrayDePelis;
     });
   }
+
   getById(id: number): Promise<Peli> {
     return this.getAll().then((pelis) => {
-      const finded = pelis.find((peli) => {
+      return pelis.find((peli) => {
         return peli.id == id;
       });
-      return finded;
     });
   }
-  search(options: any) {
+
+  search(options: any): Promise<Peli[]> {
     if (options.title && options.tag) {
       return this.getAll().then((pelis) => {
         const finded = pelis.filter((pelis) => {
@@ -47,25 +48,24 @@ class PelisCollection {
       });
     }
   }
-  add(peli: Peli) {
-    return this.getAll().then(() => {
-      const promesaUno = this.getById(peli.id).then((peliExistente) => {
-        if (peliExistente) {
-          return false;
-        } else {
-          const database = this.getAll();
-          const concat = database.then((data) => data.concat([peli]));
-          concat.then((data) => {
-            const promesaDos = jsonfile.writeFile("./pelis.json", data);
-            return promesaDos.then(() => {
-              return true;
-            });
+
+  add(peli: Peli): Promise<boolean> {
+    const promesaUno = this.getById(peli.id).then((peliExistente) => {
+      if (peliExistente) {
+        return false;
+      } else {
+        const database = this.getAll();
+        const concat = database.then((data) => data.concat([peli]));
+        concat.then((data) => {
+          const promesaDos = jsonfile.writeFile("./pelis.json", data);
+          return promesaDos.then(() => {
+            return true;
           });
-          return true;
-        }
-      });
-      return promesaUno;
+        });
+        return true;
+      }
     });
+    return promesaUno;
   }
 }
 
