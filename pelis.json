@@ -1,1 +1,33 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "Atomic Blonde",
+    "tags": ["action", "romance", "fantasy"]
+  },
+  {
+    "id": 2,
+    "title": "La odisea de los giles",
+    "tags": ["argentina", "drama"]
+  },
+  {
+    "id": 3,
+    "title": "El robo del siglo",
+    "tags": ["argentina", "action", "drama"]
+  },
+  { "id": 4, "title": "Casino", "tags": ["robo", "classic", "comedia"] },
+  {
+    "id": 5,
+    "title": "Mision Imposible",
+    "tags": ["action", "legend", "classic"]
+  },
+  { "id": 6, "title": "Mad Max", "tags": ["action", "autos", "fuego"] },
+  {
+    "id": 4321865,
+    "title": "peli de la terminal 4321865",
+    "tags": ["rr", "ww"]
+  },
+  { "id": 156068, "title": "title 210933156068", "tags": ["tt", "rr"] },
+  { "id": 172626, "title": "title 210933172626", "tags": ["yy", "uu"] },
+  { "id": 181803, "title": "title 136211181803", "tags": ["tt", "rr"] },
+  { "id": 201638, "title": "title 136211201638", "tags": ["yy", "uu"] }
+]
