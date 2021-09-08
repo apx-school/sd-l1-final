@@ -22,50 +22,37 @@ class PelisCollection {
   }
 
   search(options: any): Promise<Peli[]> {
-    if (options.title && options.tag) {
-      return this.getAll().then((pelis) => {
-        const finded = pelis.filter((pelis) => {
-          return pelis.title.includes(options.title);
+    return this.getAll().then((pelis) => {
+      var resultado = pelis;
+      if (options.title) {
+        resultado = resultado.filter((p) => {
+          return p.title.includes(options.title);
         });
-        const resultado = finded.filter((peli) => {
-          return peli.tags.includes(options.tag);
+      }
+      if (options.tag) {
+        resultado = resultado.filter((p) => {
+          return p.tags.includes(options.tag);
         });
-        return resultado;
-      });
-    } else if (options.title) {
-      return this.getAll().then((pelis) => {
-        const finded = pelis.filter((pelis) => {
-          return pelis.title.includes(options.title);
-        });
-        return finded;
-      });
-    } else if (options.tag) {
-      return this.getAll().then((pelis) => {
-        const finded = pelis.filter((peli) => {
-          return peli.tags.includes(options.tag);
-        });
-        return finded;
-      });
-    }
+      }
+      return resultado;
+    });
   }
 
   add(peli: Peli): Promise<boolean> {
-    const promesaUno = this.getById(peli.id).then((peliExistente) => {
+    const promesa = this.getById(peli.id).then((peliExistente) => {
       if (peliExistente) {
         return false;
       } else {
-        const database = this.getAll();
-        const concat = database.then((data) => data.concat([peli]));
-        concat.then((data) => {
-          const promesaDos = jsonfile.writeFile("./pelis.json", data);
-          return promesaDos.then(() => {
-            return true;
-          });
+        const promesaDos = this.getAll().then((peliculas) => {
+          peliculas.push(peli);
+          return jsonfile.writeFile("./pelis.json", peliculas);
         });
-        return true;
+        return promesaDos.then(() => {
+          return true;
+        });
       }
     });
-    return promesaUno;
+    return promesa;
   }
 }
 
