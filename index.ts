@@ -1,32 +1,43 @@
-import { PelisCollection, Peli } from "./models";
+import { Peli } from "./models";
 import { PelisController } from "./controllers";
 import * as minimist from "minimist";
 
 function parseaParams(argv) {
   const resultado = minimist(argv);
-  if (resultado._[0] == "add") {
-    return {
-      id: resultado.id,
-      title: resultado.title,
-      tags: resultado.tags,
+  return resultado;
+}
+
+function analizoParamsParaAdd(res) {
+  let resultadoParaAdd: Peli;
+
+  if (res._[0] == "add") {
+    resultadoParaAdd = {
+      id: res.id,
+      title: res.title,
+      tags: res.tags,
     };
-  } else if (resultado._[0] == "get") {
+    return resultadoParaAdd;
+  }
+}
+
+function analizoParamsParaGet(res) {
+  if (res._[0] == "get") {
     return {
-      id: resultado._[1],
+      id: res._[1],
     };
-  } else if (resultado._[0] == "search") {
-    if (resultado.title && resultado.tag) {
+  } else if (res._[0] == "search") {
+    if (res.title && res.tag) {
       return {
-        title: resultado.title,
-        tag: resultado.tag,
+        title: res.title,
+        tag: res.tag,
       };
-    } else if (resultado.title) {
+    } else if (res.title) {
       return {
-        title: resultado.title,
+        title: res.title,
       };
-    } else if (resultado.tag) {
+    } else if (res.tag) {
       return {
-        tag: resultado.tag,
+        tag: res.tag,
       };
     }
   } else {
@@ -36,15 +47,16 @@ function parseaParams(argv) {
 
 function main() {
   const controller = new PelisController();
-  // controller.promise.then(() => {
-  const params = parseaParams(process.argv.slice(2));
-  if (params.id && params.title) {
-    const result = controller.add(params).then((r) => console.log(r));
-  } else {
-    const result = controller.get(params);
-    console.log(result);
-  }
-  //});
+  controller.promise.then(() => {
+    const params = parseaParams(process.argv.slice(2));
+    if (params._[0] == "add") {
+      const objetoParams = analizoParamsParaAdd(params);
+      controller.add(objetoParams);
+    } else {
+      const objetoParams = analizoParamsParaGet(params);
+      controller.get(objetoParams);
+    }
+  });
 }
 
 main();
