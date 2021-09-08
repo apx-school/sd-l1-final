@@ -7,7 +7,7 @@ class Peli {
 }
 
 class PelisCollection {
-  getAll(): Promise<Peli[]> {
+  getAll(): Promise<any[]> {
     return jsonfile.readFile("./pelis.json").then((arrayDePelis) => {
       return arrayDePelis;
     });
@@ -47,8 +47,8 @@ class PelisCollection {
       });
     }
   }
-  add(peli: Peli): Promise<boolean> {
-    return this.getAll().then((pelis) => {
+  add(peli: Peli) {
+    return this.getAll().then(() => {
       const promesaUno = this.getById(peli.id).then((peliExistente) => {
         if (peliExistente) {
           return false;
