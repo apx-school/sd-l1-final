@@ -47,16 +47,15 @@ function analizoParamsParaGet(res) {
 
 function main() {
   const controller = new PelisController();
-  controller.promise.then(() => {
-    const params = parseaParams(process.argv.slice(2));
-    if (params._[0] == "add") {
-      const objetoParams = analizoParamsParaAdd(params);
-      controller.add(objetoParams);
-    } else {
-      const objetoParams = analizoParamsParaGet(params);
-      controller.get(objetoParams);
-    }
-  });
+  const params = parseaParams(process.argv.slice(2));
+  if (params._[0] == "add") {
+    const objetoParams = analizoParamsParaAdd(params);
+    controller.add(objetoParams);
+  } else {
+    const objetoParams = analizoParamsParaGet(params);
+    const resultado = controller.get(objetoParams);
+    resultado.then((r) => console.log(r));
+  }
 }
 
 main();

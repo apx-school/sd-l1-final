@@ -9,19 +9,13 @@ class PelisController {
     this.promise = promise;
   }
   get(options) {
-    var resultado;
     if (options.id) {
-      resultado = this.pelis.getById(options.id);
-      resultado.then((r) => console.log(r));
+      return this.pelis.getById(options.id);
     } else if (options.title || options.tag) {
-      resultado = this.pelis.search(options);
-      resultado.then((r) => console.log(r));
+      return this.pelis.search(options);
     } else {
-      resultado = this.pelis.getAll();
-      resultado.then((r) => console.log(r));
+      return this.pelis.getAll();
     }
-
-    return resultado;
   }
   add(peli: Peli) {
     return this.pelis.add(peli);

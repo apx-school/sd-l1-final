@@ -20,5 +20,12 @@
     "title": "Mision Imposible",
     "tags": ["action", "legend", "classic"]
   },
-  { "id": 6, "title": "Mad Max", "tags": ["action", "autos", "fuego"] }
+  { "id": 6, "title": "Mad Max", "tags": ["action", "autos", "fuego"] },
+  {
+    "id": 4321865,
+    "title": "peli de la terminal 4321865",
+    "tags": ["rr", "ww"]
+  },
+  { "id": 131535, "title": "title 229510131535", "tags": ["tt", "rr"] },
+  { "id": 182348, "title": "title 229510182348", "tags": ["yy", "uu"] }
 ]
