@@ -50,7 +50,8 @@ function main() {
   const params = parseaParams(process.argv.slice(2));
   if (params._[0] == "add") {
     const objetoParams = analizoParamsParaAdd(params);
-    controller.add(objetoParams);
+    const resultado = controller.add(objetoParams);
+    resultado.then(() => console.log("Pelicula agregada  correctamente"));
   } else {
     const objetoParams = analizoParamsParaGet(params);
     const resultado = controller.get(objetoParams);

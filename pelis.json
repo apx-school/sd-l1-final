@@ -27,5 +27,10 @@
     "tags": ["rr", "ww"]
   },
   { "id": 131535, "title": "title 229510131535", "tags": ["tt", "rr"] },
-  { "id": 182348, "title": "title 229510182348", "tags": ["yy", "uu"] }
+  { "id": 182348, "title": "title 229510182348", "tags": ["yy", "uu"] },
+  {
+    "id": 4411,
+    "title": "Título de la nueva peli",
+    "tags": ["action", "classic"]
+  }
 ]
