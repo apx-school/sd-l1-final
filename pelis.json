@@ -1,1 +1,28 @@
-[]
+[
+    {
+        "id": 1,
+        "title" : "Forest Gump",
+        "tags" : ["drama", "Tom Hanks", "vieja"]
+
+    },
+    {
+        "id": 2,
+        "title" : "Perfume de Mujer",
+        "tags" : ["drama", "Al Pacino", "vieja"]
+    },
+    {
+        "id": 3,
+        "title" : "1917",
+        "tags" : ["belica", "George Mackay", "nueva"]
+    },
+    {
+        "id": 4,
+        "title" : "El club de la pelea",
+        "tags" : ["drama", "Brad Pitt", "vieja"]
+    },
+    {
+        "id": 5,
+        "title" : "Batman el caballero oscuro",
+        "tags" : ["accion", "Christian Bale", "nueva"]
+    }
+]
