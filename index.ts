@@ -28,16 +28,22 @@ function analizoParamsParaGet(res) {
   } else if (res._[0] == "search") {
     if (res.title && res.tag) {
       return {
-        title: res.title,
-        tag: res.tag,
+        search: {
+          title: res.title,
+          tag: res.tag,
+        },
       };
     } else if (res.title) {
       return {
-        title: res.title,
+        search: {
+          title: res.title,
+        },
       };
     } else if (res.tag) {
       return {
-        tag: res.tag,
+        search: {
+          tag: res.tag,
+        },
       };
     }
   } else {
