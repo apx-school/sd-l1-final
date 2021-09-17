@@ -1,1 +1,119 @@
-[]
+[
+    {   "id": 1,
+        "title": "Capitán América: El primer vengador" ,
+        "tags": ["accion", "duración: 2h 4min", "año: 2011"]
+        
+                
+    },
+    {   
+        "id": 2,
+        "title": "Capitana Marvel" ,
+        "tags": ["accion", "duración: 2h 3min", "año: 2019"]
+                
+    },
+    {   "id": 3,   
+        "title": "Iron Man" ,
+        "tags": ["accion", "duración: 2h 6min", "año: 2008"]
+                
+    },
+    {   "id": 4,
+        "title": "Iron Man 2" ,
+        "tags": ["accion", "duración: 2h 4min", "año: 2010"]
+                
+    },
+    {   "id": 5,
+        "title": "El increíble Hulk" ,
+        "tags": ["accion", "duración: 1h 52min", "año: 2008"]
+                
+    },
+    {   "id": 6,
+        "title": "Thor" ,
+        "tags": ["accion", "duración: 1h 55min", "año: 2011"]
+                
+    },
+    {   "id": 7,
+        "title": "Los Vengadores" ,
+        "tags": ["accion", "duración: 2h 33min", "año: 2012"]
+                
+    },
+    {   "id": 8,
+        "title": "Iron Man 3" ,
+        "tags": ["accion", "duración: 2h 10min", "año: 2013"]
+                
+    },
+    {   "id": 9,
+        "title": "Thor: El mundo oscuro" ,
+        "tags": ["accion", "duración: 1h 52min", "año: 2013"]
+                
+    },
+    {   "id": 10,
+        "title": "Capitán América: El soldado de invierno" ,
+        "tags": ["accion", "duración: 2h 16min", "año: 2014"]
+                
+    },
+    {   "id": 11,
+        "title": "Guardianes de la galaxia" ,
+        "tags": ["accion", "duración: 2h 1min", "año: 2014"]
+                
+    },
+    {   "id": 12,
+        "title": "Guardianes de la galaxia: vol. II" ,
+        "tags": ["accion", "duración: 2h 16min", "año: 2017"]
+                
+    },
+    {   "id": 13,
+        "title": "Vengadores: La erea de Ultrón" ,
+        "tags": ["accion", "duración: 2h 21min", "año: 2015"]
+                
+    },
+    {   "id": 14,
+        "title": "Ant-man" ,
+        "tags": ["accion", "duración: 1h 57min", "año: 2015"]
+                
+    },
+    {   "id": 15,
+        "title": "Capitán América: Civil War" ,
+        "tags": ["accion", "duración: 2h 27min", "año: 2016"]
+                
+    },
+    {   "id": 16,
+        "title": "Spider-man: Homecoming " ,
+        "tags": ["accion", "duración: 2h 13min", "año: 2017"]
+                
+    },
+    {   "id": 17,
+        "title": "Doctor Strange" ,
+        "tags": ["accion", "duración: 1h 55min", "año: 2016"]
+                
+    },
+    {   "id": 18,
+        "title": "Black Panter" ,
+        "tags": ["accion", "duración: 2h 14min", "año: 2018"]
+                
+    },
+    {   "id": 19,
+        "title": "Thor: Ragnarok" ,
+        "tags": ["accion", "duración: 2h 10min", "año: 2017"]
+                
+    },
+    {   "id": 20,
+        "title": "Ant-Man y la avispa" ,
+        "tags": ["accion", "duración: 1h 58min", "año: 2018"]
+                
+    },
+    {   "id": 21,
+        "title": "Vengadores: Infinity War" ,
+        "tags": ["accion", "duración: 2h 29min", "año: 2018"]
+                
+    },
+    {   "id": 22,
+        "title": "Vengadores: Endgame" ,
+        "tags": ["accion", "duración: 3h 1min", "año: 2019"]
+                
+    },
+    {   "id": 23,
+        "title": "Spider-man: Lejos de casa" ,
+        "tags": ["accion", "duración: 2h 9min", "año: 2019"]
+                
+    }
+]
