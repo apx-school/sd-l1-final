@@ -1,25 +1,66 @@
 import * as minimist from "minimist";
+import { Peli } from "./models";
 import { PelisController } from "./controllers";
 
 function parseaParams(argv) {
   const resultadoMinimist = minimist(argv);
-  if (resultadoMinimist.get) {
-    return { id: resultadoMinimist.get };
-  } else if (resultadoMinimist.search) {
-    return { search: resultadoMinimist.search };
-  } else if (resultadoMinimist.add) {
-    return { add: resultadoMinimist.add };
-  } else return {};
+  return resultadoMinimist;
+}
+
+function paramAdd(res) {
+  let resultado: Peli;
+
+  if (res._[0] == "add") {
+    resultado = {
+      id: res.id,
+      title: res.title,
+      tags: res.tags,
+    };
+    return resultado;
+  }
+}
+
+function paramGet(res) {
+  if (res._[0] == "get") {
+    return { id: res._[1] };
+  } else if (res._[0] == "search") {
+    if (res.title && res.tag) {
+      return {
+        search: {
+          title: res.title,
+          tag: res.tag,
+        },
+      };
+    } else if (res.title) {
+      return {
+        search: {
+          title: res.title,
+        },
+      };
+    } else if (res.tag) {
+      return {
+        search: {
+          tag: res.tag,
+        },
+      };
+    }
+  } else {
+    return {};
+  }
 }
 
 function main() {
-  const argumentos = process.argv.slice(2);
-  const argumentosParseados = parseaParams(argumentos);
-  const peliController = new PelisController();
-  const resultado = peliController.get(argumentosParseados);
-  resultado.then((r) => {
-    console.log(r);
-  });
+  const controller = new PelisController();
+  const params = parseaParams(process.argv.slice(2));
+  if (params._[0] == "add") {
+    const objetoParams = paramAdd(params);
+    const resultado = controller.add(objetoParams);
+    resultado.then(() => console.log("Pelicula agregada  correctamente"));
+  } else {
+    const objetoParams = paramGet(params);
+    const resultado = controller.get(objetoParams);
+    resultado.then((r) => console.log(r));
+  }
 }
 
 main();
