@@ -3,8 +3,8 @@ import { PelisController } from "./controllers";
 
 function parseaParams(argv) {
   const resultadoMinimist = minimist(argv);
-  if (resultadoMinimist.id) {
-    return { id: resultadoMinimist.id };
+  if (resultadoMinimist.get) {
+    return { id: resultadoMinimist.get };
   } else if (resultadoMinimist.search) {
     return { search: resultadoMinimist.search };
   } else if (resultadoMinimist.add) {
@@ -16,8 +16,9 @@ function main() {
   const argumentos = process.argv.slice(2);
   const argumentosParseados = parseaParams(argumentos);
   const peliController = new PelisController();
-  peliController.get(argumentosParseados).then((resultado) => {
-    console.log(resultado);
+  const resultado = peliController.get(argumentosParseados);
+  resultado.then((r) => {
+    console.log(r);
   });
 }
 

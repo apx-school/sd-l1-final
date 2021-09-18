@@ -6,14 +6,28 @@ class PelisController {
     this.collection = new PelisCollection();
   }
 
-  get(options) {
+  get(options: any): Promise<any> {
+    var resultado;
     if (options.id) {
-      return this.collection.getById(options);
+      resultado = this.collection.getById(options.id).then((item) => {
+        return item;
+      });
     } else if (options.search) {
-      return this.collection.search(options);
-    } else if (options.add) {
-      return this.collection.add(options);
-    } else return this.collection.getAll();
+      resultado = this.collection.search(options.search).then((item) => {
+        return item;
+      });
+    } else {
+      resultado = this.collection.getAll().then((item) => {
+        return item;
+      });
+    }
+    return resultado;
+  }
+  add(peli: Peli): Promise<boolean> {
+    return this.collection.add(peli).then((p) => {
+      return p;
+    });
   }
 }
+
 export { PelisController };
