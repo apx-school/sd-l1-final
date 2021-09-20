@@ -8,8 +8,10 @@ class Peli {
 }
 
 class PelisCollection {
+  pelis: Peli[];
   getAll(): Promise<Peli[]> {
     return jsonfile.readFile("./pelis.json").then((peliculas) => {
+      this.pelis = peliculas;
       return peliculas;
     });
   }
@@ -22,22 +24,22 @@ class PelisCollection {
       return resultado;
     });
   }
+  //{title: "Capitán América", tag:"accion"}
   search(options: any) {
     return this.getAll().then((peliculas) => {
       if (options.title && options.tag) {
-        return peliculas.filter((peliculas) => {
+        return peliculas.filter((p) => {
           return (
-            peliculas.title.toLowerCase().includes(options.title) &&
-            peliculas.tags.includes(options.tag)
+            p.title.includes(options.title) && p.tags.includes(options.tag)
           );
         });
       } else if (options.title) {
-        return peliculas.filter((peliculas) => {
-          return peliculas.title.toLowerCase().includes(options.title);
+        return peliculas.filter((p) => {
+          return p.title.includes(options.title);
         });
       } else if (options.tag) {
-        return peliculas.filter((peliculas) => {
-          return peliculas.tags.includes(options.tag);
+        return peliculas.filter((p) => {
+          return p.tags.includes(options.tag);
         });
       }
     });
@@ -48,10 +50,8 @@ class PelisCollection {
         return false;
       } else {
         // magia que agrega la pelicula a un objeto data
-        const promesaDos = this.getAll().then((peliculas) => {
-          peliculas.push(peli);
-          return jsonfile.writeFile("./pelis.json", peliculas);
-        });
+        this.pelis.push(peli);
+        const promesaDos = jsonfile.writeFile("./pelis.json", this.pelis);
 
         return promesaDos.then(() => {
           return true;
