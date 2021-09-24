@@ -24,7 +24,7 @@ class PelisCollection {
       return resultado;
     });
   }
-  //{title: "Capitán América", tag:"accion"}
+
   search(options: any) {
     return this.getAll().then((peliculas) => {
       if (options.title && options.tag) {
@@ -44,6 +44,7 @@ class PelisCollection {
       }
     });
   }
+
   add(peli: Peli): Promise<boolean> {
     const promesaUno = this.getById(peli.id).then((peliExistente) => {
       if (peliExistente) {
