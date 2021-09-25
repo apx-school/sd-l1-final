@@ -9,7 +9,7 @@ class Peli {
 
 class PelisCollection {
   pelis: Peli[];
-  getAll(): Promise<Peli[]> {
+  getAll(): Promise<any> {
     return jsonfile.readFile("./pelis.json").then((peliculas) => {
       this.pelis = peliculas;
       return peliculas;
