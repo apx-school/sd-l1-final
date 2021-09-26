@@ -1,1 +1,39 @@
-[]
+[
+    {   
+        "id":1,
+        "title" :"Godzilla vs Kong",
+        "tags" :["suspenso","ciencia ficcion","fantasia"],
+        "director" :"Adam Wingard", 
+        "budget" :"$160.000.000",
+        "year" :2021
+        
+    },
+    {
+        "id":2,
+        "title" :"Ruega por nosotros",
+        "tags" :["terror","drama","sobrenatural"],
+        "director" :"Evan Spiliotopoulos",
+        "budget" :"$10.000.000",
+        "year" :2021
+        
+    },
+    {
+        "id":3,
+        "title" :"Rapidos y Furiosos 9",
+        "tags" :["accion","thriller","aventura"],
+        "director" :"Justin Li",
+        "budget" :"$200.000.000",
+        "year" :2021
+        
+    },
+    {
+        "id":4,
+        "title" :"Ejercito y Muertos",
+        "tags" :["zombies","accion","robos"],
+        "director" :"Zack Snyder",
+        "budget" :"$70.000.000",
+        "year" :2021
+        
+    }
+
+]
