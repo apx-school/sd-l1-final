@@ -1,1 +1,6 @@
-[]
+[
+   { "id": "1", "title": "Sin control", "tags": ["accion, crime, thriller"] },
+   { "id": "2", "title": "Pulp fiction", "tags": ["drama, crimen"] },
+   { "id": "3", "title": "Memento", "tags": ["misterio, thriller"] },
+   { "id": "4", "title": "Naufrago", "tags": ["aventura, drama, romance"] }
+]
