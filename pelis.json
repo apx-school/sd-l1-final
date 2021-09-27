@@ -1,6 +1,1 @@
-[
-   { "id": "1", "title": "Sin control", "tags": ["accion, crime, thriller"] },
-   { "id": "2", "title": "Pulp fiction", "tags": ["drama, crimen"] },
-   { "id": "3", "title": "Memento", "tags": ["misterio, thriller"] },
-   { "id": "4", "title": "Naufrago", "tags": ["aventura, drama, romance"] }
-]
+[{"id":"1","title":"Sin control","tags":["accion, crime, thriller"]},{"id":"2","title":"Pulp fiction","tags":["drama, crimen"]},{"id":"3","title":"Memento","tags":["misterio, thriller"]},{"id":"4","title":"Naufrago","tags":["aventura, drama, romance"]},{"id":4321865,"title":"peli de la terminal 4321865","tags":["rr","ww"]},{"id":154387,"title":"title 227204154387","tags":["tt","rr"]},{"id":179002,"title":"title 227204179002","tags":["yy","uu"]},{"id":146926,"title":"title 186674146926","tags":["tt","rr"]},{"id":219759,"title":"title 186674219759","tags":["yy","uu"]},{"id":205890,"title":"una peli 205890","tags":["classic","tag 205890"]},{"id":206123,"title":"otra peli un poco más divertida","tags":["tag 205890"]}]
