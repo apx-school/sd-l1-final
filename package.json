@@ -8,7 +8,7 @@
     "start": "ts-node index.ts"
   },
   "ava": {
-    "timeout": "10m", 
+    "timeout": "10m",
     "extensions": {
       "ts": "module"
     },
