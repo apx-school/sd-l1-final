@@ -7,8 +7,9 @@ class Peli {
 
 class PelisCollection {
   pelis: Peli[];
-  getAll() {
+  getAll(): Promise<any> {
     return jsonfile.readFile("./pelis.json").then((pelis) => {
+      this.pelis = pelis;
       return pelis;
     });
   }

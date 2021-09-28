@@ -5,7 +5,7 @@ class PelisController {
   constructor() {
     this.peliculas = new PelisCollection();
   }
-  get(opciones: any): Promise<any> {
+  get(opciones) {
     if (opciones.id) {
       return this.peliculas.getById(opciones.id);
     }
