@@ -21,20 +21,24 @@ class PelisCollection {
     });
   }
 
-  search(options: any) {
-    if (options.title) {
-      return this.getAll().then((pelis) => {
+  search(options: any): Promise<Peli[]> {
+    return this.getAll().then((pelis) => {
+      if (options.title && options.tag) {
+        return pelis.filter((p) => {
+          return (
+            p.title.includes(options.title) && p.tags.includes(options.tag)
+          );
+        });
+      } else if (options.title) {
         return pelis.filter((p) => {
           return p.title.includes(options.title);
         });
-      });
-    } else if (options.tag) {
-      return this.getAll().then((pelis) => {
+      } else if (options.tag) {
         return pelis.filter((p) => {
           return p.tags.includes(options.tag);
         });
-      });
-    }
+      }
+    });
   }
 
   add(peli: Peli): Promise<boolean> {

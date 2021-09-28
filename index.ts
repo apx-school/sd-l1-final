@@ -1,30 +1,42 @@
 import * as minimist from "minimist";
 import { PelisController } from "./controllers";
-import { Peli } from "./models";
+
+function commands(params) {
+  const controller = new PelisController();
+  if (params.id && params.title && params.tags) {
+    return controller.add(params).then(() => {
+      console.log("Peli agregada");
+    });
+  } else if (params.search || params.id) {
+    return controller.get(params).then((resultado) => {
+      console.log(resultado);
+    });
+  } else {
+    return controller.get({}).then((resultado) => {
+      console.log(resultado);
+    });
+  }
+}
 
 function parseaParams(argv) {
   const resultado = minimist(argv);
 
-  return resultado;
-}
-
-function paramsAdd(res) {
-  let resultado: Peli;
-  if (res._.includes("add")) {
-    resultado = {
-      id: res.id,
-      title: res.title,
-      tags: res.tags,
+  if (resultado._[0] == "add") {
+    return {
+      id: resultado.id,
+      title: resultado.title,
+      tags: resultado.tags,
     };
-    return resultado;
-  }
-}
-
-function paramsGet(res) {
-  if (res._.includes("get")) {
-    return { id: res.id };
-  } else if (res._.includes("search")) {
-    return { search: { title: res.title, tag: res.tag } };
+  } else if (resultado._[0] == "get") {
+    return { id: resultado.id };
+  } else if (resultado._[0] == "search") {
+    if (resultado.title && resultado.tag) {
+      return { serach: { title: resultado.title, tag: resultado.tag } };
+    } else if (resultado.title) {
+      return { search: { title: resultado.title } };
+    } else if (resultado.tag) {
+      return { search: { tag: resultado.tag } };
+    }
   } else {
     return {};
   }
@@ -32,19 +44,8 @@ function paramsGet(res) {
 
 function main() {
   const params = parseaParams(process.argv.slice(2));
-  const controller = new PelisController();
-
-  if (params._[0] == "add") {
-    const funcionAdd = paramsAdd(params);
-    controller.add(funcionAdd).then(() => {
-      console.log("Pelicula agregada");
-    });
-  } else {
-    const funcionGet = paramsGet(params);
-    controller.get(funcionGet).then((res) => {
-      console.log(res);
-    });
-  }
+  const resultado = commands(params);
+  console.log(resultado);
 }
 
 main();
