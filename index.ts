@@ -28,10 +28,10 @@ function parseaParams(argv) {
       tags: resultado.tags,
     };
   } else if (resultado._[0] == "get") {
-    return { id: resultado.id };
+    return { id: resultado._[1] };
   } else if (resultado._[0] == "search") {
     if (resultado.title && resultado.tag) {
-      return { serach: { title: resultado.title, tag: resultado.tag } };
+      return { search: { title: resultado.title, tag: resultado.tag } };
     } else if (resultado.title) {
       return { search: { title: resultado.title } };
     } else if (resultado.tag) {
