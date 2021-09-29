@@ -24,19 +24,19 @@ class PelisCollection {
   search(options: any) {
     return this.getAll().then((peliculas) => {
       if (options.title && options.tag) {
-        return peliculas.filter((peliculas) => {
+        return peliculas.filter((peliss) => {
           return (
-            peliculas.title.includes(options.title) &&
-            peliculas.tags.includes(options.tag)
+            peliss.title.includes(options.title) &&
+            peliss.tags.includes(options.tag)
           );
         });
       } else if (options.title) {
-        return peliculas.filter((peliculas) => {
-          return peliculas.title.includes(options.title);
+        return peliculas.filter((peliss) => {
+          return peliss.title.includes(options.title);
         });
       } else if (options.tag) {
-        return peliculas.filter((peliculas) => {
-          return peliculas.tags.includes(options.tag);
+        return peliculas.filter((peliss) => {
+          return peliss.tags.includes(options.tag);
         });
       }
     });
@@ -47,7 +47,7 @@ class PelisCollection {
         return false;
       } else {
         this.pelis.push(peli);
-        const promesaDos = jsonfile.writeFile("./pelis.json");
+        const promesaDos = jsonfile.writeFile("./pelis.json", this.pelis);
 
         return promesaDos.then(() => {
           return true;

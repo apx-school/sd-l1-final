@@ -5,7 +5,7 @@ function comandos(params) {
   const controller = new PelisController();
   if (params.title && params.id && params.tags) {
     return controller.add(params).then((respuesta) => console.log(respuesta));
-  } else if (params.search && params.id) {
+  } else if (params.search || params.id) {
     return controller.get(params).then((respuesta) => console.log(respuesta));
   } else {
     return controller.get({}).then((respuesta) => console.log(respuesta));

@@ -1,3 +1,4 @@
+import { title } from "process";
 import { PelisCollection, Peli } from "./models";
 
 class PelisController {
@@ -10,7 +11,7 @@ class PelisController {
       return this.peliculas.getById(opciones.id);
     }
     if (opciones.search) {
-      return this.peliculas.getById(opciones.search);
+      return this.peliculas.search(opciones.search);
     } else {
       return this.peliculas.getAll();
     }
