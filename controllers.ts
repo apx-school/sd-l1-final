@@ -6,9 +6,9 @@ class PelisController {
     this.pelis = new PelisCollection();
   }
   get(options:any): Promise<any>{
-    let resultado;
+    var resultado;
     if(options.id){
-      return this.pelis.getById(options.id).then((i)=>{
+      resultado = this.pelis.getById(options.id).then((i)=>{
         return i;
       })
     }else if(options.search){
