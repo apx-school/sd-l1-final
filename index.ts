@@ -4,7 +4,6 @@ import {PelisController} from "./controllers"
 
 function parseaParams(argv) {
   const resultado = minimist(argv);
-  console.log(resultado)
   const opciones = {
     accion: resultado._[0],
     params: {
