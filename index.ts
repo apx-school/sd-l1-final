@@ -17,11 +17,11 @@ function parseaParamsTerminal(parametros, instancia) {
     return instancia.get({ search: { title: parametros.title } }).then((res) => res);
 
   } else if (parametros._[0] == "search" && parametros.tag) {
-    return instancia.get({ search: { tags: parametros.tag } }).then((res) => res);
+    return instancia.get({ search: { tag: parametros.tag } }).then((res) => res);
 
   } else if (
     parametros._[0] == "search" && parametros.title && parametros.tag) {
-    return instancia.get({ search: { title: parametros.title, tags: parametros.tag } }).then((res) => res);
+    return instancia.get({ search: { title: parametros.title, tag: parametros.tag } }).then((res) => res);
 
   } else if (parametros._.length == 0) {
     return instancia.get({}).then((res) => res);
