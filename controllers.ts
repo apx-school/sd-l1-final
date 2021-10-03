@@ -6,7 +6,7 @@ class PelisController {
     this.peliculas = new PelisCollection()
   };
 
-  get(options) {
+  get(options: any) {
 
     var resultado
 
@@ -19,11 +19,13 @@ class PelisController {
     } else {
       resultado = this.peliculas.getAll()
     }
+    return resultado
   };
 
-  addPeli(peli: Peli) {
+  add(peli: Peli): Promise<boolean> {
     return this.peliculas.add(peli)
   };
 
 };
+
 export { PelisController };
