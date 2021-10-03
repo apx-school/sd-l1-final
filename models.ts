@@ -23,21 +23,21 @@ class PelisCollection {
     });
   };
 
-  search(options: any) {
-    if (options.title) {
-      return this.getAll().then((x) => {
-        return x.filter((y) => {
-          return y.title.includes(options.title)
-        })
+  search(options: any): Promise<any> {
+    return this.getAll().then((peliculas) => {
+      return peliculas.filter((p) => {
+        if (options.title && options.tag) {
+          return (
+            p.title.includes(options.title) && p.tags.includes(options.tag)
+          );
+        } else if (options.title) {
+          return p.title.includes(options.title);
+        } else if (options.tag) {
+          return p.tags.includes(options.tag);
+        }
       });
-    } else if (options.tag) {
-      return this.getAll().then((w) => {
-        return w.filter((z) => {
-          return z.tags.includes(options.tag)
-        })
-      });
-    };
-  };
+    });
+  }
 
   add(peli: Peli): Promise<boolean> {
     const promesaUno = this.getById(peli.id).then((peliExistente) => {
@@ -59,3 +59,4 @@ class PelisCollection {
 };
 
 export { PelisCollection, Peli };
+
