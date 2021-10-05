@@ -12,7 +12,7 @@ function parseaParams(argv) {
       tags:resultado.tag,
       search:{
         title:resultado.title,
-        tags:resultado.tag,
+        tag:resultado.tag,
       }
     },
     
@@ -27,7 +27,7 @@ function parseaParams(argv) {
         tags:null,
         search:{
           title:resultado.title,
-          tags:resultado.tags,
+          tag:resultado.tag,
         }
       }  
     }
