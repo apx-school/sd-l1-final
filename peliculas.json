@@ -1,0 +1,61 @@
+[{
+    "title": "HARRY POTTER",
+    "rating": 7,
+    "tags": ["Ciencia-Ficcion", "Saga", "Favorita"]
+}, {
+    "title": "CARS",
+    "rating": 7,
+    "tags": ["Animacion", "Pelicula"]
+}, {
+    "title": "PIRATAS DEL CARIBE",
+    "rating": 8,
+    "tags": ["Aventura", "Saga"]
+}, {
+    "title": "RAPIDO Y FURIOSO",
+    "rating": 6,
+    "tags": ["Acción", "Saga"]
+}, {
+    "title": "JOHN WICK",
+    "rating": 8,
+    "tags": ["Acción ", "Saga", "Favorita"]
+}, {
+    "title": "BREAKING BAD",
+    "rating": 10,
+    "tags": ["Drama", "Serie", "Favorita"]
+}, {
+    "title": "PRISON BREAK",
+    "rating": 8,
+    "tags": ["Acción", "Serie"]
+}, {
+    "title": "MI POBRE ANGELITO",
+    "rating": 7,
+    "tags": ["Comedia", "Pelicula"]
+}, {
+    "title": "LUCY",
+    "rating": 5,
+    "tags": ["Ciencia-Ficcion", "Pelicula"]
+}, {
+    "title": "TODO PODEROSO",
+    "rating": 6,
+    "tags": ["Comedia", "Pelicula"]
+}, {
+    "title": "ENTRE DOS HELECHOS",
+    "rating": 6,
+    "tags": ["Comedia", "Pelicula", "Favorita"]
+}, {
+    "title": "ORIGENES SECRETOS",
+    "rating": 4,
+    "tags": ["Suspenso", "Pelicula"]
+}, {
+    "title": "EL DIABLO VISTE A LA MODA",
+    "rating": 5,
+    "tags": ["Drama", "Pelicula"]
+}, {
+    "title": "ACE VENTURA",
+    "rating": 6,
+    "tags": ["Comedia", "Pelicula"]
+}, {
+    "title": "LOS INCREIBLES",
+    "rating": 4,
+    "tags": ["Animacion", "Pelicula"]
+}]
