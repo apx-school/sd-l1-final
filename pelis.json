@@ -1,1 +1,23 @@
-[{"id":1,"title":"Interestelar","tags":["Astronautas","Salvar al mundo","Ciencia Ficcion","Espacio Exterior"]},{"id":2,"title":"Independence Day","tags":["Salvar al mundo","Extraterrestres","Espacio Exterior"]},{"id":3,"title":"E.T","tags":["Extraterrestres","Familia","Amistad"]},{"id":4,"title":"Pulp Fiction","tags":["Mafia","Amigos","Pelicula de sicarios"]},{"id":4321865,"title":"peli de la terminal 4321865","tags":["rr","ww"]},{"id":202940,"title":"title 197029202940","tags":["tt","rr"]},{"id":203075,"title":"title 197029203075","tags":["yy","uu"]},{"id":157016,"title":"title 139098157016","tags":["tt","rr"]},{"id":175506,"title":"title 139098175506","tags":["yy","uu"]},{"id":174141,"title":"una peli 174141","tags":["classic","tag 174141"]},{"id":148848,"title":"otra peli un poco más divertida","tags":["tag 174141"]}]
+[
+    
+    {
+        "id":1,
+        "title": "Interestelar",
+        "tags": ["Astronautas"]
+    },
+    {
+        "id":2,
+        "title": "Independence Day",
+        "tags": ["Salvar al mundo"]
+    },
+    {   
+        "id":3,
+        "title": "E.T",
+        "tags": ["Extraterrestres"]
+    },
+    {
+        "id":4,
+        "title": "Pulp Fiction",
+        "tags": ["Mafia"]
+    }
+]

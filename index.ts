@@ -54,7 +54,7 @@ function main() {
   }else{
     const objParmas = paramsGet(params);
     const resultado = controller.get(objParmas);
-    resultado.then((r)=>console.table(r));
+    resultado.then((r)=>console.log(r));
   }
 }
 
