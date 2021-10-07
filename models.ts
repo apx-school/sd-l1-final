@@ -28,13 +28,13 @@ class PelisCollection {
     if (options.title && options.tag){
       return this.getAll().then((i) => {
         return i.filter((t) => {
-          return t.title.includes(options.title.toUpperCase()) && t.tags.includes(options.tag);
+          return t.title.includes(options.title) && t.tags.includes(options.tag);
         });
       });
     } else if (options.title){
       return this.getAll().then((i) => {
         return i.filter((t) => {
-          return t.title.includes(options.title.toUpperCase());
+          return t.title.includes(options.title);
         });
       });
     } else if (options.tag){

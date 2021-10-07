@@ -15,7 +15,7 @@ function parseaParams(argv) {
   } else if (r._[0] == "add") {
       return {
         id: r.id,
-        title: r.title.toUpperCase(),
+        title: r.title,
         tags: r.tags
      };
   } else {
