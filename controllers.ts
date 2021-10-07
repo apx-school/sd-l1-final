@@ -21,7 +21,6 @@ class PelisController {
 
   //ADD
   add(peli: Peli): Promise<boolean> {
-    console.log('Ok Controller')
     return this.p.add(peli);
   }
 }

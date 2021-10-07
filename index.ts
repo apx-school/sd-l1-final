@@ -13,11 +13,11 @@ function parseaParams(argv) {
   } else if (r._[0] == "get") {
      return { id: r._[1] };
   } else if (r._[0] == "add") {
-      console.log(r.id, r.title, r.tag)
+      console.log(r.id, r.title, r.tags)
       return {
         id: r.id,
-        title: r.title,
-        tags: r.tag
+        title: r.title.toUpperCase(),
+        tags: r.tags
      };
   } else {
      return {};
@@ -28,17 +28,14 @@ function parseaParams(argv) {
 function command(params){
   const controller = new PelisController();
   if (params.id && params.title && params.tags){
-    console.log('Ok IF')
     return controller.add(params).then((r) => {
       console.log(r);
     });
   } else if (params.search || params.id) {
-    console.log('Ok ELSE IF')
     return controller.get(params).then((r) => {
       console.table(r);
     });
   } else {
-    console.log('Ok ELSE')
     return controller.get({}).then((r) => {
       console.table(r);
     });
@@ -48,7 +45,6 @@ function command(params){
 //MAIN
 function main() {
   const params = parseaParams(process.argv.slice(2));
-  console.log(params);
   command(params);
 }
 

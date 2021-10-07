@@ -17,7 +17,7 @@ class PelisCollection {
 
   getById(id: number){
     return this.getAll().then((p) => {
-      const r = p.filter((p) => {
+      const r = p.find((p) => {
         return p.id == id;
       });
       return r;
@@ -47,10 +47,9 @@ class PelisCollection {
   }
 
   add(peli: Peli): Promise<boolean> {
-    console.log('Ok ADD')
+    console.log(peli)
     const promesaUno = this.getById(peli.id).then((pExiste) => {
       if (pExiste){
-        console.log('Ok ID REPETIDO')
         return false;
       } else {
         const promesaDos = this.getAll().then((d) => {
@@ -58,12 +57,10 @@ class PelisCollection {
           return jsonfile.writeFile("./peliculas.json", d);
         });
         return promesaDos.then(() => {
-          console.log('Ok AGREGANDO PELICULA')
           return true;
         });
       }
     });
-    console.log('Ok END')
     return promesaUno;
   }
 
