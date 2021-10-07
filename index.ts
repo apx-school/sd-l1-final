@@ -13,7 +13,6 @@ function parseaParams(argv) {
   } else if (r._[0] == "get") {
      return { id: r._[1] };
   } else if (r._[0] == "add") {
-      console.log(r.id, r.title, r.tags)
       return {
         id: r.id,
         title: r.title.toUpperCase(),
@@ -29,7 +28,7 @@ function command(params){
   const controller = new PelisController();
   if (params.id && params.title && params.tags){
     return controller.add(params).then((r) => {
-      console.log(r);
+      console.table(r);
     });
   } else if (params.search || params.id) {
     return controller.get(params).then((r) => {

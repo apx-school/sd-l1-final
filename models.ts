@@ -47,7 +47,6 @@ class PelisCollection {
   }
 
   add(peli: Peli): Promise<boolean> {
-    console.log(peli)
     const promesaUno = this.getById(peli.id).then((pExiste) => {
       if (pExiste){
         return false;
