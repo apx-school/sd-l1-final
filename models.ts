@@ -1,5 +1,5 @@
 import * as jsonfile from "jsonfile";
-
+import * as lodash from "lodash";
 // no modificar estas propiedades, agregar todas las que quieras
 class Peli {
   id: number;
@@ -18,11 +18,13 @@ class PelisCollection {
   search(options:any){
     this.getAll().catch(err=>console.log(err))
     return this.getAll().then(all=>{
-      if(options.title){
-        return all.filter(peli=>peli.title.toUpperCase().includes(options.title.toUpperCase()))
+      if(options.title && options.tag){
+        return lodash.filter(all,i=>i.title.includes(options.title)&&i.tags.includes(options.tag))
+      }if(options.title){
+        return lodash.filter(all,i=>i.title.includes(options.title))
       }else if (options.tag){
-        return all.filter(peli=>{return peli.tags.map(tag=>tag.toUpperCase()).includes(options.tag.toUpperCase())})
-      };
+        return lodash.filter(all,i=>i.tags.includes(options.tag))
+      }
     })
   };
   add(peli:Peli):Promise<boolean>{

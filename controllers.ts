@@ -5,7 +5,7 @@ class PelisController {
   constructor(){
     this.coll = new PelisCollection
   }
-  get(options){
+  get(options):any{
     if(options.id){
       return this.coll.getById(options.id)
     }else if(options.search){
