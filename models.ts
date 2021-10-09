@@ -15,12 +15,20 @@ class PelisCollection {
       return (this.dataPelis = peliculas);
     });
   }
+  getById(id: number) {
+    return this.getAll().then((resp) => {
+      const resultado = resp.find((peli) => {
+        return peli.id == id;
+      });
+      return resultado;
+    });
+  }
 }
 export { PelisCollection, Peli };
 
 function main() {
   const dataMock = new PelisCollection();
-  const promesaMock = dataMock.getAll().then((resp) => {
+  const promesaMock = dataMock.getById(2).then((resp) => {
     console.log(resp);
   });
   // console.log(promesaMock);
