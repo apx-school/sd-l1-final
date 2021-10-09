@@ -25,20 +25,30 @@ class PelisCollection {
   }
   search(options: any) {
     return this.getAll().then((resp) => {
+      var resultadoOptions;
       if (options.title) {
-        var resultado = resp.find((peli) => {
+        var resultadoTitle = resp.find((peli) => {
           return peli.title.includes(options.title);
         });
+        resultadoOptions = resultadoTitle;
       }
-      return resultado;
+      // aca iba  return resultado;
+      if (options.tag) {
+        var resultadoTag = resp.filter((peli) => {
+          return peli.tags.includes(options.tag);
+        });
+        resultadoOptions = resultadoTag;
+      }
+      return resultadoOptions;
     });
   }
 }
+
 export { PelisCollection, Peli };
 
 function main() {
   const dataMock = new PelisCollection();
-  const promesaMock = dataMock.search({ title: "X" }).then((resp) => {
+  const promesaMock = dataMock.search({ tag: "nacional" }).then((resp) => {
     console.log(resp);
   });
   // console.log(promesaMock);
