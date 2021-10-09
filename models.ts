@@ -23,12 +23,22 @@ class PelisCollection {
       return resultado;
     });
   }
+  search(options: any) {
+    return this.getAll().then((resp) => {
+      if (options.title) {
+        var resultado = resp.find((peli) => {
+          return peli.title.includes(options.title);
+        });
+      }
+      return resultado;
+    });
+  }
 }
 export { PelisCollection, Peli };
 
 function main() {
   const dataMock = new PelisCollection();
-  const promesaMock = dataMock.getById(2).then((resp) => {
+  const promesaMock = dataMock.search({ title: "X" }).then((resp) => {
     console.log(resp);
   });
   // console.log(promesaMock);
