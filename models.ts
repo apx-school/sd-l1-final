@@ -8,11 +8,21 @@ class Peli {
 }
 
 class PelisCollection {
+  dataPelis: Peli[] = [];
   getAll(): Promise<Peli[]> {
-    return jsonfile("...laRutaDelArchivo").then(() => {
-      // la respuesta de la promesa
-      return [];
+    return jsonfile.readFile("./pelis.json").then((peliculas) => {
+      // la respuesta de la promesa // habia un []
+      return (this.dataPelis = peliculas);
     });
   }
 }
 export { PelisCollection, Peli };
+
+function main() {
+  const dataMock = new PelisCollection();
+  const promesaMock = dataMock.getAll().then((resp) => {
+    console.log(resp);
+  });
+  // console.log(promesaMock);
+}
+main();
