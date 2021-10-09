@@ -32,7 +32,6 @@ class PelisCollection {
         });
         resultadoOptions = resultadoTitle;
       }
-      // aca iba  return resultado;
       if (options.tag) {
         var resultadoTag = resp.filter((peli) => {
           return peli.tags.includes(options.tag);
@@ -42,15 +41,35 @@ class PelisCollection {
       return resultadoOptions;
     });
   }
+  add(peli: Peli): Promise<boolean> {
+    const promesaUno = this.getById(peli.id).then((peliExistente) => {
+      if (peliExistente) {
+        return false;
+      } else {
+        const data = this.dataPelis.concat(peli);
+        const promesaDos = jsonfile.writeFile("./pelis.json", data);
+        return promesaDos.then(() => {
+          return true;
+        });
+      }
+    });
+    return promesaUno;
+  }
 }
 
 export { PelisCollection, Peli };
 
 function main() {
   const dataMock = new PelisCollection();
-  const promesaMock = dataMock.search({ tag: "nacional" }).then((resp) => {
-    console.log(resp);
-  });
+  const promesaMock = dataMock
+    .add({
+      id: 4,
+      title: "Terminator 2",
+      tags: ["ciencia ficción", "acción", "nacional"],
+    })
+    .then((resp) => {
+      console.log(resp);
+    });
   // console.log(promesaMock);
 }
 main();

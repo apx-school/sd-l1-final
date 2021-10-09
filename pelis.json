@@ -1,13 +1,1 @@
-[{
-  "id": 1,
-  "title": "Esperando la carroza",
-  "tags": ["drama", "comedia", "nacional"]
-},{
-  "id": 2,
-  "title": "El señor de los anillos",
-  "tags": ["accion", "extranjera","fantasia"]
-},{
-  "id": 3,
-  "title": "Nueve reinas",
-  "tags": ["nacional", "thriller", "drama"]
-}]
+[{"id":1,"title":"Esperando la carroza","tags":["drama","comedia","nacional"]},{"id":2,"title":"El señor de los anillos","tags":["accion","extranjera","fantasia"]},{"id":3,"title":"Nueve reinas","tags":["nacional","thriller","drama"]},{"id":4,"title":"Terminator 2","tags":["ciencia ficción","acción","nacional"]}]
