@@ -1,1 +1,9 @@
-[]
+[
+  { "id": 1, "title": "terminator", "tags": ["suspenso", "accion"] },
+  {
+    "id": 2,
+    "title": "mi villano favorito",
+    "tags": ["infantil", "favoritas"]
+  },
+  { "id": 3, "title": "american pie", "tags": ["comedia", "favoritas"] }
+]
