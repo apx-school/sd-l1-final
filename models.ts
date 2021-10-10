@@ -58,7 +58,7 @@ class PelisCollection {
 }
 
 export { PelisCollection, Peli };
-
+/*
 function main() {
   const dataMock = new PelisCollection();
   const promesaMock = dataMock
@@ -73,3 +73,4 @@ function main() {
   // console.log(promesaMock);
 }
 main();
+*/
