@@ -9,7 +9,7 @@ function parseaParams(argv) {
   } else if (r._[0] == "search" && r.title) {
      return { search: { title: r.title.toUpperCase() } };
   } else if (r._[0] == "search" && r.tag) {
-     return { search: { tag: r.tag } };
+     return { search: { tag: r.tag.toLowerCase() } };
   } else if (r._[0] == "get") {
      return { id: r._[1] };
   } else if (r._[0] == "add") {
