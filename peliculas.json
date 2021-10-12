@@ -3,137 +3,148 @@
         "id": 1,
         "title": "HARRY POTTER",
         "tags": [
-            "Ciencia-Ficcion",
-            "Saga",
-            "Favorita"
+            "ciencia-ficcion",
+            "saga",
+            "favorita"
         ]
     },
     {
         "id": 2,
         "title": "CARS",
         "tags": [
-            "Animacion",
-            "Pelicula"
+            "animacion",
+            "pelicula"
         ]
     },
     {
         "id": 3,
         "title": "PIRATAS DEL CARIBE",
         "tags": [
-            "Aventura",
-            "Saga"
+            "aventura",
+            "saga"
         ]
     },
     {
         "id": 4,
         "title": "RAPIDO Y FURIOSO",
         "tags": [
-            "Acción",
-            "Saga"
+            "acción",
+            "saga"
         ]
     },
     {
         "id": 5,
         "title": "JOHN WICK",
         "tags": [
-            "Acción ",
-            "Saga",
-            "Favorita"
+            "acción ",
+            "saga",
+            "favorita"
         ]
     },
     {
         "id": 6,
         "title": "BREAKING BAD",
         "tags": [
-            "Drama",
-            "Serie",
-            "Favorita"
+            "drama",
+            "serie",
+            "favorita"
         ]
     },
     {
         "id": 7,
         "title": "PRISON BREAK",
         "tags": [
-            "Acción",
-            "Serie"
+            "acción",
+            "serie"
         ]
     },
     {
         "id": 8,
         "title": "MI POBRE ANGELITO",
         "tags": [
-            "Comedia",
-            "Pelicula"
+            "comedia",
+            "pelicula"
         ]
     },
     {
         "id": 9,
         "title": "LUCY",
         "tags": [
-            "Ciencia-Ficcion",
-            "Pelicula"
+            "ciencia-ficcion",
+            "pelicula"
         ]
     },
     {
         "id": 10,
         "title": "TODO PODEROSO",
         "tags": [
-            "Comedia",
-            "Pelicula"
+            "comedia",
+            "pelicula"
         ]
     },
     {
         "id": 11,
         "title": "ENTRE DOS HELECHOS",
         "tags": [
-            "Comedia",
-            "Pelicula",
-            "Favorita"
+            "comedia",
+            "pelicula",
+            "favorita"
         ]
     },
     {
         "id": 12,
         "title": "ORIGENES SECRETOS",
         "tags": [
-            "Suspenso",
-            "Pelicula"
+            "suspenso",
+            "pelicula"
         ]
     },
     {
         "id": 13,
         "title": "EL DIABLO VISTE A LA MODA",
         "tags": [
-            "Drama",
-            "Pelicula"
+            "drama",
+            "pelicula"
         ]
     },
     {
         "id": 14,
         "title": "ACE VENTURA",
         "tags": [
-            "Comedia",
-            "Pelicula"
+            "comedia",
+            "pelicula"
         ]
     },
     {
         "id": 15,
         "title": "LOS INCREIBLES",
         "tags": [
-            "Animacion",
-            "Pelicula"
+            "animacion",
+            "pelicula"
+        ]
+    },
+    {
+        "id": 30,
+        "title": "QA",
+        "tags": [
+            "test",
+            "uno"
+        ]
+    },
+    {
+        "id": 31,
+        "title": "QA",
+        "tags": [
+            "test",
+            "dos"
         ]
     },
     {
         "id": 100,
         "title": "BRUNO",
         "tags": [
-            "Curso",
-            "APX"
+            "curso",
+            "apx"
         ]
-    },
-    {
-        "id": 31,
-        "title": "QA",
-        "tags": "Test"
     }
 ]
