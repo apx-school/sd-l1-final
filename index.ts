@@ -5,9 +5,9 @@ import {PelisController} from "./controllers";
 function parseaParams(argv) {
   const r = minimist(argv);
   if (r._[0] == "search" && r.title && r.tag) {
-     return { search: { title: r.title, tag: r.tag } };
+     return { search: { title: r.title.toUpperCase(), tag: r.tag } };
   } else if (r._[0] == "search" && r.title) {
-     return { search: { title: r.title } };
+     return { search: { title: r.title.toUpperCase() } };
   } else if (r._[0] == "search" && r.tag) {
      return { search: { tag: r.tag } };
   } else if (r._[0] == "get") {
@@ -15,7 +15,7 @@ function parseaParams(argv) {
   } else if (r._[0] == "add") {
       return {
         id: r.id,
-        title: r.title,
+        title: r.title.toUpperCase(),
         tags: r.tags
      };
   } else {
