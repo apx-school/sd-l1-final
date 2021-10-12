@@ -55,6 +55,7 @@ function main() {
     const resultado = peliController.get(param).then((res) => {
       console.log(res);
     })
+    return resultado;
   }
   else {
     return peliController.get(params).then((res) => {
