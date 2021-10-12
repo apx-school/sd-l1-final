@@ -5,7 +5,7 @@ function parseaParams(argv) {
   const resMinimist = minimist(argv);
 
   if (resMinimist._[0] == "search" && resMinimist.title && resMinimist.tag) {
-    return { search: { title: resMinimist.title, tag: resMinimist.tag } };
+    return {  search: { title: resMinimist.title, tag: resMinimist.tag}  };
  } else if (resMinimist._[0] == "search" && resMinimist.title) {
     return { search: { title: resMinimist.title } };
  } else if (resMinimist._[0] == "search" && resMinimist.tag) {
