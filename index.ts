@@ -7,11 +7,11 @@ function parseaParams(argv) {
   return resultado;
 }
 
-function main() {
-  const params = parseaParams(process.argv.slice(2));
-  const pelisController = new PelisController();
-
-  if (params._.toString().includes('get')) {
+function opciones(params, pelisController) {
+  if (params._.toString() === '') {
+    // mostrar todo
+    pelisController.get({}).then((res) => console.log(res));
+  } else if (params._.toString().includes('get')) {
     const id = params._.slice()[1];
     pelisController.get({ id }).then((res) => console.log(res));
   }
@@ -41,6 +41,12 @@ function main() {
       .add({ id: params.id, title: params.title, tags: params.tags })
       .then((res) => console.log(res));
   }
+}
+
+function main() {
+  const params = parseaParams(process.argv.slice(2));
+  const pelisController = new PelisController();
+  opciones(params, pelisController);
 }
 
 main();

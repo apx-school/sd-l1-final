@@ -7,6 +7,9 @@ class PelisController {
   }
   get(options: any) {
     let resultado;
+    if (Object.keys(options).length === 0) {
+      resultado = this.pelis.getAll();
+    }
     if (options.id) {
       resultado = this.pelis.getById(options.id);
     }
