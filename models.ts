@@ -1,5 +1,6 @@
 import * as jsonfile from "jsonfile";
 
+
 // no modificar estas propiedades, agregar todas las que quieras
 class Peli {
   id: number;
@@ -16,7 +17,7 @@ class PelisCollection {
   }
 
   getById(id:number){
-    return this.getAll().then((json) => {
+    return this.getAll().then((json:any) => {
       const respuesta = json.find((obj) => {
         return obj.id == id 
       })
@@ -24,13 +25,13 @@ class PelisCollection {
     })
   }
 
-  search(options:any): Promise<Peli[]>{  
-    return this.getAll().then((json) =>{ 
+  search(options:any){  
+    return this.getAll().then((json:any) =>{ 
       
-      if(options.title && options.tags){
+      if(options.title && options.tag){
         return json.filter((obj) => {
           return obj.title.includes(options.title) && 
-          obj.tags.includes(options.tags)
+          obj.tags.includes(options.tag)
         })
       }
       else if(options.title){
@@ -38,9 +39,9 @@ class PelisCollection {
           return obj.title.includes(options.title)
         })
       }
-      else if(options.tags){
+      else if(options.tag){
         return json.filter((obj) => {
-          return obj.tags.includes(options.tags)
+          return obj.tags.includes(options.tag)
         })
       }
     })

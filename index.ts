@@ -22,11 +22,11 @@ function paramAdd(param){
 function paramGet(param){
   if(param._[0] == "get"){
     return {id: param._[1]};
-  } else if(param._[0] == "search" && param.title && param.tags){
-    return {search: {title:param.title, tags:param.tags}}
+  } else if(param._[0] == "search" && param.title && param.tag){
+    return {search: {title:param.title, tag:param.tag}}
   }
-  else if(param._[0] == "search" && param.tags){
-    return {search: {tags: param.tags}};
+  else if(param._[0] == "search" && param.tag){
+    return {search: {tag: param.tag}};
   }
   else if(param._[0] == "search" && param.title){
     return {search: {title: param.title}};
