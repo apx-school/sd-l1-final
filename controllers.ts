@@ -21,15 +21,11 @@ class PelisController {
 }
 
 export { PelisController };
-/*
+/* codigo para test unitarios manuales
 function main() {
   const dataMock = new PelisController();
   const promesaMock = dataMock.get({ title: "carroza", tag: "nacional" });
   // console.log(promesaMock);
 }
-main();
-
-/*.then((resp) => {
-    console.log(resp);
-  });
-  */
+main()
+*/

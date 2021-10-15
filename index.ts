@@ -23,13 +23,37 @@ function processOptions(argv) {
       return resp;
     });
   }
-  if (argv._[0] == "search") {
+  if (argv._[0] == "search" && argv.title && !argv.tag) {
     var title = argv.title;
     respuesta = indexProcessController
       .get({ search: { title: title } })
       .then((resp) => {
         return resp;
       });
+  }
+  if (argv._[0] == "search" && !argv.title && argv.tag) {
+    var tags = argv.tag;
+    respuesta = indexProcessController
+      .get({ search: { tag: tags } })
+      .then((resp) => {
+        return resp;
+      });
+  }
+  if (argv._[0] == "search" && argv.title && argv.tag) {
+    var tags = argv.tag;
+    var title = argv.title;
+    var parametros = { tag: tags, title: title };
+    console.log(parametros);
+    respuesta = indexProcessController
+      .get({ search: parametros })
+      .then((resp) => {
+        return resp;
+      });
+  }
+  if (argv._.length == 0) {
+    respuesta = indexProcessController.get([]).then((resp) => {
+      return resp;
+    });
   }
   return respuesta;
 }

@@ -11,15 +11,12 @@ class PelisCollection {
   dataPelis: Peli[] = [];
   getAll(): Promise<Peli[]> {
     return jsonfile.readFile("./pelis.json").then((peliculas) => {
-      // la respuesta de la promesa // habia un []
       return (this.dataPelis = peliculas);
-      // antes retornaba (this.dataPelis = peliculas)
     });
   }
   getById(id: number) {
     return this.getAll().then((resp) => {
       const resultado = resp.find((peli) => {
-        // saber si va filter o find o map
         return peli.id == id;
       });
       return resultado;
@@ -27,7 +24,7 @@ class PelisCollection {
   }
   search(options: any) {
     return this.getAll().then((resp) => {
-      var resultadoOptions;
+      var resultadoOptions = resp;
       if (options.title) {
         var resultadoTitle = resp.filter((peli) => {
           return peli.title.toLocaleLowerCase().includes(options.title);
@@ -50,7 +47,7 @@ class PelisCollection {
       if (peliExistente) {
         return false;
       } else {
-        const data = this.dataPelis.concat(peli); // aca probe con concat antes
+        const data = this.dataPelis.concat(peli);
         const promesaDos = jsonfile.writeFile("./pelis.json", data);
         return promesaDos.then(() => {
           return true;
@@ -62,7 +59,7 @@ class PelisCollection {
 }
 
 export { PelisCollection, Peli };
-/*
+/* codigo para test unitarios manuales
 function main() {
   const dataMock = new PelisCollection();
   const promesaMock = dataMock.search({ tag: "nacional" }).then((resp) => {

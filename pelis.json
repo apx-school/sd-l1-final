@@ -7,7 +7,7 @@
   {
     "id": 2,
     "title": "El señor de los anillos",
-    "tags": ["accion", "extranjera", "fantasia"]
+    "tags": ["accion", "internacional", "fantasia"]
   },
   {
     "id": 3,
@@ -16,12 +16,7 @@
   },
   {
     "id": 4,
-    "title": "Terminator 2x",
-    "tags": ["ciencia ficción", "acción", "extranjera"]
-  },
-  {
-    "id": 4411,
-    "title": "Título de la nueva peli",
-    "tags": ["action", "classic"]
+    "title": "Terminator 2",
+    "tags": ["ciencia ficción", "acción", "internacional"]
   }
 ]
