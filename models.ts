@@ -13,11 +13,13 @@ class PelisCollection {
     return jsonfile.readFile("./pelis.json").then((peliculas) => {
       // la respuesta de la promesa // habia un []
       return (this.dataPelis = peliculas);
+      // antes retornaba (this.dataPelis = peliculas)
     });
   }
   getById(id: number) {
     return this.getAll().then((resp) => {
       const resultado = resp.find((peli) => {
+        // saber si va filter o find o map
         return peli.id == id;
       });
       return resultado;
@@ -27,15 +29,17 @@ class PelisCollection {
     return this.getAll().then((resp) => {
       var resultadoOptions;
       if (options.title) {
-        var resultadoTitle = resp.find((peli) => {
-          return peli.title.includes(options.title);
+        var resultadoTitle = resp.filter((peli) => {
+          return peli.title.toLocaleLowerCase().includes(options.title);
         });
+
         resultadoOptions = resultadoTitle;
       }
       if (options.tag) {
         var resultadoTag = resp.filter((peli) => {
           return peli.tags.includes(options.tag);
         });
+
         resultadoOptions = resultadoTag;
       }
       return resultadoOptions;
@@ -46,7 +50,7 @@ class PelisCollection {
       if (peliExistente) {
         return false;
       } else {
-        const data = this.dataPelis.concat(peli);
+        const data = this.dataPelis.concat(peli); // aca probe con concat antes
         const promesaDos = jsonfile.writeFile("./pelis.json", data);
         return promesaDos.then(() => {
           return true;
@@ -61,15 +65,9 @@ export { PelisCollection, Peli };
 /*
 function main() {
   const dataMock = new PelisCollection();
-  const promesaMock = dataMock
-    .add({
-      id: 4,
-      title: "Terminator 2",
-      tags: ["ciencia ficción", "acción", "nacional"],
-    })
-    .then((resp) => {
-      console.log(resp);
-    });
+  const promesaMock = dataMock.search({ tag: "nacional" }).then((resp) => {
+    console.log(resp);
+  });
   // console.log(promesaMock);
 }
 main();

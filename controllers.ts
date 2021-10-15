@@ -5,14 +5,31 @@ class PelisController {
   constructor() {
     this.dataModels = new PelisCollection();
   }
+  get(options): Promise<any> {
+    if (options.id) {
+      return this.dataModels.getById(options.id);
+    }
+    if (options.search) {
+      return this.dataModels.search(options.search);
+    } else {
+      return this.dataModels.getAll();
+    }
+  }
+  add(peli: Peli) {
+    return this.dataModels.add(peli);
+  }
 }
-export { PelisController };
 
+export { PelisController };
+/*
 function main() {
   const dataMock = new PelisController();
-  const promesaMock = dataMock.dataModels.getAll().then((resp) => {
-    console.log(resp);
-  });
+  const promesaMock = dataMock.get({ title: "carroza", tag: "nacional" });
   // console.log(promesaMock);
 }
 main();
+
+/*.then((resp) => {
+    console.log(resp);
+  });
+  */
