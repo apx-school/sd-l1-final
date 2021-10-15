@@ -11,6 +11,10 @@ function parseandoTerminal(inpout, output) {
     return output.add(inpout).then((resultado) => resultado);
   } else if (inpout._[0] == "get" && typeof inpout._[1] == "number") {
     return output.get({ id: inpout._[1] }).then((resultado) => resultado);
+  } else if (inpout._[0] == "search" && inpout.title && inpout.tag) {
+    return output
+      .get({ search: { title: inpout.title, tag: inpout.tag } })
+      .then((resultado) => resultado);
   } else if (inpout._[0] == "search" && inpout.title) {
     return output
       .get({ search: { title: inpout.title } })
@@ -18,10 +22,6 @@ function parseandoTerminal(inpout, output) {
   } else if (inpout._[0] == "search" && inpout.tag) {
     return output
       .get({ search: { tag: inpout.tag } })
-      .then((resultado) => resultado);
-  } else if (inpout._[0] == "search" && inpout.title && inpout.tag) {
-    return output
-      .get({ search: { title: inpout.title, tag: inpout.tag } })
       .then((resultado) => resultado);
   } else if (inpout._.length == 0) {
     return output.get({}).then((resultado) => resultado);
