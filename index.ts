@@ -43,7 +43,6 @@ function processOptions(argv) {
     var tags = argv.tag;
     var title = argv.title;
     var parametros = { tag: tags, title: title };
-    console.log(parametros);
     respuesta = indexProcessController
       .get({ search: parametros })
       .then((resp) => {
@@ -60,7 +59,6 @@ function processOptions(argv) {
 
 function main() {
   const params = parseaParams(process.argv.slice(2));
-  console.log(params);
   const dataIndex = processOptions(params);
   dataIndex.then((respFinal) => {
     return console.log(respFinal);
