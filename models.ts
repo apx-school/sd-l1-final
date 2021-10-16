@@ -1,4 +1,5 @@
 import * as jsonfile from "jsonfile";
+import * as lodash from "lodash";
 
 // no modificar estas propiedades, agregar todas las que quieras
 class Peli {
@@ -24,19 +25,26 @@ class PelisCollection {
   }
   search(options: any) {
     return this.getAll().then((resp) => {
-      var resultadoOptions = resp;
+      var resultadoOptions;
+      if (options.title && options.tag) {
+        var resultadoMixto = lodash.filter(
+          resp,
+          (film) =>
+            film.title.toLocaleLowerCase().includes(options.title) &&
+            film.tags.includes(options.tag)
+        );
+        return (resultadoOptions = resultadoMixto);
+      }
       if (options.title) {
         var resultadoTitle = resp.filter((peli) => {
           return peli.title.toLocaleLowerCase().includes(options.title);
         });
-
         resultadoOptions = resultadoTitle;
       }
       if (options.tag) {
         var resultadoTag = resp.filter((peli) => {
           return peli.tags.includes(options.tag);
         });
-
         resultadoOptions = resultadoTag;
       }
       return resultadoOptions;
