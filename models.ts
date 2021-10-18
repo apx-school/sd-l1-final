@@ -1,7 +1,6 @@
 import * as jsonfile from "jsonfile";
 import { title } from "process";
 
-// no modificar estas propiedades, agregar todas las que quieras
 class Peli {
   id: number;
   title: string;
@@ -40,14 +39,15 @@ class PelisCollection {
       }
     }) 
   }
-  addPeli(peli:Peli): Promise<boolean> {
+  add(peli:Peli): Promise<boolean> {
     const primerPromesa = this.getById(peli.id).then((idPeliRepetido) => {
       if (idPeliRepetido){
         return false;
       } else {
-        const segundaPromesa = this.getAll().then((nuevaPeli) => {
-          nuevaPeli.push(peli)
-          return jsonfile.writeFile("./pelis.json", nuevaPeli)
+        const data = {}
+        const segundaPromesa = this.getAll().then((it) => {
+          it.push(peli)
+          return jsonfile.writeFile("./pelis.json", data)
         })
         return segundaPromesa.then((resultado) => {
           return resultado = true
@@ -57,14 +57,5 @@ class PelisCollection {
     return primerPromesa;
   }  
 }
-
-/*  
-const obj = new PelisCollection()
-obj.search([{tags: "acción"}]).then((it) => {
-  return console.log(it);
-})
-
-*/
-
 
 export { PelisCollection, Peli };
