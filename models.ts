@@ -1,5 +1,4 @@
 import * as jsonfile from "jsonfile";
-import { title } from "process";
 
 class Peli {
   id: number;
@@ -8,49 +7,54 @@ class Peli {
 }
 
 class PelisCollection {
+
   getAll(): Promise<Peli[]> {
     return jsonfile.readFile("./pelis.json").then((a) => {
       return (a);
     });
   }
+
   getById(id:number){
    return this.getAll().then((a) => {
-       const peliFind = a.find(resultado => {
+       const r = a.find(resultado => {
        return resultado.id == id
       })
-      return peliFind
+      return r;
     })
   } 
   search(options:any){
-    return this.getAll().then((a) => {
-      if ( options.title && options.tags){
-        return a.filter((objeto) => {
-         return objeto.title.includes(options.title) 
-         && objeto.tags.includes(options.tags)
-        })
-      } else if (options.tags){
-        return a.filter((objeto) => {
-          objeto.tags.includes(options.tags)
-        })
-      } else if (options.title){
-        return a.filter((objeto) => {
-          objeto.title.includes(options.title)
-        })
-      }
-    }) 
+    if (options.title && options.tag){
+    return this.getAll().then((j) => {
+      return j.filter((r) => {
+        return r.title.includes(options.title) && r.tags.includes(options.tag);
+      });
+    });
+  } else if (options.title){
+    return this.getAll().then((r) => {
+      return r.filter((t) => {
+        return t.title.includes(options.title);
+      });
+    });
+  } else if (options.tag){
+    return this.getAll().then((r) => {
+      return r.filter((t) => {
+        return t.tags.includes(options.tag);
+      });
+    });
   }
+}
+
   add(peli:Peli): Promise<boolean> {
     const primerPromesa = this.getById(peli.id).then((idPeliRepetido) => {
       if (idPeliRepetido){
         return false;
       } else {
-        const data = {}
         const segundaPromesa = this.getAll().then((it) => {
           it.push(peli)
-          return jsonfile.writeFile("./pelis.json", data)
+          return jsonfile.writeFile("./pelis.json", it)
         })
-        return segundaPromesa.then((resultado) => {
-          return resultado = true
+        return segundaPromesa.then(() => {
+          return true
         })
       }
     })

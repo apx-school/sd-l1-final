@@ -1,48 +1,47 @@
 import * as minimist from "minimist";
-import { title } from "process";
 import { PelisController } from "./controllers"
-import { Peli } from "./models";
 
-function parseaParams(argv) {
-  const resultado = minimist(argv);
-  return resultado; 
-}
-
-function paramsForController(input , output){
-  if (input._[0] == "add"){
-    let peliAdd = {
-      id : input.id,
-      title : input.title,
-      tags : input.tags
+function parseaParams(argv){
+  const argParseado = minimist(argv);
+  if (argParseado._[0] == "search" && argParseado.title && argParseado.tag) {
+    return {search : {title : argParseado.title , tag : argParseado.tag}}
+    } else if (argParseado._[0] == "search" && argParseado.title){
+      return {search : {title : argParseado.title}}
+    } else if ( argParseado._[0] == "search" && argParseado.tag){
+       return {search : {tags : argParseado.tag}}
+    } else if ( argParseado._[0] == "get"){
+      return {id : argParseado._[1]}
+    } else if ( argParseado._[0] == "add"){
+      return {
+        id : argParseado.id,
+        title : argParseado.title,
+        tags : argParseado.tags
+      };
+    }  else {
+        return {};
     }
-    return peliAdd
-  }
-  if (input._[0]== "get"){
-    return {id:input._[1]}
-  } else if (input._[0] == "search" && input.title && input.tag){
-    return {search : {title:input.title, tags:input.tags}}
-  }
-  else if (input._[0] == "search" && input.title){
-    return {search : {title : input.title}}
-  }
-  else if (input._[0] == "search" && input.tags){
-    return {search : {tags : input.tags}}
-  }
 }
 
-
-
-
-function main() {
+function paramsForController(params){
   const controller = new PelisController()
-  const argumentosTerminal = process.argv.slice(2)
-  const params = parseaParams(argumentosTerminal);
-  
-  paramsForController(params,controller).then((resultado) => {
-    console.log(resultado);
-  })
-
-
+  if (params.id && params.title && params.tags){
+    return controller.add(params).then((r) => {
+      console.log(r);
+    });
+  }  else if (params.search || params.id){
+      return controller.get(params).then((r) => {
+        console.log (r);
+    })} else {
+      return controller.get({}).then((r) => {
+        console.log(r)
+    })
+  }     
 }
+
+function main(){
+  const argumentos = process.argv.slice(2)
+  const argParse = parseaParams(argumentos);
+  paramsForController(argParse)
+};
 
 main();
