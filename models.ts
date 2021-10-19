@@ -23,27 +23,26 @@ class PelisCollection {
     })
   } 
   search(options:any){
-    if (options.title && options.tag){
-    return this.getAll().then((j) => {
-      return j.filter((r) => {
-        return r.title.includes(options.title) && r.tags.includes(options.tag);
+    if (options.title && options.tags){
+      return this.getAll().then((j) => {
+        return j.filter((r) => {
+          return r.title.includes(options.title) && r.tags.includes(options.tags);
+        });
       });
-    });
-  } else if (options.title){
-    return this.getAll().then((r) => {
-      return r.filter((t) => {
-        return t.title.includes(options.title);
+    } else if (options.title){
+      return this.getAll().then((r) => {
+        return r.filter((t) => {
+          return t.title.includes(options.title);
+        });
       });
-    });
-  } else if (options.tag){
-    return this.getAll().then((r) => {
-      return r.filter((t) => {
-        return t.tags.includes(options.tag);
+    } else if (options.tags){
+      return this.getAll().then((r) => {
+        return r.filter((t) => {
+          return t.tags.includes(options.tags);
+        });
       });
-    });
+    }
   }
-}
-
   add(peli:Peli): Promise<boolean> {
     const primerPromesa = this.getById(peli.id).then((idPeliRepetido) => {
       if (idPeliRepetido){
@@ -61,5 +60,4 @@ class PelisCollection {
     return primerPromesa;
   }  
 }
-
-export { PelisCollection, Peli };
+export { PelisCollection, Peli }
