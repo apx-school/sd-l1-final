@@ -23,10 +23,10 @@ class PelisCollection {
     })
   } 
   search(options:any){
-    if (options.title && options.tags){
+    if (options.title && options.tag){
       return this.getAll().then((j) => {
         return j.filter((r) => {
-          return r.title.includes(options.title) && r.tags.includes(options.tags);
+          return r.title.includes(options.title) && r.tags.includes(options.tag);
         });
       });
     } else if (options.title){
@@ -35,10 +35,10 @@ class PelisCollection {
           return t.title.includes(options.title);
         });
       });
-    } else if (options.tags){
+    } else if (options.tag){
       return this.getAll().then((r) => {
         return r.filter((t) => {
-          return t.tags.includes(options.tags);
+          return t.tags.includes(options.tag);
         });
       });
     }
