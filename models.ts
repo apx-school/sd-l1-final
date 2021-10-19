@@ -20,7 +20,6 @@ class PelisCollection {
     });
   } 
   add(peli: Peli): Promise<boolean> {
-    //const promesaUno = this.getById(peli.id).then((peliExistente) => {
     return this.getById(peli.id).then((peliExistente) => {
       if (peliExistente) {
         return false;
@@ -34,7 +33,6 @@ class PelisCollection {
         });
       }
     });
-    //return promesaUno;
   }
   search( options:any ) {
     if( options.title && options.tag ){            

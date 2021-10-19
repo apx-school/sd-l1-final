@@ -8,20 +8,19 @@ function parseaParams(argv) {
 function main() {
   const test = new PelisController( );
   var params = parseaParams( process.argv.slice(2) );
-  const command = params._[0];
-  var param1 = params._[1];
-  delete params._
 
-  if( command == 'add' ){
+  if( params._[0] == 'add' ){
+    delete params._
     test.add( params ).then( ( resultado ) => {
       console.log( resultado );           
     } );
   } else {
-    if( command == 'get' ){
-      params = { id : param1 };
+    if( params._[0] == 'get' ){
+      params = { id : params._[1] };
     }
     else{
-      if( command == 'search' ){
+      if( params._[0] == 'search' ){
+        delete params._
         params = { search : params }
       }
       else{
