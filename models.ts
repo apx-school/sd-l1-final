@@ -47,9 +47,9 @@ class PelisCollection {
       if (peliExistente) {
         return false;
       } else {
-        return this.getAll().then((data) => {
-          data.push(peli);
-          return jsonfile.writeFile("./pelis.json", data).then(() => {
+        return this.getAll().then((pelis) => {
+          pelis.push(peli);
+          return jsonfile.writeFile("./pelis.json", pelis).then(() => {
             return true;
           });
         });
