@@ -41,23 +41,38 @@ class PelisCollection {
         })
         return resultadoTitle;
         })
-      }
-
-      //si el objeto tiene la propiedad tag, el método tiene
-      //que devolver todas las películas que tengan ese string en sus tags.
-      // if(options.tag){
-      //   return this.getAll().then(peliculas => {
-      //     const resultadoTags = peliculas.
-      //   })
-      // }
+      } else if(options.tag){
+        //si el objeto tiene la propiedad tag, el método tiene
+        //que devolver todas las películas que tengan ese string en sus tags.
+        return this.getAll().then(peliculas => {
+          const resultadoTags = peliculas.filter(pelis => {
+             return pelis.tags.find(t => t == options.tag);
+          })
+          return resultadoTags;
+        })
+      };
     }
+      
 
+    //recibe una Peli y la guarda en el archivo
+    add(peli:Peli): Promise<boolean> {
+      const promesaUno = this.getById(peli.id).then((peliExistente) => {
+        if (peliExistente) {
+          return false;
+        } else {
+          // magia que agrega la pelicula a un objeto data
+          const data = peli;
+          const promesaDos = jsonfile.writeFile("./pelis.json", data);
+          return promesaDos.then(() => {
+            return true;
+          });
+        }
+      });
+  
+      return promesaUno;
+    }
     
   }
 
-const prueba = new PelisCollection();
-prueba.getById(3).then(resultado => {
-  console.log(resultado);
-})
 
 export { PelisCollection, Peli };
