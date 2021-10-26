@@ -20,9 +20,7 @@ class PelisCollection {
   //getById(id:number) devuelve la peli que tenga el id que se le pase por parámetro.
   getById(id:number) {
     return this.getAll().then(peliculas => {
-       const peliculaBuscada = peliculas.find(pelis =>{
-         return pelis.id == id;
-       })
+       const peliculaBuscada = peliculas.find(pelis => pelis.id == id);
     return peliculaBuscada;   
     });
 
