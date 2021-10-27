@@ -29,26 +29,19 @@ class PelisCollection {
   
   //search(options:any) recibe un objeto y, según cuales sean sus propiedades, hay dos opciones:
   search(options:any) {
-
-    //si el objeto tiene la propiedad title, el método tiene que devolver todas
-    //las películas que tengan ese string en su title.
-    if(options.title){
-      return this.getAll().then(peliculas => {
-        const resultadoTitle = peliculas.filter(pelis => {
-          return pelis.title.includes(options.title);
-        })
-        return resultadoTitle;
-        })
-      } else if(options.tag){
-        //si el objeto tiene la propiedad tag, el método tiene
-        //que devolver todas las películas que tengan ese string en sus tags.
-        return this.getAll().then(peliculas => {
-          const resultadoTags = peliculas.filter(pelis => {
-             return pelis.tags.find(t => t == options.tag);
-          })
-          return resultadoTags;
-        })
-      };
+    return this.getAll().then((peliculas) => {
+      //si el objeto tiene la propiedad title, el método tiene que devolver todas
+      //las películas que tengan ese string en su title.
+      if(options.title){
+          const resultadoTitle = peliculas.filter((pelis) => pelis.title.includes(options.title));
+            return resultadoTitle;
+      } else if (options.tag) {
+          //si el objeto tiene la propiedad tag, el método tiene
+          //que devolver todas las películas que tengan ese string en sus tags.
+          const resultadoTags = peliculas.filter((pelis) => pelis.tags.find(t => t == options.tag));
+            return resultadoTags;
+        }
+      });
     }
       
 
@@ -59,11 +52,14 @@ class PelisCollection {
           return false;
         } else {
           // magia que agrega la pelicula a un objeto data
-          const data = peli;
-          const promesaDos = jsonfile.writeFile("./pelis.json", data);
-          return promesaDos.then(() => {
-            return true;
-          });
+            return this.getAll().then((peliculas) => {
+            const data = peliculas;
+            peliculas.push(peli);
+            const promesaDos = jsonfile.writeFile("./pelis.json", data);
+            return promesaDos.then(() => {
+              return true;
+            });
+          })
         }
       });
   
@@ -71,6 +67,12 @@ class PelisCollection {
     }
     
   }
+
+// const nuevo = new PelisCollection();
+// nuevo.search({tag: "accion"}).then((resultado) => {
+//   console.log(resultado);
+// })
+
 
 
 export { PelisCollection, Peli };

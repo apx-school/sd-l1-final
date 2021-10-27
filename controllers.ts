@@ -11,8 +11,8 @@ class PelisController {
   get(options){
     if(options.id){
      return this.coleccionPelis.getById(options.id);
-    } else if (options.search.title && options.searc.tag){
-     return this.coleccionPelis.search(options.search.title && options.searc.tag)
+    } else if (options.search.title && options.search.tag){
+     return this.coleccionPelis.search(options.search.title && options.search.tag)
     } else if (options.search.title) {
       return this.coleccionPelis.search(options.search.title)
     } else if (options.search.tag){
@@ -20,7 +20,7 @@ class PelisController {
     } else {
       return this.coleccionPelis.getAll();
     }
-  }
+  };
 
   add(peli:Peli){
     return this.coleccionPelis.add(peli);
