@@ -1,4 +1,5 @@
 import * as jsonfile from "jsonfile";
+import * as lodash from "lodash";
 
 // no modificar estas propiedades, agregar todas las que quieras
 class Peli {
@@ -32,13 +33,16 @@ class PelisCollection {
     return this.getAll().then((peliculas) => {
       //si el objeto tiene la propiedad title, el método tiene que devolver todas
       //las películas que tengan ese string en su title.
-      if(options.title){
-          const resultadoTitle = peliculas.filter((pelis) => pelis.title.includes(options.title));
+      if(options.title && options.tag){
+        const resultadoTitle = peliculas.filter((pelis) => pelis.title.toLowerCase().includes(options.title.toLowerCase()));
+        return resultadoTitle.filter((peli) => peli.tags.find(t => t.toLowerCase() == options.tag.toLowerCase()));
+      } else if(options.title){
+          const resultadoTitle = peliculas.filter((pelis) => pelis.title.toLowerCase().includes(options.title.toLowerCase()));
             return resultadoTitle;
       } else if (options.tag) {
           //si el objeto tiene la propiedad tag, el método tiene
           //que devolver todas las películas que tengan ese string en sus tags.
-          const resultadoTags = peliculas.filter((pelis) => pelis.tags.find(t => t == options.tag));
+          const resultadoTags = peliculas.filter((pelis) => pelis.tags.find(t => t.toLowerCase() == options.tag.toLowerCase()));
             return resultadoTags;
         }
       });
@@ -67,12 +71,5 @@ class PelisCollection {
     }
     
   }
-
-// const nuevo = new PelisCollection();
-// nuevo.search({tag: "accion"}).then((resultado) => {
-//   console.log(resultado);
-// })
-
-
 
 export { PelisCollection, Peli };
