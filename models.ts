@@ -34,15 +34,15 @@ class PelisCollection {
       //si el objeto tiene la propiedad title, el método tiene que devolver todas
       //las películas que tengan ese string en su title.
       if(options.title && options.tag){
-        const resultadoTitle = peliculas.filter((pelis) => pelis.title.toLowerCase().includes(options.title.toLowerCase()));
-        return resultadoTitle.filter((peli) => peli.tags.find(t => t.toLowerCase() == options.tag.toLowerCase()));
+        const resultadoTitle = peliculas.filter((pelis) => pelis.title.includes(options.title));
+        return resultadoTitle.filter((peli) => peli.tags.find(t => t == options.tag));
       } else if(options.title){
-          const resultadoTitle = peliculas.filter((pelis) => pelis.title.toLowerCase().includes(options.title.toLowerCase()));
+          const resultadoTitle = peliculas.filter((pelis) => pelis.title.includes(options.title));
             return resultadoTitle;
       } else if (options.tag) {
           //si el objeto tiene la propiedad tag, el método tiene
           //que devolver todas las películas que tengan ese string en sus tags.
-          const resultadoTags = peliculas.filter((pelis) => pelis.tags.find(t => t.toLowerCase() == options.tag.toLowerCase()));
+          const resultadoTags = peliculas.filter((pelis) => pelis.tags.find(t => t == options.tag));
             return resultadoTags;
         }
       });
