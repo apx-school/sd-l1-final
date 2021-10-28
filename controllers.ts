@@ -1,12 +1,12 @@
 import { PelisCollection, Peli } from "./models";
 
-interface Options {
-    id?: number,
-    search?: {
-      title?: string,
-      tag?:string
-    }
-}
+// interface Options {
+//     id?: number,
+//     search?: {
+//       title?: string,
+//       tag?:string
+//     }
+// }
 
 class PelisController {
   coleccionPelis : PelisCollection;
@@ -39,5 +39,6 @@ class PelisController {
     return this.coleccionPelis.add(peli);
   }
 }
+
 
 export { PelisController };

@@ -1,5 +1,5 @@
 import * as jsonfile from "jsonfile";
-import * as lodash from "lodash";
+
 
 // no modificar estas propiedades, agregar todas las que quieras
 class Peli {
@@ -29,7 +29,7 @@ class PelisCollection {
   }
   
   //search(options:any) recibe un objeto y, según cuales sean sus propiedades, hay dos opciones:
-  search(options:any) {
+  search(options:any): Promise<any> {
     return this.getAll().then((peliculas) => {
       //si el objeto tiene la propiedad title, el método tiene que devolver todas
       //las películas que tengan ese string en su title.
