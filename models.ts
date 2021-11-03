@@ -23,25 +23,26 @@ class PelisCollection {
     });
   }
   search(options: any) {
-    if (options.title) {
-      return this.getAll().then((collection) => {
-        const buscaTitulos = collection.filter((s) => {
-          var titulosEnMinuscula = s.title.toLocaleLowerCase();
-          // var titulosEnMinuscula = s.title.toLowerCase();
-          return titulosEnMinuscula.includes(options.title.toLowerCase());
-        });
-        return buscaTitulos;
-      });
-    } else if (options.tag) {
-      return this.getAll().then((collection) => {
-        const buscaTag = collection.filter((t) => {
-          var tags = t.tags;
-          // return tags.includes(options.tag.toLocaleLowerCase());
-          return tags.includes(options.tag.toLowerCase());
-        });
-        return buscaTag;
-      });
-    }
+    return this.getAll().then((collection) => {
+      if (options.title && options.tag) {
+        const resultadoTitle = collection.filter((films) =>
+          films.title.includes(options.title.toLowerCase())
+        );
+        return resultadoTitle.filter((film) =>
+          film.tags.find((t) => t == options.tag.toLowerCase())
+        );
+      } else if (options.title) {
+        const resultadoTitle = collection.filter((films) =>
+          films.title.includes(options.title.toLowerCase())
+        );
+        return resultadoTitle;
+      } else if (options.tag) {
+        const resultadoTags = collection.filter((films) =>
+          films.tags.find((t) => t == options.tag.toLowerCase())
+        );
+        return resultadoTags;
+      }
+    });
   }
   add(peli: Peli): Promise<boolean> {
     const promesaUno = this.getById(peli.id).then((peliExistente) => {
@@ -66,29 +67,3 @@ class PelisCollection {
 export { PelisCollection, Peli };
 
 const nuevaPelisCollection = new PelisCollection();
-
-// const todos = nuevaPelisCollection.getAll().then((h) => {
-//   console.log("getAll()", h);
-// });
-
-// const peliPorId = nuevaPelisCollection.getById(2).then((f) => {
-//   console.log("getById()", f);
-// });
-
-// const peliPorTitulo = nuevaPelisCollection.search({ title: "G" }).then((p) => {
-//   console.log("search x title", p);
-// });
-
-// const peliPorTag = nuevaPelisCollection.search({ tag: "aCCIÓN" }).then((t) => {
-//   console.log("search x tag", t);
-// });
-
-// const agregaPeli = nuevaPelisCollection
-//   .add({
-//     id: 2,
-//     title: "prueba",
-//     tags: ["uno", "dos", "tres"],
-//   })
-//   .then((a) => {
-//     console.log("add x Peli", a);
-//   });
