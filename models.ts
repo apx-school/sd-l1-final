@@ -29,7 +29,7 @@ class PelisCollection {
           films.title.includes(options.title.toLowerCase())
         );
         return resultadoTitle.filter((film) =>
-          film.tags.find((t) => t == options.tag.toLowerCase())
+          film.tags.find((a) => a == options.tag.toLowerCase())
         );
       } else if (options.title) {
         const resultadoTitle = collection.filter((films) =>
@@ -38,7 +38,7 @@ class PelisCollection {
         return resultadoTitle;
       } else if (options.tag) {
         const resultadoTags = collection.filter((films) =>
-          films.tags.find((t) => t == options.tag.toLowerCase())
+          films.tags.find((b) => b == options.tag.toLowerCase())
         );
         return resultadoTags;
       }
