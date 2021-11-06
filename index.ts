@@ -34,7 +34,7 @@ function controllerConParams(controller, params) {
       return result;
     });
   } else if (params._.length == 0) {
-    return controller.get("{}").then((result) => {
+    return controller.get({}).then((result) => {
       return result;
     });
   }
