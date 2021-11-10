@@ -1,5 +1,5 @@
-import anyTest, { TestInterface } from "ava";
-import { PelisCollection, Peli } from "./models";
+import anyTest, { TestInterface } from 'ava';
+import { PelisCollection, Peli } from './models';
 
 export const getRandomId = () => {
   const randomNumber = Math.floor(Math.random() * 100000);
@@ -14,17 +14,17 @@ const test = anyTest as TestInterface<{
 }>;
 
 const TEST_ID = getRandomId();
-const TEST_TITLE = "title " + SESSION_ID + TEST_ID;
+const TEST_TITLE = 'title ' + SESSION_ID + TEST_ID;
 
 const SECOND_TEST_ID = getRandomId();
-const SECOND_TEST_TITLE = "title " + SESSION_ID + SECOND_TEST_ID;
+const SECOND_TEST_TITLE = 'title ' + SESSION_ID + SECOND_TEST_ID;
 
-test.serial("Testeo el método getById", async (t) => {
+test.serial('Testeo el método getById', async (t) => {
   const collection = new PelisCollection();
   await collection.add({
     id: TEST_ID,
     title: TEST_TITLE,
-    tags: ["tt", "rr"],
+    tags: ['tt', 'rr'],
   });
   const all = await collection.getAll();
   const a = all[0];
@@ -32,17 +32,17 @@ test.serial("Testeo el método getById", async (t) => {
   t.is(a.title, b.title);
 });
 
-test.serial("Testeo el método search", async (t) => {
+test.serial('Testeo el método search', async (t) => {
   const collection = new PelisCollection();
   await collection.add({
     id: TEST_ID,
     title: TEST_TITLE,
-    tags: ["tt", "rr"],
+    tags: ['tt', 'rr'],
   });
   await collection.add({
     id: SECOND_TEST_ID,
     title: SECOND_TEST_TITLE,
-    tags: ["yy", "uu"],
+    tags: ['yy', 'uu'],
   });
   const all = await collection.getAll();
   const a = all[0];
@@ -52,7 +52,7 @@ test.serial("Testeo el método search", async (t) => {
 
   const c = await collection.search({
     title: SECOND_TEST_ID,
-    tag: "yy",
+    tag: 'yy',
   });
   t.deepEqual(c[0].id, SECOND_TEST_ID);
 });
