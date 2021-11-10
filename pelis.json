@@ -1,1 +1,31 @@
-[]
+[
+    {
+        "id": 1,
+        "title": "perfect blue",
+        "tags": ["thriller psicologico", "suspenso", "anime"]
+    }, 
+
+    {
+        "id": 2,
+        "title": "donnie darko",
+        "tags": ["ciencia ficcion", "thriller psicologico"]
+    },
+
+    {
+        "id": 3,
+        "title": "her",
+        "tags": ["ciencia ficcion", "romance"]
+    },
+
+    {
+        "id": 4,
+        "title": "el club de la pelea",
+        "tags": ["drama", "suspenso", "thriller psicologico"]
+    },
+
+    {
+        "id": 5,
+        "title": "in the mood for love",
+        "tags": ["romance", "drama"]
+    }
+]
