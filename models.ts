@@ -63,8 +63,4 @@ class PelisCollection {
   }
 }
 
-const x = new PelisCollection();
-var options = { title: 'mpire' };
-x.search(options).then((p) => console.log(p));
-console.log('a');
 export { PelisCollection, Peli };
