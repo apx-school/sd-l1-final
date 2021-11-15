@@ -1,1 +1,11 @@
-[]
+[
+  { "id": 1, "title": "joker", "tags": ["drama", "thriller"] },
+  { "id": 2, "title": "fast & furious 9", "tags": ["accion", "aventura"] },
+  {
+    "id": 3,
+    "title": "mortal kombat",
+    "tags": ["fantasia", "accion", "aventura"]
+  },
+  { "id": 4, "title": "viuda negra", "tags": ["accion", "ciencia ficcion"] },
+  { "id": 5, "title": "harry potter", "tags": ["familia", "fantasia"] }
+]

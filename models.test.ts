@@ -55,4 +55,4 @@ test.serial("Testeo el método search", async (t) => {
     tag: "yy",
   });
   t.deepEqual(c[0].id, SECOND_TEST_ID);
-});
+})
