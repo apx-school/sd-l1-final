@@ -60,8 +60,5 @@ class PelisCollection {
  
 
 export { PelisCollection, Peli };
-//const objeto = new PelisCollection();
-//objeto.search({title:"v", tags:"accion"}).then((res)=>{
-//  console.log(res)
-//})
+
  
