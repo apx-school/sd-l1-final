@@ -23,12 +23,12 @@ function parseaParams(argv) {
     return controller.get({search: {title: params.title}}).then((res)=>{
       return res;
     })
-  } else if(params._[0] == "search" && params.tags){
-    return controller.get({search: {tags: params.tags}}).then((res)=>{
+  } else if(params._[0] == "search" && params.tag){
+    return controller.get({search: {tags: params.tag}}).then((res)=>{
       return res;
     })
-  } else if(params._[0] == "search" && params.title && params.tags){
-    return controller.get({search: {title: params.title, tags:params.tags}}).then((res)=>{
+  } else if(params._[0] == "search" && params.title && params.tag){
+    return controller.get({search: {title: params.title, tags:params.tag}}).then((res)=>{
       return res;
     })
   } else if({}){

@@ -23,16 +23,16 @@ class PelisCollection {
   };
   search(options:any): Promise<any> {
     return this.getAll().then((a)=>{
-      if(options.title && options.tags){
-        return a.filter((pelis)=> { return pelis.title.includes(options.title) && pelis.tags.includes(options.tags)});
+      if(options.title && options.tag){
+        return a.filter((pelis)=> { return pelis.title.includes(options.title) && pelis.tags.includes(options.tag)});
    
       
    } else if(options.title){
     return a.filter((pelis) => { return pelis.title.includes(options.title);
       
     });
-  } else if(options.tags){
-      return a.filter((pelis)=> { return pelis.tags.includes(options.tags);
+  } else if(options.tag){
+      return a.filter((pelis)=> { return pelis.tags.includes(options.tag);
         
       });
     };
