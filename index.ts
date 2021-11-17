@@ -3,12 +3,6 @@ import * as minimist from "minimist";
 
 function parseaParams(argv) {
   const resultado = minimist(argv);
-  if (resultado._[0] == "search" || resultado._[0] == "get") {
-    return{
-      id:resultado._[1],
-      search:{title:resultado.title,tags:resultado.tag}
-    }
-  }
   if (resultado._[0] == "add") {
     return{
       id:resultado.id,
@@ -16,10 +10,23 @@ function parseaParams(argv) {
       tags:resultado.tags
     }
   }
+  if (resultado._[0] == "get") {
+    return{id:resultado._[1]}
+  }
+  if (resultado._[0] == "search" && resultado.title && resultado.tag) {
+    return{search:{title:resultado.title, tag:resultado.tag}}
+  }
+  if (resultado._[0] == "search" && resultado.title) {
+    return{search:{title:resultado.title}}
+  }
+  if (resultado._[0] == "search" && resultado.tag) {
+    return{search:{tag:resultado.tag}}
+  }
   else{
     return {}
   }
 }
+
 async function ejecutorDeParams(params) {
   const controller = new PelisController()
   if(params.id && params.title && params.tags ){
@@ -37,8 +44,18 @@ async function main() {
   const result = await ejecutorDeParams(params)
   console.log(result);
 }
+  
 main();
   
+  
+  
+  
+  
+  
+  
+  
+
+      
   
 
     
