@@ -1,5 +1,6 @@
 import anyTest, { TestInterface } from "ava";
 import { PelisController } from "./controllers";
+import { Peli } from "./models";
 import { getRandomId } from "./models.test";
 
 const TEST_ID = getRandomId();
@@ -17,7 +18,7 @@ test.serial(
   async (t) => {
     // testeo peli agregada desde el script test del package
     const controller = new PelisController();
-    const peli = await controller.get({ id: 4321865 });
+    const peli:any = await controller.get({ id: 4321865 });
     t.is(peli.title, "peli de la terminal 4321865");
   }
 );

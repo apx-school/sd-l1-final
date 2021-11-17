@@ -3,5 +3,6 @@
     "target": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true
+    
   }
 }

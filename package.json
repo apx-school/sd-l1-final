@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "test": "ts-node index.ts add --id=4321865 --title=\"peli de la terminal 4321865\" --tags=rr --tags=ww && ava",
-    "start": "ts-node index.ts"
+    "test": "ava"
   },
   "ava": {
+    "timeout": "10m",
     "extensions": {
       "ts": "module"
     },
