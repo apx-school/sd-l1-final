@@ -6,15 +6,21 @@ class PelisController {
     this.data = new PelisCollection;
   };
 
-  get(options) {
+  get(options: any): Promise<any> {
     if (options.id) {
-      return this.data.getById(options.id); 
+      return this.data.getById(options.id).then((r)=>{
+       return r; 
+      }); 
     }
 
-    if (options.search) {
-      return this.data.search(options.search);
+   else if (options.search) {
+      return this.data.search(options.search).then((r)=>{
+        return r;
+      });
     } else {
-      return this.data.getAll();
+      return this.data.getAll().then((r)=>{
+          return r;
+      });
     }
   
 

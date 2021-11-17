@@ -29,29 +29,22 @@ class PelisCollection {
       
   }
 
-  search(options: any): Promise<any> {
-    return this.getAll().then((pelis) => {
-      var collection = pelis;
-      if (options.title) {
-        collection = collection.filter((peli) => {
-          return peli.title.toLowerCase().includes(options.title.toString().toLowerCase());
-        });
-      }
-      if (options.tag) {
-        collection = collection.filter((pelis) => {
-          return pelis.tags.includes(options.tag);
-        });
-      }
-      if (options.title && options.tag) {
-        collection = collection.filter((pelis) => {
-          return (
-            pelis.title.toLowerCase().includes(options.title) &&
-            pelis.tags.includes(options.tag)
-          );
-        });
-      }
-      return collection;
+  search(options:any): Promise<any> {
+    return this.getAll().then((a)=>{
+      if(options.title && options.tag){
+        return a.filter((pelis)=> { return pelis.title.includes(options.title) && pelis.tags.includes(options.tag)});
+   
+      
+   } else if(options.title){
+    return a.filter((pelis) => { return pelis.title.includes(options.title);
+      
     });
+  } else if(options.tag){
+      return a.filter((pelis)=> { return pelis.tags.includes(options.tag);
+        
+      });
+    };
+  });
   }
   add(peli: Peli): Promise<boolean> {
     const promesaUno = this.getById(peli.id).then((peliExistente) => {
