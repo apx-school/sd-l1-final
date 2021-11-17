@@ -55,6 +55,7 @@ class PelisCollection {
 
   async search(option:any) {
 
+    await this.pullData()
 
     let data = this.pelisCollection
 
@@ -75,7 +76,7 @@ class PelisCollection {
       }
     }
     )
-    console.log(data)
+    return data
 
 
 
