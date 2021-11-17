@@ -6,14 +6,14 @@ function parseaParams(argv) {
   if (resultado._[0] == 'search' || resultado._[0] == 'get') {
     return {
       id: resultado._[1],
-      search: { title: resultado.title, tags: resultado.tag },
+      search: { title: resultado.title, tag: resultado.tag },
     };
   }
   if (resultado._[0] == 'add') {
     return {
       id: resultado.id,
       title: resultado.title,
-      tags: resultado.tags,
+      tags: resultado.tag,
     };
   } else {
     return {};
@@ -23,7 +23,7 @@ function parseaParams(argv) {
 function ejecutarComandos(params) {
   const controller = new PelisController();
 
-  if (params.id && params.title && params.tags) {
+  if (params.id && params.title && params.tag) {
     return controller.add(params).then((r) => {
       console.log(r);
     });
