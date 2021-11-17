@@ -7,5 +7,51 @@
     "tags": ["fantasia", "accion", "aventura"]
   },
   { "id": 4, "title": "viuda negra", "tags": ["accion", "ciencia ficcion"] },
-  { "id": 5, "title": "harry potter", "tags": ["familia", "fantasia"] }
+  { "id": 5, "title": "harry potter", "tags": ["familia", "fantasia"] },
+  {
+    "id": 4321865,
+    "title": "peli de la terminal 4321865",
+    "tags": ["rr", "ww"]
+  },
+  { "id": 196580, "title": "title 168654196580", "tags": ["tt", "rr"] },
+  { "id": 195010, "title": "title 146302195010", "tags": ["tt", "rr"] },
+  { "id": 202717, "title": "title 146302202717", "tags": ["yy", "uu"] },
+  {
+    "id": 137192,
+    "title": "una peli 137192",
+    "tags": ["classic", "tag 137192"]
+  },
+  {
+    "id": 225006,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 137192"]
+  },
+  { "id": 228427, "title": "title 135193228427", "tags": ["tt", "rr"] },
+  { "id": 209640, "title": "title 135193209640", "tags": ["yy", "uu"] },
+  { "id": 164458, "title": "title 176549164458", "tags": ["tt", "rr"] },
+  { "id": 217956, "title": "title 176549217956", "tags": ["yy", "uu"] },
+  {
+    "id": 165194,
+    "title": "una peli 165194",
+    "tags": ["classic", "tag 165194"]
+  },
+  {
+    "id": 144175,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 165194"]
+  },
+  { "id": 200156, "title": "title 173375200156", "tags": ["tt", "rr"] },
+  { "id": 218866, "title": "title 173375218866", "tags": ["yy", "uu"] },
+  { "id": 188948, "title": "title 189897188948", "tags": ["tt", "rr"] },
+  { "id": 133953, "title": "title 189897133953", "tags": ["yy", "uu"] },
+  {
+    "id": 163733,
+    "title": "una peli 163733",
+    "tags": ["classic", "tag 163733"]
+  },
+  {
+    "id": 175259,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 163733"]
+  }
 ]

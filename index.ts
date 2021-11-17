@@ -7,7 +7,7 @@ function parseaParams(argv) {
 }
 
  function respuestaAlResultado(controller, params){
-  if(params._[0] == "add"){
+  if(params._[0] == "add" && params.tags){
     return controller.add({
       id: params.id,
       title: params.title,
@@ -24,11 +24,11 @@ function parseaParams(argv) {
       return res;
     })
   } else if(params._[0] == "search" && params.tag){
-    return controller.get({search: {tags: params.tag}}).then((res)=>{
+    return controller.get({search: {tag: params.tag}}).then((res)=>{
       return res;
     })
   } else if(params._[0] == "search" && params.title && params.tag){
-    return controller.get({search: {title: params.title, tags:params.tag}}).then((res)=>{
+    return controller.get({search: {title: params.title, tag:params.tag}}).then((res)=>{
       return res;
     })
   } else if({}){
