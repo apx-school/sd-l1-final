@@ -1,1 +1,26 @@
-[]
+[
+  {
+    "id": 4321865,
+    "title": "peli de la terminal 4321865",
+    "tags": ["rr", "ww"]
+  },
+  { "id": 229051, "title": "title 135178229051", "tags": ["tt", "rr"] },
+  { "id": 219322, "title": "title 135178219322", "tags": ["yy", "uu"] },
+  { "id": 145680, "title": "title 223892145680", "tags": ["tt", "rr"] },
+  { "id": 198845, "title": "title 223892198845", "tags": ["yy", "uu"] },
+  {
+    "id": 197688,
+    "title": "una peli 197688",
+    "tags": ["classic", "tag 197688"]
+  },
+  {
+    "id": 228606,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 197688"]
+  },
+  {
+    "id": 4411,
+    "title": "Título de la nueva peli",
+    "tags": ["action", "classic"]
+  }
+]
