@@ -98,13 +98,13 @@ class PelisCollection {
       const data = JSON.stringify( this.pelisCollection)
       return writeFile("./pelis.json",data, (err) => {
           if (err)
-            console.log(false);
+            return false;
           else {
-            console.log(true)
+            return true
           }
       })
     } else {
-      console.log(false)
+      return false
     }
 
   }
