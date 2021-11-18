@@ -20,6 +20,7 @@ En models.ts:
 
 import { readFile, writeFile } from "fs/promises";
 
+
 // no modificar estas propiedades, agregar todas las que quieras
 class Peli {
   id: number;
