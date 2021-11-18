@@ -7,7 +7,7 @@
     "test": "ava"
   },
   "ava": {
-    "timeout": "20m",
+    "timeout": "10m",
     "extensions": {
       "ts": "module"
     },
@@ -22,6 +22,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@ava/typescript": "^3.0.1",
+    "@types/minimist": "^1.2.2",
     "@types/node": "^14.14.35",
     "ava": "^3.15.0",
     "ts-node": "^9.1.1",

@@ -1,31 +1,43 @@
-import * as minimist from "minimist";
-import { argv } from "process";
-import {PelisController} from "./controllers"
+/*
+En index.ts:
 
-function parseaParams(argv) {
+    Parseá los argumentos de la terminal.
+    Usá la librería minimist. Los comandos que deberían funcionar son los siguientes:
+*/
+
+
+import minimist from "minimist";
+import {PelisController} from "./controllers"
+import { Peli } from "./models";
+
+function parseaParams(argv: string[]) {
   const resultado = minimist(argv);
   return resultado;
-  
-
 }
 
 async function main() {
   const params = parseaParams(process.argv.slice(2));
+  const pelisController = new PelisController
+  const parametro = Object.assign({}, params)
+  delete parametro._
   
-  
-  
-  //Instanciamos el objeto PellisController para interactual con el PelisControllerOptions
-  const o = new PelisController
-  const ooo = Object.assign({}, params)
-  delete ooo._
-  
-  const a = await o.processOptions({
+  const objetoUsable = {
     actions: params._[0],
-    params: ooo
-  })
-  
-  return console.log(a)
+    params: parametro
+  }
 
+  if (objetoUsable.actions === "get" || objetoUsable.actions == "search") {
+    const resultado = pelisController.get(objetoUsable.params)
+    return console.log(await resultado)
+    } if (objetoUsable.actions === "add") {
+      const agregable:any = objetoUsable.params
+      const resultado = pelisController.add(agregable)
+      return console.log(await resultado)
+      } else {
+        const resultado = pelisController.pelisCollection.getAll()
+        return console.log(await resultado)
+      }
 }
+
 
 main();

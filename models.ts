@@ -18,12 +18,7 @@ En models.ts:
         y otra para crear la peli en el archivo. Para resolver ese problema tener en cuenta el siguiente patrón:
 */
 
-
-import * as jsonfile from "jsonfile";
-
-import { readFile } from "fs/promises";
-import { writeFile } from "fs";
-import { stringify } from "querystring";
+import { readFile, writeFile } from "fs/promises";
 
 // no modificar estas propiedades, agregar todas las que quieras
 class Peli {
@@ -35,41 +30,32 @@ class Peli {
 class PelisCollection {
   pelisCollection:Peli[] = []
 
-  async pullData(){
+  async getAll(){
     const dato = await readFile("./pelis.json")
-    const dato1 = await dato.toString();
+    const dato1 = dato.toString();
     const dato2 = await JSON.parse(dato1);
     this.pelisCollection = dato2
     return  this.pelisCollection
   }
 
-  getAll(){
-    return this.pullData()
-  }
-
   async getById(id:number){
-    await this.pullData()
+    await this.getAll()
     const busqueda = this.pelisCollection.find((x => x.id === id))
     return busqueda //ojo que antes tiraba un consolelog
   }
 
   async search(option:any) {
-
-    await this.pullData()
-
+    await this.getAll()
     let data = this.pelisCollection
-
     let filtrado = Object.entries(option).map( function(valoresOptions) {
  
-      const buscado = valoresOptions[1].toString().toLowerCase();
-      
-      if (valoresOptions[0] == "title") {
-        const filtro = data.filter(item => item.title.toString().toLowerCase().indexOf(buscado) !== -1)
-        data = filtro
-        return data
-  
-      } else {
-
+    const buscado = valoresOptions[1].toString().toLowerCase();
+    
+    if (valoresOptions[0] == "title") {
+      const filtro = data.filter(item => item.title.toString().toLowerCase().indexOf(buscado) !== -1)
+      data = filtro
+      return data
+    } else {
         const filtro = data.filter(item => item.tags.indexOf(buscado) !== -1)
         data = filtro
         return data
@@ -77,32 +63,16 @@ class PelisCollection {
     }
     )
     return data
-
-
-
-    // const busqueda = Object.entries(option).map(function(value){
-      
-    //     return data.filter(item => value[0].toLowerCase().indexOf(value[0]) !== -1)
-    // }
-    // )
-    // console.log('soyestabusqyeda',busqueda)
-    // console.log('soydataafuera',data)
-    
   }
 
   async add(peli:Peli) {
-    await this.pullData();
+    await this.getAll();
     let data = this.pelisCollection
-    if ((await (this.getById(peli.id))) === undefined) {
+    if ((await this.getById(peli.id)) === undefined) {
       this.pelisCollection.push(peli)
       const data = JSON.stringify( this.pelisCollection)
-      return writeFile("./pelis.json",data, (err) => {
-          if (err)
-            return false;
-          else {
-            return true
-          }
-      })
+      await writeFile("./pelis.json",data);
+      return true
     } else {
       return false
     }
@@ -112,6 +82,27 @@ class PelisCollection {
 };
 
 export { PelisCollection, Peli };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // function main(){
 //   // console.log('soy main')
