@@ -45,28 +45,27 @@ class PelisCollection {
     return busqueda //ojo que antes tiraba un consolelog
   }
 
-  async search(option:any) {
+  async search(option:any){
     await this.getAll()
     let data = this.pelisCollection
     let filtrado = Object.entries(option).map( function(valoresOptions) {
- 
-    const buscado = valoresOptions[1].toString().toLowerCase();
+      const buscado = valoresOptions[1].toString().toLowerCase();
     
-    if (valoresOptions[0] == "title") {
-      const filtro = data.filter(item => item.title.toString().toLowerCase().indexOf(buscado) !== -1)
-      data = filtro
-      return data
-    } else {
-        const filtro = data.filter(item => item.tags.indexOf(buscado) !== -1)
+      if (valoresOptions[0] == "title") {
+        const filtro = data.filter(item => item.title.toString().toLowerCase().indexOf(buscado) !== -1)
         data = filtro
         return data
+      } else {
+          const filtro = data.filter(item => item.tags.indexOf(buscado) !== -1)
+          data = filtro
+          return data
+        }
       }
-    }
-    )
-    return data
+      )
+      return data
   }
 
-  async add(peli:Peli) {
+  async add(peli:Peli):Promise<any>{
     await this.getAll();
     let data = this.pelisCollection
     if ((await this.getById(peli.id)) === undefined) {

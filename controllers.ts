@@ -29,7 +29,7 @@ class PelisController {
     this.pelisCollection.getAll
   }
   
-  get(options:any){
+  get(options:any):Promise<any>{
     if (typeof options.id === 'number' ) {
       return this.pelisCollection.getById(options.id)
     } else {
@@ -37,7 +37,7 @@ class PelisController {
     } 
   }
   
-  add(peli:Peli){
+  add(peli:Peli):Promise<any>{
     return this.pelisCollection.add(peli)
   }
 
