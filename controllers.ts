@@ -6,26 +6,11 @@ class PelisController {
     this.pelis = new PelisCollection();
   }
 
-  get(options: any) {
+  get(options): Promise<any> {
     if (options.id) {
-      return this.pelis.getById(options.id);
-    } else if (options.search) {
-      if (options.search.title && options.search.tag) {
-        return this.pelis.search({
-          title: options.search.title,
-          tag: options.search.tag,
-        });
-      } else if (options.search.title) {
-        return this.pelis.search({
-          title: options.search.title,
-        });
-      } else if (options.search.tag) {
-        return this.pelis.search({
-          tag: options.search.tag,
-        });
-      }
+      return this.pelis.getById(options.id).then((r) => r);
     } else {
-      return this.pelis.getAll();
+      return this.pelis.search(options.search).then((r) => r);
     }
   }
 
