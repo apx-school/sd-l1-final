@@ -31,10 +31,10 @@ class Peli {
 class PelisCollection {
   pelisCollection:Peli[] = []
 
-  async getAll(){
+  async getAll():Promise<any>{
     const dato = await readFile("./pelis.json")
     const dato1 = dato.toString();
-    const dato2 = await JSON.parse(dato1);
+    const dato2 = JSON.parse(dato1);
     this.pelisCollection = dato2
     return  this.pelisCollection
   }
