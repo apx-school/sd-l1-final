@@ -1,4 +1,3 @@
-import { readFile, writeFile } from "fs/promises";
 import anyTest, { TestInterface } from "ava";
 import { PelisCollection, Peli } from "./models";
 

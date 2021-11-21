@@ -18,7 +18,7 @@ En models.ts:
         y otra para crear la peli en el archivo. Para resolver ese problema tener en cuenta el siguiente patrón:
 */
 
-import { readFile, writeFile } from "fs/promises";
+import { readFile, writeFile } from "jsonfile";
 
 
 // no modificar estas propiedades, agregar todas las que quieras

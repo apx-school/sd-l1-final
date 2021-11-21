@@ -18,7 +18,6 @@ Tomá la estructura base y completá la clase PelisController. Además, agregale
 */
 
 import { PelisCollection, Peli } from "./models";
-import {readFile,writeFile} from "fs/promises"
 
 class PelisController {
   
