@@ -1,4 +1,5 @@
 import * as jsonfile from "jsonfile";
+import { PelisController } from "./controllers";
 
 // no modificar estas propiedades, agregar todas las que quieras
 class Peli {

@@ -1,20 +1,30 @@
 import * as minimist from "minimist";
 import { PelisController } from "./controllers";
 
-async function comandosAEjecutar(params: any) {
+function parseaParams() {
+  const resultado = minimist(process.argv.slice(2));
+  return resultado;
+}
+
+async function comandosAEjecutar(params) {
+  const pelisController = new PelisController();
   try {
-    const control = new PelisController();
-    if (params.title && params.id && params.tag) {
-      const outPut = await control.add(params);
+    if (params._[0] == "get") {
+      const outPut = await pelisController.get({ id: params._[1] });
       return outPut;
-    } else if (params.id) {
-      const outPut = await control.get(params);
+    } else if (params._ == "search") {
+      const outPut = await pelisController.get({
+        search: {
+          title: params.title,
+          tag: params.tag,
+        },
+      });
       return outPut;
-    } else if (params.search) {
-      const outPut = await control.get(params);
-      return outPut;
+    } else if (params._ == "add") {
+      delete params._;
+      return pelisController.add(params);
     } else {
-      const outPut = await control.get({});
+      const outPut = await pelisController.get(params);
       return outPut;
     }
   } catch (e) {
@@ -22,25 +32,9 @@ async function comandosAEjecutar(params: any) {
   }
 }
 
-function parseaParams(argv) {
-  const resultado = minimist(argv);
-  if (resultado._[0] == "add") {
-    return { id: resultado.id, title: resultado.title, tags: resultado.tags };
-  } else if (resultado._[0] == "get") {
-    return { id: resultado._[1] };
-  } else if (resultado._[0] == "search" && resultado.title && resultado.tag) {
-    return { search: { title: resultado.title, tag: resultado.tag } };
-  } else if (resultado._[0] == "search" && resultado.title) {
-    return { search: { title: resultado.title } };
-  } else if (resultado._[0] == "search" && resultado.tag) {
-    return { search: { tag: resultado.tag } };
-  } else {
-    return {};
-  }
-}
-
 async function main() {
-  const params = parseaParams(process.argv.slice(2));
+  //const params = parseaParams(process.argv.slice(2));
+  const params = parseaParams();
   const outPut = await comandosAEjecutar(params);
   console.log(outPut);
 }

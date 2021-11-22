@@ -32,4 +32,5 @@ class PelisController {
     return nuevaPeli;
   }
 }
+
 export { PelisController };
