@@ -1,1 +1,27 @@
-[]
+[
+  { "id": 10, "title": "quelorepario", "tags": ["pepe", "drama", "otros"] },
+  { "id": 655, "title": "xxxQWE", "tags": ["sonic", "drama", "otros"] },
+  { "id": 656, "title": "xxxASD", "tags": ["pepe", "drama", "otros"] },
+  { "id": 657, "title": "xxxZXC", "tags": ["sonic", "drama", "otros"] },
+  { "id": 256, "title": "Una peli cualquiera", "tags": ["hmmmm", "queeee"] },
+  { "id": 255, "title": "Una peli cualquiera", "tags": ["hmmmm", "queeee"] },
+  {
+    "id": 4321865,
+    "title": "peli de la terminal 4321865",
+    "tags": ["rr", "ww"]
+  },
+  { "id": 133522, "title": "title 133094133522", "tags": ["tt", "rr"] },
+  { "id": 216844, "title": "title 133094216844", "tags": ["yy", "uu"] },
+  { "id": 174413, "title": "title 144137174413", "tags": ["tt", "rr"] },
+  { "id": 224601, "title": "title 144137224601", "tags": ["yy", "uu"] },
+  {
+    "id": 189775,
+    "title": "una peli 189775",
+    "tags": ["classic", "tag 189775"]
+  },
+  {
+    "id": 186826,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 189775"]
+  }
+]
