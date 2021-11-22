@@ -9,8 +9,11 @@ class PelisController {
   get(options): Promise<any> {
     if (options.id) {
       return this.pelis.getById(options.id).then((r) => r);
-    } else {
+    }
+    if (options.search) {
       return this.pelis.search(options.search).then((r) => r);
+    } else {
+      return this.pelis.getAll();
     }
   }
 

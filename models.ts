@@ -14,32 +14,31 @@ class PelisCollection {
     });
   }
 
-  getById(id: number): Promise<Peli> {
+  getById(id: number) {
     return this.getAll().then((peliculas) => {
-      var peliBuscada = peliculas.find((peli) => peli.id == id);
-      return peliBuscada;
+      const resultado = peliculas.find((pelicula) => {
+        return pelicula.id == id;
+      });
+      return resultado;
     });
   }
 
-  search(options: any): Promise<any> {
+  search(options: any) {
     return this.getAll().then((peliculas) => {
       if (options.title && options.tag) {
-        const resultadoTitle = peliculas.filter((pelis) =>
-          pelis.title.includes(options.title)
-        );
-        return resultadoTitle.filter((peli) =>
-          peli.tags.find((t) => t == options.tag)
-        );
+        return peliculas.filter((p) => {
+          return (
+            p.title.includes(options.title) && p.tags.includes(options.tag)
+          );
+        });
       } else if (options.title) {
-        const resultadoTitle = peliculas.filter((pelis) =>
-          pelis.title.includes(options.title)
-        );
-        return resultadoTitle;
+        return peliculas.filter((p) => {
+          return p.title.includes(options.title);
+        });
       } else if (options.tag) {
-        const resultadoTags = peliculas.filter((pelis) =>
-          pelis.tags.find((t) => t == options.tag)
-        );
-        return resultadoTags;
+        return peliculas.filter((p) => {
+          return p.tags.includes(options.tag);
+        });
       }
     });
   }
