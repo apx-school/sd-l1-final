@@ -27,11 +27,12 @@ class PelisController {
     this.pelisCollection = new PelisCollection
   }
   
-  get(options:any){
+  async get(options:any){
     if (typeof options.id === 'number' ) {
-      return this.pelisCollection.getById(options.id)
+      const resultado = this.pelisCollection.getById(options.id)
+      return resultado
     } else {
-        return this.pelisCollection.search(options)
+      return this.pelisCollection.search(options)
     } 
   }
   

@@ -62,8 +62,8 @@ class PelisCollection {
         }
       }
       )
-      const resultado = Promise.all(filtrado[0])
-      return resultado
+      const resultado = await Promise.all(filtrado[0])
+      return resultado[0]
   }
 
   async add(peli:Peli):Promise<any>{

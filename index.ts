@@ -26,6 +26,27 @@ async function main() {
     params: parametro
   }
 
+  const controller = new PelisController();
+  const TEST_ID = 1
+  const SOME_TITLE = "SOME_TITLE"
+
+  await controller.add({
+    id: TEST_ID,
+    title: SOME_TITLE,
+    tags: ["classic", "SOME_TAG"],
+  });
+  const peli = await controller.get({ id: TEST_ID });
+  console.log("soyPeli",peli)
+
+
+  const controller2 = new PelisController();
+  const peli2 = await controller.get({ id: 4321865 });
+  console.log("soyPeli2",peli2)
+
+
+
+
+
   if (objetoUsable.actions === "get" || objetoUsable.actions == "search") {
     const resultado = pelisController.get(objetoUsable.params)
     return console.log(await resultado)
