@@ -62,7 +62,8 @@ class PelisCollection {
         }
       }
       )
-      return data
+      const resultado = Promise.all(filtrado[0])
+      return resultado
   }
 
   async add(peli:Peli):Promise<any>{
