@@ -10,30 +10,46 @@ function parseaParams(argv) {
 function processOptions(params) {
   const controller = new PelisController();
 
-  if (params._[0] == "search" && params.title && params.tags) {
+  //Parsea title and tag
+  if (params._[0] == "search" && params.title && params.tag) {
     return controller
-      .get({ title: params.title, tags: params.tags })
+      .get({ title: params.title, tag: params.tag })
       .then((res) => res);
-  } else if (params._[0] == "search" && params.title) {
+  }
+  //Parsea title
+  else if (params._[0] == "search" && params.title) {
     return controller.get({ title: params.title }).then((res) => res);
-  } else if (params._[0] == "search" && params.tags) {
-    return controller.get({ tags: params.tags }).then((res) => res);
-  } else if (params._[0] == "add") {
+  }
+  //Parsea tag
+  else if (params._[0] == "search" && params.tag) {
+    return controller.get({ tag: params.tag }).then((res) => res);
+  }
+  //Parsea add
+  else if (params._[0] == "add") {
     return controller
-      .add({ title: params.title, tags: params.tags, id: params.id })
+      .add({ title: params.title, tags: params.tag, id: params.id })
       .then((res) => res);
-  } else if (params._[0] == "get") {
+  }
+  //Parsea get
+  else if (params._[0] == "get") {
     return controller.get({ id: params._[1] }).then((res) => res);
-  } else if ({}) {
+  }
+  //Devuelve todos
+  else if ({}) {
     controller.get({}).then((res) => res);
   }
 }
-
 function main() {
   const params = parseaParams(process.argv.slice(2));
   return processOptions(params).then((res) => console.log(res));
-
-  console.log(params);
 }
 
 main();
+
+// Los comandos que deberían funcionar son los siguientes:
+// ts-node index.ts add --id=4411 --title="Título de la nueva peli" --tag=action --tag=classic
+// ts-node index.ts get 4411
+// ts-node index.ts search --title="a"
+// ts-node index.ts search --tag="classic"
+// ts-node index.ts search --title="x" --tag="action"
+// ts-node index.ts (este último comando debe devolver todas las películas)

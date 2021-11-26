@@ -13,23 +13,23 @@ class PelisCollection {
       return res;
     });
   }
-  getById(id: number) {
+  getById(id: number): Promise<any> {
     return this.getAll().then((res) => {
       return res.find((i) => i.id === id);
     });
   }
-  search(options: any) {
+  search(options: any): Promise<any> {
     return this.getAll().then((res) => {
-      if (options.title && options.tags) {
+      if (options.title && options.tag) {
         return res.filter((i) => {
           return (
-            i.title.includes(options.title) && i.tags.includes(options.tags)
+            i.title.includes(options.title) && i.tags.includes(options.tag)
           );
         });
       } else if (options.title) {
         return res.filter((i) => i.title.includes(options.title));
-      } else if (options.tags) {
-        return res.filter((i) => i.tags.includes(options.tags));
+      } else if (options.tag) {
+        return res.filter((i) => i.tags.includes(options.tag));
       }
     });
   }
