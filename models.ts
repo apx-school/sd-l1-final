@@ -19,27 +19,32 @@ class PelisCollection {
     });
   }
   search(options: any) {
-    try {
-      return this.getAll().then((res) => {
-        if (options.title && options.tags) {
-          return res.filter((i) => {
-            return (
-              i.title.includes(options.title) && i.tags.includes(options.tags)
-            );
-          });
-        } else if (options.title) {
-          return res.filter((i) => i.title.includes(options.title));
-        } else if (options.tags) {
-          return res.filter((i) => i.tags.includes(options.tags));
-        }
-      });
-    } catch (error) {
-      console.error(error);
-    }
+    return this.getAll().then((res) => {
+      if (options.title && options.tags) {
+        return res.filter((i) => {
+          return (
+            i.title.includes(options.title) && i.tags.includes(options.tags)
+          );
+        });
+      } else if (options.title) {
+        return res.filter((i) => i.title.includes(options.title));
+      } else if (options.tags) {
+        return res.filter((i) => i.tags.includes(options.tags));
+      }
+    });
+  }
+  add(peli: Peli): Promise<boolean> {
+    return this.getById(peli.id).then((peliExistente) => {
+      if (peliExistente) {
+        return false;
+      } else {
+        const promesaDos = this.getAll().then((res) => {
+          res.push(peli);
+          return jsonfile.writeFile("./pelis.json", res);
+        });
+        return promesaDos.then(() => true);
+      }
+    });
   }
 }
-
-const nueva = new PelisCollection();
-nueva.search({ title: "El" }).then((res) => console.log(res));
-
 export { PelisCollection, Peli };
