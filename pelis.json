@@ -1,1 +1,27 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "El Viaje de Chihiro",
+    "tags": ["japanese", "family movies", "anime movies"]
+  },
+  {
+    "id": 2,
+    "title": "El castillo del vagabundo",
+    "tags": [
+      "japanese",
+      "family movies",
+      "anime movies",
+      "anime based on books"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Star Wars, El imperio contraataca",
+    "tags": ["action", "adventure", "fantasy", "science fiction"]
+  },
+  {
+    "id": 415,
+    "tittle": "Don Pirulo",
+    "tags": ["action", "love", "cualquiera"]
+  }
+]
