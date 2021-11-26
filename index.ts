@@ -13,16 +13,18 @@ function processOptions(params) {
   //Parsea title and tag
   if (params._[0] == "search" && params.title && params.tag) {
     return controller
-      .get({ title: params.title, tag: params.tag })
+      .get({ search: { title: params.title, tag: params.tag } })
       .then((res) => res);
   }
   //Parsea title
   else if (params._[0] == "search" && params.title) {
-    return controller.get({ title: params.title }).then((res) => res);
+    return controller
+      .get({ search: { title: params.title } })
+      .then((res) => res);
   }
   //Parsea tag
   else if (params._[0] == "search" && params.tag) {
-    return controller.get({ tag: params.tag }).then((res) => res);
+    return controller.get({ search: { tag: params.tag } }).then((res) => res);
   }
   //Parsea add
   else if (params._[0] == "add") {
@@ -36,7 +38,7 @@ function processOptions(params) {
   }
   //Devuelve todos
   else if ({}) {
-    controller.get({}).then((res) => res);
+    return controller.get({}).then((res) => res);
   }
 }
 function main() {
