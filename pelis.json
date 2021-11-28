@@ -1,1 +1,121 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "Forrest Gump",
+    "rating": 8,
+    "tags": ["drama", "romance", "clasico"],
+    "year": 1994
+  },
+  {
+    "id": 2,
+    "title": "El rey leon",
+    "rating": 8,
+    "tags": ["drama", "animacion", "aventura"],
+    "year": 1994
+  },
+  {
+    "id": 3,
+    "title": "Corazon de dragon",
+    "rating": 7,
+    "tags": ["fantasia", "accion", "aventura"],
+    "year": 1996
+  },
+  {
+    "id": 4,
+    "title": "La historia sin fin",
+    "rating": 7,
+    "tags": ["fantasia", "accion", "familia"],
+    "year": 1984
+  },
+  {
+    "id": 5,
+    "title": "Flubber",
+    "rating": 6,
+    "tags": ["comedia", "ciencia ficcion", "familia"],
+    "year": 1997
+  },
+  {
+    "id": 6,
+    "title": "Volver al futuro",
+    "rating": 9,
+    "tags": ["aventura", "comedia", "ciencia ficcion"],
+    "year": 1985
+  },
+  {
+    "id": 7,
+    "title": "Space jam",
+    "rating": 7,
+    "tags": ["animacion", "aventura", "comedia", "clasico"],
+    "year": 1996
+  },
+  {
+    "id": 8,
+    "title": "Matrix",
+    "rating": 9,
+    "tags": ["accion", "ciencia ficcion", "aventura"],
+    "year": 1999
+  },
+  {
+    "id": 9,
+    "title": "Ghost",
+    "rating": 7,
+    "tags": ["drama", "fantasia", "romance"],
+    "year": 1990
+  },
+  {
+    "id": 10,
+    "title": "Gladiador",
+    "rating": 9,
+    "tags": ["accion", "aventura", "drama"],
+    "year": 2000
+  },
+  {
+    "id": 11,
+    "title": "Tiempos modernos",
+    "rating": 9,
+    "tags": ["comedia", "drama", "familia"],
+    "year": 1936
+  },
+  {
+    "id": 12,
+    "title": "Pulp fiction",
+    "rating": 9,
+    "tags": ["crimen", "drama", "accion"],
+    "year": 1994
+  },
+  {
+    "id": 13,
+    "title": "Jumanji",
+    "rating": 7,
+    "tags": ["aventura", "comedia", "familia", "fantasia"],
+    "year": 1995
+  },
+  {
+    "id": 14,
+    "title": "Kill bill",
+    "rating": 8,
+    "tags": ["crimen", "drama", "accion"],
+    "year": 2003
+  },
+  {
+    "id": 15,
+    "title": "Batman inicia",
+    "rating": 8,
+    "tags": ["crimen", "aventura", "drama", "accion"],
+    "year": 2005
+  },
+  {
+    "id": 16,
+    "title": "Sherlock Holmes",
+    "rating": 8,
+    "tags": ["crimen", "aventura", "misterio", "accion"],
+    "year": 2009
+  },
+  {
+    "id": 17,
+    "title": "La momia",
+    "rating": 7,
+    "tags": ["accion", "aventura", "fantasia"],
+    "year": 1999
+  }
+]
