@@ -18,7 +18,7 @@ test.serial(
     // testeo peli agregada desde el script test del package
     const controller = new PelisController();
     const peli = await controller.get({ id: 4321865 });
-    //console.log("soypelienctrlcontroler",peli)
+    console.log(peli)
     t.is(peli.title, "peli de la terminal 4321865");
   }
 );

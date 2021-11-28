@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+import * as jsonfile from "jsonfile"
+import * as _ from "lodash";
+=======
 /*
 En models.ts:
 
@@ -20,15 +24,105 @@ En models.ts:
 
 import { readFile, writeFile } from "jsonfile";
 
+>>>>>>> a3652928279cba95d8d33aa7aedeb6921fe0f9d4
 
-// no modificar estas propiedades, agregar todas las que quieras
 class Peli {
-  id: number;
-  title: string;
-  tags: string[];
+    id: number;
+    title: string;
+    tags:string[]=[]
+    
 }
 
 class PelisCollection {
+<<<<<<< HEAD
+
+    
+    async getAll():Promise<any>{
+        const res = await jsonfile.readFile("./pelis.json");
+        return res;
+    };
+
+    
+
+    getById(id:number):Promise<Peli>{
+        return this.getAll().then(pelis => {
+            const busqueda = _.find(pelis,{ 'id': id })
+            return busqueda
+        }
+        ).then((resultado)=>{return resultado})
+    }
+
+    search (opcion:any):Promise<any>{
+        return this.getAll().then(pelis => {            
+            let contador = 0
+            const mapeador = _.forEach(opcion,function(){
+                if (Object.keys(opcion)[contador]  === "title"){
+                    const search:any = Object.values(opcion)[0];
+                    const results =  _.filter(pelis, function(item) {
+                        return item.title.toLowerCase().toString().indexOf(search) > -1;
+                    });
+                    contador = contador + 1
+                    pelis = results
+                } else {
+                    let searchTAG:any = Object.values(opcion)[contador];
+                    const results =  _.filter(pelis, function(item) {
+                        return item.tags.toString().toLowerCase().indexOf(searchTAG.toString().toLowerCase()) > -1;
+                    });
+                    contador = contador + 1
+                    pelis = results
+                }
+            })
+            return pelis
+        }
+        ).then((resultado)=>{return resultado})
+        
+    }
+
+
+    add(peli:Peli):Promise<boolean>{
+        return this.getAll().then(pelis => {
+            return this.getById(peli.id).then(buscado => {
+                if (buscado == undefined) {
+                    pelis.push(peli);
+                    jsonfile.writeFile("./pelis.json",pelis);
+                    return true
+                } else {
+                    return false
+                }
+            })
+        })
+    }
+}
+
+export { PelisCollection, Peli};
+
+// function main () {
+
+//     const hola = new PelisCollection
+//     const obj1 = {'title': "n"};
+//     const obj2 = {title: "una"};
+//     const obj3 = {tags: "nanan"};
+//     const obj4 = {tags: "tt"};
+//     const obj5 = [obj1,obj3,obj4]
+//     const obj6 = { title: 'ti', tag: 'uu' }
+//     const obj7 = {id:4321865}
+//     const obj8 = { id: 123, title: "carli jonessssssssssssssssssssssssss", tags: []}
+
+
+//     hola.getAll().then(console.log)
+
+//    hola.getById(obj7.id).then(console.log)
+
+//     hola.search(obj2).then(console.log)
+
+//     hola.search(obj4).then(console.log)
+
+//     hola.search(obj6).then(console.log)
+
+//     hola.add(obj8).then(console.log)
+
+
+=======
   pelisCollection:Peli[] = []
 
   async getAll():Promise<any>{
@@ -62,8 +156,7 @@ class PelisCollection {
         }
       }
       )
-      const resultado = await Promise.all(filtrado[0])
-      return resultado[0]
+      return data
   }
 
   async add(peli:Peli):Promise<any>{
@@ -116,10 +209,13 @@ export { PelisCollection, Peli };
 //   // collecionPrueba.add({id: 69, title:'Lo Casafantama2', tags:['demierda','confantasma']})
 //   // collecionPrueba.getAll()
 
+>>>>>>> a3652928279cba95d8d33aa7aedeb6921fe0f9d4
 // }
 
 // main()
 
+<<<<<<< HEAD
+=======
 
 
 // if (Object.keys(option)[0] === "title") {
@@ -129,3 +225,4 @@ export { PelisCollection, Peli };
 //  const resultado = data.filter(item => item.tags.indexOf(buscado) !== -1)
 //  data = resultado
 // }
+>>>>>>> a3652928279cba95d8d33aa7aedeb6921fe0f9d4
