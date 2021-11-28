@@ -1,1 +1,146 @@
-[{"id":1,"title":"El escuadrón suicida","tags":["accion","aventura","comedia"]},{"id":2,"title":"Cruella","tags":["comedia","crimen","nueva"]},{"id":3,"title":"Un lugar tranquilo 2","tags":["drama","horror","ciencia ficcion"]},{"id":4,"title":"El caballero oscuro","tags":["accion","crimen","drama"]},{"id":5,"title":"Magic - El muñeco diabólico","tags":["terror","drama","misterio"]},{"id":6,"title":"La Patrulla Canina: La película","tags":["animacion","aventura","comedia"]},{"id":7,"title":"Spider-Man: Un nuevo universo","tags":["accion","animacion","aventura"]},{"id":8,"title":"El rey león","tags":["animacion","aventura","drama"]},{"id":9,"title":"Cars","tags":["animacion","aventura","comedia"]},{"id":10,"title":"Monsters, inc.","tags":["animacion","aventura","comedia"]},{"id":11,"title":"Space Jam","tags":["animacion","aventura","comedia"]},{"id":12,"title":"El gladiador","tags":["accion","aventura","drama"]},{"id":13,"title":"Crepúsculo","tags":["fantasia","romance","thriller"]},{"id":14,"title":"Street Fighter","tags":["accion","ciencia ficcion","videojuego"]},{"id":15,"title":"Super mario Bros","tags":["fantasia","comedia","aventura"]},{"id":16,"title":"Alejandro Magno ","tags":["aventura","historia","drama"]},{"id":4321865,"title":"peli de la terminal 4321865","tags":["rr","ww"]},{"id":134349,"title":"title 170522134349","tags":["tt","rr"]},{"id":146161,"title":"title 170522146161","tags":["yy","uu"]},{"id":198628,"title":"title 140335198628","tags":["yy","uu"]},{"id":170610,"title":"una peli 170610","tags":["classic","tag 170610"]},{"id":217346,"title":"otra peli un poco más divertida","tags":["tag 170610"]},{"id":130338,"title":"title 154314130338","tags":["tt","rr"]},{"id":190150,"title":"title 154314190150","tags":["yy","uu"]},{"id":220238,"title":"title 196472220238","tags":["tt","rr"]},{"id":209880,"title":"title 196472209880","tags":["yy","uu"]},{"id":226754,"title":"una peli 226754","tags":["classic","tag 226754"]},{"id":171110,"title":"otra peli un poco más divertida","tags":["tag 226754"]},{"id":201491,"title":"title 199382201491","tags":["tt","rr"]},{"id":212022,"title":"title 199382212022","tags":["yy","uu"]},{"id":180888,"title":"title 155494180888","tags":["tt","rr"]},{"id":179094,"title":"title 155494179094","tags":["yy","uu"]},{"id":194993,"title":"una peli 194993","tags":["classic","tag 194993"]},{"id":218430,"title":"otra peli un poco más divertida","tags":["tag 194993"]},{"id":4411,"title":"Título de la nueva peli","tags":["action","classic"]},{"id":167854,"title":"title 207542167854","tags":["tt","rr"]},{"id":212407,"title":"title 207542212407","tags":["yy","uu"]},{"id":170017,"title":"title 163217170017","tags":["tt","rr"]},{"id":198754,"title":"title 163217198754","tags":["yy","uu"]},{"id":198819,"title":"una peli 198819","tags":["classic","tag 198819"]},{"id":217138,"title":"otra peli un poco más divertida","tags":["tag 198819"]}]
+[
+    {
+        "id": 1,
+        "title": "El escuadrón suicida",
+        "tags": [
+            "accion",
+            "aventura",
+            "comedia"
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Cruella",
+        "tags": [
+            "comedia",
+            "crimen",
+            "nueva"
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Un lugar tranquilo 2",
+        "tags": [
+            "drama",
+            "horror",
+            "ciencia ficcion"
+        ]
+    },
+    {
+        "id": 4,
+        "title": "El caballero oscuro",
+        "tags": [
+            "accion",
+            "crimen",
+            "drama"
+        ]
+    },
+    {
+        "id": 5,
+        "title": "Magic - El muñeco diabólico",
+        "tags": [
+            "terror",
+            "drama",
+            "misterio"
+        ]
+    },
+    {
+        "id": 6,
+        "title": "La Patrulla Canina: La película",
+        "tags": [
+            "animacion",
+            "aventura",
+            "comedia"
+        ]
+    },
+    {
+        "id": 7,
+        "title": "Spider-Man: Un nuevo universo",
+        "tags": [
+            "accion",
+            "animacion",
+            "aventura"
+        ]
+    },
+    {
+        "id": 8,
+        "title": "El rey león",
+        "tags": [
+            "animacion",
+            "aventura",
+            "drama"
+        ]
+    },
+    {
+        "id": 9,
+        "title": "Cars",
+        "tags": [
+            "animacion",
+            "aventura",
+            "comedia"
+        ]
+    },
+    {
+        "id": 10,
+        "title": "Monsters, inc.",
+        "tags": [
+            "animacion",
+            "aventura",
+            "comedia"
+        ]
+    },
+    {
+        "id": 11,
+        "title": "Space Jam",
+        "tags": [
+            "animacion",
+            "aventura",
+            "comedia"
+        ]
+    },
+    {
+        "id": 12,
+        "title": "El gladiador",
+        "tags": [
+            "accion",
+            "aventura",
+            "drama"
+        ]
+    },
+    {
+        "id": 13,
+        "title": "Crepúsculo",
+        "tags": [
+            "fantasia",
+            "romance",
+            "thriller"
+        ]
+    },
+    {
+        "id": 14,
+        "title": "Street Fighter",
+        "tags": [
+            "accion",
+            "ciencia ficcion",
+            "videojuego"
+        ]
+    },
+    {
+        "id": 15,
+        "title": "Super mario Bros",
+        "tags": [
+            "fantasia",
+            "comedia",
+            "aventura"
+        ]
+    },
+    {
+        "id": 16,
+        "title": "Alejandro Magno ",
+        "tags": [
+            "aventura",
+            "historia",
+            "drama"
+        ]
+    }
+]
