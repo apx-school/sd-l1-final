@@ -32,3 +32,5 @@ class PelisController {
   }
 }
 export { PelisController };
+
+//funcionan test localmente

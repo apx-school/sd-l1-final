@@ -65,3 +65,4 @@ class PelisCollection {
   };
 }
 export { PelisCollection, Peli };
+//funcionan test localmente
