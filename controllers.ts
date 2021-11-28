@@ -33,4 +33,4 @@ class PelisController {
 }
 export { PelisController };
 
-//funcionan test localmente
+//funcionan test en github
