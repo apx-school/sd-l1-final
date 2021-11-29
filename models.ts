@@ -15,13 +15,14 @@ class Peli {
 class PelisCollection {
 
     
-    getAll(){
-        return jsonfile.readFile("./pelis.json").then((busqueda) => {return busqueda})
+    getAll():Promise<any>{
+        const dato = jsonfile.readFile("./pelis.json")
+        return dato
     };
 
     
 
-    getById(id:number):Promise<Peli>{
+    getById(id:number):Promise<any>{
         return this.getAll().then(pelis => {
             const busqueda = _.find(pelis,{ 'id': id });
             return busqueda;
@@ -35,16 +36,16 @@ class PelisCollection {
             let contador = 0
             const mapeador = _.forEach(opcion,function(){
                 if (Object.keys(opcion)[contador]  === "title"){
-                    const search:any = Object.values(opcion)[0];
+                    let search:any = Object.values(opcion)[0];
                     const results =  _.filter(pelis, function(item) {
-                        return item.title.toLowerCase().toString().indexOf(search) > -1;
+                        return item.title.indexOf(search) > -1;
                     });
                     contador = contador + 1
                     pelis = results
                 } else {
                     let searchTAG:any = Object.values(opcion)[contador];
                     const results =  _.filter(pelis, function(item) {
-                        return item.tags.toString().toLowerCase().indexOf(searchTAG.toString().toLowerCase()) > -1;
+                        return item.tags.indexOf(searchTAG) > -1;
                     });
                     contador = contador + 1
                     pelis = results
@@ -57,7 +58,7 @@ class PelisCollection {
     }
 
 
-    add(peli:Peli):Promise<boolean>{
+    add(peli:Peli):Promise<any>{
         return this.getAll().then(pelis => {
             return this.getById(peli.id).then(buscado => {
                 if (buscado == undefined) {
@@ -77,27 +78,26 @@ export { PelisCollection, Peli};
 // function main () {
 
 //     const hola = new PelisCollection
-//     const obj1 = {'title': "n"};
 //     const obj2 = {title: "una"};
 //     const obj3 = {tags: "nanan"};
-//     const obj4 = {tags: "tt"};
-//     const obj5 = [obj1,obj3,obj4]
-//     const obj6 = { title: 'ti', tag: 'uu' }
+//     const obj4 = { tags: 'rr', title: 'ti'};
+//     const obj44 = {tags: 'ww'};
+//     const obj6 = { title: 'ti', tags: 'rr' }
 //     const obj7 = {id:4321865}
 //     const obj8 = { id: 123, title: "carli jonessssssssssssssssssssssssss", tags: []}
 
 
-//     hola.getAll().then(console.log)
+//     // hola.getAll().then(console.log)
 
-//    hola.getById(obj7.id).then(console.log)
+//     // hola.getById(obj7.id).then(console.log)
 
-//     hola.search(obj2).then(console.log)
+//     // hola.search(obj2).then(console.log)
 
-//     hola.search(obj4).then(console.log)
+//     // hola.search(obj4).then(console.log)
 
-//     hola.search(obj6).then(console.log)
+//     // hola.search(obj6).then(console.log)
 
-//     hola.add(obj8).then(console.log)
+//     // hola.add(obj8).then(console.log)
 
 
 // }
