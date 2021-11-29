@@ -1,7 +1,8 @@
 {
-  "name": "practicandoArrow",
+  "name": "test-ava",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "",
+  "main": "index.ts",
   "scripts": {
     "test": "ts-node index.ts add --id=4321865 --title=\"peli de la terminal 4321865\" --tags=rr --tags=ww && ava",
     "start": "ts-node index.ts"
@@ -20,7 +21,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "jsonfile": "^6.1.0",
     "lodash": "^4.17.21",
