@@ -48,7 +48,7 @@ class PelisCollection {
       const data = pelis;
       data.push(peli);
       const resultado = await jsonfile.writeFile("./pelis.json",data);
-      return resultado
+      return "Peli agregada";
     }
 
   }
