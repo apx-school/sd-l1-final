@@ -1,14 +1,12 @@
 {
-  "name": "test-ava",
+  "name": "practicandoArrow",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.ts",
+  "main": "index.js",
   "scripts": {
     "test": "ts-node index.ts add --id=4321865 --title=\"peli de la terminal 4321865\" --tags=rr --tags=ww && ava",
     "start": "ts-node index.ts"
   },
   "ava": {
-    "timeout": "10m",
     "extensions": {
       "ts": "module"
     },
@@ -22,24 +20,18 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "jsonfile": "^6.1.0",
+    "lodash": "^4.17.21",
+    "minimist": "^1.2.5",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.2.3"
+  },
   "devDependencies": {
-<<<<<<< HEAD
     "@types/jsonfile": "^6.0.1",
     "@types/lodash": "^4.14.177",
-    "@types/node": "^14.17.34",
-=======
-    "@ava/typescript": "^3.0.1",
-    "@types/jsonfile": "^6.0.1",
     "@types/minimist": "^1.2.2",
-    "@types/node": "^14.14.35",
-    "ava": "^3.15.0",
->>>>>>> a3652928279cba95d8d33aa7aedeb6921fe0f9d4
-    "ts-node": "^9.1.1",
-    "typescript": "^4.5.2"
-  },
-  "dependencies": {
-    "ava": "",
-    "jsonfile": "^6.1.0",
-    "minimist": "^1.2.5"
+    "ava": "^3.15.0"
   }
 }

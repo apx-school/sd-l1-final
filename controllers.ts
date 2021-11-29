@@ -25,16 +25,10 @@ class PelisController {
   
   constructor() {
     this.pelisCollection = new PelisCollection
-<<<<<<< HEAD
   };
   
   get(options:any):Promise<any>{
-    // console.log("quieroverlasopciones",options);
-    // console.log("quieroverlasopciones",Object.keys(options)[0]);
-    // console.log("quieroverlasopcioneskeys",Object.values(options)[0]);
-    // const dato:any = Object.values(options)[0]
-    // console.log('estoesdato',dato)
-    // console.log('estoesdatoooooo',Object.keys( dato)[0])
+
     const valor:any = Object.values(options)[0]
     if (Object.keys(options)[0] === "id") {
       // console.log("estoy en id",valor)
@@ -49,26 +43,10 @@ class PelisController {
     
   add(peli:Peli): Promise<any>{
     return this.pelisCollection.add(peli).then((data)=>{return data})
-=======
-    this.pelisCollection.getAll
-  }
-  
-  get(options:any):Promise<any>{
-    if (typeof options.id === 'number' ) {
-      return this.pelisCollection.getById(options.id)
-    } else {
-        return this.pelisCollection.search(options)
-    } 
-  }
-  
-  add(peli:Peli):Promise<any>{
-    return this.pelisCollection.add(peli)
->>>>>>> a3652928279cba95d8d33aa7aedeb6921fe0f9d4
   }
 
 }
 
-<<<<<<< HEAD
 export { PelisController};
 
 
@@ -103,6 +81,3 @@ export { PelisController};
 
 // main()
 
-=======
-export { PelisController};
->>>>>>> a3652928279cba95d8d33aa7aedeb6921fe0f9d4
