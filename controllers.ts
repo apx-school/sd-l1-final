@@ -41,7 +41,7 @@ class PelisController {
       }
     }
     
-  add(peli:Peli): Promise<any>{
+  add(peli:Peli){
     return this.pelisCollection.add(peli).then((data)=>{return data})
   }
 
