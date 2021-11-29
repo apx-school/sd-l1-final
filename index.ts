@@ -3,14 +3,14 @@ import { PelisController } from "./controllers";
 
 function parseaParams(argv) {
   const resultado = minimist(argv);
-  if (resultado._[0] == "search" && resultado.title && resultado.tags) {
-    return { search: { title: resultado.title, tags: resultado.tags } };
+  if (resultado._[0] == "search" && resultado.title && resultado.tag) {
+    return { search: { title: resultado.title, tag: resultado.tag } };
   } else if (resultado._[0] == "search" && resultado.title) {
     return {
       search: { title: resultado.title },
     };
-  } else if (resultado._[0] == "search" && resultado.tags) {
-    return { search: { tags: resultado.tags } };
+  } else if (resultado._[0] == "search" && resultado.tag) {
+    return { search: { tag: resultado.tag } };
   } else if (resultado._[0] == "get") {
     return { id: resultado._[1] };
   } else {
