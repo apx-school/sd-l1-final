@@ -1,1 +1,37 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "In The Mood For Love",
+    "tag": ["Romance", "Drama"]
+  },
+
+  {
+    "id": 2,
+    "title": "La Princesa Mononoke",
+    "tag": ["Fantasia", "Aventura"]
+  },
+
+  {
+    "id": 3,
+    "title": "Donnie Darko",
+    "tag": ["Ciencia Ficcion", "Fantasia"]
+  },
+
+  {
+    "id": 4,
+    "title": "Perfect Blue",
+    "tag": ["Suspenso", "Misterio"]
+  },
+
+  {
+    "id": 5,
+    "title": "Blade Runner",
+    "tag": ["Ciencia Ficcion", "Accion"]
+  },
+
+  {
+    "id": 6,
+    "title": "Fantastic Mr. Fox",
+    "tag": ["Animacion", "Comedia"]
+  }
+]
