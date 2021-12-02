@@ -13,6 +13,8 @@ function parseaParams(argv) {
     return { search: { tag: resultado.tag } };
   } else if (resultado._[0] == "get") {
     return { id: resultado._[1] };
+  } else if (resultado._[0] == "add") {
+    return { id: resultado.id, title: resultado.title, tags: resultado.tags };
   } else {
     return {};
   }
