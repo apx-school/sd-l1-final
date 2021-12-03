@@ -15,15 +15,14 @@ class Peli {
 class PelisCollection {
 
     
-    getAll():Promise<any>{
-        const dato = jsonfile.readFile("./pelis.json")
-        return dato
+    getAll(){
+        return jsonfile.readFile("./pelis.json").then(res => {return res})
     };
 
     
 
-    getById(id:number):Promise<any>{
-        return this.getAll().then(pelis => {
+    getById(id:number){
+        return this.getAll().then((pelis) => {
             const busqueda = _.find(pelis,{ 'id': id });
             return busqueda;
         }
@@ -31,20 +30,20 @@ class PelisCollection {
     }
 
 
-    search (opcion:any):Promise<any>{
-        return this.getAll().then(pelis => {            
+    search (opcion:any){
+        return this.getAll().then((pelis) => {            
             let contador = 0
             const mapeador = _.forEach(opcion,function(){
                 if (Object.keys(opcion)[contador]  === "title"){
-                    let search:any = Object.values(opcion)[0];
-                    const results =  _.filter(pelis, function(item) {
+                    let search:any = Object.values(opcion)[contador];
+                    let results =  _.filter(pelis, function(item) {
                         return item.title.indexOf(search) > -1;
                     });
                     contador = contador + 1
                     pelis = results
                 } else {
                     let searchTAG:any = Object.values(opcion)[contador];
-                    const results =  _.filter(pelis, function(item) {
+                    let results =  _.filter(pelis, function(item) {
                         return item.tags.indexOf(searchTAG) > -1;
                     });
                     contador = contador + 1
@@ -58,8 +57,8 @@ class PelisCollection {
     }
 
 
-    add(peli:Peli):Promise<any>{
-        return this.getAll().then(pelis => {
+    add(peli:Peli):Promise<boolean>{
+        return this.getAll().then((pelis) => {
             return this.getById(peli.id).then(buscado => {
                 if (buscado == undefined) {
                     pelis.push(peli)
