@@ -1,1 +1,4 @@
-[{"id":1,"title":"La Mascara","tags":["Comedia","Accion"]},{"id":2,"title":"Mickey Mouse","tags":["Diversion","Comedia"]},{"id":3,"title":"Forrest Gump","tags":["Comedia","Romantica"]},{"id":4,"title":"Titulo nueva peli","tags":["action","classic"]}]
+[{"id":1,"title":"American Pie","tags":["comedia","accion"]},
+{"id":2,"title":"Bad Education","tags":["diversion","comedia"]},
+{"id":3,"title":"Clerks","tags":["comedia","romantica"]},
+{"id":4,"title":"Damage","tags":["action","classic"]}]
