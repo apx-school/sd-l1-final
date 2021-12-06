@@ -6,30 +6,30 @@ function parserMinimist(argv) {
   return resultado;
 }
 
-function parserTerminal(params, controller) {
+function parserTerminal(controller, params) {
   if (params._[0] == "add") {
-    return controller.add(params).then((res) => res);
-  } else if (params._[0] == "get" && typeof params._[1] == "number") {
-    return controller.get({ id: params._[1] }).then((res) => res);
+    return controller
+      .add({ id: params.id, title: params.title, tags: params.tags })
+      .then((r) => r);
+  } else if (params._[0] == "get") {
+    return controller.get({ id: params._[1] }).then((r) => r);
   } else if (params._[0] == "search" && params.title) {
+    return controller.get({ search: { title: params.title } }).then((r) => r);
+  } else if (params._[0] == "search" && params.tag) {
+    return controller.get({ search: { tag: params.tag } }).then((r) => r);
+  } else if (params._[0] == "search" && params.title && params.tag) {
     return controller
-      .get({ search: { title: params.title } })
-      .then((res) => res);
-  } else if (params._[0] == "search" && params.tags) {
-    return controller.get({ search: { tags: params.tags } }).then((res) => res);
-  } else if (params._[0] == "search" && params.title && params.tags) {
-    return controller
-      .get({ search: { title: params.title, tags: params.tags } })
-      .then((res) => res);
-  } else if (params._.length == 0) {
-    return controller.get({}).then((res) => res);
+      .get({ search: { title: params.title, tag: params.tag } })
+      .then((r) => r);
+  } else if ({}) {
+    return controller.get({}).then((r) => r);
   }
 }
 
 function main() {
   const params = parserMinimist(process.argv.slice(2));
   const controller = new PelisController();
-  controller.get(params).then((res) => console.log(res));
+  parserTerminal(controller, params).then((res) => console.log(res));
 }
 
 main();

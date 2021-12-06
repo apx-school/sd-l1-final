@@ -1,37 +1,37 @@
 [
   {
     "id": 1,
-    "title": "In The Mood For Love",
-    "tag": ["Romance", "Drama"]
+    "title": "In the mood for love",
+    "tags": ["Romance", "Drama"]
   },
-
   {
     "id": 2,
     "title": "La Princesa Mononoke",
-    "tag": ["Fantasia", "Aventura"]
+    "tags": ["Fantasia", "Aventura"]
   },
-
   {
     "id": 3,
     "title": "Donnie Darko",
-    "tag": ["Ciencia Ficcion", "Fantasia"]
+    "tags": ["Ciencia Ficcion", "Fantasia"]
   },
-
   {
     "id": 4,
     "title": "Perfect Blue",
-    "tag": ["Suspenso", "Misterio"]
+    "tags": ["Suspenso", "Misterio"]
   },
-
   {
     "id": 5,
     "title": "Blade Runner",
-    "tag": ["Ciencia Ficcion", "Accion"]
+    "tags": ["Ciencia Ficcion", "Accion"]
   },
-
   {
     "id": 6,
     "title": "Fantastic Mr. Fox",
-    "tag": ["Animacion", "Comedia"]
+    "tags": ["Animacion", "Comedia"]
+  },
+  {
+    "id": 7,
+    "title": "Retrato de una mujer en llamas",
+    "tags": ["Romance", "Drama"]
   }
 ]

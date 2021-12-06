@@ -1,6 +1,5 @@
 import * as jsonfile from "jsonfile";
 
-// no modificar estas propiedades, agregar todas las que quieras
 class Peli {
   id: number;
   title: string;
@@ -8,37 +7,40 @@ class Peli {
 }
 
 class PelisCollection {
-  pelis = jsonfile.readFile("./pelis.json");
-
+  getPelis() {
+    return jsonfile.readFile("./pelis.json");
+  }
   getAll(): Promise<Peli[]> {
-    return this.pelis.then((res) => console.log(res));
+    return this.getPelis().then((r) => {
+      return r;
+    });
   }
   getById(id: number): Promise<Peli> {
-    return this.pelis.then((pelis) => {
-      return pelis.find((i) => {
-        return i.id == id;
+    return this.getPelis().then((peli) => {
+      return peli.find((p) => {
+        return p.id == id;
       });
     });
-    this.pelis.catch((err) => console.log(err));
   }
-
   search(options: any): Promise<any> {
-    return this.pelis.then((peliculas) => {
-      if (options.title && options.tags) {
+    return this.getPelis().then((peliculas) => {
+      if (options.title && options.tag) {
         return peliculas.filter((pelis) => {
-          return pelis.title.includes(options.title && options.tags);
+          return (
+            pelis.title.includes(options.title) &&
+            pelis.tags.includes(options.tag)
+          );
         });
       } else if (options.title) {
         return peliculas.filter((pelis) => {
           return pelis.title.includes(options.title);
         });
-      } else if (options.tags) {
+      } else if (options.tag) {
         return peliculas.filter((pelis) => {
-          return pelis.tags.includes(options.tags);
+          return pelis.tags.includes(options.tag);
         });
       }
     });
-    this.pelis.catch((err) => console.log(err));
   }
 
   add(peli: Peli): Promise<boolean> {
@@ -46,9 +48,9 @@ class PelisCollection {
       if (peliExistente) {
         return false;
       } else {
-        const promesaDos = this.pelis.then((p) => {
+        const promesaDos = this.getPelis().then((p) => {
           p.push(peli);
-          return jsonfile.writeFile("./pelis.json", peli);
+          return jsonfile.writeFile("./pelis.json", p);
         });
 
         return promesaDos.then((p) => {
