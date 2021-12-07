@@ -10,19 +10,21 @@ function parserTerminal(controller, params) {
   if (params._[0] == "add") {
     return controller
       .add({ id: params.id, title: params.title, tags: params.tags })
-      .then((r) => r);
+      .then((r) => {
+        return r;
+      });
   } else if (params._[0] == "get") {
-    return controller.get({ id: params._[1] }).then((r) => r);
-  } else if (params._[0] == "search" && params.title) {
-    return controller.get({ search: { title: params.title } }).then((r) => r);
-  } else if (params._[0] == "search" && params.tag) {
-    return controller.get({ search: { tag: params.tag } }).then((r) => r);
-  } else if (params._[0] == "search" && params.title && params.tag) {
-    return controller
-      .get({ search: { title: params.title, tag: params.tag } })
-      .then((r) => r);
+    return controller.get({ id: params._[1] }).then((r) => {
+      return r;
+    });
+  } else if (params._[0] == "search") {
+    return controller.get({ search: params }).then((r) => {
+      return r;
+    });
   } else if ({}) {
-    return controller.get({}).then((r) => r);
+    return controller.get({}).then((r) => {
+      return r;
+    });
   }
 }
 
