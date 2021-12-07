@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "id": 2,
+    "title": "Segunda película",
+    "tags": ["suspenso", "fantasía", "acción"]
+  },
+  {
+    "id": 3,
+    "title": "Tercera película",
+    "tags": ["acción", "suspenso", "thriller"]
+  },
+  {
+    "id": 1,
+    "title": "Primera película",
+    "tags": ["drama", "comedia", "acción"]
+  }
+]
