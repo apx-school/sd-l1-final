@@ -1,1 +1,62 @@
-[]
+ [
+        {   
+            "id": 1,
+            "title": "Your name (Kimi no na wa)",
+            "tags": ["animación", "romance", "fantasía"]
+        },
+        
+        {
+            "id": 2,
+            "title": "La La Land",
+            "tags": ["musical", "romance", "drama"]
+        },
+        
+        {
+            "id": 3,
+            "title": "Mi vecino Totoro",
+            "tags": ["animacion", "familia", "fantasía"]
+        },
+        
+        {
+            "id": 4,
+            "title": "Alien, el octavo pasajero",
+            "tags": ["horror", "sci-fi"]
+        },
+        
+        {
+            "id": 5,
+            "title": "Jurassic Park",
+            "tags": ["accion", "aventura", "sci-fi"]
+        },
+        
+        {
+            "id": 6,
+            "title": "Lilo y Stitch",
+            "tags": ["animacion", "aventura", "comedia"]
+        },
+        
+        {
+            "id": 7,
+            "title": "Kill Bill: Volumen 1",
+            "tags": ["accion", "crimen", "drama"]
+        },
+        
+        {
+            "id": 8,
+            "title": "La lista de Schindler",
+            "tags": ["biografica", "historia", "drama"]
+        },
+        
+        {
+            "id": 9,
+            "title": "Bastardos sin gloria",
+            "tags": ["aventura", "guerra", "drama"]
+        },
+        
+        {
+            "id": 10,
+            "title": "La bella y la bestia",
+            "tags": ["familia", "fantasia", "musical"]
+        }
+]
+
