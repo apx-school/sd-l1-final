@@ -22,16 +22,16 @@ class PelisCollection {
     
 
     getById(id:number){
-        return this.getAll().then((pelis) => {
+        const resultado = this.getAll().then((pelis) => {
             const busqueda = _.find(pelis,{ 'id': id });
-            return busqueda;
-        }
-        )
+            return busqueda
+        })
+        return resultado
     }
 
 
     search (opcion:any){
-        return this.getAll().then((pelis) => {            
+        const resultado = this.getAll().then((pelis) => {
             let contador = 0
             const mapeador = _.forEach(opcion,function(){
                 if (Object.keys(opcion)[contador]  === "title"){
@@ -51,24 +51,25 @@ class PelisCollection {
                 }
             })
             return pelis
-        }
-        )
-        
+        })
+        return resultado
     }
 
 
     add(peli:Peli):Promise<boolean>{
-        return this.getAll().then((pelis) => {
-            return this.getById(peli.id).then(buscado => {
-                if (buscado == undefined) {
-                    pelis.push(peli)
-                    jsonfile.writeFile("./pelis.json",pelis);
+        const busqueda = this.getById(peli.id);
+        const resultado = busqueda.then(res => {return res}).then((res)=>{
+            if (res == undefined) {
+                const pelisCollection = this.getAll().then(listaDePelis => {
+                    listaDePelis.push(peli);
+                    jsonfile.writeFile("./pelis.json",listaDePelis)
                     return true
-                } else {
-                    return false
-                }
-            })
-        })
+                })
+                return pelisCollection
+        } else {
+            return false
+        }})
+        return resultado
     }
 }
 
@@ -86,18 +87,17 @@ export { PelisCollection, Peli};
 //     const obj8 = { id: 123, title: "carli jonessssssssssssssssssssssssss", tags: []}
 
 
-//     // hola.getAll().then(console.log)
+//     // hola.getAll().then(console.log).then(tex => {console.log("estoesgetall")})
 
-//     // hola.getById(obj7.id).then(console.log)
+//     // hola.getById(obj7.id).then(console.log).then(tex => {console.log("estoesgetbyid")})
 
-//     // hola.search(obj2).then(console.log)
+//     hola.search(obj2).then(console.log).then(tex => {console.log("estoessearchtitle")})
 
-//     // hola.search(obj4).then(console.log)
+//     // // hola.search(obj4).then(console.log).then(tex => {console.log("estoessearchtagytitle")})
 
-//     // hola.search(obj6).then(console.log)
+//     // // hola.search(obj6).then(console.log).then(tex => {console.log("estoessearchtitleytag")})
 
-//     // hola.add(obj8).then(console.log)
-
+//     // hola.add(obj8).then(console.log).then(tex => {console.log("estoesAdd")})
 
 // }
 

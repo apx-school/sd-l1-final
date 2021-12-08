@@ -27,19 +27,19 @@ function main() {
     params: params2
   }
 
-  //  console.log(objetoUsable)
+//  console.log(objetoUsable)
   const dato = new PelisController;
 
   if (objetoUsable.actions == "get") {
-      return dato.get(objetoUsable.params).then(console.log)
+      return dato.get(objetoUsable.params).then((res)=>{return res})
     } if (objetoUsable.actions == "search") {
-      return dato.get(objetoUsable.params).then(console.log)
+      return dato.get(objetoUsable.params).then((res)=>{return res})
     } 
-    if (objetoUsable.actions === "add") {
+    if (objetoUsable.actions == "add") {
       const agregable:any = objetoUsable.params
-      return dato.add(agregable).then(console.log)
+      return dato.add(agregable).then((res)=>{return res})
     } else {
-      return dato.pelisCollection.getAll().then(console.log)
+      return dato.get(objetoUsable).then((res)=>{return res})
     }
   
 
