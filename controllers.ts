@@ -1,9 +1,5 @@
 import { PelisCollection, Peli } from "./models";
 
-class PelisControllerOptions{
-  action: "search" | "id"
-}
-
 class PelisController {
  data: PelisCollection;
   constructor() {

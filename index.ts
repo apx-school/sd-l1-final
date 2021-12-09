@@ -3,11 +3,14 @@ import {PelisController} from "./controllers"
 
 function parseaParams(argv) {
   const resultado = minimist(argv);
-  if ( resultado.search){
-    return {search: resultado.search}
-  }else {
-    return {}
-  }
+  //parsea metodo ad id:4, title: "titulo", tag
+
+  //
+ if (resultado.add) {
+   
+ } else {
+   
+ }
 }
 
 function main() {
