@@ -1,27 +1,8 @@
-[{
-  "id": 1,
-  "title": "El Señor de los Anillos",
-  "tags":["clásica","aventura","magia","fantasia"]
-},
-{
-  "id": 2,
-  "title": "Harry Potter y el prisionero de Azcaban",
-  "tags":["cautivante", "magia","fantasia"]
-},{
-  "id": 3,
-  "title": "Dune",
-  "tags":["futurista","espacio","ciencia ficcion"]
-},{
-  "id": 4,
-  "title": "Matrix",
-  "tags":["futurista","tecnologia","ciencia ficcion"]
-},{
-  "id": 5,
-  "title": "Viernes 13",
-  "tags":["teror", "Clase B","susto","clásica"]
-},{
-  "id": 6,
-  "title": "El amanecer de los muertos",
-  "tags": ["terror", "zombies"]
-}
+[{"id":1,"title":"El Señor de los Anillos","tags":["clásica","aventura","magia","fantasia"]},
+{"id":2,"title":"Harry Potter y el prisionero de Azcaban","tags":["cautivante","magia","fantasia"]},
+{"id":3,"title":"Dune","tags":["futurista","espacio","ciencia ficcion"]},
+{"id":4,"title":"Matrix","tags":["futurista","tecnologia","ciencia ficcion"]},
+{"id":5,"title":"Viernes 13","tags":["teror","Clase B","susto","clásica"]},
+{"id":6,"title":"El amanecer de los muertos","tags":["terror","zombies"]},
+{"id":11,"title":"Prueba","tags":["tu vieja en tanga","otra vieja en tanga"]}
 ]
