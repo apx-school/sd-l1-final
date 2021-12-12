@@ -53,9 +53,7 @@ class PelisCollection {
                     pelis = results
 
                     return pelis
-                } else {
-                    return pelis
-                }
+                } 
             })
             return pelis
         }).then(res => {return res})
