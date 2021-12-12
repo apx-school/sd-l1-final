@@ -31,45 +31,52 @@ class PelisCollection {
 
 
     search (opcion:any){
+
         const resultado = this.getAll().then((pelis) => {
-            let contador = 0
-            const mapeador = _.forEach(opcion,function(){
-                if (Object.keys(opcion)[contador]  === "title"){
-                    let search:any = Object.values(opcion)[contador];
-                    let results =  _.filter(pelis, function(item) {
-                        return item.title.indexOf(search) > -1;
+            const mapeador = _.forOwn(opcion,function(value,key){
+                
+                if (key === "title"){
+                    let results = pelis.filter((peli) => {
+                        let nombreEnMinuscula = _.lowerCase(peli.title);
+                        return nombreEnMinuscula.includes(_.lowerCase(value));
                     });
-                    contador = contador + 1
                     pelis = results
+
+                    return pelis
+
+                } else if (key === "tag") {
+                    let results = pelis.filter((peli) => {
+                        let nombreEnMinuscula = _.lowerCase(peli.tags);
+                        return nombreEnMinuscula.includes(_.lowerCase(value));
+                        
+                    });
+                    pelis = results
+
+                    return pelis
                 } else {
-                    let searchTAG:any = Object.values(opcion)[contador];
-                    let results =  _.filter(pelis, function(item) {
-                        return item.tags.indexOf(searchTAG) > -1;
-                    });
-                    contador = contador + 1
-                    pelis = results
+                    return pelis
                 }
             })
             return pelis
-        })
+        }).then(res => {return res})
         return resultado
     }
 
 
-    add(peli:Peli):Promise<boolean>{
-        const busqueda = this.getById(peli.id);
-        const resultado = busqueda.then(res => {return res}).then((res)=>{
-            if (res == undefined) {
-                const pelisCollection = this.getAll().then(listaDePelis => {
-                    listaDePelis.push(peli);
-                    jsonfile.writeFile("./pelis.json",listaDePelis)
-                    return true
-                })
-                return pelisCollection
-        } else {
-            return false
-        }})
-        return resultado
+    add(peli:Peli){
+        const busquedaPeli = this.getById(peli.id).then(res => { 
+                if (res !== undefined) {
+                    return false
+                } else {
+                    const colleccionDePelis = this.getAll().then((listaDePelis: Peli[]) => {
+                        listaDePelis.push(peli);
+                        return jsonfile.writeFile("./pelis.json", listaDePelis)})
+                    return colleccionDePelis.then(() =>{return true})
+                    }
+                }
+            )
+        return busquedaPeli
+            
     }
 }
 
@@ -78,20 +85,22 @@ export { PelisCollection, Peli};
 // function main () {
 
 //     const hola = new PelisCollection
+//     const obj1 = {id:4321865}
 //     const obj2 = {title: "una"};
-//     const obj3 = {tags: "nanan"};
-//     const obj4 = { tags: 'rr', title: 'ti'};
-//     const obj44 = {tags: 'ww'};
-//     const obj6 = { title: 'ti', tags: 'rr' }
-//     const obj7 = {id:4321865}
+//     const obj3 = {tag: "rr"};
+//     const obj4 = { tag: 'rr', title: 'ti'};
+//     const obj44 = {tag: 'ww'};
+//     const obj6 = { title: 'ti', tag: 'rr' }
 //     const obj8 = { id: 123, title: "carli jonessssssssssssssssssssssssss", tags: []}
 
 
-//     // hola.getAll().then(console.log).then(tex => {console.log("estoesgetall")})
+//     hola.getAll().then(console.log).then(tex => {console.log("estoesgetall")})
 
-//     // hola.getById(obj7.id).then(console.log).then(tex => {console.log("estoesgetbyid")})
+//     // hola.getById(obj1.id).then(console.log).then(tex => {console.log("estoesgetbyid")})
 
-//     hola.search(obj2).then(console.log).then(tex => {console.log("estoessearchtitle")})
+//     // hola.search(obj2).then(console.log).then(tex => {console.log("estoessearchtitle")})
+
+//     hola.search(obj3).then(console.log).then(tex => {console.log("estoessearchtag")})
 
 //     // // hola.search(obj4).then(console.log).then(tex => {console.log("estoessearchtagytitle")})
 
@@ -103,3 +112,31 @@ export { PelisCollection, Peli};
 
 // main()
 
+
+
+// search (opcion:any){
+//     const resultado = this.getAll().then((pelis) => {
+//         const mapeador = _.forEach(opcion,function(){
+
+//             if (opcion.title){
+//                 let results = pelis.filter((peli) => {
+//                     let nombreEnMinuscula = _.lowerCase(peli.title);
+//                     return nombreEnMinuscula.includes(opcion.title);
+//                 });
+//                 pelis = results
+//                 return pelis
+//             } else if (opcion.tags) {
+//                 let results = pelis.filter((peli) => {
+//                     let nombreEnMinuscula = _.lowerCase(peli.tags);
+//                     return nombreEnMinuscula.includes(_.lowerCase(opcion.tags));
+//                   });
+//                 pelis = results
+//                 return pelis
+//             } else {
+//                 return pelis
+//             }
+//         })
+//         return pelis
+//     }).then(res => {return res})
+//     return resultado
+// }

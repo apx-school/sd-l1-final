@@ -37,7 +37,7 @@ function main() {
     } 
     if (objetoUsable.actions == "add") {
       const agregable:any = objetoUsable.params
-      return dato.add(agregable).then((res)=>{return res})
+      return dato.add(agregable)
     } else {
       return dato.get(objetoUsable).then((res)=>{return res})
     }
