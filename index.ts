@@ -47,7 +47,7 @@ function main() {
     if (params.title && params.tag) {
       const opcion = {
         search: {
-          tags: params.tag,
+          tag: params.tag,
           title: params.title,
         },
       };
@@ -66,7 +66,7 @@ function main() {
     } else if (!params.title && params.tag) {
       const opcion = {
         search: {
-          tags: params.tag,
+          tag: params.tag,
         },
       };
       obj.get(opcion).then((peli) => {

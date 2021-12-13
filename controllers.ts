@@ -17,9 +17,9 @@ class PelisController {
       result = this.collection.getById(option.id);
       
 
-    } else if (option.search.title && option.search.tags) {
+    } else if (option.search.title && option.search.tag) {
             
-      return this.collection.search({tags:option.search.tags}).then((res)=>{
+      return this.collection.search({tag:option.search.tag}).then((res)=>{
         const respuesta = res.filter((peli)=>{
           return peli.title.includes(option.search.title)
         })
@@ -27,7 +27,7 @@ class PelisController {
       })
     } else if (option.search.title) {
       result = this.collection.search(option.search);
-    } else if (option.search.tags) {
+    } else if (option.search.tag) {
       result = this.collection.search(option.search);
     } 
     return result;
