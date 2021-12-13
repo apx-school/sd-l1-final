@@ -1,1 +1,34 @@
-[]
+[
+  { "id": 1, "title": "Pulp Fiction", "tags": ["Drama", "Crime"] },
+  { "id": 2, "title": "Spiderman", "tags": ["Action", "Adventure", "Sci-fi"] },
+  { "id": 3, "title": "Memento", "tags": ["Mystery", "Thriller"] },
+  {
+    "id": 4,
+    "title": "Batman vs Superman",
+    "tags": ["Action", "Adventure", "Sci-fi"]
+  },
+  { "id": 5, "title": "Fight Club", "tags": ["Drama"] },
+  { "id": 6, "title": "Dinosaur", "tags": ["Animation", "Adventure", "Drama"] },
+  { "id": 10, "title": "matrix", "tags": ["Drama"] },
+  { "id": 11, "title": "probando", "tags": ["Drama"] },
+  { "id": 12, "title": "Spiderman 3", "tags": ["Adventure", "Classic"] },
+  {
+    "id": 4321865,
+    "title": "peli de la terminal 4321865",
+    "tags": ["rr", "ww"]
+  },
+  { "id": 133860, "title": "title 189593133860", "tags": ["tt", "rr"] },
+  { "id": 219934, "title": "title 189593219934", "tags": ["yy", "uu"] },
+  { "id": 183791, "title": "title 147573183791", "tags": ["tt", "rr"] },
+  { "id": 145219, "title": "title 147573145219", "tags": ["yy", "uu"] },
+  {
+    "id": 155667,
+    "title": "una peli 155667",
+    "tags": ["classic", "tag 155667"]
+  },
+  {
+    "id": 160508,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 155667"]
+  }
+]
