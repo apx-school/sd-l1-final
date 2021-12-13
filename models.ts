@@ -19,8 +19,8 @@ class PelisCollection {
   }
 
   getById(id: number) {
-    return this.getAll().then((peli) => {
-      const peliHallada = peli.find((e) => {
+    return this.getAll().then((pelis) => {
+      const peliHallada = pelis.find((e) => {        
         return e.id == id;
       });
       return peliHallada;
@@ -68,7 +68,7 @@ export { PelisCollection, Peli };
 
 
 /* const biblio = new PelisCollection();
-const laPromesa = biblio.add({ id: 10, title: "matrix", tags: ["Drama"] }).then((e) => {
+const laPromesa = biblio.getById(5).then((e) => {
     console.log(e);
   });
  */

@@ -13,7 +13,10 @@ class PelisController {
       return result = this.collection.getAll();      
     }
     if (option.id) {
+      
       result = this.collection.getById(option.id);
+      
+
     } else if (option.search.title && option.search.tags) {
             
       return this.collection.search({tags:option.search.tags}).then((res)=>{
@@ -38,6 +41,6 @@ class PelisController {
 
 export { PelisController };
 
-/*  const prueba = new PelisController();
-prueba.add({ id: 11, title: "probando", tags: ["Drama"] }).then((res)=>{console.log(res)})
-  */
+/* const prueba = new PelisController();
+prueba.get({id:4}).then((res)=>{console.log(res)}) 
+ */
