@@ -9,19 +9,24 @@ function parseaParams(argv) {
 
 function main() {
   const params = parseaParams(process.argv.slice(2));
+ /*  console.log(params)
+  console.log(params._)
+  console.log(params._[0]) */
 
-  const bandera = Object.keys(params)[0] == "_";
-  console.log(bandera);
+/* 
+  var bandera = Object.keys(params)[0] == "_";
+  console.log(bandera); */
 
   const obj = new PelisController();
 
-  if (bandera == true) {
+   if (params._[0]!="search" && params._[0]!="add" && params._[0]!="get") {
+    console.log("entre") 
     obj.get().then((peli) => {
       peli.forEach((element) => {
         console.log(element);
       });
     });
-  }
+  } 
 
   if (params._[0] == "add") {
     const opcion = {
