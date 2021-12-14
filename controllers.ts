@@ -7,20 +7,29 @@ class PelisController {
   }
 
   get(options:any){
-    var result;
+    
     if (options.id) {
-      result = this.data.getById(options.id)
-    }else if (options.search.title && options.search.tags) {
-      result = this.data.search(options.search.title && options.search.tags)
+      return  this.data.getById(options.id).then((res)=>console.log(res))
+
+    }else if (options.search.title && options.search.tag) {
+
+      return  this.data.search({tags:options.search.tag}).then((res)=>{
+        var respons = res.filter((peli)=>{ 
+          return peli.includes(options.search.title)
+        })
+         return respons
+      })
     }else if (options.search.title) {
-      result = this.data.search(options.search.title)
+      
+      return  this.data.search({title: options.search.title}).then((res)=> res )
+
     }else if (options.search.tags) {
-      result = this.data.search(options.search.tags)
+      return  this.data.search({tag: options.search.tags}).then((res)=>res)
+
+    }else if (options == undefined) {
+      return  this.data.getAll().then((res)=>{console.log(res)})
     }
-    else {
-      result = this.data.getAll();
-    }
-  return result;
+  return ;
   }
 
   add(peli:Peli){

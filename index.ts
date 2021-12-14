@@ -1,24 +1,17 @@
 import * as minimist from "minimist";
 import {PelisController} from "./controllers"
-
 function parseaParams(argv) {
   const resultado = minimist(argv);
-  //parsea metodo ad id:4, title: "titulo", tag
-
-  //
- if (resultado.add) {
-   
- } else {
-   
- }
+  return resultado;
+  
 }
+function processOption(params){
+  const controller = new PelisController();
+ 
 
 function main() {
-  const arg = process.argv.slice(2);
-  const argParseado = parseaParams(arg);
-  const controller = new PelisController();
-  controller.get (argParseado).then((p)=> 
-  console.log(p));
-}
-
-main();
+  const params = parseaParams(process.argv.slice(2));
+  return processOption(params).then((res)=> console.log(res));
+  
+};
+main()

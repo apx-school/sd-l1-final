@@ -7,14 +7,14 @@ class Peli {
 }
 class PelisCollection {
   pelis: Peli [] = [];
-  getPelis(){
-    return jsonfile.readFile("./pelis.json");
-  }
+  // getPelis(){
+  //   return jsonfile.readFile("./pelis.json");
+  // }
   getAll(): Promise<Peli[]> {
-    return this.getPelis().then((res) =>console.log(res));
+    return  jsonfile.readFile("./pelis.json").then((res) =>{return res});
   }
   getById(id:number){
-    return this.getPelis().then((pelis)=>{
+    return this.getAll().then((pelis)=>{
       const getPeli = pelis.find((p)=>p.id ==id)
       return getPeli;
     });
@@ -23,13 +23,13 @@ class PelisCollection {
     return this.getAll().then((pelis)=> {
       if (options.title && options.tags) {
         return pelis.filter((pel) => { 
-          pel.title.includes(options.title) && pel.tags.includes(options.tags); });
+          return pel.title.includes(options.title) && pel.tags.includes(options.tags); });
       } else if (options.title) {
         return pelis.filter((pel_1) => {
-           pel_1.title.includes(options.title); });
+          return pel_1.title.includes(options.title); });
       } else if (options.tags) {
         return pelis.filter((pel_2) => { 
-          pel_2.tags.includes(options.tags); });
+         return pel_2.tags.includes(options.tags); });
       }  
     });
   }
@@ -39,7 +39,7 @@ class PelisCollection {
       if (peliExistente) {
         return false;
       } else {
-        this.getPelis().then((json)=> {
+        this.getAll().then((json)=> {
           json.push(peli)
           return jsonfile.writeFile("./pelis.json", json).then((res)=> true);
         })
@@ -51,12 +51,15 @@ class PelisCollection {
 
 export { PelisCollection, Peli };
 
- const prueba = new PelisCollection();
-// const peliprueba ={
-//   title:"P",s
+// const prueba = new PelisCollection();
+// prueba.getAll().then((re)=>{console.log(re)});
+//  console.log("es el result " + prueba.search({title: "a"}).then((w)=>{console.log(w)}));
+
+//  const peliprueba ={
+//   title:"anillo de cuero",
 //   tags: ["clasica"]}
-const promesa = prueba.search({title: "anillo"}).then((w)=>{console.log(w)});
-// promesa;
+//console.log(promesa);
+//console.log(prueba.search({title:"anillo"}).then((e)=>e))
 // if(options.params === "title" && options.data.title){
 //  result = this.getPelis().then((pelis)=>{
 //     const getPelis = pelis.filter((pelis)=>{pelis.title == options.data.title})
