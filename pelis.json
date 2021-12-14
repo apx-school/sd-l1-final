@@ -1,1 +1,21 @@
-[]
+[{
+    "id": 1,
+    "title": "Todo sobre mi madre",
+    "tags": ["LGBT","española","cirugías","Barcelona"]
+  },{
+    "id": 2,
+    "title": "Hable con ella",
+    "tags": ["drama", "LGBT", "tauromaquia"]
+  },{
+    "id": 3,
+    "title": "La voz humana",
+    "tags": ["drama", "inglés", "española"]
+  },{
+    "id": 4,
+    "title": "Volver",
+    "tags": ["Madrid", "surrealismo", "melodrama"]
+  },{
+    "id": 5,
+    "title": "El angel",
+    "tags": ["LGBT", "biográfica", "policial"]
+  }]
