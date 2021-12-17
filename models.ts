@@ -6,7 +6,7 @@ class Peli {
   tags: string[];
 }
 class PelisCollection {
-  pelis: Peli [] = [];
+ 
   // getPelis(){
   //   return jsonfile.readFile("./pelis.json");
   // }
@@ -23,7 +23,8 @@ class PelisCollection {
     return this.getAll().then((pelis)=> {
       if (options.title && options.tags) {
         return pelis.filter((pel) => { 
-          return pel.title.includes(options.title) && pel.tags.includes(options.tags); });
+          return pel.title.includes(options.title) && 
+          pel.tags.includes(options.tags); });
       } else if (options.title) {
         return pelis.filter((pel_1) => {
           return pel_1.title.includes(options.title); });
@@ -34,7 +35,7 @@ class PelisCollection {
     });
   }
   
-  add ( peli: Peli): Promise<any>{
+  add ( peli: Peli): Promise<boolean>{
     const promesaUno = this.getById(peli.id).then((peliExistente) => {
       if (peliExistente) {
         return false;
