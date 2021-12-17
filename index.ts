@@ -3,20 +3,69 @@ import { PelisController } from "./controllers";
 
 function parseaParams(argv) {
   const resultado = minimist(argv);
-  console.log(resultado);
   return resultado;
 }
 
 function main() {
   const params = parseaParams(process.argv.slice(2));
   const peliController = new PelisController();
-  var resultado;
-  if (params.add) {
-    resultado = peliController.add(params);
-  } else if (params.get) {
-    resultado = peliController.get(params);
+  console.log(params._[1])
+
+  if (params._[0] != "search" && params._[0] != "add" && params._[0] != "get") {
+    console.log("hola")
+    peliController.get().then((peli) => {
+      peli.forEach((p) => {
+        console.log(p);
+      });
+    });
   }
-  return resultado;
+
+  if (params._[0] == "add") {
+    const addPeli = {
+      id: params.id,
+      title: params.title,
+      tags: params.tags,
+    };
+
+    peliController.add(addPeli);
+  } else if (params._[0] == "get") {
+    const getPeli = {
+      id: params._[1],
+    };
+    peliController.get(getPeli).then((peli) => {
+      console.log(peli);
+    });
+  } else if (params._[0] == "search") {
+    if (params.title && params.tag) {
+      const searchPeli = {
+        search: {
+          tag: params.tag,
+          title: params.title,
+        },
+      };
+      peliController.get(searchPeli).then((peli) => {
+        console.log(peli);
+      });
+    } else if (params.title && !params.tag) {
+      const respuesta = {
+        search: {
+          title: params.title,
+        },
+      };
+      peliController.get(respuesta).then((peli) => {
+        console.log(peli);
+      });
+    } else if (!params.title && params.tag) {
+      const resp = {
+        search: {
+          tag: params.tag,
+        },
+      };
+      peliController.get(resp).then((peli) => {
+        console.log(peli);
+      });
+    }
+  }
 }
 
 main();
