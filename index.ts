@@ -12,7 +12,6 @@ function main() {
   console.log(params._[1])
 
   if (params._[0] != "search" && params._[0] != "add" && params._[0] != "get") {
-    console.log("hola")
     peliController.get({ id: params._[1] }).then((peli) => {
       peli.forEach((p) => {
         console.log(p);
