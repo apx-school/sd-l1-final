@@ -13,7 +13,7 @@ function main() {
 
   if (params._[0] != "search" && params._[0] != "add" && params._[0] != "get") {
     console.log("hola")
-    peliController.get().then((peli) => {
+    peliController.get({ id: params._[1] }).then((peli) => {
       peli.forEach((p) => {
         console.log(p);
       });
