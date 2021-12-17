@@ -26,8 +26,8 @@ function main() {
       title: params.title,
       tags: params.tags,
     };
-
     peliController.add(addPeli);
+
   } else if (params._[0] == "get") {
     const getPeli = {
       id: params._[1],
@@ -35,7 +35,9 @@ function main() {
     peliController.get(getPeli).then((peli) => {
       console.log(peli);
     });
+
   } else if (params._[0] == "search") {
+
     if (params.title && params.tag) {
       const searchPeli = {
         search: {
@@ -46,6 +48,7 @@ function main() {
       peliController.get(searchPeli).then((peli) => {
         console.log(peli);
       });
+
     } else if (params.title && !params.tag) {
       const respuesta = {
         search: {
@@ -55,6 +58,7 @@ function main() {
       peliController.get(respuesta).then((peli) => {
         console.log(peli);
       });
+      
     } else if (!params.title && params.tag) {
       const resp = {
         search: {
