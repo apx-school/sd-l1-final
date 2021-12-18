@@ -13,7 +13,7 @@ class PelisCollection {
   getAll(): Promise<Peli[]> {
     return  jsonfile.readFile("./pelis.json").then((res) =>{return res});
   }
-  getById(id:number){
+  getById(id:number):Promise<any>{
     return this.getAll().then((pelis)=>{
       const getPeli = pelis.find((p)=>p.id ==id)
       return getPeli;
