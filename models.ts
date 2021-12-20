@@ -45,6 +45,7 @@ class PelisCollection {
   add(peli: Peli): Promise<boolean> {
     const promesaUno = this.getById(peli.id).then((peliExistente) => {
       if (peliExistente) {
+        console.log("No se puede agregar peli con id repetido")
         return false;
       } else {
         var data = jsonfile.readFileSync("./pelis.json");
@@ -52,6 +53,7 @@ class PelisCollection {
 
         const promesaDos = jsonfile.writeFile("./pelis.json", data);
         return promesaDos.then(() => {
+          console.log("Peli agregada OK")
           return true;
         });
       }

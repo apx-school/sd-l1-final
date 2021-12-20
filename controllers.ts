@@ -18,7 +18,8 @@ class PelisController {
   }
   
   add(peli: Peli) {
-    return this.data.add(peli);
+    this.data.add(peli);
+    return true
   }
 }
 
