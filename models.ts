@@ -7,9 +7,6 @@ class Peli {
 }
 class PelisCollection {
  
-  // getPelis(){
-  //   return jsonfile.readFile("./pelis.json");
-  // }
   getAll(): Promise<Peli[]> {
     return  jsonfile.readFile("./pelis.json").then((res) =>{return res});
   }
@@ -51,24 +48,3 @@ class PelisCollection {
 }
 
 export { PelisCollection, Peli };
-
-// const prueba = new PelisCollection();
-// prueba.getAll().then((re)=>{console.log(re)});
-//  console.log("es el result " + prueba.search({title: "a"}).then((w)=>{console.log(w)}));
-
-//  const peliprueba ={
-//   title:"anillo de cuero",
-//   tags: ["clasica"]}
-//console.log(promesa);
-//console.log(prueba.search({title:"anillo"}).then((e)=>e))
-// if(options.params === "title" && options.data.title){
-//  result = this.getPelis().then((pelis)=>{
-//     const getPelis = pelis.filter((pelis)=>{pelis.title == options.data.title})
-//     return getPelis;
-//   }) 
-// }else if (options.params === "tag" && options.data.tags) {
-//   result = this.getPelis().then((pelis)=>{
-//     const getPelis = pelis.filter((pelis)=>{pelis.tags == options.data.tags})
-//     return getPelis;
-//   });
-//  } return result;

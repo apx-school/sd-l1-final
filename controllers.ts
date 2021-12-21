@@ -11,10 +11,10 @@ class PelisController {
     if(options.id){
       return this.data.getById(options.id)
       
-    } else if (options.search.title && options.search.tags){
+    } else if (options.search.title && options.search.tag){
       return this.data.search({
         title: options.search.title,
-        tags: options.search.tags,
+        tags: options.search.tag,
       });
       
     } else if(options.search.title){
@@ -22,9 +22,9 @@ class PelisController {
         title: options.search.title
       });
       
-    } else if (options.search.tags){
+    } else if (options.search.tag){
       return this.data.search({
-        tags: options.search.tags
+        tags: options.search.tag
       });
 
     }else{
@@ -38,13 +38,4 @@ class PelisController {
 
 }
 export { PelisController };
-
-const nuevaPrueba = new PelisController();
-//nuevaPrueba.get("search: title Matrix").then((r)=> console.log(r))
-//const prueba = new PelisController();
-//nuevaPrueba.get({title: "anillo", tags: "fantasia"}).then((r)=>console.log(r))
-//nuevaPrueba.get({ tags: "classic"}).then((r)=>console.log(r))
-//nuevaPrueba.get({id:4}).then((res)=>{console.log(res)}) 
-//nuevaPrueba.get({tags: ["fantasia"]}).then((res)=>{console.log(res)}) 
-
  
