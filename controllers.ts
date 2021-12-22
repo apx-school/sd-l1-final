@@ -19,24 +19,24 @@ class PelisController {
     } 
     
     if(options.search){
-      
-      if (options.search.title && options.search.tag){
-        return this.data.search({
-          title: options.search.title,
-          tags: options.search.tag,
-        });
+      return this.data.search(options.search);
+      // if (options.search.title && options.search.tag){
+      //   return this.data.search({
+      //     title: options.search.title,
+      //     tags: options.search.tag,
+      //   });
         
-      } else if(options.search.title){
-        return this.data.search({
-          title: options.search.title
-        });
+      // } else if(options.search.title){
+      //   return this.data.search({
+      //     title: options.search.title
+      //   });
         
-      } else if (options.search.tag){
-        return this.data.search({
-          tags: options.search.tag
-        });
+      // } else if (options.search.tag){
+      //   return this.data.search({
+      //     tags: options.search.tag
+      //   });
       } }
-    }
+    
     
     add(peli:Peli){
       return this.data.add(peli);
