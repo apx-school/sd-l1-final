@@ -8,8 +8,12 @@ class PelisController {
   }
   
   get(options:any): Promise <any>{
-  
     
+    if (options.empty){
+
+      return this.data.getAll().then((res)=> res);
+    }
+  
     if(options.id){
       return this.data.getById(options.id)
     } 
@@ -32,11 +36,6 @@ class PelisController {
           tags: options.search.tag
         });
       } }
-      
-      if (options.empty){
-        
-        return this.data.getAll().then((res)=> res);
-      }
     }
     
     add(peli:Peli){
