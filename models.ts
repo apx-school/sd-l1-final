@@ -10,12 +10,12 @@ class PelisCollection {
   getAll(): Promise<Peli[]> {
     return jsonfile.readFile("./pelis.json").then((pelis) => { return pelis })
   }
-  getByID(id: number) {
+  getById(id: number) {
     return this.getAll().then((pelis) => {
       return pelis.find((p) => { return p.id == id })
     })
   }
-  search(options: any) {
+  search(options: any): Promise<any> {
     return this.getAll().then((pelis) => {
       if (options.title && options.tag) {
         return pelis.filter((p) => { return p.title.includes(options.title) && p.tags.includes(options.tag) })
@@ -27,7 +27,7 @@ class PelisCollection {
     })
   }
   add(peli: Peli): Promise<boolean> {
-    const promesaUno = this.getByID(peli.id).then((peliExistente) => {
+    const promesaUno = this.getById(peli.id).then((peliExistente) => {
       if (peliExistente) {
         return false;
       } else {
