@@ -34,7 +34,7 @@ class PelisCollection {
         return this.getAll().then((pelis) => {
           const data = pelis
           pelis.push(peli)
-          const promesaDos = jsonfile.writeFile("./pelis.json", data, { spaces: 2 });
+          const promesaDos = jsonfile.writeFile("./pelis.json", data);
           return promesaDos.then(() => {
             return true;
           })
