@@ -21,12 +21,12 @@ function processOptions(params) {
     return controller.get({ id: params._[1] });
   }
 
-  if (params._[0] == "search") {
-    return controller.get({
-      search: { title: params.title, tags: params.tag },
-    });
-  }
-
+  if (params._[0] == "search" && params.tag) {
+    /* return controller.get({
+      search: { title: params.title, tags: params.tag }, */
+      return controller.get({ search: { tags: params.tag } }).then((res) => res);
+    };
+  
   if (_.isEmpty(params._[0])) {
     return controller.get({ empty: "empty" });
   }
