@@ -1,5 +1,5 @@
 import * as jsonfile from "jsonfile";
-
+import * as _ from "lodash";
 
 class Peli {
   id: number;
@@ -11,26 +11,32 @@ class PelisCollection {
   getAll(): Promise<Peli[]> {
     return  jsonfile.readFile("./pelis.json").then((res) =>{return res});
   }
-  getById(id:number):Promise<any>{
-    return this.getAll().then((pelis)=>{
-      const getPeli = pelis.find((p)=>p.id ==id)
-      return getPeli;
+
+  getById(id:number):Promise<Peli>{
+    return this.getAll().then((pelis: Peli[])=>{
+     return pelis.find((p)=>p.id ==id)
     });
   }
-  search(options:any): Promise<any>{
+
+  search(options:any): Promise<Peli[]>{
     return this.getAll().then((pelis)=> {
+
       if (options.title && options.tags) {
+        console.log("llego a buscar title y tag")
+
         return pelis.filter((pel) => { 
-          return pel.title.includes(options.title) && 
+          pel.title.includes(options.title) && 
           pel.tags.includes(options.tags); });
       } 
-       if (options.title) {
+      if (options.title) {
+        console.log("llego a buscar title")
+
         return pelis.filter((pel_1) => {
-          return pel_1.title.includes(options.title); });
-      }
+           pel_1.title.includes(options.title); });
+      } 
       if (options.tags) {
-        return pelis.filter((pel_2) => { 
-         return pel_2.tags.includes(options.tags); });
+        console.log("llego a buscar tag",options.tags)
+        return _.filter(pelis, function(o){_.includes({pelis},options.tags)})
       }  
     });
   }
