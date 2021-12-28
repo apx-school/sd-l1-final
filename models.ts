@@ -16,17 +16,17 @@ class PelisCollection {
       return pelis.find((p) => p.id == id);
     });
   }
-  search(options: any): Promise<Peli[]> {
+   search(options: any): Promise<Peli[]> {
     return this.getAll().then((pelis) => {
       if (options.title && options.tag) {
         return pelis.filter((pel) => {
           return (
             pel.title.includes(options.title) && pel.tags.includes(options.tag)
-          );
-        });
-      }
-
-      if (options.title) {
+            );
+          });
+        }
+        
+        if (options.title) {
         return pelis.filter((pel) => {
           return pel.title.includes(options.title);
         });
@@ -38,10 +38,10 @@ class PelisCollection {
           return pel.tags.includes(options.tag);
         });
       }
-    });
-  }
-
-  add(peli: Peli): Promise<boolean> {
+   })
+  };
+  
+   add(peli: Peli): Promise<boolean> {
     return this.getAll().then((json) => {
       return this.getById(peli.id).then((peliExistente) => {
         if (peliExistente) {

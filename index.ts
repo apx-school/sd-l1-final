@@ -12,7 +12,7 @@ function processOptions(params) {
   if (params._[0] == "add") {
     return controller.add({
       title: params.title,
-      tags: params.tag,
+      tags: params.tags,
       id: params.id,
     });
   }
@@ -23,7 +23,7 @@ function processOptions(params) {
 
   if (params._[0] == "search") {
     return controller.get({
-      search: { title: params.title, tag: params.tag },
+      search: { title: params.title, tags: params.tag },
     });
   }
 
