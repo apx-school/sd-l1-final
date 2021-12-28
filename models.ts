@@ -36,7 +36,12 @@ class PelisCollection {
       } 
       if (options.tags) {
         console.log("llego a buscar tag",options.tags)
-        return _.filter(pelis, function(o){_.includes({pelis},options.tags)})
+        return pelis.map((item)=>{
+          if(_.includes(item.tags, options.tag)){
+            return item
+          };
+        });
+        //_.filter(pelis, function(o){_.includes({pelis},options.tags)})
       }  
     });
   }
