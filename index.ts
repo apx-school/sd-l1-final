@@ -24,7 +24,7 @@ function processOptions(params) {
   if (params._[0] == "search" && params.tag) {
     /* return controller.get({
       search: { title: params.title, tags: params.tag }, */
-      return controller.get({ search: { tags: params.tag } }).then((res) => res);
+      return controller.get({ search: { tag: params.tag } }).then((res) => res);
     };
   
   if (_.isEmpty(params._[0])) {
