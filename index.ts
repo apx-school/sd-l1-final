@@ -21,33 +21,20 @@ function processOptions(params) {
 
   if (params._[0] == "get") {
   
-    return controller.get({ id: params._[1] }).then((res) => res);
+    return controller.get({ id: params._[1] });
  }
 
 
-  if (params._[0] == "search" && params.title && params.tags) {
+  if (params._[0] == "search") {
   
     return controller
-      .get({ search: { title: params.title, tags: params.tags } })
+      .get({ search: { title: params.title, tag: params.tag } })
       .then((res) => res);
   }
 
-
-  if (params._[0] == "search" && params.title) {
-
-    return controller
-      .get({ search: { title: params.title } })
-      .then((res) => res);
-  }
-
-   if (params._[0] == "search" && params.tags) {
-   
-    return controller.get({ search: { tags: params.tags } }).then((res) => res);
-  }
-  
   if (_.isEmpty(params._[0])) {
    
-    return controller.get({empty:"empty"})//.then((res)=>res);
+    return controller.get({empty:"empty"});
    
   }
 }

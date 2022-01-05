@@ -18,47 +18,45 @@ class PelisCollection {
     });
   }
 
-  search(options:any): Promise<Peli[]>{
-    return this.getAll().then((pelis)=> {
-
-      if (options.title && options.tags) {
-        console.log("llego a buscar title y tag")
-
-        return pelis.filter((pel) => { 
-          pel.title.includes(options.title) && 
-          pel.tags.includes(options.tags); });
-      } 
-      if (options.title) {
-        console.log("llego a buscar title")
-
-        return pelis.filter((pel_1) => {
-           pel_1.title.includes(options.title); });
-      } 
-      if (options.tags) {
-        console.log("llego a buscar tag",options.tags)
-        return pelis.map((item)=>{
-          if(_.includes(item.tags, options.tag)){
-            return item
-          };
+  search(options: any): Promise<Peli[]> {
+    return this.getAll().then((pelis) => {
+      if (options.title && options.tag) {
+        return pelis.filter((pel) => {
+          return (
+            pel.title.includes(options.title) && pel.tags.includes(options.tag)
+          );
         });
-        //_.filter(pelis, function(o){_.includes({pelis},options.tags)})
-      }  
+      }
+
+      if (options.title) {
+        return pelis.filter((pel) => {
+          return pel.title.includes(options.title);
+        });
+      }
+
+      if (options.tag) {
+        //console.log("entró en tag");
+        return pelis.filter((pel) => {
+          return pel.tags.includes(options.tag);
+        });
+      }
     });
   }
   
-  add ( peli: Peli): Promise<boolean>{
-    const promesaUno = this.getById(peli.id).then((peliExistente) => {
-      if (peliExistente) {
-        return false;
-      } else {
-        this.getAll().then((json)=> {
-          json.push(peli)
-          return jsonfile.writeFile("./pelis.json", json).then((res)=> true);
-        })
-      };
+  add(peli: Peli): Promise<boolean> {
+    return this.getAll().then((json) => {
+      const promesaUno = this.getById(peli.id).then((peliExistente) => {
+        if (peliExistente) {
+          return false;
+        } else {
+          json.push(peli);
+          return jsonfile
+            .writeFile(__dirname + "/pelis.json", json)
+            .then((res) => true);
+        }
+      });
+      return promesaUno;
     });
-    return promesaUno;
   }
 }
-
 export { PelisCollection, Peli };
