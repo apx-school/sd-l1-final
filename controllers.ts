@@ -19,7 +19,7 @@ class PelisController {
     } 
     
     if(options.search){
-      console.log("entro en search")
+     
       return this.data.search(options.search);
      } 
     }

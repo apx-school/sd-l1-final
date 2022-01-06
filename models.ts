@@ -1,5 +1,5 @@
 import * as jsonfile from "jsonfile";
-import * as _ from "lodash";
+
 
 class Peli {
   id: number;
@@ -35,7 +35,7 @@ class PelisCollection {
       }
 
       if (options.tag) {
-        //console.log("entró en tag");
+       
         return pelis.filter((pel) => {
           return pel.tags.includes(options.tag);
         });
