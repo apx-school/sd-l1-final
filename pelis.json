@@ -33,7 +33,7 @@
   },
   {
     "title": "Kill Bill",
-    "rating": 5,
+    "id": 5,
     "director": "Quentin Tarantino",
     "year": 2003,
     "tags": ["favorita", "nueva"]
@@ -41,7 +41,7 @@
   },
   {
     "title": "Old Boy",
-    "rating": 6,
+    "id": 6,
     "director": "Pak Chan uk",
     "year": 2003,
     "tags": ["favorita", "nueva"]
@@ -73,7 +73,7 @@
   },
   {
     "title": "Full Metal Jacket",
-    "rating": 10,
+    "id": 10,
     "director": "Stanley Kubrick",
     "year":1987,
     "tags": ["favorita", "nueva"]
@@ -81,7 +81,7 @@
   },
   {
     "title": "Pirates of the Caribbean: At World's End",
-    "rating": 11,
+    "id": 11,
     "director": "Gore Verbinski",
     "year": 2007,
     "tags": ["favorita", "nueva"]

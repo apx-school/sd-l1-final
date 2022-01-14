@@ -10,11 +10,33 @@ class Peli {
 }
 
 class PelisCollection {
-  getAll(): Promise<Peli[]> {
-    return jsonfile("...laRutaDelArchivo").then(() => {
-      // la respuesta de la promesa
-      return [];
-    });
+
+  async getAll(): Promise<Peli[]> {
+    const respuestaDelArchivo = await jsonfile.readFile("./pelis.json")
+      return respuestaDelArchivo;
   }
+
+  async getById(id:number){
+    const resultado = await this.getAll();
+    const respF = resultado.find((p)=>{return p.id == id})
+    return respF
+  }
+
+
+
 }
 export { PelisCollection, Peli };
+
+const pruebas = new PelisCollection();
+
+/* const resultado = pruebas.getById(5).then((parametro)=>{
+  console.log(parametro)
+}) */
+
+
+(async()=>{
+  /*  const res = await pruebas.getAll()
+  console.log("pruebas", res)  */
+  const resp = await pruebas.getById(4)
+  console.log(resp)
+})();
