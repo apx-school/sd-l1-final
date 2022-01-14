@@ -1,1 +1,128 @@
-[]
+[
+{
+    "title": "Django",
+    "id": 1,
+    "director": "Quentin Tarantino",
+    "year": 2012,
+    "tags": ["accion", "favorita", "nueva","western"]
+
+},
+  {
+    "title": "Inception",
+    "id": 2,
+    "director": "Christopher Nolan",
+    "year": 2010,
+    "tags": ["favorita", "nueva","ciencia ficcion"]
+   
+  },
+  {
+    "title": "Suspiria",
+    "id": 3,
+    "director": "Luca Guadagnino",
+    "year": 2018,
+    "tags": ["favorita", "nueva"]
+    
+  },
+  {
+    "title": "Pulp Fiction",
+    "id": 4,
+    "director": "Quentin Tarantino",
+    "year": 1994,
+    "tags": ["favorita", "nueva"]
+   
+  },
+  {
+    "title": "Kill Bill",
+    "rating": 5,
+    "director": "Quentin Tarantino",
+    "year": 2003,
+    "tags": ["favorita", "nueva"]
+    
+  },
+  {
+    "title": "Old Boy",
+    "rating": 6,
+    "director": "Pak Chan uk",
+    "year": 2003,
+    "tags": ["favorita", "nueva"]
+   
+  },
+  {
+    "title": "The dark knight",
+    "id": 7,
+    "director": "Christoper Nolan",
+    "year": 2008,
+    "tags": ["favorita", "nueva"]
+    
+  },
+  {
+    "title": "Twelve angry men",
+    "id": 8,
+    "director": "Sidney Lumet",
+    "year": 1957,
+    "tags": ["favorita", "nueva"]
+    
+  },
+  {
+    "title": "El secreto de sus ojos",
+    "id": 9,
+    "director": "Juan José Campanella",
+    "year":2009,
+    "tags": ["favorita", "nueva"]
+    
+  },
+  {
+    "title": "Full Metal Jacket",
+    "rating": 10,
+    "director": "Stanley Kubrick",
+    "year":1987,
+    "tags": ["favorita", "nueva"]
+    
+  },
+  {
+    "title": "Pirates of the Caribbean: At World's End",
+    "rating": 11,
+    "director": "Gore Verbinski",
+    "year": 2007,
+    "tags": ["favorita", "nueva"]
+    
+  },
+  {
+    "title": "Shrek",
+    "id": 12,
+    "director": "Andrew Adamson",
+    "year": 2001,
+    "tags": ["favorita", "animacion"]
+    
+  },
+  {
+    "title": "Matrix",
+    "id": 13,
+    "director": "Wachoski sister's",
+    "year": 1999,
+    "tags": ["acción", "ciencia ficcion"]
+},
+{
+  "title": "Fight club",
+  "id": 14,
+  "director": "David Fincher",
+  "year": 1999,
+  "tags": ["drama", "favorita", "clasico"]
+},
+{
+  "title": "El gran hotel Budapest",
+  "id": 15,
+  "di8.6rector": "Wes Anderson",
+  "year": 2014,
+  "tags": ["aventura", "comedia", "crimen","favorita"]
+
+},
+{
+  "title": "Seven",
+  "id": 16,
+  "director": "David Fincher",
+  "year": 1995,
+  "tags": ["crimen","drama", "misterio","culto"]
+
+}
+]

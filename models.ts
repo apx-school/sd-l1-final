@@ -5,6 +5,8 @@ class Peli {
   id: number;
   title: string;
   tags: string[];
+  director:string;
+  year:number;
 }
 
 class PelisCollection {
