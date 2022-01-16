@@ -21,8 +21,21 @@ class PelisCollection {
   }
 
   async search(options:any){
-    const resultado = await this.getAll();
-    
+    const todasLasPelis = await this.getAll();
+    if (options.title && options.tag){
+      const res = todasLasPelis.filter((p)=>{
+        return p.title.includes(options.title) && p.tags.includes(options.tag);
+      })
+      return res
+    }else if (options.title){
+      return todasLasPelis.filter((p)=>{
+        return p.title.includes(options.title)
+      });
+    }else if (options.tag){
+      return todasLasPelis.filter((p)=>{
+        return p.tags.includes(options.tag)
+      })
+    }
   }
 
   add(peli:Peli): Promise<boolean>{
@@ -50,10 +63,16 @@ const pruebas = new PelisCollection();
 
 
 (async()=>{
+  //test de getAll
   /*  const res = await pruebas.getAll()
   console.log("pruebas", res)  */
+  //test de getById
   /* const resp = await pruebas.getById(6)
   console.log(resp) */
-  const rep = await pruebas.add({id:7,title: "Fargo", tags:["favorita", "de Coen brother's"]})
-  return rep
+  //test de add
+  /* const rep = await pruebas.add({id:7,title: "Fargo", tags:["favorita", "de Coen brother's"]})
+  return rep */
+  //test de search
+  /* const resp = await pruebas.search({title:"D"})
+  console.log(resp) */
 })();
