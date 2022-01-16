@@ -5,12 +5,10 @@ class Peli {
   id: number;
   title: string;
   tags: string[];
-  director:string;
-  year:number;
 }
 
 class PelisCollection {
-
+  data:Peli[]
   async getAll(): Promise<Peli[]> {
     const respuestaDelArchivo = await jsonfile.readFile("./pelis.json")
       return respuestaDelArchivo;
@@ -22,9 +20,26 @@ class PelisCollection {
     return respF
   }
 
+  async search(options:any){
+    const resultado = await this.getAll();
+    
+  }
 
+  add(peli:Peli): Promise<boolean>{
 
+    return this.getAll().then((json)=>{
+      return this.getById(peli.id).then((peliExistente)=>{
+        if (peliExistente){
+          return false;
+        }else{
+          json.push(peli);
+          return jsonfile.writeFile("./pelis.json", json).then((resp)=> true)
+        };
+      })
+    });
+  };
 }
+
 export { PelisCollection, Peli };
 
 const pruebas = new PelisCollection();
@@ -37,6 +52,8 @@ const pruebas = new PelisCollection();
 (async()=>{
   /*  const res = await pruebas.getAll()
   console.log("pruebas", res)  */
-  const resp = await pruebas.getById(4)
-  console.log(resp)
+  /* const resp = await pruebas.getById(6)
+  console.log(resp) */
+  const rep = await pruebas.add({id:7,title: "Fargo", tags:["favorita", "de Coen brother's"]})
+  return rep
 })();
