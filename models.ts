@@ -15,7 +15,7 @@ class PelisCollection {
     });
   };
   
- getById(id:number) {
+ getById(id:number):Promise<any> {
    return this.getAll().then ((peliculas) =>{
      const resultado = peliculas.find(p => {
        return p.id == id;
@@ -25,7 +25,7 @@ class PelisCollection {
 
  }
 
-  search(options: any) {
+  search(options: any):Promise<any> {
     return this.getAll().then((peliculas) => {
       if (options.title) {
         const resultado = peliculas.find((pelis) => {
@@ -43,7 +43,7 @@ class PelisCollection {
 
   };
 
-  addPeli(peli:Peli):Promise<boolean> {
+  add(peli:Peli):Promise<boolean> {
    const promesauno = this.getById(peli.id).then ((encontrada) => {
       if (encontrada) {
       return false;

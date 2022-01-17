@@ -32,7 +32,7 @@ class PelisController {
   }
 
   add (peli: Peli) {
-    return this.peliculas.addPeli(peli);
+    return this.peliculas.add(peli);
   }
   
 }
