@@ -1,1 +1,9 @@
-[]
+
+[
+{"id":1,"title":"Harry Potter","tags":["Fantasy"]},
+{"id":2,"title":"Jhon Wick","tags":["action"]},
+{"id":3,"title":"Matrix 1","tags":["action"]},
+{"id":4,"title":"Matrix 2","tags":["action"]},
+{"id":5,"title":"Matrix 3","tags":["epic"]},
+{"id":8,"title":"Tonto y re tonto","tags":["Comedy"]}
+]
