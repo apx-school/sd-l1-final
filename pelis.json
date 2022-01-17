@@ -115,8 +115,19 @@
         ]
     },
     {
-        "id":14,
+        "id": 14,
         "title": "Donnie Darko",
-        "tags":["fav", "Sci-fi"]
+        "tags": [
+            "fav",
+            "Sci-fi"
+        ]
+    },
+    {
+        "id": 20,
+        "title": "Shrek",
+        "tags": [
+            "animacion",
+            "fantasia"
+        ]
     }
 ]

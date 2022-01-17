@@ -67,12 +67,12 @@ const pruebas = new PelisCollection();
   /*  const res = await pruebas.getAll()
   console.log("pruebas", res)  */
   //test de getById
-  /* const resp = await pruebas.getById(6)
+  /* const resp = await pruebas.getById(14)
   console.log(resp) */
   //test de add
-  /* const rep = await pruebas.add({id:7,title: "Fargo", tags:["favorita", "de Coen brother's"]})
+  /* const rep = await pruebas.add({id:20,title: "Shrek", tags:["animacion", "fantasia"]})
   return rep */
   //test de search
-  /* const resp = await pruebas.search({title:"D"})
+  /* const resp = await pruebas.search({title:"S"})
   console.log(resp) */
 })();
