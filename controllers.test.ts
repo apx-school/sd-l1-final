@@ -1,4 +1,4 @@
-import anyTest, { TestInterface } from "ava";
+import anyTest, { TestFn } from "ava";
 import { PelisController } from "./controllers";
 import { getRandomId } from "./models.test";
 
@@ -8,7 +8,7 @@ const SOME_TAG = "tag " + TEST_ID;
 
 const SECOND_TEST_ID = getRandomId();
 
-const test = anyTest as TestInterface<{
+const test = anyTest as TestFn<{
   con: PelisController;
 }>;
 
