@@ -1,7 +1,7 @@
-import anyTest, { TestInterface } from "ava";
+import anyTest, { TestFn } from "ava";
 import { PelisCollection, Peli } from "./models";
 
-/*
+
 export const getRandomId = () => {
   const randomNumber = Math.floor(Math.random() * 100000);
   return 129856 + randomNumber;
@@ -9,13 +9,13 @@ export const getRandomId = () => {
 
 const SESSION_ID = getRandomId();
 
-*/
-const test = anyTest as TestInterface<{
+
+const test = anyTest as TestFn<{
   instance: PelisCollection;
   all: Peli[];
 }>;
 
-/*
+
 const TEST_ID = getRandomId();
 const TEST_TITLE = "title " + SESSION_ID + TEST_ID;
 
@@ -29,6 +29,10 @@ const SECOND_TEST_TITLE = "title " + SESSION_ID + SECOND_TEST_ID;
 
 // comentalos y descomentá uno a uno a medida
 // que vas avanzando en cada test
+
+test.serial("Corre ava", async (t) => {
+  t.is("si", "si");
+});
 
 test.serial("Testeo el método getById", async (t) => {
   const collection = new PelisCollection();
@@ -68,8 +72,9 @@ test.serial("Testeo el método search", async (t) => {
   t.deepEqual(c[0].id, SECOND_TEST_ID);
 });
 
-*/
 
+/*
 test.serial("Testeo ava", async (t) => {
   t.is("hola", "hola");
 });
+*/

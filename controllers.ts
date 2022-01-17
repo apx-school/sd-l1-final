@@ -25,7 +25,6 @@ class PelisController {
         });
       }
     }
-
     else if (!options) {
       return this.peliculas.getAll();
     }

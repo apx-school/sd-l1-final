@@ -24,6 +24,9 @@ const controller = new PelisController;
   else if (parametros._[0] == "search" && parametros.tags && parametros.title) {
     return controller.get ({obj: {title: parametros.title, tags: parametros.tags}}).then(resultado => console.log (resultado));
   }
+  else if (!parametros) {
+    return controller.get({});
+  }
 }
 
 function main() {
