@@ -1,6 +1,9 @@
 import anyTest, { TestInterface } from "ava";
 import { PelisController } from "./controllers";
+
+/*
 import { getRandomId } from "./models.test";
+
 
 const TEST_ID = getRandomId();
 const SOME_TITLE = "una peli " + TEST_ID;
@@ -18,7 +21,6 @@ const test = anyTest as TestInterface<{
 
 // comentalos y descomentá uno a uno a medida
 // que vas avanzando en cada test
-
 
 test.serial(
   "Testeo PelisController get id (creado desde la terminal)",
@@ -67,3 +69,5 @@ test.serial("Testeo PelisController search tag", async (t) => {
   const ids = pelis.map((b) => b.id);
   t.deepEqual(ids, [TEST_ID, SECOND_TEST_ID]);
 });
+*/
+
