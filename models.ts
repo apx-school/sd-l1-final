@@ -64,12 +64,6 @@ class PelisCollection {
 
 
 
-const prueba = new PelisCollection;
-
-prueba.search({tags: "epic"}).then((p => {
-  console.log (p);
-}))
-
 export { PelisCollection, Peli };
 
 
