@@ -25,23 +25,24 @@ class PelisCollection {
 
  }
 
-  search(options: any):Promise<any> {
-    return this.getAll().then((peliculas) => {
-      if (options.title) {
-        const resultado = peliculas.find((pelis) => {
-          return pelis.title.includes(options.title);
-        })
-        return resultado;
-      }
-      else if (options.tags) {
-        const resultado = peliculas.find(pelis => {
-          return pelis.tags == options.tags;
-        });
-        return resultado;
-      }
-    });
 
-  };
+  search(options: any): Promise<any> {
+    return this.getAll().then((peliculas) => {
+      return peliculas.filter((pelicula) => {
+        if (options.title && options.tag) {
+          return (
+            pelicula.title.includes(options.title) &&
+            pelicula.tags.includes(options.tag)
+          );
+        } else if (options.title) {
+          return pelicula.title.includes(options.title);
+        } else if (options.tag) {
+          return pelicula.tags.includes(options.tag);
+        }
+      });
+    });
+  }
+
 
   add(peli:Peli):Promise<boolean> {
    const promesauno = this.getById(peli.id).then ((encontrada) => {
