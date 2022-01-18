@@ -84,9 +84,9 @@
     },
     {
         "id": 207220,
-        "title": "title 146551207220",
+        "title": "x-men",
         "tags": [
-            "tt",
+            "action",
             "rr"
         ]
     },
@@ -129,5 +129,93 @@
             "animacion",
             "fantasia"
         ]
+    },
+    {
+        "title": "dasdad",
+        "tags": [
+            "asdas",
+            "as"
+        ],
+        "id": 30
+    },
+    {
+        "id": 175959,
+        "title": "title 159276175959",
+        "tags": [
+            "tt",
+            "rr"
+        ]
+    },
+    {
+        "id": 227766,
+        "title": "title 159276227766",
+        "tags": [
+            "yy",
+            "uu"
+        ]
+    },
+    {
+        "id": 138998,
+        "title": "title 154564138998",
+        "tags": [
+            "tt",
+            "rr"
+        ]
+    },
+    {
+        "id": 162826,
+        "title": "title 154564162826",
+        "tags": [
+            "yy",
+            "uu"
+        ]
+    },
+    {
+        "id": 209451,
+        "title": "title 191498209451",
+        "tags": [
+            "tt",
+            "rr"
+        ]
+    },
+    {
+        "id": 176612,
+        "title": "title 191498176612",
+        "tags": [
+            "yy",
+            "uu"
+        ]
+    },
+    {
+        "id": 176700,
+        "title": "title 192159176700",
+        "tags": [
+            "tt",
+            "rr"
+        ]
+    },
+    {
+        "id": 212311,
+        "title": "title 192159212311",
+        "tags": [
+            "yy",
+            "uu"
+        ]
+    },
+    {
+        "title": "Título de la nueva peli",
+        "tags": [
+            "action",
+            "classic"
+        ],
+        "id": 4411
+    },
+    {
+        "title": "peli de la terminal 4321865",
+        "tags": [
+            "rr",
+            "ww"
+        ],
+        "id": 4321865
     }
 ]

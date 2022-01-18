@@ -55,15 +55,15 @@ class PelisCollection {
 
 export { PelisCollection, Peli };
 
-const pruebas = new PelisCollection();
+//const pruebas = new PelisCollection();
 
 /* const resultado = pruebas.getById(5).then((parametro)=>{
   console.log(parametro)
 }) */
 
 
-(async()=>{
-  //test de getAll
+/* (async()=>{
+  /* //test de getAll
   /*  const res = await pruebas.getAll()
   console.log("pruebas", res)  */
   //test de getById
@@ -74,5 +74,5 @@ const pruebas = new PelisCollection();
   return rep */
   //test de search
   /* const resp = await pruebas.search({title:"S"})
-  console.log(resp) */
-})();
+  console.log(resp) */ 
+//})(); 
