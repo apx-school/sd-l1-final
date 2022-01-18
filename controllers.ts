@@ -5,7 +5,7 @@ class PelisController {
   constructor() {
     this.peli = new PelisCollection
   }
-  async get(options:any){
+  async get(options:any):Promise<any>{
     if (options.id) {
          return await this.peli.getById(options.id)
     }else if (options.search){
@@ -15,7 +15,7 @@ class PelisController {
       }
     } 
 
-  async add (peli:Peli){
+  async add (peli:Peli):Promise<boolean>{
     return this.peli.add(peli)
   }
 }
