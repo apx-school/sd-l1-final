@@ -8,7 +8,14 @@ class Peli {
 }
 
 class PelisCollection {
-  peliculas: Peli[];
+  peliculas: Peli[] = [];
+
+  //Me habia olvidado de crear el constructor, por eso no me funcionaba el test
+  constructor() {
+    this.getAll().then((peliculasJson) => {
+      this.peliculas = peliculasJson;
+    });
+  }
 
   getAll(): Promise<Peli[]> {
     return jsonfile.readFile("./pelis.json").then((peliculas) => {
@@ -36,10 +43,10 @@ class PelisCollection {
     //cuando la promesa se resolvio, voy a realizar las busquedas y a devolver resultados
     return this.getAll().then((peliculas) => {
       //CON TITULO MAS TAGS
-      if (options.title && options.tag) {
+      if (options.title && options.tags) {
         var tituloFiltrado = peliculas.filter((peli) => {
           //si alguna de las pelis incluye options.title la devuelvo
-          if (peli.title.toLowerCase().includes(options.title.toLowerCase())) {
+          if (peli.title.includes(options.title)) {
             return peli;
           }
         });
@@ -47,38 +54,39 @@ class PelisCollection {
         return tituloFiltrado.filter((peli) => {
           //busco en el array de tags de las peli que ya filtre por titulo con find
           const encontrado = peli.tags.find((tag) => {
-            if (options.tag == tag) {
+            if (options.tags == tag) {
               return true;
             }
           });
           //si el tag se encontro dentro de los tags de la peli, devuelvo la peli
-          if (encontrado == options.tag) {
+          if (encontrado == options.tags) {
             return peli;
           }
         });
       }
       //SOLO CON TITULO
-      else if (options.title) {
+      if (options.title) {
         //busco las pelis con filter
         return peliculas.filter((peli) => {
           //si alguna de las pelis incluye options.title la devuelvo
-          if (peli.title.toLowerCase().includes(options.title.toLowerCase())) {
+
+          if (peli.title.includes(options.title)) {
             return peli;
           }
         });
       }
       //SOLO CON TAGS
-      else if (options.tag) {
+      if (options.tags) {
         //busco los tags de las pelis con filter
         return peliculas.filter((peli) => {
           //busco en el array de tags de la peli con find
           const encontrado = peli.tags.find((tag) => {
-            if (options.tag == tag) {
+            if (options.tags == tag) {
               return true;
             }
           });
           //si el tag se encontro dentro de los tags de la peli, devuelvo la peli
-          if (encontrado == options.tag) {
+          if (encontrado == options.tags) {
             return peli;
           }
         });
@@ -97,7 +105,9 @@ class PelisCollection {
         //luego lo sobreescribo en el json
         //las pelis ya estan cargadas porque hice el this.getById que
         //a su vez llama al getall y ahi se cargan en this
+
         this.peliculas.push(peli);
+
         const promesaDos = jsonfile.writeFile("./pelis.json", this.peliculas);
 
         //si la promesa termino de escribir el json, retorno true
@@ -124,10 +134,10 @@ function main() {
     pelis.peliculas = resultado;
     console.log(pelis.peliculas);
   });
-  
+
   var pelisEncontadas;
 
-  pelis.search({ title: "ave" }).then((pelis) => {
+  pelis.search({ title: "Ave" }).then((pelis) => {
     pelisEncontadas = pelis;
     console.log(pelisEncontadas);
   });
@@ -135,7 +145,6 @@ function main() {
     pelisEncontadas = pelis;
     console.log(pelisEncontadas);
   });
-  
   pelis
     .add({
       id: 13,
@@ -152,6 +161,7 @@ function main() {
         console.log(peliEncontrada);
       });
     });
+    
 }
 
 main();

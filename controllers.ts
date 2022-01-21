@@ -2,13 +2,18 @@ import { PelisCollection, Peli } from "./models";
 
 class PelisController {
   listaPelis: PelisCollection;
-  promesa: Promise<Peli[]>;
+  //promesa: Promise<Peli[]>;
   constructor() {
     this.listaPelis = new PelisCollection();
-    const nuevaPromesa = this.listaPelis.getAll();
-    this.promesa = nuevaPromesa;
+    /* this.listaPelis.getAll().then((peliculas) => {
+      this.listaPelis.peliculas = peliculas;
+    });*/
+    // const nuevaPromesa = this.listaPelis.getAll();
+    // this.promesa = nuevaPromesa;
   }
 
+  //EN EL GET ESTABA COMETIENDO EL ERROR DE DEVOLVER UNA PROMESA, AHORA
+  //DEVUELVE UNA Peli o un Peli[]
   get(options) {
     //si la opcion id existe entra
     if (options.id) {
@@ -17,18 +22,19 @@ class PelisController {
       });
     }
     //si existe, title o tag, o incluso ambas entra
-    else if (options.title || options.tag) {
+    if (options.title || options.tags) {
       return this.listaPelis.search(options).then((peliculas) => {
         return peliculas;
       });
     }
     //si no hay ni id, title o tag, entonce retorna todas las pelis
-    else {
+    if (!(options.id || options.title || options.tags)) {
       return this.listaPelis.getAll().then((peliculas) => {
         return peliculas;
       });
     }
   }
+
   add(peli: Peli) {
     return this.listaPelis.add(peli);
   }
