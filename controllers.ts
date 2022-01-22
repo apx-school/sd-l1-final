@@ -17,7 +17,7 @@ class PelisController {
       return this.listaPelis.search(options.search);
     }
 
-    if (!(options.id && options.title && options.tags)) {
+    if (!(options.id || options.search)) {
       return this.listaPelis.getAll();
     }
   }

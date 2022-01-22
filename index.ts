@@ -52,6 +52,11 @@ function main() {
       });
     });*/
   }
+  if (params.accion == undefined) {
+    controller.listaPelis.getAll().then((resultado) => {
+      console.log(resultado);
+    });
+  }
 }
 
 main();
