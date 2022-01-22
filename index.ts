@@ -33,7 +33,7 @@ function parseaParams(argv) {
 function main() {
   const controller = new PelisController();
   const params = parseaParams(process.argv.slice(2));
-  console.log(params);
+  //console.log(params);
 
   if (params.accion == "search") {
     controller.get(params).then((resultado) => {
@@ -46,11 +46,11 @@ function main() {
     });
   }
   if (params.accion == "add") {
-    controller.add(params.add).then(() => {
+    controller.add(params.add); /*.then(() => {
       controller.listaPelis.getAll().then((todasLasPelis) => {
         console.log(todasLasPelis);
       });
-    });
+    });*/
   }
 }
 

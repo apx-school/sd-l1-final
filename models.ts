@@ -43,36 +43,8 @@ class PelisCollection {
     //cuando la promesa se resolvio, voy a realizar las busquedas y a devolver resultados
     return this.getAll().then((peliculas) => {
       //CON TITULO MAS TAGS
-      /*  if (options.title && options.tags) {
-        var tituloFiltrado = peliculas.filter((peli) => {
-          peli.title.includes(options.title);
-          //si alguna de las pelis incluye options.title la devuelvo
-        });
-        console.log(tituloFiltrado);
-
-        return tituloFiltrado.filter((peli) => {
-          //busco en el array de tags de las peli que ya filtre por titulo con find
-          return peli.tags.find((tag) => {
-            options.tags == tag;
-          });
-          //si el tag se encontro dentro de los tags de la peli, devuelvo la peli
-        });
-      }*/
-
-      //SOLO CON TITULO
-      if (options.title && options.tag == undefined) {
-        //busco las pelis con filter
-        return peliculas.filter((peli) => {
-          //si alguna de las pelis incluye options.title la devuelvo
-
-          if (peli.title.includes(options.title)) {
-            return peli;
-          }
-        });
-      } //SOLO CON TAGS
-      if (options.tag && options.title == undefined) {
-        //busco los tags de las pelis con filter
-        return peliculas.filter((peli) => {
+      if (options.title && options.tag) {
+        var pelisConTags = peliculas.filter((peli) => {
           //busco en el array de tags de la peli con find
           return peli.tags.find((tag) => {
             if (options.tag == tag) {
@@ -80,6 +52,36 @@ class PelisCollection {
             }
           });
         });
+        var resultado = pelisConTags.filter((peli) => {
+          //si alguna de las pelis incluye options.title la devuelvo
+          return peli.title.includes(options.title);
+        });
+        return resultado;
+      } else {
+        //SOLO CON TAGS
+        if (options.tag) {
+          //busco los tags de las pelis con filter
+          return peliculas.filter((peli) => {
+            //busco en el array de tags de la peli con find
+            return peli.tags.find((tag) => {
+              if (options.tag == tag) {
+                return true;
+              }
+            });
+          });
+        } else {
+          //SOLO CON TITULO
+          if (options.title) {
+            //busco las pelis con filter
+            return peliculas.filter((peli) => {
+              //si alguna de las pelis incluye options.title la devuelvo
+
+              if (peli.title.includes(options.title)) {
+                return peli;
+              }
+            });
+          }
+        }
       }
     });
   }
