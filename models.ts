@@ -17,7 +17,7 @@ class PelisCollection {
     });
   }
 
-  getAll(): Promise<Peli[]> {
+  getAll() {
     return jsonfile.readFile("./pelis.json").then((peliculas) => {
       //cuando la promesa se resuelva, osea cuando termine(then)
       //entonces retorno peliculas que es lo que devuelve readFile
@@ -25,7 +25,7 @@ class PelisCollection {
     });
   }
 
-  getById(id: number): Promise<Peli> {
+  getById(id: number) {
     //obtengo todas las pelis de this
     return this.getAll().then((peliculas) => {
       //busco la peli con find de las peliculas que devolvio el json
@@ -39,33 +39,28 @@ class PelisCollection {
     });
   }
 
-  search(options: any): Promise<Peli[]> {
+  search(options: any) {
     //cuando la promesa se resolvio, voy a realizar las busquedas y a devolver resultados
     return this.getAll().then((peliculas) => {
       //CON TITULO MAS TAGS
-      if (options.title && options.tags) {
+      /*  if (options.title && options.tags) {
         var tituloFiltrado = peliculas.filter((peli) => {
+          peli.title.includes(options.title);
           //si alguna de las pelis incluye options.title la devuelvo
-          if (peli.title.includes(options.title)) {
-            return peli;
-          }
         });
+        console.log(tituloFiltrado);
 
         return tituloFiltrado.filter((peli) => {
           //busco en el array de tags de las peli que ya filtre por titulo con find
-          const encontrado = peli.tags.find((tag) => {
-            if (options.tags == tag) {
-              return true;
-            }
+          return peli.tags.find((tag) => {
+            options.tags == tag;
           });
           //si el tag se encontro dentro de los tags de la peli, devuelvo la peli
-          if (encontrado == options.tags) {
-            return peli;
-          }
         });
-      }
+      }*/
+
       //SOLO CON TITULO
-      if (options.title) {
+      if (options.title && options.tag == undefined) {
         //busco las pelis con filter
         return peliculas.filter((peli) => {
           //si alguna de las pelis incluye options.title la devuelvo
@@ -74,27 +69,22 @@ class PelisCollection {
             return peli;
           }
         });
-      }
-      //SOLO CON TAGS
-      if (options.tags) {
+      } //SOLO CON TAGS
+      if (options.tag && options.title == undefined) {
         //busco los tags de las pelis con filter
         return peliculas.filter((peli) => {
           //busco en el array de tags de la peli con find
-          const encontrado = peli.tags.find((tag) => {
-            if (options.tags == tag) {
+          return peli.tags.find((tag) => {
+            if (options.tag == tag) {
               return true;
             }
           });
-          //si el tag se encontro dentro de los tags de la peli, devuelvo la peli
-          if (encontrado == options.tags) {
-            return peli;
-          }
         });
       }
     });
   }
 
-  add(peli: Peli): Promise<boolean> {
+  add(peli: Peli) {
     //primero me fijo si el id de la "peli nueva" ya existe o no
     const promesaUno = this.getById(peli.id).then((peliExistente) => {
       //si ya existe entonce retorno false porque no tengo que agregarla
@@ -121,50 +111,5 @@ class PelisCollection {
     return promesaUno;
   }
 }
-
-/*
-function main() {
-  const pelis = new PelisCollection();
-  pelis.getAll().then((resultado) => {
-    //lo que resolvio getAll es resultado y son las pelis del json
-    //despues esas pelis se las asigno a peliculas de mi objeto pelis
-    //todo lo que resuelva getAll lo tengo que poner dentro del then
-    //porque si lo pongo afuera no a funcionar ya que se ejecutan antes
-    //de lo que esta dentro del then
-    pelis.peliculas = resultado;
-    console.log(pelis.peliculas);
-  });
-
-  var pelisEncontadas;
-
-  pelis.search({ title: "Ave" }).then((pelis) => {
-    pelisEncontadas = pelis;
-    console.log(pelisEncontadas);
-  });
-  pelis.search({ tag: "Comedia" }).then((pelis) => {
-    pelisEncontadas = pelis;
-    console.log(pelisEncontadas);
-  });
-  pelis
-    .add({
-      id: 13,
-      title: "Naruto Shippuden",
-      tags: ["Accion", "Shonen", "Aventura"],
-    })
-    .then((sePudo) => {
-      console.log(sePudo);
-      pelis.getAll().then((pelis) => {
-        console.log(pelis);
-      });
-      pelis.getById(13).then((peli) => {
-        var peliEncontrada = peli;
-        console.log(peliEncontrada);
-      });
-    });
-    
-}
-
-main();
-*/
 
 export { PelisCollection, Peli };

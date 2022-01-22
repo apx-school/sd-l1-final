@@ -2,36 +2,40 @@ import { PelisCollection, Peli } from "./models";
 
 class PelisController {
   listaPelis: PelisCollection;
-  //promesa: Promise<Peli[]>;
+
   constructor() {
     this.listaPelis = new PelisCollection();
-    /* this.listaPelis.getAll().then((peliculas) => {
-      this.listaPelis.peliculas = peliculas;
-    });*/
-    // const nuevaPromesa = this.listaPelis.getAll();
-    // this.promesa = nuevaPromesa;
   }
 
-  //EN EL GET ESTABA COMETIENDO EL ERROR DE DEVOLVER UNA PROMESA, AHORA
-  //DEVUELVE UNA Peli o un Peli[]
   get(options) {
     //si la opcion id existe entra
     if (options.id) {
-      return this.listaPelis.getById(options.id).then((peli) => {
-        return peli;
-      });
+      return this.listaPelis.getById(options.id);
     }
     //si existe, title o tag, o incluso ambas entra
-    if (options.title || options.tags) {
-      return this.listaPelis.search(options).then((peliculas) => {
-        return peliculas;
+    if (options.search.title && options.search.tag) {
+      var soloTag = { tag: options.search.tag };
+      return this.listaPelis.search(soloTag).then((peliculas) => {
+        return peliculas.filter((peli) => {
+          if (peli.title.includes(options.search.title)) {
+            return peli;
+          }
+        });
       });
+      //solo titulo
+    } else if (options.search.title && options.search.tag == undefined) {
+      return this.listaPelis.search(options.search);
+      //solo tag
+    } else if (options.search.tag && options.search.title == undefined) {
+      return this.listaPelis.search(options.search);
     }
     //si no hay ni id, title o tag, entonce retorna todas las pelis
-    if (!(options.id || options.title || options.tags)) {
-      return this.listaPelis.getAll().then((peliculas) => {
-        return peliculas;
-      });
+    if (
+      options.id == undefined &&
+      options.title == undefined &&
+      options.tags == undefined
+    ) {
+      return this.listaPelis.getAll();
     }
   }
 
@@ -39,32 +43,5 @@ class PelisController {
     return this.listaPelis.add(peli);
   }
 }
-
-/*
-function main() {
-  const listaPeliculas = new PelisController();
-  listaPeliculas.promesa.then((peliculas) => {
-    listaPeliculas.listaPelis.peliculas = peliculas;
-    console.log(listaPeliculas.listaPelis.peliculas);
-  });
-  listaPeliculas.get({ id: 7 }).then((peli) => {
-    console.log(peli);
-  });
-  listaPeliculas
-    .add({
-      id: 13,
-      title: "Dragon Ball: La batalla de los dioses",
-      tags: ["Accion", "Shonen", "Aventura", "Comedia"],
-    })
-    .then(() => {
-      listaPeliculas.promesa.then((peliculas) => {
-        listaPeliculas.listaPelis.peliculas = peliculas;
-        console.log(listaPeliculas.listaPelis.peliculas);
-      });
-    });
-}
-
-main();
-*/
 
 export { PelisController };
