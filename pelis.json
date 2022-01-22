@@ -35,5 +35,15 @@
     "id": 9,
     "title": "Death note",
     "tags": ["Accion", "Drama", "Suspenso", "Aventura"]
+  },
+  {
+    "id": 10,
+    "title": "kobayashi-san chi no maid dragon",
+    "tags": ["Fantasia", "Aventura", "Comedia", "Accion"]
+  },
+  {
+    "id": 11,
+    "title": "konosubarashi",
+    "tags": ["Fantasia", "Aventura", "Comedia", "Accion"]
   }
 ]
