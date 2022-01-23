@@ -28,6 +28,11 @@ class PelisCollection {
   getById(id: number) {
     //obtengo todas las pelis de this
     return this.getAll().then((peliculas) => {
+      return peliculas.find((peli) => {
+        return peli.id == id;
+      });
+    });
+    /*
       //busco la peli con find de las peliculas que devolvio el json
       const resultado = peliculas.find((peli) => {
         if (peli.id == id) {
@@ -36,7 +41,7 @@ class PelisCollection {
       });
       //retorno la peli que encontre
       return resultado;
-    });
+    });*/
   }
 
   search(options: any) {
@@ -98,6 +103,15 @@ class PelisCollection {
         //las pelis ya estan cargadas porque hice el this.getById que
         //a su vez llama al getall y ahi se cargan en this
 
+        return this.getAll().then((peliculas) => {
+          peliculas.push(peli);
+          const promesaDos = jsonfile.writeFile("./pelis.json", peliculas);
+          return promesaDos.then(() => {
+            return true;
+          });
+        });
+
+        /*
         this.peliculas.push(peli);
 
         const promesaDos = jsonfile.writeFile("./pelis.json", this.peliculas);
@@ -106,7 +120,7 @@ class PelisCollection {
         //porque se pudo guardar la peli
         return promesaDos.then(() => {
           return true;
-        });
+        });*/
       }
     });
     //por ultimo retorno promesaUno que sera true o false
