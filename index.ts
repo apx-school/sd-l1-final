@@ -51,11 +51,7 @@ function main() {
     params.add.title &&
     params.add.tags
   ) {
-    controller.add(params.add); /*.then(() => {
-        controller.listaPelis.getAll().then((todasLasPelis) => {
-          console.log(todasLasPelis);
-        });
-      });*/
+    controller.add(params.add);
   }
   if (params.accion == undefined) {
     controller.listaPelis.getAll().then((resultado) => {

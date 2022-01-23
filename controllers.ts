@@ -13,7 +13,7 @@ class PelisController {
       return this.listaPelis.getById(options.id);
     }
     //si existe, title o tag, o incluso ambas entra
-    if (options.search.title && options.search.tag) {
+    /* if (options.search.title && options.search.tag) {
       var soloTag = { tag: options.search.tag };
       return this.listaPelis.search(soloTag).then((peliculas) => {
         return peliculas.filter((peli) => {
@@ -24,12 +24,16 @@ class PelisController {
         });
       });
       //solo titulo
-    }
+    }*/
+
     if (options.search.title) {
       return this.listaPelis.search(options.search);
       //solo tag
     }
     if (options.search.tag) {
+      return this.listaPelis.search(options.search);
+    }
+    if (options.search) {
       return this.listaPelis.search(options.search);
     }
     //si no hay ni id, title o tag, entonce retorna todas las pelis
