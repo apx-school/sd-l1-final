@@ -47,7 +47,6 @@ class PelisCollection {
   search(options: any) {
     //cuando la promesa se resolvio, voy a realizar las busquedas y a devolver resultados
     return this.getAll().then((peliculas) => {
-      //CON TITULO MAS TAGS
       if (options.title && options.tag) {
         var pelisConTags = peliculas.filter((peli) => {
           //busco en el array de tags de la peli con find
