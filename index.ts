@@ -45,12 +45,17 @@ function main() {
       console.log(resultado);
     });
   }
-  if (params.accion == "add") {
+  if (
+    params.accion == "add" &&
+    params.add.id &&
+    params.add.title &&
+    params.add.tags
+  ) {
     controller.add(params.add); /*.then(() => {
-      controller.listaPelis.getAll().then((todasLasPelis) => {
-        console.log(todasLasPelis);
-      });
-    });*/
+        controller.listaPelis.getAll().then((todasLasPelis) => {
+          console.log(todasLasPelis);
+        });
+      });*/
   }
   if (params.accion == undefined) {
     controller.listaPelis.getAll().then((resultado) => {
