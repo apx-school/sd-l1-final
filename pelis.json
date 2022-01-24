@@ -1,1 +1,44 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "Harry Potter y el prisionero de Azkaban",
+    "tags": ["Fantasia", "Aventura"]
+  },
+  {
+    "id": 2,
+    "title": "El Señor de los anillos las dos torres",
+    "tags": ["Fantasia", "Aventura", "Drama", "Accion"]
+  },
+  { "id": 3, "title": "Transformers", "tags": ["Ciencia ficcion", "Accion"] },
+  {
+    "id": 4,
+    "title": "Avengers End game",
+    "tags": ["Ciencia ficcion", "Accion"]
+  },
+  { "id": 5, "title": "Vikings", "tags": ["Aventura", "Accion", "Drama"] },
+  {
+    "id": 6,
+    "title": "One piece",
+    "tags": ["Shonen", "Aventura", "Accion", "Fantasia", "Drama"]
+  },
+  {
+    "id": 7,
+    "title": "Kimetsu no yaiba",
+    "tags": ["Shonen", "Fantasia", "Aventura", "Drama", "Accion"]
+  },
+  {
+    "id": 8,
+    "title": "Shingeki no kyojin",
+    "tags": ["Fantasia", "Aventura", "Accion", "Drama", "Suspenso"]
+  },
+  {
+    "id": 9,
+    "title": "Death note",
+    "tags": ["Accion", "Drama", "Suspenso", "Aventura"]
+  },
+  {
+    "id": 10,
+    "title": "kobayashi-san chi no maid dragon",
+    "tags": ["Fantasia", "Aventura", "Comedia", "Accion"]
+  }
+]
