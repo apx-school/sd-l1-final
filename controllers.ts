@@ -8,10 +8,12 @@ class PelisController {
 
 	async get(options: any): Promise<any> {
 		if (options.id) {
-			return this.peliculas.getById(options.id);
-		} else if (options.search) {
-			return this.peliculas.search(options.search);
-		} else {
+			return await this.peliculas.getById(options.id);
+		}
+		if (options.search) {
+			return await this.peliculas.search(options.search);
+		}
+		if (options.empty) {
 			return await this.peliculas.getAll();
 		}
 	}
