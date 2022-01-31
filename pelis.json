@@ -1,1 +1,7 @@
-[]
+[
+  { "title": "Gambarrembo", "id": "69", "tags": ["saturno"] },
+  { "title": "Gambarrembo2", "id": "41", "tags": ["action", "mazinger"] },
+  { "title": "Gambarrembo3", "id": "66", "tags": ["minimist"] },
+  { "title": "Gambarrembo4", "id": "777", "tags": ["flash"] },
+  { "title": "Gambarrembox5", "id": "34", "tags": ["action", "space"] }
+]
