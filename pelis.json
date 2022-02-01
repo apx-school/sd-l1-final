@@ -1,1 +1,62 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "El imperio contraataca",
+    "rating": "9",
+    "tags": ["accion", "aventura", "fantasia"]
+  },
+  {
+    "id": 2,
+    "title": "EL club de la pelea",
+    "rating": "8",
+    "tags": ["drama", "accion"]
+  },
+  {
+    "id": 3,
+    "title": "Forrest Gump",
+    "rating": "8",
+    "tags": ["drama", "historia", "romance", "comedia"]
+  },
+  {
+    "id": 4,
+    "title": "El padrino",
+    "rating": "9",
+    "tags": ["drama", "accion"]
+  },
+  {
+    "id": 5,
+    "title": "Monsters inc",
+    "rating": "7",
+    "tags": ["aventura", "comedia", "fantasia"]
+  },
+  {
+    "id": 6,
+    "title": "Toy story",
+    "rating": "7",
+    "tags": ["aventura", "fantasia", "comedia"]
+  },
+  {
+    "id": 7,
+    "title": "Alien vs Predator",
+    "rating": "6",
+    "tags": ["accion", "ciencia ficcion"]
+  },
+  {
+    "id": 8,
+    "title": "El conjuro",
+    "rating": "5",
+    "tags": ["terror", "ciencia ficcion", "suspenso"]
+  },
+  {
+    "id": 9,
+    "title": "Cuando las luces se apagan",
+    "rating": "6",
+    "tags": ["terror", "ciencia ficcion", "suspenso"]
+  },
+  {
+    "id": 10,
+    "title": "Rescatando al soldado Ryan",
+    "rating": "8",
+    "tags": ["guerra", "historia", "accion"]
+  }
+]
