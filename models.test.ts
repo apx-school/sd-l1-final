@@ -36,7 +36,7 @@ test.serial("Testeo el método getById", async (t) => {
   await collection.add({
     id: TEST_ID,
     title: TEST_TITLE,
-    tags: ["tt", "rr"],
+    tags: ["tt", "rr"]
   });
   const all = await collection.getAll();
   const a = all[0];
@@ -44,7 +44,7 @@ test.serial("Testeo el método getById", async (t) => {
   t.is(a.title, b.title);
 });
 
-test.serial("Testeo el método search", async (t) => {
+ test.serial("Testeo el método search", async (t) => {
   const collection = new PelisCollection();
   await collection.add({
     id: TEST_ID,

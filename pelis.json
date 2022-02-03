@@ -1,1 +1,221 @@
-[]
+[
+    {
+        "title": "Django",
+        "id": 1,
+        "tags": [
+            "accion",
+            "favorita",
+            "nueva",
+            "western"
+        ]
+    },
+    {
+        "title": "Inception",
+        "id": 2,
+        "tags": [
+            "favorita",
+            "nueva",
+            "ciencia ficcion"
+        ]
+    },
+    {
+        "title": "Suspiria",
+        "id": 3,
+        "tags": [
+            "favorita",
+            "nueva"
+        ]
+    },
+    {
+        "title": "Pulp Fiction",
+        "id": 4,
+        "tags": [
+            "favorita",
+            "nueva"
+        ]
+    },
+    {
+        "title": "Kill Bill",
+        "id": 5,
+        "tags": [
+            "favorita",
+            "nueva"
+        ]
+    },
+    {
+        "title": "Old Boy",
+        "id": 6,
+        "tags": [
+            "coreana",
+            "drama"
+        ]
+    },
+    {
+        "id": 131544,
+        "title": "title 155067131544",
+        "tags": [
+            "tt",
+            "rr"
+        ]
+    },
+    {
+        "id": 171710,
+        "title": "title 148869171710",
+        "tags": [
+            "tt",
+            "rr"
+        ]
+    },
+    {
+        "id": 169115,
+        "title": "title 207108169115",
+        "tags": [
+            "tt",
+            "rr"
+        ]
+    },
+    {
+        "id": 7,
+        "title": "Fargo",
+        "tags": [
+            "favorita",
+            "de Coen brother's"
+        ]
+    },
+    {
+        "id": 207220,
+        "title": "x-men",
+        "tags": [
+            "action",
+            "rr"
+        ]
+    },
+    {
+        "id": 193437,
+        "title": "title 146551193437",
+        "tags": [
+            "yy",
+            "uu"
+        ]
+    },
+    {
+        "id": 213324,
+        "title": "title 207655213324",
+        "tags": [
+            "tt",
+            "rr"
+        ]
+    },
+    {
+        "id": 136532,
+        "title": "title 207655136532",
+        "tags": [
+            "yy",
+            "uu"
+        ]
+    },
+    {
+        "id": 14,
+        "title": "Donnie Darko",
+        "tags": [
+            "fav",
+            "Sci-fi"
+        ]
+    },
+    {
+        "id": 20,
+        "title": "Shrek",
+        "tags": [
+            "animacion",
+            "fantasia"
+        ]
+    },
+    {
+        "title": "dasdad",
+        "tags": [
+            "asdas",
+            "as"
+        ],
+        "id": 30
+    },
+    {
+        "id": 175959,
+        "title": "title 159276175959",
+        "tags": [
+            "tt",
+            "rr"
+        ]
+    },
+    {
+        "id": 227766,
+        "title": "title 159276227766",
+        "tags": [
+            "yy",
+            "uu"
+        ]
+    },
+    {
+        "id": 138998,
+        "title": "title 154564138998",
+        "tags": [
+            "tt",
+            "rr"
+        ]
+    },
+    {
+        "id": 162826,
+        "title": "title 154564162826",
+        "tags": [
+            "yy",
+            "uu"
+        ]
+    },
+    {
+        "id": 209451,
+        "title": "title 191498209451",
+        "tags": [
+            "tt",
+            "rr"
+        ]
+    },
+    {
+        "id": 176612,
+        "title": "title 191498176612",
+        "tags": [
+            "yy",
+            "uu"
+        ]
+    },
+    {
+        "id": 176700,
+        "title": "title 192159176700",
+        "tags": [
+            "tt",
+            "rr"
+        ]
+    },
+    {
+        "id": 212311,
+        "title": "title 192159212311",
+        "tags": [
+            "yy",
+            "uu"
+        ]
+    },
+    {
+        "title": "Título de la nueva peli",
+        "tags": [
+            "action",
+            "classic"
+        ],
+        "id": 4411
+    },
+    {
+        "title": "peli de la terminal 4321865",
+        "tags": [
+            "rr",
+            "ww"
+        ],
+        "id": 4321865
+    }
+]
