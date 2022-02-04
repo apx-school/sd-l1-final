@@ -24,19 +24,19 @@ class PelisCollection {
     });
   }
   search(options: any): Promise<any> {
-    return this.getAll().then((listaPelis) => {
-      if (options.title && options.tag) {
-        return listaPelis.filter((peli) => {
-          return (
-            peli.title.includes(options.title) &&
-            peli.tags.includes(options.tag)
-          );
+    return this.getAll().then((listaPelis: any) => {
+      var listaModificada = listaPelis;
+      if (options.title) {
+        listaModificada = listaModificada.filter((peli) => {
+          return peli.title.includes(options.title);
         });
-      } else if (options.title) {
-        return listaPelis.filter((peli) => peli.title.includes(options.title));
-      } else if (options.tag) {
-        return listaPelis.filter((peli) => peli.tags.includes(options.tag));
       }
+      if (options.tag) {
+        listaModificada = listaModificada.filter((peli) => {
+          return peli.tags.includes(options.tag);
+        });
+      }
+      return listaModificada;
     });
   }
 }
