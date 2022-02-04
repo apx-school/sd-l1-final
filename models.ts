@@ -8,7 +8,6 @@ class Peli {
 }
 
 class PelisCollection {
-  colecciondepeliculas: Peli;
   getAll(): Promise<Peli[]> {
     return jsonfile("/pelis.json").then((peliculas) => {
       // la respuesta de la promesa
@@ -35,11 +34,29 @@ class PelisCollection {
         listaModificada = listaModificada.filter((peli) => {
           return peli.tags.includes(options.tag);
         });
+        return listaModificada;
       }
-      return listaModificada;
     });
   }
+  add(peli: Peli): Promise<boolean>{
+    const promesaUno = this.getById(peli.id).then((peliExistente)=>{
+      if (peliExistente) {
+        return false
+      }else{
+        const data = this.getAll().then((res)=>{
+          return res.push(peli)
+        })
+        const promesaDos = jsonfile.writefile("./pelis.json", data)
+        return promesaDos.then(()=>{
+          return true
+        })
+})
+return promesaUno
 }
+}
+}
+
+
 
 const coleccionPeliculas = new PelisCollection();
 coleccionPeliculas.getAll().then((resultado) => {
