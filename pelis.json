@@ -1,1 +1,280 @@
-[]
+[
+  {
+    "title": "Aladdin",
+    "id": 1,
+    "rating": 4.4,
+    "tags": [
+      "animacion",
+      "disney",
+      "fantasia",
+      "infantiles",
+      "musical",
+      "clasicos",
+      "aventura"
+    ],
+    "fecha ": 1992,
+    "duracion": "1h 31m"
+  },
+  {
+    "title": "Hercules",
+    "id": 2,
+    "rating": 4.8,
+    "tags": [
+      "animacion",
+      "disney",
+      "mitologia",
+      "infantiles",
+      "musical",
+      "clasicos"
+    ],
+    "fecha": 1997,
+    "duracion": "1h 33m"
+  },
+  {
+    "title": "Atlantis: el imperio perdido",
+    "id": 3,
+    "rating": 4.2,
+    "tags": ["animacion", "disney", "historia", "infantiles", "aventura"],
+    "fecha": 2001,
+    "duracion": "1h 36m"
+  },
+  {
+    "title": "El planeta del tesoro",
+    "id": 4,
+    "rating": 3.8,
+    "tags": [
+      "animacion",
+      "disney",
+      "fantasia",
+      "infantiles",
+      "aventura",
+      "espacial"
+    ],
+    "fecha": 2002,
+    "duracion": "1h 35m"
+  },
+  {
+    "title": "Harry Potter: y la piedra filosofal",
+    "id": 5,
+    "rating": 4.5,
+    "tags": ["fantasia", "juveniles", "sagas", "magia", "aventura"],
+    "fecha": 2001,
+    "duracion": "2h 39m"
+  },
+  {
+    "title": "Harry Potter: y la camara secreta",
+    "id": 6,
+    "rating": 4.6,
+    "tags": ["fantasia", "juveniles", "sagas", "magia", "aventura"],
+    "fecha": 2002,
+    "duracion": "2h 54m"
+  },
+  {
+    "title": "Harry Potter: y el prisionero de Azkaban",
+    "id": 7,
+    "rating": 4.5,
+    "tags": ["fantasia", "juveniles", "sagas", "magia", "aventura"],
+    "fecha": 2004,
+    "duracion": "2h 22m"
+  },
+  {
+    "title": "Harry Potter: y la orden del fenix",
+    "id": 8,
+    "rating": 4.8,
+    "tags": ["fantasia", "juveniles", "sagas", "magia", "aventura"],
+    "fecha": 2007,
+    "duracion": "2h 22m"
+  },
+  {
+    "title": "Harry Potter: y el misterio del principe",
+    "id": 9,
+    "rating": 4.5,
+    "tags": ["fantasia", "juveniles", "sagas", "magia", "aventura"],
+    "fecha": 2009,
+    "duracion": "2h 34m"
+  },
+  {
+    "title": "Harry Potter: las reliquias de la muerte (p.1)",
+    "id": 10,
+    "rating": 4.8,
+    "tags": ["fantasia", "juveniles", "sagas", "magia", "aventura"],
+    "fecha": 2010,
+    "duracion": "2h 26m"
+  },
+  {
+    "title": "Harry Potter: las reliquias de la muerte (p.2)",
+    "id": 11,
+    "rating": 4.9,
+    "tags": ["fantasia", "juveniles", "sagas", "magia", "aventura"],
+    "fecha": 2011,
+    "duracion": "2h 10m"
+  },
+  {
+    "title": "El señor de los anillos: la comunidad del anillo",
+    "id": 12,
+    "rating": 4.9,
+    "tags": ["fantasia", "juveniles", "trilogias", "medieval", "aventura"],
+    "fecha": 2001,
+    "duracion": "3h 48m"
+  },
+  {
+    "title": "El señor de los anillos: las dos torres",
+    "id": 13,
+    "rating": 4.9,
+    "tags": ["fantasia", "juveniles", "trilogias", "medieval", "aventura"],
+    "fecha": 2002,
+    "duracion": "3h 43m"
+  },
+  {
+    "title": "El señor de los anillos: el retorno del rey",
+    "id": 14,
+    "rating": 5,
+    "tags": ["fantasia", "juveniles", "trilogias", "medieval", "aventura"],
+    "fecha": 2003,
+    "duracion": "4h 11m"
+  },
+  {
+    "title": "Predestinacion",
+    "id": 15,
+    "rating": 4.3,
+    "tags": ["ciencia ficcion", "viajes en el tiempo", "accion"],
+    "fecha": 2014,
+    "duracion": "1h 37m"
+  },
+  {
+    "title": "Transcendence: identidad virtual",
+    "id": 16,
+    "rating": 4.6,
+    "tags": ["ciencia ficcion", "accion", "tecnologia", "futurista"],
+    "fecha": 2014,
+    "duracion": "1h 59m"
+  },
+  {
+    "title": "El gran truco",
+    "id": 17,
+    "rating": 4.2,
+    "tags": ["Misterio", "drama", "magia"],
+    "fecha": 2006,
+    "duracion": "2h 10m"
+  },
+  {
+    "title": "La isla siniestra",
+    "id": 18,
+    "rating": 4.7,
+    "tags": ["suspenso", "misterio", "policial", "psicologica"],
+    "fecha": 2010,
+    "duracion": "2h 19m"
+  },
+  {
+    "title": "El maquinista",
+    "id": 19,
+    "rating": 4.2,
+    "tags": ["suspenso", "misterio", "drama", "psicologica"],
+    "fecha": 2004,
+    "duracion": "1h 42m"
+  },
+  {
+    "title": "El titanic",
+    "id": 20,
+    "rating": 4.9,
+    "tags": ["romance", "drama"],
+    "fecha": 1997,
+    "duracion": "3h 30m"
+  },
+  {
+    "title": "The avengers: los vengadores",
+    "id": 21,
+    "rating": 4.5,
+    "tags": ["aventura", "accion", "marvel", "ciencia ficcion", "superheroes"],
+    "fecha": 2012,
+    "duracion": "2h 24m"
+  },
+  {
+    "title": "The avengers: infinity war",
+    "id": 22,
+    "rating": 4.9,
+    "tags": ["aventura", "accion", "marvel", "ciencia ficcion", "superheroes"],
+    "fecha": 2019,
+    "duracion": "2h 40m"
+  },
+  {
+    "title": "The avengers: era de ultron",
+    "id": 23,
+    "rating": 4.7,
+    "tags": ["aventura", "accion", "ciencia ficcion", "marvel", "superheroes"],
+    "fecha": 2015,
+    "duracion": "2h 22m"
+  },
+  {
+    "title": "The avengers: endgame",
+    "id": 24,
+    "rating": 4.9,
+    "tags": ["aventura", "accion", "ciencia ficcion", "marvel", "superheroes"],
+    "fecha": 2019,
+    "duracion": "2h 02m"
+  },
+  {
+    "title": "Proyecto x",
+    "id": 25,
+    "rating": 3.8,
+    "tags": ["comedia", "juvenil", "+18"],
+    "fecha": 2012,
+    "duracion": "1h 34m"
+  },
+  {
+    "title": "Juego del miedo",
+    "id": 26,
+    "rating": 4.5,
+    "tags": ["terror", "suspenso", "+18", "sagas"],
+    "fecha": 2004,
+    "duracion": "1h 43m"
+  },
+  {
+    "title": "Juego del miedo 2",
+    "id": 27,
+    "rating": 3.8,
+    "tags": ["terror", "suspenso", "+18", "sagas"],
+    "fecha": 2005,
+    "duracion": "1h 35m"
+  },
+  {
+    "title": "Juego del miedo 3",
+    "id": 28,
+    "rating": 3.5,
+    "tags": ["terror", "suspenso", "+18", "sagas"],
+    "fecha": 2006,
+    "duracion": "2h 01m"
+  },
+  {
+    "title": "Juego del miedo 4",
+    "id": 29,
+    "rating": 3.8,
+    "tags": ["terror", "suspenso", "+18", "sagas"],
+    "fecha": 2007,
+    "duracion": "1h 43m"
+  },
+  {
+    "title": "Matrix",
+    "id": 30,
+    "rating": 4.5,
+    "tags": ["accion", "ciencia ficcion", "psicologica", "trilogias"],
+    "fecha": 1999,
+    "duracion": "2h 30m"
+  },
+  {
+    "title": "Matrix recargado",
+    "id": 31,
+    "rating": 4.5,
+    "tags": ["accion", "ciencia ficcion", "psicologica", "trilogias"],
+    "fecha": 2003,
+    "duracion": "2h 18m"
+  },
+  {
+    "title": "Matrix revolutions",
+    "id": 32,
+    "rating": 3.8,
+    "tags": ["accion", "ciencia ficcion", "psicologica", "trilogias"],
+    "fecha": 2003,
+    "duracion": "2h 09m"
+  }
+]
