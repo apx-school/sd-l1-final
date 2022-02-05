@@ -16,20 +16,20 @@ class PelisCollection {
     });
   }
 
-  getAll(): Promise<Peli[]> {
+  getAll(): Promise<any> {
     return jsonfile.readFile("./pelis.json").then((peliculas) => {
       // la respuesta de la promesa
       return peliculas;
     });
   }
-getById(id: number){
+getById(id: number): Promise<any>{
   return this.getAll().then((peliculas)=>{
     return peliculas.find((peli) => {
       return peli.id == id;
     });
   });
 }
-  search(options: any){
+  search(options: any): Promise<any> {
     return this.getAll().then((peliculas)=>{
       if(options.title && options.tag){
         var pelisConTags = peliculas.filter((peli)=>{
@@ -65,7 +65,7 @@ getById(id: number){
       }
     });
   }
-add(peli: Peli) {
+add(peli: Peli): Promise<any> {
     const promesaUno = this.getById(peli.id).then((peliExistente) => {
       if (peliExistente) {
         return false;
