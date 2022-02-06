@@ -1,1 +1,36 @@
-[]
+[
+    {
+        "id": 10,
+        "title": "Sueños de Libertad",
+        "tags": [
+            "drama",
+            "favorita",
+            "inspiracional",
+            "basada en libro"
+        ]
+    },
+    {
+        "id": 20,
+        "title": "El silencio de los inocentes",
+        "tags": [
+            "thriller",
+            "policial"
+        ]
+    },
+    {
+        "id": 30,
+        "title": "El club de la pelea",
+        "tags": [
+            "drama",
+            "thriller"
+        ]
+    },
+    {
+        "id": 44,
+        "title": "Título de la nueva peli",
+        "tags": [
+            "action",
+            "classic"
+        ]
+    }
+]
