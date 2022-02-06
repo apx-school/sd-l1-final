@@ -30,7 +30,7 @@ class PelisCollection {
     }
     if (option.tag) {
       var filterResponse = pelisEncontadas.filter((film) => {
-        return film.tags.map((tag) => tag).includes(option.tag);
+        return film.tags.includes(option.tag);
       });
       pelisEncontadas = filterResponse;
     }
