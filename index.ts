@@ -35,8 +35,8 @@ const controller = new PelisController;
       return resultado;
     });
   }
-  else if (!parametros) {
-    return controller.get({});
+  else  {
+    return controller.get({}).then(resultado =>{ return resultado} );
   }
 }
 

@@ -16,7 +16,7 @@ class PelisController {
      return this.peliculas.search(options.search);
    
     }
-    else if (options == {}) {
+    else {
       return this.peliculas.getAll();
     }
   }
