@@ -31,7 +31,7 @@ const controller = new PelisController;
     });
   }
   else if (parametros._[0] == "search" && parametros.tags && parametros.title) {
-    return controller.get ({search: {title: parametros.title, tags: parametros.tags}}).then(resultado => {
+    return controller.get ({search: {title: parametros.title, tag: parametros.tags}}).then(resultado => {
       return resultado;
     });
   }
