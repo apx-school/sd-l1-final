@@ -55,7 +55,7 @@ class PelisCollection {
 
       if (options.title) {
         return pelis.filter((pel) => {
-          return pel.title.includes(options.titlgite);
+          return pel.title.includes(options.title);
         });
       }
 
