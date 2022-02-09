@@ -8,11 +8,21 @@ class Peli {
 }
 
 class PelisCollection {
-  getAll(): Promise<Peli[]> {
-    return jsonfile("...laRutaDelArchivo").then(() => {
+  async getAll(): Promise<Peli[]> {
+    const promesa = await jsonfile.readFile("./pelis.json")
       // la respuesta de la promesa
-      return [];
-    });
+  return promesa
   }
+  async getById(id:number){
+    const resultado = await this.getAll()
+    return resultado.find((peli)=>{ return peli.id == id})
+  }
+  
 }
+
+
+
+const pelis = new PelisCollection
+pelis.getById(14).then((resultado)=> console.log(resultado))
+
 export { PelisCollection, Peli };
