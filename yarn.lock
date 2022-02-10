@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@ava/typescript@*":
+"@ava/typescript@*", "@ava/typescript@^3.0.1":
   "integrity" "sha512-/JXIUuKsvkaneaiA9ckk3ksFTqvu0mDNlChASrTe2BnDsvMbhQdPWyqQjJ9WRJWVhhs5TWn1/0Pp1G6Rv8Syrw=="
   "resolved" "https://registry.npmjs.org/@ava/typescript/-/typescript-3.0.1.tgz"
   "version" "3.0.1"
