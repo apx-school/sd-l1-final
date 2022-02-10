@@ -9,10 +9,12 @@ class Peli {
 }
 
 class PelisCollection {
+  //Devuelve el array de peliculas completo
   async getAll(): Promise<Peli[]> {
     const misPeliculas = await jsonfile.readFile("./pelis.json");
     return misPeliculas;
   }
+  //Busca una pelicula segun su id y la devuelve
   async getById(id: number): Promise<Peli> {
     let misPelis = await this.getAll();
     const peliEncontrada = misPelis.find((peliculas) => {
@@ -20,7 +22,8 @@ class PelisCollection {
     });
     return peliEncontrada;
   }
-
+  // search recibe un objeto del tipo {title: value, tag:value}
+  // filtra por las peliculas por titulo, tags o las 2 al mismo tiempo
   async search(options: any): Promise<Peli[]> {
     const misPelis = await this.getAll();
     if (options.title && !options.tag) {
@@ -43,6 +46,8 @@ class PelisCollection {
       return filtroByTagAndTitles;
     }
   }
+  //recibe una pelicula, y si esta ya pertenece al json, devuelve false
+  // caso contrario, la agrega al array de pelis y se sobrescribe el json
   async add(peli: Peli): Promise<boolean> {
     const promesaUno = this.getById(peli.id).then(async (peliExistente) => {
       if (peliExistente) {

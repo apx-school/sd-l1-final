@@ -1,12 +1,13 @@
 import { PelisCollection, Peli } from "./models";
-import { omit } from "lodash";
 
 class PelisController {
   peliculas: PelisCollection;
   constructor() {
     this.peliculas = new PelisCollection();
   }
-  async get(options): Promise<any> {
+  //get recibe un objeto del tipo {id: value, search:{title:value, tag: value}} y segun los valores del objeto
+  // ejecuta las funciones del models
+  async get(options: any): Promise<any> {
     if (options.id) {
       return await this.peliculas.getById(options.id);
     } else if (options.search) {
@@ -20,5 +21,3 @@ class PelisController {
   }
 }
 export { PelisController };
-
-// {search: {title: "a", tag: "accion"}}
