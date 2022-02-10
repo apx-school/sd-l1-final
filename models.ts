@@ -68,46 +68,4 @@ class PelisCollection {
   }
 }
 
-//#########################################
-//Probando el metodo search()
-
-//const objeto = new PelisCollection();
-//objeto.search({ title: "V" }).then((resultado) => {
-//  console.log(resultado);
-//});
-
-// objeto.search({ tag: "terror" }).then((resultado) => {
-//   console.log(resultado);
-// });
-
-// //#########################################
-// //Probando metodo add()
-
-// const peliculaNueva = new Peli();
-// peliculaNueva.id = 25;
-// peliculaNueva.tags = ["tt", "rr"];
-// peliculaNueva.title = "Titanic";
-
-// objeto.add(peliculaNueva).then((resultado) => {
-//   console.log(resultado);
-// });
-
-// //#########################################
-// //Probando el metodo getAll()
-
-// console.log("Resultado de la lectura: ", objeto.getAll());
-// objeto.getAll().then((resultado) => {
-//   console.log(resultado);
-// });
-
-// console.log("Despues de getAll()");
-
-// objeto.getById(8).then((resultado) => {
-//   console.log(resultado);
-// });
-
-// //#########################################
-
-// console.log("Despues de getById(8)");
-
 export { PelisCollection, Peli };

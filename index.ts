@@ -4,18 +4,6 @@ import { Peli } from "./models";
 
 function parseaParams(argv) {
   const resultado = minimist(argv);
-
-  /*   if (resultado._[0] == "get") {
-    return { id: resultado._[1] };
-  }
-  if (resultado._[0] == "search") {
-    if (resultado.title) {
-      return { search: { title: resultado.title } };
-    }
-  } else {
-    return {};
-  } */
-
   return resultado;
 }
 
