@@ -43,7 +43,7 @@ class PelisCollection {
 
   //async search(options: any): Promise<Peli[]> {}
 
-  search(options: any): Promise<Peli[]> {
+  async search(options: any): Promise<Peli[]> {
     return this.getAll().then((pelis) => {
       if (options.title && options.tag) {
         return pelis.filter((pel) => {
@@ -71,10 +71,10 @@ class PelisCollection {
 //#########################################
 //Probando el metodo search()
 
-// const objeto = new PelisCollection();
-// objeto.search({ title: "v" }).then((resultado) => {
-//   console.log(resultado);
-// });
+//const objeto = new PelisCollection();
+//objeto.search({ title: "V" }).then((resultado) => {
+//  console.log(resultado);
+//});
 
 // objeto.search({ tag: "terror" }).then((resultado) => {
 //   console.log(resultado);
