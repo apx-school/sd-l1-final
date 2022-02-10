@@ -18,8 +18,7 @@ class PelisController {
     }
     if (options.search) {
       return await this.peliculas.search(options.search);
-    }
-    if (options != null) {
+    } else {
       return await this.peliculas.getAll();
     }
   }
@@ -38,13 +37,13 @@ class PelisController {
 // });
 //#########################################
 //Probando metodo get por id
-/*objeto.get({ id: 182463 }).then((resultado) => {
-  console.log(resultado);
-});
+//objeto.get({ id: 182463 }).then((resultado) => {
+//  console.log(resultado);
+//});
 //Probando metodo get sin parametros
-objeto.get({}).then((resultado) => {
-  console.log(resultado);
-});*/
+//objeto.get({}).then((resultado) => {
+//  console.log(resultado);
+//});
 //Probando metodo get por search por title
 //objeto.get({ search: { title: "v" } }).then((resultado) => {
 //  console.log(resultado);
