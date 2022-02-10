@@ -1,5 +1,4 @@
 import * as jsonfile from "jsonfile";
-import { pull } from "lodash";
 
 // no modificar estas propiedades, agregar todas las que quieras
 class Peli {
