@@ -42,19 +42,22 @@ class PelisCollection {
     const promesaUno = this.getById(peli.id).then((peliExistente)=>{
       if (peliExistente) {
         return false
-      }else{
+      }else {
+        // magia que agrega la pelicula a un objeto data
         const data = this.getAll().then((res)=>{
           return res.push(peli)
         })
-        const promesaDos = jsonfile.writefile("./pelis.json", data)
-        return promesaDos.then(()=>{
-          return true
-        })
-})
-return promesaUno
+        const promesaDos = jsonfile.writeFile("./pelis.json", data);
+        return promesaDos.then(() => {
+          return true;
+        });
+      }
+    });
+    return promesaUno;
+  }
 }
-}
-}
+
+
 
 
 
