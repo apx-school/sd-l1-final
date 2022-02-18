@@ -1,1 +1,58 @@
-[]
+[
+  { "id": 1, "title": "Mammy", "tags": ["Comedy", "Drama", "Musical"] },
+  {
+    "id": 2,
+    "title": "Sympathy for Mr. Vengeance (Boksuneun naui geot)",
+    "tags": ["Crime", "Drama"]
+  },
+  { "id": 3, "title": "Blue Caprice", "tags": ["Crime", "Drama"] },
+  { "id": 4, "title": "Affair to Remember, An", "tags": ["Drama", "Romance"] },
+  { "id": 5, "title": "Flamenco (de Carlos Saura)", "tags": ["Musical"] },
+  {
+    "id": 6,
+    "title": "The Disappearance of Eleanor Rigby: Her",
+    "tags": ["Drama"]
+  },
+  {
+    "id": 7,
+    "title": "In Gold We Trust (600 kilos d'or pur)",
+    "tags": ["Adventure"]
+  },
+  { "id": 8, "title": "Sleepover", "tags": ["Comedy"] },
+  {
+    "id": 9,
+    "title": "Friday the 13th",
+    "tags": ["Horror", "Mystery", "Thriller"]
+  },
+  { "id": 10, "title": "Z", "tags": ["Drama", "Mystery", "Thriller"] },
+  {
+    "id": 11,
+    "title": "Cats & Dogs: The Revenge of Kitty Galore",
+    "tags": ["Action", "Children", "Comedy"]
+  },
+  { "id": 12, "title": "Redline", "tags": ["Action"] },
+  { "id": 13, "title": "Jackal, The", "tags": ["Action", "Thriller"] },
+  { "id": 14, "title": "Familia", "tags": ["Comedy"] },
+  { "id": 15, "title": "Wisconsin Death Trip", "tags": ["Documentary"] },
+  {
+    "id": 16,
+    "title": "Chocolate Strawberry Vanilla",
+    "tags": ["Comedy", "Drama"]
+  },
+  {
+    "id": 17,
+    "title": "Nutty Professor, The",
+    "tags": ["Comedy", "Fantasy", "Romance", "Sci-Fi"]
+  },
+  { "id": 18, "title": "Second Honeymoon", "tags": ["Comedy", "Romance"] },
+  {
+    "id": 19,
+    "title": "Love Don't Cost a Thing",
+    "tags": ["Drama", "Romance"]
+  },
+  {
+    "id": 20,
+    "title": "Halloween H20: 20 Years Later (Halloween 7: The Revenge of Laurie Strode)",
+    "tags": ["Horror", "Thriller"]
+  }
+]
