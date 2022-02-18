@@ -18,19 +18,17 @@ class PelisCollection {
   }
   async search(options: any): Promise<Peli[]> {
     const pelis = await jsonfile.readFile("./pelis.json");
-    let response = [];
-    if (options.title || options.tag) {
-      if (options.title)
-        response = filter(pelis, (item: Peli) =>
-          item.title.includes(options.title)
-        );
-      else response = pelis;
-      if (options.tag)
-        response = filter(response, (item: Peli) =>
-          item.tags.includes(options.tag)
-        );
-    }
-    return response;
+    if (options.title && options.tag)
+      return filter(
+        pelis,
+        (item: Peli) =>
+          item.title.includes(options.title) && item.tags.includes(options.tag)
+      );
+    if (options.title && !options.tag)
+      return filter(pelis, (item: Peli) => item.title.includes(options.title));
+
+    if (options.tag && !options.title)
+      return filter(pelis, (item: Peli) => item.tags.includes(options.tag));
   }
   async add(peli: Peli): Promise<boolean> {
     const promesaUno = this.getById(peli.id).then((peliExistente) => {
