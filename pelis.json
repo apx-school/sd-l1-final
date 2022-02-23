@@ -1,1 +1,38 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "Twilight",
+    "tags": [
+      "drama",
+      "romance juvenil",
+      "sobrenatural"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Titanic",
+    "tags": [
+      "drama",
+      "romance",
+      "de época"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Uncharted",
+    "tags": [
+      "aventura",
+      "acción",
+      "misterio"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Spider Man",
+    "tags": [
+      "acción",
+      "ciencia ficción",
+      "sobrenatural"
+    ]
+  }
+]
