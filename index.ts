@@ -6,7 +6,6 @@ function parseaParams(argv) {
   var resultado = minimist(argv);
   return resultado;
 }
-
 async function processOptions(args) {
   const controller = new PelisController();
   if (args._[0] == "add") {
@@ -19,14 +18,17 @@ async function processOptions(args) {
       .then((res) => {
         return res;
       });
-  } else if (args._[0] == "get") {
-    return await controller.get({ id: args._[1] });
-  } else if (args._[0] == "search") {
-    return await controller.get({
+  }
+  if (args._[0] == "get") {
+    return controller.get({ id: args._[1] });
+  }
+  if (args._[0] == "search") {
+    return controller.get({
       search: { title: args.title, tag: args.tag },
     });
-  } else if (_.empty) {
-    return await controller.get({ empty: "empty" });
+  }
+  if (_.isEmpty(args._[0])) {
+    return controller.get({ empty: "empty" });
   }
 }
 function main() {

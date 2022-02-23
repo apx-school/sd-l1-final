@@ -1,1 +1,62 @@
-[{"title":"Carrie","id":8,"tags":["suspenso","Terror psicologico"],"director":"Brian De Palma"},{"title":"El resplandor","id":9,"tags":["drama","Terror"],"director":"Stanley Kubrick"},{"title":"Cementerio de animales","id":13,"tags":["Terror","drama","suspenso","sobrenatural"],"director":"Mary Lambert"},{"title":"The Host","id":21,"tags":["monstruos","Terror"],"director":"Bong Joon-ho"},{"title":"Pycho","id":14,"tags":["Terror","suspenso"],"director":"Alfred Hitchcock"},{"title":"El juego de la silla","id":68,"tags":["drama","comedia"],"director":"Ana Kats"},{"title":"Los modernos","id":7,"tags":["drama","comedia"],"director":["Marcela Matta","Mauro Sarse"]},{"title":"El hombre de al lado","id":16,"tags":["comedia dramatica"],"director":["Mariano Cohn","Gaston Duprat"]},{"title":"El secreto de sus ojos","id":81,"tags":["suspenso","drama"],"director":"Juan José Campanella"},{"title":"Historias minimas","id":73,"tags":["comedia","drama"],"director":"Pablo Solarz"},{"id":4321865,"title":"peli de la terminal 4321865","tags":["rr","ww"]}]
+[
+  {
+    "title": "Carrie",
+    "id": 8,
+    "tags": ["suspenso", "Terror psicologico"],
+    "director": "Brian De Palma"
+  },
+  {
+    "title": "El resplandor",
+    "id": 9,
+    "tags": ["drama", "Terror"],
+    "director": "Stanley Kubrick"
+  },
+  {
+    "title": "Cementerio de animales",
+    "id": 13,
+    "tags": ["Terror", "drama", "suspenso", "sobrenatural"],
+    "director": "Mary Lambert"
+  },
+  {
+    "title": "The Host",
+    "id": 21,
+    "tags": ["monstruos", "Terror"],
+    "director": "Bong Joon-ho"
+  },
+  {
+    "title": "Pycho",
+    "id": 14,
+    "tags": ["Terror", "suspenso"],
+    "director": "Alfred Hitchcock"
+  },
+  {
+    "title": "El juego de la silla",
+    "id": 68,
+    "tags": ["drama", "comedia"],
+    "director": "Ana Kats"
+  },
+  {
+    "title": "Los modernos",
+    "id": 7,
+    "tags": ["drama", "comedia"],
+    "director": ["Marcela Matta", "Mauro Sarse"]
+  },
+  {
+    "title": "El hombre de al lado",
+    "id": 16,
+    "tags": ["comedia dramatica"],
+    "director": ["Mariano Cohn", "Gaston Duprat"]
+  },
+  {
+    "title": "El secreto de sus ojos",
+    "id": 81,
+    "tags": ["suspenso", "drama"],
+    "director": "Juan José Campanella"
+  },
+  {
+    "title": "Historias minimas",
+    "id": 73,
+    "tags": ["comedia", "drama"],
+    "director": "Pablo Solarz"
+  }
+]
