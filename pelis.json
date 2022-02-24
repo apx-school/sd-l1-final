@@ -1,1 +1,92 @@
-[]
+[
+    {
+        "id": 1,
+        "title": "El Bueno, el Malo",
+        "tags": "['Western','+18']"
+    },
+    {
+        "id": 2,
+        "title": "Soul",
+        "tags": "['Pixar','APT']"
+    },
+    {
+        "id": 3,
+        "title": "Masacre de Texas",
+        "tags": "['Terror','+18']"
+    },
+    {
+        "id": 4,
+        "title": "Funny People",
+        "tags": "['Comedia','+16']"
+    },
+    {
+        "id": 5,
+        "title": "El Padrino",
+        "tags": "['Clasico','+16']"
+    },
+    {
+        "id": 6,
+        "title": "El Padrino II",
+        "tags": "['Clasico','+16']"
+    },
+    {
+        "id": 7,
+        "title": "Casi Famosos",
+        "tags": "['Musica','+16']"
+    },
+    {
+        "id": 8,
+        "title": "Toy Story",
+        "tags": "['Pixar','APT']"
+    },
+    {
+        "id": 9,
+        "title": "Rapido y Furioso",
+        "tags": "['Accion','+16']"
+    },
+    {
+        "id": 10,
+        "title": "Bohemian Rhapsody",
+        "tags": "['Musica','+16']"
+    },
+    {
+        "id": 11,
+        "title": "Kill Bill",
+        "tags": [
+            "Accion",
+            "+18"
+        ]
+    },
+    {
+        "id": 4421,
+        "title": "Una peli",
+        "tags": [
+            "classic",
+            "action"
+        ]
+    },
+    {
+        "id": 123,
+        "title": "titulo",
+        "tags": [
+            "accion",
+            "otro"
+        ]
+    },
+    {
+        "id": 12,
+        "title": "Breaking",
+        "tags": [
+            "accion",
+            "APT"
+        ]
+    },
+    {
+        "id": 13,
+        "title": "Better Caul Saul",
+        "tags": [
+            "accion",
+            "APT"
+        ]
+    }
+]
