@@ -12,8 +12,8 @@ function parseaParams(argv) {
   if (elParametroEsAdd){
     const peliNueva = new Peli();
     peliNueva.id = argumentos.id;
-    peliNueva.title = argumentos.title;
-    peliNueva.tags = argumentos.tags;
+    peliNueva.title = argumentos.title ;
+    peliNueva.tags = argumentos.tag;
     return  peliControll.add(peliNueva);
   }
   if(elParametroEsGet){
@@ -21,7 +21,7 @@ function parseaParams(argv) {
     return peliControll.get(obj);
   }
   if(elParametroEsSearch){
-    const obj = { search: {title:argumentos.title, tag: argumentos.tags} };
+    const obj = { search: {title:argumentos.title , tag: argumentos.tag } };
     return peliControll.get(obj);
   }else{
     return peliControll.get('');

@@ -1,4 +1,4 @@
-import anyTest, { TestFn } from "ava";
+import anyTest, { TestFn } from 'ava';
 import { PelisCollection, Peli } from "./models";
 
 export const getRandomId = () => {
@@ -28,6 +28,7 @@ const SECOND_TEST_TITLE = "title " + SESSION_ID + SECOND_TEST_ID;
 // que vas avanzando en cada test
 
 test.serial("Corre ava", async (t) => {
+  console.log("XXXXXX");
   t.is("si", "si");
 });
 

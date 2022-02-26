@@ -1,4 +1,4 @@
-import anyTest, { TestFn } from "ava";
+import anyTest, { TestFn } from 'ava';
 import { PelisController } from "./controllers";
 import { getRandomId } from "./models.test";
 
@@ -18,6 +18,9 @@ const test = anyTest as TestFn<{
 
 // comentalos y descomentá uno a uno a medida
 // que vas avanzando en cada test
+test.serial("Corre ava", async (t) => {
+  t.is("si", "si");
+});
 
 test.serial(
   "Testeo PelisController get id (creado desde la terminal)",

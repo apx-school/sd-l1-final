@@ -1,4 +1,4 @@
-import * as jsonfile from 'jsonfile'
+import * as jsonfile from 'jsonfile';
 
 // no modificar estas propiedades, agregar todas las que quieras
 class Peli {
@@ -8,45 +8,55 @@ class Peli {
 }
 
 class PelisCollection {
-  peliculas: Peli[]=[];
+  peliculas: Peli[];
   constructor(){
-  this.getAll().then(json => this.peliculas = json);
+    this.getAll().then(json => this.peliculas = json);
   }
 
-  async getAll(): Promise<Peli[]> {
-    return await jsonfile.readFile("./pelis.json").then((res) => {
+  async getAll():Promise<Peli[]>{
+    const respuesta =  await jsonfile.readFile(__dirname+"/pelis.json").then((res) => {
       return res;
     });
+    return  respuesta;
   }
   async getById(id:number):Promise<Peli>{
-    const respuesta = await this.getAll().then( res => res.find( r => r.id == id ));
+    const respuesta = await  this.getAll().then( res =>{
+      return res.find( r => r.id == id );
+    } )
     return respuesta;
   }
   async search(options:any){
     if(options.title && options.tag){
-      const primerFiltro =  this.getAll().then( (res)=>{
+      const primerFiltro = await this.getAll().then( (res)=>{
         return res.filter( (peli)=> {
           var peliMayus = peli.title.toUpperCase(); 
           return peliMayus.includes(options.title.toUpperCase());
         })
       })
-      return await primerFiltro.then((res) => {
-        return res.filter(  peli => peli.tags.includes(options.tag));
-      })
+      return primerFiltro.filter( peli => this.verificarLosTags(peli.tags,options.tag) );
     }
     else if(options.title){
+      const title = options.title + "";
       return await this.getAll().then( (res) =>{
         return res.filter( (peli) =>{
           var peliMayus = peli.title.toUpperCase(); 
-          return peliMayus.includes(options.title.toUpperCase()); 
+          return peliMayus.includes(title.toUpperCase()); 
         })  
       })
     }else if(options.tag){
       return await this.getAll().then( (res) => {
-        return res.filter(  peli => peli.tags.includes(options.tag));
+        return res.filter(peli => this.verificarLosTags(peli.tags,options.tag) );
       })
     }
   }
+   verificarLosTags(todosLosTags,tag):boolean {
+     const tagEnMayuscula = (tag+"").toUpperCase();
+    if (todosLosTags){
+      const obj = todosLosTags.map( p => p.toUpperCase() );
+      if ( obj.includes(tagEnMayuscula) )  return true;            
+    }
+  }
+
   add(peli: Peli): Promise<boolean> {
     const promesaUno = this.getById(peli.id).then((peliExistente) => {
       if (peliExistente) {
@@ -63,6 +73,7 @@ class PelisCollection {
     });
 
     return promesaUno;
-  }
+  } 
 }
+
 export { PelisCollection,Peli };

@@ -6,15 +6,15 @@ class PelisController {
   constructor() {
    this.peliculas = new PelisCollection(); 
   }
-  get(options:any){
+  async get(options:any):Promise<any>{
     if (options.id){
-      return this.peliculas.getById(options.id).then(res=>res);
+      return await this.peliculas.getById(options.id);
     }
     if (options.search.title || options.search.tag){
-      return this.peliculas.search(options.search);
+      return await this.peliculas.search(options.search);
     }
     if (options.search){
-      return this.peliculas.getAll();
+      return await this.peliculas.getAll();
     }
   }
   add(peli:Peli){
