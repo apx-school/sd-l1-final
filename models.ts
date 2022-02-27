@@ -8,15 +8,16 @@ class Peli {
 }
 
 class PelisCollection {
+    movies: Peli[]
     async getAll(): Promise<Peli[]> {
         const movies = await js.readFile("./pelis.json");
-        return movies;
+        return this.movies = movies
     }
 
     async getById(id: number): Promise<Peli> {
         const movies = await this.getAll();
         const result = movies.find((movies) => {
-            return movies.id == id;
+            return movies.id === id;
         });
         return result;
     }
@@ -24,19 +25,22 @@ class PelisCollection {
     async search(options: any): Promise<Peli[]> {
         const movies = await this.getAll();
 
-        if (!!options.title) {
+        if (options.title && options.tag) {
             const result = movies.filter((movies) => {
-                return movies.title.includes(options.title);
+                return (
+                    movies.tags.includes(options.tag) &&
+                    movies.title.includes(options.title)
+                  );
             });
             return result;
-        } else if (!!options.tags) {
+        } else if (options.tag) {
             const result = movies.filter((movies) => {
                 return movies.tags.includes(options.tag);
             });
             return result;
-        } else if (options.title && options.tag) {
+        } else if (options.title) {
             const result = movies.filter((movies) => {
-                return movies.tags.includes(options.tag, options.title);
+                return movies.title.includes(options.title);
             });
             return result;
         }
