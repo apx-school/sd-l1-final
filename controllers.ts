@@ -18,7 +18,8 @@ class PelisController {
     }
   }
   add(peli:Peli){
-    return this.peliculas.add(peli);
+    return  this.peliculas.add(peli);
   }
 }
+
 export { PelisController };

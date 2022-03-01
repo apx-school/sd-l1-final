@@ -13,7 +13,7 @@ function parseaParams(argv) {
     const peliNueva = new Peli();
     peliNueva.id = argumentos.id;
     peliNueva.title = argumentos.title ;
-    peliNueva.tags = argumentos.tag;
+    peliNueva.tags = argumentos.tags;
     return  peliControll.add(peliNueva);
   }
   if(elParametroEsGet){
