@@ -21,5 +21,4 @@ class PelisController {
     return  this.peliculas.add(peli);
   }
 }
-
 export { PelisController };
