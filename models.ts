@@ -12,11 +12,9 @@ class PelisCollection {
   constructor(){
     this.getAll().then(json => this.peliculas = json);
   }
-
+  
   async getAll():Promise<Peli[]>{
-    const respuesta =  await jsonfile.readFile(__dirname+"/pelis.json").then((res) => {
-      return res;
-    });
+    const respuesta =  await jsonfile.readFile(__dirname+"/pelis.json");
     return  respuesta;
   }
   async getById(id:number):Promise<Peli>{
@@ -29,34 +27,32 @@ class PelisCollection {
     if(options.title && options.tag){
       const primerFiltro = await this.getAll().then( (res)=>{
         return res.filter( (peli)=> {
-          var peliMayus = peli.title.toUpperCase(); 
-          return peliMayus.includes(options.title.toUpperCase());
+          return peli.title.includes(options.title);
         })
       })
-      return primerFiltro.filter( peli => this.verificarLosTags(peli.tags,options.tag) );
+      return primerFiltro.filter( peli =>{
+        if(peli.tags){
+          if(peli.tags.includes(options.tag)){
+            return true;
+          }
+        }
+      }) 
     }
     else if(options.title){
-      const title = options.title + "";
       return await this.getAll().then( (res) =>{
-        return res.filter( (peli) =>{
-          var peliMayus = peli.title.toUpperCase(); 
-          return peliMayus.includes(title.toUpperCase()); 
-        })  
+        return res.filter( peli =>  peli.title.includes(options.title) );  
       })
     }else if(options.tag){
-      return await this.getAll().then( (res) => {
-        return res.filter(peli => this.verificarLosTags(peli.tags,options.tag) );
+      const todas = await this.getAll();
+      return todas.filter( peli =>{
+        if(peli.tags){
+          if(peli.tags.includes(options.tag)){
+            return true;
+          }
+        }
       })
     }
-  }
-   verificarLosTags(todosLosTags,tag):boolean {
-     const tagEnMayuscula = (tag+"").toUpperCase();
-    if (todosLosTags){
-      const obj = todosLosTags.map( p => p.toUpperCase() );
-      if ( obj.includes(tagEnMayuscula) )  return true;            
-    }
-  }
-
+}
   add(peli: Peli): Promise<boolean> {
     const promesaUno = this.getById(peli.id).then((peliExistente) => {
       if (peliExistente) {
@@ -75,5 +71,4 @@ class PelisCollection {
     return promesaUno;
   } 
 }
-
 export { PelisCollection,Peli };

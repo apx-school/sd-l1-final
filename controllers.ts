@@ -13,7 +13,7 @@ class PelisController {
     if (options.search.title || options.search.tag){
       return await this.peliculas.search(options.search);
     }
-    if (options.search){
+    if(options.search){
       return await this.peliculas.getAll();
     }
   }
