@@ -25,7 +25,9 @@
     "typescript": "^4.5.4"
   },
   "dependencies": {
+    "@ava/typescript": "^3.0.1",
     "jsonfile": "^6.1.0",
+    "lodash": "^4.17.21",
     "minimist": "^1.2.5"
   }
 }
