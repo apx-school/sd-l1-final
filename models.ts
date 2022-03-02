@@ -59,6 +59,7 @@ class PelisCollection {
 
           return promesaDos.then(()=>{ return true})
         })
+        return true
       }
     });
     return promesaUno
