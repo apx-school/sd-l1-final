@@ -6,7 +6,6 @@ function parseaParams(argv) {
   return resultado;
 }
 
-
 function parseaParamsTerminal(controller, params) {
   if(params._[0] == "add") { 
     return controller.add({id: params.id, title: params.title, tags: params.tags}).then((resultado) => {
@@ -34,8 +33,6 @@ function parseaParamsTerminal(controller, params) {
  })
  }
  }
-
-
 
 function main() {
   const peliController = new PelisController();
