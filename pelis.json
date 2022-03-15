@@ -5,54 +5,24 @@
     "rating": 8.7,
     "tags": ["acción", "aventura", "fantasía", "nueva"]
   },
-  {
-    "id": 2,
-    "title": "Don't Look Up",
-    "rating": 7.2,
-    "tags": ["comedia", "drama", "ironica"]
-  },
-  {
-    "id": 3,
-    "title": "Encanto",
-    "rating": 7.3,
-    "tags": ["comedia", "familiar", "animada"]
-  },
+  { "id": 2, "title": "Don't Look Up", "rating": 7.2, "tags": ["comedia", "drama", "ironica"] },
+  { "id": 3, "title": "Encanto", "rating": 7.3, "tags": ["comedia", "familiar", "animada"] },
   {
     "id": 4,
     "title": "The Lord of the Rings: The Fellowship of the Ring",
     "rating": 8.9,
     "tags": ["accion", "aventura", "clasica"]
   },
-  {
-    "id": 5,
-    "title": "Ratatouille",
-    "rating": 8.1,
-    "tags": ["animacion", "aventura", "comedia"]
-  },
-  {
-    "id": 6,
-    "title": "The Godfather",
-    "rating": 9.2,
-    "tags": ["crimen", "drama", "clasica"]
-  },
-  {
-    "id": 7,
-    "title": "Pulp Fiction",
-    "rating": 8.9,
-    "tags": ["crimen", "drama", "clasica"]
-  },
+  { "id": 5, "title": "Ratatouille", "rating": 8.1, "tags": ["animacion", "aventura", "comedia"] },
+  { "id": 6, "title": "The Godfather", "rating": 9.2, "tags": ["crimen", "drama", "clasica"] },
+  { "id": 7, "title": "Pulp Fiction", "rating": 8.9, "tags": ["crimen", "drama", "clasica"] },
   {
     "id": 8,
     "title": "The Good, the Bad and the Ugly",
     "rating": 8.8,
     "tags": ["spaghetti western", "aventura"]
   },
-  {
-    "id": 9,
-    "title": "Arcane",
-    "rating": 9.2,
-    "tags": ["animacion", "drama", "acción"]
-  },
+  { "id": 9, "title": "Arcane", "rating": 9.2, "tags": ["animacion", "drama", "acción"] },
   {
     "id": 10,
     "title": "Star Wars: Episode II - Attack of the Clones",

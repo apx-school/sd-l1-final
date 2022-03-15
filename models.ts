@@ -26,7 +26,6 @@ class PelisCollection {
   //si tiene tag debe devolver las que tengan ese string en los tag
   async search({ title, tag }: any): Promise<Peli[]> {
     let array = await this.getAll();
-    console.log(array);
     if (title) {
       array = array.filter((p) => {
         const regularExpression = new RegExp(title, "i");
@@ -43,19 +42,19 @@ class PelisCollection {
 
   //sin id repetido
   async add(peli: Peli): Promise<any> {
-    const todasPelis = await this.getAll();
-
-    //si se encuentra un id igual es que hay repetido entonces retorna false
-    if (todasPelis.find((p) => p.id == peli.id)) {
+    const peliExiste = await this.getById(peli.id);
+    //si el id existe...
+    if (peliExiste) {
       return false;
     }
-
+    const todasPelis = await this.getAll();
     todasPelis.push(peli);
     const json = JSON.stringify(todasPelis);
     await writeFile(this.filePath, json);
-
     return true;
   }
 }
 
+const col = new PelisCollection();
+col.getById(4321865).then((res) => console.log(res));
 export { PelisCollection, Peli };
