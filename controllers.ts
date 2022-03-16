@@ -9,15 +9,13 @@ class PelisController {
   async get({ id, search }: any): Promise<any> {
     if (id) {
       const peli: Peli = await this.pelisCollection.getById(id);
-      console.log(id);
-      console.log(peli);
       return peli;
     }
 
     if (search) {
-      const res: Peli[] = await this.pelisCollection.search(search);
-      return res;
+      return await this.pelisCollection.search(search);
     }
+
     if (!id && !search) {
       return await this.pelisCollection.getAll();
     }
@@ -27,6 +25,4 @@ class PelisController {
     return this.pelisCollection.add(peli);
   }
 }
-const con = new PelisController();
-con.get({ id: 4321865 }).then((res) => console.log(res));
 export { PelisController };

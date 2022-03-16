@@ -31,7 +31,7 @@ class PelisCollection {
   //si tiene propieda title se busca por ese string en el titulo
   //si tiene tag debe devolver las que tengan ese string en los tag
   //tags es un array, se filtra por cada tag
-  async search({ title, tags }: any): Promise<Peli[]> {
+  async search({ title, tags, tag }: any): Promise<Peli[]> {
     let array = await this.getAll();
     if (title) {
       array = array.filter((p) => {
@@ -39,7 +39,8 @@ class PelisCollection {
         return regularExpression.test(p.title);
       });
     }
-    if (tags) {
+    if (tags || tag) {
+      tags = [tag];
       tags.forEach((tagElem) => {
         array = array.filter((p) => p.tags.includes(tagElem));
       });
@@ -62,6 +63,4 @@ class PelisCollection {
   }
 }
 
-const col = new PelisCollection();
-col.getById(4321865).then((res) => console.log(res));
 export { PelisCollection, Peli };
