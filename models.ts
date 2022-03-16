@@ -1,4 +1,5 @@
 import { readFile, writeFile } from "fs/promises";
+import { threadId } from "worker_threads";
 
 // no modificar estas propiedades, agregar todas las que quieras
 class Peli {
@@ -6,6 +7,11 @@ class Peli {
   title: string;
   rating?: number;
   tags: string[];
+  constructor(id: number, title: string, tags: string[]) {
+    this.id = id;
+    this.title = title;
+    this.tags = tags;
+  }
 }
 
 class PelisCollection {
@@ -24,7 +30,8 @@ class PelisCollection {
   }
   //si tiene propieda title se busca por ese string en el titulo
   //si tiene tag debe devolver las que tengan ese string en los tag
-  async search({ title, tag }: any): Promise<Peli[]> {
+  //tags es un array, se filtra por cada tag
+  async search({ title, tags }: any): Promise<Peli[]> {
     let array = await this.getAll();
     if (title) {
       array = array.filter((p) => {
@@ -32,9 +39,9 @@ class PelisCollection {
         return regularExpression.test(p.title);
       });
     }
-    if (tag) {
-      array = array.filter((p) => {
-        return p.tags.includes(tag);
+    if (tags) {
+      tags.forEach((tagElem) => {
+        array = array.filter((p) => p.tags.includes(tagElem));
       });
     }
     return array;
