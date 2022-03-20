@@ -7,9 +7,12 @@ class PelisController {
   }
 
   async get({ id, search }: any): Promise<any> {
+
+
+    
+
     if (id) {
-      const peli: Peli = await this.pelisCollection.getById(id);
-      return peli;
+      return await this.pelisCollection.getById(id);
     }
 
     if (search) {

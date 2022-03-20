@@ -15,10 +15,13 @@ function parseaParams(argv) {
         id: res._[1],
       };
     case "search":
+      //si el parametro es tags plural o tag singular
+      //deberia funcionar igual
+      //tag singular es un array por eso esta entre []
       return {
-        action: "search",
+        action: "get",
         search: {
-          tags: res.tags || res.tag, //si el parametro es tags plural o tag singular
+          tags: res.tags || [res.tag], 
           title: res.title,
         },
       };
@@ -44,9 +47,11 @@ function parseaParams(argv) {
       controler.add(peli);
       break;
     case "get":
-      controler.get(params).then((res) => {
-        console.log(res);
-      });
+      controler
+        .get(params)
+        .then((res) => {
+          console.log(res);
+        });
     default:
       break;
   }

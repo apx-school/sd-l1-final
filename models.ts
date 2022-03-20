@@ -15,6 +15,7 @@ class Peli {
 }
 
 class PelisCollection {
+
   filePath: string = "./pelis.json";
 
   async getAll(): Promise<Peli[]> {
@@ -22,6 +23,7 @@ class PelisCollection {
     const string = buffer.toString();
     return JSON.parse(string);
   }
+
   async getById(id: number): Promise<Peli> {
     const todasPelis: Peli[] = await this.getAll();
     return todasPelis.find((peli: Peli) => {
@@ -31,20 +33,35 @@ class PelisCollection {
   //si tiene propieda title se busca por ese string en el titulo
   //si tiene tag debe devolver las que tengan ese string en los tag
   //tags es un array, se filtra por cada tag
-  async search({ title, tags, tag }: any): Promise<Peli[]> {
+  async search({ title, tags }: any): Promise<Peli[]> {
     let array = await this.getAll();
+    // console.log("title: " + title)
+    // console.log(`tags :${tags}`)
+    // console.log(tags)
+
     if (title) {
       array = array.filter((p) => {
         const regularExpression = new RegExp(title, "i");
         return regularExpression.test(p.title);
       });
     }
-    if (tags || tag) {
-      tags = [tag];
-      tags.forEach((tagElem) => {
-        array = array.filter((p) => p.tags.includes(tagElem));
-      });
+
+    //tags siempre es un array
+    if (!tags.includes(undefined)) {
+      /*
+      array es igual a
+      las pelis del array en las que
+      alguno de sus tags(tagsDeLaPeli)
+      esta incluido en los tags
+      recibidos como parametro
+      */
+      array = array.filter(peli => {
+        const tagsDeLaPeli = peli.tags
+        return tagsDeLaPeli.some(tagPeli => tags.includes(tagPeli))
+      })
+
     }
+
     return array;
   }
 
