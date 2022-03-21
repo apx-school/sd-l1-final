@@ -15,13 +15,10 @@ function parseaParams(argv) {
         id: res._[1],
       };
     case "search":
-      //si el parametro es tags plural o tag singular
-      //deberia funcionar igual
-      //tag singular es un array por eso esta entre []
       return {
         action: "get",
         search: {
-          tags: res.tags || [res.tag], 
+          tags: res.tags || res.tag, 
           title: res.title,
         },
       };
