@@ -82,7 +82,7 @@ class PelisCollection {
   }
 
   //sin id repetido
-  async add(peli: Peli): Promise<any> {
+  async add(peli: Peli): Promise<boolean> {
     const peliExiste = await this.getById(peli.id);
     //si el id existe...
     if (peliExiste) {
