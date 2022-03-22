@@ -1,15 +1,55 @@
 import * as minimist from "minimist";
+import { PelisController } from "./controllers";
+import { Peli } from "./models";
 
 function parseaParams(argv) {
-  const resultado = minimist(argv);
-
-  return resultado;
+  const res = minimist(argv);
+  // console.log(res);
+  //obtengo solo la primera pos del array
+  //para determinar la accion
+  const action = res._[0];
+  switch (action) {
+    case "get":
+      return {
+        action: "get",
+        id: res._[1],
+      };
+    case "search":
+      return {
+        action: "get",
+        search: {
+          tags: res.tags || res.tag, 
+          title: res.title,
+        },
+      };
+    case "add":
+      return {
+        action: "add",
+        title: res.title,
+        id: res.id,
+        tags: res.tags,
+      };
+    default:
+      return { action: "get" };
+  }
 }
 
-function main() {
-  const params = parseaParams(process.argv.slice(2));
+((args) => {
+  const params = parseaParams(args);
+  const controler = new PelisController();
 
-  console.log(params);
-}
-
-main();
+  switch (params.action) {
+    case "add":
+      const peli = new Peli(params.id, params.title, params.tags);
+      controler.add(peli);
+      break;
+    case "get":
+      controler
+        .get(params)
+        .then((res) => {
+          console.log(res);
+        });
+    default:
+      break;
+  }
+})(process.argv.slice(2));
