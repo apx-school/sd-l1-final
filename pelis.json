@@ -1,1 +1,50 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "lasmising Young Woman",
+    "rating": 9,
+    "tags": ["Crimen", "Drama", "Thriller"]
+  },
+  {
+    "id": 2,
+    "title": "Langbird",
+    "rating": 7,
+    "tags": ["Comedia", "Drama", "Romance"]
+  },
+  {
+    "id": 3,
+    "title": "Tee Shot: Ariya Jutanugarn",
+    "rating": 5,
+    "tags": ["Biográfia", "Deportes", "Drama"]
+  },
+  {
+    "id": 4,
+    "title": "La Liga de la Justicia de Zack Snyder",
+    "rating": 10,
+    "tags": ["Acción", "Aventura", "Fantasía"]
+  },
+  {
+    "id": 5,
+    "title": "Joker",
+    "rating": 9,
+    "tags": ["Crimen", "Drama", "Thriller"]
+  },
+  {
+    "id": 6,
+    "title": "GoDZilla vs Kong",
+    "rating": 4,
+    "tags": ["Acción", "Ciencia", "Ficción", "Thriller"]
+  },
+  {
+    "id": 7,
+    "title": "Cruella",
+    "rating": 6,
+    "tags": ["Comedia", "Crimen"]
+  },
+  {
+    "id": 8,
+    "title": "Avengers: Endgame / Vengadores 4",
+    "rating": 8,
+    "tags": ["Acción", "Aventura", " Fantasía"]
+  }
+]
