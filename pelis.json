@@ -41,6 +41,5 @@
     "title": "Avengers: Endgame / Vengadores 4",
     "rating": 8,
     "tags": ["Acción", "Aventura", " Fantasía"]
-  },
-  { "id": 9, "title": "string", "tags": ["Comedia", "Thriller"] }
+  }
 ]

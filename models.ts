@@ -52,7 +52,6 @@ class PelisCollection {
       if (peliExistente) {
         return false;
       } else {
-        // magia que agrega la pelicula a un objeto data
         const data = this.getAll().then((pelis) => {
           const respuesta = pelis.concat(peli);
           return respuesta;
@@ -68,3 +67,12 @@ class PelisCollection {
   }
 }
 export { PelisCollection, Peli };
+
+function main() {
+  const nuevo = new PelisCollection();
+  nuevo.getById(6).then((resultado) => {
+    console.log(resultado);
+  });
+}
+
+main();
