@@ -35,16 +35,12 @@
     "rating": 4,
     "tags": ["Acción", "Ciencia", "Ficción", "Thriller"]
   },
-  {
-    "id": 7,
-    "title": "Cruella",
-    "rating": 6,
-    "tags": ["Comedia", "Crimen"]
-  },
+  { "id": 7, "title": "Cruella", "rating": 6, "tags": ["Comedia", "Crimen"] },
   {
     "id": 8,
     "title": "Avengers: Endgame / Vengadores 4",
     "rating": 8,
     "tags": ["Acción", "Aventura", " Fantasía"]
-  }
+  },
+  { "id": 9, "title": "string", "tags": ["Comedia", "Thriller"] }
 ]

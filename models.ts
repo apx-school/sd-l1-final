@@ -47,11 +47,24 @@ class PelisCollection {
       return PelisFiltradas;
     }
   }
+  add(peli: Peli): Promise<boolean> {
+    const promesaUno = this.getById(peli.id).then((peliExistente) => {
+      if (peliExistente) {
+        return false;
+      } else {
+        // magia que agrega la pelicula a un objeto data
+        const data = this.getAll().then((pelis) => {
+          const respuesta = pelis.concat(peli);
+          return respuesta;
+        });
+        const promesaDos = data.then((resultado) => {
+          jsonfile.writeFile("./pelis.json", resultado);
+        });
+        return true;
+      }
+    });
+
+    return promesaUno;
+  }
 }
 export { PelisCollection, Peli };
-
-function main() {
-  const nuevo = new PelisCollection();
-  nuevo.search({ title: "Z" }).then((resultado) => console.log(resultado));
-}
-main();
