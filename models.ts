@@ -23,43 +23,41 @@ class PelisCollection {
     });
     return respuesta;
   }
-  search(options: any): Promise<any> {
+  async search(options: any): Promise<Peli[]> {
+    const pelis = await this.getAll();
     if (options.title) {
-      const PelisFiltradas = this.getAll().then((arrayDePelis) => {
-        const filtro = arrayDePelis.filter((peli) => {
-          const title = peli.title.toLowerCase();
-          return title.includes(options.title);
-        });
-        return filtro;
-      });
-      return PelisFiltradas;
+      const pelisFiltradas = pelis.filter((pelis) =>
+        pelis.title.includes(options.title)
+      );
+      return pelisFiltradas;
     }
-    if (options.tags) {
-      const PelisFiltradas = this.getAll().then((arrayDePelis) => {
-        const filtro = arrayDePelis.filter((peli) => {
-          const textoLowerCase = options.tags.toLowerCase();
-          const tagsLowerCase = peli.tags.map((tag) => tag.toLocaleLowerCase());
-          return tagsLowerCase.includes(textoLowerCase);
-        });
-
-        return filtro;
+    if (options.tag) {
+      const pelisFiltradas = pelis.filter((pelis) =>
+        pelis.tags.includes(options.tags)
+      );
+      return pelisFiltradas;
+    }
+    if (options.tag && options.title) {
+      const pelisFiltradasPorTagyTitle = pelis.filter((pelis) => {
+        return (
+          pelis.title.includes(options.title) &&
+          pelis.tags.includes(options.tags)
+        );
       });
-      return PelisFiltradas;
+      return pelisFiltradasPorTagyTitle;
     }
   }
-  add(peli: Peli): Promise<boolean> {
-    const promesaUno = this.getById(peli.id).then((peliExistente) => {
+  async add(peli: Peli): Promise<boolean> {
+    const promesaUno = this.getById(peli.id).then(async (peliExistente) => {
       if (peliExistente) {
         return false;
       } else {
-        const data = this.getAll().then((pelis) => {
-          const respuesta = pelis.concat(peli);
-          return respuesta;
+        const data = await this.getAll();
+        data.push(peli);
+        const promesaDos = jsonfile.writeFile("./pelis.json", data);
+        return promesaDos.then(() => {
+          return true;
         });
-        const promesaDos = data.then((resultado) => {
-          jsonfile.writeFile("./pelis.json", resultado);
-        });
-        return true;
       }
     });
 
@@ -67,12 +65,3 @@ class PelisCollection {
   }
 }
 export { PelisCollection, Peli };
-
-function main() {
-  const nuevo = new PelisCollection();
-  nuevo.getById(6).then((resultado) => {
-    console.log(resultado);
-  });
-}
-
-main();
