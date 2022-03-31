@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "title": "Django Unchained",
+    "id": 1,
+    "tags": ["Western", "Action", "Quentin Tarantino"]
+  },
+  {
+    "title": "The Godfather",
+    "id": 2,
+    "tags": ["Drama", "Francis Ford Coppola"]
+  },
+  {
+    "title": "The Dark Knight",
+    "id": 3,
+    "tags": ["Action", "Christopher Nolan"]
+  },
+  {
+    "title": "Jurassic Park",
+    "id": 4,
+    "tags": ["Sci-Fi", "Steven Spielberg"]
+  }
+]
