@@ -20,17 +20,17 @@ class PelisCollection {
 		const pelis = await this.getAll();
 		if (options.title && options.tag) {
 			return pelis.filter((peli) => {
-				const pelisFiltradasByTitle = peli['title'].toLowerCase().includes(options.title.trim().toLowerCase());
+				const pelisFiltradasByTitle = peli['title'].toLowerCase().includes(options.title.toLowerCase());
 				const tagsDePelisEnLowerCase = peli.tags.map((tag) => tag.toLowerCase());
-				const pelisFiltradasByTag = tagsDePelisEnLowerCase.includes(options.tag.trim().toLowerCase());
+				const pelisFiltradasByTag = tagsDePelisEnLowerCase.includes(options.tag.toLowerCase());
 				return pelisFiltradasByTitle && pelisFiltradasByTag;
 			});
 		} else if (options.title) {
-			return pelis.filter((peli) => peli['title'].toLowerCase().includes(options.title.trim().toLowerCase()));
+			return pelis.filter((peli) => peli['title'].toLowerCase().includes(options.title.toLowerCase()));
 		} else if (options.tag) {
 			return pelis.filter((peli) => {
 				const tagsDePelisEnLowerCase = peli.tags.map((tag) => tag.toLowerCase());
-				return tagsDePelisEnLowerCase.includes(options.tag.trim().toLowerCase());
+				return tagsDePelisEnLowerCase.includes(options.tag.toLowerCase());
 			});
 		} else {
 			console.log('Ese comando no existe, las peliculas son las siguientes:');
