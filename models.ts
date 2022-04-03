@@ -1,6 +1,5 @@
 import * as jsonfile from "jsonfile";
 
-// no modificar estas propiedades, agregar todas las que quieras
 class Peli {
   id: number;
   title: string;
@@ -25,15 +24,17 @@ class PelisCollection {
   }
   async search(options: any): Promise<Peli[]> {
     const pelis = await this.getAll();
-    if (options.title) {
+    if (options.title != options.tag) {
       const pelisFiltradas = pelis.filter((pelis) =>
         pelis.title.includes(options.title)
       );
       return pelisFiltradas;
     }
-    if (options.tag) {
+    if (options.tag != options.title) {
       const pelisFiltradas = pelis.filter((pelis) =>
-        pelis.tags.includes(options.tags)
+        pelis.tags.find((resp) => {
+          resp == options.tag;
+        })
       );
       return pelisFiltradas;
     }
@@ -41,7 +42,7 @@ class PelisCollection {
       const pelisFiltradasPorTagyTitle = pelis.filter((pelis) => {
         return (
           pelis.title.includes(options.title) &&
-          pelis.tags.includes(options.tags)
+          pelis.tags.includes(options.tag)
         );
       });
       return pelisFiltradasPorTagyTitle;

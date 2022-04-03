@@ -5,19 +5,17 @@ class PelisController {
   constructor() {
     this.collection = new PelisCollection();
   }
-  get(options): Promise<any> {
+  async get(options): Promise<any> {
     if (options.id) {
-      return this.collection.getById(options.id);
-    }
-    if (options.search.title || options.search.tag) {
-      return this.collection.search(options.search);
-    }
-    if (options.search) {
-      return this.collection.getAll();
+      return await this.collection.getById(options.id);
+    } else if (options.search) {
+      return await this.collection.search(options.search);
+    } else {
+      return await this.collection.getAll();
     }
   }
-  add(peli: Peli) {
-    return this.collection.add(peli);
+  async add(peli: Peli) {
+    return await this.collection.add(peli);
   }
 }
 
