@@ -14,7 +14,7 @@ async function processOptions(args) {
       .add({
         id: args.id,
         title: args.title,
-        tags: args.tags,
+        tags: args.tag,
       })
       .then((res) => {
         return res;

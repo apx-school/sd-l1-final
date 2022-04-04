@@ -29,16 +29,14 @@ class PelisCollection {
         pelis.title.includes(options.title)
       );
       return pelisFiltradas;
-    }
-    if (options.tag != options.title) {
-      const pelisFiltradas = pelis.filter((pelis) =>
-        pelis.tags.find((resp) => {
-          resp == options.tag;
-        })
-      );
-      return pelisFiltradas;
-    }
-    if (options.tag && options.title) {
+    } else if (options.tag != options.title) {
+      return pelis.filter((item) => {
+        const pelisfiltradasTags = item.tags.find((res) => {
+          return res == options.tag;
+        });
+        return pelisfiltradasTags;
+      });
+    } else if (options.tag && options.title) {
       const pelisFiltradasPorTagyTitle = pelis.filter((pelis) => {
         return (
           pelis.title.includes(options.title) &&
@@ -66,3 +64,16 @@ class PelisCollection {
   }
 }
 export { PelisCollection, Peli };
+function main() {
+  const pelis = new PelisCollection();
+
+  pelis.getAll().then((peli) => {
+    const respuesta = peli.filter((item) => {
+      const pelisfiltradasTags = item.tags.find((res) => {
+        return res == "Drama";
+      });
+      return pelisfiltradasTags;
+    });
+    return console.log(respuesta);
+  });
+}
