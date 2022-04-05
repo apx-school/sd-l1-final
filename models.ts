@@ -25,20 +25,22 @@ class PelisCollection {
   }
   async search(options: any): Promise<Peli[]> {
     const pelis = await this.getAll();
-    if (options.title != options.tag) {
+    if (!!options.title) {
       const pelisFiltradas = pelis.filter((pelis) =>
         pelis.title.includes(options.title)
       );
       return pelisFiltradas;
-    } else if (options.tag) {
+    } else if (!!options.tag) {
       return pelis.filter((peli) => {
-        return peli.tags.find((tag) => {
-          if (options.tag == tag) {
-            return true;
-          }
-        });
+        if (peli.tags) {
+          return peli.tags.find((tag) => {
+            if (options.tag == tag) {
+              return true;
+            }
+          });
+        }
       });
-    } else if (options.tag && options.title) {
+    } else if (!!options.tag && !!options.title) {
       const pelisFiltradasPorTagyTitle = pelis.filter((pelis) => {
         return (
           pelis.title.includes(options.title) &&
@@ -46,6 +48,8 @@ class PelisCollection {
         );
       });
       return pelisFiltradasPorTagyTitle;
+    } else if (!options.title && !options.tag) {
+      return pelis;
     }
   }
   async add(peli: Peli): Promise<boolean> {
@@ -69,6 +73,6 @@ export { PelisCollection, Peli };
 
 function main() {
   const nuevo = new PelisCollection();
-  nuevo.search({ tag: ["Drama"] }).then((r) => console.log(r));
+  nuevo.search({ tag: ["Crimen"] }).then((r) => console.log(r));
 }
 main();
