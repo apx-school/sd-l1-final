@@ -1,3 +1,4 @@
+import { Console } from "console";
 import * as jsonfile from "jsonfile";
 
 class Peli {
@@ -29,12 +30,13 @@ class PelisCollection {
         pelis.title.includes(options.title)
       );
       return pelisFiltradas;
-    } else if (options.tag != options.title) {
-      return pelis.filter((item) => {
-        const pelisfiltradasTags = item.tags.find((res) => {
-          return res == options.tag;
+    } else if (options.tag) {
+      return pelis.filter((peli) => {
+        return peli.tags.find((tag) => {
+          if (options.tag == tag) {
+            return true;
+          }
         });
-        return pelisfiltradasTags;
       });
     } else if (options.tag && options.title) {
       const pelisFiltradasPorTagyTitle = pelis.filter((pelis) => {
@@ -64,16 +66,9 @@ class PelisCollection {
   }
 }
 export { PelisCollection, Peli };
-function main() {
-  const pelis = new PelisCollection();
 
-  pelis.getAll().then((peli) => {
-    const respuesta = peli.filter((item) => {
-      const pelisfiltradasTags = item.tags.find((res) => {
-        return res == "Drama";
-      });
-      return pelisfiltradasTags;
-    });
-    return console.log(respuesta);
-  });
+function main() {
+  const nuevo = new PelisCollection();
+  nuevo.search({ tag: ["Drama"] }).then((r) => console.log(r));
 }
+main();

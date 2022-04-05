@@ -28,6 +28,9 @@ async function processOptions(args) {
       search: { title: args.title, tag: args.tag },
     });
   }
+  if (_.isEmpty(args._[0])) {
+    return controller.get({ empty: "empty" });
+  }
 }
 
 function main() {
