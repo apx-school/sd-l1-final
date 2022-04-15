@@ -26,7 +26,7 @@ test.serial(
     const controller = new PelisController();
     const peli = await controller.get({ id: 4321865 });
     t.is(peli.title, "peli de la terminal 4321865");
-  }
+  },
 );
 
 test.serial("Testeo PelisController get id", async (t) => {
