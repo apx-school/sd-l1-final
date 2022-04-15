@@ -1,1 +1,23 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "Primera Pelicula",
+    "tags": ["Accion", "Nuevo", "Clasico"]
+  },
+  {
+    "id": 2,
+    "title": "Segunda Pelicula",
+    "tags": ["Drama", "Nuevo", "Clasico"]
+  },
+  {
+    "id": 3,
+    "title": "Tercera Pelicul",
+    "tags": ["Miedo", "Viejo", "Clasico"]
+  },
+  { "id": 4, "title": "Cuarta Peli", "tags": ["Comedia", "Viejo", "Antiguo"] },
+  {
+    "id": 5,
+    "title": "Quinta Pelicula",
+    "tags": ["Miedo", "Viejo", "Clasico"]
+  }
+]
