@@ -49,6 +49,7 @@ test.serial("Testeo PelisController search title", async (t) => {
   });
 
   const pelis = await controller.get({ search: { title: TEST_ID.toString() } });
+
   t.is(pelis.length, 1);
   t.is(pelis[0].id, TEST_ID);
 });
