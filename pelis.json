@@ -1,1 +1,27 @@
-[]
+[
+    {
+        "id": 1,
+        "title": "Godzilla vs Kong",
+        "tags": [
+            "ciencia ficción",
+            "nueva"
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Tom y Jerry",
+        "tags": [
+            "infantil",
+            "nueva"
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Caos: el inicio",
+        "tags": [
+            "ciencia ficción",
+            "favorita",
+            "nueva"
+        ]
+    }
+]
