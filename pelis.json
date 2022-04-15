@@ -1,1 +1,15 @@
-[]
+[{"id":1,"title":"it","tags":["accion","terror","fantasia"]},
+{"id":2,"title":"el demoledor","tags":["accion","suspenso","fantasia"]},
+{"id":3,"title":"star wars","tags":["accion","belica","fantasia"]},
+{"id":4,"title":"los vengadores","tags":["accion","carreras","fantasia"]},
+{"id":5,"title":"la liga de la justicia","tags":["accion","ciencia ficcion","fantasia"]},
+{"id":6,"title":"watchmen","tags":["accion","drama","fantasia"]},
+{"id":7,"title":"los increibles","tags":["accion","comedia","fantasia"]},
+{"id":8,"title":"boss level","tags":["accion","comedia","fantasia"]},
+{"id":9,"title":"peli nueve","tags":["accion","comedia","fantasia"]},
+{"id":10,"title":"peli diez","tags":["accion","comedia","fantasia"]},
+{"id":11,"title":"peli once","tags":["accion","comedia","fantasia"]},
+{"id":12,"title":"pakapaka","tags":["accion","terror","pelea"]},
+{"id":44,"title":"Título de la nueva peli","tags":["action","classic"]},
+{"id":45,"title":"Título de la nueva peli2","tags":["action","classic"]}
+]
