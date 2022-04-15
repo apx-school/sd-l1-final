@@ -1,1 +1,38 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "el pianista",
+    "tags": [
+      "drama",
+      "basado en la vida real",
+      "música"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "el niño que domó el viento",
+    "tags": [
+      "drama",
+      "basado en libro",
+      "superación"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "soul surfer",
+    "tags": [
+      "deporte",
+      "basado en la vida real",
+      "superación"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "shrek",
+    "tags": [
+      "infantil",
+      "familiar",
+      "animado"
+    ]
+  }
+]
