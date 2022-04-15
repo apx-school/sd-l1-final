@@ -1,1 +1,42 @@
-[]
+[
+    {
+        "id": 4411,
+        "title": "Título de la nueva peli",
+        "tags": [
+            "action",
+            "classic"
+        ]
+    },
+    {
+        "id": 26,
+        "title": "una pelicula",
+        "tags": [
+            "comedia",
+            "romance"
+        ]
+    },
+    {
+        "id": 90,
+        "title": "no se",
+        "tags": [
+            "sin tag",
+            "un tag"
+        ]
+    },
+    {
+        "id": 95,
+        "title": "x",
+        "tags": [
+            "un tag",
+            "action"
+        ]
+    },
+    {
+        "id": 4,
+        "title": "peli de prueba 'add'",
+        "tags": [
+            "un",
+            "otro"
+        ]
+    }
+]
