@@ -1,1 +1,8 @@
-[]
+[
+	{ "id": 1001, "title": "luca", "tags": ["animada", "comedia"] },
+	{ "id": 1002, "title": "pulp fiction", "tags": ["crimen", "drama"] },
+	{ "id": 1003, "title": "amelie", "tags": ["romance", "comedia"] },
+	{ "id": 1004, "title": "el pianista", "tags": ["drama"] },
+	{ "id": 1005, "title": "titanic", "tags": ["romance", "drama"] },
+	{ "id": 85692, "title": "pelicula de prueba", "tags": ["accion", "drama"] }
+]

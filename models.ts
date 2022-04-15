@@ -1,18 +1,70 @@
-import * as jsonfile from "jsonfile";
+/** @format */
+
+import * as jsonfile from 'jsonfile';
 
 // no modificar estas propiedades, agregar todas las que quieras
 class Peli {
-  id: number;
-  title: string;
-  tags: string[];
+	id: number;
+	title: string;
+	tags: string[];
 }
 
 class PelisCollection {
-  getAll(): Promise<Peli[]> {
-    return jsonfile("...laRutaDelArchivo").then(() => {
-      // la respuesta de la promesa
-      return [];
-    });
-  }
+	pelis: Peli[];
+
+	getAll(): Promise<any[]> {
+		return jsonfile.readFile('./pelis.json').then((pelis) => {
+			return (this.pelis = pelis);
+		});
+	}
+	getById(id: number) {
+		return this.getAll().then((pelis) => {
+			return this.pelis.find((pelis) => {
+				return pelis.id == id;
+			});
+		});
+	}
+	search(options: any): Promise<any> {
+		return this.getAll().then((pelis) => {
+			let answer = pelis;
+
+			if (options.title) {
+				answer = answer.filter((pelis) => {
+					return pelis.title.includes(options.title);
+				});
+			}
+			if (options.tag) {
+				answer = answer.filter((pelis) => {
+					return pelis.tags.includes(options.tag);
+				});
+			}
+			if (options.title && options.tag) {
+				answer = answer.filter((pelis) => {
+					return (
+						pelis.title.includes(options.title) &&
+						pelis.tags.includes(options.tag)
+					);
+				});
+			}
+			return answer;
+		});
+	}
+
+	add(peli: Peli): Promise<boolean> {
+		return this.getById(peli.id).then((existente) => {
+			if (existente) {
+				return false;
+			} else {
+				return this.getAll().then((pelis) => {
+					pelis.push(peli);
+					return jsonfile.writeFile(
+						'./pelis.json',
+						pelis,
+						console.log('Haz agregado una pelcula')
+					);
+				});
+			}
+		});
+	}
 }
 export { PelisCollection, Peli };
