@@ -1,1 +1,23 @@
-[]
+[
+    {
+        "id": 1,
+        "title": "Scarface",
+        "tags": ["muerte", "drogas", "mafia"]
+      },
+      {
+        "id": 2,
+        "title": "The godfather",
+        "tags": ["drogas", "muerte", "mafia"]
+      },
+      {
+        "id": 3,
+        "title": "Godfellas",
+        "tags": ["drogas", "mafia"]
+      },
+      {
+        "id": 1,
+        "title": "A bronx tale",
+        "tags": ["New York", "mafia"]
+      }
+
+]
