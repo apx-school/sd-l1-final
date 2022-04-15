@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "Batman:The Dark Knight Rises",
+    "tags": ["accion", "aventura"]
+  },
+  {
+    "id": 2,
+    "title": "Alien",
+    "tags": ["terror", "sci-fi"]
+  },
+  {
+    "id": 3,
+    "title": "Black Swan",
+    "tags": ["drama", "thriller"]
+  }
+]
