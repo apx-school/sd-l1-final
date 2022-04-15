@@ -47,7 +47,7 @@ test.serial("Testeo PelisController search title", async (t) => {
     title: SOME_TITLE,
     tags: ["classic", SOME_TAG],
   });
-
+  
   const pelis = await controller.get({ search: { title: TEST_ID.toString() } });
   t.is(pelis.length, 1);
   t.is(pelis[0].id, TEST_ID);
@@ -66,3 +66,4 @@ test.serial("Testeo PelisController search tag", async (t) => {
   const ids = pelis.map((b) => b.id);
   t.deepEqual(ids, [TEST_ID, SECOND_TEST_ID]);
 });
+
