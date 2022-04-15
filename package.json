@@ -1,5 +1,5 @@
 {
-  "name": "test-ava",
+  "name": "np",
   "version": "1.0.0",
   "description": "",
   "main": "index.ts",
@@ -27,5 +27,13 @@
   "dependencies": {
     "jsonfile": "^6.1.0",
     "minimist": "^1.2.5"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ivangomez2/dwf-m2-desafio.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ivangomez2/dwf-m2-desafio/issues"
+  },
+  "homepage": "https://github.com/ivangomez2/dwf-m2-desafio#readme"
 }
