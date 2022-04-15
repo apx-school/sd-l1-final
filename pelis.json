@@ -1,1 +1,6 @@
-[]
+[
+  { "id": 1, "title": "salvando al soldado ryan", "tags": ["action"] },
+  { "id": 2, "title": "rosa", "tags": ["drama", "comedia"] },
+  { "id": 3, "title": "test peli", "tags": ["action", "drama"] },
+  { "id": 4, "title": "nico intentando programar, v2", "tags": ["comedia"] }
+]
