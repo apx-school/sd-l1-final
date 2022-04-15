@@ -1,1 +1,49 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "Conectando",
+    "tags": ["animación", "adventura", "comedia"]
+  },
+  {
+    "id": 2,
+    "title": "Sin remordimientos",
+    "tags": ["acción", "aventura", "thriller "]
+  },
+  {
+    "id": 3,
+    "title": "Mortal Kombat",
+    "tags": ["acción", "animación", "aventura"]
+  },
+  {
+    "id": 4,
+    "title": "La apariencia de las cosas",
+    "tags": ["drama", "horror", "misterio"]
+  },
+  { "id": 5, "title": "Nadie", "tags": ["acción", "crimen", "drama"] },
+  {
+    "id": 6,
+    "title": "Pasajero inesperado",
+    "tags": ["acción", "thriller", "drama"]
+  },
+  {
+    "id": 7,
+    "title": "La Liga de la Justicia de Zack Snyder",
+    "tags": ["acción", "aventura", "fantasía"]
+  },
+  {
+    "id": 8,
+    "title": "Godzilla vs. Kong",
+    "tags": ["acción", "aventura", "classic"]
+  },
+  { "id": 9, "title": "El sonido del metal", "tags": ["drama", "música"] },
+  {
+    "id": 10,
+    "title": "Amor y Monstruos",
+    "tags": ["acción", "aventura", "fantasia"]
+  },
+  {
+    "id": 11,
+    "title": "Espiral: El juego del miedo continúa ",
+    "tags": ["crimen", "horror", "misterio"]
+  }
+]
