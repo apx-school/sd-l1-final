@@ -1,4 +1,5 @@
 import * as minimist from "minimist";
+import { PelisController } from "./controllers";
 
 function parseaParams(argv) {
   const resultado = minimist(argv);
@@ -7,9 +8,13 @@ function parseaParams(argv) {
 }
 
 function main() {
-  const params = parseaParams(process.argv.slice(2));
-
-  console.log(params);
+  const controller = new PelisController()
+  controller.promesa.then(()=>{
+    const params = parseaParams(process.argv.slice(2));
+    controller.processOptions(params).then((res)=>{
+      console.table(res)
+    })
+  })
 }
 
 main();
