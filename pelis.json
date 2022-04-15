@@ -1,1 +1,5 @@
-[]
+[
+  { "id": "1", "title": "Rambo", "tags": ["action", "classic"] },
+  { "id": "2", "title": "Titanic", "tags": ["romantica", "classic"] },
+  { "id": "3", "title": "Matrix", "tags": ["action", "ciencia ficción"] }
+]
