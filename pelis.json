@@ -1,1 +1,32 @@
-[]
+[
+  { "id": 1, "title": "El padrino", "tags": ["crimen", "drama"] },
+  {
+    "id": 2,
+    "title": "El señor de los anillos: La comunidad del anillo",
+    "tags": ["acción", "aventura", "drama"]
+  },
+  {
+    "id": 3,
+    "title": "Bastardos sin gloria",
+    "tags": ["aventura", "drama", "guerra"]
+  },
+  {
+    "id": 4321865,
+    "title": "peli de la terminal 4321865",
+    "tags": ["rr", "ww"]
+  },
+  { "id": 150564, "title": "title 175721150564", "tags": ["tt", "rr"] },
+  { "id": 167886, "title": "title 175721167886", "tags": ["yy", "uu"] },
+  { "id": 201353, "title": "title 193753201353", "tags": ["tt", "rr"] },
+  { "id": 191638, "title": "title 193753191638", "tags": ["yy", "uu"] },
+  {
+    "id": 217183,
+    "title": "una peli 217183",
+    "tags": ["classic", "tag 217183"]
+  },
+  {
+    "id": 211852,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 217183"]
+  }
+]
