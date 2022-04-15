@@ -1,1 +1,17 @@
-[]
+[
+    {
+        "id":1,
+        "title":"Harry Potter",
+        "tags":["acción","favorita","nueva"]
+    },
+    {
+        "id":2,
+        "title":"La teoría del todo",
+        "tags":["drama","vida real"]
+    },
+    {
+        "id":3,
+        "title":"La chica Danesa",
+        "tags":["época","lgbtq"]
+    }
+]
