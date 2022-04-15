@@ -1,1 +1,38 @@
-[]
+[
+  { "id": 1111, "title": "Peli N°1", "tags": ["hola", "mundo"] },
+  { "id": 2222, "title": "Otra Peli", "tags": ["comedia", "risas"] },
+  { "id": 5555, "title": "Peli dibus", "tags": ["fantasia", "animada"] },
+  {
+    "id": 4321865,
+    "title": "peli de la terminal 4321865",
+    "tags": ["rr", "ww"]
+  },
+  { "id": 160366, "title": "title 139907160366", "tags": ["tt", "rr"] },
+  { "id": 154048, "title": "title 139907154048", "tags": ["yy", "uu"] },
+  { "id": 144681, "title": "title 142360144681", "tags": ["tt", "rr"] },
+  { "id": 223768, "title": "title 142360223768", "tags": ["yy", "uu"] },
+  {
+    "id": 218335,
+    "title": "una peli 218335",
+    "tags": ["classic", "tag 218335"]
+  },
+  {
+    "id": 181921,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 218335"]
+  },
+  { "id": 165507, "title": "title 204701165507", "tags": ["tt", "rr"] },
+  { "id": 202958, "title": "title 204701202958", "tags": ["yy", "uu"] },
+  { "id": 175377, "title": "title 211487175377", "tags": ["tt", "rr"] },
+  { "id": 218333, "title": "title 211487218333", "tags": ["yy", "uu"] },
+  {
+    "id": 168340,
+    "title": "una peli 168340",
+    "tags": ["classic", "tag 168340"]
+  },
+  {
+    "id": 144239,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 168340"]
+  }
+]
