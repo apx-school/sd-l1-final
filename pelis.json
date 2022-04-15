@@ -1,1 +1,15 @@
-[]
+[
+	{
+		"id": 1,
+		"title": "El padrino",
+		"tags": ["crimen", "favorita", "drama", "clasica"]
+	},
+	{ "id": 2, "title": "Forrest Gump", "tags": ["drama", "romance", "clasica"] },
+	{ "id": 3, "title": "Matrix", "tags": ["accion", "favorita", "ciencia"] },
+	{
+		"id": 4,
+		"title": "Pecados capitales",
+		"tags": ["crimen", "drama", "misterio"]
+	},
+	{ "id": 5, "title": "Rambo", "tags": ["accion", "clasica"] }
+]
