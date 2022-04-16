@@ -1,31 +1,38 @@
 {
   "name": "test-ava",
   "version": "1.0.0",
-  "description": "",
+  "description": "- Forkear este repo - Clonar tu fork - Crear y exportar la clase **ListaDeProductos** que extiende la clase **ListaDeCosas**. - La clase **ListaDeProductos** debe:   - tener un método addProduct que reciba una instancia de la clase **Product** como parámetro y la agregue usando el método **add** que ya existe en la superclase. El método debe validar que no exista un producto con el mismo id antes de agregarlo   - extender el constructor original para que además de recibir un nombre para la lista, lea el archivo **products.json** y agregue todos los productos del JSON usando el método addProduct   - tener un método **getProduct(id:number):Product** que devuelva el producto con ese **id**   - tener un método **removeProduct(id:number):Product** que elimine el producto con ese **id**   - tener un método **getSortedByPrice** que reciba un parametro **order:string** con solo dos valores posibles: \"asc\" o \"desc\". (Chequear este link https://mariusschulz.com/blog/string-literal-types-in-typescript#string-literal-types-and-union-types). Este método debe devolver toda la lista de productos **Product[]** en orden _ascendente_ o _descendente_ dependiendo del parámetro **order** usando https://lodash.com/docs/4.17.15#orderBy - Correr los tests localmente ejecutando `npm run test`y crear un Pull Request desde GitHub",
   "main": "index.ts",
   "scripts": {
-    "test": "ts-node index.ts add --id=4321865 --title=\"peli de la terminal 4321865\" --tags=rr --tags=ww && ava",
-    "start": "ts-node index.ts"
+    "test": "ava"
   },
   "ava": {
-    "extensions": [
-      "ts"
-    ],
-    "require": [
-      "ts-node/register"
+    "extensions": {
+      "ts": "module"
+    },
+    "nodeArguments": [
+      "--loader=ts-node/esm"
     ]
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/node": "^14.14.35",
-    "ava": "^4.0.1",
-    "ts-node": "^10.4.0",
-    "typescript": "^4.5.4"
+    "ava": "^4.1.0",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.5.2"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VeronicaIsabelPereira/extendiendo-clases.git"
+  },
+  "bugs": {
+    "url": "https://github.com/VeronicaIsabelPereira/extendiendo-clases/issues"
+  },
+  "homepage": "https://github.com/VeronicaIsabelPereira/extendiendo-clases#readme",
   "dependencies": {
-    "jsonfile": "^6.1.0",
-    "minimist": "^1.2.5"
+    "@types/node": "^17.0.23",
+    "lodash": "^4.17.21",
+    "minimist": "^1.2.6"
   }
 }
