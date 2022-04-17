@@ -1,1 +1,220 @@
-[]
+[
+  {
+    "id": 0,
+    "title": "The Batman",
+    "tags": [
+      "acción",
+      "crimen",
+      "drama",
+      "misterio",
+      "favorita",
+      "nueva"
+    ]
+  },
+  {
+    "id": 1,
+    "title": "Aguas profundas",
+    "tags": [
+      "drama",
+      "misterio",
+      "thriller"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "X",
+    "tags": [
+      "horror"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "El proyecto Adam",
+    "tags": [
+      "acción",
+      "aventura",
+      "comedia",
+      "sci-fi"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Red",
+    "tags": [
+      "animación",
+      "aventura",
+      "comedia",
+      "familiar",
+      "fantasía"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Golpe de suerte",
+    "tags": [
+      "crimen",
+      "drama",
+      "thriller"
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Spider-Man: No Way Home",
+    "tags": [
+      "acción",
+      "aventura",
+      "fantasía",
+      "sci-fi"
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Cangrejo Negro",
+    "tags": [
+      "acción",
+      "aventura",
+      "drama",
+      "sci-fi",
+      "thriller",
+      "guerra"
+    ]
+  },
+  {
+    "id": 8,
+    "title": "La ciudad perdida",
+    "tags": [
+      "acción",
+      "aventura",
+      "comedia",
+      "romance"
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Fresh",
+    "tags": [
+      "comedia",
+      "horror",
+      "thriller"
+    ]
+  },
+  {
+    "id": 10,
+    "title": "El callejon de las almas perdidas",
+    "tags": [
+      "crimen",
+      "drama",
+      "thriller"
+    ]
+  },
+  {
+    "id": 11,
+    "title": "Licorie Pizza",
+    "tags": [
+      "comedia",
+      "drama",
+      "romance"
+    ]
+  },
+  {
+    "id": 20,
+    "title": "La Burbuja",
+    "tags": [
+      "comedia"
+    ]
+  },
+  {
+    "id": 4321865,
+    "title": "peli de la terminal 4321865",
+    "tags": [
+      "rr",
+      "ww"
+    ]
+  },
+  {
+    "id": 130620,
+    "title": "title 168161130620",
+    "tags": [
+      "tt",
+      "rr"
+    ]
+  },
+  {
+    "id": 174296,
+    "title": "title 187584174296",
+    "tags": [
+      "tt",
+      "rr"
+    ]
+  },
+  {
+    "id": 201095,
+    "title": "title 187584201095",
+    "tags": [
+      "yy",
+      "uu"
+    ]
+  },
+  {
+    "id": 140108,
+    "title": "una peli 140108",
+    "tags": [
+      "classic",
+      "tag 140108"
+    ]
+  },
+  {
+    "id": 205909,
+    "title": "otra peli un poco más divertida",
+    "tags": [
+      "tag 140108"
+    ]
+  },
+  {
+    "id": 200112,
+    "title": "title 180906200112",
+    "tags": [
+      "tt",
+      "rr"
+    ]
+  },
+  {
+    "id": 175898,
+    "title": "title 180906175898",
+    "tags": [
+      "yy",
+      "uu"
+    ]
+  },
+  {
+    "id": 211061,
+    "title": "title 141724211061",
+    "tags": [
+      "tt",
+      "rr"
+    ]
+  },
+  {
+    "id": 152323,
+    "title": "title 141724152323",
+    "tags": [
+      "yy",
+      "uu"
+    ]
+  },
+  {
+    "id": 202099,
+    "title": "una peli 202099",
+    "tags": [
+      "classic",
+      "tag 202099"
+    ]
+  },
+  {
+    "id": 193991,
+    "title": "otra peli un poco más divertida",
+    "tags": [
+      "tag 202099"
+    ]
+  }
+]
