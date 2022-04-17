@@ -1,1 +1,44 @@
-[]
+[
+    {
+        "id": 1,
+        "title": "Avengers",
+        "tags": [
+            "Action",
+            "SuperHero"
+        ]
+    },
+    {
+        "id": 2,
+        "title": "DeadPool",
+        "tags": [
+            "Action",
+            "AntiHero",
+            "Comedy"
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Tenet",
+        "tags": [
+            "TimeTraver",
+            "Apocalips"
+        ]
+    },
+    {
+        "id": 4,
+        "title": "The Notebook",
+        "tags": [
+            "Romance",
+            "Classic"
+        ]
+    },
+    {
+        "id": 5,
+        "title": "About Time",
+        "tags": [
+            "Romance",
+            "TimeTravel",
+            "Comedy"
+        ]
+    }
+]
