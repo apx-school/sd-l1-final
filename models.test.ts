@@ -27,9 +27,9 @@ const SECOND_TEST_TITLE = "title " + SESSION_ID + SECOND_TEST_ID;
 // comentalos y descomentá uno a uno a medida
 // que vas avanzando en cada test
 
-test.serial("Corre ava", async (t) => {
-  t.is("si", "si");
-});
+// test.serial("Corre ava", async (t) => {
+//   t.is("si", "si");
+// });
 
 test.serial("Testeo el método getById", async (t) => {
   const collection = new PelisCollection();
