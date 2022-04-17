@@ -1,1 +1,126 @@
-[]
+[
+  {
+    "id": 0,
+    "title": "The Batman",
+    "tags": [
+      "acción",
+      "crimen",
+      "drama",
+      "misterio",
+      "favorita",
+      "nueva"
+    ]
+  },
+  {
+    "id": 1,
+    "title": "Aguas profundas",
+    "tags": [
+      "drama",
+      "misterio",
+      "thriller"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "X",
+    "tags": [
+      "horror"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "El proyecto Adam",
+    "tags": [
+      "acción",
+      "aventura",
+      "comedia",
+      "sci-fi"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Red",
+    "tags": [
+      "animación",
+      "aventura",
+      "comedia",
+      "familiar",
+      "fantasía"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Golpe de suerte",
+    "tags": [
+      "crimen",
+      "drama",
+      "thriller"
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Spider-Man: No Way Home",
+    "tags": [
+      "acción",
+      "aventura",
+      "fantasía",
+      "sci-fi"
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Cangrejo Negro",
+    "tags": [
+      "acción",
+      "aventura",
+      "drama",
+      "sci-fi",
+      "thriller",
+      "guerra"
+    ]
+  },
+  {
+    "id": 8,
+    "title": "La ciudad perdida",
+    "tags": [
+      "acción",
+      "aventura",
+      "comedia",
+      "romance"
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Fresh",
+    "tags": [
+      "comedia",
+      "horror",
+      "thriller"
+    ]
+  },
+  {
+    "id": 10,
+    "title": "El callejon de las almas perdidas",
+    "tags": [
+      "crimen",
+      "drama",
+      "thriller"
+    ]
+  },
+  {
+    "id": 11,
+    "title": "Licorie Pizza",
+    "tags": [
+      "comedia",
+      "drama",
+      "romance"
+    ]
+  },
+  {
+    "id": 20,
+    "title": "La Burbuja",
+    "tags": [
+      "comedia"
+    ]
+  }
+]
