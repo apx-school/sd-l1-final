@@ -23,7 +23,6 @@ function parseaParams(argv) {
 async function main() {
   const parametros = process.argv.slice(2);
   const resultadoFinal = await parseaParams(parametros);
-  console.log(resultadoFinal);
 }
 
 main();
