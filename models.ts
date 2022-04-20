@@ -23,34 +23,27 @@ class PelisCollection {
     });
     return respuesta;
   }
-  async search(options: any): Promise<Peli[]> {
+  async search(options: any): Promise<any> {
     const pelis = await this.getAll();
-    if (!!options.title) {
-      const pelisFiltradas = pelis.filter((pelis) =>
-        pelis.title.includes(options.title)
-      );
-      return pelisFiltradas;
-    } else if (!!options.tag) {
+    if (options.tag && options.title) {
       return pelis.filter((peli) => {
-        if (peli.tags) {
-          return peli.tags.find((tag) => {
-            if (options.tag == tag) {
-              return true;
-            }
-          });
-        }
-      });
-    } else if (!!options.tag && !!options.title) {
-      const pelisFiltradasPorTagyTitle = pelis.filter((pelis) => {
-        return (
-          pelis.title.includes(options.title) &&
-          pelis.tags.includes(options.tag)
+        const filtradoPorTags = peli.tags.find(
+          (r) => r == options.tag && peli.title.includes(options.title)
         );
+        return filtradoPorTags;
       });
-      return pelisFiltradasPorTagyTitle;
-    } else if (!options.title && !options.tag) {
-      return pelis;
-    }
+    } else if (options.title) {
+      const resultado = pelis.filter((peli) => {
+        return peli.title.includes(options.title);
+      });
+
+      return resultado;
+    } else if (options.tag) {
+      return pelis.filter((peli) => {
+        const filtradoPorTags = peli.tags.find((r) => r == options.tag);
+        return filtradoPorTags;
+      });
+    } else return pelis;
   }
   async add(peli: Peli): Promise<boolean> {
     const promesaUno = this.getById(peli.id).then(async (peliExistente) => {
@@ -70,9 +63,3 @@ class PelisCollection {
   }
 }
 export { PelisCollection, Peli };
-
-function main() {
-  const nuevo = new PelisCollection();
-  nuevo.search({ tag: ["Crimen"] }).then((r) => console.log(r));
-}
-main();
