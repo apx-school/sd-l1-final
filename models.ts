@@ -23,36 +23,19 @@ class PelisCollection {
   
   async search(options: any) {
     const json = await this.getAll();
-    if (options.title) {
-      function filterItemsByTitle(query:string) {
-        const resultado = json.filter( element => {
-          const tituloDeBusqueda = element.title;
-          const queryToLC        = query;
-          
-          return tituloDeBusqueda.indexOf(queryToLC) > -1;
-        })
-        
-        return resultado;
-      }
-      const resultadoSearch = filterItemsByTitle(options.title);
-      
-      return resultadoSearch;
+    
+    if (options.title && options.tags) {
+      return json.filter( element => {
+        const resultTitle = element.title.includes(options.title)
+        const resultTag   = element.tags.includes(options.tags)
+        return resultTitle && resultTag})
     }
-    // puede o peude que no lleve el else if
-    if (options.tag) {
-      function filterItemsByTag(query:string){
-        const resultado = json.filter( element => {
-          const tagsDeBusqueda = element.tags.map(el=> {return el});
-          const queryToLC      = query
-          
-          return tagsDeBusqueda.indexOf(queryToLC) > -1;
-        })
-        
-        return resultado
-      }
-      const resultadoSearchTag = filterItemsByTag(options.tag)
-      
-      return resultadoSearchTag
+    if (options.title) {
+      return json.filter( element => {return element.title.includes(options.title)})
+        }
+    if (options.tags) {
+      return json.filter( element => {
+        return element.tags.includes(options.tags)})
     }
   }
 
@@ -95,10 +78,12 @@ export { PelisCollection, Peli };
 //   const collection = new PelisCollection();
 // (async()=>{ 
 //   const all = await collection.getAll();
-//   const a = all[0];
-//   const b = await collection.search({ title: "title" });
-//   const ids = b.map((b) => b.id);
+//   // const a = all;
+//   const b  = await collection.search({ tags: "Serie" });
+//   const b1 = await collection.search({ title: "Grand" });
+//   const b2 = await collection.search({ title: "Your", tags: "Anime" });
+//   // const ids = b.map((b) => b.id);
 
-//   console.log("a",a,"b",b,"ids",ids)
+//   console.log("b",b,"b1",b1,"b2",b2)
 // })()
 
