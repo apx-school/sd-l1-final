@@ -23,20 +23,5 @@
   },
   { "id": 7, "title": "Monster", "tags": ["Anime", "Drama", "Serie"] },
   { "id": 8, "title": "Encanto", "tags": ["Animacion", "Drama", "Comedia"] },
-  { "id": 10, "title": "holakease", "tags": ["hola", "ke", "ase"] },
-  { "id": 144069, "title": "title 151540144069", "tags": ["tt", "rr"] },
-  { "id": 164715, "title": "title 151540164715", "tags": ["yy", "uu"] },
-  { "id": 220989, "title": "title 207048220989", "tags": ["tt", "rr"] },
-  { "id": 151622, "title": "title 207048151622", "tags": ["yy", "uu"] },
-  {
-    "id": 162139,
-    "title": "una peli 162139",
-    "tags": ["classic", "tag 162139"]
-  },
-  {
-    "id": 217131,
-    "title": "otra peli un poco más divertida",
-    "tags": ["tag 162139"]
-  },
-  { "id": 19, "title": "holakease", "tags": ["hola", "ke", "ase"] }
+  { "id": 10, "title": "holakease", "tags": ["hola", "ke", "ase"] }
 ]
