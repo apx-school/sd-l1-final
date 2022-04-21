@@ -1,1 +1,27 @@
-[]
+[
+  { "id": 1, "title": "Your name", "tags": ["Fantasia", "Anime", "Pelicula"] },
+  {
+    "id": 2,
+    "title": "The truman show",
+    "tags": ["Fantasia", "Satira", "Drama"]
+  },
+  { "id": 3, "title": "Bronson", "tags": ["Drama", "Accion", "Pelicula"] },
+  {
+    "id": 4,
+    "title": "Grand hotel Budapest",
+    "tags": ["Comedia", "Drama", "Pelicula"]
+  },
+  {
+    "id": 5,
+    "title": "Eternal sunshine of the spotless mind",
+    "tags": ["Romance", "Ciencia ficcion", "Jim Carrey"]
+  },
+  {
+    "id": 6,
+    "title": "The garden of words",
+    "tags": ["drama", "romance", "Pelicula"]
+  },
+  { "id": 7, "title": "Monster", "tags": ["Anime", "Drama", "Serie"] },
+  { "id": 8, "title": "Encanto", "tags": ["Animacion", "Drama", "Comedia"] },
+  { "id": 10, "title": "holakease", "tags": ["hola", "ke", "ase"] }
+]
