@@ -64,10 +64,5 @@ test.serial("Testeo PelisController search tag", async (t) => {
     search: { title: "peli", tag: SOME_TAG },
   });
   const ids = pelis.map((b) => b.id);
-  // console.log("pelis",pelis)
-  // console.log("ids",ids)
-  // console.log("test_id", TEST_ID)
-  // console.log("second test id",SECOND_TEST_ID)
-  // console.log("some tag",SOME_TAG)
   t.deepEqual(ids, [TEST_ID, SECOND_TEST_ID]);
 });
