@@ -1,1 +1,141 @@
-[]
+[
+  {
+    "title": "Avengers: Endgame",
+    "id": 1,
+    "tags": ["Action", "Adventure", "Drama"]
+  },
+  {
+    "title": "Schindler's List",
+    "id": 2,
+    "tags": ["Biography", "History", "Drama"]
+  },
+  {
+    "title": "The Lord of the Rings: The Return of the King",
+    "id": 3,
+    "tags": ["Action", "Adventure", "Drama"]
+  },
+  { "title": "Pulp Fiction", "id": 4, "tags": ["Crime", "Drama"] },
+  { "title": "Fight Club", "id": 5, "tags": ["Drama", "Suspense", "Action"] },
+  { "title": "Forrest Gump", "id": 6, "tags": ["Drama", "Romance", "Comedy"] },
+  { "title": "Inception", "id": 7, "tags": ["Action", "Adventure", "Sci-Fi"] },
+  {
+    "title": "Star Wars: Episode V - The Empire Strikes Back",
+    "id": 8,
+    "tags": ["Action", "Adventure", "Fantasy"]
+  },
+  { "title": "The Matrix", "id": 9, "tags": ["Action", "Sci-Fi"] },
+  { "title": "Se7en", "id": 10, "tags": ["Crime", "Drama", "Mistery"] },
+  {
+    "title": "The Silence of the Lambs",
+    "id": 11,
+    "tags": ["Crime", "Drama", "Thriller"]
+  },
+  { "title": "Saving Private Ryan", "id": 12, "tags": ["Drama", "War"] },
+  {
+    "title": "Interstellar",
+    "id": 13,
+    "tags": ["Adventure", "Drama", "Sci-Fi"]
+  },
+  {
+    "title": "The Green Mile",
+    "id": 14,
+    "tags": ["Crime", "Drama", "Fantasy"]
+  },
+  { "title": "Parasite", "id": 15, "tags": ["Comedy", "Drama", "Thriller"] },
+  {
+    "title": "Terminator 2: Judgment Day",
+    "id": 16,
+    "tags": ["Action", "Sci-Fi"]
+  },
+  { "title": "The Shining", "id": 17, "tags": ["Drama", "Horror"] },
+  { "title": "Citizen Kane", "id": 18, "tags": ["Drama", "Mistery"] },
+  { "title": "A Clockwork Orange", "id": 19, "tags": ["Crime", "Sci-Fi"] },
+  {
+    "title": "Jurassic Park",
+    "id": 20,
+    "tags": ["Action", "Adventure", "Sci-Fi"]
+  },
+  {
+    "title": "Kill Bill: Vol. 1",
+    "id": 21,
+    "tags": ["Action", "Crime", "Drama"]
+  },
+  {
+    "title": "Catch Me If You Can",
+    "id": 22,
+    "tags": ["Biography", "Crime", "Drama"]
+  },
+  { "title": "Gran Torino", "id": 23, "tags": ["Drama", "Suspense"] },
+  {
+    "id": 4321865,
+    "title": "peli de la terminal 4321865",
+    "tags": ["action", "Sci-Fi"]
+  },
+  {
+    "id": 4411,
+    "title": "Título de la nueva peli",
+    "tags": ["action", "classic"]
+  },
+  {},
+  { "id": 203186, "title": "title 194789203186", "tags": ["tt", "rr"] },
+  { "id": 172128, "title": "title 194789172128", "tags": ["yy", "uu"] },
+  { "id": 158163, "title": "title 197808158163", "tags": ["tt", "rr"] },
+  { "id": 161446, "title": "title 197808161446", "tags": ["yy", "uu"] },
+  {
+    "id": 184139,
+    "title": "una peli 184139",
+    "tags": ["classic", "tag 184139"]
+  },
+  {
+    "id": 221792,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 184139"]
+  },
+  {
+    "id": 157928,
+    "title": "una peli 157928",
+    "tags": ["classic", "tag 157928"]
+  },
+  { "id": 161802, "title": "title 224854161802", "tags": ["tt", "rr"] },
+  { "id": 213138, "title": "title 224854213138", "tags": ["yy", "uu"] },
+  { "id": 216098, "title": "title 199346216098", "tags": ["tt", "rr"] },
+  { "id": 215113, "title": "title 199346215113", "tags": ["yy", "uu"] },
+  {
+    "id": 142483,
+    "title": "una peli 142483",
+    "tags": ["classic", "tag 142483"]
+  },
+  {
+    "id": 200800,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 142483"]
+  },
+  { "id": 203787, "title": "title 181727203787", "tags": ["tt", "rr"] },
+  { "id": 219989, "title": "title 181727219989", "tags": ["yy", "uu"] },
+  { "id": 211421, "title": "title 186461211421", "tags": ["tt", "rr"] },
+  { "id": 131203, "title": "title 186461131203", "tags": ["yy", "uu"] },
+  {
+    "id": 161213,
+    "title": "una peli 161213",
+    "tags": ["classic", "tag 161213"]
+  },
+  {
+    "id": 154728,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 161213"]
+  },
+  { "id": 192818, "title": "title 227713192818", "tags": ["tt", "rr"] },
+  { "id": 179059, "title": "title 227713179059", "tags": ["yy", "uu"] },
+  { "id": 218872, "title": "title 155205218872", "tags": ["tt", "rr"] },
+  { "id": 131279, "title": "title 155205131279", "tags": ["yy", "uu"] },
+  {
+    "id": 165770,
+    "title": "una peli 165770",
+    "tags": ["classic", "tag 165770"]
+  },
+  {
+    "id": 185527,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 165770"]
+  }
+]
