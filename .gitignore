@@ -1,2 +1,4 @@
 node_modules
+models.test.ts
+controllers.test.ts
 response
