@@ -1,1 +1,32 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "Iron Man",
+    "tags": ["ciencia ficcion", "superheroes", "accion", "aventura"]
+  },
+  {
+    "id": 2,
+    "title": "Thor",
+    "tags": ["fantasia", "superheroes", "accion", "Aventura"]
+  },
+  {
+    "id": 3,
+    "title": "Mamma Mia!",
+    "tags": ["musical", "comedia romantica", "comedia"]
+  },
+  {
+    "id": 4,
+    "title": "Jumanji: En la selva",
+    "tags": ["accion", "aventura", "comedia"]
+  },
+  {
+    "id": 5,
+    "title": "No mires arriba",
+    "tags": ["dramas sociales", "drama", "comedia"]
+  },
+  {
+    "id": 4411,
+    "title": "Título de la nueva peli",
+    "tags": ["action", "classic"]
+  }
+]
