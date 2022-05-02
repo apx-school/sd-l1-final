@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "El Señor De Los Anillos",
+    "tags": ["suspense", "action"]
+  },
+  { "id": 2, "title": "Rocky", "tags": ["action"] },
+  { "id": 3, "title": "Maligno", "tags": ["terror", "suspense"] },
+  { "id": 4, "title": "Un jefe en pañales", "tags": ["comedy"] },
+  { "id": 5, "title": "Entre dos mundos", "tags": ["romance"] }
+]
