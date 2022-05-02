@@ -47,14 +47,17 @@ class PelisCollection {
 
     async add(data: any): Promise<boolean> {
 
-        const PELICULAS = await this.getAll();
         const ID_EXISTE = await this.getById(data.add.id);
 
+        console.log(ID_EXISTE);
+        
         if(ID_EXISTE) {
-
+            
             return false
-
+            
         } else {
+            
+            const PELICULAS = await this.getAll();
 
             PELICULAS.push(data.add);
             await jsonfile.writeFile("./pelis.json", PELICULAS);
