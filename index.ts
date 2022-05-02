@@ -40,13 +40,17 @@ function main() {
 
     const CONTROLLER = new PelisController();
 
-    if(OBJ_PARAMS.search) {
+    if(OBJ_PARAMS.id || OBJ_PARAMS.search) {
 
         return CONTROLLER.promise.then(() => { console.log( CONTROLLER.get(OBJ_PARAMS)) } );
 
     } else if(OBJ_PARAMS.add) {
 
-        return CONTROLLER.promise.then( () => console.log( CONTROLLER.add(OBJ_PARAMS) ) )        
+        return CONTROLLER.promise.then( () => console.log( CONTROLLER.add(OBJ_PARAMS) ) );
+
+    } else {
+
+        return CONTROLLER.promise.then(() => { console.log( CONTROLLER.get(OBJ_PARAMS)) } );
     }
 }
 
