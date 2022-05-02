@@ -1,3 +1,4 @@
+import { PelisController } from "./controllers";
 import * as minimist from "minimist";
 
 function parseaParams(argv) {
@@ -7,9 +8,17 @@ function parseaParams(argv) {
 }
 
 function main() {
-  const params = parseaParams(process.argv.slice(2));
+  const controller = new PelisController();
 
-  console.log(params);
+  controller.promise.then(() => {
+    const params = parseaParams(process.argv.slice(2));
+    const printResult = controller.get(params);
+    console.log(printResult);
+  });
+
+  /*   const params = parseaParams(process.argv.slice(2));
+  delete params._;
+  console.log(params); */
 }
 
 main();

@@ -1,1 +1,57 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "The King's Speech",
+    "tags": ["drama", "historical", "live action"]
+  },
+  {
+    "id": 2,
+    "title": "Todos tenemos un plan",
+    "tags": ["suspenso", "crimen", "nacional", "live action"]
+  },
+  {
+    "id": 3,
+    "title": "Into The Wild",
+    "tags": ["drama", "aventura", "roadtrip", "live action"]
+  },
+  {
+    "id": 4,
+    "title": "Modern Times",
+    "tags": ["comedia", "sátira", "live action", "b&n"]
+  },
+  {
+    "id": 5,
+    "title": "A Clockwork Orange",
+    "tags": ["drama", "crimen", "live action"]
+  },
+  {
+    "id": 6,
+    "title": "Gattaca",
+    "tags": ["ciencia ficción", "romance", "live action"]
+  },
+  {
+    "id": 7,
+    "title": "Fight Club",
+    "tags": ["suspenso", "drama", "live action"]
+  },
+  {
+    "id": 8,
+    "title": "Corpse Bride",
+    "tags": ["fantasía", "aventura", "animation"]
+  },
+  {
+    "id": 9,
+    "title": "The King of Comedy",
+    "tags": ["drama", "crimen", "live action"]
+  },
+  {
+    "id": 10,
+    "title": "Blade Runner",
+    "tags": ["acción", "ciencia ficción", "live action"]
+  },
+  {
+    "id": 11,
+    "title": "Donnie Darko",
+    "tags": ["ciencia ficción", "fantasía", "live action"]
+  }
+]
