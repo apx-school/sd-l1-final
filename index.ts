@@ -22,7 +22,7 @@ const result = async () => {
     const params = parseaParams(process.argv.slice(2));
     let result;
     if (params == "index.ts") {
-        result = await pelisController.listFilms.getAll();
+        result = await pelisController.listaDePelis.getAll();
     } else if (params.id && params.title && !params.search) {
         result = await pelisController.add(params);
     } else if (params.id || params.search) {
