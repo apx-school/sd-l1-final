@@ -12,51 +12,56 @@ class Peli {
 class PelisCollection {
 
     peliculas: Peli[] = [];
+
+    async getAll(): Promise<Peli[]> {
+
+        return await jsonfile.readFile("./pelis.json")
+    }
+
+    async getById(id: number): Promise<any> {
+
+        let peliculas = await this.getAll();
+
+        return peliculas.find( (pelicula: Peli) => pelicula.id == id );
+    };
     
-    loadData = (): Promise<any> => jsonfile.readFile("./pelis.json").then( (response) => this.peliculas = response );
-    getAll = () => this.peliculas;
-    getById = (id: number) => this.peliculas.find( (e) => e.id == id );
-    
-    search = (options: any) => {
+    async search(options: any): Promise<any> {
+
+        let peliculas = await this.getAll();
 
         if(options.title && options.tag) {
 
-            const TITLES_FOUND = this.peliculas.filter( (e) => e.title.toLowerCase().includes(options.title.toLowerCase()) );
+            const TITLES_FOUND = peliculas.filter( (e) => e.title.toLowerCase().includes(options.title.toLowerCase()) );
 
-            return TITLES_FOUND.filter( (e) => e.tags.find( tag => tag == options.tag.toLowerCase() ) == options.tag.toLowerCase() );
+            return TITLES_FOUND.filter( (e: any) => e.tags.find( (tag: any) => tag == options.tag.toLowerCase() ) == options.tag.toLowerCase() );
 
         } else if(options.title) {
 
-            return this.peliculas.filter( (e) => e.title.toLowerCase().includes(options.title.toLowerCase()) );
+            return peliculas.filter( (e: any) => e.title.toLowerCase().includes(options.title.toLowerCase()) );
 
         } else if(options.tag) {
 
-            return this.peliculas.filter( (e) => e.tags.find( tag => tag == options.tag.toLowerCase() ) == options.tag.toLowerCase() );
+            return peliculas.filter( (e: any) => e.tags.find( (tag: any) => tag == options.tag.toLowerCase() ) == options.tag.toLowerCase() );
         }
     }
 
-    add(data: any): boolean {   
+    async add(data: any): Promise<boolean> {
 
-        //RECIBE UNA PELI Y LA GUARDA EN EL JSON
-        //DEVUELVE BOOLEAN QUE INDICA SI SE AGREGÓ O NO LA PELI
-        //NO ADMITE IDS REPETIDOS
+        const PELICULAS = await this.getAll();
+        const ID_EXISTE = await this.getById(data.add.id);
 
-        const DATA = this.peliculas;
-
-        const HAY_DATA = DATA.find( (e) => e.id == data.add.id );
-
-        if(HAY_DATA) {
+        if(ID_EXISTE) {
 
             return false
 
         } else {
 
-            DATA.push(data.add);
-            jsonfile.writeFile("./pelis.json", DATA);
+            PELICULAS.push(data.add);
+            await jsonfile.writeFile("./pelis.json", PELICULAS);
 
             return true;
         }                
     }
 }
 
-export { PelisCollection };
+export { PelisCollection, Peli };

@@ -42,15 +42,15 @@ function main() {
 
     if(OBJ_PARAMS.id || OBJ_PARAMS.search) {
 
-        return CONTROLLER.promise.then(() => { console.log( CONTROLLER.get(OBJ_PARAMS)) } );
+        return CONTROLLER.get(OBJ_PARAMS).then( res => console.log(res) ) ;
 
     } else if(OBJ_PARAMS.add) {
 
-        return CONTROLLER.promise.then( () => console.log( CONTROLLER.add(OBJ_PARAMS) ) );
+        return CONTROLLER.add(OBJ_PARAMS).then( res => console.log(res) ) ;
 
     } else {
 
-        return CONTROLLER.promise.then(() => { console.log( CONTROLLER.get(OBJ_PARAMS)) } );
+        return CONTROLLER.get(OBJ_PARAMS).then( res => console.log(res) ) ;
     }
 }
 
