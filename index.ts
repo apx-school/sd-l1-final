@@ -2,16 +2,15 @@ import * as minimist from "minimist";
 import { PelisController } from "./controllers";
 
 function parseaParams(argv) {
-  const resultado = minimist(argv);
-  // muy rebuscado pero la cosa es que funcione
+  const result = minimist(argv);
+  //destructuring of the object by the terminal
+  const { _: optionByTerminal, ...rest } = result;
 
-  const { _: optionInputTerminal, ...rest } = resultado;
-
-  if (optionInputTerminal.includes("get")) {
-    return { id: optionInputTerminal[1] };
-  } else if (optionInputTerminal.includes("add")) {
+  if (optionByTerminal.includes("get")) {
+    return { id: optionByTerminal[1] };
+  } else if (optionByTerminal.includes("add")) {
     return rest;
-  } else if (optionInputTerminal.includes("search")) {
+  } else if (optionByTerminal.includes("search")) {
     return { search: rest };
   } else {
     return "index.ts";

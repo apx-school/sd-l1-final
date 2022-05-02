@@ -5,17 +5,17 @@ class PelisController {
   constructor() {
     this.listFilms = new PelisCollection();
   }
-  get(opciones) {
-    if (opciones.id) {
-      return this.listFilms.getById(opciones.id);
-    } else if (opciones.search) {
-      return this.listFilms.search(opciones.search); //.then((res) => res);
+  async get(options) {
+    if (options.id) {
+      return await this.listFilms.getById(options.id);
+    } else if (options.search) {
+      return await this.listFilms.search(options.search);
     } else {
-      return this.listFilms.getAll();
+      return await this.listFilms.getAll();
     }
   }
-  add(peli: Peli) {
-    return this.listFilms.add(peli);
+  add(films: Peli) {
+    return this.listFilms.add(films);
   }
 }
 export { PelisController };
