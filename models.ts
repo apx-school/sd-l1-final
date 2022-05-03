@@ -15,51 +15,49 @@ class PelisCollection {
 
     async getAll(): Promise<Peli[]> {
 
-        return await jsonfile.readFile("./pelis.json")
+        return await jsonfile.readFile("./pelis.json");
     }
 
-    async getById(id: number): Promise<any> {
+    async getById(id: number): Promise<Peli> {
 
         let peliculas = await this.getAll();
 
-        return peliculas.find( (pelicula: Peli) => pelicula.id == id );
+        return peliculas.find( (pelicula: Peli) => pelicula.id === id );
     };
     
     async search(options: any): Promise<any> {
 
-        let peliculas = await this.getAll();
+        const PELICULAS = await this.getAll();
 
         if(options.title && options.tag) {
 
-            const TITLES_FOUND = peliculas.filter( (e) => e.title.toLowerCase().includes(options.title.toLowerCase()) );
+            const TITLES_FOUND = PELICULAS.filter( (e) => e.title.includes(options.title) );
 
-            return TITLES_FOUND.filter( (e: any) => e.tags.find( (tag: any) => tag == options.tag.toLowerCase() ) == options.tag.toLowerCase() );
+            return TITLES_FOUND.filter( (e: any) => e.tags.find( (tag: any) => tag == options.tag ) == options.tag );
 
         } else if(options.title) {
 
-            return peliculas.filter( (e: any) => e.title.toLowerCase().includes(options.title.toLowerCase()) );
+            return PELICULAS.filter( (e: any) => e.title.includes(options.title) );
 
         } else if(options.tag) {
 
-            return peliculas.filter( (e: any) => e.tags.find( (tag: any) => tag == options.tag.toLowerCase() ) == options.tag.toLowerCase() );
+            return PELICULAS.filter( (e: any) => e.tags.find( (tag: any) => tag == options.tag ) == options.tag );
         }
     }
 
-    async add(data: any): Promise<boolean> {
+    async add(pelicula: any): Promise<boolean> {
 
-        const ID_EXISTE = await this.getById(data.add.id);
-
-        console.log(ID_EXISTE);
-        
+        const ID_EXISTE = await this.getById(pelicula.id);
+                
         if(ID_EXISTE) {
             
-            return false
+            return false;
             
         } else {
             
             const PELICULAS = await this.getAll();
 
-            PELICULAS.push(data.add);
+            PELICULAS.push(pelicula);
             await jsonfile.writeFile("./pelis.json", PELICULAS);
 
             return true;

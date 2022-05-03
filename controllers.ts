@@ -27,6 +27,8 @@ class PelisController {
 
             } else if(options.search.tag) {
 
+                console.log("ENTRO A CONTROLLER OPTIONSS.SEARCH.TAG", options.search.tag);
+
                 return await this.peliculas.search(options.search);
             }
 
@@ -36,9 +38,9 @@ class PelisController {
         }
     }
 
-    async add(peli: any) {
+    async add(pelicula: any) {
 
-        return await this.peliculas.add(peli);
+        return await this.peliculas.add(pelicula);
     }
 }
 
