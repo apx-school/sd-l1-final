@@ -1,1 +1,99 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "The Batman",
+    "tags": ["accion", "favorita", "nueva", "superheores"]
+  },
+  {
+    "id": 2,
+    "title": "Spiderman: No Way Home",
+    "tags": ["accion y aventura", "superheores", "comedia"]
+  },
+  {
+    "id": 3,
+    "title": "Rapidos y Furiosos",
+    "tags": ["accion", "carreras", "tendencia"]
+  },
+  {
+    "id": 4,
+    "title": "Como Si Fuera La Primera Vez",
+    "tags": ["comedia", "romance"]
+  },
+  { "id": 5, "title": "Una Esposa De Mentira", "tags": ["comedia", "romance"] },
+  {
+    "id": 6,
+    "title": "Peaky Blinders",
+    "tags": ["accion", "tendencia", "serie", "favorita"]
+  },
+  {
+    "id": 7,
+    "title": "Marley y Yo",
+    "tags": ["comedia", "romance", "familiar"]
+  },
+  {
+    "id": 8,
+    "title": "Contratiempo",
+    "tags": ["suspenso", "accion", "misterio"]
+  },
+  {
+    "id": 9,
+    "title": "La Leyenda De Tarzan",
+    "tags": ["accion", "romance", "aventura", "ciencia ficcion"]
+  },
+  {
+    "id": 10,
+    "title": "Pasajeros",
+    "tags": ["accion", "comedia", "romance", "aventura", "ciencia ficcion"]
+  },
+  {
+    "id": 11,
+    "title": "Interestellar",
+    "tags": [
+      "accion",
+      "favorita",
+      "misterio",
+      "suspenso",
+      "ciencia ficcion",
+      "aventura"
+    ]
+  },
+  {
+    "id": 12,
+    "title": "Shrek",
+    "tags": ["romance", "comedia", "dibujos animados", "favorita"]
+  },
+  {
+    "id": 13,
+    "title": "En Busca De La Felicidad",
+    "tags": ["suspenso", "favorita", "hechos reales"]
+  },
+  {
+    "id": 14,
+    "title": "Yo Robot",
+    "tags": ["accion", "futurista", "ciencia ficcion"]
+  },
+  {
+    "id": 15,
+    "title": "Piratas Del Caribe",
+    "tags": [
+      "accion",
+      "favorita",
+      "comedia",
+      "aventura",
+      "ciencia ficcion",
+      "misterio",
+      "romance",
+      "tendencia"
+    ]
+  },
+  { 
+      "id": 33, 
+      "title": "nueva peli", 
+      "tags": ["comedia", ""] },
+  { 
+      "id": 32, 
+      "title": "otra nueva peli", 
+      "tags": ["comedia", "classic"
+    ]
+  }
+]
