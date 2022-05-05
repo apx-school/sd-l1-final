@@ -1,6 +1,4 @@
-
 import * as minimist from "minimist";
-import { title } from "process";
 import { PelisController } from "./controllers";
 
 function parseaParams(argv) {
@@ -11,7 +9,7 @@ function parseaParams(argv) {
 function processOptions(params) {
     const controller = new PelisController();
     if (params._[0] == "get") {
-        return controller.get({id: params._[1]})
+        return controller.get({ id: params._[1] })
     } else if(params._[0] == "search"){
         if (params.title && params.tag) {
             return controller.get({search: {title: params.title, tags: params.tags} });
