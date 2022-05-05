@@ -24,8 +24,13 @@ class PelisCollection {
   async search(option: any): Promise<any> {
     let peliculas = await this.getAll();
 
-    
-     if (option.title) {
+    if (option.title && option.tag) {
+      return peliculas.filter((pelicula) => {
+        const titulos = pelicula.title.includes(option.title);
+        const tags = pelicula.tags.includes(option.tag);
+        return titulos && tags;
+      });
+    } else if(option.title) {
       return peliculas.filter(x => x.title.includes(option.title));
     } else if(option.tag) {
       return peliculas.filter(x => x.tags.find( (tag: any) => tag == option.tag) == option.tag);
