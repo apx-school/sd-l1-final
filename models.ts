@@ -11,8 +11,6 @@ class Peli {
 
 class PelisCollection {
 
-    peliculas: Peli[] = [];
-
     async getAll(): Promise<Peli[]> {
 
         return await jsonfile.readFile("./pelis.json");
