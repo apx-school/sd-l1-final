@@ -19,7 +19,7 @@ class PelisCollection {
       return resultado
     })
   }
-  async search(options:any):Promise<any>{
+  async search(options:any){
     const peliculas = await this.getAll();
     if (options.title && options.tag) {
       return peliculas.filter((obj) => {
