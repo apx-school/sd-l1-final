@@ -1,22 +1,24 @@
+import { formatWithOptions } from "util";
 import { PelisCollection, Peli } from "./models";
 
 class PelisController {
-  data: PelisCollection
+  movies: PelisCollection;
   constructor() {
-    this.data = new PelisCollection
+    this.movies = new PelisCollection();
   }
 
-  get(options:any): Promise<any>{
-    if (options.id){
-return this.data.getById(options.id);
+  get(options: any): Promise<any> {
+    if (options.id) {
+      return this.movies.getById(options.id);
+    } else if (options.search) {
+      return this.movies.search(options.search);
+    } else {
+      return this.movies.getAll();
     }
-    else if (options.search){
-      return this.data.search(options.search);
-    }else {return this.data.getAll()}
   }
 
-  add (peli:Peli){
-    return this.add(peli)
+  add(peli: Peli) {
+    return this.add(peli);
   }
 }
 export { PelisController };

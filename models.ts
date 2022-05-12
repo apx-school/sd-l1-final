@@ -8,22 +8,48 @@ class Peli {
 }
 
 class PelisCollection {
+  pelis: Peli[] = [];
   getAll(): Promise<Peli[]> {
-    return jsonfile("/pelis.json").then((peliculas) => {
+    const promesa = jsonfile.readFile("./pelis.json");
+    promesa.then((peliculas) => {
       // la respuesta de la promesa
-      return [peliculas];
+      this.pelis = peliculas;
     });
+    return promesa;
   }
-  getById(id: number): Promise<any> {
-    return this.getAll().then((listaPelis) => {
-      const devolucion = listaPelis.find((peliConId) => {
-        return peliConId.id == id;
+
+  getById(id: number): Promise<Peli[]> {
+    const promesaGetById = this.getAll().then((info) => {
+      info.find((i) => {
+        return i.id == id;
       });
-      return devolucion;
+      return promesaGetById;
     });
+    return;
   }
-  search(options: any): Promise<any> {
-    return this.getAll().then((listaPelis: any) => {
+  search(options: any) {
+    const promesaSearch = this.getAll().then((i) => {
+      i.filter((item) => {
+        if (options.title) {
+          const tituloMapeado = item.title;
+          const tituloFind = tituloMapeado.includes(options.title);
+          return tituloFind;
+        } else if (options.tag) {
+          const tagsMapeados = item.tags;
+          const tagsFind = tagsMapeados.includes(options.tag);
+          return tagsFind;
+        }
+      });
+      return promesaSearch;
+    });
+    return;
+    /*   const searchByTitle = this.pelis.filter((i) => {
+      const itemFiltrado = i.title;
+      const titleFiltrado = itemFiltrado.includes(options);
+      return titleFiltrado;
+    });
+    return searchByTitle; */
+    /* this.load().then((listaPelis: any) => {
       var listaModificada = listaPelis;
       if (options.title) {
         listaModificada = listaModificada.filter((peli) => {
@@ -36,17 +62,17 @@ class PelisCollection {
         });
         return listaModificada;
       }
-    });
+    }); */
   }
-  add(peli: Peli): Promise<boolean>{
-    const promesaUno = this.getById(peli.id).then((peliExistente)=>{
+  add(peli: Peli): Promise<boolean> {
+    const promesaUno = this.getById(peli.id).then((peliExistente) => {
       if (peliExistente) {
-        return false
-      }else {
+        return false;
+      } else {
         // magia que agrega la pelicula a un objeto data
-        const data = this.getAll().then((res)=>{
-          return res.push(peli)
-        })
+        const data = this.getAll().then((res) => {
+          return res.push(peli);
+        });
         const promesaDos = jsonfile.writeFile("./pelis.json", data);
         return promesaDos.then(() => {
           return true;
@@ -57,12 +83,4 @@ class PelisCollection {
   }
 }
 
-
-
-
-
-const coleccionPeliculas = new PelisCollection();
-coleccionPeliculas.getAll().then((resultado) => {
-  console.log(resultado);
-});
 export { PelisCollection, Peli };
