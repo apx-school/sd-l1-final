@@ -15,10 +15,6 @@ function main() {
     const printResult = controller.get(params);
     console.log("console log de index: ", printResult);
   });
-
-  /*   const params = parseaParams(process.argv.slice(2));
-  delete params._;
-  console.log(params); */
 }
 
 main();
