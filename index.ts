@@ -13,7 +13,7 @@ function main() {
   controller.promise.then(() => {
     const params = parseaParams(process.argv.slice(2));
     const printResult = controller.get(params);
-    console.log(printResult);
+    console.log("console log de index: ", printResult);
   });
 
   /*   const params = parseaParams(process.argv.slice(2));

@@ -5,70 +5,31 @@ class PelisController {
   promise: Promise<Peli[]>;
   constructor() {
     this.peli = new PelisCollection();
-    const promise = this.peli.getAll();
+    const promise = this.peli.getAll().then((promisePelis) => {
+      this.promise = promisePelis;
+    });
     this.promise = promise;
   }
-  get(options) {
+  async get(options) {
     if (options._[0] == ["search"] && options.title) {
-      /* return this.peli.search(options); */
-
-      async function searchPelisByTitle() {
-        const byTitle = await this.peli.search(options);
-        console.log(byTitle);
-      }
-      searchPelisByTitle();
-
-      /* const searchPeli = this.peli.search(options);
-      searchPeli.then((searched) => {
-        return console.log(searched);
-      }); */
+      const byTitle = await this.peli.search(options);
+      console.log("console log de title (controllers.ts): ", byTitle);
+      return byTitle;
     } else if (options._[0] == ["search"] && options.tag) {
-      /* return this.peli.search(options); */
-
-      async function searchPelisByTag() {
-        const byTag = await this.peli.search(options);
-        console.log(byTag);
-      }
-      searchPelisByTag();
-
-      /* const searchPeli = this.peli.search(options);
-      searchPeli.then((searched) => {
-        return console.log(searched);
-      }); */
+      const byTag = await this.peli.search(options);
+      console.log("console log de tag (controllers.ts): ", byTag);
+      return byTag;
     } else if (options._[0] == ["get"]) {
-      /* return this.peli.getById(options._[1]); */
-
-      async function getPelisById() {
-        const byId = await this.peli.getById(options._[1]);
-        console.log(byId);
-      }
-      getPelisById();
-
-      /* this.peli.getById(options._[1]).then((byId) => {
-        return console.log(byId);
-      }); */
+      const byId = await this.peli.getById(options._[1]);
+      console.log("console log de get (controllers.ts): ", byId);
+      return byId;
     } else if (options._[0] == ["add"]) {
-      /* delete options._;
-      return this.peli.add(options); */
-
-      async function addNewPelis() {
-        delete options._;
-        const newPeli = await this.peli.add(options);
-        console.log(newPeli);
-      }
-      addNewPelis();
-
-      /* delete options._;
-      const addPelis = this.peli.add(options);
-      addPelis.then((add) => {
-        return console.log(add);
-      }); */
+      delete options._;
+      const newPeli = await this.peli.add(options);
+      console.log("console log de add (controllers.ts): ", newPeli);
+      return newPeli;
     } else {
-      /* return this.peli.getAll(); */
-
-      this.promise.then((all) => {
-        return console.log(all);
-      });
+      return this.promise;
     }
   }
 }
