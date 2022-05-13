@@ -16,23 +16,22 @@ class PelisCollection {
     });
     return promiseGetAll;
   }
-  getById(id: number): Promise<Peli[]> {
-    /*  const promiseGetById = this.data.find((i) => {
+  getById(id: number): Promise<Peli> {
+    /* const findById = this.data.find((i) => {
       return i.id == id;
     });
-    return promiseGetById; */
+    return findById; */
 
-    const promiseGetById = this.data.find((i) => {
-      return i.id == id;
+    const promiseGetById = this.getAll().then((datos) => {
+      datos.find((i) => {
+        return i.id == id;
+      });
+      return promiseGetById;
     });
-
-    promiseGetById.then((byId) => {
-      console.log(byId);
-    });
-    return promiseGetById;
+    return;
   }
-  search(options: any) {
-    /*     const findByTitleOrTag = this.data.filter((i) => {
+  search(options: any): Promise<Peli[]> {
+    /* const findByTitleOrTag = this.data.filter((i) => {
       if (options.title) {
         const mapTitles = i.title;
         const findTitle = mapTitles.includes(options.title);
@@ -45,22 +44,21 @@ class PelisCollection {
     });
     return findByTitleOrTag; */
 
-    const promiseSearch = this.data.filter((i) => {
-      if (options.title) {
-        const mapTitles = i.title;
-        const findTitle = mapTitles.includes(options.title);
-        return findTitle;
-      } else if (options.tag) {
-        const mapTags = i.tags;
-        const findTags = mapTags.includes(options.tag);
-        return findTags;
-      }
+    const promiseSearch = this.getAll().then((data) => {
+      data.filter((i) => {
+        if (options.title) {
+          const mapTitles = i.title;
+          const findTitle = mapTitles.includes(options.title);
+          return findTitle;
+        } else if (options.tag) {
+          const mapTags = i.tags;
+          const findTags = mapTags.includes(options.tag);
+          return findTags;
+        }
+      });
+      return promiseSearch;
     });
-
-    promiseSearch.then((searched) => {
-      console.log(searched);
-    });
-    return promiseSearch;
+    return;
   }
   add(peli: Peli): Promise<boolean> {
     /* const peliRepetida = this.getById(peli.id);
@@ -70,8 +68,7 @@ class PelisCollection {
       this.data.push(peli);
       jsonfile.writeFile("./pelis.json", this.data);
       return console.log(true);
-    }
-    return peliRepetida; */
+    } */
 
     const promesaAdd = this.getById(peli.id).then((peliRepetida) => {
       if (peliRepetida) {
