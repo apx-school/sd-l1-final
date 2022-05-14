@@ -53,5 +53,19 @@
     "id": 11,
     "title": "Donnie Darko",
     "tags": ["ciencia ficción", "fantasía", "live action"]
+  },
+  { "id": 153348, "title": "title 136118153348", "tags": ["tt", "rr"] },
+  { "id": 188654, "title": "title 136118188654", "tags": ["yy", "uu"] },
+  { "id": 139353, "title": "title 147887139353", "tags": ["tt", "rr"] },
+  { "id": 132206, "title": "title 147887132206", "tags": ["yy", "uu"] },
+  {
+    "id": 150642,
+    "title": "una peli 150642",
+    "tags": ["classic", "tag 150642"]
+  },
+  {
+    "id": 208166,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 150642"]
   }
 ]

@@ -38,7 +38,7 @@ class PelisCollection {
     return pelisWithTitleOrTag;
   }
   async add(peli: Peli): Promise<boolean> {
-    const promesaAdd = await this.getById(peli.id).then((peliRepetida) => {
+    const promiseAdd = await this.getById(peli.id).then((peliRepetida) => {
       if (peliRepetida) {
         return false;
       } else if (!peliRepetida) {
@@ -49,7 +49,7 @@ class PelisCollection {
         });
       }
     });
-    return promesaAdd;
+    return promiseAdd;
   }
 }
 

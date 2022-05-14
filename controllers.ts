@@ -1,4 +1,5 @@
 import { PelisCollection, Peli } from "./models";
+import * as jsonfile from "jsonfile";
 
 class PelisController {
   peli: any;
@@ -9,6 +10,9 @@ class PelisController {
       this.promise = promisePelis;
     });
     this.promise = promise;
+  }
+  async add(peli) {
+    return await this.peli.add(peli);
   }
   async get(options) {
     if (options._[0] == ["search"] && options.title) {
@@ -22,8 +26,7 @@ class PelisController {
       return byId;
     } else if (options._[0] == ["add"]) {
       delete options._;
-      const newPeli = await this.peli.add(options);
-      return newPeli;
+      return await this.add(options);
     } else {
       return this.promise;
     }
