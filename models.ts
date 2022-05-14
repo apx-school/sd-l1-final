@@ -1,4 +1,5 @@
 import * as jsonfile from "jsonfile";
+import { title } from "process";
 
 class Peli {
   id: number;
@@ -25,11 +26,17 @@ class PelisCollection {
   async search(options: any): Promise<Peli[]> {
     const promiseSearch = await this.getAll();
     const pelisWithTitleOrTag = promiseSearch.filter((i) => {
-      if (options.title) {
+      if (options.title && options.tag) {
+        const mapTitles = i.title;
+        const mapTags = i.tags;
+        const findTitlesAndTags =
+          mapTitles.includes(options.title) && mapTags.includes(options.tag);
+        return findTitlesAndTags;
+      } else if (options.title && !options.tag) {
         const mapTitles = i.title;
         const findTitle = mapTitles.includes(options.title);
         return findTitle;
-      } else if (options.tag) {
+      } else if (!options.title && options.tag) {
         const mapTags = i.tags;
         const findTags = mapTags.includes(options.tag);
         return findTags;
