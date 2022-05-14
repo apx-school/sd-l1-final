@@ -1,32 +1,28 @@
 import * as minimist from "minimist";
 import { PelisController } from "./controllers";
-/*  import { Peli } from "./models";*/
+import { Peli } from "./models";
 
 function parseaParams(argv) {
   const resultado = minimist(argv);
   return resultado;
 }
 
-function main() {
-  {
-    const controller = new PelisController();
+function opera(controlador, options) {
+  if (options._[0] == "get") {
+    return controlador.get({ id: options._[1] });
+  } else if (options._[0] == "search") {
+    delete options._;
+    return controlador.get({ search: options });
+  } else if (options._[0] == "add") {
+    delete options._;
+    return controlador.add(options);
+  } else return controlador.get(false);
+}
 
-    const parametros = parseaParams(process.argv.slice(2));
-    if (parametros._[0] == "search" && parametros.title && parametros.tag) {
-      return controller
-        .get({ search: { title: parametros.title, tag: parametros.tag } })
-        .then((resultado) => resultado);
-    } else if (parametros._[0] == "search" && parametros.title) {
-      return controller
-        .get({ search: { title: parametros.title } })
-        .then((resultado) => resultado);
-    } else if (parametros._[0] == "search" && parametros.tag) {
-      return controller
-        .get({ search: { tag: parametros.tag } })
-        .then((resultado) => resultado);
-    }
-    console.log(parametros);
-  }
+function main() {
+  const parametros = parseaParams(process.argv.slice(2));
+  const controller = new PelisController();
+  opera(controller, parametros).then(async(res) => console.log(await res));
 }
 
 main();
