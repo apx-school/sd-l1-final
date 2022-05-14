@@ -10,10 +10,10 @@ function parseaParams(argv) {
 function main() {
   const controller = new PelisController();
 
-  controller.promise.then(() => {
+  controller.promise.then(async () => {
     const params = parseaParams(process.argv.slice(2));
     const printResult = controller.get(params);
-    console.log("console log de index: ", printResult);
+    console.log(await printResult);
   });
 }
 
