@@ -11,7 +11,7 @@ class PelisController {
     this.promise = promise;
   }
   async add(peli) {
-    return await this.peli.add(peli);
+    return this.peli.add(peli);
   }
   async get(options) {
     if (options._[0] == ["search"] && options.title && options.tag) {
@@ -28,9 +28,9 @@ class PelisController {
       return byId;
     } else if (options._[0] == ["add"]) {
       delete options._;
-      return await this.add(options);
+      return this.add(options);
     } else {
-      return await this.promise;
+      return this.promise;
     }
   }
 }
