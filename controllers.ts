@@ -9,16 +9,24 @@ class PelisController {
 
   async get(options){
     if(options.id){
+
       return await this.pelis.getById(options.id);
+
     }else if(options.search){
       if(options.title && options.tag){
+
         return await this.pelis.search(options.search);
+
       }else if(options.search.title){
+
         return await this.pelis.search(options.search);
+
       }else if(options.search.tag){
+
         return await this.pelis.search(options.search)
       }
     }else{
+      
       return await this.pelis.getAll();
     }
   }
