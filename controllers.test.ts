@@ -12,12 +12,6 @@ const test = anyTest as TestFn<{
   con: PelisController;
 }>;
 
-// # IMPORTANTE #
-// apenas te clones este repo
-// todos los test a continuación van a fallar
-
-// comentalos y descomentá uno a uno a medida
-// que vas avanzando en cada test
 
 test.serial(
   "Testeo PelisController get id (creado desde la terminal)",
@@ -29,7 +23,7 @@ test.serial(
   }
 );
 
-test.serial("Testeo PelisController get id", async (t) => {
+test.serial("Testeo PelisController get id", async (t) => {//
   const controller = new PelisController();
   await controller.add({
     id: TEST_ID,
@@ -53,7 +47,7 @@ test.serial("Testeo PelisController search title", async (t) => {
   t.is(pelis[0].id, TEST_ID);
 });
 
-test.serial("Testeo PelisController search tag", async (t) => {
+test.serial("Testeo PelisController search tag", async (t) => {//
   const controller = new PelisController();
   await controller.add({
     id: SECOND_TEST_ID,
