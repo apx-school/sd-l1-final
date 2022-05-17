@@ -11,24 +11,22 @@ class PelisController {
     this.promise = promise;
   }
   async add(peli) {
+    /* delete peli._; */
     return this.peli.add(peli);
   }
   async get(options) {
-    if (options._[0] == ["search"] && options.title && options.tag) {
+    if (options._[0] == "search" && options.title && options.tag) {
       const byTitleAndTags = await this.peli.search(options);
       return byTitleAndTags;
-    } else if (options._[0] == ["search"] && options.title) {
+    } else if (options._[0] == "search" && options.title) {
       const byTitle = await this.peli.search(options);
       return byTitle;
-    } else if (options._[0] == ["search"] && options.tag) {
+    } else if (options._[0] == "search" && options.tag) {
       const byTag = await this.peli.search(options);
       return byTag;
-    } else if (options._[0] == ["get"]) {
+    } else if (options._[0] == "get") {
       const byId = await this.peli.getById(options._[1]);
       return byId;
-    } else if (options._[0] == ["add"]) {
-      delete options._;
-      return this.add(options);
     } else {
       return this.promise;
     }

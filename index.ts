@@ -12,8 +12,19 @@ function main() {
 
   controller.promise.then(async () => {
     const params = parseaParams(process.argv.slice(2));
-    const printResult = controller.get(params);
+    // CÓDIGO VIEJO
+    /* const printResult = controller.get(params);
     console.log(await printResult);
+  }); */
+
+    if (params._[0] == "add") {
+      delete params._;
+      const addPeli = await controller.add(params);
+      console.log(addPeli);
+    } else {
+      const printResult = await controller.get(params);
+      console.log(printResult);
+    }
   });
 }
 

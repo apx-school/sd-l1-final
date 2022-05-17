@@ -20,38 +20,22 @@
     "tags": ["comedia", "sátira", "live action", "b&n"]
   },
   {
-    "id": 5,
-    "title": "A Clockwork Orange",
-    "tags": ["drama", "crimen", "live action"]
+    "id": 4321865,
+    "title": "peli de la terminal 4321865",
+    "tags": ["rr", "ww"]
+  },
+  { "id": 150672, "title": "title 152056150672", "tags": ["tt", "rr"] },
+  { "id": 175855, "title": "title 152056175855", "tags": ["yy", "uu"] },
+  { "id": 171026, "title": "title 228281171026", "tags": ["tt", "rr"] },
+  { "id": 217968, "title": "title 228281217968", "tags": ["yy", "uu"] },
+  {
+    "id": 204925,
+    "title": "una peli 204925",
+    "tags": ["classic", "tag 204925"]
   },
   {
-    "id": 6,
-    "title": "Gattaca",
-    "tags": ["ciencia ficción", "romance", "live action"]
-  },
-  {
-    "id": 7,
-    "title": "Fight Club",
-    "tags": ["suspenso", "drama", "live action"]
-  },
-  {
-    "id": 8,
-    "title": "Corpse Bride",
-    "tags": ["fantasía", "aventura", "animation"]
-  },
-  {
-    "id": 9,
-    "title": "The King of Comedy",
-    "tags": ["drama", "crimen", "live action"]
-  },
-  {
-    "id": 10,
-    "title": "Blade Runner",
-    "tags": ["acción", "ciencia ficción", "live action"]
-  },
-  {
-    "id": 11,
-    "title": "Donnie Darko",
-    "tags": ["ciencia ficción", "fantasía", "live action"]
+    "id": 147175,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 204925"]
   }
 ]

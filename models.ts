@@ -1,5 +1,4 @@
 import * as jsonfile from "jsonfile";
-import { title } from "process";
 
 class Peli {
   id: number;
@@ -18,9 +17,10 @@ class PelisCollection {
   }
   async getById(id: number): Promise<Peli> {
     const promiseGetById = await this.getAll();
-    const peliWithId = promiseGetById.find((i) => {
+    const peliWithId = await promiseGetById.find((i) => {
       return i.id == id;
     });
+    /* return peliWithId ? peliWithId : []; */
     return peliWithId;
   }
   async search(options: any): Promise<Peli[]> {
