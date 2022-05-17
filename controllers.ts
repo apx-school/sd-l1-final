@@ -2,16 +2,10 @@ import { PelisCollection, Peli } from "./models";
 
 class PelisController {
   peli: any;
-  promise: Promise<Peli[]>;
   constructor() {
     this.peli = new PelisCollection();
-    const promise = this.peli.getAll().then((promisePelis) => {
-      this.promise = promisePelis;
-    });
-    this.promise = promise;
   }
   async add(peli) {
-    /* delete peli._; */
     return this.peli.add(peli);
   }
   async get(options) {
@@ -28,7 +22,7 @@ class PelisController {
       const byId = await this.peli.getById(options._[1]);
       return byId;
     } else {
-      return this.promise;
+      return this.peli.getAll();
     }
   }
 }

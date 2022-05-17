@@ -8,15 +8,11 @@ function parseaParams(argv) {
 }
 
 function main() {
+  const params = parseaParams(process.argv.slice(2));
+
   const controller = new PelisController();
 
-  controller.promise.then(async () => {
-    const params = parseaParams(process.argv.slice(2));
-    // CÓDIGO VIEJO
-    /* const printResult = controller.get(params);
-    console.log(await printResult);
-  }); */
-
+  controller.get(params).then(async () => {
     if (params._[0] == "add") {
       delete params._;
       const addPeli = await controller.add(params);
