@@ -18,13 +18,15 @@ async function processOptions(params){
       const PELI = {id: params.id, title: params.title, tags: params.tags}
       return await PELIS_CONTROLLER.get(PELI);
     }
+  }else{
+    return PELIS_CONTROLLER.pelis.getAll();
   }
 }
 async function main() {
   const params = parseaParams(process.argv.slice(2));
-  console.log(params);
+  console.log(params)
   const PROCES = async () => await processOptions(params);
-  PROCES();
+  console.log(await PROCES());
 }
 
 main();

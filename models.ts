@@ -23,8 +23,10 @@ class PelisCollection {
     const PELIS = await this.getAll();
 
     if(options.title && options.tag) {
-      const TITLES_FOUND = PELIS.filter( (peli) => peli.title.includes(options.title) );
-      return TITLES_FOUND.filter( (peli: any) => peli.tags.find( (tag: any) => tag == options.tag ) == options.tag );
+      
+      const TITLES_BUSCAR = PELIS.filter( (peli) => peli.title.includes(options.title) );
+      return TITLES_BUSCAR.filter( (peli: any) => peli.tags.find( (tag: any) => tag == options.tag ) == options.tag );
+
     } else if(options.title) {
       return PELIS.filter( (peli: any) => peli.title.includes(options.title) );
     } else if(options.tag) {
@@ -36,15 +38,20 @@ async add(peli: any): Promise<boolean> {
     const EXISTE = await this.getById(peli.id);
 
     if(EXISTE) {
+        
         return false;
     } else {
+        
         const pelis = await this.getAll();
         pelis.push(peli);
         await jsonfile.writeFile("./peliculas.json", pelis);
         return true;
+
     }                
   }
 }
+
+
 
 
 export { PelisCollection, Peli };
