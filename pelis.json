@@ -18,24 +18,5 @@
     "id": 4,
     "title": "Modern Times",
     "tags": ["comedia", "sátira", "live action", "b&n"]
-  },
-  {
-    "id": 4321865,
-    "title": "peli de la terminal 4321865",
-    "tags": ["rr", "ww"]
-  },
-  { "id": 185245, "title": "title 163806185245", "tags": ["tt", "rr"] },
-  { "id": 145984, "title": "title 163806145984", "tags": ["yy", "uu"] },
-  { "id": 219875, "title": "title 183514219875", "tags": ["tt", "rr"] },
-  { "id": 229770, "title": "title 183514229770", "tags": ["yy", "uu"] },
-  {
-    "id": 201901,
-    "title": "una peli 201901",
-    "tags": ["classic", "tag 201901"]
-  },
-  {
-    "id": 157801,
-    "title": "otra peli un poco más divertida",
-    "tags": ["tag 201901"]
   }
 ]
