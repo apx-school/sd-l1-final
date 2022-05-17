@@ -16,21 +16,24 @@ class PelisCollection {
   }
   async getById(id:number){
     const pelis = await this.getAll();
-    const found = pelis.find((peli) => peli.id === id);
+    const found = pelis.find((peli) => peli.id == id);
     return found;
   }
   async search(options: any): Promise<any> {
     const PELIS = await this.getAll();
 
     if(options.title && options.tag) {
-      
-      const TITLES_BUSCAR = PELIS.filter( (peli) => peli.title.includes(options.title) );
-      return TITLES_BUSCAR.filter( (peli: any) => peli.tags.find( (tag: any) => tag == options.tag ) == options.tag );
 
+      const POR_TITULO = PELIS.filter((peli) => peli.title.includes(options.title));
+      return POR_TITULO.filter((peli) => peli.tags.includes(options.tag))
     } else if(options.title) {
+
       return PELIS.filter( (peli: any) => peli.title.includes(options.title) );
+
     } else if(options.tag) {
+
       return PELIS.filter( (peli: any) => peli.tags.find( (tag: any) => tag == options.tag ) == options.tag );
+    
     }
 }
 
