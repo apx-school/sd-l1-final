@@ -1,1 +1,8 @@
-[]
+[
+  { "id": 1, "title": "the batman", "tags": ["accion", "año:2022"] },
+  { "id": 2, "title": "titanic", "tags": ["romance", "año:1997"] },
+  { "id": 3, "title": "leon", "tags": ["accion, drama", "año:1994"] },
+  { "id": 4, "title": "the pianist", "tags": ["war, drama", "año:2002"] },
+  { "id": 5, "title": "dunkirk", "tags": ["war, accion", "año:2017"] },
+  { "id": 6, "title": "the revenant", "tags": ["adventure", "año:2015"] }
+]
