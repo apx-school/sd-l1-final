@@ -10,10 +10,12 @@ class PelisController {
     if (options.id) {
       return await this.peli.getById(options.id);
     }
-    if (options.search.title || options.search.tag) {
+    if (options.search) {
       return await this.peli.search(options.search);
     }
     if (options.search) {
+      return await this.peli.search(options.search);
+    } else {
       return await this.peli.getAll();
     }
   }
