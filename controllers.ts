@@ -9,7 +9,7 @@ class PelisController {
     return this.peli.add(peli);
   }
   async get(options) {
-    if (options._[0] == "search" && options.title && options.tag) {
+    /* if (options._[0] == "search" && options.title && options.tag) {
       const byTitleAndTags = await this.peli.search(options);
       return byTitleAndTags;
     } else if (options._[0] == "search" && options.title) {
@@ -24,6 +24,14 @@ class PelisController {
     } else {
       return this.peli.getAll();
     }
+  } */
+    if (options.id) {
+      return await this.peli.getById(options.id);
+    }
+    if (options.search) {
+      return await this.peli.search(options.search);
+    }
+    return await this.peli.getAll();
   }
 }
 

@@ -20,7 +20,6 @@ class PelisCollection {
     const peliWithId = await promiseGetById.find((i) => {
       return i.id == id;
     });
-    /* return peliWithId ? peliWithId : []; */
     return peliWithId;
   }
   async search(options: any): Promise<Peli[]> {
