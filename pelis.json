@@ -1,1 +1,57 @@
-[]
+[
+{
+    "id": 1,
+    "title":"Harry Potter y la Piedra Filosofal",
+    "tags": ["fantasy", "adventure", "family"]
+},
+{
+    "id": 2,
+    "title":"Harry Potter y la Cámara Secreta",
+    "tags": ["fantasy", "adventure", "family"]
+},
+{
+    "id": 3,
+    "title":"Harry Potter y el Prisionero de Azkaban",
+    "tags": ["fantasy", "adventure", "family", "favorita"]
+},
+{
+    "id": 4,
+    "title":"Harry Potter y el Cáliz de Fuego",
+    "tags": ["fantasy", "adventure", "family"]
+},
+{
+    "id": 5,
+    "title":"Harry Potter y la Órden del Fénix",
+    "tags": ["fantasy", "action", "adventure", "family"]
+},
+{
+    "id": 6,
+    "title":"Harry Potter y el Misterio del Príncipe",
+    "tags": ["action", "fantasy", "adventure", "family"]
+},
+{
+    "id": 7,
+    "title":"Harry Potter y las Reliquias de la Muerte - Parte 1",
+    "tags": ["adventure", "fantasy", "family"]
+},
+{
+    "id": 8,
+    "title":"Harry Potter y las Reliquias de la Muerte - Parte 2",
+    "tags": ["adventure", "fantasy", "mystery"]
+},
+{
+"id": 9,
+"title":"Animales Fántasticos y Dónde Encontarlos",
+"tags": ["adventure", "family", "fantasy", "humor"]
+},
+{
+"id": 10,
+"title":"Animales Fantásticos: Los Crímenes de Grindelwald",
+"tags": ["adventure", "fantasy", "family", "action"]
+},
+{
+"id": 11,
+"title":"Animales Fantásticos: Los Secretos de Dumbledore",
+"tags": ["action", "adventure", "fantasy"]
+}
+]
