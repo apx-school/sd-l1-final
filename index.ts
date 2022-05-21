@@ -1,6 +1,6 @@
 import * as minimist from "minimist";
 import { PelisController } from "./controllers";
-import { Peli } from "./models";
+
 
 function parseaParams(argv) {
   const resultado = minimist(argv);
@@ -22,7 +22,7 @@ function opera(controlador, options) {
 function main() {
   const parametros = parseaParams(process.argv.slice(2));
   const controller = new PelisController();
-  opera(controller, parametros).then(async(res) => console.log(await res));
+  opera(controller, parametros).then((res) => console.log(res));
 }
 
 main();

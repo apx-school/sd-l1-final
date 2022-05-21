@@ -29,7 +29,11 @@ class PelisCollection {
   async search(options: any): Promise<Peli[]> {
     const searchByTitleOrTag = await this.getAll();
     const resultadoTitleOrTag = searchByTitleOrTag.filter((item) => {
-      if (options.title) {
+      if (options.title && options.tag) {
+        return (
+          item.title.includes(options.title) && item.tags.includes(options.tag)
+        );
+      } else if (options.title) {
         const tituloMapeado = item.title;
         const tituloFind = tituloMapeado.includes(options.title);
         return tituloFind;
@@ -48,14 +52,14 @@ class PelisCollection {
         return false;
       } else {
         this.pelis.push(peli);
-        const data = this.pelis
+        const data = this.pelis;
         const promesaDos = jsonfile.writeFile("./pelis.json", data);
-        return promesaDos.then(()=>{
-          return true
+        return promesaDos.then(() => {
+          return true;
         });
       }
     });
-    return promesaUno
+    return promesaUno;
   }
   /* add(peli: Peli): Promise<boolean> {
     const promesaUno = this.getById(peli.id).then((peliExistente) => {

@@ -1,4 +1,3 @@
-import { formatWithOptions } from "util";
 import { PelisCollection, Peli } from "./models";
 
 class PelisController {
