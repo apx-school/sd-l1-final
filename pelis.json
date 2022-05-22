@@ -1,15 +1,1 @@
-[
-  { "id": 1, "title": "batman", "tags": ["acción", "nueva"] },
-  { "id": 2, "title": "rambo", "tags": ["acción", "clásica"] },
-  {
-    "id": 3,
-    "title": "volver al futuro",
-    "tags": ["ciencia ficción", "clásica"]
-  },
-  {
-    "id": 4,
-    "title": "doctor strange 2",
-    "tags": ["ciencia ficción", "nueva"]
-  },
-  { "id": 5, "title": "batman 2", "tags": ["acción", "próximamente"] }
-]
+[{"id":1,"title":"batman","tags":["acción","nueva"]},{"id":2,"title":"rambo","tags":["acción","clásica"]},{"id":3,"title":"volver al futuro","tags":["ciencia ficción","clásica"]},{"id":4,"title":"doctor strange 2","tags":["ciencia ficción","nueva"]},{"id":5,"title":"batman 2","tags":["acción","próximamente"]},{"id":4321865,"title":"peli de la terminal 4321865","tags":["rr","ww"]},{"id":132338,"title":"title 150223132338","tags":["tt","rr"]},{"id":193744,"title":"title 150223193744","tags":["yy","uu"]},{"id":144763,"title":"title 168348144763","tags":["tt","rr"]},{"id":218682,"title":"title 168348218682","tags":["yy","uu"]},{"id":210626,"title":"una peli 210626","tags":["classic","tag 210626"]},{"id":167581,"title":"otra peli un poco más divertida","tags":["tag 210626"]}]
