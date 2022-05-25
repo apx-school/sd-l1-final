@@ -33,7 +33,7 @@ class PelisCollection {
     
     if(options.title){
        resultadoPelis = resultadoPelis.then((peliculas)=>{
-        return peliculas.filter(peli =>  peli.title.toLowerCase().includes(options.title.toLowerCase()));
+        return peliculas.filter(peli =>  peli.title.toLowerCase().includes(options.title));
       })
     }
 
