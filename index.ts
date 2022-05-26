@@ -1,5 +1,5 @@
 import { PelisController } from "./controllers";
-
+import * as minimist from "minimist";
 
 var minimist = require('minimist');
 

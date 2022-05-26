@@ -1,4 +1,3 @@
-var minimist = require('minimist');
 import * as jsonfile from "jsonfile";
 
 

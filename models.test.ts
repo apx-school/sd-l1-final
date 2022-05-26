@@ -1,4 +1,4 @@
-import anyTest, { TestFn } from "ava";
+import anyTest, { TestFn } from 'ava';
 import { PelisCollection, Peli } from "./models";
 
 export const getRandomId = () => {

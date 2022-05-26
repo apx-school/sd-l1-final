@@ -1,4 +1,4 @@
-import anyTest, { TestFn } from "ava";
+import anyTest, { TestFn } from 'ava';
 import { PelisController } from "./controllers";
 import { getRandomId } from "./models.test";
 
