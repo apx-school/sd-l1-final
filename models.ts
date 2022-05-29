@@ -28,25 +28,25 @@ class PelisCollection {
   }
 
   async search(options:any): Promise<Peli[]>{
-    let resultadoPelis = await this.getAll();
+    let resultadoPelis =  this.getAll();
     
     if(options.title){
-       resultadoPelis.filter(peli =>  peli.title.toLowerCase().includes(options.title));
-       //resultadoPelis = resultadoPelis.then((peliculas)=>{
-        //return peliculas.filter(peli =>  peli.title.toLowerCase().includes(options.title));
-      //})
+       //resultadoPelis.filter(peli =>  peli.title.toLowerCase().includes(options.title));
+       resultadoPelis = resultadoPelis.then((peliculas)=>{
+        return peliculas.filter(peli =>  peli.title.toLowerCase().includes(options.title));
+      })
     }
 
     if(options.tag){
-      resultadoPelis = resultadoPelis.filter(peli =>  peli.tags.find((tag) => {
+     // resultadoPelis = resultadoPelis.filter(peli =>  peli.tags.find((tag) => {
           
-       return tag == options.tag}))
-       //resultadoPelis =  resultadoPelis.then((peliculas) => {
-        //return peliculas.filter(peli =>  peli.tags.find((tag) => {
+      // return tag == options.tag}))
+       resultadoPelis =  resultadoPelis.then((peliculas) => {
+        return peliculas.filter(peli =>  peli.tags.find((tag) => {
           
-         // return tag == options.tag
-       // }));
-      //})
+         return tag == options.tag
+        }));
+      })
       
     }
 
