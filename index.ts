@@ -1,15 +1,49 @@
-import * as minimist from "minimist";
+import { PelisController } from "./controllers";
+import * as minimist from 'minimist';
 
 function parseaParams(argv) {
   const resultado = minimist(argv);
-
+  
   return resultado;
 }
 
-function main() {
-  const params = parseaParams(process.argv.slice(2));
 
-  console.log(params);
+
+ function main() {
+  const params = parseaParams(process.argv.slice(2));
+  const peliculaController = new PelisController();
+
+  // Se validan parametros de entrada para devolver las peliculas
+  // se podria haber hecho una funcion para validar esto y dejar el index mas "limpio", pero solo son if y llamado a otras funciones. 
+
+  if(params._[0] == undefined){
+
+      return peliculaController.get().then(p=>console.log(p));
+
+  }else if (params._[0] == "get"){
+    if(typeof(params._[1]) != "number"){
+      return console.log("No ingresaste un numero de ID para buscar la pelicula")
+    }else {
+      return peliculaController.get({id:params._[1]}).then(p => console.log(p));
+    }
+    
+  }else if(params._[0]=="add"){
+    return peliculaController.add({
+      id: params.id,
+      title:params.title,
+      tags:params.tags
+    }).then(p=>console.log(p));
+
+  }else if(params._[0] =="search"){
+    
+    return peliculaController.get({search:{title:params.title, tag:params.tag}}).then(p => console.log(p));
+
+  }else {
+
+    return console.log("Parametros inexistentes");
+  }
+    
 }
+  
 
 main();
