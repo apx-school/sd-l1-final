@@ -13,6 +13,7 @@ class PelisCollection {
 
   data: Peli[] = [];
   
+  //Lee el archivo de peliculas y lo guarda en la propiedad data
   getAll(): Promise<Peli[]> {
     return jsonfile.readFile(__dirname + "/pelis.json").then((archivoPeliculas) => {
       // la respuesta de la promesa
@@ -21,12 +22,14 @@ class PelisCollection {
     });
   }
 
+  //Busca una pelicula por id
   async getById(id:number){
     return this.getAll().then((peliculas) =>{
       return  peliculas.find(peli => peli.id == id);
     })
   }
 
+    //Filtra peliculas segun parametros title, tag o ninguno (devuelve todas este ultimo)
   async search(options:any): Promise<Peli[]>{
     let resultadoPelis =  this.getAll();
     
@@ -54,6 +57,7 @@ class PelisCollection {
     return resultadoPelis;
   }
 
+  //agrega pelicula al archivo pelis en caso de que sea un id nuevo
   add(peli:Peli):Promise<boolean>{
     
     const promesaUno = this.getById(peli.id).then((peliExistente) => {

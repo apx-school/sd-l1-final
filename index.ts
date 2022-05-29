@@ -13,6 +13,8 @@ function parseaParams(argv) {
   const params = parseaParams(process.argv.slice(2));
   const peliculaController = new PelisController();
 
+  // Se validan parametros de entrada para devolver las peliculas
+  // se podria haber hecho una funcion para validar esto y dejar el index mas "limpio", pero solo son if y llamado a otras funciones. 
 
   if(params._[0] == undefined){
 
