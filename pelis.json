@@ -1,1 +1,5 @@
-[]
+[
+	{ "id": 1, "title": "Harry Potter", "tags": ["fantasia", "magia"] },
+	{ "id": 2, "title": "Soul", "tags": ["infantil", "comedia"] },
+	{ "id": 3, "title": "Parásitos", "tags": ["comedia", "suspenso"] }
+]
