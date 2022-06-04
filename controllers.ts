@@ -10,14 +10,14 @@ class PelisController {
   } 
 
   async get(options:any):Promise<any>{
-    const id = options.id;
-    const search = options.search;
-
-    if(id != undefined){
+    
+    if(options.id != undefined){
+      const id = options.id;
       return await this.pelisCollection.getById(id);
     }
     
-    if(search != undefined){
+    if(options.search){
+      const search = options.search;
       const titleToSearch = search.title;
       const tagsToSearch = search.tags;
 
@@ -37,10 +37,13 @@ class PelisController {
 
         return await this.pelisCollection.search(a);
       }
-    }
-
-    if(options == undefined || options == null){
-      return await this.pelisCollection.getAll();
+    }else{
+      // console.log("Options void", options);
+      // console.log("SE LLAMO A GET ALL DESDE CONTROLLER");
+      const peliList = await this.pelisCollection.getAll();
+       
+      // console.log(peliList);
+      return peliList
     }
 
   
@@ -48,7 +51,18 @@ class PelisController {
 
   async add(peli:Peli){
     return await this.pelisCollection.add(peli);
-  }
+  };
 
 }
 export { PelisController };
+
+async function main(){
+  const peliController = new PelisController();
+
+  const searchParam = {};
+
+  peliController.get(searchParam).then((obj) => { return obj });
+  
+}
+
+main();
