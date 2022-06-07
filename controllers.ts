@@ -18,35 +18,27 @@ class PelisController {
     
     if(options.search){
       const search = options.search;
-      const titleToSearch = search.title;
-      const tagsToSearch = search.tags;
+      const title = search.title;
+      const tags = search.tag;
 
-      if(titleToSearch != undefined && tagsToSearch != undefined){
-        const a = {
-          title: titleToSearch,
-          tags: tagsToSearch
-        }
-
-        return await this.pelisCollection.search(a);
-      } else if (titleToSearch != undefined){
-        const a = { title: titleToSearch }
-        
-        return await this.pelisCollection.search(a);
-      } else {
-        const a = { tags: tagsToSearch }
-
-        return await this.pelisCollection.search(a);
+      if(title && tags){
+        const x ={
+          "title": title,
+          "tags": tags
+        };
+        return await this.pelisCollection.search(x);
       }
-    }else{
-      // console.log("Options void", options);
-      // console.log("SE LLAMO A GET ALL DESDE CONTROLLER");
-      const peliList = await this.pelisCollection.getAll();
-       
-      // console.log(peliList);
-      return peliList
-    }
+      else if(title){
+        const x = { "title": title };
+        return await this.pelisCollection.search(x);
+      } 
+      else if(tags){ 
+        const x = { "tags": tags };
+        return await this.pelisCollection.search(x);
+      }
+      
 
-  
+    };
   };
 
   async add(peli:Peli){

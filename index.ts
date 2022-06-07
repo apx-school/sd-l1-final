@@ -44,10 +44,6 @@ function main() {
   }
   if(paramAction == "search"){
 
-    // {'search': {
-    // 
-    // }}
-
     const searchToTitle = {
       search: {title: params.title}
     }
@@ -70,7 +66,7 @@ function main() {
 
   }else{
     const option = {option: undefined};
-    console.log("Se ejecuto index.ts a secas")
+    console.log("Se ejecuto index.ts sin parámetros");
     return peliController.get(option).then((obj) => { console.log(obj); return obj });
   }
   

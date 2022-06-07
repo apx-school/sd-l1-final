@@ -45,24 +45,19 @@ class PelisCollection {
 
         const listaPeliculas = await this.getAll();
 
-        if(titulo != undefined){
-            const rta = listaPeliculas.filter((x) => { 
-                var elementLowered = x.title.toLowerCase();
-                return elementLowered.includes(titulo);
-            
-            });
-            return rta
-        }
-        else if(tags != undefined){
-            const rta = listaPeliculas.filter((x) => { 
-                const tagsEnLista = x.tags
-                return tagsEnLista.includes(tags)
-            });
+        const peliToReturn = listaPeliculas.filter((x) => {
+            if(titulo && tags){
+                return x.title.includes(titulo) && x.tags.includes(tags);
+            } 
+            else if(titulo){
+                return x.title.includes(titulo);
+            }
+            else if(tags){
+                return x.tags.includes(tags)
+            }
+        });
 
-            return rta
-        };
-
-
+        return  peliToReturn
     };
 
 };
