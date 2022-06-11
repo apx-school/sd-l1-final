@@ -19,7 +19,7 @@ class PelisCollection {
     });
   }
 
-async search(options: any){
+async search(options: any):Promise<Peli[]>{
   const pelis = await this.getAll();
     if (options.title) {
       const tituloEncontrado = pelis.filter((titlePeli) => {
@@ -31,7 +31,7 @@ async search(options: any){
       const tagEncontrado = pelis.find((tagPeli) => {
         return tagPeli.tags.includes(options.tag)
       });
-      return tagEncontrado
+      return [tagEncontrado]
     }
   }
   async add(peli: Peli) {

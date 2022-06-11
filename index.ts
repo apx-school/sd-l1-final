@@ -10,6 +10,7 @@ function parseaParams(argv) {
     return pelisControllers.get({id: accion[1]})
   } else if (parametros === "search") {
     return pelisControllers.get({ search: resultado });
+    
   } else if (parametros === "add") {
     const peliNueva = {
       id: resultado.id,
