@@ -27,9 +27,11 @@ class PelisCollection {
             const listaPeliculas = await this.getAll();
 
             if(peliExiste){
+                console.log("La peli no se agrego porque ya existe.");
                 return false
             } else { 
                 listaPeliculas.push(peli);
+                console.log("La peli se agregó correctamente.")
                 await jsonfile.writeFile('./pelis.json', listaPeliculas);
                 
                 return true
@@ -41,19 +43,22 @@ class PelisCollection {
 
     async search(options:any): Promise<Peli[]>{
         const titulo = options.title;
-        const tags = options.tags;
+        const tag = options.tag;
 
         const listaPeliculas = await this.getAll();
 
         const peliToReturn = listaPeliculas.filter((x) => {
-            if(titulo && tags){
-                return x.title.includes(titulo) && x.tags.includes(tags);
-            } 
+            if(titulo && tag){
+                return x.title.includes(titulo) && x.tags.includes(tag);
+            }
             else if(titulo){
                 return x.title.includes(titulo);
             }
-            else if(tags){
-                return x.tags.includes(tags)
+            else if(tag){
+                return x.tags.includes(tag)
+            }
+            else{
+                return false
             }
         });
 

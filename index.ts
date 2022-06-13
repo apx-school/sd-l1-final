@@ -9,69 +9,74 @@ function parseaParams(argv) {
   return resultado;
 }
 
-function main() {
+async function main() {
   const params = parseaParams(process.argv.slice(2));
+
   console.log("params", params);
-  const paramAction = params["_"];
+  console.log("--------------------")
+  // const paramAction = params["_"];
   const peliController = new PelisController();
 
-  // console.log(paramAction)
-
-
-  if(paramAction[0] == "get"){
-    const idToSearch = paramAction[1];
-    // parseInt(idToSearch);
-    // console.log(idToSearch);
+  console.log(params._[0])
+  
+  if(params._[0] == "get"){
+    console.log("Se ejeguto GET de ID")
+    const idToSearch = params._[1];
     const object = { id: idToSearch }
-    const promise = peliController.get(object)
-    .then((obj) => {
-       console.log(obj);
-       return obj
-      })
-    .catch((err) => { console.log(err) });
-    return promise
+    // console.log(object.id)
+    const promise = await peliController.get(object)
+
+    console.log(promise);    
   }
-  if(paramAction == "add"){
+
+  if(params._[0] == "add"){
     const object = {
       id: params.id,
       title: params.title,
       tags: params.tags
     }
 
-    return  peliController.add(object)
-    .then((obj) => { return obj })
-    .catch((err) => { console.log(err) });
+    return await peliController.add(object);
   }
-  if(paramAction == "search"){
 
-    const searchToTitle = {
+  if(params._[0] == "search"){
+
+    // console.log("Titulo desde params: ", params.title)
+    // console.log("tag desde params: ", params.tag)
+
+
+
+    var searchToTitle = {
       search: {title: params.title}
     }
-    const searchToTags = {
-      search: {tags: params.tag}
+    var searchToTags = {
+      search: {tag: params.tag}
     }
-    const fullSearch = { 
-      search: {title: params.title, tags: params.tags}
+    var fullSearch = { 
+      search: {title: params.title, tag: params.tag}
     }
 
     console.log(params.title)
-    console.log(params.tag)
-    if(params.title != undefined && params.tag != undefined){
+    // console.log(params.tag)
+    if(params.title && params.tag){
+      // console.log("Se ejecuta buscar con dos parametros")
       return peliController.get(fullSearch).then((obj) => {console.log(obj); return obj });
-    } else if(params.title != undefined){
+    } else if(params.title){
+      // console.log("Se ejecuta buscar con title")
       return peliController.get(searchToTitle).then((obj) => {console.log(obj); return obj });
-    } else {
+    } else if(params.tag){
+      // console.log("Se ejecuta buscar con tag")
       return peliController.get(searchToTags).then((obj) => {console.log(obj); return obj });
     };
 
-  }else{
+  }
+  if(params._[0] == undefined){
     const option = {option: undefined};
     console.log("Se ejecuto index.ts sin parámetros");
-    return peliController.get(option).then((obj) => { console.log(obj); return obj });
+    return await peliController.get(option).then((obj) => { console.log(obj); return obj });
   }
-  
 };
 
 main();
 
-// console.log(main());
+

@@ -17,35 +17,43 @@ class PelisController {
     }
     
     if(options.search){
-      const search = options.search;
-      const title = search.title;
-      const tags = search.tag;
+      var search = options.search;
+      // console.log("search que llega al controller ", search)
+      var title = search.title;
+      var tag = search.tag;
 
-      if(title && tags){
+      if(title && tag){
+        // console.log("Se llamo al controller por full search");
         const x ={
           "title": title,
-          "tags": tags
+          "tag": tag
         };
         return await this.pelisCollection.search(x);
       }
       else if(title){
+        // console.log("Se llamo al controller por only title");
         const x = { "title": title };
         return await this.pelisCollection.search(x);
       } 
-      else if(tags){ 
-        const x = { "tags": tags };
+      else if(tag){ 
+        // console.log("Se llamo al controller por only tag");
+        const x = { "tag": tag };
         return await this.pelisCollection.search(x);
       }
-      
-
     };
+
+    if(options.option == undefined){
+      return await this.pelisCollection.getAll();
+
+      // console.log(listaPeliculas);
+    }
   };
 
   async add(peli:Peli){
     return await this.pelisCollection.add(peli);
   };
 
-}
+};
 export { PelisController };
 
 async function main(){
@@ -55,6 +63,6 @@ async function main(){
 
   peliController.get(searchParam).then((obj) => { return obj });
   
-}
+};
 
 main();
