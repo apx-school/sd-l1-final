@@ -12,27 +12,34 @@ class PelisCollection {
   async getAll(): Promise<Peli[]> {
     return await jsonfile.readFile("./pelis.json");
   }
-  async getById(id: number) {
+  async getById(id: number): Promise<Peli>  {
     const lasPelis = await this.getAll();
     return lasPelis.find((idPeli) => {
       return idPeli.id === id
     });
   }
 
-async search(options: any):Promise<Peli[]>{
+async search(options: any):Promise<any>{
   const pelis = await this.getAll();
-    if (options.title) {
-      const tituloEncontrado = pelis.filter((titlePeli) => {
-        return titlePeli.title.includes(options.title);
-      });
-      return tituloEncontrado
 
-    } else if (options.tag) {
-      const tagEncontrado = pelis.find((tagPeli) => {
-        return tagPeli.tags.includes(options.tag)
-      });
-      return [tagEncontrado]
-    }
+  if (options.title && options.tag) {
+    const encontrar = pelis.filter((titlePeli) => {
+      return titlePeli.title.includes(options.title) && titlePeli.tags.includes(options.tag)
+    })
+    return encontrar
+  }
+  else if (options.title) {
+    const tituloEncontrado = pelis.filter((titlepeli) => {
+      return titlepeli.title.includes(options.title)
+    });
+    return tituloEncontrado
+  }
+  else if (options.tag) {
+    const tagEncontrado = pelis.find((tagPeli) => {
+      return tagPeli.tags.includes(options.tag)
+    });
+    return tagEncontrado
+  }
   }
   async add(peli: Peli) {
     const peliIdExistente = await this.getById(peli.id);
