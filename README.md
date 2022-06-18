@@ -1,4 +1,4 @@
-# Desafío del mód 2
+# Desafío del módul 2
 - Forkear este repo
 - Revisars los tests
 - Agregá tu código y asegurate que los tests pasen
