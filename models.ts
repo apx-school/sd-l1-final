@@ -21,20 +21,23 @@ class PelisCollection {
       
 
   async search(options: any): Promise<any> {
-    var busca = await this.getAll();
-    if (options.title) {
-      var sol = busca.filter((p) => {
-        return p.title.includes(options.title);
+    const buscaP = await this.getAll();
+    if (options.title && options.tag) {
+      return buscaP.filter((peli) => {
+        const buscaTitulo = peli.title.includes(options.title);
+        const buscaTag = peli.tags.includes(options.tag);
+        return buscaTag && buscaTitulo;
       });
-      busca = res;
-    }
-    if (options.tag) {
-      var res = busca.filter((pelis) => {
-        return pelis.tags.includes(options.tag);
+      
+    } else if (options.title) {
+      return buscaP.filter((peli) => peli.title.includes(options.title));
+    } else if (options.tag) {
+      return buscaP.filter((peli) => {
+        return peli.tags.includes(options.tag);
       });
-      busca = res;
+    } else {
+      return buscaP;
     }
-    return busca;
   }
 
   async add(peli: Peli): Promise <boolean> {
