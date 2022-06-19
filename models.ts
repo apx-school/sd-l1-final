@@ -20,30 +20,22 @@ class PelisCollection {
   }
       
 
-  async search(options: any): Promise <any> {
-    const films = await this.getAll();
-    
-    if (options.title && options.tag) {
-        const buscaTitulos = films.filter((tituloPeli)=>{
-        return tituloPeli.title.includes (options.title) && tituloPeli.tags.includes (options.tag)
-})
-    return buscaTitulos
-}
-    else if (options.title) {
-        const tituloDev = films.filter((tituloPeli)=> {
-            return tituloPeli.title.includes(options.title)
-        } );
-        return tituloDev
-} 
-
-else if (options.tag) {
-    const tagDev = films.find ((tagPeli)=> {
-      return tagPeli.tags.includes (options.tag)
-    });
-    return tagDev
-
-
-  }};
+  async search(options: any): Promise<any> {
+    var busca = await this.getAll();
+    if (options.title) {
+      var sol = busca.filter((p) => {
+        return p.title.includes(options.title);
+      });
+      busca = res;
+    }
+    if (options.tag) {
+      var res = busca.filter((pelis) => {
+        return pelis.tags.includes(options.tag);
+      });
+      busca = res;
+    }
+    return busca;
+  }
 
   async add(peli: Peli): Promise <boolean> {
     const filmExist = await this.getById(peli.id);
