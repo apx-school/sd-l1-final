@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "Terminator",
+    "tags": ["accion", "aventura", "suspenso"]
+  },
+  {
+    "id": 2,
+    "title": "Jackass",
+    "tags": ["comedia", "accion", "extravagante"]
+  },
+  {
+    "id": 3,
+    "title": "Star Wars",
+    "tags": ["sci-fi", "accion", "drama"]
+  }
+]
