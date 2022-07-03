@@ -1,15 +1,15 @@
-// import * as minimist from "minimist";
+import * as minimist from "minimist";
 
-// function parseaParams(argv) {
-//   const resultado = minimist(argv);
+function parseaParams(argv) {
+  const resultado = minimist(argv);
 
-//   return resultado;
-// }
+  return resultado;
+}
 
-// function main() {
-//   const params = parseaParams(process.argv.slice(2));
+function main() {
+  const params = parseaParams(process.argv.slice(2));
 
-//   console.log(params);
-// }
+  console.log(params);
+}
 
-// main();
+main();

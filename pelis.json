@@ -7,11 +7,8 @@
   {
     "id": 2,
     "title": "Jackass",
-    "tags": ["comedia", "accion", "extravagante"]
+    "tags": ["comedia", "accion", "extravagante", "drama"]
   },
-  {
-    "id": 3,
-    "title": "Star Wars",
-    "tags": ["sci-fi", "accion", "drama"]
-  }
+  { "id": 3, "title": "Star Wars", "tags": ["sci-fi", "accion", "drama"] },
+  { "id": 4, "title": "String Wars", "tags": ["sci-fi", "accion"] }
 ]

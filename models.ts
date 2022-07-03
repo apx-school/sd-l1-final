@@ -22,12 +22,26 @@ class PelisCollection {
   async search(options: any): Promise<any> {
     const allPelis = await this.getAll();
     if (options.title) {
-      const resultado = allPelis.filter((element) => {
+      var resultado = allPelis.filter((element) => {
         return element.title.includes(options.title);
       });
+      if (options.tag) {
+        resultado = resultado.filter((element) => {
+          var contieneElTag: boolean = false;
+          const arrayDeTags = element.tags;
+          arrayDeTags.forEach((i) => {
+            if (i.includes(options.tag)) {
+              contieneElTag = true;
+              return;
+            }
+          });
+          if (contieneElTag) {
+            return element;
+          }
+        });
+      }
       return resultado;
-    }
-    if (options.tag) {
+    } else if (options.tag) {
       const resultado = allPelis.filter((element) => {
         var contieneElTag: boolean = false;
         const arrayDeTags = element.tags;
