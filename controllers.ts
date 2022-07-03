@@ -9,7 +9,6 @@ class PelisController {
     if (options.id) {
       var resultado = await this.peliculas.getById(options.id);
       if (resultado != undefined) {
-        console.log(resultado);
         return resultado;
       }
     }
@@ -26,16 +25,3 @@ class PelisController {
   }
 }
 export { PelisController };
-const objetoPrueba = {
-  id: 11111,
-  search: {
-    title: "s",
-    tag: ["dra"],
-  },
-};
-
-const prueba = new PelisController();
-prueba.get(objetoPrueba);
-// prueba.get(objetoPrueba).then((i) => {
-//   console.log(i);
-// });

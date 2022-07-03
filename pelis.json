@@ -10,5 +10,24 @@
     "tags": ["comedia", "accion", "extravagante", "drama"]
   },
   { "id": 3, "title": "Star Wars", "tags": ["sci-fi", "accion", "drama"] },
-  { "id": 4, "title": "String Wars", "tags": ["sci-fi", "accion"] }
+  { "id": 4, "title": "String Wars", "tags": ["sci-fi", "accion"] },
+  {
+    "id": 4321865,
+    "title": "peli de la terminal 4321865",
+    "tags": ["rr", "ww"]
+  },
+  { "id": 153687, "title": "title 188744153687", "tags": ["tt", "rr"] },
+  { "id": 228667, "title": "title 188744228667", "tags": ["yy", "uu"] },
+  { "id": 163917, "title": "title 133952163917", "tags": ["tt", "rr"] },
+  { "id": 228921, "title": "title 133952228921", "tags": ["yy", "uu"] },
+  {
+    "id": 157335,
+    "title": "una peli 157335",
+    "tags": ["classic", "tag 157335"]
+  },
+  {
+    "id": 208931,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 157335"]
+  }
 ]
