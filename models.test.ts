@@ -37,6 +37,8 @@ test.serial("Testeo el método getById", async (t) => {
     id: TEST_ID,
     title: TEST_TITLE,
     tags: ["tt", "rr"],
+    propuesto: "yo",
+    rating: TEST_ID
   });
   const all = await collection.getAll();
   const a = all[0];
@@ -50,11 +52,15 @@ test.serial("Testeo el método search", async (t) => {
     id: TEST_ID,
     title: TEST_TITLE,
     tags: ["tt", "rr"],
+    propuesto: "yo",
+    rating: TEST_ID
   });
   await collection.add({
     id: SECOND_TEST_ID,
     title: SECOND_TEST_TITLE,
     tags: ["yy", "uu"],
+    propuesto: "yo",
+    rating: SECOND_TEST_ID
   });
   const all = await collection.getAll();
   const a = all[0];
