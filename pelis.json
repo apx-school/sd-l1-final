@@ -1,1 +1,105 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "Titanic",
+    "rating": 6.8,
+    "tags": ["romance", "drama", "aventuras"],
+    "propuesto": "Diana"
+  },
+  {
+    "id": 2,
+    "title": "Terminator 1",
+    "rating": 7.1,
+    "tags": ["ciencia ficcion", "accion"],
+    "propuesto": "Diana"
+  },
+  {
+    "id": 3,
+    "title": "El secreto de sus ojos",
+    "rating": 8.1,
+    "tags": ["thriller", "intriga", "drama"],
+    "propuesto": "Diana"
+  },
+  {
+    "id": 4,
+    "title": "Batman: el caballero de la noche",
+    "rating": 8.1,
+    "tags": ["thriller", "accion", "drama"],
+    "propuesto": "Agus"
+  },
+  {
+    "id": 5,
+    "title": "300",
+    "rating": 7.2,
+    "tags": ["accion", "belico", "aventuras", "fantastico"],
+    "propuesto": "Agus"
+  },
+  {
+    "id": 6,
+    "title": "El padrino",
+    "rating": 9,
+    "tags": ["drama", "mafia", "crimen"],
+    "propuesto": "Agus"
+  },
+  {
+    "id": 7,
+    "title": "Fight club",
+    "rating": 8.1,
+    "tags": ["drama", "thriller"],
+    "propuesto": "Chino"
+  },
+  {
+    "id": 8,
+    "title": "Old Boy: dias de venganza",
+    "rating": 5.3,
+    "tags": ["thriller", "drama"],
+    "propuesto": "Chino"
+  },
+  {
+    "id": 9,
+    "title": "El lobo de Wall Street",
+    "rating": 7.6,
+    "tags": ["comedia", "drama", "biografico"],
+    "propuesto": "Chino"
+  },
+  {
+    "id": 10,
+    "title": "Perfume de mujer",
+    "rating": 7.4,
+    "tags": ["drama"],
+    "propuesto": "Melody"
+  },
+  {
+    "id": 11,
+    "title": "Avengers: Endgame",
+    "rating": 7.3,
+    "tags": ["ciencia ficcion", "accion", "fantastico"],
+    "propuesto": "Nacho"
+  },
+  {
+    "id": 12,
+    "title": "Un lugar llamado Notting Hill",
+    "rating": 6.3,
+    "tags": ["romance", "comedia"],
+    "propuesto": "Gabriel"
+  },
+  {
+    "id": 13,
+    "title": "El francotirador",
+    "rating": 8,
+    "tags": ["drama", "belico"],
+    "propuesto": "Gabriel"
+  },
+  {
+    "id": 22,
+    "title": "Milito",
+    "rating": 10,
+    "tags": ["goleador", "capitan"],
+    "propuesto": "Agus"
+  },
+  {
+    "id": 4411,
+    "title": "Título de la nueva peli",
+    "tags": ["action", "classic"]
+  }
+]
