@@ -1,4 +1,5 @@
 import * as jsonfile from "jsonfile";
+import * as _ from "lodash"
 
 // no modificar estas propiedades, agregar todas las que quieras
 class Peli {
@@ -30,17 +31,20 @@ class PelisCollection {
   }
   async search(options:any) {
     const baseDePeliculas = await this.getAll();
+    var respuesta = [];
     if (options.title) {
       const tituloEncontrado = baseDePeliculas.filter(tituloABuscar => {
-        return tituloABuscar.title.includes(options.title);
+        return tituloABuscar.title.toLowerCase().includes(options.title);
       });
-      return tituloEncontrado;
-    } else if (options.tags) {
+      respuesta = tituloEncontrado;
+    }
+    if (options.tags) {
       const tagsEncontrado = baseDePeliculas.filter(tagsABuscar => {
         return tagsABuscar.tags.includes(options.tags);
       })
-      return tagsEncontrado;
+      respuesta = _.concat(respuesta, tagsEncontrado);
     }
+    return respuesta;
   }
 }
 

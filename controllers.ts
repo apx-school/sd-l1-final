@@ -26,10 +26,4 @@ class PelisController {
   }
 }
 
-// mock
-// const prueba = new PelisController();
-// prueba.get({search: {tags: "belico"} }).then(x => console.log(x));
-// prueba.get().then(x => console.log(x));
-// prueba.add({id: 69, title: "tu vieja", rating: 100,tags: ["en tanga"], propuesto: "queti"}).then(x => console.log(x));
-
 export { PelisController };
