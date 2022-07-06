@@ -1,1 +1,56 @@
-[]
+[
+        {
+            "title": "Enemigo al acecho",
+            "id": 1,
+            "rating": 8,
+            "tags": ["acción", "favorita", "bélica","guerra","romance"],
+             "año": 2001
+           },
+          {  "title": "Volver al futuro",
+             "id":2,
+             "rating": 7.5,
+             "tags": ["ciencia ficción", "favorita", "aventura","comedia"],
+             "año": 1985
+           },
+           {  "title": "Deadpool",
+              "id": 3,
+              "rating": 9,
+              "tags": ["acción", "favorita", "comedia","super heroes", "ciencia ficción"],
+              "año": 2006   
+           },
+           {
+             "title": "Titanic",
+             "id": 4,
+             "rating": 6,
+             "tags": ["drama", "romance", "catastrofe"],
+             "año": 1997
+           },
+           {
+             "title": "Apx la pelicula",
+             "id": 5,
+             "rating": 10,
+             "tags": ["acción", "favorita", "comedia","informatica","educacion","super heroes", "premio oscar"],
+             "año": 2022
+           },
+           {
+             "title": "Que paso ayer",
+             "id": 6,
+             "rating": 9,
+             "tags": ["comedia", "favorita"],
+             "año": 2009
+           },
+           {
+             "title": "Crepúsculo",
+             "id": 7,
+             "rating": 4,
+             "tags": ["fantasia", "romance", "vampiros"],
+             "año": 2008 
+           },
+           {
+             "title": "John Wick",
+             "rating": 7,
+             "tags": ["acción", "pelea"],
+             "año": 2014
+           
+    }
+]
