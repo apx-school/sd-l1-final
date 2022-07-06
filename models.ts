@@ -24,39 +24,54 @@ class PelisCollection {
   }
   async search(options: any) {
     const todasLasPelis = await this.getAll();
-    if(options.title && options.tag){
-      const respuesta = todasLasPelis.filter((pelis)=>{
-        return pelis.title.toLowerCase().includes(options.title.toLowerCase()) && pelis.tags.includes(options.tag.toLowerCase())
-      })
-      return respuesta
-    }
-  else if (options.title) {
+    if (options.title && options.tag) {
       const respuesta = todasLasPelis.filter((pelis) => {
-        return pelis.title.toLowerCase().includes(options.title.toLowerCase());
+        return (
+          pelis.title.includes(options.title) &&
+          pelis.tags.includes(options.tag)
+        );
+      });
+      return respuesta;
+    } else if (options.title) {
+      const respuesta = todasLasPelis.filter((pelis) => {
+        return pelis.title.includes(options.title);
+      });
+      return respuesta;
+    } else if (options.tag) {
+      const respuesta = todasLasPelis.filter((pelis) => {
+        return pelis.tags.includes(options.tag);
       });
       return respuesta;
     }
-  else if (options.tag) {
-      const respuesta = todasLasPelis.filter((pelis) => {
-        return pelis.tags.includes(options.tag.toLowerCase());
-      });
-      return respuesta;
-    };
-
-    
+  }
+  async add(peli: Peli) {
+    if (await this.getById(peli.id)) {
+      return false;
+    } else {
+      const peliculas = await this.getAll();
+      peliculas.push(peli);
+      await jsonfile.writeFile("./pelis.json", peliculas);
+      return true;
+    }
   }
 }
 
 //mock (prueba de métodos del models)
-const objeto = new PelisCollection();
+// const objeto = new PelisCollection();
 // objeto.getById(3).then((p) => {
 //   console.log(p);
 // });
 // objeto.search({ title: "VOLver" });
 // objeto.search({ tag: "InformatiCa" });
-objeto.search({ tag: "drama", title: "tita" }).then((peli)=>{
-  console.log(peli)
-})
-
-
+// objeto.search({ tag: "romance"}).then((peli)=>{
+//   console.log(peli)
+// })
+// const peliNueva = {
+//   id: 100,
+//   title: "pelicula nueva",
+//   tags: ["accion", "romance", "epica"],
+// };
+// objeto.add(peliNueva).then((peli) => {
+//   console.log(peli);
+// });
 export { PelisCollection, Peli };
