@@ -1,7 +1,7 @@
 {
   "name": "test-ava",
   "version": "1.0.0",
-  "description": "",
+  "description": "- Forkear este repo\r - Revisars los tests\r - Agregá tu código y asegurate que los tests pasen\r - Creá un PR y subí tu PR validado a la sección [Mis desafíos](https://apx.school/challenges)",
   "main": "index.ts",
   "scripts": {
     "test": "ts-node index.ts add --id=4321865 --title=\"peli de la terminal 4321865\" --tags=rr --tags=ww && ava",
@@ -28,4 +28,5 @@
     "jsonfile": "^6.1.0",
     "minimist": "^1.2.5"
   }
+  
 }
