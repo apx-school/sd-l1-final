@@ -13,7 +13,7 @@ class PelisController {
       return await this.collection.search(options.search);
     } else if (options.add) {
       return await this.collection.add(options.add);
-    } else {
+    } else if (options.all) {
       return await this.collection.getAll();
     }
   }

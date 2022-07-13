@@ -1,1 +1,16 @@
-[{"id":1,"title":"Shutter Island","tags":["acción","suspenso"]},{"id":2,"title":"Interstellar","tags":["ciencia ficción","espacio"]},{"id":3,"title":"Star Wars","tags":["ciencia ficción","favorita"]},{"id":4,"title":"El conjuro","tags":["terror","suspenso"]},{"id":4411,"title":"Título de la nueva peli","tags":"Título de la nueva peli"}]
+[
+  { "id": 1, "title": "Shutter Island", "tags": ["acción", "suspenso"] },
+  { "id": 2, "title": "Interstellar", "tags": ["ciencia ficción", "espacio"] },
+  { "id": 3, "title": "Star Wars", "tags": ["ciencia ficción", "favorita"] },
+  { "id": 4, "title": "El conjuro", "tags": ["terror", "suspenso"] },
+  {
+    "id": 4411,
+    "title": "Título de la nueva peli",
+    "tags": "Título de la nueva peli"
+  },
+  {
+    "id": 4321865,
+    "title": "peli de la terminal 4321865",
+    "tags": "peli de la terminal 4321865"
+  }
+]
