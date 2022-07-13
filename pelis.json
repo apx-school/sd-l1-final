@@ -1,7 +1,11 @@
 [
   { "id": 1, "title": "Shutter Island", "tags": ["acción", "suspenso"] },
   { "id": 2, "title": "Interstellar", "tags": ["ciencia ficción", "espacio"] },
-  { "id": 3, "title": "Star Wars", "tags": ["ciencia ficción", "favorita"] },
+  {
+    "id": 3,
+    "title": "Star Wars",
+    "tags": ["ciencia ficción", "favorita", "espacio"]
+  },
   { "id": 4, "title": "El conjuro", "tags": ["terror", "suspenso"] },
   {
     "id": 4321865,

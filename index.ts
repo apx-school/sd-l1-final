@@ -29,8 +29,6 @@ async function main() {
   controller.get(params).then((res) => {
     console.log(res);
   });
-
-  console.log(params);
 }
 
 main();
