@@ -12,22 +12,25 @@ function parseaParams(argv): any {
       return { search: { title: params.title, tags: params.tag } };
     } else if (params.title) {
       return { search: { title: params.title } };
-    } else if (params.tags) {
+    } else if (params.tag) {
       return { search: { tags: params.tag } };
     }
   } else if (options == 'add') {
     return { add: { id: params.id, title: params.title, tags: params.title } };
   } else {
-    return { all: 1 };
+    return {};
   }
 }
 
 async function main() {
   const params = parseaParams(process.argv.slice(2));
   const controller = new PelisController();
+
   controller.get(params).then((res) => {
     console.log(res);
   });
+
+  console.log(params);
 }
 
 main();

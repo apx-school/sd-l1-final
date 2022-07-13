@@ -22,20 +22,13 @@ class PelisCollection {
   async search(options: any) {
     const movies = await this.getAll();
     if (options.title && options.tags) {
-      const searchTitleTags = movies.filter((e) => {
-        return e.title.includes(options.title) && e.tags.includes(options.tags);
-      });
-      return searchTitleTags;
+      return movies.filter(
+        (e) => e.title.includes(options.title) && e.tags.includes(options.tags)
+      );
     } else if (options.title) {
-      const searchTitle = movies.filter((e) => {
-        return e.title.includes(options.title);
-      });
-      return searchTitle;
+      return movies.filter((e) => e.title.includes(options.title));
     } else if (options.tags) {
-      const searchTags = movies.filter((e) => {
-        return e.tags.includes(options.tags);
-      });
-      return searchTags;
+      return movies.filter((e) => e.tags.includes(options.tags));
     }
   }
 

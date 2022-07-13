@@ -7,15 +7,19 @@ class PelisController {
   }
 
   async get(options: any) {
+    var resultado: any;
     if (options.id) {
-      return await this.collection.getById(options.id);
+      resultado = await this.collection.getById(options.id);
     } else if (options.search) {
-      return await this.collection.search(options.search);
-    } else if (options.add) {
-      return await this.collection.add(options.add);
-    } else if (options.all) {
-      return await this.collection.getAll();
+      resultado = await this.collection.search(options.search);
+    } else {
+      resultado = await this.collection.getAll();
     }
+    return resultado;
+  }
+
+  async add(peli) {
+    return await this.collection.add(peli);
   }
 }
 export { PelisController };
