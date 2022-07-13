@@ -1,7 +1,7 @@
 {
   "name": "test-ava",
   "version": "1.0.0",
-  "description": "",
+  "description": "- Forkear este repo - Revisars los tests - Agregá tu código y asegurate que los tests pasen - Creá un PR y subí tu PR validado a la sección [Mis desafíos](https://apx.school/challenges)",
   "main": "index.ts",
   "scripts": {
     "test": "ts-node index.ts add --id=4321865 --title=\"peli de la terminal 4321865\" --tags=rr --tags=ww && ava",
@@ -19,6 +19,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/jsonfile": "^6.1.0",
+    "@types/minimist": "^1.2.2",
     "@types/node": "^14.14.35",
     "ava": "^4.0.1",
     "ts-node": "^10.4.0",
@@ -27,5 +29,13 @@
   "dependencies": {
     "jsonfile": "^6.1.0",
     "minimist": "^1.2.5"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Guillenjulian/dwf-m2-desafio.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Guillenjulian/dwf-m2-desafio/issues"
+  },
+  "homepage": "https://github.com/Guillenjulian/dwf-m2-desafio#readme"
 }
