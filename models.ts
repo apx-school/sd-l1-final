@@ -8,24 +8,40 @@ class Peli {
 }
 
 class PelisCollection {
-  async getAll(): Promise<Peli[]> {
-    const movies = await jsonfile.readFile('./pelis.json');
-    return movies;
+  getAll(): Promise<Peli[]> {
+    return jsonfile.readFile('./pelis.json').then((movies) => {
+      return movies;
+    });
   }
 
-  async getById(id: number) {
-    const movies = await this.getAll();
-    return movies.find((e) => e.id == id);
+  getById(id: number) {
+    const found = this.getAll().then((movies) => {
+      const result = movies.find((e) => {
+        return e.id == id;
+      });
+      return result;
+    });
+    return found;
   }
 
   async search(options: any) {
-    const movies = await jsonfile.readFile('./pelis.json');
-    if (options.title) {
-      return movies.includes(options.title);
+    const movies = await this.getAll();
+    if (options.title && options.tags) {
+      const result = movies.filter((e) => {
+        return e.title.includes(options.title) && e.tags.includes(options.tags);
+      });
+      return result;
+    } else if (options.title) {
+      const result = movies.filter((e) => {
+        return e.title.includes(options.title);
+      });
+      return result;
     } else if (options.tags) {
-      return movies.filter((e) => e.tags == options.tags);
+      const result = movies.filter((e) => {
+        return e.tags.includes(options.tags);
+      });
+      return result;
     }
-    return true;
   }
 
   async add(peli: Peli): Promise<boolean> {

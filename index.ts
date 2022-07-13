@@ -1,15 +1,18 @@
 import * as minimist from 'minimist';
+import { PelisController } from './controllers';
 
-function parseaParams(argv) {
+function parseaParams(argv): any {
   const resultado = minimist(argv);
 
   return resultado;
 }
 
-function main() {
+async function main() {
   const params = parseaParams(process.argv.slice(2));
+  const controller = new PelisController();
+  const result = await controller.get(params);
 
-  console.log(params);
+  console.log(result);
 }
 
 main();
