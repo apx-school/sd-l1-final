@@ -20,7 +20,7 @@ class PelisController {
     return resultado;
   }
 
-  async add(peli) {
+  async add(peli: Peli) {
     return await this.collection.add(peli);
   }
 }
