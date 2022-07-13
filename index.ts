@@ -18,7 +18,7 @@ function parseaParams(argv): any {
   } else if (options == 'add') {
     return { add: { id: params.id, title: params.title, tags: params.title } };
   } else {
-    return {};
+    return { all: 1 };
   }
 }
 

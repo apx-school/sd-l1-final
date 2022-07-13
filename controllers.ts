@@ -12,7 +12,9 @@ class PelisController {
       resultado = await this.collection.getById(options.id);
     } else if (options.search) {
       resultado = await this.collection.search(options.search);
-    } else {
+    } else if (options.add) {
+      resultado = await this.collection.add(options.add);
+    } else if (options.all) {
       resultado = await this.collection.getAll();
     }
     return resultado;

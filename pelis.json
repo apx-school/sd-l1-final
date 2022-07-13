@@ -6,10 +6,5 @@
     "title": "Star Wars",
     "tags": ["ciencia ficción", "favorita", "espacio"]
   },
-  { "id": 4, "title": "El conjuro", "tags": ["terror", "suspenso"] },
-  {
-    "id": 4321865,
-    "title": "peli de la terminal 4321865",
-    "tags": "peli de la terminal 4321865"
-  }
+  { "id": 4, "title": "El conjuro", "tags": ["terror", "suspenso"] }
 ]
