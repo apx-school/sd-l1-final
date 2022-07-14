@@ -20,14 +20,14 @@ class PelisCollection {
   }
   async search(options: any) {
     const pelis = await this.getAll();
-    if (options.title && options.tags) {
+    if (options.title && options.tag) {
       return pelis.filter(
-        (e) => e.title.includes(options.title) && e.tags.includes(options.tags)
+        (e) => e.title.includes(options.title) && e.tags.includes(options.tag)
       );
     } else if (options.title) {
       return pelis.filter((e) => e.title.includes(options.title));
-    } else if (options.tags) {
-      return pelis.filter((e) => e.tags.includes(options.tags));
+    } else if (options.tag) {
+      return pelis.filter((e) => e.tags.includes(options.tag));
     }
   }
   async add(peli: Peli): Promise<boolean> {
@@ -43,14 +43,3 @@ class PelisCollection {
   }
 }
 export { PelisCollection, Peli };
-//const prueba = new PelisCollection();
-//prueba.getAll().then((pelis) => console.log(pelis));
-//prueba.getById(21).then((pelis)=> console.log(pelis));
-
-//const objetoPrueba = { title: "iron man" };
-
-//prueba.search(objetoPrueba).then((pelis) => console.log(pelis));
-
-//const objetoPrueba = {id: 23, title: "prueba", tags : ["actio", "xxxx"] };
-
-//prueba.add(objetoPrueba).then((pelis)=> console.log(pelis));

@@ -8,7 +8,7 @@ function parseaParams(argv): any {
   if (option == "get") {
     return { id: params._[1] };
   } else if (option == "search") {
-    if (params.title && params.tag) {
+    if (params.title && params.tags) {
       return { search: { title: params.title, tags: params.tag } };
     } else if (params.title) {
       return { search: { title: params.title } };
