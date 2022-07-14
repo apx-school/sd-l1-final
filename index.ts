@@ -25,7 +25,7 @@ function parseaParams(argv): any {
 async function main() {
   const params = parseaParams(process.argv.slice(2));
   const controller = new PelisController();
-  console.log(params);
+
   controller.get(params).then((res) => {
     console.log(res);
   });
