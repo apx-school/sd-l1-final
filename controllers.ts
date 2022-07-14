@@ -5,8 +5,8 @@ class PelisController {
   constructor() {
     this.coleccion = new PelisCollection();
   }
-  /* async get(option: any) {
-    let resultado: any;
+  async get(option: any) {
+    var resultado: any;
     if (option.id) {
       resultado = await this.coleccion.getById(option.id);
     } else if (option.search) {
@@ -18,8 +18,8 @@ class PelisController {
     }
     return resultado;
   }
-  async add(peli) {
+  async add(peli: Peli) {
     return await this.coleccion.add(peli);
-  } */
+  }
 }
 export { PelisController };
