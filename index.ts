@@ -9,14 +9,16 @@ function parseaParams(argv): any {
     return { id: params._[1] };
   } else if (options == 'search') {
     if (params.title && params.tag) {
-      return { search: { title: params.title, tags: params.tag } };
+      return { search: { title: params.title, tag: params.tag } };
     } else if (params.title) {
       return { search: { title: params.title } };
     } else if (params.tag) {
-      return { search: { tags: params.tag } };
+      return { search: { tag: params.tag } };
     }
   } else if (options == 'add') {
-    return { add: { id: params.id, title: params.title, tags: params.tags } };
+    return {
+      add: { id: params.id, title: params.title, tags: params.tags },
+    };
   } else {
     return { all: 1 };
   }
