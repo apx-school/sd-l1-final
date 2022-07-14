@@ -5,7 +5,7 @@ class PelisController {
   constructor() {
     this.coleccion = new PelisCollection();
   }
-  async get(option: any) {
+  /* async get(option: any) {
     let resultado: any;
     if (option.id) {
       resultado = await this.coleccion.getById(option.id);
@@ -20,6 +20,6 @@ class PelisController {
   }
   async add(peli) {
     return await this.coleccion.add(peli);
-  }
+  } */
 }
 export { PelisController };

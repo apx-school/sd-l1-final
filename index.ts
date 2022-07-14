@@ -1,7 +1,7 @@
 import * as minimist from "minimist";
-import { PelisController } from "./controllers";
+//import { PelisController } from "./controllers";
 
-function parseaParams(argv) {
+/* function parseaParams(argv) {
   const params = minimist(argv);
   const option = params._[0];
   if (option == "get") {
@@ -30,3 +30,4 @@ function main() {
 }
 
 main();
+ */

@@ -29,19 +29,19 @@ class PelisCollection {
     });
   }
   async search(options: any) {
-    const peli = await this.getAll();
+    var peli = await this.getAll();
     if (options.title && options.tag) {
-      const respuesta = peli.filter((e) => {
+      let respuesta = peli.filter((e) => {
         e.title.includes(options.title) && e.tags.includes(options.tag);
       });
       return respuesta;
     } else if (options.title) {
-      const respuesta = peli.filter((e) => {
+      let respuesta = peli.filter((e) => {
         return e.title.includes(options.title);
       });
       return respuesta;
     } else if (options.tag) {
-      const respuesta = peli.filter((e) => {
+      let respuesta = peli.filter((e) => {
         e.tags.includes(options.tag);
       });
       return respuesta;
