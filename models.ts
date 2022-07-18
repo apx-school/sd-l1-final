@@ -5,11 +5,11 @@ import * as jsonfile from "jsonfile";
 class Peli {
   id: number;
   title: string;
-  tag: string[];
+  tags: string[];
 }
 
  class PelisCollection {
- async getAll(): Promise<Peli[]> {
+ async getAll() {
     return await jsonfile.readFile("./pelis.json");
      
   }
@@ -25,9 +25,9 @@ class Peli {
     
     const devolverTodo = await this.getAll();
     
-    if (options.title && options.tag){
+    if (options.title && options.tags){
       const respuesta = devolverTodo.filter((p)=>{
-        return (p.title.includes(options.title) && p.tag.includes(options.tag)) 
+        return (p.title.includes(options.title) && p.tags.includes(options.tag)) 
       })
       return respuesta
     }
@@ -41,7 +41,7 @@ class Peli {
   
   else if(options.tags){
     const DevolverPorTags = devolverTodo.find((p)=>{
-      return p.tag.includes(options.tags)
+      return p.tags.includes(options.tags)
     })
     return DevolverPorTags
   }

@@ -22,7 +22,7 @@ else if(segundoResultado == "add"){
   const PeliculaAgregada = {
     id: resultado.id,
     title: resultado.title,
-    tag: resultado.tags
+    tags: resultado.tags
   }
   return peliscontroller.pelis.add(PeliculaAgregada)
 }
