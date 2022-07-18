@@ -1,7 +1,7 @@
 import * as minimist from "minimist";
 import { PelisController } from "./controllers";
 
-  
+
 function parseaParams(argv) {
   const resultado = minimist(argv);
 
@@ -22,7 +22,7 @@ else if(segundoResultado == "add"){
   const PeliculaAgregada = {
     id: resultado.id,
     title: resultado.title,
-    tags: resultado.tags
+    tag: resultado.tags
   }
   return peliscontroller.pelis.add(PeliculaAgregada)
 }

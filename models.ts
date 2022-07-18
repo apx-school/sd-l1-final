@@ -5,7 +5,7 @@ import * as jsonfile from "jsonfile";
 class Peli {
   id: number;
   title: string;
-  tags: string[];
+  tag: string[];
 }
 
  class PelisCollection {
@@ -25,9 +25,9 @@ class Peli {
     
     const devolverTodo = await this.getAll();
     
-    if (options.title && options.tags){
+    if (options.title && options.tag){
       const respuesta = devolverTodo.filter((p)=>{
-        return (p.title.includes(options.title) && p.tags.includes(options.tags)) 
+        return (p.title.includes(options.title) && p.tag.includes(options.tag)) 
       })
       return respuesta
     }
@@ -41,7 +41,7 @@ class Peli {
   
   else if(options.tags){
     const DevolverPorTags = devolverTodo.find((p)=>{
-      return p.tags.includes(options.tags)
+      return p.tag.includes(options.tags)
     })
     return DevolverPorTags
   }
