@@ -1,16 +1,1 @@
-[{
-    "id": 1,
-    "title": "spider man",
-    "tags": ["comedia", "accion", "romance"]
-  },
-  {
-    "id": 2,
-    "title": "hombre en llamas",
-    "tags": ["accion", "misterio", "sangrienta"]
-  },
-  {
-    "id": 3,
-    "title": "bajo la misma estrella",
-    "tags": ["romance", "comedia", "adolecente"]
-  }
-]
+[{"id":1,"title":"spider man","tags":["comedia","accion","romance"]},{"id":2,"title":"hombre en llamas","tags":["accion","misterio","sangrienta"]},{"id":3,"title":"bajo la misma estrella","tags":["romance","comedia","adolecente"]},{"id":4411,"title":"Título de la nueva peli","tags":["action","classic"]}]

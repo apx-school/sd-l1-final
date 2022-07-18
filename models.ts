@@ -1,3 +1,4 @@
+
 import * as jsonfile from "jsonfile";
 
 // no modificar estas propiedades, agregar todas las que quieras
@@ -20,20 +21,24 @@ class Peli {
   }
 
 
-  async search(options:any): Promise<any>{
+  async search(options:any){
+    
     const devolverTodo = await this.getAll();
+    
     if (options.title && options.tags){
-      const respuesta = devolverTodo.find((p)=>{
-        return p.title.includes(options.title) && p.tags.includes(options.tags) 
+      const respuesta = devolverTodo.filter((p)=>{
+        return (p.title.includes(options.title) && p.tags.includes(options.tags)) 
       })
       return respuesta
-  }
-  else if(options.title){
-    const devolverPorTitulo = devolverTodo.find((p)=>{
+    }
+  
+    else if(options.title){
+    const devolverPorTitulo = devolverTodo.filter((p)=>{
       return p.title.includes(options.title)
     })
     return devolverPorTitulo;
   }
+  
   else if(options.tags){
     const DevolverPorTags = devolverTodo.find((p)=>{
       return p.tags.includes(options.tags)
@@ -44,12 +49,13 @@ class Peli {
   
   
   }
-  async add(peli:Peli): Promise<boolean>{
-    if(await this.getById(peli.id)){
+  async add(peli: Peli){
+    const agregarPeli = await this.getById(peli.id);
+    if (agregarPeli){
       return false
     }
     else{
-      const peliculas = await this.getAll();
+      const peliculas = await this.getAll()
       peliculas.push(peli);
       await jsonfile.writeFile("./pelis.json", peliculas)
       return true
@@ -57,5 +63,4 @@ class Peli {
   }
 }
 
-
-export { PelisCollection, Peli };
+export {PelisCollection, Peli}
