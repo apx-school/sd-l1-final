@@ -15,19 +15,14 @@ class PelisController {
     this.pelis = new PelisCollection();
   }
 
-  async get(options: any):Promise<any> {
-
+  async get(options: any): Promise<any> {
     if (options) {
       if (options.id) {
-        //console.log("busco por id",options.id);
         return await this.pelis.getById(options.id);
       } else if (options.search) {
-         //console.log("busqueda en controller:",options.search);
         return await this.pelis.search(options.search);
       }
-
-      
-    }else return await this.pelis.getAll();
+    } else return await this.pelis.getAll();
   }
 
   async add(peli: Peli) {

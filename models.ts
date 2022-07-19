@@ -22,16 +22,18 @@ class PelisCollection {
 
     if (options.title) {
       pelis = pelis.filter((peli) =>
-        peli.title.toLowerCase().includes(options.title.toString().toLowerCase())
+        peli.title
+          .toLowerCase()
+          .includes(options.title.toString().toLowerCase())
       );
     }
 
     if (options.tag) {
-     // console.log("search tag:",options.tag);
-     // console.log(pelis);
       pelis = pelis.filter((peli) =>
         peli.tags.reduce((acc, tag) => {
-          return acc || tag.toLowerCase() == options.tag.toString().toLowerCase();
+          return (
+            acc || tag.toLowerCase() == options.tag.toString().toLowerCase()
+          );
         }, false)
       );
     }
@@ -39,18 +41,20 @@ class PelisCollection {
     return pelis;
   }
 
-  async add(peli: Peli){
+  async add(peli: Peli) {
     if (await this.getById(peli.id)) {
-      //console.log("error: id existente");
       return false;
     } else {
       let pelis = await this.getAll();
       pelis.push(peli);
-      return jsonfile.writeFile(__dirname + "/pelis.json",pelis).then(() => true).catch(() => {console.log("error de escritura"); return false});
-
+      return jsonfile
+        .writeFile(__dirname + "/pelis.json", pelis)
+        .then(() => true)
+        .catch(() => {
+          console.log("error de escritura");
+          return false;
+        });
     }
-
-
   }
 }
 export { PelisCollection, Peli };
