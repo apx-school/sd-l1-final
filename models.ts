@@ -57,4 +57,4 @@ class PelisCollection {
     }
   }
 }
-export { PelisCollection, Peli };
+export { PelisCollection, Peli }; 
