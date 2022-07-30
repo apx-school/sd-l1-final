@@ -1,1 +1,6 @@
-[]
+[
+  {"id":1,"title":"Culpable","tags":["acción","favorita","nueva"]},
+ {"id":2,"title":"Nadie sale con vida","tags":["clasico","nueva","aventura"]},
+ {"id":3,"title":"Intrusion","tags":["accion","nueva","comedia"]},
+ {"id":4,"title":"Una Sombra en mi ojo","tags":["clasico","nueva","aventura"]}
+]
