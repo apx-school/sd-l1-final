@@ -1,43 +1,36 @@
 import * as minimist from "minimist";
-import {PelisController} from "./controllers";
+import { PelisController } from "./controllers"
+import { Peli } from "./models";
 
 function parseaParams(argv){
-  const params = minimist(argv);
-  const options = params._[0];
+  const resultado = minimist(argv);
+  const controller = new PelisController()
+  const get = resultado._[0] == "get";
+  const add = resultado._[0] == "add";
+  const search = resultado._[0] == "search";
 
-  if (options == "get") {
-    return {id : params._[1]};
-
-  } else if (options == "search"){
-
-    if (params.title && params.tag){
-    return {search : {title: params.tittle, tags: params.tag}};
-
-  }else if (params.title) {
-      return {search : {title: params.title}};
-
-    }else if (params.tag) {
-      return {search : {tags: params.tag}};
-
-    }
-  
-  }else if (options == "add") {
-    return {add : {id: params.id , title : params.title, tags : params.tags}};
-  }else {
-return {all : 1}
+  if (get) {  
+    const buscarId = { id: resultado._[1] }
+    return controller.get(buscarId);
+  } else if (add) {  
+    const peliNueva = new Peli()
+    peliNueva.id = resultado.id
+    peliNueva.tags = resultado.tags
+    peliNueva.title = resultado.title
+    return controller.add(peliNueva);
+  } else if (search) { 
+    const BuscarTitulo = { search: { title: resultado.title, tag: resultado.tag } }
+    return controller.get(BuscarTitulo);
   }
+  return controller.get("")
 }
- 
-
 
 function main() {
   const params = parseaParams(process.argv.slice(2));
-const peliculas = new PelisController();
-  peliculas.get(params).then((result) => {
-    console.log(result);
-  
-  });
-
-  }
+  params.then(respuesta => {
+    console.table(respuesta);
+    
+  })
+}
 
 main();

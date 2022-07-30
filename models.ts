@@ -8,54 +8,57 @@ class Peli {
 }
 
 class PelisCollection {
-  async getAll() {
-    return await jsonfile.readFile("./pelis.json");
-      }
-  
-  async getById(id:number)   {
-    const peliculas = await this.getAll();
-    return peliculas.find ((pelicula) => {
-      return pelicula.id == id;
+  async getAll(): Promise<Peli[]> {
+    return await jsonfile.readFile("./pelis.json")
+  };
+  async getById(id: number) {
+    return await this.getAll().then(respuesta => {
+      return respuesta.find(idPeli => idPeli.id == id);
     })
-  }
+  };
   
-  async search(options:any) {
-    const peliculas = await this.getAll();
-
-    if (options.title && options.tags) {
-      const buscarPeliculas = peliculas.filter((pelicula) => {
-        return pelicula.title.includes(options.title) && pelicula.tags.includes(options.tags)
+  async search(options: any) {
+    if (options.title && options.tag) {
+      const filtraTitulo = await this.getAll().then(respuesta => {
+        return respuesta.filter(pelititle => pelititle.title.includes(options.title));
       })
-      return buscarPeliculas
+      return filtraTitulo.filter(pelititle => {
+        if (pelititle.tags.includes(options.tag)) {
+            return pelititle
+        }
+      })
+    
+    } else if (options.title) {
+      return await this.getAll().then(respuesta => {
+        return respuesta.filter(pelititle => pelititle.title.includes(options.title))
+      })
+    } else if (options.tag) {
+      const filtratag = await this.getAll();
+      return await filtratag.filter(pelitag => {
+          if (pelitag.tags.includes(options.tag)) {
+            return pelitag
+        }
+      })
+    }
   }
-  else if (options.title) {
-    const buscarTitulo = peliculas.filter((pelicula) => {
-      return pelicula.title.includes(options.title)
-    });
-    return buscarTitulo
-
-  }
-
-  else if (options.tags) {
-  const buscarTags = peliculas.find((pelicula) => {
-    return pelicula.tags.includes(options.tags)
-  });
-  return buscarTags
-}
-}
-async add(pelicula:Peli) {
-  const existe = await this.getById(pelicula.id);
-  if (existe){
-    return false;
-  }
-  else {
-    const peliculas = await this.getAll();
-    peliculas.push(pelicula);
-    await jsonfile.writefile("./pelis.json", peliculas);
-    return true
-
-  }
-} 
-}
  
+  add(peli: Peli): Promise<boolean> {
+    const promesaUno = this.getById(peli.id).then((peliExistente) => {
+      if (peliExistente) {
+        return false;
+      } else {
+        // magia que agrega la pelicula a un objeto data
+        return this.getAll().then(res => {
+          res.push(peli);
+          const promesaDos = jsonfile.writeFile("./pelis.json", res);
+          return promesaDos.then(() => {
+            return true;
+          });
+        })
+      }
+    });
+    return promesaUno;
+  }
+}
 export { PelisCollection, Peli };
+
