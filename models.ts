@@ -1,6 +1,4 @@
 import * as jsonfile from "jsonfile";
-import { title } from "process";
-import { isTaggedTemplateExpression, isTemplateExpression } from "typescript";
 
 // no modificar estas propiedades, agregar todas las que quieras
 class Peli {
@@ -17,40 +15,36 @@ class PelisCollection {
     });
   }
 
-  getById(id: number) {
-    return this.getAll().then((peli) => {
-      const resultado = peli.find((peliBuscada) => {
-        return peliBuscada.id == id;
-      });
-      return resultado;
+  async getById(id: number) {
+    const todas = await this.getAll();
+    return todas.find((peliId) => {
+      return peliId.id == id;
     });
   }
 
-  async search(options: any) {
+  async search(options: any): Promise<any> {
     const todas = await this.getAll();
     if (options.title && options.tag) {
-      const respuesta = todas.filter((pelis) => {
-        return (
-          pelis.title.includes(options.title) &&
-          pelis.tags.includes(options.tag)
-        );
+      return todas.filter((peli) => {
+        const buscaTitulo = peli.title.includes(options.title);
+        const buscaTag = peli.tags.includes(options.tag);
+        return buscaTag && buscaTitulo;
       });
-      return respuesta;
     } else if (options.title) {
-      const respuesta = todas.filter((pelis) => {
-        return pelis.title.includes(options.title);
-      });
-      return respuesta;
+      return todas.filter((peli) => peli.title.includes(options.title));
     } else if (options.tag) {
-      const respuesta = todas.filter((peli) => {
+      return todas.filter((peli) => {
         return peli.tags.includes(options.tag);
       });
-      return respuesta;
+    } else {
+      return todas;
     }
   }
 
   async add(peli: Peli) {
-    if (await this.getById(peli.id)) {
+    const tieneId = await this.getById(peli.id);
+
+    if (tieneId) {
       return false;
     } else {
       const todas = await this.getAll();
@@ -60,11 +54,9 @@ class PelisCollection {
     }
   }
 }
-
-//prueba
-// const objeto = new PelisCollection();
-// objeto.getById(3).then((resultado) => {
-//   console.log(resultado);
-// });
-
 export { PelisCollection, Peli };
+
+// const objeto = new PelisCollection();
+// objeto.getAll().then((p) => {
+//   console.log(p);
+// });
