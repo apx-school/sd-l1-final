@@ -1,1 +1,52 @@
-[]
+[
+    {
+        "id": 1,
+        "title": "Spider-Manz",
+        "tags": ["accion", "ficcion"]
+    },
+    {
+        "id": 2,
+        "title": "Duro de Matar",
+        "tags": ["accion", "violencia"]
+    },
+    {
+        "id": 3,
+        "title": "Toy Storyz",
+        "tags": ["infantil", "animacion"]
+    },
+    {
+        "id": 4321865,
+        "title": "peli de la terminal 4321865",
+        "tags": ["rr", "ww"]
+    },
+    {
+        "id": 224931,
+        "title": "title 161731224931",
+        "tags": ["tt", "rr"]
+    },
+    {
+        "id": 138390,
+        "title": "title 161731138390",
+        "tags": ["yy", "uu"]
+    },
+    {
+        "id": 191114,
+        "title": "title 215487191114",
+        "tags": ["tt", "rr"]
+    },
+    {
+        "id": 215826,
+        "title": "title 215487215826",
+        "tags": ["yy", "uu"]
+    },
+    {
+        "id": 180562,
+        "title": "una peli 180562",
+        "tags": ["classic", "tag 180562"]
+    },
+    {
+        "id": 174402,
+        "title": "otra peli un poco más divertida",
+        "tags": ["tag 180562"]
+    }
+]
