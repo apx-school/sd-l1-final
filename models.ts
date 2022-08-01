@@ -9,7 +9,7 @@ class Peli {
 
 class PelisCollection {
     readFile() {
-        return jsonfile.readFile(__dirname + '/' + 'pelis.json');
+        return jsonfile.readFile('./pelis.json');
     }
     getAll(): Promise<Peli[]> {
         const movies = this.readFile().then((peliculas) => {
