@@ -1,22 +1,23 @@
 [
-    {
-    "id": 1,
-    "title": "About Time",
-    "tags": ["comedia", "drama", "fantasia"]    
-    },
-    {
+  { "id": 1, "title": "About Time", "tags": ["comedia", "drama", "fantasia"] },
+  {
     "id": 2,
-    "title": "Doctor Strange in the Multiverse of Madness",    
+    "title": "Doctor Strange in the Multiverse of Madness",
     "tags": ["accion", "aventura", "fantasia", "nueva"]
-    },
-    {
+  },
+  {
     "id": 3,
-    "title": "Spider-Man: No Way Home",    
-    "tags": ["accion", "aventura", "fantasia", "nueva"]    
-    },
-    {
+    "title": "Spider-Man: No Way Home",
+    "tags": ["accion", "aventura", "fantasia", "nueva"]
+  },
+  {
     "id": 4,
-    "title": "Top Gun: Maverick",    
-    "tags": ["accion", "drama", "nueva"]    
-    }
+    "title": "Top Gun: Maverick",
+    "tags": ["accion", "drama", "nueva"]
+  },
+  {
+    "id": 10,
+    "title": "Fantastic Beasts and Where to Find Them",
+    "tags": ["aventura", "familiar", "fantasia"]
+  }
 ]
