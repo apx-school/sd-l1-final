@@ -48,7 +48,8 @@ class PelisCollection {
             if (option.title) {
                 //console.log('entre en title');
                 return peliculas.filter((m) => {
-                    return m['title'].includes(option.title);
+                    const peliculaTitulo = m['title'].toLowerCase();
+                    return peliculaTitulo.includes(option.title);
                 });
             }
             if (option.tag) {

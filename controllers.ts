@@ -15,16 +15,18 @@ class PelisController {
             });
             return pelisPorId;
         }
-        /* console.log(options.hasOwnProperty('search')); */
+        /*console.log(options.hasOwnProperty('search'));*/
         if (options.hasOwnProperty('search')) {
+            //console.log(options.search);
             if (
                 options.search.hasOwnProperty('title') &&
                 !options.search.hasOwnProperty('tag')
             ) {
-                /*console.log('entre c title S tag'); */
+                //console.log('entre c title S tag');
                 const pelisPorTitle = this.controlPelis
                     .search(options.search)
                     .then((rta) => {
+                        //console.log('rta', rta);
                         return rta;
                     });
                 return pelisPorTitle;
@@ -33,6 +35,7 @@ class PelisController {
                 options.search.hasOwnProperty('tag') &&
                 !options.search.hasOwnProperty('title')
             ) {
+                //console.log('con tag y sin title');
                 const pelisPorTag = this.controlPelis
                     .search(options.search)
                     .then((rta) => {

@@ -25,7 +25,7 @@ function main() {
         const obj = {
             search: {
                 title: params.title,
-                tag: params.id,
+                tag: params.tag,
             },
         };
         //aEjecutar == 'search'
