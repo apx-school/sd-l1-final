@@ -21,10 +21,21 @@ function main() {
         controller.get(obj).then((rta) => {
             console.log(rta);
         });
-    } else {
+    } else if (aEjecutar == 'search') {
+        const obj = {
+            search: {
+                title: params.title,
+                tag: params.id,
+            },
+        };
         //aEjecutar == 'search'
         //console.log('entre a get(params)');
-        controller.get(params).then((rta) => {
+        controller.get(obj).then((rta) => {
+            console.log(rta);
+        });
+    } else {
+        const obj = {};
+        controller.get(obj).then((rta) => {
             console.log(rta);
         });
     }
