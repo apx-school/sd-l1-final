@@ -53,6 +53,11 @@ function parseaParams(argv) {
           id: input.id,
           title: input.title,
           tags: input.tags,
+          rating: input.rating,
+          starring: input.starring,
+          year: input.year,
+          length: input.length,
+          streamingService: input.streamingService
         },
       };
     } else if (_Array[0] === "search") {
