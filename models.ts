@@ -85,18 +85,3 @@ class PelisCollection {
 }
 
 export { PelisCollection, Peli };
-
-// const testPelisCollection = new PelisCollection();
-// testPelisCollection.getAll().then((res) => console.log(res));
-// testPelisCollection.getById(5).then((res) => console.log(res));
-// testPelisCollection.search({ title: "Volver" }).then((res) => console.log(res));
-// testPelisCollection
-//   .search({ tag: "argentina" })
-//   .then((res) => console.log(res));
-// testPelisCollection
-//   .search({ title: "Hoy", tag: "argentina" })
-//   .then((res) => console.log(res));
-
-// testPelisCollection
-//   .add({ id: 1345, title: "Sarasa cósmica", tags: ["test"] })
-//   .then((res) => console.log(res));
