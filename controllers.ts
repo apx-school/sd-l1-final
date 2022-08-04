@@ -6,7 +6,7 @@ class PelisController {
     this.pelis = new PelisCollection();
   }
 
-  get(options?): Promise<Peli | Peli[]> {
+  get(options?): Promise<any> {
     // no recibo opciones, traigo todas las películas
     if (!options) {
       return this.pelis.getAll();

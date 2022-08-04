@@ -27,7 +27,8 @@ class PelisCollection {
     });
   }
 
-  search(options: any): Promise<Peli[] | Peli> {
+  search(options: any): Promise<any> {
+    // search(options: any): Promise<Peli[] | Peli> {
     return jsonfile.readFile("./pelis.json").then((allPelis) => {
       // options.title = algo; options.tag = algo
       if (options.title && !options.tag) {
