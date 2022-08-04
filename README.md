@@ -1,4 +1,4 @@
-# Desafío del módulo 2
+# apx-challenge-m2
 
 ### About it
 
