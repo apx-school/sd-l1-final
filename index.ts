@@ -15,11 +15,13 @@ function main() {
   const params = parseaParams(process.argv.slice(2));
   console.log("parametros de la terminal====", params);
   const controllerss = new PelisController();
-  if (params.options[0] === "get") {
+
+  if (params.options[0] === "get" || params.options[0] === "search") {
     controllerss.get(params).then((res) => console.log(res));
-  }
-  if (params.options[0] === "add") {
+  } else if (params.options[0] === "add") {
     controllerss.add(params).then((res) => console.log(res));
+  } else if (params.options[0] === undefined) {
+    controllerss.get(params).then((res) => console.log(res));
   }
 }
 

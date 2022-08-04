@@ -17,7 +17,7 @@ class PelisCollection {
     const comparar = all.find((a) => a.id === id);
     return comparar;
   }
-  async search(options: any) {
+  async search(options: any): Promise<any> {
     const pelis = await this.getAll();
     return pelis.filter((item) => {
       if (options.title) {

@@ -6,38 +6,36 @@ class PelisController {
     this.collection = new PelisCollection();
   }
   async get(options): Promise<any> {
-    //sol potr id
+    //   2 condicionales para sol por id
     if (options.id) {
-      ///////////////////////////////////////////
       const res = await this.collection.getById(options.id);
       return res;
-      ////////////////////////////////////////
     } else if (options.options[1]) {
       return await this.collection.getById(options.options[1]);
+    }
+    //condicionales  tags y titulo
+    else if (options.options[0] === "search" && options.tags && options.title) {
+      console.log("entro 4");
+      return (await this.collection.search({ tags: options.tags })).filter(
+        (item) => {
+          return item.title.includes(options.title);
+        }
+      );
+    }
+    // condicionales solo titulo
+    else if (options.options[0] === "search" && options.title) {
+      console.log("entro 2");
+      return await this.collection.search({ title: options.title });
+    }
+    // condicionales solo tags tag
+    else if (options.options[0] === "search" && options.tags) {
+      console.log("entro 3");
+      return await this.collection.search({ tags: options.tags });
     }
     //si no existe options
     else if ((options = {})) {
       console.log("entro 5");
       return await this.collection.getAll();
-    }
-    //tags y titulo
-    else if (options.search.tags && options.search.title) {
-      console.log("entro 4");
-      return (
-        await this.collection.search({ tags: options.search.tags })
-      ).filter((item) => {
-        return item.title.includes(options.search.title);
-      });
-    }
-    //solo tags tag
-    else if (options.search.tags) {
-      console.log("entro 3");
-      return await this.collection.search({ tags: options.search.tags });
-    }
-    // solo titulo
-    else if (options.search.title) {
-      console.log("entro 2");
-      return await this.collection.search({ title: options.search.title });
     }
 
     return await this.collection.getAll();
