@@ -52,17 +52,6 @@ function main() {
   optionsForControllers(params, controller).then((result) => {
     console.log(result);
   });
-
-  /* controller.get(params).then(async () => {
-    if (params._[0] == "add") {
-      delete params._;
-      const addPeli = await controller.add(params);
-      console.log(addPeli);
-    } else {
-      const printResult = await controller.get(params);
-      console.log(printResult);
-    }
-  }); */
 }
 
 main();
