@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "The King's Speech",
+    "tags": ["drama", "historical", "live action"]
+  },
+  {
+    "id": 2,
+    "title": "Todos tenemos un plan",
+    "tags": ["suspenso", "crimen", "nacional", "live action"]
+  },
+  {
+    "id": 3,
+    "title": "Into The Wild",
+    "tags": ["drama", "aventura", "roadtrip", "live action"]
+  },
+  {
+    "id": 4,
+    "title": "Modern Times",
+    "tags": ["comedia", "sátira", "live action", "b&n"]
+  }
+]
