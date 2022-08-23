@@ -1,1 +1,80 @@
-[]
+[{
+    "id": 1,
+    "title": "IronMan",
+    "rating": 9,
+    "tags": ["accion", "drama", "violencia"]
+}, {
+    "id": 2,
+    "title": "Avatar",
+    "rating": 9,
+    "tags": ["accion", "drama", "magia", "fantasia"]
+}, {
+    "id": 3,
+    "title": "Dr.Strange",
+    "rating": 9,
+    "tags": ["accion", "drama", "fantasia"]
+}, {
+    "id": 4,
+    "title": "El Camino",
+    "rating": 9,
+    "tags": ["sexo", "accion", "drogas", "violencia"]
+}, {
+    "id": 5,
+    "title": "El Señor de los anillos",
+    "rating": 9,
+    "tags": ["fantasia", "magia", "misterio"]
+}, {
+    "id": 6,
+    "title": "que paso ayer",
+    "rating": 9,
+    "tag": ["comedia"]
+}, {
+    "id": 7,
+    "title": "crepúsculo",
+    "rating": 4,
+    "tag": ["fantasia", "romance", "vampiros"]
+}, {
+    "id": 8,
+    "title": "john Wick",
+    "rating": 9,
+    "tag": ["acción", "pelea"]
+}, {
+    "id": 9,
+    "title": "La excavación",
+    "rating": 8,
+    "tag": ["basada en hechos reales", "drama", "action"]
+}, {
+    "id": 10,
+    "title": "Hacksaw Ridge",
+    "rating": 8,
+    "tags": ["drama", "favorita", "belica", "ficción histórica", "guerra"]
+}, {
+    "id": 11,
+    "title": "The King's Man",
+    "rating": 10,
+    "tags": ["comedia", "accion", "suspenso", "crimen", "espionaje", "pieza de epoca"]
+}, {
+    "id": 12,
+    "title": "Hacksaw Ridge",
+    "rating": 9,
+    "tags": ["drama", "favorita", "belica", "ficción histórica", "guerra"]
+}, {
+    "id": 13,
+    "title": "Hustle",
+    "rating": 7,
+    "tags": ["drama", "deportes", "comedia cinematográfica"]
+}, {
+    "id": 14,
+    "title": "Don't Look Up",
+    "rating": 7,
+    "tags": ["drama", "ciencia-ficcion", "fantasia", "satira politica", "catastrofe"]
+}, {
+    "id": "Numero de identificacion",
+    "title": "Titulo de la pelicula",
+    "rating": "Valoracion numerica",
+    "tags": "Etiquetas que identifican a esta pelicula"
+}, {
+    "id": 4411,
+    "title": "Título de la nueva peli",
+    "tags": ["action", "classic"]
+}]
