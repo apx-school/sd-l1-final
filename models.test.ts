@@ -43,7 +43,6 @@ test.serial("Testeo el método getById", async (t) => {
   const b = await collection.getById(a.id);
   t.is(a.title, b.title);
 });
-
 test.serial("Testeo el método search", async (t) => {
   const collection = new PelisCollection();
   await collection.add({
