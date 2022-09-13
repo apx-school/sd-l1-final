@@ -16,9 +16,7 @@ class PelisCollection {
         return respuesta;
       });
   }
-  ///Es decir, al correr npm run test los tests dan timeout.
-  // [21:41]
-  // Si corro comandos individualmente, tipo “ts-node index.ts get 15” me trae la peli con ID 15 y así.
+
   async getById(id: number): Promise<Peli> {
     return (await this.getAll()).find((item) => item.id == id);
   }
