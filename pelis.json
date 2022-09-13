@@ -1,1 +1,15 @@
-[{"id":1,"title":"The Spider Man","tags":["accion","drama"]},{"id":2,"title":"Bad boys","tags":["accion","disparos","favorita"]},{"id":3,"title":"Cenicienta y los cuatro caballeros","tags":["romance","dibujo","animado","niños"]},{"id":4,"title":"The Walking Dead","tags":["accion","zombies","terror"]},{"id":5,"title":"Nueva Peli","tags":["accion","drama"]},{"_":["add"],"id":4321865,"title":"peli de la terminal 4321865","tags":["rr","ww"]}]
+[
+  { "id": 1, "title": "The Spider Man", "tags": ["accion", "drama"] },
+  { "id": 2, "title": "Bad boys", "tags": ["accion", "disparos", "favorita"] },
+  {
+    "id": 3,
+    "title": "Cenicienta y los cuatro caballeros",
+    "tags": ["romance", "dibujo", "animado", "niños"]
+  },
+  {
+    "id": 4,
+    "title": "The Walking Dead",
+    "tags": ["accion", "zombies", "terror"]
+  },
+  { "id": 5, "title": "Nueva Peli", "tags": ["accion", "drama"] }
+]

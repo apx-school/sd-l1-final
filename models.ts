@@ -17,7 +17,7 @@ class PelisCollection {
       });
   }
 
-  async getById(id: number) {
+  async getById(id: number): Promise<Peli> {
     return (await this.getAll()).find((item) => item.id == id);
   }
 

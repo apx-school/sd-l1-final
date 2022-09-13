@@ -5,7 +5,7 @@ class PelisController {
   constructor() {
     this.model = new PelisCollection();
   }
-  async get(options) {
+  async get(options): Promise<any> {
     if (options.id) {
       return await this.model.getById(options.id);
     }
@@ -16,7 +16,7 @@ class PelisController {
       return await this.model.search(options);
     }
   }
-  async add(peli: Peli) {
+  async add(peli: Peli): Promise<boolean> {
     return await this.model.add(peli);
   }
 }
