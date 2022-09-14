@@ -3,32 +3,31 @@ import * as minimist from "minimist";
 
 function parseaParams(argv) {
   const resultado = minimist(argv);
-
-  const pelisControllers = new PelisController();
-
-  const accion = resultado._;
-
-  const parametros = accion[0];
-
-  if (parametros === "get") {
-    return pelisControllers.get({ id: accion[1] });
-  } else if (parametros === "search") {
-    return pelisControllers.get({ search: resultado });
-  } else if (parametros === "add") {
-    const peliNueva = {
-      id: resultado.id,
-      title: resultado.title,
-      tags: resultado.tags,
-    };
-
-    return pelisControllers.add(peliNueva);
-  }
-  return pelisControllers.peliculas.getAll();
+  ejecutador(resultado);
+  return resultado;
 }
 
-async function main() {
-  const params = await parseaParams(process.argv.slice(2));
-  console.log(params);
+async function ejecutador(params) {
+  const controller = new PelisController();
+  if (params._[0] == "search") {
+    return controller.get({ search: params });
+  }
+  if (params._[0] == "get") {
+    return controller.get({ id: params._[1] });
+  }
+  if (params._[0] == "add") {
+    return controller.add(params).then((respuesta) => {
+      return respuesta;
+    });
+  }
+  return controller.collection.getAll();
+}
+
+function main() {
+  const params = parseaParams(process.argv.slice(2));
+  ejecutador(params).then((res) => {
+    console.log(res);
+  });
 }
 
 main();

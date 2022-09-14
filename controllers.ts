@@ -1,28 +1,30 @@
 import { PelisCollection, Peli } from "./models";
 
 class PelisController {
-  peliculas: PelisCollection;
+  collection: PelisCollection;
   constructor() {
-    this.peliculas = new PelisCollection();
+    this.collection = new PelisCollection();
   }
-  async get(options: any) {
+  async get(options) {
     if (options.id) {
-      return await this.peliculas.getById(options.id);
-    } else if (options.search) {
+      return await this.collection.getById(options.id);
+    }
+
+    if (options.search) {
       if (options.search.title && options.search.tag) {
-        return await this.peliculas.search(options.search);
-      } else if (options.search.title) {
-        return await this.peliculas.search(options.search);
-      } else if (options.search.tag) {
-        return await this.peliculas.search(options.search);
+        return await this.collection.search(options.search);
       }
-    } else {
-      return await this.peliculas.getAll();
+    }
+
+    if (options.search.title) {
+      return await this.collection.search(options.search);
+    }
+    if (options.search.tag) {
+      return await this.collection.search(options.search);
     }
   }
-
-  async add(pelicula: any) {
-    return await this.peliculas.add(pelicula);
+  async add(peli: Peli) {
+    return await this.collection.add(peli);
   }
 }
 export { PelisController };
