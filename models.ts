@@ -23,17 +23,18 @@ class PelisCollection {
 
   async search(options: any): Promise<any> {
     const peli = await this.getAll();
-    if (options.title && options.tags) {
-      return peli.filter(
-        (item) =>
-          item.title.includes(options.title) && item.tags.includes(options.tags)
-      );
-    }
-    if (options.title) {
+
+    if (options.title && options.tag) {
+      const titleByPeli = peli.filter((item) => {
+        return (
+          item.title.includes(options.title) && item.tags.includes(options.tag)
+        );
+      });
+      return titleByPeli;
+    } else if (options.title) {
       return peli.filter((item) => item.title.includes(options.title));
-    }
-    if (options.tags) {
-      return peli.filter((item) => item.tags.includes(options.tags));
+    } else if (options.tag) {
+      return peli.filter((item) => item.tags.includes(options.tag));
     }
   }
 

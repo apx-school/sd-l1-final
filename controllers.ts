@@ -1,18 +1,18 @@
 import { PelisCollection, Peli } from "./models";
 
 class PelisController {
-  model: any;
+  model: PelisCollection;
   constructor() {
     this.model = new PelisCollection();
   }
-  async get(options): Promise<any> {
+  async get(options) {
     if (options.id) {
       return await this.model.getById(options.id);
     }
     if (options.title) {
       return await this.model.search(options);
     }
-    if (options.tags) {
+    if (options.tag) {
       return await this.model.search(options);
     }
   }
