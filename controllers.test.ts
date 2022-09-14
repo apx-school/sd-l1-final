@@ -12,12 +12,6 @@ const test = anyTest as TestFn<{
   con: PelisController;
 }>;
 
-// # IMPORTANTE #
-// apenas te clones este repo
-// todos los test a continuación van a fallar
-
-// comentalos y descomentá uno a uno a medida
-// que vas avanzando en cada test
 
 test.serial(
   "Testeo PelisController get id (creado desde la terminal)",
