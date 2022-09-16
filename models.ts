@@ -16,8 +16,8 @@ class PelisCollection {
 
 	async getById(id: number): Promise<Peli> {
 		await this.getAll();
-		const peliculaConId = this.peliculas.find((pel) => pel.id == id);
-		return peliculaConId;
+		const resultado = this.peliculas.find((pel) => pel.id == id);
+		return resultado;
 	}
 
 	async search(options: any): Promise<Peli[]> {
