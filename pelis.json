@@ -1,1 +1,28 @@
-[]
+[
+    {
+        "id": 1,
+        "title": "pelicula1",
+        "tags": [
+            "accion",
+            "aventura",
+            "argentina"
+        ]
+    },
+    {
+        "id": 2,
+        "title": "pelicula2",
+        "tags": [
+            "favorita",
+            "drama",
+            "romantica"
+        ]
+    },
+    {
+        "id": 3,
+        "title": "pelicula3",
+        "tags": [
+            "drama",
+            "accion"
+        ]
+    }
+]
