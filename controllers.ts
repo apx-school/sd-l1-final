@@ -2,11 +2,8 @@ import { PelisCollection, Peli } from "./models";
 
 class PelisController {
   pelis: PelisCollection;
-  promesa: Promise<any>
   constructor() {
     this.pelis = new PelisCollection();
-    const promesa = this.pelis.getAll();
-    this.promesa = promesa;
   }
   async get(options:any):Promise<any>{
     // si el objeto tiene la propiedad id (ej: { id:1234 }), debe devolver la película con ese id.
@@ -29,8 +26,8 @@ class PelisController {
       return await this.pelis.getAll();
     }
   }
-  async add(peli:Peli){
-    return await this.pelis.add(peli);
+  add(peli:Peli){
+    return this.pelis.add(peli);
   }
 }
 export { PelisController };

@@ -29,7 +29,7 @@ class PelisCollection {
       return this.pelis.filter(peli => peli.tags.includes(options.tag.toLowerCase()));
     }
   }
-  add(peli:Peli): Promise<boolean>{
+  async add(peli:Peli): Promise<boolean>{
     const promesaUno = this.getById(peli.id).then(peliExistente => {
       if (peliExistente) {
         return false;
