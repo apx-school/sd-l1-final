@@ -161,7 +161,7 @@
   "resolved" "https://registry.npmjs.org/arrify/-/arrify-3.0.0.tgz"
   "version" "3.0.0"
 
-"ava@^4.0.1":
+"ava@^4.3.3":
   "integrity" "sha512-9Egq/d9R74ExrWohHeqUlexjDbgZJX5jA1Wq4KCTqc3wIfpGEK79zVy4rBtofJ9YKIxs4PzhJ8BgbW5PlAYe6w=="
   "resolved" "https://registry.npmjs.org/ava/-/ava-4.3.3.tgz"
   "version" "4.3.3"
