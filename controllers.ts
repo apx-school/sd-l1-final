@@ -31,4 +31,7 @@ class PelisController {
   }
 }
 
+const pelis = new PelisController();
+pelis.get({"search": {"tag": "adventure"}}).then(r => console.log(r))
+
 export { PelisController };

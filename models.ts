@@ -22,10 +22,10 @@ class PelisCollection {
   async search(options:any): Promise<any>{
     await this.getAll();
     if (options.title) {
-      return this.pelis.filter(peli => peli.title.includes(options.title));
+      return this.pelis.filter(peli => { return peli.title.includes(options.title)});
     }
     if (options.tag) {
-      return this.pelis.filter(peli => peli.tags.includes(options.tag));
+      return this.pelis.filter(peli => {return peli.tags.includes(options.tag) });
     }
   }
   async add(peli: Peli): Promise<boolean>{
