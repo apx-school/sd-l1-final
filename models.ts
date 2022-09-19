@@ -22,7 +22,7 @@ class PelisCollection {
   async search(options:any): Promise<any>{
     await this.getAll();
     if (options.title) {
-      return this.pelis.filter(peli => peli.title.toLowerCase().includes(options.title.toLowerCase()));
+      return this.pelis.filter(peli => peli.title.includes(options.title));
     }
     if (options.tag) {
       return this.pelis.filter(peli => peli.tags.includes(options.tag));
