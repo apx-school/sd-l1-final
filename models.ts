@@ -25,7 +25,7 @@ class PelisCollection {
       return this.pelis.filter(peli => peli.title.toLowerCase().includes(options.title.toLowerCase()));
     }
     if (options.tag) {
-      return this.pelis.filter(peli => peli.tags.includes(options.tag.toLowerCase()));
+      return this.pelis.filter(peli => peli.tags.includes(options.tag));
     }
   }
   async add(peli: Peli): Promise<boolean>{
