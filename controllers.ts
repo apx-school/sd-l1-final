@@ -1,3 +1,4 @@
+import { timeStamp } from "console";
 import { PelisCollection, Peli } from "./models";
 
 class PelisController {
@@ -13,12 +14,14 @@ class PelisController {
     if (options.id) {
       return await this.pelis.getById(options.id);
     }
-    if (options.search) {
-      if (options.search.title) {
-			  return await this.pelis.search(options.search.title);
+    else if (options.search) {
+      if (options.search.title && options.search.tag){
+			  return await this.pelis.search(options.search);
+      } else if (options.search.title) {
+        return await this.pelis.search(options.search)
       }
       else if (options.search.tag) {
-        return await this.pelis.search(options.search.tag);
+        return await this.pelis.search(options.search)
       }
 		}
     /* if (options.search && options.search.title) {
