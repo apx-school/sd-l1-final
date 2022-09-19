@@ -24,8 +24,8 @@ class PelisCollection {
     if (options.title) {
       return this.pelis.filter(peli => peli.title.includes(options.title));
     }
-    if (options.tag) {
-      return this.pelis.filter(peli => peli.tags.includes(options.tag));
+    if (options.tags) {
+      return this.pelis.filter(peli => peli.tags.includes(options.tags));
     }
   }
   async add(peli: Peli): Promise<boolean>{

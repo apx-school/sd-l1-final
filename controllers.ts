@@ -14,25 +14,17 @@ class PelisController {
     if (options.id) {
       return await this.pelis.getById(options.id);
     }
-    else if (options.search) {
-      if (options.search.title && options.search.tag){
-			  return await this.pelis.search(options.search);
-      } else if (options.search.title) {
-        return await this.pelis.search(options.search)
+    if (options.search) {
+      if (options.search.title && options.search.tags) {
+        return await this.pelis.search(options.search);
       }
-      else if (options.search.tag) {
-        return await this.pelis.search(options.search)
+      if (options.search.title) {
+        return await this.pelis.search(options.search);
       }
-		}
-    /* if (options.search && options.search.title) {
-      return await this.pelis.search(options.search);
+      if (options.search.tags) {
+        return await this.pelis.search(options.search);
+      }
     }
-    if (options.search && options.search.tag) {
-      return await this.pelis.search(options.search);
-    }
-    if (options.search.title && options.search.tag) {
-      return await this.pelis.search(options.search);
-    } */
   }
   async add(peli:Peli){
     return await this.pelis.add(peli);
