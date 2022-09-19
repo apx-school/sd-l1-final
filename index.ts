@@ -24,7 +24,7 @@ async function processOptions(args) {
   }
   if (args._[0] == 'search') {
     return controller.get({
-      search: {title: args.title, tag: args.tag}
+      search: {title: args.title, tags: args.tags}
     })
   }
   if(args._ = "[]"){
