@@ -13,7 +13,10 @@ class PelisController {
     if (options.id) {
       return await this.pelis.getById(options.id);
     }
-    if (options.search && options.search.title) {
+    if (options.search) {
+			return await this.pelis.search(options.search);
+		}
+    /* if (options.search && options.search.title) {
       return await this.pelis.search(options.search);
     }
     if (options.search && options.search.tag) {
@@ -21,7 +24,7 @@ class PelisController {
     }
     if (options.search.title && options.search.tag) {
       return await this.pelis.search(options.search);
-    }
+    } */
   }
   async add(peli:Peli){
     return await this.pelis.add(peli);
