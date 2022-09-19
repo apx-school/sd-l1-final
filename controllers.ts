@@ -2,32 +2,30 @@ import { PelisCollection, Peli } from "./models";
 
 class PelisController {
   pelis: PelisCollection;
-  constructor() {
+  constructor(){
     this.pelis = new PelisCollection();
+    this.pelis.getAll();
   }
-  async get(options:any):Promise<any>{
-    // si el objeto tiene la propiedad id (ej: { id:1234 }), debe devolver la película con ese id.
+  async get(options?:any){
+    if (!options) {
+      return await this.pelis.getAll();
+    }
     if (options.id) {
       return await this.pelis.getById(options.id);
     }
-    // Este da undefined. Seguir desde acá
-    if (options.search) {
-      if (options.search.title) {
-        return await this.pelis.search(options.search);
-      }
-      if (options.search.tag) {
-        return await this.pelis.search(options.search);
-      }
-      if (options.search.title && options.search.tag) {
-        return await this.pelis.search(options.search.title && options.search.tag);
-      }
+    if (options.search && options.search.title) {
+      return await this.pelis.search(options.search);
     }
-    if (options.empty) {
-      return await this.pelis.getAll();
+    if (options.search && options.search.tag) {
+      return await this.pelis.search(options.search);
+    }
+    if (options.search.title && options.search.tag) {
+      return await this.pelis.search(options.search);
     }
   }
-  add(peli:Peli){
-    return this.pelis.add(peli);
+  async add(peli:Peli){
+    return await this.pelis.add(peli);
   }
 }
+
 export { PelisController };

@@ -1,6 +1,7 @@
 import * as minimist from "minimist";
 import { PelisController } from "./controllers";
 import * as _ from "lodash";
+import { parse } from "path";
 
 function parseaParams(argv) {
   const resultado = minimist(argv);
@@ -16,33 +17,28 @@ async function processOptions(args) {
       title: args.title,
       tags: args.tags
     })
-    .then(res => console.log(res));
+    .then(r => {return r})
   }
   if (args._[0] == 'get') {
-    return controller
-    .get({
-      id: args._[1]
-    });
+    return controller.get({id: args._[1]})
   }
   if (args._[0] == 'search') {
-    return controller
-    .get({
-      title: args.tile,
-      tags: args.tag
-    });
+    return controller.get({
+      search: {title: args.title, tag: args.tag}
+    })
   }
-  if (_.isEmpty(args._[0])) {
-    return controller.get({empty: "empty"})
+  if(args._ = "[]"){
+    return controller.get();
   }
 }
 
 function main() {
-  const params = parseaParams(process.argv.slice(2));
-  console.log(params)
-  return processOptions(params).then(res => {
-    console.log(res);
+  const argsParseados = parseaParams(process.argv.slice(2));
+  console.log(argsParseados);
+  return processOptions(argsParseados).then(res => {
+    console.log(res)
     return res;
-  })
+  });
 }
 
 main();

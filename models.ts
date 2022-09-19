@@ -11,8 +11,7 @@ class PelisCollection {
   pelis: Peli[];
   // getAll() devuelve un array del tipo Peli con todas las pelis que se encuentren guardadas en el archivo JSON de pelis.
   async getAll(): Promise<Peli[]> {
-    const json = await jsonfile.readFile(__dirname + '/pelis.json');
-    return this.pelis = json;
+    return this.pelis = await jsonfile.readFile(__dirname + '/pelis.json');
   }
   // getById(id:number) devuelve la peli que tenga el id que se le pase por parámetro.
   async getById(id:number): Promise<Peli>{
@@ -29,21 +28,26 @@ class PelisCollection {
       return this.pelis.filter(peli => peli.tags.includes(options.tag.toLowerCase()));
     }
   }
-  async add(peli:Peli): Promise<boolean>{
-    const promesaUno = this.getById(peli.id).then(peliExistente => {
-      if (peliExistente) {
+  async add(peli: Peli): Promise<boolean>{
+    const promesaUno = this.getById(peli.id).then((peliExistente => {
+      if(peliExistente){
+        // Si una peli con ese id ya existe retornamos false
         return false;
       }
       else {
         return this.getAll().then(pelis => {
+          // Traemos las pelis e incluimos la nueva
           pelis.push(peli);
+          // Re escribimos el json
           const promesaDos = jsonfile.writeFile("./pelis.json", pelis);
+          // Devuelve una promesa, entonces cuando se haya escrito retorná true
           return promesaDos.then(() => {
-            return true
-          });
+            return true;
+          })
         })
       }
-    })
+    }));
+    // Devuelve el true o false
     return promesaUno;
   }
 }
