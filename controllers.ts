@@ -14,7 +14,12 @@ class PelisController {
       return await this.pelis.getById(options.id);
     }
     if (options.search) {
-			return await this.pelis.search(options.search);
+      if (options.search.title) {
+			  return await this.pelis.search(options.search.title);
+      }
+      else if (options.search.tag) {
+        return await this.pelis.search(options.search.tag);
+      }
 		}
     /* if (options.search && options.search.title) {
       return await this.pelis.search(options.search);

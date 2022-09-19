@@ -24,7 +24,7 @@ class PelisCollection {
     if (options.title) {
       return this.pelis.filter(peli => peli.title.includes(options.title));
     }
-    else if (options.tag) {
+    if (options.tag) {
       return this.pelis.filter(peli => peli.tags.includes(options.tag));
     }
   }
