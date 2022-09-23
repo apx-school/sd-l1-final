@@ -13,7 +13,7 @@ async function processOptions(args){
     return await controller.add({
       id: args.id,
       title: args.title,
-      tags: args.tag
+      tags: args.tags
     });
   }
   else if (args._[0] == 'get') {
@@ -25,7 +25,7 @@ async function processOptions(args){
     return await controller.get({
       search: {
         title: args.title,
-        tags: args.tag
+        tags: args.tags
       }
     })
   }
