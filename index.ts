@@ -3,12 +3,12 @@ import { title } from "process";
 import { PelisController } from "./controllers";
 
 
-function parseaParams(argv) {
+function parseaParams(argv:any) {
   const resultado = minimist(argv);
   return resultado;
 }
 
-async function processOptions(args){
+async function processOptions(args:any){
   const controller = new PelisController();
   if (args._[0] == 'add') {
     return await controller.add({
