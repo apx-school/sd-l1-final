@@ -1,7 +1,6 @@
 import * as minimist from "minimist";
 import { title } from "process";
 import { PelisController } from "./controllers";
-import * as lodash from "lodash";
 
 
 function parseaParams(argv) {
