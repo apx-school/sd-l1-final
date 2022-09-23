@@ -1,6 +1,8 @@
 import * as minimist from "minimist";
 import { title } from "process";
 import { PelisController } from "./controllers";
+import * as lodash from "lodash";
+
 
 function parseaParams(argv) {
   const resultado = minimist(argv);
@@ -30,7 +32,7 @@ async function processOptions(args){
     })
   }
   else {
-    return await controller.get();
+    return await controller.get()
   }
 }
 
