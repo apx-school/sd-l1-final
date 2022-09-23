@@ -27,7 +27,7 @@ async function processOptions(args){
     return await controller.get({
       search: {
         title: args.title,
-        tags: args.tags
+        tags: args.tag
       }
     })
   }
