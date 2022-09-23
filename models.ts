@@ -21,12 +21,12 @@ class PelisCollection {
     const pelis = await this.getAll();
     if (options.title){
       return pelis.filter(peli => {
-        return peli.title.toLowerCase().includes(options.title.toLowerCase());
+        return peli.title.includes(options.title);
       });
     }
     if (options.tags){
       return pelis.filter(peli => {
-        return peli.tags.includes(options.tags.toLowerCase());
+        return peli.tags.includes(options.tags);
       });
     }
   }
