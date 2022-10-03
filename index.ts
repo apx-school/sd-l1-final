@@ -1,15 +1,32 @@
 import * as minimist from "minimist";
+import { formatWithOptions } from "util";
+import { PelisController } from "./controllers"
 
 function parseaParams(argv) {
-  const resultado = minimist(argv);
+  const params = minimist(argv);
+  const option = params._[0];
 
-  return resultado;
+  if (option == "get") {
+    return { id: params._[1] };
+  } else if (option == "search") {
+    if (params.title && params.tag) {
+      return { search: { title: params.title, tags: params.tag } };
+    } else if (params.title) {
+      return { search: { title: params.title } };
+    } else if (params.tag) {
+      return { search: { tags: params.tag } };
+    }
+  } else if (option == "add") {
+    return { add: { id: params.id, title: params.title, tags: params.tag } };
+  } else {
+    return {};
+  }
 }
 
-function main() {
+async function main() {
   const params = parseaParams(process.argv.slice(2));
-
-  console.log(params);
+  const controller = await new PelisController()
+  console.log(await controller.get(params))
 }
 
 main();
