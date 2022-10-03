@@ -60,15 +60,17 @@ class PelisCollection {
 /*
 const test = new PelisCollection()
 const unaPeli = new Peli()
+unaPeli.id = 888,
+unaPeli.title = "la peli de prueba"
 const opt = {
-  tags: "disney",
+  tag: "disney",
   title: "fro"
 }
 
-test.search(opt).then((r) =>{
+test.search(opt)
+.then((r) =>{
   console.log(r)
 })
 */
-
 
 export { PelisCollection, Peli };
