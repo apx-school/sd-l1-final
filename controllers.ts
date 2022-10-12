@@ -18,30 +18,10 @@ class PelisController {
       }
     }
 
-    if (options.search.title && options.search.tag) {
+    if (options.search) {
       const filmFound = await this.collection.search(options.search);
 
       if (filmFound.length > 0) {
-        return filmFound;
-      } else {
-        return "There are no films that match the parameters entered";
-      }
-    }
-
-    if (options.search.title) {
-      const filmFound = await this.collection.search(options.search);
-
-      if (filmFound) {
-        return filmFound;
-      } else {
-        return "There are no films that match the parameters entered";
-      }
-    }
-
-    if (options.search.tag) {
-      const filmFound = await this.collection.search(options.search);
-
-      if (filmFound) {
         return filmFound;
       } else {
         return "There are no films that match the parameters entered";
