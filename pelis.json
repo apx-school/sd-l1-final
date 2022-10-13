@@ -1,1 +1,27 @@
-[]
+[
+	{ "id": 1, "title": "PeliUno", "tags": [" a", "b", "c"] },
+	{ "id": 2, "title": "PeliDos", "tags": ["c", "b", "a"] },
+	{ "id": 3, "title": "PeliTres", "tags": ["a", "c", "c"] },
+	{ "id": 4, "title": "PeliCuatro", "tags": ["z", "a", "a"] },
+	{ "id": 5, "title": "PeliNueva", "tags": ["a", "c"] },
+	{ "id": 6, "title": "PeliNueva", "tags": ["a", "c"] },
+	{
+		"id": 4321865,
+		"title": "peli de la terminal 4321865",
+		"tags": ["rr", "ww"]
+	},
+	{ "id": 178647, "title": "title 170509178647", "tags": ["tt", "rr"] },
+	{ "id": 132302, "title": "title 170509132302", "tags": ["yy", "uu"] },
+	{ "id": 202076, "title": "title 221188202076", "tags": ["tt", "rr"] },
+	{ "id": 195753, "title": "title 221188195753", "tags": ["yy", "uu"] },
+	{
+		"id": 150201,
+		"title": "una peli 150201",
+		"tags": ["classic", "tag 150201"]
+	},
+	{
+		"id": 174245,
+		"title": "otra peli un poco más divertida",
+		"tags": ["tag 150201"]
+	}
+]
