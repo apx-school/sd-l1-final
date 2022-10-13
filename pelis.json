@@ -1,1 +1,21 @@
-[]
+[
+    {
+    "id":1,
+    "title":"title 1",
+    "tags":["acción","suspenso","terror"]
+    },
+    {
+    "id":2,
+    "title":"title 2",
+    "tags":["drama","suspenso","romántica"]
+    },
+    {
+    "id":3,
+    "title":"title 3",
+    "tags":["acción","terror"]
+    },
+    {
+    "id":4,
+    "title":"title 4",
+    "tags":["policial","suspenso","terror"]
+    }]
