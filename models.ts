@@ -9,18 +9,18 @@ class Peli {
 
 class PelisCollection {
   peliculas: Peli[]
-  async getAll():Promise<Peli[]>{
+  async getAll(){
     const todasLasPelis = await jsonfile.readFile( __dirname + "/pelis.json")
     return (this.peliculas = todasLasPelis);
   }
 
-  async getById(id:number):Promise<Peli>{
+  async getById(id:number){
     await this.getAll()
     const respuesta= this.peliculas.find((pelis) => {return pelis.id == id})
     return respuesta
   }
 
-  async search(options:any):Promise<Peli[]>{
+  async search(options:any){
     await this.getAll()
     if (options.title && options.tag){
         return await this.peliculas.filter((peli)=>{
