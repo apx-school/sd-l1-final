@@ -1,1 +1,21 @@
-[{"id":1,"title":"Avatar","tags":["acción","animacíon","ciencia ficción","aventura","epico"]},{"id":2,"title":"Avengers:Endgame","tags":["acción","aventura","ciencia ficción","fantasía","superhéroes"]},{"id":3,"title":"Titanic","tags":["romance","catástrofe","drama"]},{"id":4,"title":"Joker ","tags":["drama","suspenso","crimen","thriller psicológico","tragedia"]},{"id":4411,"title":"Título de la nueva peli","tags":["action","classic"]},{"id":4321865,"title":"peli de la terminal 4321865","tags":["rr","ww"]},{"id":188507,"title":"title 172694188507","tags":["tt","rr"]},{"id":180114,"title":"title 172694180114","tags":["yy","uu"]}]
+[
+    {"id":1,
+    "title":"Avatar",
+    "tags":["acción","animacíon","ciencia ficción", "aventura", "epico"]
+    },
+    {
+        "id":2,
+        "title":"Avengers:Endgame",
+        "tags":["acción","aventura", "ciencia ficción", "fantasía", "superhéroes"]
+    },
+    {
+        "id":3,
+        "title":"Titanic",
+        "tags":["romance","catástrofe", "drama"]
+    },
+    {
+        "id":4,
+        "title":"Joker ",
+        "tags":["drama","suspenso", "crimen", "thriller psicológico", "tragedia"]
+    }
+]
