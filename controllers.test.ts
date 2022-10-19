@@ -19,7 +19,7 @@ const test = anyTest as TestFn<{
 // comentalos y descomentá uno a uno a medida
 // que vas avanzando en cada test
 
-test.serial(
+ test.serial(
   "Testeo PelisController get id (creado desde la terminal)",
   async (t) => {
     // testeo peli agregada desde el script test del package
@@ -27,7 +27,7 @@ test.serial(
     const peli = await controller.get({ id: 4321865 });
     t.is(peli.title, "peli de la terminal 4321865");
   }
-);
+); 
 
 test.serial("Testeo PelisController get id", async (t) => {
   const controller = new PelisController();

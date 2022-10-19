@@ -1,1 +1,21 @@
-[]
+[
+    {"id":1,
+    "title":"Avatar",
+    "tags":["acción","animacíon","ciencia ficción", "aventura", "epico"]
+    },
+    {
+        "id":2,
+        "title":"Avengers:Endgame",
+        "tags":["acción","aventura", "ciencia ficción", "fantasía", "superhéroes"]
+    },
+    {
+        "id":3,
+        "title":"Titanic",
+        "tags":["romance","catástrofe", "drama"]
+    },
+    {
+        "id":4,
+        "title":"Joker ",
+        "tags":["drama","suspenso", "crimen", "thriller psicológico", "tragedia"]
+    }
+]
