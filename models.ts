@@ -1,4 +1,5 @@
 import * as jsonfile from "jsonfile";
+import {} from "fs";
 
 // no modificar estas propiedades, agregar todas las que quieras
 class Peli {
@@ -24,21 +25,23 @@ class PelisCollection {
     const pelis = await this.getAll();
 
     if (options.title && options.tag) {
-      const peliTitleTags = pelis.filter((item) => {
+      const peliTitleTags = pelis.filter((i) => {
         return (
-          item.title.includes(options.title) && item.tags.includes(options.tag)
-        );
+          i.title.includes(options.title) && i.tags.includes(options.tag));
       });
 
       return peliTitleTags;
+
     } else if (options.title) {
-      const peliConTitle = pelis.filter((item) => {
-        return item.title.includes(options.title);
+      const peliConTitle = pelis.filter((i) => {
+        return i.title.includes(options.title);
       });
       return peliConTitle;
+      
     } else if (options.tag) {
-      const peliConTags = pelis.filter((item) => {
-        return item.tags.includes(options.tag);
+      const peliConTags = pelis.filter((i) => {
+        return i.tags.includes(options.tag);
+
       });
       return peliConTags;
     }
