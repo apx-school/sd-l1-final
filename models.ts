@@ -9,8 +9,8 @@ class Peli {
 }
 
 class PelisCollection {
-  async getAll(): Promise<Peli[]> {
-    return await jsonfile.readFile(__dirname + "/pelis.json").then((respuesta) => {
+   getAll(): Promise<Peli[]> {
+    return jsonfile.readFile(__dirname + "/pelis.json").then((respuesta) => {
         
         return respuesta;
       });
