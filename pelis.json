@@ -1,1 +1,32 @@
-[{"title":"12 Years a Slave","id":1,"tags":["drama","historia","biografia"]},{"title":"Ace Ventura: Pet Detective","id":2,"tags":["comedia"]},{"title":"Rise of the Planet of the Apes","id":3,"tags":["accion","drama","ciencia ficcion"]},{"title":"Divergent","id":4,"tags":["accion","aventura","misterio"]},{"title":"Django Unchained","id":5,"tags":["drama","western"]},{"title":"True Romance","id":6,"tags":["crimen","drama","romance"]},{"title":"Tropa de Elite","id":7,"tags":["accion","crimen","drama"]},{"title":"El Clan ","id":8,"tags":["biografia","crimen","drama"]},{"title":"Fight Club","id":9,"tags":["drama"]},{"title":"Goodfellas","id":10,"tags":["biografia","crimen","drama"]},{"title":"Guerra mundial Z","id":11,"tags":["accion","aventura","horror"]},{"title":"Fury","id":12,"tags":["accion","drama","guerra"]},{"title":"Inglourious Basterds","id":13,"tags":["aventura","drama","guerra"]},{"title":"The Shawshank Redemption","id":14,"tags":["drama"]},{"title":"peli de la terminal 4321865","id":4321865,"tags":["rr","ww"]},{"id":218639,"title":"title 153762218639","tags":["tt","rr"]},{"id":131319,"title":"title 153762131319","tags":["yy","uu"]},{"id":223900,"title":"title 223768223900","tags":["tt","rr"]},{"id":131664,"title":"title 223768131664","tags":["yy","uu"]},{"id":148998,"title":"una peli 148998","tags":["classic","tag 148998"]},{"id":180946,"title":"otra peli un poco más divertida","tags":["tag 148998"]}]
+[
+  {
+    "title": "12 Years a Slave",
+    "id": 1,
+    "tags": ["drama", "historia", "biografia"]
+  },
+  { "title": "Ace Ventura: Pet Detective", "id": 2, "tags": ["comedia"] },
+  {
+    "title": "Rise of the Planet of the Apes",
+    "id": 3,
+    "tags": ["accion", "drama", "ciencia ficcion"]
+  },
+  { "title": "Divergent", "id": 4, "tags": ["accion", "aventura", "misterio"] },
+  { "title": "Django Unchained", "id": 5, "tags": ["drama", "western"] },
+  { "title": "True Romance", "id": 6, "tags": ["crimen", "drama", "romance"] },
+  { "title": "Tropa de Elite", "id": 7, "tags": ["accion", "crimen", "drama"] },
+  { "title": "El Clan ", "id": 8, "tags": ["biografia", "crimen", "drama"] },
+  { "title": "Fight Club", "id": 9, "tags": ["drama"] },
+  { "title": "Goodfellas", "id": 10, "tags": ["biografia", "crimen", "drama"] },
+  {
+    "title": "Guerra mundial Z",
+    "id": 11,
+    "tags": ["accion", "aventura", "horror"]
+  },
+  { "title": "Fury", "id": 12, "tags": ["accion", "drama", "guerra"] },
+  {
+    "title": "Inglourious Basterds",
+    "id": 13,
+    "tags": ["aventura", "drama", "guerra"]
+  },
+  { "title": "The Shawshank Redemption", "id": 14, "tags": ["drama"] }
+]
