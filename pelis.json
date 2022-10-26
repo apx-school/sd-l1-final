@@ -1,1 +1,134 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "Capitán América: El primer Vengador",
+    "tags": ["acción", "aventura"]
+    
+  },
+  {
+    "title": "Capitana Marvel",
+    "id": 2,
+    "tags": ["acción", "ciencia ficción"]
+    
+  },
+  {
+    "title": "Iron Man: el hombre de hierro",
+    "id": 3,
+    "tags": ["acción", "ciencia ficción"]
+    
+  },
+  {
+    "title": "Iron Man 2",
+    "id": 4,
+    "tags": ["acción", "aventura"]
+    
+  },
+  {
+    "title": "Hulk: El hombre increíble",
+    "id": 5,
+    "tags": ["acción", "ciencia ficción"]
+    
+  },
+  {
+    "title": "Thor",
+    "id": 6,
+    "tags": ["acción", "fantasía"]
+    
+  },
+  {
+    "title": "Avengers",
+    "id": 7,
+    "tags": ["acción", "ciencia ficción"]
+    
+  },
+  {
+    "title": "Iron Man 3",
+    "id": 8,
+    "tags": ["acción", "aventura"]
+    
+  },
+  {
+    "title": "Thor: Un mundo oscuro",
+    "id": 9,
+    "tags": ["acción", "aventura"]
+    
+  },
+  {
+    "title": "Capitán América: El Soldado del Invierno",
+    "id": 10,
+    "tags": ["acción", "aventura"]
+    
+  },
+  {
+    "title": "Guardianes de la Galaxia Vol. 1",
+    "id": 11,
+    "tags": ["acción", "fantasía", "ciencia ficción"]
+    
+  },
+  {
+    "title": "Guardianes de la Galaxia Vol. 2",
+    "id": 12,
+    "tags": ["acción", "fantasía", "ciencia ficción"]
+    
+  },
+  {
+    "title": "Avengers: Era de Ultrón",
+    "id": 13,
+    "tags": ["acción", "ciencia ficción"]
+    
+  },
+  {
+    "title": "Ant-Man: El hombre hormiga",
+    "id": 14,
+    "tags": ["acción", "aventura"]
+    
+  },
+  {
+    "title": "Capitán América: Civil War",
+    "id": 15,
+    "tags": ["acción", "ciencia ficción"]
+    
+  },
+  {
+    "title": "Spider-Man: De Regreso a Casa",
+    "id": 16,
+    "tags": ["acción", "aventura"]
+    
+  },
+  {
+    "title": "Doctor Strange: Hechicero Supremo",
+    "id": 17,
+    "tags": ["acción", "aventura"]
+    
+  },
+  {
+    "title": "Black Panther",
+    "id":18,
+    "tags": ["acción", "aventura"]
+    
+  },
+  {
+    "title": "Thor: Ragnarok",
+    "id": 19,
+    "tags": ["acción", "ciencia ficción"]
+    
+  },
+  {
+    "title": "Ant-Man and The Wasp",
+    "id": 20,
+    "tags": ["acción", "aventura"]
+    
+  },
+  {
+    "title": "Avengers: Infinity War",
+    "id": 21,
+    "tags": ["acción", "ciencia ficción"]
+    
+  },
+  {
+    "title": "Avengers: Endgame",
+    "id": 22,
+    "tags": ["acción", "ciencia ficción"]
+    
+  }
+]
