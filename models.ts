@@ -7,7 +7,6 @@ class ContactsCollectionOptions {
   ;
 }
 
-// no modificar estas propiedades, agregar todas las que quieras
 class Peli {
   id: number;
   title: string;
@@ -33,85 +32,52 @@ class PelisCollection {
       options.hasOwnProperty("title") &&
       options.hasOwnProperty("tag")
     ) {
-      let contadorTitle = 0;
       const pelisTitle = [];
       lodash.filter(pelis, (p) => {
-        // console.log(options.title);
-        const optMinus = options.title;   //lowerCase
+        const optMinus = options.title; 
         const evalUno = p.title.toLowerCase().includes(optMinus);
         if (evalUno) {
           return pelisTitle.push(p);
-        } else {
-          return contadorTitle++;
-        }
+        };
       });
-      // if (contadorTitle === pelis.length) {
-      //   // return `El título "${options.title}" no ha sido encontrado`;
-      // }
-      let contadorTag = 0;
       const pelisTags = [];
       lodash.filter(pelisTitle, (p) => {
-        const tagMinu = options.tag;   //lowerCase
+        const tagMinu = options.tag;
         const evvalDos = p.tags.includes(tagMinu);
         if (evvalDos) {
           return pelisTags.push(p);
-        } else {
-          return contadorTag++;
-        }
+        } 
       });
-      // if (contadorTag === pelisTitle.length) {
-      //   // return `El tag "${options.tag}" no ha sido encontrado`;
-      // } else {
-        return pelisTags;
-      // }
+      return pelisTags;
     } else if (options.hasOwnProperty("title")) {
-      //msjs de error????? y GIT
-      let contador = 0;
       const pelisEncontradas = [];
       lodash.filter(pelis, (p) => {
-        const optionEnMinuscula = options.title;   //lowerCase
+        const optionEnMinuscula = options.title; 
         const evaluacion = p.title.toLowerCase().includes(optionEnMinuscula);
         if (evaluacion) {
           return pelisEncontradas.push(p);
-        } else {
-          return contador++;
         }
       });
-      // if (contador === pelis.length) {
-      //   // return `El título "${options.title}" no ha sido encontrado`;
-      // } else {
-        return pelisEncontradas;
-      // }
+      return pelisEncontradas;
     } else if (options.hasOwnProperty("tag")) {
-      let contadorDos = 0;
       const tagsEncontrados = [];
       lodash.filter(pelis, (p) => {
-        const tagMinuscula = options.tag;  //lowerCase
+        const tagMinuscula = options.tag; 
         const evaluacionDos = p.tags.includes(tagMinuscula);
-        if (evaluacionDos) {
-          return tagsEncontrados.push(p);
-        } else {
-          return contadorDos++;
+        if (evaluacionDos){
+          return tagsEncontrados.push(p)
         }
       });
-      // if (contadorDos === pelis.length) {
-      //   // return `El tag "${options.tag}" no ha sido encontrado`;
-      // } else {
-        return tagsEncontrados;
+      return tagsEncontrados;
       }
-    // } else {
-    //   return "Únicos parámetros para el comando 'search' son: 'Title' y 'Tag'";
-    // }
   }
   async add(peli: Peli): Promise <boolean> {
-    // const pelis = await jsonfile.readFile(__dirname + "/pelis.json");
     const promesaUno = this.getById(peli.id).then((pel) => {
       if (pel) {
         return false;
       } else {
         const pelis = jsonfile.readFileSync(__dirname + "/pelis.json");
-        pelis.push(peli)
-        // return pelis;
+        pelis.push(peli);
         const promesaDos = jsonfile.writeFile(__dirname + "/pelis.json", pelis);
         return promesaDos.then(()=>{
           return true
@@ -123,15 +89,3 @@ class PelisCollection {
 }
 
 export { PelisCollection, Peli, ContactsCollectionOptions };
-
-
-// const pelicoll = new PelisCollection();
-// // // console.log(pelicoll.getAll());
-// // // pelicoll.getAll().then((resp) => console.log(resp))
-// // // pelicoll.getById(2).then((resp) => console.log(resp));
-// // // pelicoll.search({ search: { title: "DU" } }).then((resp) => console.log(resp));
-// // // console.log(pelicoll.search({search: {title: "an"}}));
-// pelicoll.search({title: "he"}).then((res) => console.log(res));
-// // pelicoll
-//   .add({ id: 20, title: "Jota", tags: ["guapo", "feo"], rating: 20 })
-//   .then((resp) => console.log(resp));
