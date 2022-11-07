@@ -11,7 +11,7 @@ class PelisCollection {
   collectionPelis: Peli[];
 
   async getAll(): Promise<Peli[]> {
-    const json = await jsonfile.readFile("./pelis.json");
+    const json = await jsonfile.readFile(__dirname + "/pelis.json");
     return (this.collectionPelis = json);
   }
 
@@ -42,14 +42,17 @@ class PelisCollection {
     }
   }
 
-  add(peli: Peli): Promise<boolean> {
+  async add(peli: Peli): Promise<boolean> {
     const promesaUno = this.getById(peli.id).then((peliExistente) => {
       if (peliExistente) {
         return false;
       } else {
         return this.getAll().then((json) => {
           json.push(peli);
-          const promesaDos = jsonfile.writeFile("./pelis.json", json);
+          const promesaDos = jsonfile.writeFile(
+            __dirname + "/pelis.json",
+            json
+          );
           return promesaDos.then(() => {
             return true;
           });
