@@ -15,11 +15,12 @@ class PelisController {
   async get(options: any) {
     await this.controllerPelis.getAll();
     if (options.id) {
+      //console.log(options.id);
       return await this.controllerPelis.getById(options.id);
     }
     if (options.search) {
       //console.log(options);
-      return await this.controllerPelis.search(options);
+      return await this.controllerPelis.search(options.search);
     }
     return await this.controllerPelis.getAll();
   }
