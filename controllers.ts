@@ -1,25 +1,25 @@
-import { title } from "process";
 import { PelisCollection, Peli } from "./models";
 
 class PelisController {
-  controller: PelisCollection
+  controller: PelisCollection;
   constructor() {
-    this.controller = new PelisCollection
+    this.controller = new PelisCollection();
   }
- get (options){
+ async get (options){
   if (options.id){
-    return this.controller.getById(options.id)
+    return await this.controller.getById(options.id)
   }
-  if (options.add){
-    return this.controller.add(options.add)
-  }
-  if (options.search){
-    return this.controller.search(options.search)
+  else if (options.search){
+    return await this.controller.search(options.search)
   }
   else {
-    return this.controller.getAll()
+    return await this.controller.getAll()
   }
-}}
+}
+async add (peli){
+  return await this.controller.add(peli)
+}
+}
 
 
 export { PelisController };
