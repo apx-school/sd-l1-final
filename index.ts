@@ -5,6 +5,20 @@ function parseaParams(argv) {
   const resultado = minimist(argv);
   return resultado;
 }
+
+async function processPelis(params){
+  const peliController = new PelisController();
+
+}
+
+async function main (){
+  const params = parseaParams(process.argv.slice(2));
+  const result = processPelis(params)
+  console.log(result)
+}
+
+main()
+
 /*
 async function pelisController(argumentos){
   const controller = new PelisController();
