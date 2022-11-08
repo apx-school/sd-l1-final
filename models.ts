@@ -41,6 +41,7 @@ class PelisCollection {
   async add(peli: Peli): Promise<boolean>{
     const promesaUno = await this.getById(peli.id)
     if (promesaUno) {
+      console.log("Ese ID ya existe! Intente nuevamente")
       return false
     }
     else {
