@@ -12,13 +12,14 @@ class PelisController {
   else if (options.search){
     return await this.controller.search(options.search)
   }
+  else if (options.add){
+    return await this.controller.add(options.add)
+  }
   else {
     return await this.controller.getAll()
   }
 }
-async add (peli){
-  return await this.controller.add(peli)
-}
+
 }
 
 
