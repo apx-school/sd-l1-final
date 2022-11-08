@@ -9,17 +9,17 @@ class Peli {
 class PelisCollection {
   // Trae todas las peliculas
   async getAll(): Promise<Peli[]> {
-    return await jsonfile.readFile("./pelis.json")
+    return await jsonfile.readFile(__dirname + "/pelis.json")
   }
   // Trae la peli por su ID
-  async getById(id:number){
+  async getById(id:number): Promise<Peli>{
     const data = await this.getAll();
     return data.find((i) => {
       return i.id == id
     })
   }
   // Busca pelis por title o por tag
-  async search(options:any){
+  async search(options:any): Promise<Peli[]>{
     const data = await this.getAll();
     if (options.title && options.tag){
       return data.filter((i) => {
@@ -38,7 +38,7 @@ class PelisCollection {
     }
   }
   // Agrega pelis
-  async add(peli: Peli) {
+  async add(peli: Peli): Promise<boolean>{
     const promesaUno = await this.getById(peli.id)
     if (promesaUno) {
       return false
@@ -46,7 +46,8 @@ class PelisCollection {
     else {
       const data = await this.getAll();
       data.push(peli)
-      await jsonfile.writeFile("./pelis.json", data)
+      await jsonfile.writeFile(__dirname + "/pelis.json", data)
+      console.log("La peli fue agregada con exito!")
       return true
     }
 

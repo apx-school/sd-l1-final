@@ -22,11 +22,27 @@ function parseaParams(argv) {
   }
 }
 
+async function processParams(params){
+  const result = await new PelisController();
+  if(params.id){
+    return await result.get(params)
+  }
+  else if(params.search){
+    return await result.get(params)
+  }
+  else if (params.add){
+    return await result.add(params.add)
+  }
+  else {
+    return await result.get(params)
+  }
+}
+
 
 async function main (){
   const params = parseaParams(process.argv.slice(2));
-  const result = await new PelisController();
-  console.log(await result.get(params))
+  const resultado = await processParams(params)
+  console.log(resultado)
 }
 
 main()

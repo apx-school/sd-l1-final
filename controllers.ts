@@ -5,21 +5,21 @@ class PelisController {
   constructor() {
     this.controller = new PelisCollection();
   }
- async get (options){
+ async get (options): Promise<any>{
   if (options.id){
-    return await this.controller.getById(options.id)
+    return this.controller.getById(options.id)
   }
   else if (options.search){
-    return await this.controller.search(options.search)
-  }
-  else if (options.add){
-    return await this.controller.add(options.add)
+    return this.controller.search(options.search)
   }
   else {
-    return await this.controller.getAll()
+    return this.controller.getAll()
   }
 }
-
+  async add (peli): Promise<boolean>{
+    return this.controller.add(peli)
+  }
+  
 }
 
 
