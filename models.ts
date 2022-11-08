@@ -41,14 +41,14 @@ class PelisCollection {
   async add(peli: Peli): Promise<boolean>{
     const promesaUno = await this.getById(peli.id)
     if (promesaUno) {
-      console.log("Ese ID ya existe! Intente nuevamente")
+//      console.log("Ese ID ya existe! Intente nuevamente")
       return false
     }
     else {
       const data = await this.getAll();
       data.push(peli)
       await jsonfile.writeFile(__dirname + "/pelis.json", data)
-      console.log("La peli fue agregada con exito!")
+//      console.log("La peli fue agregada con exito!")
       return true
     }
 
