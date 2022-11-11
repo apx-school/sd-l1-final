@@ -19,7 +19,17 @@ class PelisCollection {
     });
   }
   search(options: any) {
-    if (options.title) {
+    if (options.title && options.tag) {
+      let aux;
+      aux = this.getAll().then((res) => {
+        return res.filter((x) => x.title.includes(options.title));
+      });
+      return aux.then((res) => {
+        return res.filter(
+          (x) => x.tags.filter((x) => x == options.tag) == options.tag
+        );
+      });
+    } else if (options.title) {
       return this.getAll().then((res) => {
         return res.filter((x) => x.title.includes(options.title));
       });
