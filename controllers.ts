@@ -6,11 +6,13 @@ class PelisController {
     this.pelis = new PelisCollection();
   }
   get(options) {
-    // por que pasando el if de options.id primero funciona y si no, no
-    if (options.id) {
-      return this.pelis.getById(options.id);
+
+    if(options._ == "") {
+      return this.pelis.getAll()
+    } else if (options.get) {
+      return this.pelis.getById(options.get);
     } else if (options.add) {
-      // ...
+      return this.pelis.add(options.add)
     } else if (options.search.title && options.search.tag) {
       return this.pelis.search(options.search);
     } else if (options.search.title) {
@@ -18,10 +20,6 @@ class PelisController {
     } else if (options.search.tag) {
       return this.pelis.search(options.search);
     }
-    // else if (options) {
-    //   console.log("A");
-    //   return this.pelis.getAll();
-    // }
   }
   add(peli: Peli) {
     return this.add(peli);

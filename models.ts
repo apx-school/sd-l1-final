@@ -48,12 +48,12 @@ class PelisCollection {
       } else {
         this.getAll().then((pelis) => {
           pelis.push(peli);
-          const promesaTres = jsonfile.writeFile(
+          const promesaDos = jsonfile.writeFile(
             __dirname + "/pelis.json",
             pelis
           );
 
-          return promesaTres.then(() => {
+          return promesaDos.then(() => {
             return true;
           });
         });
