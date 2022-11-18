@@ -1,1 +1,19 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "el titanic se hundió en el atlántico",
+    "tags": ["drama", "romance", "ficción"]
+  },
+  {
+    "id": 2,
+    "title": "Spiderman, el superhéroe más grande de Nueva york",
+    "tags": ["ficción", "ciencia", "FXs", "fantasía"]
+  },
+  {
+    "id": 3,
+    "title": "Madagascar, la aventura de los animales de Nueva York en África",
+    "tags": ["comedia", "ficción", "infantil", "fantasía"]
+  },
+  { "id": 4, "title": "4", "tags": ["4"] },
+  { "id": 5, "title": "5", "tags": ["5"] }
+]
