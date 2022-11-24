@@ -78,7 +78,7 @@ export { PelisCollection, Peli };
 /* const mock = new PelisCollection();
 async function main() {
   await mock.getAll();
-  console.log(await mock.add({ id: 4, title: "5", tags: ["5"] }));
+  console.log(await mock.getById(4));
 }
 
 main(); */
