@@ -21,7 +21,7 @@ class PelisCollection {
     return this.data;
   }
 
-  async getById(id:number): Promise<Peli>{
+  async getById(id: number): Promise<Peli>{
     const getResult =  this.data.find(e => e.id == id);
     return getResult;
   }
@@ -44,25 +44,21 @@ class PelisCollection {
   }
 
   async add(peli: Peli): Promise<boolean>{
-    if(await this.getById(peli.id)) {
-      return false;
+    if(this.data !== undefined){
+      if(await this.getById(peli.id)){
+        return false;
+      }else{
+        this.data.push(peli);
+        await js.writeFile(jsonPath,this.data);
+        return true;
+      }
     }else{
-     this.data.push(peli);
-     await js.writeFile(jsonPath,this.data);
-     return true;
+      this.data = [peli];
+      await js.writeFile(jsonPath,this.data);
+      return true;
     }
-  }
+    }
 }
 
 export { PelisCollection, Peli };
 
-// async function main(){
-//   const foo = new PelisCollection();
-//   await foo.load();
-//   console.log(foo.data);
-//   (await foo.add({id:31,title:'One Piece: Red',tags:["acción","animé","humor","piratas","fantasía"],rating: 9.8})) ?
-//   console.log('Se agrego la peli') :
-//   console.log('No se agregó la peli');
-// }
-
-// main();

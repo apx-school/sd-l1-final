@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "test": "ts-node index.ts add --id=4321865 --title=\"peli de la terminal 4321865\" --rating=4.5 --tags=\"[\"acción\",\"drama\"]\"",
+    "test": "ts-node index.ts add --id=4321865 --title=\"peli de la terminal 4321865\" --rating=124.3 --tags=rr --tags=ww && ava",
     "start": "ts-node index.ts"
   },
   "ava": {
@@ -13,7 +13,8 @@
     ],
     "require": [
       "ts-node/register"
-    ]
+    ],
+    "timeout": "120s"
   },
   "keywords": [],
   "author": "",

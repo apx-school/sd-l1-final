@@ -36,12 +36,3 @@ class PelisController {
   }
 
 export { PelisController, ControllerOptions};
-
-// async function main(){
-//   const foo = new PelisController();
-//   console.log(await foo.get({id: 24}));
-//   console.log(await foo.get({search: {title:"THE", tag: "drama"}}));
-//   console.log(await foo.get({search: {tag: "ACCIÓN"}}));
-// }
-
-// main();

@@ -13,7 +13,7 @@ async function parseaParams(argv) {
     const requiredKeys = ["id","title","rating","tags"];
     if(requiredKeys.every(e => optionsKeys.includes(e))) {
       results = {add:options};
-      results.add.tags = results.add.tags.substring(2,results.add.tags.length-2).split('","');
+      // results.add.tags = results.add.tags.substring(2,results.add.tags.length-2).split('","');
     }else{
       throw Error('Los argumentos ingresados son incorrectos');
     }
