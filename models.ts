@@ -18,6 +18,7 @@ class PelisCollection {
   }
 
   async getById(id: number): Promise<Peli> {
+    await this.getAll();
     const encontrado = await this.pelis.find((peli) => {
       if (peli.id == id) {
         return true;
@@ -27,6 +28,8 @@ class PelisCollection {
   }
 
   async search(options: any): Promise<any> {
+    await this.getAll();
+
     if (options.title) {
       const enconrado = await this.pelis.filter((peli) => {
         if (includes(peli.title, options.title)) {
@@ -78,7 +81,7 @@ export { PelisCollection, Peli };
 /* const mock = new PelisCollection();
 async function main() {
   await mock.getAll();
-  console.log(await mock.getById(4));
+  console.log(await mock.search({ tag: "drama", title: "co" }));
 }
 
 main(); */
