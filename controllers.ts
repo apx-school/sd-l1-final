@@ -20,7 +20,7 @@ class PelisController {
 
   async add(peli: Peli) {
     return await this.controllerPelis.add(peli);
-  }
+   }
 }
 
 export { PelisController };
