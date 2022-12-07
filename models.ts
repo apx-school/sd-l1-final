@@ -32,16 +32,16 @@ class PelisCollection {
         return peli.title.includes(options.title);
       });
     }
-    if (options.title && options.tag) {
+    if (options.title && options.tags) {
       return this.collectionPelis.filter((peli) => {
         return (
-          peli.title.includes(options.title) && peli.tags.includes(options.tag)
+          peli.title.includes(options.title) && peli.tags.includes(options.tags)
         );
       });
     }
-    if (options.tag) {
+    if (options.tags) {
       return this.collectionPelis.filter((peli) => {
-        return peli.tags.includes(options.tag);
+        return peli.tags.includes(options.tags);
       });
     }
   }
