@@ -12,26 +12,17 @@ class PelisCollection {
 
   async getAll(): Promise<Peli[]> {
     const json = await jsonfile.readFile(__dirname + "/pelis.json");
-
     return (this.collectionPelis = json);
   }
 
   async getById(id: number): Promise<Peli> {
-    const peliculaBuscada = (await this.getAll()).find((p) => {
-      return p.id == id;
-    });
-
-    return peliculaBuscada;
+    const data = (await this.getAll()).find((peli) => peli.id == id);
+    return data;
   }
 
   async search(options: any): Promise<any> {
     await this.getAll();
 
-    if (options.title) {
-      return this.collectionPelis.filter((peli) => {
-        return peli.title.includes(options.title);
-      });
-    }
     if (options.title && options.tag) {
       return this.collectionPelis.filter((peli) => {
         return (
@@ -39,10 +30,15 @@ class PelisCollection {
         );
       });
     }
+    if (options.title) {
+      return this.collectionPelis.filter((p) =>
+        p.title.includes(options.title)
+      );
+    }
     if (options.tag) {
-      return this.collectionPelis.filter((peli) => {
-        return peli.tags.includes(options.tag);
-      });
+      return this.collectionPelis.filter((peli) =>
+        peli.tags.filter((t) => t == options.tag)
+      );
     }
   }
 
@@ -67,5 +63,4 @@ class PelisCollection {
     return promesaUno;
   }
 }
-
 export { PelisCollection, Peli };
