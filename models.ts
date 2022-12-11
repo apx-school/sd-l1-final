@@ -30,21 +30,7 @@ class PelisCollection {
   async search(options: any): Promise<any> {
     await this.getAll();
 
-    if (options.title) {
-      const enconrado = await this.pelis.filter((peli) => {
-        if (includes(peli.title, options.title)) {
-          return true;
-        }
-      });
-      return enconrado;
-    } else if (options.tag) {
-      const encontrado = await this.pelis.filter((peli) => {
-        if (includes(peli.tags, options.tag)) {
-          return true;
-        }
-      });
-      return encontrado;
-    } else if (options.tag && options.title) {
+    if (options.tag && options.title) {
       const enconrado = await this.pelis.filter((peli) => {
         if (
           includes(peli.tags, options.tag) &&
@@ -54,6 +40,20 @@ class PelisCollection {
         }
       });
       return enconrado;
+    } else if (options.title) {
+      const enconrado = await this.pelis.filter((peli) => {
+        if (includes(peli.title, options.title)) {
+          return true;
+        }
+      });
+      return enconrado;
+    } else if (options.tag) {
+      const encontrado = await this.pelis.find((peli) => {
+        if (includes(peli.tags, options.tag)) {
+          return true;
+        }
+      });
+      return encontrado;
     }
   }
 
@@ -78,10 +78,10 @@ class PelisCollection {
 }
 export { PelisCollection, Peli };
 
-/* const mock = new PelisCollection();
+const mock = new PelisCollection();
 async function main() {
   await mock.getAll();
-  console.log(await mock.search({ tag: "drama", title: "co" }));
+  console.log(await mock.search({ tag: "drama", title: "la" }));
 }
 
-main(); */
+main();

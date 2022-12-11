@@ -15,18 +15,15 @@ class PelisController {
     this.pelisCollection = new PelisCollection();
     this.pelisCollection.getAll();
   }
-  async get(options: any) {
-    if (options.id) {
-      return await this.pelisCollection.getById(options.id);
-    } else if (options.search.title) {
-      return await this.pelisCollection.search(options.search.title);
-    } else if (options.search.tag) {
-      return await this.pelisCollection.search(options.search.tag);
-    } else if (options.search.title && options.search.tag) {
-      return await (this.pelisCollection.search(options.search.title) &&
-        this.pelisCollection.search(options.search.tag));
-    } else {
+  async get(options?: any) {
+    console.log(options);
+
+    if (!options) {
       return await this.pelisCollection.getAll();
+    } else if (options.id) {
+      return await this.pelisCollection.getById(options.id);
+    } else if (options.search) {
+      return await this.pelisCollection.search(options.search);
     }
   }
 
@@ -36,10 +33,12 @@ class PelisController {
 }
 export { PelisController /* PelisControllerOptions */ };
 
-/* const mock = new PelisController();
+const mock = new PelisController();
 
 async function main() {
-  console.log(await mock.get({ search: { title: "la" } }));
+  console.log(
+    await mock.get({ search: { title: "Madagascar", tag: "drama" } })
+  );
 }
 
-main(); */
+main();

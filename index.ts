@@ -11,17 +11,20 @@ function processOptions(argumentos) {
   const pelis = new PelisController();
   const params = argumentos._[0];
 
-  if (params == "get") {
+  if (params === "get") {
     return pelis.get({ id: argumentos._[1] });
-  } else if (params == "search") {
-    return pelis.get({ title: argumentos.title, tags: argumentos.tags });
-  } else if (params == "add") {
+  }
+  if (params === "search") {
+    return pelis.get({ search: argumentos });
+  }
+  if (params === "add") {
     return pelis.add({
       id: argumentos.id,
       title: argumentos.title,
       tags: argumentos.tags,
     });
-  } else if (!params) {
+  }
+  if (!params) {
     return pelis.pelisCollection.getAll();
   }
 }
