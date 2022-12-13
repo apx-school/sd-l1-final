@@ -78,10 +78,10 @@ class PelisCollection {
 }
 export { PelisCollection, Peli };
 
-const mock = new PelisCollection();
+/* const mock = new PelisCollection();
 async function main() {
   await mock.getAll();
-  console.log(await mock.search({ tag: "drama", title: "la" }));
+  console.log(await mock.search({ tag: "action", title: "la" }));
 }
 
-main();
+main(); */

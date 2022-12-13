@@ -33,12 +33,10 @@ class PelisController {
 }
 export { PelisController /* PelisControllerOptions */ };
 
-const mock = new PelisController();
+/* const mock = new PelisController();
 
 async function main() {
-  console.log(
-    await mock.get({ search: { title: "Madagascar", tag: "drama" } })
-  );
+  console.log(await mock.get({ search: { title: "la", tag: "action" } }));
 }
 
-main();
+main(); */
