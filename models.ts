@@ -1,6 +1,5 @@
 import { readFile } from "fs/promises";
 import * as jsonfile from "jsonfile";
-import { pull } from "lodash/pull";
 import { type } from "os";
 
 // no modificar estas propiedades, agregar todas las que quieras
@@ -28,20 +27,20 @@ class PelisCollection {
     return peliEncontrada;
   }
 
-  async search(option): Promise<Peli[]> {
+  async search(option: any): Promise<Peli[]> {
     const listaCompleta = await this.getAll();
 
     const peliEncontrada = listaCompleta.filter((lista) => {
       let validacion = false;
 
       if (option.tag) {
-        if (lista.tags.includes(option.tag)) {
+        if (lista.tags && lista.tags.includes(option.tag)) {
           validacion = true;
           return lista;
         }
       }
       if (option.title) {
-        if (lista.title.includes(option.title)) {
+        if (lista.title && lista.title.includes(option.title)) {
           validacion = true;
           return lista;
         }
@@ -74,8 +73,8 @@ class PelisCollection {
 // const listaMock = new PelisCollection();
 
 // async function imprimir() {
-//   const objeto = await listaMock.search({ tag: "Crimen" });
-//   console.log("Models.ts");
+//   const objeto = await listaMock.search({ tag: "Drama" });
+
 //   console.log(objeto);
 // }
 // imprimir();
