@@ -32,14 +32,23 @@ class PelisCollection {
 
     const peliEncontrada = listaCompleta.filter((lista) => {
       let validacion = false;
+      console.log("Models.ts");
+      console.log(option);
 
-      if (option.tag) {
+      if (option.tag && option.title) {
+        if (
+          lista.tags.includes(option.tag) &&
+          lista.title.includes(option.title)
+        ) {
+          validacion = true;
+          return lista;
+        }
+      } else if (option.tag) {
         if (lista.tags && lista.tags.includes(option.tag)) {
           validacion = true;
           return lista;
         }
-      }
-      if (option.title) {
+      } else if (option.title) {
         if (lista.title && lista.title.includes(option.title)) {
           validacion = true;
           return lista;

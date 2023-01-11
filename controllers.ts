@@ -19,7 +19,9 @@ class PelisController {
   }
 
   async get(option: Options): Promise<any> {
-    console.log(option);
+    // console.log("Controllers.ts");
+    // console.log(option);
+
     if (option.id) {
       const peli = await this.pelisCollection.getById(option.id);
       return peli;
