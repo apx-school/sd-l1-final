@@ -1,4 +1,6 @@
+import { readFile } from "fs/promises";
 import * as jsonfile from "jsonfile";
+import { type } from "os";
 
 // no modificar estas propiedades, agregar todas las que quieras
 class Peli {
@@ -8,11 +10,82 @@ class Peli {
 }
 
 class PelisCollection {
+  peli: Peli[];
+
   getAll(): Promise<Peli[]> {
-    return jsonfile("...laRutaDelArchivo").then(() => {
-      // la respuesta de la promesa
-      return [];
+    return jsonfile
+      .readFile(__dirname + "/pelis.json")
+      .then((pelis: Peli[]) => {
+        this.peli = pelis;
+        return this.peli;
+      });
+  }
+
+  async getById(id: number): Promise<Peli> {
+    await this.getAll();
+    const peliEncontrada = this.peli.find((lista) => id === lista.id);
+    return peliEncontrada;
+  }
+
+  async search(option: any): Promise<Peli[]> {
+    const listaCompleta = await this.getAll();
+
+    const peliEncontrada = listaCompleta.filter((lista) => {
+      let validacion = false;
+      console.log("Models.ts");
+      console.log(option);
+
+      if (option.tag && option.title) {
+        if (
+          lista.tags.includes(option.tag) &&
+          lista.title.includes(option.title)
+        ) {
+          validacion = true;
+          return lista;
+        }
+      } else if (option.tag) {
+        if (lista.tags && lista.tags.includes(option.tag)) {
+          validacion = true;
+          return lista;
+        }
+      } else if (option.title) {
+        if (lista.title && lista.title.includes(option.title)) {
+          validacion = true;
+          return lista;
+        }
+      }
+
+      return validacion;
     });
+
+    return peliEncontrada;
+  }
+
+  async add(peli: Peli): Promise<boolean> {
+    const promesaUno = this.getById(peli.id).then((peliExistente) => {
+      if (peliExistente) {
+        return false;
+      } else {
+        return this.getAll().then(() => {
+          this.peli.push(peli);
+          const promesaDos = jsonfile.writeFile("./pelis.json", this.peli);
+          return promesaDos.then(() => {
+            return true;
+          });
+        });
+      }
+    });
+    return promesaUno;
   }
 }
+
+// const listaMock = new PelisCollection();
+
+// async function imprimir() {
+//   const objeto = await listaMock.search({ tag: "Drama" });
+
+//   console.log(objeto);
+// }
+// imprimir();
+
 export { PelisCollection, Peli };
