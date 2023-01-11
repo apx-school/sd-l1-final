@@ -24,7 +24,10 @@ class PelisController {
       const peli = await this.pelisCollection.getById(option.id);
       return peli;
     } else if (option.search.tag && option.search.title) {
-      const peli = await this.pelisCollection.search(option.search);
+      const peli = await this.pelisCollection.search({
+        title: option.search.title,
+        tag: option.search.tag,
+      });
       return peli;
     } else if (option.search.title && !option.search.tag) {
       const peli = await this.pelisCollection.search({

@@ -19,12 +19,16 @@ async function processOption(argv) {
       const obj = { id: argv._[1] };
       return await pelis.get(obj);
     } else {
-      return pelis.pelisCollection.getAll();
+      return await pelis.pelisCollection.getAll();
     }
   }
   if (option === "add") {
-    const obj = { id: argv.id, title: argv.title, tags: argv.tag };
+    console.log(argv.tags);
+    const obj = { id: argv.id, title: argv.title, tags: argv.tags };
     return await pelis.add(obj);
+  }
+  if (!option) {
+    return await pelis.pelisCollection.getAll();
   }
 }
 
