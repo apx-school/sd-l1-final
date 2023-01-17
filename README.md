@@ -1,4 +1,4 @@
-# Desafío del módulo 2
+## Proyecto final del módulo 2 de la carrera "Desarrollo Web Fullstack" de APX.
 
 Este proyecto consistía en un pequeño programa para gestionar películas en una base de datos local, mediante POO e implementando el patrón MVC para organizar el código. Está realizado en TypeScript.
 
