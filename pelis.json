@@ -1,1 +1,61 @@
-[]
+[{
+        "id": 1,
+        "title": "The Dark Knight",
+        "rating": 10,
+        "tags": ["acción", "favorita", "intriga"]
+    },
+    {
+        "id": 2,
+        "title": "Saving Private Ryan",
+        "rating": 9,
+        "tags": ["acción", "favorita", "drama"]
+    },
+    {
+        "id": 3,
+        "title": "The Mask",
+        "rating": 3,
+        "tags": ["comedia", "familiar"]
+    },
+    {
+        "id": 4,
+        "title": "A Man Apart",
+        "rating": 7,
+        "tags": ["favorita", "acción"]
+    },
+    {
+        "id": 5,
+        "title": "Patch Adams",
+        "rating": 8,
+        "tags": ["favorita", "familiar", "drama", "comedia"]
+    },
+    {
+        "id": 6,
+        "title": "Interstellar",
+        "rating": 10,
+        "tags": ["acción", "favorita", "aventura"]
+    },
+    {
+        "id": 7,
+        "title": "Dumb and Dumber",
+        "rating": 4,
+        "tags": ["comedia", "familiar"]
+    },
+    {
+        "id": 8,
+        "title": "Wiplash",
+        "rating": 8,
+        "tags": ["favorita", "drama", "musical"]
+    },
+    {
+        "id": 9,
+        "title": "Scream",
+        "rating": 5,
+        "tags": ["terror", "suspenso"]
+    },
+    {
+        "id": 10,
+        "title": "Fargo",
+        "rating": 7,
+        "tags": ["intriga", "favorita", "acción"]
+    }
+]
