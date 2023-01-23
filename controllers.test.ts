@@ -18,7 +18,7 @@ const test = anyTest as TestFn<{
 
 // comentalos y descomentá uno a uno a medida
 // que vas avanzando en cada test
-
+/*
 test.serial(
   "Testeo PelisController get id (creado desde la terminal)",
   async (t) => {
@@ -66,3 +66,4 @@ test.serial("Testeo PelisController search tag", async (t) => {
   const ids = pelis.map((b) => b.id);
   t.deepEqual(ids, [TEST_ID, SECOND_TEST_ID]);
 });
+*/
