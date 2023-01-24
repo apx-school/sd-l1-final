@@ -1,5 +1,6 @@
+import { AnyTxtRecord } from "dns";
 import * as jsonfile from "jsonfile";
-import { platform } from "process";
+import { platform, title } from "process";
 
 // TAG PARA EL FUTURO CERCANO: usar minimist o no,
 // para hacer que la peli que se guarde con "add()"
@@ -11,6 +12,8 @@ class Peli {
   title: string;
   tags: string[];
 }
+
+type SearchOptions = { title?: string; tag?: string };
 
 class PelisCollection {
   allPelis: Peli[] = [];
@@ -43,15 +46,53 @@ class PelisCollection {
       return true;
     }
   }
-  async search() {}
+  /*
+  async search(options: SearchOptions): Promise<Peli[]> {
+    await this.load();
+
+    const toReturn = this.allPelis.filter((p) => {
+      if (options.tag && !options.title) {
+        return p.tags.includes(options.tag);
+      }
+      if (options.title && !options.tag) {
+        return p.title.includes(options.title);
+      }
+      if (options.tag && options.title) {
+        return p.tags.includes(options.tag) && p.title.includes(options.title);
+      }
+    });
+
+    return toReturn;
+  }
+  */
+  async search(options) {
+    const lista = await this.getAll();
+
+    const listraFiltrada = lista.filter((p) => {
+      let esteVa = false;
+      if (options.tag) {
+        esteVa = p.tags.includes(options.tag);
+      }
+      if (options.title) {
+        esteVa = p.title.includes(options.title);
+      }
+      return esteVa;
+    });
+
+    return listraFiltrada;
+  }
 }
 
 export { PelisCollection, Peli };
-
+/*
 const coll = new PelisCollection();
 
-const mockPeli = { id: 12, title: "astros", tags: ["asd", "qwe"] };
-
+const mockPeli = { id: 123, title: "astros", tags: ["asd", "qwe"] };
 coll.add(mockPeli).then((r) => {
   console.log(r);
 });
+
+coll.search({ title: "Howls moving castle", tag: "Horror" }).then((r) => {
+  console.log(r);
+});
+*/

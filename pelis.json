@@ -1,1 +1,9 @@
-[{"id":1,"title":"Midsommar","tags":["Thriller","Horror"]},{"id":2,"title":"The last of Us","tags":["Action","Horror","Post - apocalyptic","Zombies"]},{"id":3,"title":"Predator","tags":["Action","Horror"]},{"id":12,"title":"astros","tags":["asd","qwe"]},{"id":211523,"title":"title 191084211523","tags":["tt","rr"]},{"id":200137,"title":"title 163432200137","tags":["tt","rr"]},{"id":156784,"title":"title 203196156784","tags":["tt","rr"]}]
+[
+  { "id": 1, "title": "Midsommar", "tags": ["Thriller", "Horror"] },
+  {
+    "id": 2,
+    "title": "Howls moving castle",
+    "tags": ["Anime", "Romantic", "Fantasy"]
+  },
+  { "id": 3, "title": "Predator", "tags": ["Action", "Horror"] }
+]
