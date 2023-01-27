@@ -5,5 +5,5 @@
     "title": "Howls moving castle",
     "tags": ["Anime", "Romantic", "Fantasy"]
   },
-  { "id": 3, "title": "Predator", "tags": ["Action", "Horror"] }
+  { "id": 3, "title": "Predator", "tags": ["Horror", "Action"] }
 ]
