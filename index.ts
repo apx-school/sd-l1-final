@@ -13,9 +13,9 @@ async function pasaLosParametros(param) {
   else if (param._.includes("search")) {
     return await controller.get({ search: param });
   }
-  // else if (param._.includes("get")) {
-  //   return await controller.get({ id: param._[1] });
-  // }
+  else if (param._.includes("get")) {
+    return await controller.get({ id: param._[1] });
+  }
   return controller;
 }
 
