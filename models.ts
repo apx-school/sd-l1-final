@@ -1,5 +1,5 @@
 import * as jsonfile from "jsonfile";
-import { find, includes } from "lodash"
+import { includes} from "lodash"
 
 type SearchOptions = { title?: any; tag?: string };
 class Peli {
@@ -9,7 +9,7 @@ class Peli {
 }
 
 class PelisCollection {
-  pelis: Peli[] = [];
+  pelis: Peli[]=[];
   async getAll(): Promise<Peli[]> {
     return await jsonfile.readFile("./pelis.json").then((pelis) => {
       this.pelis = pelis;
@@ -17,40 +17,45 @@ class PelisCollection {
     });
   };
   async getById(id: number): Promise<Peli> {
-    await this.getAll()
-    const buscarId = find(this.pelis, (p) => p.id == id)
+    const buscarId = (await this.getAll()).find((peli) => peli.id == id);
     return buscarId;
   };
   async add(peli: Peli): Promise<boolean> {
-    await this.getAll();
-    if (await this.getById(peli.id)) {
-      return false;
-    } else {
-      this.pelis.push(peli);
-      await jsonfile.writeFile("./pelis.json", this.pelis);
-      return true;
-    }
-  };
-  async search(options: SearchOptions) {
-
-    const lista = await this.getAll();
-    const listaFiltrada = lista.filter((peli) => {
-      let esteVa = false;
-      if (options.tag) {
-        esteVa = includes(peli.tags, options.tag)
-      } else if (options.title) {
-        esteVa = includes(peli.title.charAt(0).toLowerCase(), options.title)
+    const promesaUno = this.getById(peli.id).then((peliExistente) => {
+      if (peliExistente) {
+        return false;
+      } else {
+        return this.getAll().then((listaDePelis) => {
+          listaDePelis.push(peli);
+          const promesaDos = jsonfile.writeFile("./pelis.json", listaDePelis);
+          return promesaDos.then(() => {
+            return true;
+          });
+        });
       }
-      return esteVa;
-
     });
-    if (options.tag && options.title) {
-      return listaFiltrada.filter((peli) => {
-        return includes(peli.title.charAt(0).toLowerCase(), options.title)
+    return promesaUno;
+  }
+  async search(options: SearchOptions): Promise<any> {
+    
+   const listas = await this.getAll();
+    if (options.title && options.tag) {
+      return listas.filter((peli) => {
+        return (
+          peli.title.includes(options.title) && peli.tags.includes(options.tag)
+        );
       });
     }
-    console.log(listaFiltrada);
-
+    if (options.title) {
+      return listas.filter((peli) => {
+        return peli.title.includes(options.title);
+      });
+    }
+    if (options.tag) {
+      return listas.filter((peli) => {
+        return peli.tags.includes(options.tag);
+      });
+    }
   }
 }
 export { PelisCollection, Peli };
