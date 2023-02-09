@@ -1,1 +1,338 @@
-[]
+[
+    {
+        "id": 1,
+        "title": "Arrastrame al infierno",
+        "tags": [
+            "terror",
+            "suspenso"
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Creed",
+        "tags": [
+            "accion",
+            "drama"
+        ]
+    },
+    {
+        "id": 3,
+        "title": "El Gato Con Botas",
+        "tags": [
+            "comedia",
+            "infantil"
+        ]
+    },
+    {
+        "id": 4,
+        "title": "Click: Perdiendo El Control",
+        "tags": [
+            "comedia",
+            "accion"
+        ]
+    },
+    {
+        "id": 5,
+        "title": "The Last Of Us",
+        "tags": [
+            "terror",
+            "suspenso",
+            "supervivencia",
+            "accion"
+        ]
+    },
+    {
+        "id": 6,
+        "title": "La Montaña",
+        "tags": [
+            "terror",
+            "aventura"
+        ]
+    },
+    {
+        "id": 7,
+        "title": "Open Season",
+        "tags": [
+            "comedia",
+            "infantil"
+        ]
+    },
+    {
+        "id": 8,
+        "title": "Wild",
+        "tags": [
+            "terror",
+            "suspenso",
+            "supervivencia",
+            "accion"
+        ]
+    },
+    {
+        "id": 150209,
+        "title": "title 136826150209",
+        "tags": [
+            "tt",
+            "rr"
+        ]
+    },
+    {
+        "id": 154688,
+        "title": "title 202603154688",
+        "tags": [
+            "tt",
+            "rr"
+        ]
+    },
+    {
+        "id": 132474,
+        "title": "title 166405132474",
+        "tags": [
+            "tt",
+            "rr"
+        ]
+    },
+    {
+        "id": 171131,
+        "title": "title 166405171131",
+        "tags": [
+            "yy",
+            "uu"
+        ]
+    },
+    {
+        "id": 223670,
+        "title": "title 227444223670",
+        "tags": [
+            "tt",
+            "rr"
+        ]
+    },
+    {
+        "id": 157740,
+        "title": "title 227444157740",
+        "tags": [
+            "yy",
+            "uu"
+        ]
+    },
+    {
+        "id": 4321865,
+        "title": "peli de la terminal 4321865",
+        "tags": [
+            "rr",
+            "ww"
+        ]
+    },
+    {
+        "id": 154924,
+        "title": "title 183569154924",
+        "tags": [
+            "tt",
+            "rr"
+        ]
+    },
+    {
+        "id": 193202,
+        "title": "title 183569193202",
+        "tags": [
+            "yy",
+            "uu"
+        ]
+    },
+    {
+        "id": 147039,
+        "title": "title 186813147039",
+        "tags": [
+            "tt",
+            "rr"
+        ]
+    },
+    {
+        "id": 146042,
+        "title": "title 141668146042",
+        "tags": [
+            "tt",
+            "rr"
+        ]
+    },
+    {
+        "id": 204843,
+        "title": "title 141668204843",
+        "tags": [
+            "yy",
+            "uu"
+        ]
+    },
+    {
+        "id": 176692,
+        "title": "title 147813176692",
+        "tags": [
+            "tt",
+            "rr"
+        ]
+    },
+    {
+        "id": 198439,
+        "title": "title 147813198439",
+        "tags": [
+            "yy",
+            "uu"
+        ]
+    },
+    {
+        "id": 187043,
+        "title": "una peli 187043",
+        "tags": [
+            "classic",
+            "tag 187043"
+        ]
+    },
+    {
+        "id": 193602,
+        "title": "otra peli un poco más divertida",
+        "tags": [
+            "tag 187043"
+        ]
+    },
+    {
+        "id": 136665,
+        "title": "title 166623136665",
+        "tags": [
+            "tt",
+            "rr"
+        ]
+    },
+    {
+        "id": 207996,
+        "title": "title 166623207996",
+        "tags": [
+            "yy",
+            "uu"
+        ]
+    },
+    {
+        "id": 173216,
+        "title": "title 181185173216",
+        "tags": [
+            "tt",
+            "rr"
+        ]
+    },
+    {
+        "id": 132857,
+        "title": "title 181185132857",
+        "tags": [
+            "yy",
+            "uu"
+        ]
+    },
+    {
+        "id": 179093,
+        "title": "una peli 179093",
+        "tags": [
+            "classic",
+            "tag 179093"
+        ]
+    },
+    {
+        "id": 132712,
+        "title": "otra peli un poco más divertida",
+        "tags": [
+            "tag 179093"
+        ]
+    },
+    {
+        "id": 201670,
+        "title": "title 196639201670",
+        "tags": [
+            "tt",
+            "rr"
+        ]
+    },
+    {
+        "id": 211349,
+        "title": "title 196639211349",
+        "tags": [
+            "yy",
+            "uu"
+        ]
+    },
+    {
+        "id": 135167,
+        "title": "title 184514135167",
+        "tags": [
+            "tt",
+            "rr"
+        ]
+    },
+    {
+        "id": 178026,
+        "title": "title 184514178026",
+        "tags": [
+            "yy",
+            "uu"
+        ]
+    },
+    {
+        "id": 143852,
+        "title": "una peli 143852",
+        "tags": [
+            "classic",
+            "tag 143852"
+        ]
+    },
+    {
+        "id": 147396,
+        "title": "otra peli un poco más divertida",
+        "tags": [
+            "tag 143852"
+        ]
+    },
+    {
+        "id": 167159,
+        "title": "title 178602167159",
+        "tags": [
+            "tt",
+            "rr"
+        ]
+    },
+    {
+        "id": 227410,
+        "title": "title 178602227410",
+        "tags": [
+            "yy",
+            "uu"
+        ]
+    },
+    {
+        "id": 225376,
+        "title": "title 155511225376",
+        "tags": [
+            "tt",
+            "rr"
+        ]
+    },
+    {
+        "id": 203161,
+        "title": "title 155511203161",
+        "tags": [
+            "yy",
+            "uu"
+        ]
+    },
+    {
+        "id": 214598,
+        "title": "una peli 214598",
+        "tags": [
+            "classic",
+            "tag 214598"
+        ]
+    },
+    {
+        "id": 137887,
+        "title": "otra peli un poco más divertida",
+        "tags": [
+            "tag 214598"
+        ]
+    }
+]
