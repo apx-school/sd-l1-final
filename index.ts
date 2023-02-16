@@ -16,7 +16,7 @@ async function pasaLosParametros(param) {
   else if (param._.includes("get")) {
     return await controller.get({ id: param._[1] });
   }
-  return controller;
+  return controller.pelis.getAll();
 }
 
 async function main() {
