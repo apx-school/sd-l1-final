@@ -1,5 +1,4 @@
 import * as minimist from "minimist";
-import * as _ from "lodash";
 import { PelisController } from "./controllers";
 
 function parseaParams(argv) {
@@ -9,36 +8,32 @@ function parseaParams(argv) {
 
 async function processOptiones(args) {
   const pelis = new PelisController();
-  if (args._[0] == "add") {
-    return await pelis
-      .add({
-        id: args.id,
-        title: args.title,
-        tags: args.tags,
-      })
-      .then((res) => {
-        return res;
-      });
+  const parametros = args._[0];
+
+  if (parametros == "add") {
+    return await pelis.add({
+      id: args.id,
+      title: args.title,
+      tags: args.tags,
+    });
   }
-  if (args._[0] == "get") {
-    return pelis.get({ id: args._[1] });
+  if (parametros == "get") {
+    return await pelis.get({ id: args._[1] });
   }
-  if (args._[0] == "search") {
-    return pelis.get({
+  if (parametros == "search") {
+    return await pelis.get({
       search: { title: args.title, tag: args.tag },
     });
   }
-  if (_.isEmpty(args._[0])) {
-    return pelis.get({ empty: "empty" });
+  if (!parametros) {
+    return await pelis.get({});
   }
 }
 
-function main() {
+async function main() {
   const params = parseaParams(process.argv.slice(2));
-  const controllers = new PelisController();
-  controllers.get(params).then((resultado) => {
-    console.log(resultado);
-  });
+  const result = await processOptiones(params);
+  console.log(result);
 }
 
 main();

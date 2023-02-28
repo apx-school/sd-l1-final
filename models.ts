@@ -1,6 +1,5 @@
 import * as jsonfile from "jsonfile";
 
-// no modificar estas propiedades, agregar todas las que quieras
 class Peli {
   id: number;
   title: string;
@@ -8,6 +7,7 @@ class Peli {
 }
 
 class PelisCollection {
+  peliculas: Peli[];
   async getAll(): Promise<Peli[]> {
     return await jsonfile.readFile(__dirname + "/pelis.json");
   }
@@ -33,27 +33,25 @@ class PelisCollection {
       return pelis.filter((p) => {
         return p.tags.includes(options.tag);
       });
+    } else {
+      return pelis;
     }
   }
 
   async add(peli: Peli): Promise<boolean> {
-    const firstPromise = this.getById(peli.id).then((p) => {
-      if (p) {
+    try {
+      const peliExistente = await this.getById(peli.id);
+      if (peliExistente) {
         return false;
       } else {
-        return this.getAll().then((p) => {
-          p.push(peli);
-          const secondPromise = jsonfile.writeFile(
-            __dirname + "/pelis.json",
-            p
-          );
-          return secondPromise.then(() => {
-            return true;
-          });
-        });
+        const pelis = await this.getAll();
+        pelis.push(peli);
+        await jsonfile.writeFile(__dirname + "/pelis.json", pelis);
+        return true;
       }
-    });
-    return firstPromise;
+    } catch (error) {
+      throw new Error(`Error al agregar la película: ${error}`);
+    }
   }
 }
 

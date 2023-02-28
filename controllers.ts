@@ -1,29 +1,44 @@
 import { PelisCollection, Peli } from "./models";
 
 class PelisController {
-  pelis: PelisCollection;
+  peliculas: PelisCollection;
+
   constructor() {
-    this.pelis = new PelisCollection();
+    this.peliculas = new PelisCollection();
   }
 
   async get(options: any): Promise<any> {
-    let resultado: any;
     if (options.id) {
-      resultado = await this.pelis.getById(options.id);
+      return await this.peliculas.getById(options.id);
     } else if (options.search) {
-      resultado = await this.pelis.search(options.search);
-    } else if (options.empty) {
-      resultado = await this.pelis.getAll();
-    } else if (options.add) {
-      resultado = await this.pelis.add(options.add);
-    } else if (options.getAll) {
-      resultado = await this.pelis.getAll();
+      if (options.search.title && options.search.tag) {
+        return await this.peliculas.search({
+          title: options.search.title,
+          tag: options.search.tag,
+        });
+      } else if (options.search.title) {
+        return await this.peliculas.search({
+          title: options.search.title,
+        });
+      } else if (options.search.tag) {
+        return await this.peliculas.search({
+          tag: options.search.tag,
+        });
+      }
+    } else {
+      return await this.peliculas.getAll();
     }
-    return resultado;
   }
 
-  add(peli: Peli): Promise<boolean> {
-    return this.pelis.add(peli);
+  async add(peli: Peli): Promise<boolean> {
+    const peliExistente = await this.peliculas.getById(peli.id);
+    if (peliExistente) {
+      return false;
+    } else {
+      await this.peliculas.add(peli);
+      return true;
+    }
   }
 }
+
 export { PelisController };
