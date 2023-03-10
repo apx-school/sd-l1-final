@@ -15,7 +15,7 @@ class PelisCollection {
    };
    async getById(id:number):Promise<Peli>{
     const listado= await this.getAll()
-    const idBuscado=await listado.find((pelis)=>{
+    const idBuscado=  listado.find((pelis)=>{
      return pelis.id===id
     })
     return idBuscado;
