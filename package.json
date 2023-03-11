@@ -19,13 +19,15 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/node": "^14.14.35",
+    "@types/lodash": "^4.14.191",
+    "@types/node": "^14.18.37",
     "ava": "^4.0.1",
     "ts-node": "^10.4.0",
     "typescript": "^4.5.4"
   },
   "dependencies": {
     "jsonfile": "^6.1.0",
+    "lodash": "^4.17.21",
     "minimist": "^1.2.5"
   }
 }
