@@ -9,52 +9,47 @@ class Peli {
 }
 
 class PelisCollection {
-  async getAll(): Promise<Peli[]> {
-    const pullJson= await jsonfile.readFile("./pelis.json");
-    return pullJson;
-   };
-   async getById(id:number):Promise<Peli>{
-    const listado= await this.getAll()
-    const idBuscado=  listado.find((pelis)=>{
-     return pelis.id===id
-    })
-    return idBuscado;
-   }
-   async add(peli:Peli):Promise<boolean> {
-    const idPeli=await this.getById(peli.id);
-    if(idPeli){
-      return false;
-    }
-    const listadoDePelis= await this.getAll();
-    listadoDePelis.push(peli);
-    await jsonfile.writeFile("./pelis.json",peli);
-    return true;
-   };
+  data:Peli[]=[];
+  async getAll():Promise<any>{
+    const json=await jsonfile.readFile("./pelis.json");
+    return this.data=json;
+  }
 
-   async search(options:any):Promise<any>{
+  async getById(id: number): Promise<Peli> {
     const listadoDePelis= await this.getAll();
-    if(options.title){
-      return listadoDePelis.filter((pelis)=>{
-        return pelis.title.includes(options.title) 
+    return listadoDePelis.find((pelis:Peli)=>pelis.id===id);
+  }
+
+  async search(options:any):Promise<any>{
+    const listadoDePelis= await this.getAll();
+    if(options.title&&options.tag){
+      return listadoDePelis.filter((peli)=>{
+        const filtradasPorTitle=peli.title.includes(options.title);
+        const filtradasPorTag=peli.tags.includes(options.tag);
+        return filtradasPorTag && filtradasPorTitle;
       });
-    }else if(options.tags){
-      return listadoDePelis.filter((pelis)=>{
-        return pelis.tags.includes(options.tags)
-      });
-    }else if(options.title && options.tags){
-      return listadoDePelis.filter((pelis)=>{
-        const filtradasPorTitle=pelis.title.includes(options.title);
-        const filtradasPorTags= pelis.tags.includes(options.tags);
-        return filtradasPorTags && filtradasPorTitle;
-      });
+    }else if(options.title){
+      return listadoDePelis.filter((peli)=>peli.title.includes(options.title));
+    }else if(options.tag){
+      return listadoDePelis.filter((peli)=>peli.tags.includes(options.tag));
     }else{
       return listadoDePelis;
     }
-   };
+  };
 
-
-
+  
+  async add(peli:Peli):Promise<boolean>{
+    const idEncontrado= await this.getById(peli.id)
+    if(idEncontrado){
+      return false;
+    } 
+    const listadoDePelis=await this.getAll();
+    listadoDePelis.push(peli);
+    await jsonfile.writeFile("./pelis.json",listadoDePelis);
+    return true; 
   }
+
+}
 
 
 

@@ -1,31 +1,36 @@
-import { PelisController } from "./controllers";
 import * as minimist from "minimist";
-function parseaParams(argv){
-  const resultado= minimist(argv);
+import * as _ from "lodash";
+import { PelisController } from "./controllers";
+
+
+function parsearArgs(argv){
+  const resultado=minimist(argv);
   return resultado;
 }
 
-async function processOptions(args) {
-  const controller=new PelisController();
+async function processOptions(args){
+  const pelis=new PelisController();
   if(args._[0]==="get"){
-    return  controller.get({id: args._[1]});
+    return pelis.get({id:args._[1]})
   }
   if(args._[0]==="search"){
-    return controller.get({search: args})
+    return pelis.get({search:args});
   }
   if(args._[0]==="add"){
-    return controller.add({id:args.id,title:args.title,tags:args.title});
+    return pelis.add({id:args.id, title:args.title, tags:args.tags})
   }
   if(!args._[0]){
-    return controller.peliculas.getAll();
+    return pelis.peliculas.getAll();
   }
+
 }
+
 
 function main(){
-const argumentos=process.argv.slice(2);
-const parsear= parseaParams(argumentos);
-processOptions(parsear).then((r)=>{console.log(r )}) 
-
-  
+  const argumentos=process.argv.slice(2);
+  const parseado= parsearArgs(argumentos);
+  processOptions(parseado).then((r)=>console.log(r))
 }
+
 main();
+
