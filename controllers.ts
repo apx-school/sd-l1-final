@@ -13,22 +13,25 @@ class PelisController {
     this.pelisCollection = new PelisCollection;
   }
 
-  get(options?: Options) {
+  async get(options?: Options) {
     if (options.id) {
-      return this.pelisCollection.getById(options.id);
-    }
-    else if (options) {
-      return this.pelisCollection.getAll();
+      return await this.pelisCollection.getById(options.id);
     }
     else if (options.search.title) {
-      return this.pelisCollection.search(options.search.title);
+      return await this.pelisCollection.search(options.search.title);
     }
     else if (options.search.tag) {
-      return this.pelisCollection.search(options.search.tag);
+      return await this.pelisCollection.search(options.search.tag);
+    }
+    else if (options.search.title && options.search.tag) {
+      return await this.pelisCollection.search(options.search.title && options.search.tag)
+    }
+    else {
+      return await this.pelisCollection.getAll();
     }
 }
 
-  add(peli: Peli) {
+  add(peli: any) {
     return this.pelisCollection.add(peli);
 }
 

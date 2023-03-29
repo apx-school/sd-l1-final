@@ -1,5 +1,5 @@
 import * as jsonfile from "jsonfile";
-
+export type SearchOptions = { title?: string; tag?: string };
 // no modificar estas propiedades, agregar todas las que quieras
 class Peli {
   id: number;
@@ -13,7 +13,7 @@ class PelisCollection {
     const pelisMostradas = jsonfile.readFile("./pelis.json").then((pelis:Peli[]) => {
       return this.pelisCollection = pelis;
     });
-    return pelisMostradas.then((res) => { console.log(res); });
+    return pelisMostradas.then((res) => { return res });
   }
  
   async getById(id: number): Promise<Peli>{
@@ -45,24 +45,29 @@ class PelisCollection {
     return promesaUno;
   }
 
-  async search(options:any):Promise<any> {
+  async search(options):Promise<any> {
     const lista = await this.getAll();
-  
+    
     const listraFiltrada = lista.filter(function (p) {
       let esteVa = false;
       if (options.tag) {
         // lógica de tags
         // si pasa cambio "esteVa" a true
-        if (p.tags.includes(options)) {
+        if (p.tags.includes(options.tag)) {
           return esteVa = true;
       }
       }
-      if (options.title) {
+      else if (options.title) {
         // lógica de title
         // si pasa cambio "esteVa" a true
-        if (p.title.includes(options)) {
+        if (p.title.includes(options.title)) {
           return esteVa = true;
       }
+      } 
+      else if (options.title && options.tag) {
+        if (p.title.includes(options.title) && p.tags.includes[options.tag]) {
+          return esteVa = true;
+        }
       }
       return esteVa;
     });
