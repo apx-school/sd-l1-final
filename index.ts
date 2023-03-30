@@ -9,7 +9,7 @@ function parseaParams(argv) {
 
 async function processOptions(params) {
   const controller = new PelisController();
-  console.log(`processOptions params: ${params}`);
+  // console.log(`processOptions params: ${params}`);
 
   // ts-node index.ts add --id=4321865 --title="peli de la terminal 4321865" --tags=rr --tags=ww && ava
   if (params._[0] == "add") {
@@ -43,13 +43,13 @@ async function processOptions(params) {
 }
 
 function main() {
-  console.log(`process: ${process}`);
+  // console.log(`process: ${process}`);
 
   const params = parseaParams(process.argv.slice(2));
-  console.log(`index params: ${params}`);
+  // console.log(`index params: ${params}`);
 
   return processOptions(params).then((res) => {
-    console.table(`index respuesta: ${res}`);
+    // console.table(`index respuesta: ${res}`);
     return res;
   });
 }

@@ -16,7 +16,7 @@ class PelisController {
   }
 
   async get(options?: Options): Promise<any> {
-    console.log(`options: ${options}`);
+    // console.log(`options: ${options}`);
 
     if (Object.keys(options).length == 0) {
       return await this.pelis.getAll();
