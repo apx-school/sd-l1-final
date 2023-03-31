@@ -1,5 +1,5 @@
 import { PelisCollection, Peli } from "./models";
-export type Options = {
+type Options = {
   id?: number;
   search?: {
     title?: string;
@@ -13,7 +13,7 @@ class PelisController {
     this.pelisCollection = new PelisCollection;
   }
 
-  async get(options?: Options) {
+  async get(options?:Options) {
     if (options.id) {
       return await this.pelisCollection.getById(options.id);
     }

@@ -10,27 +10,49 @@ class Peli {
 class PelisCollection {
   pelisCollection: Peli[];
   getAll(): Promise<Peli[]> {
-    const pelisMostradas = jsonfile.readFile("./pelis.json").then((pelis:Peli[]) => {
+    const pelisMostradas = jsonfile.readFile("./pelis.json").then((pelis: Peli[]) => {
       return this.pelisCollection = pelis;
     });
     return pelisMostradas.then((res) => { return res });
   }
  
-  async getById(id: number): Promise<Peli>{
-   await this.getAll();
+  async getById(id: number): Promise<Peli> {
+    await this.getAll();
     const peliEncontrada = await this.pelisCollection.find((p) => {
       return p.id == id;
     });
-   return peliEncontrada;
+    return peliEncontrada;
   }
+  
+  async search(options): Promise<any> {
+    const listaDePeliculas = await this.getAll();
+    if (options.title) {
+      const pelisFiltradasPorTitle = listaDePeliculas.filter((pelis) => {
+        return pelis.title.includes(options.title);
+      });
+      return pelisFiltradasPorTitle;
+    }
+    else if (options.tag) {
+      const pelisFiltradasPorTags = listaDePeliculas.filter((pelis) => {
+        return pelis.tags.includes(options.tag);
+      });
+      return pelisFiltradasPorTags;
+    }
+    else if (options.title && options.tag) {
+      const pelisFiltradasPorTitleAndTags = listaDePeliculas.filter((pelis) => {
+        return pelis.title.includes(options.title) && pelis.tags.includes(options.tag);
+      });
+      return pelisFiltradasPorTitleAndTags;
+    }
 
-  add(peli: Peli): Promise<boolean>{
+  }
+  add(peli: Peli): Promise<boolean> {
     const promesaUno = this.getById(peli.id).then((peliExistente) => {
       if (peliExistente) {
         return false;
       } else {
         // magia que agrega la pelicula a un objeto data
-       return this.getAll().then(() => {
+        this.getAll().then(() => {
           this.pelisCollection.push(peli);
         })
         
@@ -44,39 +66,7 @@ class PelisCollection {
   
     return promesaUno;
   }
-
-  async search(options):Promise<any> {
-    const lista = await this.getAll();
-    
-    const listraFiltrada = lista.filter(function (p) {
-      let esteVa = false;
-      if (options.tag) {
-        // lógica de tags
-        // si pasa cambio "esteVa" a true
-        if (p.tags.includes(options.tag)) {
-          return esteVa = true;
-      }
-      }
-      else if (options.title) {
-        // lógica de title
-        // si pasa cambio "esteVa" a true
-        if (p.title.includes(options.title)) {
-          return esteVa = true;
-      }
-      } 
-      else if (options.title && options.tag) {
-        if (p.title.includes(options.title) && p.tags.includes[options.tag]) {
-          return esteVa = true;
-        }
-      }
-      return esteVa;
-    });
-  
-    return listraFiltrada;
-  }
-
 }
-
   
 //function main() {
   //const prueba = new PelisCollection;

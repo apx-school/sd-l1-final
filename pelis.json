@@ -1,17 +1,1 @@
-[{
-    "id": 1,
-    "title": "Corazones de Hierro",
-    "tags": ["accion","belica"]
-  },{
-    "id": 2,
-    "title":"pulp fiction",
-    "tags": ["accion","crimen"]
-  },{
-    "id": 3,
-    "title": "Toy story",
-    "tags": ["animacion","comedia"]
-  },{
-    "id": 4,
-    "title": "Busqueda implacable", 
-    "tags": ["drama", "accion"]
-  }]
+[{"id":1,"title":"Corazones de Hierro","tags":["accion","belica"]},{"id":2,"title":"pulp fiction","tags":["accion","crimen"]},{"id":3,"title":"Toy story","tags":["animacion","comedia"]},{"id":4,"title":"Busqueda implacable","tags":["drama","accion"]}]
