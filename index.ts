@@ -23,7 +23,6 @@ async function processOption(argv) {
     }
   }
   if (option === 'add') {
-    console.log(argv.tags)
     const obj = { id: argv.id, title: argv.title, tags: argv.tags }
     return await pelis.add(obj)
   }
@@ -35,7 +34,6 @@ async function processOption(argv) {
 async function main() {
   const params = parseaParams(process.argv.slice(2))
   const resultado = await processOption(params)
-  console.log(resultado)
 }
 
 main()
