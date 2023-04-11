@@ -9,25 +9,25 @@ class Peli {
 class PelisCollection {
   async getAll(): Promise<Peli[]> {
     const films = await jsonfile.readFile(__dirname + "/films.json");
-
     return films;
   }
+
   async getById(id: number) {
     const films = await this.getAll();
-
     return films.find((film) => film.id == id);
   }
+
   async search(options: any) {
     const films = await this.getAll();
 
     if (options.title && options.tag) {
-      const foundFilms = films.filter((film) =>
-        film.title
-          .toLowerCase()
-          .includes(options.title.toString().toLowerCase())
+      return films.filter(
+        (film) =>
+          film.title
+            .toLowerCase()
+            .includes(options.title.toString().toLowerCase()) &&
+          film.tags.includes(options.tag)
       );
-
-      return foundFilms.filter((film) => film.tags.includes(options.tag));
     }
 
     if (options.title) {
@@ -42,6 +42,7 @@ class PelisCollection {
       return films.filter((film) => film.tags.includes(options.tag));
     }
   }
+
   async add(peli: Peli) {
     const film = await this.getById(peli.id);
 
@@ -51,7 +52,6 @@ class PelisCollection {
       const films = await this.getAll();
       films.push(peli);
       await jsonfile.writeFile(__dirname + "/films.json", films);
-
       return true;
     }
   }

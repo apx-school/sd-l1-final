@@ -1,5 +1,13 @@
 import { PelisCollection, Peli } from "./models";
 
+type Options = {
+  id?: number;
+  search?: {
+    title?: string;
+    tag?: string;
+  };
+};
+
 class PelisController {
   collection: PelisCollection;
 
@@ -7,35 +15,25 @@ class PelisController {
     this.collection = new PelisCollection();
   }
 
-  async get(options: any): Promise<any> {
+  async get(options: Options): Promise<any> {
     if (options.id) {
       const filmFound = await this.collection.getById(options.id);
-
-      if (filmFound) {
-        return filmFound;
-      } else {
-        return "No film exists that match the entered id";
-      }
+      return filmFound ? filmFound : "No film exists that match the entered id";
     }
 
     if (options.search) {
       const filmFound = await this.collection.search(options.search);
-
-      if (filmFound.length > 0) {
-        return filmFound;
-      } else {
-        return "There are no films that match the parameters entered";
-      }
+      return filmFound.length > 0
+        ? filmFound
+        : "There are no films that match the parameters entered";
     }
   }
+
   async add(peli: Peli) {
     const addFilm = await this.collection.add(peli);
-
-    if (addFilm) {
-      return "Film added correctly";
-    } else {
-      return "A movie with this id already exists";
-    }
+    return addFilm
+      ? "Film added correctly"
+      : "A movie with this id already exists";
   }
 }
 
