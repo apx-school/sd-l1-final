@@ -34,6 +34,7 @@ async function processOption(argv) {
 async function main() {
   const params = parseaParams(process.argv.slice(2))
   const resultado = await processOption(params)
+  console.log(resultado)
 }
 
 main()
