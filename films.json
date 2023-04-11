@@ -1,0 +1,36 @@
+[
+  { "id": 10, "title": "Perfect Blue", "tags": ["animation", "thriller"] },
+  {
+    "id": 9,
+    "title": "Inglourious Basterds",
+    "tags": ["thriller", "drama", "action", "war"]
+  },
+  {
+    "id": 8,
+    "title": "Infernal Affairs",
+    "tags": ["drama", "crime", "action", "thriller", "mystery"]
+  },
+  { "id": 7, "title": "Pride & Prejudice", "tags": ["drama", "romance"] },
+  { "id": 6, "title": "Collateral Beauty", "tags": ["romance", "drama"] },
+  {
+    "id": 5,
+    "title": "Everything Everywhere All at Once",
+    "tags": ["adventure", "action", "science-fiction"]
+  },
+  {
+    "id": 4,
+    "title": "Predator 2",
+    "tags": ["action", "science-fiction", "thriller"]
+  },
+  { "id": 3, "title": "X", "tags": ["horror", "mystery", "thriller"] },
+  {
+    "id": 2,
+    "title": "American Psycho II: All American Girl",
+    "tags": ["horror", "thriller"]
+  },
+  {
+    "id": 1,
+    "title": "Alien Resurrection",
+    "tags": ["science-fiction", "horror", "action"]
+  }
+]

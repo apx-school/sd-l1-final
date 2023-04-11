@@ -1,15 +1,49 @@
 import * as minimist from "minimist";
+import { PelisController } from "./controllers";
 
-function parseaParams(argv) {
-  const resultado = minimist(argv);
+function parseParams(argv: string[]): any {
+  const result = minimist(argv);
 
-  return resultado;
+  if (result._[0] === "get") {
+    return {
+      id: result._[1],
+    };
+  }
+
+  if (result._[0] === "add") {
+    return {
+      id: result.id,
+      title: result.title,
+      tags: result.tags,
+    };
+  }
+
+  if (result._[0] === "search") {
+    return {
+      search: {
+        title: result.title,
+        tag: result.tag,
+      },
+    };
+  }
+
+  return false;
 }
 
-function main() {
-  const params = parseaParams(process.argv.slice(2));
+async function main() {
+  const params = parseParams(process.argv.slice(2));
+  const controller = new PelisController();
 
-  console.log(params);
+  if (params.id && params.tags && params.title) {
+    const result = await controller.add(params);
+    console.log(result);
+  } else if (params) {
+    const result = await controller.get(params);
+    console.log(result);
+  } else {
+    const result = await controller.collection.getAll();
+    console.log(result);
+  }
 }
 
 main();
