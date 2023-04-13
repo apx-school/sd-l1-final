@@ -1,5 +1,5 @@
 import * as jsonfile from "jsonfile";
-export type SearchOptions = { title?: string; tag?: string };
+
 // no modificar estas propiedades, agregar todas las que quieras
 class Peli {
   id: number;

@@ -10,7 +10,7 @@ type Options = {
 class PelisController {
   pelisCollection: PelisCollection
   constructor() {
-    this.pelisCollection = new PelisCollection;
+    this.pelisCollection = new PelisCollection();
   }
 
   async get(options?:Options) {
