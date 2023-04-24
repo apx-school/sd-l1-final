@@ -24,7 +24,6 @@ async getAll(): Promise<Peli[]>{
   try {
   const data = await jsonfile.readFile("./pelis.json");
   this.list = data;
-  console.log("Listado de películas:", this.list);
   return this.list
 } catch (err) {
  console.log(`Error al obtener las películas: ${err}`);
@@ -58,7 +57,6 @@ async add(peli: Peli): Promise<boolean>{
           await this.getAll();
           this.list.push(peli)
           const promesaDos = jsonfile.writeFile("./pelis.json", this.list);
-          console.log("Listado en ADD: ", this.list)
           return promesaDos.then((resultado)=>{
               return true;
           })
@@ -85,7 +83,6 @@ async search(options: SearchOptions): Promise<Peli[]> {
   } else {
     promesaUno = Promise.resolve([]);
   }
-  console.log("SEARCH: ", promesaUno);
   return promesaUno;
 }
 
