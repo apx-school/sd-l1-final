@@ -33,6 +33,7 @@ test.serial("Corre ava", async (t) => {
 
 test.serial("Testeo el método getById", async (t) => {
   const collection = new PelisCollection();
+  await collection.getAll();
   await collection.add({
     id: TEST_ID,
     title: TEST_TITLE,
@@ -46,6 +47,7 @@ test.serial("Testeo el método getById", async (t) => {
 
 test.serial("Testeo el método search", async (t) => {
   const collection = new PelisCollection();
+  await collection.getAll();
   await collection.add({
     id: TEST_ID,
     title: TEST_TITLE,
@@ -58,12 +60,12 @@ test.serial("Testeo el método search", async (t) => {
   });
   const all = await collection.getAll();
   const a = all[0];
-  const b = await collection.search({ title: SESSION_ID });
+  const b = await collection.search({ title: SESSION_ID.toString() });
   const ids = b.map((b) => b.id);
   t.deepEqual(ids, [TEST_ID, SECOND_TEST_ID]);
 
   const c = await collection.search({
-    title: SECOND_TEST_ID,
+    title: SECOND_TEST_ID.toString(),
     tag: "yy",
   });
   t.deepEqual(c[0].id, SECOND_TEST_ID);
