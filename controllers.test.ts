@@ -1,9 +1,10 @@
 import anyTest, { TestFn } from "ava";
 import { PelisController } from "./controllers";
-import { getRandomId } from "./models.test";
+import { getRandomId,getRandomRating } from "./models.test";
 
 const TEST_ID = getRandomId();
 const SOME_TITLE = "una peli " + TEST_ID;
+const SOME_RATING = getRandomRating();
 const SOME_TAG = "tag " + TEST_ID;
 
 const SECOND_TEST_ID = getRandomId();
@@ -24,7 +25,7 @@ test.serial(
   async (t) => {
     // testeo peli agregada desde el script test del package
     const controller = new PelisController();
-    const peli = await controller.get({ id: 4321865 });
+    const peli = await controller.get({id: 4321865});
     t.is(peli.title, "peli de la terminal 4321865");
   }
 );
@@ -34,6 +35,7 @@ test.serial("Testeo PelisController get id", async (t) => {
   await controller.add({
     id: TEST_ID,
     title: SOME_TITLE,
+    rating: SOME_RATING,
     tags: ["classic", SOME_TAG],
   });
   const peli = await controller.get({ id: TEST_ID });
@@ -45,6 +47,7 @@ test.serial("Testeo PelisController search title", async (t) => {
   await controller.add({
     id: TEST_ID,
     title: SOME_TITLE,
+    rating: SOME_RATING,
     tags: ["classic", SOME_TAG],
   });
 
@@ -58,6 +61,7 @@ test.serial("Testeo PelisController search tag", async (t) => {
   await controller.add({
     id: SECOND_TEST_ID,
     title: "otra peli un poco más divertida",
+    rating: SOME_RATING,
     tags: [SOME_TAG],
   });
   const pelis = await controller.get({
