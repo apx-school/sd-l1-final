@@ -1,5 +1,3 @@
-# Desafío del módulo 2
-- Forkear este repo
-- Revisars los tests
-- Agregá tu código y asegurate que los tests pasen
-- Creá un PR y subí tu PR validado a la sección [Mis desafíos](https://apx.school/challenges)
+Este desafío consiste crear clases y modelos para importar información,
+desde un archivo .json que contiene un listado de peliculas, y
+seleccionarla y ordenarla de acuerdo a sus caractecteristicas.
