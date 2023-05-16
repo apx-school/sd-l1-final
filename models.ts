@@ -1,4 +1,5 @@
 import * as jsonfile from "jsonfile";
+import * as includes from "lodash";
 
 // no modificar estas propiedades, agregar todas las que quieras
 class Peli {
@@ -26,7 +27,9 @@ class PelisCollection {
             "./pelis.json",
             this.listaPeliculas
           );
-          return promesaDos.then(() => true);
+          return promesaDos.then(() => {
+            return true;
+          });
         });
       }
     });

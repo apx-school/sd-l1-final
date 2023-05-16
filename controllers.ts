@@ -5,7 +5,7 @@ class PelisController {
   constructor() {
     this.pelisCollection = new PelisCollection();
   }
-  async get(options: any) {
+  async get(options) {
     if (options._ == "") {
       return this.pelisCollection.getAll();
     }
