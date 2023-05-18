@@ -1,1 +1,18 @@
-[]
+[
+  { "id": 1, "title": "avatar", "tags": ["aventura", "ciencia ficción"] },
+  {
+    "id": 3,
+    "title": "cars",
+    "tags": ["aventura", "infantil"]
+  },
+  {
+    "id": 5,
+    "title": "avengers: endgame",
+    "tags": ["accion", "ciencia ficción"]
+  },
+  {
+    "id": 10,
+    "title": "wimbledon",
+    "tags": ["romance", "deporte"]
+  }
+]
