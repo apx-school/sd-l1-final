@@ -1,1 +1,18 @@
-[]
+[
+  { "id": 1, "title": "el rey león", "tags": ["aventura", "musical"] },
+  {
+    "id": 2,
+    "title": "spirit, el corcel indomable",
+    "tags": ["aventura", "infantil"]
+  },
+  {
+    "id": 3,
+    "title": "avengers: endgame",
+    "tags": ["accion", "ciencia ficción"]
+  },
+  {
+    "id": 4,
+    "title": "harry potter y la piedra filosofal",
+    "tags": ["fantasía", "aventura"]
+  }
+]
