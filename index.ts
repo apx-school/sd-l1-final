@@ -8,38 +8,40 @@ function parseaParams(argv) {
   
 }
 
-async function processOptions(options) {
-  const pelisController = new PelisController();
-  if (options._[0] == "search") {
-    if (options.search.tag) {
-      return await pelisController.get({ search: options.search.tag });
+
+  function controllerParams(controller, params) {
+    var accion: String = params._[0];
+  
+    if (accion == "add") {
+      return controller.add(params).then((res) => res);
+    } else if (accion == "get" && typeof params._[1] == "number") {
+      return controller.get({ id: params._[1] }).then((res) => res);
+    } else if (accion == "search" && params.title && params.tag) {
+      return controller
+        .get({ search: { title: params.title, tag: params.tag } })
+        .then((res) => res);
+    } else if (accion == "search" && params.title) {
+      return controller
+        .get({ search: { title: params.title } })
+        .then((res) => res);
+    } else if (accion == "search" && params.tag) {
+      return controller.get({ search: { tag: params.tag } }).then((res) => res);
+    } else if (params._.length == 0) {
+      return controller.get({}).then((res) => res);
     }
-    else if (options.search.title) {
-      return await pelisController.get({ search: options.search.title });
-    }
-  }
-  else if (options._[0] == "get") {
-    return await pelisController.get({ id: options.id })
-  }
-    
-  else if (options._[0] == "add") {
-    return await pelisController.add({
-      id: options.id,
-      title: options.title,
-      tags: options.tag
-    });
   }
   
   
-}
+
 
 function main() {
   const params = parseaParams(process.argv.slice(2));
-  const resultado = processOptions(params).then((res) => {
-    return res;
-  })
-  console.log(resultado);
- 
+  const controller = new PelisController();
+  controllerParams(controller, params).then((resultado) => {
+    {
+      console.log(resultado);
+    }
+  });
 }
 
 main();

@@ -8,7 +8,7 @@ class Peli {
 }
 
 class PelisCollection {
-  pelisCollection: Peli[];
+  pelisCollection: Peli[] = [];
   getAll(): Promise<Peli[]> {
     const pelisMostradas = jsonfile.readFile("./pelis.json").then((pelis: Peli[]) => {
       return this.pelisCollection = pelis;
@@ -26,7 +26,13 @@ class PelisCollection {
   
   async search(options): Promise<any> {
     const listaDePeliculas = await this.getAll();
-    if (options.title) {
+     if (options.title && options.tag) {
+      const pelisFiltradasPorTitleAndTags = listaDePeliculas.filter((pelis) => {
+        return pelis.title.includes(options.title) && pelis.tags.includes(options.tag);
+      });
+      return pelisFiltradasPorTitleAndTags;
+    }
+    else if (options.title) {
       const pelisFiltradasPorTitle = listaDePeliculas.filter((pelis) => {
         return pelis.title.includes(options.title);
       });
@@ -38,12 +44,6 @@ class PelisCollection {
       });
       return pelisFiltradasPorTags;
     }
-    else if (options.title && options.tag) {
-      const pelisFiltradasPorTitleAndTags = listaDePeliculas.filter((pelis) => {
-        return pelis.title.includes(options.title) && pelis.tags.includes(options.tag);
-      });
-      return pelisFiltradasPorTitleAndTags;
-    }
 
   }
   add(peli: Peli): Promise<boolean> {
@@ -52,10 +52,7 @@ class PelisCollection {
         return false;
       } else {
         // magia que agrega la pelicula a un objeto data
-        this.getAll().then(() => {
-          this.pelisCollection.push(peli);
-        })
-        
+        this.pelisCollection.push(peli);
         const promesaDos = jsonfile.writeFile("./pelis.json", this.pelisCollection);
   
         return promesaDos.then(() => {
