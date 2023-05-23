@@ -1,3 +1,4 @@
+import { promises } from "fs";
 import * as jsonfile from "jsonfile";
 import * as includes from "lodash";
 
@@ -35,7 +36,6 @@ class PelisCollection {
     });
     return promesaUno;
   }
-
   // Devuelve la peli con el id que se le pase por parámetro.
   async getById(id: number): Promise<Peli> {
     const todas = await this.getAll();

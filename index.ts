@@ -15,6 +15,9 @@ function parseaParams(argv) {
       .then((res) => {
         return res;
       });
+  }
+  if (resultado._[0] == "get") {
+    return { id: resultado._[1] };
   } else if (resultado._[0] == "search") {
     if (resultado.title && resultado.tag) {
       return { search: { title: resultado.title, tag: resultado.tag } };
