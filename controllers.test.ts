@@ -12,8 +12,8 @@ const test = anyTest as TestFn<{
   con: PelisController;
 }>;
 
-// # IMPORTANTE #
-// apenas te clones este repo
+ // # IMPORTANTE #
+ //apenas te clones este repo
 // todos los test a continuación van a fallar
 
 // comentalos y descomentá uno a uno a medida
