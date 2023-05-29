@@ -13,20 +13,15 @@ class PelisController {
     this.pelisCollection = new PelisCollection();
   }
 
-  async get(options?:Options) {
+  async get(options?: Options) {
     if (options.id) {
       return await this.pelisCollection.getById(options.id);
-    }
-    else if (options.search) {
-      return await this.pelisCollection.search(options.search.title);
-    }
-    else if (options.search.tag) {
+    } else if (options.search) {
       return await this.pelisCollection.search(options.search);
-    }
-    else {
+    } else {
       return await this.pelisCollection.getAll();
     }
-}
+  }
 
   add(peli: Peli) {
     return this.pelisCollection.add(peli);
