@@ -1,1 +1,47 @@
-[]
+[
+    {
+        "title": "La isla siniestra",
+        "id": 1,
+        "tags": [
+            "suspenso",
+            "drama",
+            "favorita",
+            "vieja"
+        ]
+    },
+    {
+        "title": "El secreto de sus ojos",
+        "id": 2,
+        "tags": [
+            "suspenso",
+            "misterio",
+            "nueva"
+        ]
+    },
+    {
+        "title": "La era de hielo",
+        "id": 3,
+        "tags": [
+            "comedia",
+            "drama",
+            "favorita",
+            "vieja"
+        ]
+    },
+    {
+        "title": "Monsters inc",
+        "id": 4,
+        "tags": [
+            "comedia",
+            "nueva"
+        ]
+    },
+    {
+        "title": "La llamada",
+        "id": 5,
+        "tags": [
+            "terror",
+            "vieja"
+        ]
+    }
+]
