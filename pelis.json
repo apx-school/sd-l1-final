@@ -1,1 +1,38 @@
-[]
+[
+    {
+        "id": 1,
+        "title": "Volver al futuro",
+        "tags": [
+            "ciencia ficcion",
+            "comedia",
+            "favorita",
+            "vieja"
+        ]
+    },
+    {
+        "id": 2,
+        "title": "El padrino",
+        "tags": [
+            "crimen",
+            "drama",
+            "favorita",
+            "vieja"
+        ]
+    },
+    {
+        "id": 3,
+        "title": "John Wick 4",
+        "tags": [
+            "accion",
+            "nueva"
+        ]
+    },
+    {
+        "id": 4,
+        "title": "Blade Runner",
+        "tags": [
+            "ciencia ficcion",
+            "vieja"
+        ]
+    }
+]
