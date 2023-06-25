@@ -16,7 +16,7 @@
     ]
   },
   "keywords": [],
-  "author": "",
+  "author": "Facundo Guardia",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^14.14.35",
@@ -26,6 +26,6 @@
   },
   "dependencies": {
     "jsonfile": "^6.1.0",
-    "minimist": "^1.2.5"
+    "minimist": "^1.2.8"
   }
 }
