@@ -1,7 +1,9 @@
 import { readFile, writeFile } from "jsonfile";
 import * as _ from "lodash";
+import {peliPorTag,peliPorTitulo,peliPorTagDos} from "./milibreria"
 
 // usar loadash recomendacion
+type SearchOptions = { title?: string; tag?: string };
 
 // no modificar estas propiedades, agregar todas las que quieras
 class Peli {
@@ -38,19 +40,43 @@ class PelisCollection {
 
   async getById(id: number) {
     const pelis = await this.getAll();
-    const idEncontrado = _.find(pelis, ["id", id]);
-    return idEncontrado;
+    const peliPorId = _.find(pelis, ["id", id]);
+    return peliPorId;
   }
+
+  async search(options):Promise<Peli[]>{ 
+    if(!options){
+      return await this.getAll()
+    }
+    if(options.title){
+      // const pelis = await this.getAll()
+      // return pelis.filter((peli) => peli.title === options.title);
+      return peliPorTitulo(options.title)
+      
+    } else if(options.tag){
+      return peliPorTag(options.tag)
+      
+  }
+
+}
+
 }
 
 // const pelicula = {
-//   id: 7,
-//   title: "elementos",
+//   id: 127,
+//   title: "dfsddsdfsf",
 //   tags: ["suspenso", "novedad", "favorita"],
 // };
-// console.log(pelicula)
-
+// // console.log(pelicula)
+// const peli = {
+//   id: 127,
+// title: "sfsf",
+//   tag: "drama"
+// }
 // const mariano = new PelisCollection();
+// mariano.add(pelicula).then(res => console.log(res))
+// mariano.search(peli).then(res => console.log(res))
+// console.log(peliEncontrada)
 // const result = mariano.add(pelicula)
 // console.log(result)
 // result.then(res => console.log(res))
