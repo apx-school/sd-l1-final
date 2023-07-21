@@ -2,7 +2,7 @@ import { readFile, writeFile } from "jsonfile";
 import * as _ from "lodash";
 
 // usar loadash recomendacion
-type SearchOptions = { title?: string; tag?: string };
+// type SearchOptions = { title?: string; tag?: string };
 
 // no modificar estas propiedades, agregar todas las que quieras
 class Peli {
