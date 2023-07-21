@@ -1,9 +1,8 @@
 import { readFile, writeFile } from "jsonfile";
 import * as _ from "lodash";
-import {peliPorTag,peliPorTitulo,peliPorTagDos} from "./milibreria"
 
 // usar loadash recomendacion
-type SearchOptions = { title?: string; tag?: string };
+// type SearchOptions = { title?: string; tag?: string };
 
 // no modificar estas propiedades, agregar todas las que quieras
 class Peli {
@@ -29,10 +28,12 @@ class PelisCollection {
     if (!peliBuscadaPorId) {
       const peliculas = await this.getAll();
       peliculas.push(peli);
-      const estadoDeLaCarga = await writeFile("./pelis.json", peliculas).then(()=> {
-        return true;
-      })
-      return estadoDeLaCarga
+      const estadoDeLaCarga = await writeFile("./pelis.json", peliculas).then(
+        () => {
+          return true;
+        }
+      );
+      return estadoDeLaCarga;
     } else {
       return false;
     }
@@ -40,27 +41,40 @@ class PelisCollection {
 
   async getById(id: number) {
     const pelis = await this.getAll();
-    const peliPorId = _.find(pelis, ["id", id]);
-    return peliPorId;
+    const idEncontrado = _.find(pelis, ["id", id]);
+    return idEncontrado;
   }
 
-  async search(options):Promise<Peli[]>{ 
-    if(!options){
-      return await this.getAll()
+  async search(options): Promise<Peli[]> {
+    const listaPelis = await this.getAll();
+
+    if (options.tag && options.title) {
+      return listaPelis.filter((peli) => {
+        return (
+          peli.title.includes(options.title) && peli.tags.includes(options.tag)
+        );
+      });
     }
-    if(options.title){
-      // const pelis = await this.getAll()
-      // return pelis.filter((peli) => peli.title === options.title);
-      return peliPorTitulo(options.title)
-      
-    } else if(options.tag){
-      return peliPorTag(options.tag)
-      
+    
+    if (options.title) {
+      return listaPelis.filter((pelis) => {
+        return pelis.title.includes(options.title);
+      });
+    }
+
+    if (options.tag) {
+      return listaPelis.filter((pelis) => {
+        return pelis.tags.includes(options.tag);
+      });
+    }
   }
-
 }
 
-}
+// const pelicula = {  tag: "acci" };
+
+// const mariano = new PelisCollection()
+
+// mariano.search(pelicula).then(res => console.log(res))
 
 // const pelicula = {
 //   id: 127,
