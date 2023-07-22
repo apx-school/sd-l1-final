@@ -21,7 +21,7 @@ function parseaParams(argv) {
       title: resultado.title,
       tags: resultado.tags,
     };
-    return [optionAdd,peticion] ;
+    return [optionAdd, peticion];
   }
 
   if (peticion == "get" || peticion == "search") {
@@ -33,34 +33,24 @@ function parseaParams(argv) {
       },
     };
 
-    return [options,peticion]
-
-   
+    return [options, peticion];
   }
-
-  
 }
 
 function main() {
   const params = parseaParams(process.argv.slice(2));
-  
-  const option = params[0]
-  const peticion = params[1]
-  
-  
+
+  const option = params[0];
+  const peticion = params[1];
 
   const controller = new PelisController();
 
-  if(peticion.toLowerCase() == "add"){
-    controller.add(option).then(res => console.log(res))
+  if (peticion.toLowerCase() == "add") {
+    controller.add(option).then((res) => console.log(res));
   }
-  if(peticion.toLowerCase() == "get" || peticion.toLowerCase() == "search"){
-    
-
-    controller.get(option).then(res => console.log(res))
-  }  
-  
-  
+  if (peticion.toLowerCase() == "get" || peticion.toLowerCase() == "search") {
+    controller.get(option).then((res) => console.log(res));
+  }
 }
 
 main();
