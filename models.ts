@@ -12,12 +12,7 @@ class Peli {
 }
 
 class PelisCollection {
-  // pelis:Peli[]
-  // constructor(){
-  //   this.getAll().then(pelis => this.pelis = pelis)
-  // }
-
-  // a este metodo lo van a ir llamando todos para pasarse la promesa
+  
   async getAll(): Promise<Peli[]> {
     return await readFile("./pelis.json").then((pelis) => {
       return pelis;
@@ -45,7 +40,7 @@ class PelisCollection {
     return idEncontrado;
   }
 
-  async search(options): Promise<Peli[]> {
+  async search(options): Promise<any> {
     const listaPelis = await this.getAll();
 
     if (options.tag && options.title) {
@@ -54,9 +49,7 @@ class PelisCollection {
           peli.title.includes(options.title) && peli.tags.includes(options.tag)
         );
       });
-    }
-    
-    if (options.title) {
+    } else if (options.title) {
       return listaPelis.filter((pelis) => {
         return pelis.title.includes(options.title);
       });
@@ -70,32 +63,5 @@ class PelisCollection {
   }
 }
 
-// const pelicula = {  tag: "acci" };
-
-// const mariano = new PelisCollection()
-
-// mariano.search(pelicula).then(res => console.log(res))
-
-// const pelicula = {
-//   id: 127,
-//   title: "dfsddsdfsf",
-//   tags: ["suspenso", "novedad", "favorita"],
-// };
-// // console.log(pelicula)
-// const peli = {
-//   id: 127,
-// title: "sfsf",
-//   tag: "drama"
-// }
-// const mariano = new PelisCollection();
-// mariano.add(pelicula).then(res => console.log(res))
-// mariano.search(peli).then(res => console.log(res))
-// console.log(peliEncontrada)
-// const result = mariano.add(pelicula)
-// console.log(result)
-// result.then(res => console.log(res))
-// mariano.getAll().then(res => console.log(res))
-// mariano.getById(3).then(res => console.log(res))
-// mariano.add(pelicula).then((res) => console.log(res));
 
 export { PelisCollection, Peli };

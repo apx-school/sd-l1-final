@@ -1,63 +1,66 @@
 import * as minimist from "minimist";
 import { PelisController } from "./controllers";
+// parametros: add - get - search - {nada} -
+
+// si tiene add tiene id - title - tags
+type Options = {
+  id?: number;
+  search?: {
+    title?: string;
+    tag?: string;
+  };
+};
 
 function parseaParams(argv) {
   const resultado = minimist(argv);
-  //  resultado = {
-  //   id?: number;
-  //   search?: {
-  //     title?: string;
-  //     tag?: string;
-  //   };
-  // };
+  const peticion = resultado._[0];
 
-  // const peticionGet =  {
-  //   id: params.id,
-  //   search: {
-  //     title: params.title,
-  //     tag: params.tags
-  //   }
-  // };
-  return resultado;
+  if (peticion == "add") {
+    const optionAdd = {
+      id: resultado.id,
+      title: resultado.title,
+      tags: resultado.tags,
+    };
+    return [optionAdd,peticion] ;
+  }
+
+  if (peticion == "get" || peticion == "search") {
+    const options: Options = {
+      id: resultado.id,
+      search: {
+        title: resultado.title,
+        tag: resultado.tag,
+      },
+    };
+
+    return [options,peticion]
+
+   
+  }
+
+  
 }
 
 function main() {
   const params = parseaParams(process.argv.slice(2));
   
-
-  const controller = new PelisController()
-  // console.log(params);
-  // console.log(params._[0]);
-  // console.log(params.title);
-  if(!params._[0]){
-    controller.get({}).then(res => console.log(res))
-  }else if(params._[0] == "add"){
-    const peticion = {
-      id: params.id,
-      title: params.title,
-      tags: params.tags
-    }
-    controller.add(peticion).then(res => console.log(res))
-    
-  }else if(params._[0][0] == "get"){
-    
-    controller.get(params).then(res => console.log(res))
-    
-  }else if(params._[0] == "search"){
-    if(params.title && params.tag){
-      controller.get({search:{title:params.title}}).then(res => console.log(res))
-      controller.get({search:{tag:params.tag}}).then(res => console.log(res));
-
-    }else if(params.title){
-
-      controller.get({search:{title:params.title}}).then(res => console.log(res))
-    }else if(params.tag){
-      controller.get({search:{tag:params.tag}}).then(res => console.log(res));
-    }
-  }
-
+  const option = params[0]
+  const peticion = params[1]
+  
   
 
+  const controller = new PelisController();
+
+  if(peticion.toLowerCase() == "add"){
+    controller.add(option).then(res => console.log(res))
+  }
+  if(peticion.toLowerCase() == "get" || peticion.toLowerCase() == "search"){
+    
+
+    controller.get(option).then(res => console.log(res))
+  }  
+  
+  
 }
 
 main();
