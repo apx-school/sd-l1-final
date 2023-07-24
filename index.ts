@@ -13,7 +13,13 @@ type Options = {
 
 function parseaParams(argv) {
   const resultado = minimist(argv);
-  const peticion = resultado._[0];
+  let peticion;
+  if(resultado._[0] == undefined){
+    peticion = "all"
+    return [undefined,peticion]
+  }else{
+    peticion = resultado._[0].toLowerCase();
+  }
 
   if (peticion == "add") {
     const optionAdd = {
@@ -33,6 +39,8 @@ function parseaParams(argv) {
       },
     };
 
+    
+
     return [options, peticion];
   }
 }
@@ -43,14 +51,20 @@ function main() {
   const option = params[0];
   const peticion = params[1];
 
+ 
+
   const controller = new PelisController();
 
-  if (peticion.toLowerCase() == "add") {
+  if (peticion == "add") {
     controller.add(option).then((res) => console.log(res));
   }
-  if (peticion.toLowerCase() == "get" || peticion.toLowerCase() == "search") {
+  if (peticion == "get" || peticion == "search") {
     controller.get(option).then((res) => console.log(res));
   }
+  if(peticion == "all"){
+    controller.get(option).then((res) => console.log(res));
+  }
+
 }
 
 main();
