@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "The Shawshank Redemption",
+    "tags": ["carcelario", "drama", "policial"]
+  },
+  {
+    "id": 2,
+    "title": "The Big Lebowski",
+    "tags": ["crimen", "comedia", "buddy"]
+  },
+  {
+    "id": 3,
+    "title": "American History X",
+    "tags": ["accion", "policial", "drama"]
+  }
+]
