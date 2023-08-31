@@ -25,7 +25,8 @@ class PelisCollection {
   }
   async getById(id: number): Promise<Peli> {
     const peliculas = await this.getAll();
-    const pelicula = peliculas.find((peli) => peli.id == id);
+    const pelicula = peliculas.find((peli) => peli.id === id);
+
     return pelicula;
   }
   add(peli: Peli): Promise<boolean> {
@@ -45,7 +46,7 @@ class PelisCollection {
     });
     return promesaUno;
   }
-  async search(options: SearchOptions) {
+  async search(options: SearchOptions): Promise<any> {
     const lista = await this.getAll();
     if (options.tag && options.title) {
       return lista.filter((peli) => {
@@ -67,7 +68,9 @@ class PelisCollection {
     }
   }
 }
-const probando = new PelisCollection();
+export { PelisCollection, Peli };
+// const probando = new PelisCollection();
+// probando.getById(2).then((res) => console.log(res));
 // probando.search({ title: "El diario de Noa" }).then((res) => console.log(res));
 
 // const unaPeli = {
@@ -79,4 +82,3 @@ const probando = new PelisCollection();
 // console.log(probando.getData());
 // probando.getAll().then((res) => console.log(res));
 // probando.getById(1).then((res) => console.log(res));
-export { PelisCollection, Peli };
