@@ -1,1 +1,32 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "Demon Slayer: Muggen Train",
+    "tags": ["Fantasia", "Anime"]
+  },
+  {
+    "id": 2,
+    "title": "Rescatando al soldado Ryan",
+    "tags": ["Guerra", "Drama"]
+  },
+  { "id": 3, "title": "El diario de Noa", "tags": ["Romantica", "Suspenso"] },
+  {
+    "id": 4321865,
+    "title": "peli de la terminal 4321865",
+    "tags": ["rr", "ww"]
+  },
+  { "id": 140315, "title": "title 227454140315", "tags": ["tt", "rr"] },
+  { "id": 170162, "title": "title 227454170162", "tags": ["yy", "uu"] },
+  { "id": 178956, "title": "title 192531178956", "tags": ["tt", "rr"] },
+  { "id": 131478, "title": "title 192531131478", "tags": ["yy", "uu"] },
+  {
+    "id": 212490,
+    "title": "una peli 212490",
+    "tags": ["classic", "tag 212490"]
+  },
+  {
+    "id": 160520,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 212490"]
+  }
+]
