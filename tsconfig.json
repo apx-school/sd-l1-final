@@ -2,6 +2,6 @@
   "compilerOptions": {
     "target": "esnext",
     "moduleResolution": "node",
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
   }
 }
