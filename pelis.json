@@ -1,1 +1,5 @@
-[]
+[
+  { "title": "Volver al futuro", "id": 1, "tags": ["Adventure", "Sci-Fi"] },
+  { "title": "Rambo", "id": 2, "tags": ["Action"] },
+  { "title": "Toy Story", "id": 3, "tags": ["Animation", "Comedy"] }
+]
