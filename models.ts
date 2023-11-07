@@ -6,66 +6,66 @@ class Peli {
   title: string;
   tags: string[];
 }
+
 type SearchOptions = { title?: string; tag?: string };
 
 class PelisCollection {
   data: Peli[] = [];
+
+  // Devuelve un array del tipo Peli con todas las pelis que se encuentren guardadas en el archivo JSON.
   async getAll(): Promise<Peli[]> {
-    // Devuelve un array del tipo Peli con todas las pelis que se encuentren guardadas en el archivo JSON.
-    const dataPromise = await jsonfile.readFile(__dirname + "/pelis.json");
-    this.data = await dataPromise;
-    return dataPromise;
+    try {
+      const data = await jsonfile.readFile(__dirname + "/pelis.json");
+      return data;
+    } catch (error) {
+      throw error;
+    }
   }
+
   async add(peli: Peli): Promise<boolean> {
     // Recibe una Peli y la guarda en el archivo.
-    const primeraPromesa = this.getByID(peli.id).then(async (peliExistente) => {
+    try {
+      const peliExistente = await this.getById(peli.id);
+
+      // No debe admitir agregar IDs repetidos.
       if (peliExistente) {
-        // No debe admitir agregar IDs repetidos.
         return false;
       } else {
         const peliList = await this.getAll();
         peliList.push(peli);
-        const segundaPromesa = jsonfile.writeFile(
-          __dirname + "/pelis.json",
-          peliList
-        );
-        return segundaPromesa.then(() => {
-          return true;
-        });
+        await jsonfile.writeFile(__dirname + "/pelis.json", peliList);
+        return true;
       }
-    });
-    // Tiene que devolver un boolean que indique si se agregó correctamente la peli.
-    return primeraPromesa;
-  }
-  async getByID(id: number): Promise<Peli> {
-    // Devuelve la peli con el id que se le pase por parámetro.
-    const pelis: Peli[] = await jsonfile.readFile(__dirname + "/pelis.json");
-    const peliExistente = pelis.find((peliEnIndex) => peliEnIndex.id === id);
-    if (peliExistente) {
-      return peliExistente;
+    } catch (error) {
+      throw error;
     }
   }
-  async search(options: SearchOptions): Promise<Peli[]> {
-    const lista = await this.getAll();
-    const listraFiltrada = lista.filter(function (peliEnIndex) {
-      // filter verboso, posible refactor para legibilidad
-      let esteVa = false;
-      if (options.tag) {
-        // lógica de tags
-        peliEnIndex.title.includes(options.tag)
-          ? (esteVa = true) // si pasa cambio "esteVa" a true
-          : (esteVa = false); // si no pasa, se descarta la peli en interación
-      }
-      if (options.title) {
-        // lógica de title
-        peliEnIndex.title.includes(options.title)
-          ? (esteVa = true) // si pasa cambio "esteVa" a true
-          : (esteVa = false); // si no pasa, se descarta la peli en interación
-      }
-      return esteVa;
-    });
 
-    return listraFiltrada;
+  // Devuelve la peli con el id que se le pase por parámetro.
+  async getById(id: number): Promise<Peli> {
+    try {
+      const allPelis = await this.getAll();
+      const foundPeli = allPelis.find((peli) => {
+        return peli.id === id;
+      });
+      return foundPeli;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async search(options: SearchOptions): Promise<Peli[]> {
+    try {
+      const lista = await this.getAll();
+      const listraFiltrada = lista.filter(
+        (peli) =>
+          peli.tags.includes(options.tag) || peli.title.includes(options.title)
+      );
+      return listraFiltrada;
+    } catch (error) {
+      throw error;
+    }
   }
 }
+
 export { PelisCollection, Peli };
