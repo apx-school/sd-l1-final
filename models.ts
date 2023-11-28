@@ -7,9 +7,14 @@ class Peli {
   tags: string[];
 }
 
+type SearchOptions = { title?: string; tag?: string };
+
 class PelisCollection {
-  async getAll(): Promise<Peli[]> {
-    const peliculas: Peli[]= await jsonfile.readFile("./pelis.json");
+
+
+  
+   getAll(): Peli[] {
+    const peliculas: Peli[]=  jsonfile.readFile("./pelis.json");
     return peliculas;
   }
   async getById(id:number): Promise<Peli> {
