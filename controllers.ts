@@ -1,6 +1,6 @@
 import { PelisCollection, Peli } from "./models";
 
-type options = {
+type peli = {
   id?: number;
   search?:{
     title?: string;
@@ -14,25 +14,25 @@ class PelisController {
     this.pelis = new PelisCollection();
   }
 
-  async get(options?:options){
-    if(!options){
+  async get(peli?: peli){
+    if(!peli){
       return await this.pelis.getAll()
     }
-    if(options.id){
-      return await this.pelis.getById(options.id).then(res => {return res})
+    if(peli.id){
+      return await this.pelis.getById(peli.id).then(res => {return res})
     }
-    if(options.search){
-      if(options.search.tag && options.search.title){
-        const pelisFilter = await this.pelis.search(options.search)
+    if(peli.search){
+      if(peli.search.tag && peli.search.title){
+        const pelisFilter = await this.pelis.search(peli.search)
         return pelisFilter
       }
     }
-    if(options.search.tag){
-      const pelisFilter = await this.pelis.search(options.search)
+    if(peli.search.tag){
+      const pelisFilter = await this.pelis.search(peli.search)
       return pelisFilter
     }
-    if(options.search.title){
-      const pelisFilter = await this.pelis.search(options.search)
+    if(peli.search.title){
+      const pelisFilter = await this.pelis.search(peli.search)
       return pelisFilter
     }
     

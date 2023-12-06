@@ -12,43 +12,47 @@ type SearchOptions = {
 }
 
 class PelisCollection {
-  getAll(): Promise<Peli[]>{
-    return jsonfile.readFile('./pelis.json').then((res) => {
-      return res;
-    })
+  async getAll(): Promise<Peli[]>{
+    const pelis: Peli[] = await 
+    jsonfile.readFile('./pelis.json');
+    return pelis;
   }
   async getById(id: number): Promise<Peli> {
 const pelis = await this.getAll();
-const peli = pelis.find(pel => pel.id === id);
-console.log(peli);
-return peli
-  }
+const peId = pelis.find((pel) => {
+  return pel.id == id;
+  });
+  return peId}
+
   async add(peli: Peli): Promise<boolean> {
     const pelis = await this.getAll();
-    const seRepeat = pelis.some(peli => peli.id === peli.id)
+    const seRepeat = pelis.find((peli) => {
+      return peli.id == peli.id});
     if(seRepeat){
-      const data = pelis
-      data.push(peli)
-      return jsonfile.writeFile('./pelis.json', data).then(() => {
-        return true
-      })
-    }else{
       return false
+    }else{
+      pelis.push(peli);
+      await jsonfile.writeFile("./pelis.json", pelis);
+      return true;
     }
   }
-  async search(options: SearchOptions): Promise<any> {
+  async search(peli: any): Promise<Peli[]> {
     const pelis = await this.getAll()
     
-    if(options.tag && options.title){
-      return pelis.filter((pelis) =>{
-        return pelis.tags.includes(options.title.toString())
-      })
-    }
-
-    if(options.tag){
-      return pelis.filter((pelis) => {
-        return pelis.tags.includes(options.tag);
+    if(peli.title && peli.tag){
+      return pelis.filter((pel) =>{
+        return (
+          pel.title.includes(peli.title) && pel.tags.includes(peli.tag)
+          );
       });
+    } else if(peli.title){
+      return pelis.filter((pel) => {
+        return pel.title.includes(peli.title);
+      });
+    } else if(peli.tag){
+return pelis.filter((pel) => {
+  return pel.tags.includes(peli.tag);
+})
     }
   }
 }
