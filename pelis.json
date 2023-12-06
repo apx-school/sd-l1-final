@@ -1,1 +1,47 @@
-[]
+[
+    {
+        "id": 1,
+        "title":"Soul",
+"tags":["Animadas"]
+},
+    {
+        "id": 2,
+        "title":"Scary Movie",
+"tags":["Comedia"]
+},
+{
+    "id": 3,
+    "title":"Lara Croff",
+"tags":["Acción","Aventura"]
+},
+{
+    "id": 4,
+    "title":"Coleccionista de huesos",
+"tags":["Suspenso"]
+},
+{
+    "id": 5,
+    "title":"Stard Wards",
+"tags":["Ciencia ficción"]
+},
+{
+    "id": 6,
+    "title":"La noche del demonio",
+"tags":["Terror"]
+},
+{
+    "id": 7,
+    "title":"Green Book",
+"tags":["Hechos reales"]
+},
+{
+    "id": 8,
+    "title":"Yo antes de tí",
+"tags":["Romantica"]
+},
+{
+    "id":4423,
+"title":"Jungle Cruise",
+"tags":["accion","aventura"]
+}
+]
