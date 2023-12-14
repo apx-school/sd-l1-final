@@ -1,15 +1,27 @@
-import * as minimist from "minimist";
+import { PelisController } from './controllers';
+import * as minimist from 'minimist';
 
 function parseaParams(argv) {
-  const resultado = minimist(argv);
+	const controller = new PelisController();
+	const resultado = minimist(argv);
+	const accion = resultado._[0];
 
-  return resultado;
+	if (accion === 'get') return controller.get({ id: resultado._[1] });
+	if (accion === 'add') {
+		return controller.add({
+			id: resultado.id,
+			rating: resultado.rating,
+			title: resultado.title,
+			tags: resultado.tags,
+			añoDeLanzamiento: resultado.añoDeLanzamiento,
+		});
+	}
+	if (accion === 'search') return controller.get({ search: resultado });
+	else return controller.pelis.getAll();
 }
 
-function main() {
-  const params = parseaParams(process.argv.slice(2));
-
-  console.log(params);
+async function main() {
+	const params = await parseaParams(process.argv.slice(2));
+	console.log(params);
 }
-
 main();
