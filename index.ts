@@ -12,7 +12,7 @@ function parseaParams(argv) {
 			id: resultado.id,
 			rating: resultado.rating,
 			title: resultado.title,
-			tags: resultado.tag,
+			tags: resultado.tags,
 			añoDeLanzamiento: resultado.añoDeLanzamiento,
 		});
 	}

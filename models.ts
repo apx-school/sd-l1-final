@@ -34,7 +34,7 @@ class PelisCollection {
 			return pelis.filter((peli) => {
 				const titleDePeliEnLowerCase = peli['title'].toLowerCase();
 				const peliFiltradaByTitle = titleDePeliEnLowerCase.includes(options.title.toLowerCase());
-				const tagsDePeliEnLowerCase = peli.tags.map((tag) => tag.toLowerCase());
+				const tagsDePeliEnLowerCase = peli['tags'].map((tag) => tag.toLowerCase());
 				const peliFiltradaByTag = tagsDePeliEnLowerCase.includes(options.tag.toLowerCase());
 				return peliFiltradaByTitle && peliFiltradaByTag;
 			});
@@ -48,7 +48,7 @@ class PelisCollection {
 			}
 			if (options.tag) {
 				return pelis.filter((peli) => {
-					const tagsDePeliEnLowerCase = peli.tags.map((tag) => tag.toLowerCase());
+					const tagsDePeliEnLowerCase = peli['tags'].map((tag) => tag.toLowerCase());
 					const peliFiltradaByTag = tagsDePeliEnLowerCase.includes(options.tag.toLowerCase());
 					return peliFiltradaByTag;
 				});
@@ -64,7 +64,7 @@ class PelisCollection {
 			pelis.push(peli);
 			// habria que mejorar la parte del error
 			return jsonfile
-				.writeFile('./peli.json', pelis)
+				.writeFile('./pelis.json', pelis)
 				.then(() => {
 					console.log('El archivo se escribió correctamente');
 					return true;
