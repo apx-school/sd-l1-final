@@ -4,20 +4,20 @@ import * as minimist from "minimist";
 // Objeto que mapea acciones a funciones del controlador.
 const actionHandlers = {
   // Obtiene una película por su ID.
-  get: async (params, controller: PelisController) => controller.get({ id: params._[1] }), 
+  get: (params, controller: PelisController) => controller.get({ id: params._[1] }), 
   
   // Realiza una búsqueda de películas.
-  search: async (params, controller: PelisController) => controller.get(params),
+  search: (params, controller: PelisController) => controller.get({ search: params }),
   
   // Agrega una nueva película.
-  add: async (params, controller: PelisController) => {
+  add: (params, controller: PelisController) => {
     const { id, title, tags } = params;
     const newPelicula = { id, title, tags };
     return controller.add(newPelicula);
   },
   
   // Acción por defecto, obtiene todas las películas.
-  undefined: async (params, controller: PelisController) => controller.get({}),
+  undefined: (params, controller: PelisController) => controller.get({}),
 };
 
 // Función para analizar los parámetros de la línea de comandos.
