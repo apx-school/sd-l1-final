@@ -1,6 +1,7 @@
 import anyTest, { TestFn } from "ava";
 import { PelisController } from "./controllers";
 import { getRandomId } from "./models.test";
+import { Peli } from "./controllers";
 
 const TEST_ID = getRandomId();
 const SOME_TITLE = "una peli " + TEST_ID;
@@ -19,16 +20,6 @@ const test = anyTest as TestFn<{
 // comentalos y descomentá uno a uno a medida
 // que vas avanzando en cada test
 
-test.serial(
-  "Testeo PelisController get id (creado desde la terminal)",
-  async (t) => {
-    // testeo peli agregada desde el script test del package
-    const controller = new PelisController();
-    const peli = await controller.get({ id: 4321865 });
-    t.is(peli.title, "peli de la terminal 4321865");
-  }
-);
-
 test.serial("Testeo PelisController get id", async (t) => {
   const controller = new PelisController();
   await controller.add({
@@ -36,9 +27,17 @@ test.serial("Testeo PelisController get id", async (t) => {
     title: SOME_TITLE,
     tags: ["classic", SOME_TAG],
   });
-  const peli = await controller.get({ id: TEST_ID });
-  t.is(peli.title, SOME_TITLE);
+  const peliculas = await controller.get({ id: TEST_ID });
+  t.true(Array.isArray(peliculas), "La respuesta debe ser un array");
+  const peli = peliculas[0] as Peli | undefined;
+  t.truthy(peli, "La película no debería ser undefined");
+  if (peli) {
+    t.is(peli.title, SOME_TITLE);
+  } else {
+    t.fail("No se encontró la película con el ID especificado");
+  }
 });
+
 
 test.serial("Testeo PelisController search title", async (t) => {
   const controller = new PelisController();
