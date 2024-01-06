@@ -17,7 +17,7 @@ const actionHandlers = {
   },
   
   // Acción por defecto, obtiene todas las películas.
-  default: async (params, controller: PelisController) => controller.get({}),
+  undefined: async (params, controller: PelisController) => controller.get({}),
 };
 
 // Función para analizar los parámetros de la línea de comandos.
