@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "id":1,
+    "title":"Transformers: The Last Knight",
+    "tags":["Action","Adventure","Sci-Fi"]
+  },
+  {
+    "id":2,
+    "title":"Avatar",
+    "tags":["Fantasy","War"]
+  },
+  { 
+    "id":3,
+    "title":"The Dark Knight",
+    "tags":["Action","Crime","Drama"]
+  }
+]
