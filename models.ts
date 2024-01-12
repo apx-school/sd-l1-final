@@ -53,10 +53,13 @@ class PelisCollection {
     const films = await this.getAll();
 
     return films.filter(element => {
-        const titleMatch = options?.title ? element.title === options.title : false;
-        const tagMatch = options?.tag ? element.tags.includes(options.tag) : false;
+     // Si options.title está definido, verificar si la palabra clave está presente en el título
+     const titleMatch = options?.title ? element.title.includes(options.title) : true;
 
-        return titleMatch || tagMatch;
+     // Si options.tag está definido, verificar si la etiqueta está presente en las etiquetas de la película
+     const tagMatch = options?.tag ? element.tags.includes(options.tag) : true;
+ 
+     return titleMatch && tagMatch;
     });
   }
 }
