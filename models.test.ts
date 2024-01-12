@@ -1,5 +1,5 @@
 import anyTest, { TestFn } from "ava";
-import { PelisCollection, Peli } from "./models";
+import { PelisCollection, Pelicula } from "./models";
 
 export const getRandomId = () => {
   const randomNumber = Math.floor(Math.random() * 100000);
@@ -10,7 +10,7 @@ const SESSION_ID = getRandomId();
 
 const test = anyTest as TestFn<{
   instance: PelisCollection;
-  all: Peli[];
+  all: Pelicula[];
 }>;
 
 const TEST_ID = getRandomId();
@@ -58,12 +58,12 @@ test.serial("Testeo el método search", async (t) => {
   });
   const all = await collection.getAll();
   const a = all[0];
-  const b = await collection.search({ title: SESSION_ID });
+  const b = await collection.search({ title: TEST_TITLE });
   const ids = b.map((b) => b.id);
-  t.deepEqual(ids, [TEST_ID, SECOND_TEST_ID]);
+  t.deepEqual(ids, [TEST_ID]);
 
   const c = await collection.search({
-    title: SECOND_TEST_ID,
+    title: SECOND_TEST_TITLE,
     tag: "yy",
   });
   t.deepEqual(c[0].id, SECOND_TEST_ID);
