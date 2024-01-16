@@ -32,11 +32,6 @@ test.serial(
 
 test.serial("Testeo PelisController get id 2", async (t) => {
   const controller = new PelisController();
-  // console.log({
-  //   id: TEST_ID,
-  //   title: SOME_TITLE,
-  //   tags: ["classic", SOME_TAG],
-  // });
   await controller.add({
     id: TEST_ID,
     title: SOME_TITLE,
@@ -47,29 +42,29 @@ test.serial("Testeo PelisController get id 2", async (t) => {
   t.is(peli.title, SOME_TITLE);
 });
 
-// test.serial("Testeo PelisController search title", async (t) => {
-//   const controller = new PelisController();
-//   await controller.add({
-//     id: TEST_ID,
-//     title: SOME_TITLE,
-//     tags: ["classic", SOME_TAG],
-//   });
+test.serial("Testeo PelisController search title", async (t) => {
+  const controller = new PelisController();
+  await controller.add({
+    id: TEST_ID,
+    title: SOME_TITLE,
+    tags: ["classic", SOME_TAG],
+  });
 
-//   const pelis = await controller.get({ search: { title: TEST_ID.toString() } });
-//   t.is(pelis.length, 1);
-//   t.is(pelis[0].id, TEST_ID);
-// });
+  const pelis = await controller.get({ search: { title: TEST_ID.toString() } });
+  t.is(pelis.length, 1);
+  t.is(pelis[0].id, TEST_ID);
+});
 
-// test.serial("Testeo PelisController search tag", async (t) => {
-//   const controller = new PelisController();
-//   await controller.add({
-//     id: SECOND_TEST_ID,
-//     title: "otra peli un poco más divertida",
-//     tags: [SOME_TAG],
-//   });
-//   const pelis = await controller.get({
-//     search: { title: "peli", tag: SOME_TAG },
-//   });
-//   const ids = pelis.map((b) => b.id);
-//   t.deepEqual(ids, [TEST_ID, SECOND_TEST_ID]);
-// });
+test.serial("Testeo PelisController search tag", async (t) => {
+  const controller = new PelisController();
+  await controller.add({
+    id: SECOND_TEST_ID,
+    title: "otra peli un poco más divertida",
+    tags: [SOME_TAG],
+  });
+  const pelis = await controller.get({
+    search: { title: "peli", tag: SOME_TAG },
+  });
+  const ids = pelis.map((b) => b.id);
+  t.deepEqual(ids, [TEST_ID, SECOND_TEST_ID]);
+});

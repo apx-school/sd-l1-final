@@ -54,13 +54,6 @@ function exe(arg) {
 function main() {
   const params = parseaParams(process.argv.slice(2));
   exe(params);
-  // var c = new PelisController();
-  // var para = {
-  //   id: 123,
-  //   title: "aa",
-  //   tags: ["dd"],
-  // };
-  // c.add(para);
 }
 
 main();
