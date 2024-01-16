@@ -25,11 +25,12 @@ test.serial(
     // testeo peli agregada desde el script test del package
     const controller = new PelisController();
     const peli = await controller.get({ id: 4321865 });
+
     t.is(peli.title, "peli de la terminal 4321865");
   }
 );
 
-test.serial("Testeo PelisController get id", async (t) => {
+test.serial("Testeo PelisController get id 2", async (t) => {
   const controller = new PelisController();
   await controller.add({
     id: TEST_ID,
@@ -37,6 +38,7 @@ test.serial("Testeo PelisController get id", async (t) => {
     tags: ["classic", SOME_TAG],
   });
   const peli = await controller.get({ id: TEST_ID });
+
   t.is(peli.title, SOME_TITLE);
 });
 
