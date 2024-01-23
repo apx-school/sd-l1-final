@@ -46,7 +46,7 @@ class PelisCollection {
           esteVa = p.tags.includes(options.tag.toLowerCase())
         }
         if (options.title) {
-          esteVa = p.title.includes(options.title.toLowerCase())
+          esteVa = p.title.toLowerCase().includes(options.title.toLowerCase())
         }
         return esteVa
       })
