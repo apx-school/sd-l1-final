@@ -19,22 +19,22 @@ const test = anyTest as TestFn<{
 // comentalos y descomentá uno a uno a medida
 // que vas avanzando en cada test
 
-// test.serial(
-//   "Testeo PelisController get id (creado desde la terminal)",
-//   async (t) => {
-//     // testeo peli agregada desde el script test del package
-//     const controller = new PelisController();
-//     const peli = await controller.get({ id: 4321865 });
-//     console.log(peli);
-//     let titulo;
-//     if (Array.isArray(peli)) {
-//       titulo = peli[0].title;
-//     } else {
-//       titulo = peli.title;
-//     }
-//     t.is(titulo, "peli de la terminal 4321865");
-//   }
-// );
+test.serial(
+  "Testeo PelisController get id (creado desde la terminal)",
+  async (t) => {
+    // testeo peli agregada desde el script test del package
+    const controller = new PelisController();
+    const peli = await controller.get({ id: 4321865 });
+    console.log(peli);
+    let titulo;
+    if (Array.isArray(peli)) {
+      titulo = peli[0].title;
+    } else {
+      titulo = peli.title;
+    }
+    t.is(titulo, "peli de la terminal 4321865");
+  }
+);
 
 test.serial("Testeo PelisController get id", async (t) => {
   const controller = new PelisController();
