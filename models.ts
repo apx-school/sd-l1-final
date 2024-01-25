@@ -12,7 +12,7 @@ class PelisCollection {
   dato: any;
 
   async getAll(): Promise<Peli[]> {
-    const res = await jsonfile.readFile(__dirname + "\\pelis.json");
+    const res = await jsonfile.readFile("./pelis.json");
     return res;
   }
 
