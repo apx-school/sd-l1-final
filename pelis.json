@@ -1,1 +1,69 @@
-[]
+[
+  { "id": 1, "title": "la pantera", "tags": ["fantasia", "comedia"] },
+  { "id": 3, "title": "el aro", "tags": ["horror", "misterio", "terror"] },
+  { "id": 4, "title": "fractura", "tags": ["suspenso", "misterio"] },
+  { "id": 33, "title": "Pelicula De Prueba", "tags": ["Accion"] },
+  { "id": 44, "title": "prueba 1", "tags": ["aventura"] },
+  { "id": 66, "title": "prueba 2", "tags": ["terror"] },
+  { "id": 16, "title": "prueba 3", "tags": ["comedia"] },
+  { "id": 4421, "title": "Una peli", "tags": ["classic", "action"] },
+  {
+    "id": 4321865,
+    "title": "peli de la terminal 4321865",
+    "tags": ["rr", "ww"]
+  },
+  { "id": 196849, "title": "title 176202196849", "tags": ["tt", "rr"] },
+  { "id": 214753, "title": "title 176202214753", "tags": ["yy", "uu"] },
+  {
+    "id": 165214,
+    "title": "una peli 165214",
+    "tags": ["classic", "tag 165214"]
+  },
+  {
+    "id": 204576,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 165214"]
+  },
+  { "id": 191239, "title": "title 171413191239", "tags": ["tt", "rr"] },
+  { "id": 153966, "title": "title 171413153966", "tags": ["yy", "uu"] },
+  { "id": 147343, "title": "title 199751147343", "tags": ["tt", "rr"] },
+  { "id": 167971, "title": "title 199751167971", "tags": ["yy", "uu"] },
+  {
+    "id": 180200,
+    "title": "una peli 180200",
+    "tags": ["classic", "tag 180200"]
+  },
+  {
+    "id": 224467,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 180200"]
+  },
+  { "id": 197282, "title": "title 152140197282", "tags": ["tt", "rr"] },
+  { "id": 204646, "title": "title 152140204646", "tags": ["yy", "uu"] },
+  { "id": 140467, "title": "title 229285140467", "tags": ["tt", "rr"] },
+  { "id": 154390, "title": "title 229285154390", "tags": ["yy", "uu"] },
+  { "id": 130810, "title": "title 191063130810", "tags": ["tt", "rr"] },
+  { "id": 176672, "title": "title 191063176672", "tags": ["yy", "uu"] },
+  { "id": 218356, "title": "title 222612218356", "tags": ["tt", "rr"] },
+  { "id": 200902, "title": "title 222612200902", "tags": ["yy", "uu"] },
+  { "id": 155129, "title": "title 143579155129", "tags": ["tt", "rr"] },
+  { "id": 228895, "title": "title 143579228895", "tags": ["yy", "uu"] },
+  {
+    "id": 201150,
+    "title": "una peli 201150",
+    "tags": ["classic", "tag 201150"]
+  },
+  {
+    "id": 153747,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 201150"]
+  },
+  { "id": 227334, "title": "title 135705227334", "tags": ["tt", "rr"] },
+  { "id": 137272, "title": "title 212992137272", "tags": ["tt", "rr"] },
+  {
+    "id": 200523,
+    "title": "una peli 200523",
+    "tags": ["classic", "tag 200523"]
+  },
+  { "id": 204625, "title": "title 192667204625", "tags": ["tt", "rr"] }
+]
