@@ -9,7 +9,7 @@ class Peli {
 
 class PelisCollection {
   getAll(): Promise<Peli[]> {
-    return jsonfile("...laRutaDelArchivo").then(() => {
+    return jsonfile.readFile("...laRutaDelArchivo").then(() => {
       // la respuesta de la promesa
       return [];
     });

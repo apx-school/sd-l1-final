@@ -1,5 +1,6 @@
-# Desafío del módulo 2
-- Forkear este repo
-- Revisars los tests
+# Desafío final del Nivel 1
+
+- Forkeá este repo (y clonalo)
+- Revisá los tests
 - Agregá tu código y asegurate que los tests pasen
-- Creá un PR y subí tu PR validado a la sección [Mis desafíos](https://apx.school/challenges)
+- Creá un PR y envialo en el formulario correspondiente a este desfío)
