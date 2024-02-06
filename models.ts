@@ -60,3 +60,27 @@ class PelisCollection {
   }
 }
 export { PelisCollection, Peli };
+
+const collection = new PelisCollection();
+// //Pruebas de Models.ts metedo add()
+// collection
+//   .add({ id: 333, title: "iron man", tags: ["fantasia"] })
+//   .then((result) => console.log("metodo add: ", result));
+// //Pruebas de Models.ts metedo getAll()
+// collection.getAll().then((result) => console.log("metodo getAll: ", result));
+// //Pruebas de Models.ts metedo getById(id:number)
+// collection
+//   .getById(333)
+//   .then((result) => console.log("metodo getById: ", result));
+// //Pruebas de Models.ts metedo search(options:SearchOptions)
+// collection
+//   .search({ tag: "fantasia" })
+//   .then((result) => console.log("metodo search tag: ", result));
+// // metodo
+// collection
+//   .search({ title: "prueb" })
+//   .then((result) => console.log("metodo search title: ", result));
+// // metodo
+// collection
+//   .search({ title: "prueb", tag: "horror" })
+//   .then((result) => console.log("metodo search: ", result));

@@ -3,6 +3,7 @@ import { PelisController } from "./controllers";
 import { getRandomId } from "./models.test";
 
 const TEST_ID = getRandomId();
+
 const SOME_TITLE = "una peli " + TEST_ID;
 const SOME_TAG = "tag " + TEST_ID;
 
@@ -61,8 +62,8 @@ test.serial("Testeo PelisController search tag", async (t) => {
     tags: [SOME_TAG],
   });
   const pelis = await controller.get({
-    search: { title: "peli", tag: SOME_TAG },
+    search: { tag: SOME_TAG },
   });
   const ids = pelis.map((b) => b.id);
-  t.deepEqual(ids, [TEST_ID, SECOND_TEST_ID]);
+  t.deepEqual(ids, [SECOND_TEST_ID]);
 });

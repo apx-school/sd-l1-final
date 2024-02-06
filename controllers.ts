@@ -19,16 +19,20 @@ class PelisController {
     }
     if (options.search) {
       const searchOptions = options.search;
+      let filteredResults;
       if (searchOptions.title && searchOptions.tag) {
-        return this.data.search({
+        filteredResults = await this.data.search({
           title: searchOptions.title,
           tag: searchOptions.tag,
         });
       } else if (searchOptions.title) {
-        return this.data.search({ title: searchOptions.title });
+        filteredResults = await this.data.search({
+          title: searchOptions.title,
+        });
       } else if (searchOptions.tag) {
-        return this.data.search({ tag: searchOptions.tag });
+        filteredResults = await this.data.search({ tag: searchOptions.tag });
       }
+      return filteredResults ? filteredResults : this.data.getAll();
     }
     return this.data.getAll();
   }
@@ -51,24 +55,25 @@ export { PelisController };
 
 const prueba = new PelisController();
 
-// // Ejemplo 1: Obtener película por ID
-// prueba.get({ id: 1 }).then((result) => console.log("Ejemplo 1:", result));
+// Ejemplo 1: Obtener película por ID
+// prueba.get({ id: 333 }).then((result) => console.log("Ejemplo 1:", result));
 
-// // Ejemplo 2: Buscar películas por título
+// Ejemplo 2: Buscar películas por título
 // prueba
-//   .get({ search: { title: "la" } })
+//   .get({ search: { title: "er" } })
 //   .then((result) => console.log("Ejemplo 2:", result));
 
-// // // // Ejemplo 3: Buscar películas por tag
+// Ejemplo 3: Buscar películas por tag
 // prueba
-//   .get({ search: { tag: "comedia" } })
+//   .get({ search: { tag: "fantasia" } })
 //   .then((result) => console.log("Ejemplo 3:", result));
 
-// // // Ejemplo 4: Buscar películas por título y tag
+// Ejemplo 4: Buscar películas por título y tag
 // prueba
-//   .get({ search: { title: "pr", tag: "aventura" } })
+//   .get({ search: { title: "er", tag: "aventura" } })
 //   .then((result) => console.log("Ejemplo 4:", result));
 
+// Ejemplo 5: Recibe un objeto y crea una peli en base a el mismo.
 // prueba
 //   .add({
 //     id: 222,

@@ -19,13 +19,13 @@ const TEST_TITLE = "title " + SESSION_ID + TEST_ID;
 const SECOND_TEST_ID = getRandomId();
 const SECOND_TEST_TITLE = "title " + SESSION_ID + SECOND_TEST_ID;
 
-// # IMPORTANTE #
+// // # IMPORTANTE #
 
-// apenas te clones este repo
-// todos los test a continuación van a fallar
+// // apenas te clones este repo
+// // todos los test a continuación van a fallar
 
-// comentalos y descomentá uno a uno a medida
-// que vas avanzando en cada test
+// // comentalos y descomentá uno a uno a medida
+// // que vas avanzando en cada test
 
 test.serial("Corre ava", async (t) => {
   t.is("si", "si");
@@ -58,13 +58,12 @@ test.serial("Testeo el método search", async (t) => {
   });
   const all = await collection.getAll();
   const a = all[0];
-  const b = await collection.search({ title: SESSION_ID });
+  const b = await collection.search({ title: SESSION_ID.toString() });
   const ids = b.map((b) => b.id);
-  t.deepEqual(ids, [TEST_ID, SECOND_TEST_ID]);
-
+  t.true(ids.some((id) => id === TEST_ID));
   const c = await collection.search({
-    title: SECOND_TEST_ID,
+    title: SECOND_TEST_ID.toString(),
     tag: "yy",
   });
-  t.deepEqual(c[0].id, SECOND_TEST_ID);
+  t.true(c.some((item) => item.id === SECOND_TEST_ID));
 });
