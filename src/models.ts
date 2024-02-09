@@ -67,23 +67,25 @@ class PelisCollection {
     });
   }
   add(peli: Peli): Promise<boolean> {
-    const promesaUno = this.getById(peli.id).then((peliExistente) => {
-      if (peliExistente) {
-        return false;
-      } else {
-        // magia que agrega la pelicula a un objeto data
-        return this.getAll().then((pelis) => {
-          pelis.push(peli);
-          const promesaDos = jsonfile.writeFile(
-            __dirname + "/pelis.json",
-            pelis
-          );
-          return promesaDos.then(() => {
-            return true;
+    const promesaUno: Promise<any> = this.getById(peli.id).then(
+      (peliExistente) => {
+        if (peliExistente) {
+          return false;
+        } else {
+          // magia que agrega la pelicula a un objeto data
+          return this.getAll().then((pelis) => {
+            pelis.push(peli);
+            const promesaDos: Promise<any> = jsonfile.writeFile(
+              __dirname + "/pelis.json",
+              pelis
+            );
+            return promesaDos.then(() => {
+              return true;
+            });
           });
-        });
+        }
       }
-    });
+    );
     return promesaUno;
   }
   async search(options: SearchOptions) {
@@ -108,7 +110,7 @@ class PelisCollection {
 
       if (options.title && options.tag) {
         filteredResults =
-          p.title.includes(options.title) || p.tags.includes(options.tag);
+          p.title.includes(options.title) && p.tags.includes(options.tag);
       } else if (options.title) {
         filteredResults = p.title.includes(options.title);
       } else if (options.tag) {
