@@ -1,1 +1,18 @@
-[]
+[
+  { "id": 1, "title": "la pantera", "tags": ["fantasia", "comedia"] },
+  { "id": 3, "title": "el aro", "tags": ["horror", "misterio", "terror"] },
+  { "id": 4, "title": "fractura", "tags": ["suspenso", "misterio"] },
+  { "id": 33, "title": "Pelicula De Prueba", "tags": ["Accion"] },
+  { "id": 44, "title": "prueba 1", "tags": ["aventura"] },
+  { "id": 66, "title": "prueba 2", "tags": ["terror"] },
+  { "id": 16, "title": "prueba 3", "tags": ["comedia"] },
+  { "id": 4421, "title": "Una peli", "tags": ["classic", "action"] },
+  { "id": 132, "title": "Batman", "tags": ["accion", "superheroe"] },
+  { "id": 333, "title": "iron man", "tags": ["fantasia"] },
+  { "id": 222, "title": "no se", "tags": ["misterio", "aventura"] },
+  {
+    "id": 4321865,
+    "title": "peli de la terminal 4321865",
+    "tags": ["rr", "ww"]
+  }
+]

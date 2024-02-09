@@ -1,7 +1,7 @@
 import anyTest, { TestFn } from "ava";
 import { PelisCollection, Peli } from "./models";
 
-export const getRandomId = () => {
+const getRandomId = () => {
   const randomNumber = Math.floor(Math.random() * 100000);
   return 129856 + randomNumber;
 };

@@ -1,6 +1,10 @@
 import anyTest, { TestFn } from "ava";
 import { PelisController } from "./controllers";
-import { getRandomId } from "./models.test";
+
+const getRandomId = () => {
+  const randomNumber = Math.floor(Math.random() * 100000);
+  return 129856 + randomNumber;
+};
 
 const TEST_ID = getRandomId();
 const SOME_TITLE = "una peli " + TEST_ID;
