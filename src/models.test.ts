@@ -34,9 +34,15 @@ test.serial("Corre ava", async (t) => {
 test.serial("Testeo el método getById", async (t) => {
   const collection = new PelisCollection();
   await collection.add({
-    id: TEST_ID,
-    title: TEST_TITLE,
-    tags: ["tt", "rr"],
+    peli: {
+      peli: {
+        peli: {
+          id: TEST_ID,
+          title: TEST_TITLE,
+          tags: ["tt", "rr"],
+        },
+      },
+    },
   });
   const all = await collection.getAll();
   const a = all[0];
@@ -47,26 +53,46 @@ test.serial("Testeo el método getById", async (t) => {
 test.serial("Testeo el método search", async (t) => {
   const collection = new PelisCollection();
   await collection.add({
-    id: TEST_ID,
-    title: TEST_TITLE,
-    tags: ["tt", "rr"],
+    peli: {
+      peli: {
+        peli: {
+          id: TEST_ID,
+          title: TEST_TITLE,
+          tags: ["tt", "rr"],
+        },
+      },
+    },
   });
   await collection.add({
-    id: SECOND_TEST_ID,
-    title: SECOND_TEST_TITLE,
-    tags: ["yy", "uu"],
+    peli: {
+      peli: {
+        peli: {
+          id: SECOND_TEST_ID,
+          title: SECOND_TEST_TITLE,
+          tags: ["yy", "uu"],
+        },
+      },
+    },
   });
   const all = await collection.getAll();
   const a = all[0];
   // El search debe encontrar ambas pelis creadas a partir de la session
-  const b = await collection.search({ title: SESSION_ID.toString() });
+  const b = await collection.search({
+    options: {
+      options: { title: SESSION_ID.toString() },
+    },
+  });
   const ids = b.map((b) => b.id);
   t.deepEqual(ids, [TEST_ID, SECOND_TEST_ID]);
 
   // El search debe encontrar solo la peli con el title (session) y el tag (yy)
   const c = await collection.search({
-    title: SECOND_TEST_ID.toString(),
-    tag: "yy",
+    options: {
+      options: {
+        title: SECOND_TEST_ID.toString(),
+        tag: "yy",
+      },
+    },
   });
   t.deepEqual(c[0].id, SECOND_TEST_ID);
 });
