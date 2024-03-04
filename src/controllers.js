@@ -1,33 +1,29 @@
-import {
-  PelisCollection,
-  Peli,
-} from "/home/agustin/Documentos/APX/sd-l1-final/src/models";
-import "/home/agustin/Documentos/APX/sd-l1-final/src/pelis.json";
-type Options = {
-  id?: number;
-  search?: {
-    title?: string;
-    tag?: string;
-  };
-};
-
-class PelisController {
-  mod = new PelisCollection();
-  get(options?: Options) {
-    if (options?.id !== undefined) {
-      return this.mod.getById(options?.id);
-    } else if (options?.search !== undefined) {
-      return this.mod.search(options?.search);
-    } else if (Object.keys(options).length === 0) {
-      return this.mod.search({});
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.PelisController = void 0;
+var models_1 = require("./models");
+require("./pelis.json");
+var PelisController = /** @class */ (function () {
+    function PelisController() {
+        this.mod = new models_1.PelisCollection();
     }
-  }
-
-  add(peli: Peli) {
-    this.mod.add(peli);
-  }
-}
-export { PelisController };
+    PelisController.prototype.get = function (options) {
+        if ((options === null || options === void 0 ? void 0 : options.id) !== undefined) {
+            return this.mod.getById(options === null || options === void 0 ? void 0 : options.id);
+        }
+        else if ((options === null || options === void 0 ? void 0 : options.search) !== undefined) {
+            return this.mod.search(options === null || options === void 0 ? void 0 : options.search);
+        }
+        else if (Object.keys(options).length === 0) {
+            return this.mod.search({});
+        }
+    };
+    PelisController.prototype.add = function (peli) {
+        this.mod.add(peli);
+    };
+    return PelisController;
+}());
+exports.PelisController = PelisController;
 /*
 // Crear una instancia de PelisCollection (puedes utilizar tus propios datos o mocks)
 //const pelisCollection = new PelisCollection();
@@ -48,7 +44,6 @@ pelisController
   });
 
 // Buscar películas por título
-
 pelisController
   .get({ search: { title: "Volver" } })
   .then((result) => {
@@ -59,7 +54,6 @@ pelisController
   });
 
 // Buscar películas por tag
-
 pelisController
   .get({ search: { tag: "terror" } })
   .then((result) => {
@@ -69,11 +63,9 @@ pelisController
     console.error("Error al buscar películas por tag:", error);
   });
 
-
 // Buscar películas por título y tag
-const pelisController = new PelisController();
 pelisController
-  .get({ search: { title: "u", tag: "action" } })
+  .get({ search: { title: "v", tag: "accion" } })
   .then((result) => {
     console.log("Películas encontradas por título y tag:", result);
   })
@@ -82,7 +74,7 @@ pelisController
   });
 
 // Obtener todas las películas
-/*
+
 pelisController
   .get({})
   .then((result) => {
