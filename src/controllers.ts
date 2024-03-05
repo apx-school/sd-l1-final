@@ -15,15 +15,19 @@ class PelisController {
     this.peliculas = new PelisCollection()
   }
 
-  async get(options?: Options) {
+  async get(options?: Options): Promise<Peli | Peli[]> {
     if (!options) {
       // Si no se proporcionan opciones, devolver todas las películas
       return this.peliculas.getAll();
     }
-
+  
     if (options.id) {
       // Si se proporciona el ID, buscar por ID
-      return this.peliculas.getById(options.id);
+      const pelicula = await this.peliculas.getById(options.id);
+      if (!pelicula) {
+        throw new Error(`No se encontró ninguna película con el ID ${options.id}`);
+      }
+      return pelicula;
     } else if (options.search) {
       // Si se proporciona el objeto de búsqueda, buscar por título y/o tag
       if (options.search.title && options.search.tag) {
@@ -34,13 +38,14 @@ class PelisController {
         });
       } else if (options.search.title) {
         // Filtrar por título
-        return this.peliculas.search({ title: options.search.title })
+        return this.peliculas.search({ title: options.search.title });
       } else if (options.search.tag) {
         // Filtrar por tag (asegurándonos de que sea insensible a mayúsculas y minúsculas)
-        return this.peliculas.search({ tag: options.search.tag.toLowerCase() })
+        return this.peliculas.search({ tag: options.search.tag.toLowerCase() });
       }
     }
   }
+  
 
   async add(peli: Peli): Promise<string> {
     const success = await this.peliculas.add(peli)
