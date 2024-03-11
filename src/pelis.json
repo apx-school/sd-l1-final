@@ -1,1 +1,18 @@
-[]
+[
+    {
+      "id": 1,
+      "title": "The Notebook",
+      "tags": ["romance", "drama"]
+    },
+    {
+      "id": 2,
+      "title": "Pulp Fiction",
+      "tags": ["crimen", "drama"]
+    },
+    {
+      "id": 3,
+      "title": "Aquaman",
+      "tags": ["accion", "aventura", "sci-fi"]
+    }
+  ]
+  
