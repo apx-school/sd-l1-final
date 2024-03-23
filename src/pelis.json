@@ -1,1 +1,23 @@
-[]
+[
+    {
+        "id": 0,
+        "title": "Transformers",
+        "tags": [
+            "accion, cienciaFiccion"
+        ]
+    },
+    {
+        "id": 1,
+        "title": "Terminator",
+        "tags": [
+            "accion, cienciaFiccion"
+        ]
+    },
+    {
+        "id": 2,
+        "title": "MarioBros",
+        "tags": [
+            "aventura, animados"
+        ]
+    }
+]
