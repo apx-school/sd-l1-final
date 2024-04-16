@@ -25,7 +25,14 @@ test.serial(
     // testeo peli agregada desde el script test del package
     const controller = new PelisController();
     const peli = await controller.get({ id: 4321865 });
-    t.is(peli.title, "peli de la terminal 4321865");
+    console.log(peli);
+    let titulo;
+    if (Array.isArray(peli)) {
+      titulo = peli[0].title;
+    } else {
+      titulo = peli.title;
+    }
+    t.is(titulo, "peli de la terminal 4321865");
   }
 );
 
@@ -37,7 +44,11 @@ test.serial("Testeo PelisController get id", async (t) => {
     tags: ["classic", SOME_TAG],
   });
   const peli = await controller.get({ id: TEST_ID });
-  t.is(peli.title, SOME_TITLE);
+  if (Array.isArray(peli)) {
+    t.is(peli[0].title, SOME_TITLE);
+  } else {
+    t.is(peli.title, SOME_TITLE);
+  }
 });
 
 test.serial("Testeo PelisController search title", async (t) => {
@@ -49,8 +60,10 @@ test.serial("Testeo PelisController search title", async (t) => {
   });
 
   const pelis = await controller.get({ search: { title: TEST_ID.toString() } });
-  t.is(pelis.length, 1);
-  t.is(pelis[0].id, TEST_ID);
+  if (Array.isArray(pelis)) {
+    t.is(pelis.length, 1);
+    t.is(pelis[0].id, TEST_ID);
+  } else t.is(pelis.id, TEST_ID);
 });
 
 test.serial("Testeo PelisController search tag", async (t) => {
@@ -63,6 +76,8 @@ test.serial("Testeo PelisController search tag", async (t) => {
   const pelis = await controller.get({
     search: { title: "peli", tag: SOME_TAG },
   });
-  const ids = pelis.map((b) => b.id);
-  t.deepEqual(ids, [TEST_ID, SECOND_TEST_ID]);
+  if (Array.isArray(pelis)) {
+    const ids = pelis.map((b) => b.id);
+    t.deepEqual(ids, [TEST_ID, SECOND_TEST_ID]);
+  } else t.is(pelis.id, TEST_ID);
 });

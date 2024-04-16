@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "cars",
+    "tags": ["infantil", "autos", "vieja"]
+  },
+  {
+    "id": 2,
+    "title": "titanic",
+    "tags": ["romantica", "barco", "vieja"]
+  },
+  {
+    "id": 3,
+    "title": "Puan",
+    "tags": ["educacion", "nueva", "argentina"]
+  }
+]

@@ -1,7 +1,7 @@
 {
   "name": "test-ava",
   "version": "1.0.0",
-  "description": "",
+  "description": "- Forkeá este repo (y clonalo)\r - Revisá los tests\r - Agregá tu código y asegurate que los tests pasen\r - Creá un PR y envialo en el formulario correspondiente a este desfío)",
   "main": "index.ts",
   "scripts": {
     "test": "ava",
