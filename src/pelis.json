@@ -1,1 +1,131 @@
-[]
+[
+  {
+    "title": "The Joker",
+    "tags": ["action", "suspense"],
+    "duration": 122,
+    "id": 1
+  },
+  {
+    "title": "Cars",
+    "tags": ["kids", "animated", "adventure"],
+    "duration": 117,
+    "id": 2
+  },
+  {
+    "title": "Spiderman",
+    "tags": ["superhero", "action", "adventure"],
+    "duration": 121,
+    "id": 3
+  },
+  {
+    "title": "Las crónicas de Spiderwick",
+    "tags": ["fantasy", "adventure"],
+    "duration": 96,
+    "id": 4
+  },
+  {
+    "title": "This is it",
+    "tags": ["documentary", "lifestory", "concert"],
+    "duration": 113,
+    "id": 5
+  },
+  { "id": 6, "title": "Mi Peli", "tags": ["action", "adventure"] },
+  { "id": 171191, "title": "title 202561171191", "tags": ["tt", "rr"] },
+  { "id": 159604, "title": "title 202561159604", "tags": ["yy", "uu"] },
+  { "id": 164758, "title": "title 179567164758", "tags": ["tt", "rr"] },
+  { "id": 204959, "title": "title 179567204959", "tags": ["yy", "uu"] },
+  {
+    "id": 194140,
+    "title": "una peli 194140",
+    "tags": ["classic", "tag 194140"]
+  },
+  {
+    "id": 184352,
+    "title": "una peli 184352",
+    "tags": ["classic", "tag 184352"]
+  },
+  {
+    "id": 223095,
+    "title": "una peli 223095",
+    "tags": ["classic", "tag 223095"]
+  },
+  {
+    "id": 219174,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 223095"]
+  },
+  {
+    "id": 151180,
+    "title": "una peli 151180",
+    "tags": ["classic", "tag 151180"]
+  },
+  {
+    "id": 203118,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 151180"]
+  },
+  {
+    "id": 4411,
+    "title": "Título de la nueva peli",
+    "tags": ["action", "classic"]
+  },
+  {
+    "id": 212239,
+    "title": "una peli 212239",
+    "tags": ["classic", "tag 212239"]
+  },
+  {
+    "id": 146308,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 212239"]
+  },
+  {
+    "id": 201862,
+    "title": "una peli 201862",
+    "tags": ["classic", "tag 201862"]
+  },
+  {
+    "id": 195220,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 201862"]
+  },
+  {
+    "id": 195966,
+    "title": "una peli 195966",
+    "tags": ["classic", "tag 195966"]
+  },
+  {
+    "id": 202978,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 195966"]
+  },
+  {
+    "id": 4321865,
+    "title": "peli de la terminal 4321865",
+    "tags": ["rr", "ww"]
+  },
+  {
+    "id": 138658,
+    "title": "una peli 138658",
+    "tags": ["classic", "tag 138658"]
+  },
+  {
+    "id": 145937,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 138658"]
+  },
+  { "id": 214091, "title": "title 221454214091", "tags": ["tt", "rr"] },
+  { "id": 219866, "title": "title 221454219866", "tags": ["yy", "uu"] },
+  { "id": 210226, "title": "title 157435210226", "tags": ["tt", "rr"] },
+  { "id": 160762, "title": "title 157435160762", "tags": ["yy", "uu"] },
+  {
+    "id": 193228,
+    "title": "una peli 193228",
+    "tags": ["classic", "tag 193228"]
+  },
+  {
+    "id": 176483,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 193228"]
+  }
+]
