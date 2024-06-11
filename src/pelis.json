@@ -1,1 +1,20 @@
-[]
+[{
+    "id": 4421,
+    "title": "El señor de los anillos",
+    "tags": ["classic", "fantasy"]
+  },
+
+{
+    "id": 4432,
+    "title": "Miserables",
+    "tags": ["drama", "musical"]
+  },
+
+  
+{
+    "id": 4435,
+    "title": "Mario bross",
+    "tags": ["aventure", "comedy"]
+  }
+  
+]
