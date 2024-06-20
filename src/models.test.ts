@@ -1,5 +1,5 @@
 import anyTest, { TestFn } from "ava";
-import { PelisCollection, Peli } from "./models";
+import { PelisCollection, Peli,SearchOptions } from "./models";
 
 export const getRandomId = () => {
   const randomNumber = Math.floor(Math.random() * 100000);
