@@ -1,1 +1,36 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "El padrino",
+    "tags": [
+      "drama",
+      "mafia",
+      "clásico"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "El viaje de Chihiro",
+    "tags": [
+      "animación",
+      "fantasía",
+      "Studio Ghibli"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Blade Runner 2077",
+    "tags": [
+      "ciencia ficción",
+      "distopía",
+      "futurista"
+    ]
+  },
+  {
+    "id": 25,
+    "title": "Nueva Pelicula",
+    "tags": [
+      "accion, aventura"
+    ]
+  }
+]
