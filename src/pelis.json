@@ -1,1 +1,20 @@
-[]
+[
+  { "id": 1, "title": "Suzume", "tags": ["ultima", "scifi", "nueva"] },
+  {
+    "id": 2,
+    "title": "El tiempo contigo",
+    "tags": ["acción", "favorita", "nueva"]
+  },
+  { "id": 3, "title": "Your name", "tags": ["acción", "favorita"] },
+  {
+    "id": 4,
+    "title": "El jardin de las palabras",
+    "tags": ["acción", "favorita"]
+  },
+  { "id": 5, "title": "viaje a Agartha", "tags": ["acción", "favorita"] },
+  {
+    "id": 6,
+    "title": "5cm por segundo",
+    "tags": ["acción", "favorita", "goat"]
+  }
+]
