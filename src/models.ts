@@ -1,7 +1,9 @@
 import * as jsonfile from "jsonfile";
-// sumo este import solo para que tsc lo tome y lo copie
-// en la app no usamos esto para acceder al archivo porque es dinámico
+// El siguiente import no se usa pero es necesario
 import "./pelis.json";
+// de esta forma Typescript se entera que tiene que incluir
+// el .json y pasarlo a la carpeta /dist
+// si no, solo usandolo desde la libreria jsonfile, no se dá cuenta
 
 // no modificar estas propiedades, agregar todas las que quieras
 class Peli {
