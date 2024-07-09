@@ -1,5 +1,5 @@
 import anyTest, { TestFn } from "ava";
-import { PelisController } from "./controllers";
+import { PelisController} from "./controllers";
 import { getRandomId } from "./models.test";
 
 const TEST_ID = getRandomId();
