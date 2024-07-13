@@ -1,18 +1,7 @@
 [
   { "id": 1, "title": "jumanji", "tags": ["ficción", "aventura", "empanadas"] },
-  {
-    "id": 2,
-    "title": "avengers",
-    "tags": ["superheroes", "ficción", "marvel"]
-  },
-  {
-    "id": 3,
-    "title": "spiderman",
-    "tags": ["superheroes", "marvel", "arañas"]
-  },
-  {
-    "id": 4411,
-    "title": "Título de la nueva peli",
-    "tags": ["action", "classic"]
-  }
+  { "id": 2, "title": "avengers", "tags": ["superheroes", "ficción", "marvel"] },
+  { "id": 3, "title": "spiderman", "tags": ["superheroes", "marvel", "arañas"] },
+  { "id": 4411, "title": "Título de la nueva peli", "tags": ["action", "classic"] },
+  { "id": 4321865, "title": "peli de la terminal 4321865", "tags": ["test"] }
 ]

@@ -25,18 +25,16 @@ class PelisCollection {
       return false;
     }
   }
-  async getById(id: number): Promise<Peli> {
+  async getById(id: number): Promise<Peli | null> {
     const pelis = await this.getAll();
-    const resultado = pelis.find((p) => {
-      return p.id == id;
-    });
-    return resultado;
+    const resultado = pelis.find((p) => p.id === id);
+    return resultado || null;
   }
 
   async search(options: SearchOptions): Promise<Peli[]> {
     const pelis = await this.getAll();
     let resultados = pelis;
-  
+
     if (options.title) {
       resultados = resultados.filter((p) => p.title.includes(options.title));
     }
@@ -50,7 +48,6 @@ class PelisCollection {
     }
     return resultados;
   }
-  
 }
 
 export { PelisCollection, Peli };
