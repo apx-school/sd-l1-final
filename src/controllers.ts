@@ -1,5 +1,3 @@
-// controllers.ts
-
 import { PelisCollection, Peli } from "./models";
 
 type Options = {

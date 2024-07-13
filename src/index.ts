@@ -1,5 +1,3 @@
-// index.ts
-
 import minimist from "minimist";
 import { PelisController } from "./controllers";
 
