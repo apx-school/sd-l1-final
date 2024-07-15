@@ -11,13 +11,55 @@ class Peli {
   title: string;
   tags: string[];
 }
+type SearchOptions = { title?: string; tag?: string };
 
 class PelisCollection {
-  getAll(): Promise<Peli[]> {
-    return jsonfile.readFile("...laRutaDelArchivo").then(() => {
-      // la respuesta de la promesa
-      return [];
+  async getAll(): Promise<Peli[]> {
+    return await jsonfile
+      .readFile("./src/pelis.json")
+      .then((res: Peli[]) => {
+        return res;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  async getById(id: number): Promise<Peli> {
+    return (await this.getAll()).find((el) => el.id === id);
+  }
+
+  async add(peli: Peli): Promise<boolean> {
+    const data = await jsonfile.readFile("./src/pelis.json");
+    const pelis = Array.isArray(data) ? data : [];
+    const peliExistente = pelis.find((p) => p.id === peli.id);
+    if (peliExistente) {
+      return false;
+    } else {
+      pelis.push(peli);
+      const promesaDos = jsonfile.writeFile("./src/pelis.json", pelis);
+      return promesaDos.then(() => {
+        return true;
+      });
+    }
+  }
+
+  async search(options: SearchOptions): Promise<Peli[]> {
+    const lista = await this.getAll();
+    const listaFiltrada = lista.filter((p) => {
+      let esteVa = true;
+      if (options.tag && !p.tags.includes(options.tag)) {
+        esteVa = false;
+      }
+      if (
+        options.title &&
+        !p.title.toLowerCase().includes(options.title.toLowerCase())
+      ) {
+        esteVa = false;
+      }
+      return esteVa;
     });
+    return listaFiltrada;
   }
 }
 export { PelisCollection, Peli };

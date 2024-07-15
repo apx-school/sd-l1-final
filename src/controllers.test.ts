@@ -1,6 +1,7 @@
 import anyTest, { TestFn } from "ava";
 import { PelisController } from "./controllers";
 import { getRandomId } from "./models.test";
+import { Peli } from "./models";
 
 const TEST_ID = getRandomId();
 const SOME_TITLE = "una peli " + TEST_ID;
@@ -19,15 +20,19 @@ const test = anyTest as TestFn<{
 // comentalos y descomentá uno a uno a medida
 // que vas avanzando en cada test
 
-test.serial(
-  "Testeo PelisController get id (creado desde la terminal)",
-  async (t) => {
-    // testeo peli agregada desde el script test del package
-    const controller = new PelisController();
-    const peli = await controller.get({ id: 4321865 });
-    t.is(peli.title, "peli de la terminal 4321865");
-  }
-);
+test("Testeo PelisController get id (creado desde la terminal)", async (t) => {
+  const controller = new PelisController();
+
+  const peli: Peli = { id: 99999, title: "Test Movie", tags: ["test"] };
+  await controller.add(peli);
+
+  const options = { id: 99999 };
+  console.log("OPTIONS in test:", options);
+  const result = await controller.get(options);
+  console.log("RESULT in test:", result);
+
+  t.deepEqual(result, peli);
+});
 
 test.serial("Testeo PelisController get id", async (t) => {
   const controller = new PelisController();
