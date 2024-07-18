@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "jurasic park",
+    "tags": ["dinosaurio", "parque", "jurasico"]
+  },
+  {
+    "id": 2,
+    "title": "jurasic park 2",
+    "tags": ["rex", "tiranosaurio", "broncosaurio"]
+  },
+  {
+    "id": 3,
+    "title": "jurasic park 3",
+    "tags": ["los", "dinosaurios", "pueden desaparecer"]
+  },
+  {
+    "id": 4411,
+    "title": "Título de la nueva peli x",
+    "tags": ["action", "classic"]
+  }
+]
