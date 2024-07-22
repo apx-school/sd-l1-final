@@ -19,14 +19,6 @@ const TEST_TITLE = "title " + SESSION_ID + TEST_ID;
 const SECOND_TEST_ID = getRandomId();
 const SECOND_TEST_TITLE = "title " + SESSION_ID + SECOND_TEST_ID;
 
-// # IMPORTANTE #
-
-// apenas te clones este repo
-// todos los test a continuación van a fallar
-
-// comentalos y descomentá uno a uno a medida
-// que vas avanzando en cada test
-
 test.serial("Corre ava", async (t) => {
   t.is("si", "si");
 });
@@ -58,12 +50,10 @@ test.serial("Testeo el método search", async (t) => {
   });
   const all = await collection.getAll();
   const a = all[0];
-  // El search debe encontrar ambas pelis creadas a partir de la session
   const b = await collection.search({ title: SESSION_ID.toString() });
   const ids = b.map((b) => b.id);
   t.deepEqual(ids, [TEST_ID, SECOND_TEST_ID]);
 
-  // El search debe encontrar solo la peli con el title (session) y el tag (yy)
   const c = await collection.search({
     title: SECOND_TEST_ID.toString(),
     tag: "yy",
