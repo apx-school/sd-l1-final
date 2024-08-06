@@ -16,7 +16,7 @@ class PelisController {
 
   get(options?:Options) {
     if(options?.id){
-       return this.collection.getById(options.id)
+       return this.collection.getById(options.id);
       }
     if (options?.search){
       const searchOptions: SearchOptions = {};
