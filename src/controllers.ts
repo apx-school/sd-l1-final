@@ -32,7 +32,7 @@ class PelisController {
                 if (segundoFiltro.length == 0) return false
                 return segundoFiltro }
         } 
-        catch { return false; } 
+        catch { return false } 
     }
 
     add (peli: Peli) { this.coleccion.add(peli) }
