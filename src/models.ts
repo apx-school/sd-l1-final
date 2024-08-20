@@ -35,9 +35,12 @@ async add(pelicula: Peli) {
 async getById(id: number): Promise <any> {
     let peliculas = await this.peliculasPromesa;
     let array: Peli[] = peliculas.filter(peli => peli.id == id);
+    // if (array.length === 0) throw new Error("Pelicula no encontrada");
+    //     return array[0];
     if (array.length == 0) return false
-    else return array[0] }
-
+    else return array[0] 
+    }
+    
 async search(opcion: SearchOptions): Promise <any> {
     let peliculas = await this.peliculasPromesa;
     if (opcion.title) {
