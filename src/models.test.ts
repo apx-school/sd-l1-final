@@ -38,11 +38,14 @@ test.serial("Testeo el método getById", async (t) => {
     title: TEST_TITLE,
     tags: ["tt", "rr"],
   });
+  // const peli = await collection.getById(TEST_ID);
+  //   t.is(peli.title, TEST_TITLE); // Ve
   const all = await collection.getAll();
   const a = all[0];
   const b = await collection.getById(a.id);
   t.is(a.title, b.title);
 });
+
 
 test.serial("Testeo el método search", async (t) => {
   const collection = new PelisCollection();
