@@ -21,7 +21,9 @@ class PelisCollection {
 
    async add(peli: Peli): Promise<boolean> {
       const pelis = await this.getAll();
-      const peliExistente = pelis.find((p) => p.id === peli.id);
+
+      //devuelve un booleano y no el objeto completo.
+      const peliExistente = pelis.some((p) => p.id === peli.id);
 
       if (peliExistente) {
          return false;
@@ -41,14 +43,14 @@ class PelisCollection {
       const lista = await this.getAll();
 
       const listaFiltrada = lista.filter((p) => {
-         let esteVa = false;
+         let found = false;
          if (options.tag && p.tags.includes(options.tag)) {
-            esteVa = true;
+            found = true;
          }
          if (options.title && p.title.includes(options.title)) {
-            esteVa = true;
+            found = true;
          }
-         return esteVa;
+         return found;
       });
 
       return listaFiltrada;
