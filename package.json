@@ -20,12 +20,13 @@
   "license": "ISC",
   "devDependencies": {
     "@ava/typescript": "^4.1.0",
+    "@types/node": "^22.5.0",
     "ava": "^6.0.1",
     "ts-node": "^10.9.2",
-    "typescript": "^5.3.3"
+    "typescript": "^5.5.4"
   },
   "dependencies": {
     "jsonfile": "^6.1.0",
-    "minimist": "^1.2.5"
+    "minimist": "^1.2.8"
   }
 }
