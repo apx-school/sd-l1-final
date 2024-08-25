@@ -16,7 +16,7 @@ class Peli {
 class PelisCollection {
    async getAll(): Promise<Peli[]> {
       // Devuelve un array del tipo Peli con todas las pelis que se encuentren guardadas en el archivo JSON.
-      return jsonfile.readFile('./pelis.json');
+      return jsonfile.readFile('./src/pelis.json');
    }
 
    async add(peli: Peli): Promise<boolean> {
@@ -29,7 +29,7 @@ class PelisCollection {
          return false;
       } else {
          pelis.push(peli);
-         await jsonfile.writeFile('./pelis.json', pelis);
+         await jsonfile.writeFile('./src/pelis.json', pelis);
          return true;
       }
    }
