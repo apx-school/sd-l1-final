@@ -9,26 +9,25 @@ type Options = {
 };
 
 class PelisController {
-   pelisCollection: PelisCollection;
+   collection: PelisCollection;
 
    constructor() {
-      this.pelisCollection = new PelisCollection();
+      this.collection = new PelisCollection();
    }
 
-   async get(options?: Options) {
-      if (options) {
-         if (options.id) {
-            return this.pelisCollection.getById(options.id);
-         } else if (options.search) {
-            return this.pelisCollection.search(options.search);
-         }
+   async get(options: Options): Promise<Peli[]> {
+      if (options.id) {
+         const peli = await this.collection.getById(options.id);
+         return peli ? [peli] : [];
+      } else if (options.search) {
+         return this.collection.search(options.search);
       } else {
-         return this.pelisCollection.getAll();
+         return this.collection.getAll();
       }
    }
 
-   async add(peli: Peli) {
-      return this.pelisCollection.add(peli);
+   async add(peli: Peli): Promise<boolean> {
+      return this.collection.add(peli);
    }
 }
 

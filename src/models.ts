@@ -5,7 +5,7 @@ import './pelis.json';
 // el .json y pasarlo a la carpeta /dist
 // si no, solo usandolo desde la libreria jsonfile, no se dá cuenta
 
-type SearchOptions = { title?: string; tag?: string };
+export type SearchOptions = { title?: string; tag?: string };
 
 class Peli {
    id: number;
@@ -14,27 +14,28 @@ class Peli {
 }
 
 class PelisCollection {
-   async getAll(): Promise<Peli[]> {
-      // Devuelve un array del tipo Peli con todas las pelis que se encuentren guardadas en el archivo JSON.
-      return jsonfile.readFile('./src/pelis.json');
-   }
-
    async add(peli: Peli): Promise<boolean> {
-      const pelis = await this.getAll();
+      try {
+         const pelis = await this.getAll();
+         const peliExistente = pelis.some((p) => p.id === peli.id);
 
-      //devuelve un booleano y no el objeto completo.
-      const peliExistente = pelis.some((p) => p.id === peli.id);
-
-      if (peliExistente) {
-         return false;
-      } else {
-         pelis.push(peli);
-         await jsonfile.writeFile('./src/pelis.json', pelis);
-         return true;
+         if (peliExistente) {
+            return false;
+         } else {
+            const data = [...pelis, peli];
+            await jsonfile.writeFile('./src/pelis.json', data);
+            return true;
+         }
+      } catch (error) {
+         console.log(error);
       }
    }
 
-   async getById(id: number): Promise<Peli> {
+   async getAll(): Promise<Peli[]> {
+      return await jsonfile.readFile('./src/pelis.json');
+   }
+
+   async getById(id: number): Promise<Peli | undefined> {
       const pelis = await this.getAll();
       return pelis.find((p) => p.id === id);
    }
@@ -43,14 +44,14 @@ class PelisCollection {
       const lista = await this.getAll();
 
       const listaFiltrada = lista.filter((p) => {
-         let found = false;
-         if (options.tag && p.tags.includes(options.tag)) {
-            found = true;
+         let esteVa = false;
+         if (options.tag) {
+            esteVa = p.tags.some((t) => t === options.tag);
          }
-         if (options.title && p.title.includes(options.title)) {
-            found = true;
+         if (options.title) {
+            esteVa = p.title.includes(options.title);
          }
-         return found;
+         return esteVa;
       });
 
       return listaFiltrada;
