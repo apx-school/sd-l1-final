@@ -1,11 +1,8 @@
-import { PelisCollection, Peli } from './models';
+import { PelisCollection, Peli, SearchOptions } from './models';
 
 type Options = {
    id?: number;
-   search?: {
-      title?: string;
-      tag?: string;
-   };
+   search?: SearchOptions;
 };
 
 class PelisController {
@@ -18,9 +15,10 @@ class PelisController {
    async get(options: Options): Promise<Peli[]> {
       if (options.id) {
          const peli = await this.collection.getById(options.id);
-         return peli ? [peli] : [];
+         return [peli];
       } else if (options.search) {
-         return this.collection.search(options.search);
+         const pelis = await this.collection.search(options.search);
+         return pelis;
       } else {
          return this.collection.getAll();
       }

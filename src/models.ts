@@ -42,18 +42,17 @@ class PelisCollection {
 
    async search(options: SearchOptions): Promise<Peli[]> {
       const lista = await this.getAll();
-
       const listaFiltrada = lista.filter((p) => {
-         let esteVa = false;
-         if (options.tag) {
-            esteVa = p.tags.some((t) => t === options.tag);
-         }
-         if (options.title) {
-            esteVa = p.title.includes(options.title);
-         }
-         return esteVa;
+         const matchesTitle = options.title
+            ? p.title.toLowerCase().includes(options.title.toLowerCase())
+            : true;
+         const matchesTag = options.tag
+            ? p.tags.some(
+                 (tag) => tag.toLowerCase() === options.tag.toLowerCase(),
+              )
+            : true;
+         return matchesTitle && matchesTag;
       });
-
       return listaFiltrada;
    }
 }
