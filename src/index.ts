@@ -74,42 +74,6 @@ async function main() {
       const result = await controller.get({});
       console.log(result);
    }
-
-   // console.log(params);
-
-   //    if (params.add) {
-   //       // if (!params.add.id || !params.add.title || !params.add.tags) {
-   //       //    console.log({
-   //       //       Error: 'debe ingresar id, title y tags. use [--help] para ams info.',
-   //       //    });
-   //       console.log([params.add.id, params.add.title, params.add.tags]);
-   //       // const peli = {
-   //       //    id: params.add.id,
-   //       //    title: params.add.title,
-   //       //    tags: Array.isArray(params.add.tags)
-   //       //       ? params.add.tags
-   //       //       : [params.add.tags],
-   //       // };
-   //       // const result = await controller.add(peli);
-   //       // console.log(result);
-   //    } else if (params.get) {
-   //       // console.log(params.get);
-   //       // const result = await controller.get({ id: parseInt(params.get) });
-   //       // console.log(result);
-   //    } else if (params.search) {
-   //       console.log(params.search);
-   //       // const search = {
-   //       //    title: params.search.title,
-   //       //    tag: params.search.tag,
-   //       // };
-   //       // const result = await controller.get({search});
-   //       // console.log(result);
-   //    } else if (params.help) {
-   //       console.log(helpMenu);
-   //    } /* else {
-   //       const result = await controller.get({});
-   //       console.log(result);
-   //    } */
 }
 
 main();
