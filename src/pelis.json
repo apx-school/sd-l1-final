@@ -1,1 +1,850 @@
-[]
+[
+   {
+      "id": 1,
+      "title": "Inception",
+      "tags": [
+         "Sci-Fi",
+         "Thriller",
+         "Action"
+      ]
+   },
+   {
+      "id": 2,
+      "title": "The Godfather",
+      "tags": [
+         "Crime",
+         "Drama",
+         "Classic"
+      ]
+   },
+   {
+      "id": 3,
+      "title": "The Dark Knight",
+      "tags": [
+         "Action",
+         "Drama",
+         "Superhero"
+      ]
+   },
+   {
+      "id": 4321865,
+      "title": "peli de la terminal 4321865",
+      "tags": [
+         "rr",
+         "ww"
+      ]
+   },
+   {
+      "id": 204468,
+      "title": "title 226784204468",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 160463,
+      "title": "title 147033160463",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 203771,
+      "title": "title 147033203771",
+      "tags": [
+         "yy",
+         "uu"
+      ]
+   },
+   {
+      "id": 131491,
+      "title": "title 182300131491",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 210262,
+      "title": "title 182300210262",
+      "tags": [
+         "yy",
+         "uu"
+      ]
+   },
+   {
+      "id": 213816,
+      "title": "title 143327213816",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 229661,
+      "title": "title 143327229661",
+      "tags": [
+         "yy",
+         "uu"
+      ]
+   },
+   {
+      "id": 130609,
+      "title": "title 210501130609",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 151985,
+      "title": "title 210501151985",
+      "tags": [
+         "yy",
+         "uu"
+      ]
+   },
+   {
+      "id": 150270,
+      "title": "title 225509150270",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 137075,
+      "title": "title 225509137075",
+      "tags": [
+         "yy",
+         "uu"
+      ]
+   },
+   {
+      "id": 223171,
+      "title": "title 216844223171",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 137063,
+      "title": "title 216844137063",
+      "tags": [
+         "yy",
+         "uu"
+      ]
+   },
+   {
+      "id": 160144,
+      "title": "title 214525160144",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 204875,
+      "title": "title 214525204875",
+      "tags": [
+         "yy",
+         "uu"
+      ]
+   },
+   {
+      "id": 165918,
+      "title": "title 217818165918",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 189795,
+      "title": "title 217818189795",
+      "tags": [
+         "yy",
+         "uu"
+      ]
+   },
+   {
+      "id": 184126,
+      "title": "title 210891184126",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 155631,
+      "title": "title 210891155631",
+      "tags": [
+         "yy",
+         "uu"
+      ]
+   },
+   {
+      "id": 198482,
+      "title": "title 144305198482",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 184205,
+      "title": "title 144305184205",
+      "tags": [
+         "yy",
+         "uu"
+      ]
+   },
+   {
+      "id": 197296,
+      "title": "una peli 197296",
+      "tags": [
+         "classic",
+         "tag 197296"
+      ]
+   },
+   {
+      "id": 148102,
+      "title": "title 170128148102",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 175391,
+      "title": "title 170128175391",
+      "tags": [
+         "yy",
+         "uu"
+      ]
+   },
+   {
+      "id": 187985,
+      "title": "title 219321187985",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 172751,
+      "title": "title 219321172751",
+      "tags": [
+         "yy",
+         "uu"
+      ]
+   },
+   {
+      "id": 145384,
+      "title": "title 197369145384",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 207061,
+      "title": "title 197369207061",
+      "tags": [
+         "yy",
+         "uu"
+      ]
+   },
+   {
+      "id": 160248,
+      "title": "una peli 160248",
+      "tags": [
+         "classic",
+         "tag 160248"
+      ]
+   },
+   {
+      "id": 160241,
+      "title": "title 212907160241",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 203336,
+      "title": "title 158161203336",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 176966,
+      "title": "title 158161176966",
+      "tags": [
+         "yy",
+         "uu"
+      ]
+   },
+   {
+      "id": 134222,
+      "title": "una peli 134222",
+      "tags": [
+         "classic",
+         "tag 134222"
+      ]
+   },
+   {
+      "id": 197237,
+      "title": "title 152542197237",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 217149,
+      "title": "title 152542217149",
+      "tags": [
+         "yy",
+         "uu"
+      ]
+   },
+   {
+      "id": 188518,
+      "title": "title 133780188518",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 207858,
+      "title": "title 133780207858",
+      "tags": [
+         "yy",
+         "uu"
+      ]
+   },
+   {
+      "id": 186277,
+      "title": "una peli 186277",
+      "tags": [
+         "classic",
+         "tag 186277"
+      ]
+   },
+   {
+      "id": 160440,
+      "title": "title 150621160440",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 173915,
+      "title": "title 150621173915",
+      "tags": [
+         "yy",
+         "uu"
+      ]
+   },
+   {
+      "id": 187816,
+      "title": "title 207603187816",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 184621,
+      "title": "title 207603184621",
+      "tags": [
+         "yy",
+         "uu"
+      ]
+   },
+   {
+      "id": 185825,
+      "title": "title 209652185825",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 189652,
+      "title": "title 209652189652",
+      "tags": [
+         "yy",
+         "uu"
+      ]
+   },
+   {
+      "id": 179605,
+      "title": "title 204701179605",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 148302,
+      "title": "title 204701148302",
+      "tags": [
+         "yy",
+         "uu"
+      ]
+   },
+   {
+      "id": 161188,
+      "title": "una peli 161188",
+      "tags": [
+         "classic",
+         "tag 161188"
+      ]
+   },
+   {
+      "id": 152399,
+      "title": "title 156199152399",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 166566,
+      "title": "title 139207166566",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 186625,
+      "title": "title 139207186625",
+      "tags": [
+         "yy",
+         "uu"
+      ]
+   },
+   {
+      "id": 157182,
+      "title": "una peli 157182",
+      "tags": [
+         "classic",
+         "tag 157182"
+      ]
+   },
+   {
+      "id": 150322,
+      "title": "title 156080150322",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 211233,
+      "title": "title 156080211233",
+      "tags": [
+         "yy",
+         "uu"
+      ]
+   },
+   {
+      "id": 211716,
+      "title": "title 145139211716",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 173112,
+      "title": "title 145139173112",
+      "tags": [
+         "yy",
+         "uu"
+      ]
+   },
+   {
+      "id": 189768,
+      "title": "title 194849189768",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 214846,
+      "title": "title 194849214846",
+      "tags": [
+         "yy",
+         "uu"
+      ]
+   },
+   {
+      "id": 143217,
+      "title": "title 131479143217",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 171367,
+      "title": "title 131479171367",
+      "tags": [
+         "yy",
+         "uu"
+      ]
+   },
+   {
+      "id": 154179,
+      "title": "title 131057154179",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 144666,
+      "title": "title 131057144666",
+      "tags": [
+         "yy",
+         "uu"
+      ]
+   },
+   {
+      "id": 217739,
+      "title": "title 226681217739",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 169946,
+      "title": "title 226681169946",
+      "tags": [
+         "yy",
+         "uu"
+      ]
+   },
+   {
+      "id": 224369,
+      "title": "title 225273224369",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 161576,
+      "title": "title 195336161576",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 198839,
+      "title": "title 225273198839",
+      "tags": [
+         "yy",
+         "uu"
+      ]
+   },
+   {
+      "id": 188087,
+      "title": "title 135151188087",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 141690,
+      "title": "title 135151141690",
+      "tags": [
+         "yy",
+         "uu"
+      ]
+   },
+   {
+      "id": 187171,
+      "title": "title 145039187171",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 132945,
+      "title": "title 145039132945",
+      "tags": [
+         "yy",
+         "uu"
+      ]
+   },
+   {
+      "id": 132869,
+      "title": "title 173319132869",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 207943,
+      "title": "title 157205207943",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 179529,
+      "title": "title 157205179529",
+      "tags": [
+         "yy",
+         "uu"
+      ]
+   },
+   {
+      "id": 161139,
+      "title": "title 173319161139",
+      "tags": [
+         "yy",
+         "uu"
+      ]
+   },
+   {
+      "id": 206197,
+      "title": "title 220994206197",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 202805,
+      "title": "title 220994202805",
+      "tags": [
+         "yy",
+         "uu"
+      ]
+   },
+   {
+      "id": 143158,
+      "title": "title 177393143158",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 192595,
+      "title": "title 177393192595",
+      "tags": [
+         "yy",
+         "uu"
+      ]
+   },
+   {
+      "id": 191688,
+      "title": "title 161252191688",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 178826,
+      "title": "title 142770178826",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 195602,
+      "title": "title 161252195602",
+      "tags": [
+         "yy",
+         "uu"
+      ]
+   },
+   {
+      "id": 219351,
+      "title": "una peli 219351",
+      "tags": [
+         "classic",
+         "tag 219351"
+      ]
+   },
+   {
+      "id": 158917,
+      "title": "otra peli un poco más divertida",
+      "tags": [
+         "tag 219351"
+      ]
+   },
+   {
+      "id": 176294,
+      "title": "title 142770176294",
+      "tags": [
+         "yy",
+         "uu"
+      ]
+   },
+   {
+      "id": 207976,
+      "title": "title 203955207976",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 177392,
+      "title": "title 203955177392",
+      "tags": [
+         "yy",
+         "uu"
+      ]
+   },
+   {
+      "id": 192576,
+      "title": "title 179760192576",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 194428,
+      "title": "title 179760194428",
+      "tags": [
+         "yy",
+         "uu"
+      ]
+   },
+   {
+      "id": 135681,
+      "title": "una peli 135681",
+      "tags": [
+         "classic",
+         "tag 135681"
+      ]
+   },
+   {
+      "id": 135271,
+      "title": "otra peli un poco más divertida",
+      "tags": [
+         "tag 135681"
+      ]
+   },
+   {
+      "id": 158665,
+      "title": "title 165788158665",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 206478,
+      "title": "title 165788206478",
+      "tags": [
+         "yy",
+         "uu"
+      ]
+   },
+   {
+      "id": 188158,
+      "title": "una peli 188158",
+      "tags": [
+         "classic",
+         "tag 188158"
+      ]
+   },
+   {
+      "id": 183344,
+      "title": "otra peli un poco más divertida",
+      "tags": [
+         "tag 188158"
+      ]
+   },
+   {
+      "id": 166531,
+      "title": "title 185754166531",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 202659,
+      "title": "title 185754202659",
+      "tags": [
+         "yy",
+         "uu"
+      ]
+   },
+   {
+      "id": 211883,
+      "title": "title 227929211883",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 182448,
+      "title": "title 151463182448",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 193101,
+      "title": "title 210076193101",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 139628,
+      "title": "title 210076139628",
+      "tags": [
+         "yy",
+         "uu"
+      ]
+   },
+   {
+      "id": 149743,
+      "title": "title 199107149743",
+      "tags": [
+         "tt",
+         "rr"
+      ]
+   },
+   {
+      "id": 204960,
+      "title": "title 199107204960",
+      "tags": [
+         "yy",
+         "uu"
+      ]
+   }
+]
