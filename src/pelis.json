@@ -1,1 +1,16 @@
-[]
+[{
+    "id": 2233,
+    "title": "Una peli",
+    "tags": ["sad"]
+  },
+  {
+    "id": 6789,
+    "title": "Segunda peli",
+    "tags": ["terror"]
+  },
+  {
+    "id": 3344,
+    "title": "Tercera peli",
+    "tags": ["classic","accion"]
+  }
+]
