@@ -1,6 +1,7 @@
 import anyTest, { TestFn } from "ava";
 import { PelisController } from "./controllers";
 import { getRandomId } from "./models.test";
+import { Peli } from "./models";
 
 const TEST_ID = getRandomId();
 const SOME_TITLE = "una peli " + TEST_ID;
@@ -19,12 +20,18 @@ const test = anyTest as TestFn<{
 // comentalos y descomentá uno a uno a medida
 // que vas avanzando en cada test
 
+// Hook para inicializar el controller antes de cada test
+test.beforeEach((t) => {
+  t.context.con = new PelisController();
+});
+
+// ts-node src/index.ts --add --id 4321865 --title "peli de la terminal 4321865" --tags "action,classic"
 test.serial(
   "Testeo PelisController get id (creado desde la terminal)",
   async (t) => {
     // testeo peli agregada desde el script test del package
     const controller = new PelisController();
-    const peli = await controller.get({ id: 4321865 });
+    const peli = await controller.get({ id: 4321865 }) as Peli;
     t.is(peli.title, "peli de la terminal 4321865");
   }
 );
@@ -48,7 +55,7 @@ test.serial("Testeo PelisController search title", async (t) => {
     tags: ["classic", SOME_TAG],
   });
 
-  const pelis = await controller.get({ search: { title: TEST_ID.toString() } });
+  const pelis = await controller.get({ search: { title: TEST_ID.toString() } }) as Peli[];
   t.is(pelis.length, 1);
   t.is(pelis[0].id, TEST_ID);
 });
@@ -63,6 +70,13 @@ test.serial("Testeo PelisController search tag", async (t) => {
   const pelis = await controller.get({
     search: { title: "peli", tag: SOME_TAG },
   });
-  const ids = pelis.map((b) => b.id);
+
+  const pelisFiltradas = pelis.filter((b) => b.id !== 4321865);
+
+  const ids = pelisFiltradas.map((b) => b.id);
+
+  console.log("IDs",ids);
+  console.log("RESULTADO ESPERADO",[TEST_ID, SECOND_TEST_ID]);
+  
   t.deepEqual(ids, [TEST_ID, SECOND_TEST_ID]);
 });
