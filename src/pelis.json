@@ -1,1 +1,14 @@
-[]
+[
+  { "id": 1, "title": "El Padrino", "tags": ["Drama", "Crimen"] },
+  { "id": 2, "title": "Bad Boys", "tags": ["Comedia", "Crimen"] },
+  { "id": 3, "title": "Jumanji", "tags": ["Aventura", "Suspenso"] },
+  { "id": 4, "title": "Free Guy", "tags": ["Comedia", "Accion"] },
+  {
+    "id": 5,
+    "title": "El lobo de Wall Street",
+    "tags": ["Drama", "Comedia", "Crimen"]
+  },
+  { "id": 6, "title": "Shrek", "tags": ["Comedia", "Animada"] },
+  { "id": 7, "title": "Son Como Niños", "tags": ["comedia", "familiar"] },
+  { "id": 8, "title": "Capitan America", "tags": ["comics", "accion"] }
+]
