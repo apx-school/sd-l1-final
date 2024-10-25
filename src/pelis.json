@@ -1,1 +1,108 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "Inception",
+    "tags": ["sci-fi", "thriller", "action", "mystery", "mind-bending"]
+  },
+  {
+    "id": 2,
+    "title": "The Godfather",
+    "tags": ["crime", "drama", "classic", "mafia", "family"]
+  },
+  {
+    "id": 3,
+    "title": "The Dark Knight",
+    "tags": ["action", "crime", "superhero", "drama", "thriller"]
+  },
+  {
+    "id": 4,
+    "title": "Pulp Fiction",
+    "tags": ["crime", "drama", "cult", "non-linear", "dark humor"]
+  },
+  {
+    "id": 5,
+    "title": "Forrest Gump",
+    "tags": ["drama", "romance", "inspirational", "historical", "comedy"]
+  },
+  {
+    "id": 6,
+    "title": "The Matrix",
+    "tags": ["sci-fi", "action", "cyberpunk", "philosophical", "dystopian"]
+  },
+  {
+    "id": 7,
+    "title": "Fight Club",
+    "tags": ["drama", "thriller", "psychological", "cult", "dark humor"]
+  },
+  {
+    "id": 8,
+    "title": "The Shawshank Redemption",
+    "tags": ["drama", "crime", "hope", "friendship", "inspirational"]
+  },
+  {
+    "id": 9,
+    "title": "Interstellar",
+    "tags": ["sci-fi", "drama", "space", "adventure", "time-travel"]
+  },
+  {
+    "id": 10,
+    "title": "The Lord of the Rings: The Fellowship of the Ring",
+    "tags": ["fantasy", "adventure", "epic", "action", "quest"]
+  },
+  {
+    "id": 11,
+    "title": "Gladiator",
+    "tags": ["action", "drama", "historical", "epic", "revenge"]
+  },
+  {
+    "id": 12,
+    "title": "Titanic",
+    "tags": ["romance", "drama", "historical", "tragedy", "epic"]
+  },
+  {
+    "id": 13,
+    "title": "The Social Network",
+    "tags": [
+      "drama",
+      "biography",
+      "technology",
+      "entrepreneurship",
+      "inspiration"
+    ]
+  },
+  {
+    "id": 14,
+    "title": "Mad Max: Fury Road",
+    "tags": ["action", "adventure", "post-apocalyptic", "thriller", "visual"]
+  },
+  {
+    "id": 15,
+    "title": "The Grand Budapest Hotel",
+    "tags": ["comedy", "drama", "adventure", "mystery", "quirky"]
+  },
+  {
+    "id": 16,
+    "title": "Spirited Away",
+    "tags": ["animation", "fantasy", "adventure", "family", "magical"]
+  },
+  {
+    "id": 17,
+    "title": "Get Out",
+    "tags": ["horror", "thriller", "social commentary", "mystery", "suspense"]
+  },
+  {
+    "id": 18,
+    "title": "La La Land",
+    "tags": ["musical", "romance", "drama", "fantasy", "love"]
+  },
+  {
+    "id": 19,
+    "title": "The Revenant",
+    "tags": ["action", "drama", "adventure", "survival", "historical"]
+  },
+  {
+    "id": 20,
+    "title": "Parasite",
+    "tags": ["thriller", "drama", "social commentary", "dark humor", "suspense"]
+  }
+]
