@@ -1,1 +1,17 @@
-[]
+[
+    {
+        "id" : 1,
+        "title" : "Terminator",
+        "tags" : ["Acción", "Ciencia Ficción","James Cameron"]
+    },
+    {
+        "id" : 2,
+        "title" : "Interestelar",
+        "tags" : ["Nolan", "Ciencia Ficción","Aventura"]
+    },
+    {
+        "id" : 3,
+        "title" : "Guason",
+        "tags" : ["Suspenso", "Superheroes","Todd Phillips"]
+    }
+]

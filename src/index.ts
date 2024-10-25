@@ -8,7 +8,7 @@ function parseaParams(argv) {
 
 function main() {
   const params = parseaParams(process.argv.slice(2));
-
+  
   console.log(params);
 }
 
