@@ -6,12 +6,17 @@
     },
     {
         "id" : 2,
-        "title" : "Interestelar",
-        "tags" : ["Nolan", "Ciencia Ficción","Aventura"]
+        "title" : "casa",
+        "tags" : ["Nolan", "Ciencia Ficción","Aventura","Acción"]
     },
     {
         "id" : 3,
         "title" : "Guason",
         "tags" : ["Suspenso", "Superheroes","Todd Phillips"]
+    },
+    {
+        "id" : 4,
+        "title" : "Terremoto",
+        "tags" : ["Acción", "Ciencia Ficción","Desastres Naturales"]
     }
 ]

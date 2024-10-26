@@ -15,58 +15,45 @@ class Peli {
 type SearchOptions = { title?: string; tag?: string };
 
 class PelisCollection {
-  getAll(): Promise<Peli[]> {
-    return jsonfile.readFile("./src/pelis.json").then((r: Peli[]) => {
-      return r
-    })
-    .catch((error) => {
-      console.error("Error al leer el archivo", error);
-      throw error;
-    });
+  async getAll(): Promise<Peli[]> {
+    return await jsonfile.readFile("./src/pelis.json");
   }
 
-  add(peli: Peli): Promise<boolean> {
-    const promesaUno = this.getById(peli.id).then((peliExistente) => {
+  async add(peli: Peli): Promise<boolean> {
+    const peliExistente = await this.getById(peli.id)
       if (peliExistente) {
         return false;
       } else {
-        // magia que agrega la pelicula a un objeto data
-        const data = null;
-        data.push(peliExistente)
-        const promesaDos = jsonfile.writeFile("./pelis.json", data);
-        return promesaDos.then(() => {
-          return true;
-        });
+        const data = await this.getAll();
+        data.push(peli)
+        await jsonfile.writeFile("./pelis.json", data);
+        return true;
+        };
       }
-    });
-    return promesaUno;
-  }
-  getById(id:number):Promise<Peli>{
-    return jsonfile.readFile("./src/pelis.json").then((r: Peli[]) => {
-      const peliculaID = r.find(c => c.id == id);
-      return peliculaID;
-    })
+    
+
+  async getById(id:number):Promise<Peli | null>{
+    const r = await this.getAll();
+    return r.find(c => c.id === id) || null;
   }
 
-  async search(options:SearchOptions):Promise<Peli[]>{
+  async search(options: SearchOptions): Promise<Peli[]> {
     const lista = await this.getAll();
-
-    const listaFiltrada = lista.filter(function (p) {
-      let esteVa = false;
+  
+    return lista.filter(p => {
+      let esteVa = true;
+  
       if (options.tag) {
-        if (p.tags.some(tag => tag.toLocaleLowerCase() === options.tag.toLocaleLowerCase())){
-          esteVa = true;
-        } 
+        esteVa = esteVa && p.tags.some(tag => tag.toLowerCase() === options.tag.toLowerCase());
       }
+  
       if (options.title) {
-        let palabras = options.title.split(' ');
-        if (palabras.some(palabra => p.title.toLocaleLowerCase().includes(palabra.toLocaleLowerCase()))){
-          esteVa = true;
-        }
-      };
+        const palabras = options.title.split(' ');
+        esteVa = esteVa && palabras.some(palabra => p.title.toLowerCase().includes(palabra.toLowerCase()));
+      }
+  
       return esteVa;
     });
-  return listaFiltrada;
   }
 }
 export { PelisCollection, Peli };
