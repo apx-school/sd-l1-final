@@ -18,5 +18,10 @@
         "id" : 4,
         "title" : "Terremoto",
         "tags" : ["Acción", "Ciencia Ficción","Desastres Naturales"]
+    },
+    {
+        "id" : 5,
+        "title" : "Oppenheimer",
+        "tags" : ["Suspenso", "Nolan","Guerra"]
     }
 ]

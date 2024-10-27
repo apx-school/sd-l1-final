@@ -18,19 +18,35 @@ class PelisController {
 
   async get(options?: Options) : Promise<any> {
     if (options?.id) {
-      return this.coleccionPelis.getById(options.id);
-    } else if (options?.search) {
-      return this.coleccionPelis.search({
+      const peliId = await this.coleccionPelis.getById(options.id);
+      if (!peliId){
+        throw new Error("Pelicula no encontrada");
+      }
+      return peliId;
+    } 
+    else if (options?.search) {
+      const peliSearch = await this.coleccionPelis.search({
         title: options.search.title,
         tag: options.search.tag,
       });
-    } else {
+      if (!peliSearch){
+        throw new Error("Pelicula no encontrada");
+      }
+      return peliSearch;
+    } 
+    else {
       return this.coleccionPelis.getAll();
     }
   }
   
-  add(peli:Peli){
-    return this.coleccionPelis.add(peli);
+  async add(peli:Peli){
+    const peliAdd = await this.coleccionPelis.add(peli);
+    if (peliAdd){
+      return peli;
+    }
+    else {
+      throw new Error("Pelicula existente o incorrecta");
+    }
   }
 }
 export { PelisController };
