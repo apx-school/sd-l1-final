@@ -9,8 +9,7 @@ function parseaParams(argv) {
 
 async function main() {
   const params = parseaParams(process.argv.slice(2));
-  const coleccionDePeliculas = new PelisCollection();
-  const listaDePeliculas = new PelisController(coleccionDePeliculas);
+  const listaDePeliculas = new PelisController();
 
   if(params._[0] === "add" ){
     const nuevaPeli: Peli = {

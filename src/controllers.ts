@@ -12,34 +12,25 @@ type Options = {
 class PelisController {
   coleccionPelis:PelisCollection
 
-  constructor(coleccionPelis:PelisCollection) {
-    this.coleccionPelis = coleccionPelis;
+  constructor() {
+    this.coleccionPelis = new PelisCollection();
   }
 
-  get(options?:Options){
-    if (options?.id){
-      return this.coleccionPelis.getById(options.id)
-    }
-    else if (options?.search?.title){
-      return this.coleccionPelis.search({title : options.search.title});
-    }
-    else if (options?.search?.tag){
-      return this.coleccionPelis.search({tag : options.search.tag});
-    }
-    else if (options?.search?.tag && options?.search?.title){
+  async get(options?: Options) : Promise<any> {
+    if (options?.id) {
+      return this.coleccionPelis.getById(options.id);
+    } else if (options?.search) {
       return this.coleccionPelis.search({
-        tag : options.search.tag , 
-        title : options.search.title});
-    }
-    else {
+        title: options.search.title,
+        tag: options.search.tag,
+      });
+    } else {
       return this.coleccionPelis.getAll();
     }
   }
-
+  
   add(peli:Peli){
     return this.coleccionPelis.add(peli);
   }
-
-
 }
 export { PelisController };
