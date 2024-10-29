@@ -16,7 +16,17 @@ type SearchOptions = { title?: string; tag?: string };
 
 class PelisCollection {
   async getAll(): Promise<Peli[]> {
-    return await jsonfile.readFile("./src/pelis.json");
+    try{
+      const data = await jsonfile.readFile("./src/pelis.json");
+      return data;
+    }catch (error){
+      if(error instanceof SyntaxError){
+        console.error("Archivo vacio o incorrecto");
+        return [];
+      }
+      throw error;
+    }
+     
   }
 
   async add(peli: Peli): Promise<boolean> {
@@ -26,7 +36,7 @@ class PelisCollection {
       } else {
         const data = await this.getAll();
         data.push(peli)
-        await jsonfile.writeFile("./pelis.json", data);
+        await jsonfile.writeFile("./src/pelis.json", data);
         return true;
         };
       }
@@ -34,26 +44,25 @@ class PelisCollection {
 
   async getById(id:number):Promise<Peli | null>{
     const r = await this.getAll();
-    return r.find(c => c.id === id) || null;
+    const peliculaID =  r.find(c => c.id === id);
+    return peliculaID || null;
   }
 
   async search(options: SearchOptions): Promise<Peli[]> {
     const lista = await this.getAll();
   
-    return lista.filter(p => {
+    const listaFiltrada = lista.filter((p) => {
       let esteVa = true;
   
       if (options.tag) {
-        esteVa = esteVa && p.tags.some(tag => tag.toLowerCase() === options.tag.toLowerCase());
+        esteVa = esteVa && p.tags.map((tag) => tag.toLowerCase()).includes(options.tag.toLowerCase());
       }
-  
       if (options.title) {
-        const palabras = options.title.split(' ');
-        esteVa = esteVa && palabras.some(palabra => p.title.toLowerCase().includes(palabra.toLowerCase()));
+        esteVa = esteVa && p.title.toLowerCase().includes(options.title.toLowerCase());
       }
-  
       return esteVa;
     });
+    return listaFiltrada;
   }
 }
 export { PelisCollection, Peli };
