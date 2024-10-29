@@ -37,7 +37,7 @@ test.serial("Testeo PelisController get id", async (t) => {
     tags: ["classic", SOME_TAG],
   });
   const peli = await controller.get({ id: TEST_ID });
-  t.is(peli.title, SOME_TITLE);
+  t.is(peli.title , SOME_TITLE);
 });
 
 test.serial("Testeo PelisController search title", async (t) => {
