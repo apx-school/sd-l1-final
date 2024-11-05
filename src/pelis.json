@@ -1,1 +1,6 @@
-[]
+[
+  { "id": 43, "title": "pelicula44", "tags": "comedia" },
+  { "id": 44, "title": "pelicula44", "tags": "ciencia" },
+  { "id": 45, "title": "pelicula45", "tags": "ciencia" },
+  { "id": 46, "title": "pelicula45", "tags": "drama" }
+]
