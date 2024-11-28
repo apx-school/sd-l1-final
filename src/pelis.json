@@ -1,1 +1,18 @@
-[]
+
+[{
+    "id": 1,
+    "title": "Terminator",
+    "tags": ["accion"]
+  },
+  {
+    "id": 2,
+    "title": "El gladiador",
+    "tags": ["Epica"]
+  },
+  {
+    "id": 3,
+    "title": "Cars",
+    "tags":["infantil"]
+  }
+
+  ]
