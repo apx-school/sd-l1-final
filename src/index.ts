@@ -1,15 +1,22 @@
-import * as minimist from "minimist";
+const minimist = require('minimist'); 
+import { Peli, PelisCollection } from './models'; 
+import { PelisController } from './controllers'; 
 
-function parseaParams(argv) {
-  const resultado = minimist(argv);
 
-  return resultado;
+function parseaParams(argv , controladorDeParametros: PelisController) {
+  const resultado = minimist(argv); 
+  return controladorDeParametros.get ({id: resultado.id}); 
 }
 
-function main() {
-  const params = parseaParams(process.argv.slice(2));
-
+async function main() {
+  const controladorDeParametros = new PelisController();
+  try{ 
+  const params = await parseaParams(process.argv.slice(2), controladorDeParametros);
   console.log(params);
+  }
+  catch (error){
+    console.error ("Error al procesar parametros", error); 
+  }
 }
 
 main();
