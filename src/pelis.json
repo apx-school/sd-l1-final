@@ -1,1 +1,17 @@
-[]
+[
+{
+    "id": 123,
+    "title": "Toy Story 3",
+    "tags": ["Familiar", "Aventura", "Animacion"]
+},
+{
+    "id": 125,
+    "title": "Carry On",
+    "tags": ["Accion", "Drama", "Inquietante"]
+},
+{
+    "id": 234,
+    "title": "Shrek 2",
+    "tags": ["Graciosa", "memeada", "Animacion"]
+}
+]
