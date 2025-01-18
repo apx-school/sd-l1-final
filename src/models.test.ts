@@ -1,5 +1,6 @@
 import anyTest, { TestFn } from "ava";
 import { PelisCollection, Peli } from "./models";
+import fs from "fs";
 
 export const getRandomId = () => {
   const randomNumber = Math.floor(Math.random() * 100000);
@@ -27,20 +28,28 @@ const SECOND_TEST_TITLE = "title " + SESSION_ID + SECOND_TEST_ID;
 // comentalos y descomentá uno a uno a medida
 // que vas avanzando en cada test
 
+/*
+test.beforeEach(() => {
+  // Reiniciar el archivo JSON antes de cada test
+  fs.writeFileSync(__dirname + "/pelis.json", JSON.stringify([], null, 2));
+});*/
+
 test.serial("Corre ava", async (t) => {
   t.is("si", "si");
 });
 
 test.serial("Testeo el método getById", async (t) => {
   const collection = new PelisCollection();
-  await collection.add({
-    id: TEST_ID,
+  var newItem = {
+    id:  TEST_ID,
     title: TEST_TITLE,
     tags: ["tt", "rr"],
-  });
-  const all = await collection.getAll();
+  };
+  
+  await collection.add(newItem);  
+  const all = await collection.getAll();      
   const a = all[0];
-  const b = await collection.getById(a.id);
+  const b = await collection.getById(a.id);  
   t.is(a.title, b.title);
 });
 
@@ -56,8 +65,8 @@ test.serial("Testeo el método search", async (t) => {
     title: SECOND_TEST_TITLE,
     tags: ["yy", "uu"],
   });
-  const all = await collection.getAll();
-  const a = all[0];
+  //const all = await collection.getAll();
+  //const a = all[0];
   // El search debe encontrar ambas pelis creadas a partir de la session
   const b = await collection.search({ title: SESSION_ID.toString() });
   const ids = b.map((b) => b.id);
