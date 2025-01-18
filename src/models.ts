@@ -58,16 +58,16 @@ class PelisCollection {
         return false;
       } else {             
         return this.getAll().then((data)=>{
-          if (Array.isArray(data)) {
+          //if (Array.isArray(data)) {
             data.push(peli); // Agregar la nueva película al array
             this.pelis = data;
             // Escribir el contenido actualizado en el archivo
             return jsonfile.writeFile(__dirname + "/pelis.json", data, { spaces: 2 }).then(() => {
               return true;
             });
-          } else {
+          /*} else {
             throw new Error("El archivo JSON no contiene un array.");
-          }
+          }*/
         });        
       }
     });
