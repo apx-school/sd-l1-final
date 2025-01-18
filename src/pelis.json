@@ -1,1 +1,53 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "Indiana Jones y el arca perdida",
+    "tags": [
+      "aventuras",
+      "ficción",
+      "harrison ford"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "La guerra de las galaxias",
+    "tags": [
+      "aventuras",
+      "ficción",
+      "harrison ford"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Regreso al futuro",
+    "tags": [
+      "aventuras",
+      "ficción",
+      "Michael J. Fox"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "TEST_TITLE",
+    "tags": [
+      "tt",
+      "rr"
+    ]
+  },
+  {
+    "id": 4321865,
+    "title": "peli de la terminal 4321865",
+    "tags": [
+      "rr",
+      "ww"
+    ]
+  },
+  {
+    "id": 4411,
+    "title": "Título de la nueva peli",
+    "tags": [
+      "action",
+      "classic"
+    ]
+  }
+]

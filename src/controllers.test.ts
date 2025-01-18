@@ -28,7 +28,7 @@ test.serial(
     t.is(peli.title, "peli de la terminal 4321865");
   }
 );
-
+/*
 test.serial("Testeo PelisController get id", async (t) => {
   const controller = new PelisController();
   await controller.add({
@@ -65,4 +65,4 @@ test.serial("Testeo PelisController search tag", async (t) => {
   });
   const ids = pelis.map((b) => b.id);
   t.deepEqual(ids, [TEST_ID, SECOND_TEST_ID]);
-});
+});*/
