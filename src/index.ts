@@ -1,5 +1,5 @@
 import * as minimist from "minimist";
-import { PelisController } from "./controller";
+import { PelisController } from "./controllers";
 
 async function main() {
   const args = minimist(process.argv.slice(2));

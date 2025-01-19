@@ -1,5 +1,4 @@
-[
-  {
+[  {
     "id": 1,
     "title": "El Padrino",
     "tags": ["Crimen", "Drama"]
@@ -98,5 +97,4 @@
     "id": 20,
     "title": "Blade Runner",
     "tags": ["Ciencia Ficción", "Neo-noir"]
-  }
-]
+  }]
