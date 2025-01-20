@@ -6,6 +6,7 @@
     "esModuleInterop": true,
     "module": "commonjs",
     "rootDir": "src",
+    "noImplicitAny": false,
     "outDir": "dist"
   },
   "include": ["./src/**/*.ts"]
