@@ -1,0 +1,80 @@
+[
+  {
+    "title": "Deadpool & Wolverine",
+    "id": 1,
+    "tags": ["acción", "favorita", "nueva"]
+  },
+  { "title": "Intensamente 2", "id": 2, "tags": ["favorita", "nueva"] },
+  {
+    "title": "Cuando acecha la maldad",
+    "id": 3,
+    "tags": ["terror", "favorita", "nueva"]
+  },
+  {
+    "title": "El hombre que amaba los platos voladores",
+    "id": 4,
+    "tags": ["favorita", "nueva", "biopic"]
+  },
+  { "id": 213907, "title": "title 193554213907", "tags": ["tt", "rr"] },
+  { "id": 146353, "title": "title 183163146353", "tags": ["tt", "rr"] },
+  { "id": 174305, "title": "title 185807174305", "tags": ["tt", "rr"] },
+  { "id": 161160, "title": "title 221517161160", "tags": ["yy", "uu"] },
+  { "id": 204103, "title": "title 160369204103", "tags": ["tt", "rr"] },
+  { "id": 216438, "title": "title 160369216438", "tags": ["yy", "uu"] },
+  { "id": 158387, "title": "title 204207158387", "tags": ["tt", "rr"] },
+  { "id": 217477, "title": "title 204207217477", "tags": ["yy", "uu"] },
+  { "id": 163342, "title": "title 145789163342", "tags": ["tt", "rr"] },
+  { "id": 191966, "title": "title 196880191966", "tags": ["tt", "rr"] },
+  {
+    "id": 4321865,
+    "title": "peli de la terminal 4321865",
+    "tags": ["rr", "ww"]
+  },
+  { "id": 133794, "title": "title 154557133794", "tags": ["tt", "rr"] },
+  { "id": 146735, "title": "title 141194146735", "tags": ["tt", "rr"] },
+  {
+    "id": 209004,
+    "title": "una peli 209004",
+    "tags": ["classic", "tag 209004"]
+  },
+  { "id": 197886, "title": "title 159527197886", "tags": ["tt", "rr"] },
+  { "id": 173555, "title": "title 153056173555", "tags": ["tt", "rr"] },
+  {
+    "id": 144808,
+    "title": "una peli 144808",
+    "tags": ["classic", "tag 144808"]
+  },
+  { "id": 190661, "title": "title 213156190661", "tags": ["tt", "rr"] },
+  {
+    "id": 135214,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 134669"]
+  },
+  { "id": 215561, "title": "title 159565215561", "tags": ["tt", "rr"] },
+  { "id": 190382, "title": "title 155051190382", "tags": ["tt", "rr"] },
+  { "id": 222056, "title": "title 197262222056", "tags": ["tt", "rr"] },
+  {
+    "id": 203793,
+    "title": "una peli 203793",
+    "tags": ["classic", "tag 203793"]
+  },
+  {
+    "id": 133267,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 203793"]
+  },
+  { "id": 229203, "title": "title 223077229203", "tags": ["tt", "rr"] },
+  { "id": 131895, "title": "title 223077131895", "tags": ["yy", "uu"] },
+  { "id": 213744, "title": "title 180386213744", "tags": ["tt", "rr"] },
+  { "id": 216973, "title": "title 180386216973", "tags": ["yy", "uu"] },
+  {
+    "id": 153636,
+    "title": "una peli 153636",
+    "tags": ["classic", "tag 153636"]
+  },
+  {
+    "id": 214476,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 153636"]
+  }
+]
