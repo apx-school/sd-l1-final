@@ -48,7 +48,7 @@ async function addPelicula(params: any) {
 }
 
 async function getPelicula(params: any) {
-  const id = params._[1]; // Cambiar params[1] por params._[1]
+  const id = params._[1];
   if (!id) {
     console.error('Error: Se necesita un "id" para obtener una película.');
     return;
