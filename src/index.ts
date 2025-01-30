@@ -24,6 +24,7 @@ async function main() {
             year: 0,
         };
         await controller.add(peli);
+        return;
     } else if (action === "get") {
         // tuve que parsear el id ya que ts me decía que era un string
         const resultId = params._[1];

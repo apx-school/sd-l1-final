@@ -98,23 +98,4 @@ class PelisCollection {
     }
 }
 
-async function fun() {
-    const pel = new PelisCollection();
-    const newPeli = {
-        id: 123,
-        title: "unaPeli",
-        tags: ["tt", "rr"],
-        year: 0,
-    };
-
-    // para poder ver los datos debemos hacer await del metodo que los escribe en el archivo
-    // await pel.add(newPeli);
-
-    // const datos = await jsonfile.readFile(__dirname + "/pelis.json");
-    // console.log(datos);
-
-    const list = await pel.search({ title: "m", tag: "ciencia ficcion" });
-    console.log(list);
-}
-
 export { PelisCollection, Peli };

@@ -50,18 +50,4 @@ class PelisController {
     }
 }
 
-async function main() {
-    const tes = new PelisController();
-
-    const opt: Options = {
-        search: {
-            tag: "classic",
-        },
-    };
-
-    // await tes.add({ title: "123", id: 333, tags: ["dram", "sad"], year: 222 });
-    const pel = await tes.getOne({ id: 1 });
-    console.log(pel);
-}
-
 export { PelisController };
