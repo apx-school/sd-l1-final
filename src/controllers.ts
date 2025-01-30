@@ -1,7 +1,7 @@
 import { PelisCollection, Peli } from "./models";
 import { SearchOptions } from "./models";
 
-type Options = {
+export type Options = {
     id?: number;
     search?: {
         title?: string;
@@ -15,7 +15,7 @@ class PelisController {
         this.model = new PelisCollection();
     }
 
-    async get(options?: Options): Promise<Peli[]> {
+    async get(options?: Options): Promise<any> {
         let res;
 
         if (!options) {
@@ -36,10 +36,13 @@ class PelisController {
         return res;
     }
 
-    async getOne(options: Options) {
-        const res = await this.get(options);
-
-        return res[0];
+    async getOne(options: Options): Promise<Peli> {
+        try {
+            const res = await this.get(options);
+            return res[0];
+        } catch (error) {
+            console.log("error al obtener la peli");
+        }
     }
 
     async add(peli: Peli) {
@@ -50,8 +53,10 @@ class PelisController {
 async function main() {
     const tes = new PelisController();
 
-    const opt = {
-        id: 333,
+    const opt: Options = {
+        search: {
+            tag: "classic",
+        },
     };
 
     // await tes.add({ title: "123", id: 333, tags: ["dram", "sad"], year: 222 });
