@@ -106,7 +106,7 @@ class PelisCollection {
             });
             return filteredList;
         } catch (err) {
-            return null;
+            return [];
         }
     }
 }

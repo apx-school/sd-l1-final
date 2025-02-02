@@ -33,18 +33,19 @@ class PelisController {
                 res = await this.model.search({ title: options.search.title, tag: options.search.tag });
             }
         } catch (err) {
-            res = null;
+            res = [];
         }
         return res;
     }
 
     async getOne(options: Options): Promise<Peli> {
-        try {
-            const res = await this.get(options);
-            return res[0];
-        } catch (err) {
+        const res = await this.get(options);
+
+        if (res.length === 0) {
             return null;
         }
+
+        return res[0];
     }
 
     async add(peli: Peli) {
