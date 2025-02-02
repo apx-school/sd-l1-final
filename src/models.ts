@@ -44,8 +44,7 @@ class PelisCollection {
             const movies = await jsonfile.readFile(__dirname + "/pelis.json");
             return movies;
         } catch (err) {
-            console.log("Error leyendo pelis.json", err);
-            return null;
+            return [];
         }
     }
 
@@ -53,12 +52,10 @@ class PelisCollection {
     async getById(id: number): Promise<Peli | null> {
         const data = await this.getAll();
         if (!data) {
-            console.log("Error al leer pelis.json");
             return null;
         }
         const movie = find(data, (movie) => movie.id === id);
         if (!movie) {
-            console.log("Pelicula no encontrada");
             return null;
         }
         return movie;
@@ -108,7 +105,6 @@ class PelisCollection {
             });
             return filteredList;
         } catch (err) {
-            console.log("Pelicula no encontrada.", err);
             return null;
         }
     }

@@ -1,5 +1,4 @@
 import { PelisCollection, Peli } from "./models";
-import { SearchOptions } from "./models";
 
 export type Options = {
     id?: number;
@@ -34,19 +33,14 @@ class PelisController {
                 res = await this.model.search({ title: options.search.title, tag: options.search.tag });
             }
         } catch (err) {
-            console.log("Pelicula no encontrada.", err);
             res = null;
         }
         return res;
     }
 
     async getOne(options: Options): Promise<Peli> {
-        try {
-            const res = await this.get(options);
-            return res[0];
-        } catch (error) {
-            console.log("error al obtener la peli");
-        }
+        const res = await this.get(options);
+        return res[0] || null;
     }
 
     async add(peli: Peli) {
