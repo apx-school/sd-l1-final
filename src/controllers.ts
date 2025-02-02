@@ -39,8 +39,12 @@ class PelisController {
     }
 
     async getOne(options: Options): Promise<Peli> {
-        const res = await this.get(options);
-        return res[0] || null;
+        try {
+            const res = await this.get(options);
+            return res[0];
+        } catch (err) {
+            return null;
+        }
     }
 
     async add(peli: Peli) {

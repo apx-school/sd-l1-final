@@ -28,8 +28,6 @@ async function main() {
     } else if (action === "get") {
         // tuve que parsear el id ya que ts me decía que era un string
         const resultId = params._[1];
-        console.log(params);
-
         result = await controller.getOne({ id: parseInt(resultId) });
     } else if (action === "search") {
         const peli: Options = {
@@ -40,8 +38,6 @@ async function main() {
         };
         result = await controller.get(peli);
     }
-
-    console.log(result);
     return result;
 }
 

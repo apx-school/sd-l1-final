@@ -44,6 +44,7 @@ class PelisCollection {
             const movies = await jsonfile.readFile(__dirname + "/pelis.json");
             return movies;
         } catch (err) {
+            console.log("Error leyendo pelis.json", err);
             return [];
         }
     }
