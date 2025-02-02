@@ -40,14 +40,27 @@ function normalizeOpts(options: SearchOptions) {
 class PelisCollection {
     // toma los datos desde pelis.json y los devuelve
     async getAll(): Promise<Peli[]> {
-        const movies = await jsonfile.readFile(__dirname + "/pelis.json");
-        return movies;
+        try {
+            const movies = await jsonfile.readFile(__dirname + "/pelis.json");
+            return movies;
+        } catch (err) {
+            console.log("Error leyendo pelis.json", err);
+            return null;
+        }
     }
 
     // toma los datos desde pelis.json con getAll(), itera sobre al array y devuelve la coincidencia
-    async getById(id: number): Promise<Peli> {
+    async getById(id: number): Promise<Peli | null> {
         const data = await this.getAll();
+        if (!data) {
+            console.log("Error al leer pelis.json");
+            return null;
+        }
         const movie = find(data, (movie) => movie.id === id);
+        if (!movie) {
+            console.log("Pelicula no encontrada");
+            return null;
+        }
         return movie;
     }
 
@@ -60,7 +73,6 @@ class PelisCollection {
         //comprobacion de id
         const peliExistente = find(data, (peli) => peli.id === newPeli.id);
         if (peliExistente) {
-            console.log("peli existente");
             return false;
         }
 
@@ -68,33 +80,37 @@ class PelisCollection {
 
         //se escriben los nuevos datos en pelis.json
         await jsonfile.writeFile(__dirname + "/pelis.json", data);
-        console.log("peli agregada");
         return true;
     }
 
     async search(options: SearchOptions): Promise<Peli[]> {
-        const data = await jsonfile.readFile(__dirname + "/pelis.json");
+        try {
+            const data = await jsonfile.readFile(__dirname + "/pelis.json");
 
-        const filteredList = data.filter((p: Peli) => {
-            // primero normalizamos titulo, tags y las opciones de entrada
-            const movieTags = p.tags.map((tag) => normalizeString(tag));
-            const movieTitle = normalizeString(p.title);
-            const newOpts = normalizeOpts(options);
+            const filteredList = data.filter((p: Peli) => {
+                // primero normalizamos titulo, tags y las opciones de entrada
+                const movieTags = p.tags.map((tag) => normalizeString(tag));
+                const movieTitle = normalizeString(p.title);
+                const newOpts = normalizeOpts(options);
 
-            // luego comparamos
-            // lo más importante es si se pasa una propiedad o dos, primero se evalua eso en cada if
-            // se cambia coinc en base a la expresion 'includes' => boolean
-            let coinc = false;
-            if (options.tag && !options.title) {
-                coinc = includes(movieTags, newOpts.tag);
-            } else if (options.title && !options.tag) {
-                coinc = includes(movieTitle, newOpts.title);
-            } else {
-                coinc = includes(movieTags, newOpts.tag) && includes(movieTitle, newOpts.title);
-            }
-            return coinc;
-        });
-        return filteredList;
+                // luego comparamos
+                // lo más importante es si se pasa una propiedad o dos, primero se evalua eso en cada if
+                // se cambia coinc en base a la expresion 'includes' => boolean
+                let coinc = false;
+                if (options.tag && !options.title) {
+                    coinc = includes(movieTags, newOpts.tag);
+                } else if (options.title && !options.tag) {
+                    coinc = includes(movieTitle, newOpts.title);
+                } else {
+                    coinc = includes(movieTags, newOpts.tag) && includes(movieTitle, newOpts.title);
+                }
+                return coinc;
+            });
+            return filteredList;
+        } catch (err) {
+            console.log("Pelicula no encontrada.", err);
+            return null;
+        }
     }
 }
 
