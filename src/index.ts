@@ -1,18 +1,14 @@
 import * as fs from 'fs';
+import { loadPelis } from './models';
 import * as path from 'path';
 import minimist from 'minimist';
 import { PelisController } from './controllers';
 
-const filePath = path.join(__dirname, 'pelis.json');
+const filePath = path.join(__dirname, './pelis.json');
 
-// Leer el archivo JSON para verificar su contenido
-fs.readFile(filePath, 'utf-8', (err, data) => {
-  if (err) {
-    console.error('Error leyendo el archivo:', err);
-  } else {
-    console.log('Archivo cargado correctamente.');
-  }
-});
+// Cargar las películas utilizando la función `loadPelis` desde models.ts
+const peliculas = loadPelis();
+console.log(peliculas); // Imprime los datos del archivo pelis.json
 
 const controller = new PelisController();
 
