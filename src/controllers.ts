@@ -9,15 +9,6 @@ class Options {
   };
 };
 
-// Definir claramente los parámetros para búsqueda
-class Options {
-  id?: number;
-  search?: {
-    title?: string;
-    tag?: string;
-  };
-};
-
 class PelisController {
 
   model: PelisCollection;
