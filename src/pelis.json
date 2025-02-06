@@ -1,1 +1,26 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "Inception",
+    "tags": [
+      "sci-fi",
+      "thriller"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "The Matrix",
+    "tags": [
+      "action",
+      "classic"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Interstellar",
+    "tags": [
+      "space",
+      "drama"
+    ]
+  }
+]
