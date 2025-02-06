@@ -28,6 +28,6 @@
   },
   "dependencies": {
     "jsonfile": "^6.1.0",
-    "minimist": "^1.2.8"
+    "minimist": "^1.2.8""minimist": "^1.2.8"
   }
 }
