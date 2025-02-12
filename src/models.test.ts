@@ -1,6 +1,8 @@
 import anyTest, { TestFn } from "ava";
 import { PelisCollection, Peli } from "./models";
+import * as jsonfile from "jsonfile";
 
+// Función para obtener un ID aleatorio
 export const getRandomId = () => {
   const randomNumber = Math.floor(Math.random() * 100000);
   return 129856 + randomNumber;
@@ -20,17 +22,13 @@ const SECOND_TEST_ID = getRandomId();
 const SECOND_TEST_TITLE = "title " + SESSION_ID + SECOND_TEST_ID;
 
 // # IMPORTANTE #
-
-// apenas te clones este repo
-// todos los test a continuación van a fallar
-
-// comentalos y descomentá uno a uno a medida
-// que vas avanzando en cada test
+// Comenta todos los tests y descomenta uno a uno a medida que avances
 
 test.serial("Corre ava", async (t) => {
   t.is("si", "si");
 });
 
+// Testeo el método getById
 test.serial("Testeo el método getById", async (t) => {
   const collection = new PelisCollection();
   await collection.add({
@@ -44,6 +42,7 @@ test.serial("Testeo el método getById", async (t) => {
   t.is(a.title, b.title);
 });
 
+// Testeo el método search
 test.serial("Testeo el método search", async (t) => {
   const collection = new PelisCollection();
   await collection.add({
@@ -69,4 +68,9 @@ test.serial("Testeo el método search", async (t) => {
     tag: "yy",
   });
   t.deepEqual(c[0].id, SECOND_TEST_ID);
+});
+
+// Limpiar el archivo pelis.json después de las pruebas
+test.after.always(async () => {
+  await jsonfile.writeFile("./pelis.json", []); // Limpia el archivo para evitar conflictos en futuras pruebas
 });
