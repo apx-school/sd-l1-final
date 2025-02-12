@@ -1,1 +1,12 @@
-[]
+[
+    {
+        "id": 1,
+        "title": "El exorcista",
+        "tags":["terror", "classic"]
+    },
+    {
+        "id": 2,
+        "title": "Indiana Jones y los cazadores del arca perdida",
+        "tags":["classic", "terror"]
+    }
+]
