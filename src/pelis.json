@@ -1,1 +1,5 @@
-[]
+[
+  { "id": 1, "title": "Gladiador", "tags": ["aventura", "acción", "drama"] },
+  { "id": 2, "title": "Avatar", "tags": ["aventura", "acción", "sci-fi"] },
+  { "id": 3, "title": "Shrek", "tags": ["aventura", "animado", "comedia"] }
+]
