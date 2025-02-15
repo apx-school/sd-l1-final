@@ -1,5 +1,15 @@
 [
   { "id": 1, "title": "Gladiador", "tags": ["aventura", "acción", "drama"] },
   { "id": 2, "title": "Avatar", "tags": ["aventura", "acción", "sci-fi"] },
-  { "id": 3, "title": "Shrek", "tags": ["aventura", "animado", "comedia"] }
+  { "id": 3, "title": "Shrek", "tags": ["aventura", "animado", "comedia"] },
+  {
+    "id": 4411,
+    "title": "Título de la nueva peli",
+    "tags": ["action", "classic"]
+  },
+  {
+    "id": 4321865,
+    "title": "peli de la terminal 4321865",
+    "tags": ["rr", "ww"]
+  }
 ]

@@ -14,24 +14,23 @@ class Peli {
 }
 
 class PelisCollection {
-  add(peli: Peli): Promise<boolean> {
-    const promesaUno = this.getById(peli.id).then((peliExistente) => {
-      if (peliExistente) {
-        return false;
-      } else {
-        const pelis = this.getAll().then((p) => {
-          const data = peli;
-          p.push(data);
-          const promesaDos = jsonfile.writeFile("./src/pelis.json", p);
-          return promesaDos.then(() => {
-            return true;
-          });
-        });
-        return pelis;
-      }
-    });
+  async add(peli: Peli): Promise<boolean> {
+    const peliExistente = await this.getById(peli.id);
 
-    return promesaUno;
+    if (peliExistente) {
+      return false;
+    }
+
+    const pelis = await this.getAll();
+    pelis.push(peli);
+
+    try {
+      await jsonfile.writeFile("./src/pelis.json", pelis);
+      return true;
+    } catch (error) {
+      console.error("Error al escribir el archivo:", error);
+      return false;
+    }
   }
   async getAll(): Promise<Peli[]> {
     return await jsonfile.readFile("./src/pelis.json");
