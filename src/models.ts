@@ -1,11 +1,6 @@
 import * as jsonfile from "jsonfile";
-// El siguiente import no se usa pero es necesario
 import "./pelis.json";
-// de esta forma Typescript se entera que tiene que incluir
-// el .json y pasarlo a la carpeta /dist
-// si no, solo usandolo desde la libreria jsonfile, no se dá cuenta
 
-// no modificar estas propiedades, agregar todas las que quieras
 class Peli {
   id: number;
   title: string;
@@ -13,11 +8,53 @@ class Peli {
 }
 
 class PelisCollection {
-  getAll(): Promise<Peli[]> {
-    return jsonfile.readFile("...laRutaDelArchivo").then(() => {
-      // la respuesta de la promesa
+  private filePath = "./pelis.json";
+
+  async getAll(): Promise<Peli[]> {
+    try {
+      return await jsonfile.readFile(this.filePath);
+    } catch (error) {
+      console.error("Error al leer el archivo JSON:", error);
       return [];
+    }
+  }
+
+  async getById(id: number): Promise<Peli | null> {
+    const pelis = await this.getAll();
+    return pelis.find((peli) => peli.id === id) || null;
+  }
+
+  async add(peli: Peli): Promise<boolean> {
+    const peliExistente = await this.getById(peli.id);
+    if (peliExistente) {
+      return false; // Ya existe una película con ese ID
+    }
+
+    const pelis = await this.getAll();
+    pelis.push(peli);
+
+    try {
+      await jsonfile.writeFile(this.filePath, pelis, { spaces: 2 });
+      return true;
+    } catch (error) {
+      console.error("Error al escribir el archivo JSON:", error);
+      return false;
+    }
+  }
+  async search(options: { title?: string; tag?: string }): Promise<Peli[]> {
+    const lista = await this.getAll();
+
+    return lista.filter((p) => {
+      let esteVa = false;
+      if (options.tag && p.tags.includes(options.tag)) {
+        esteVa = true;
+      }
+      if (options.title && p.title.toLowerCase().includes(options.title.toLowerCase())) {
+        esteVa = true;
+      }
+      return esteVa;
     });
   }
 }
+
 export { PelisCollection, Peli };
