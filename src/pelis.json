@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "Movie Title 1",
+    "tags": ["tag1", "tag2"]
+  },
+  {
+    "id": 2,
+    "title": "Movie Title 2",
+    "tags": ["tag3", "tag4"]
+  },
+  {
+    "id": 3,
+    "title": "Movie Title 3",
+    "tags": ["tag5", "tag6"]
+  }
+]
