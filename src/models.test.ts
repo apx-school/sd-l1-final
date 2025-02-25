@@ -1,5 +1,5 @@
 import anyTest, { TestFn } from 'ava';
-import { PelisCollection, Peli } from './models';
+import { MoviesCollection, Movie } from './models';
 
 export const getRandomId = () => {
   const randomNumber = Math.floor(Math.random() * 100000);
@@ -9,8 +9,8 @@ export const getRandomId = () => {
 const SESSION_ID = getRandomId();
 
 const test = anyTest as TestFn<{
-  instance: PelisCollection;
-  all: Peli[];
+  instance: MoviesCollection;
+  all: Movie[];
 }>;
 
 const TEST_ID = getRandomId();
@@ -19,54 +19,56 @@ const TEST_TITLE = 'title ' + SESSION_ID + TEST_ID;
 const SECOND_TEST_ID = getRandomId();
 const SECOND_TEST_TITLE = 'title ' + SESSION_ID + SECOND_TEST_ID;
 
-// # IMPORTANTE #
-
-// apenas te clones este repo
-// todos los test a continuación van a fallar
-
-// comentalos y descomentá uno a uno a medida
-// que vas avanzando en cada test
-
-test.serial('Corre ava', async (t) => {
+test.serial('Ava OK', async (t) => {
   t.is('si', 'si');
 });
 
-test.serial('Testeo el método getById', async (t) => {
-  const collection = new PelisCollection();
-  await collection.add({
+test.serial('Test method: getById', async (t) => {
+  const collection = new MoviesCollection();
+  const movie = {
     id: TEST_ID,
     title: TEST_TITLE,
     tags: ['tt', 'rr'],
-  });
-  const all = await collection.getAll();
-  const a = all[0];
-  const b = await collection.getById(a.id);
-  t.is(a.title, b.title);
+  };
+
+  await collection.add(movie);
+  const foundMovie = await collection.getById(TEST_ID);
+
+  t.is(movie.title, foundMovie.title);
 });
 
-test.serial('Testeo el método search', async (t) => {
-  const collection = new PelisCollection();
-  await collection.add({
+test.serial('Test method: search', async (t) => {
+  const collection = new MoviesCollection();
+  const firstMovie = {
     id: TEST_ID,
     title: TEST_TITLE,
     tags: ['tt', 'rr'],
-  });
-  await collection.add({
+  };
+
+  const secondMovie = {
     id: SECOND_TEST_ID,
     title: SECOND_TEST_TITLE,
     tags: ['yy', 'uu'],
-  });
-  const all = await collection.getAll();
-  const a = all[0];
-  // El search debe encontrar ambas pelis creadas a partir de la session
-  const b = await collection.search({ title: SESSION_ID.toString() });
-  const ids = b.map((b) => b.id);
-  t.deepEqual(ids, [TEST_ID, SECOND_TEST_ID]);
+  };
 
-  // El search debe encontrar solo la peli con el title (session) y el tag (yy)
-  const c = await collection.search({
+  await collection.add(firstMovie);
+  await collection.add(secondMovie);
+
+  const foundMovies = await collection.search({
+    title: SESSION_ID.toString(),
+  });
+
+  t.is(foundMovies.length, 2);
+  t.deepEqual(
+    foundMovies.map((m) => m.id).sort(),
+    [TEST_ID, SECOND_TEST_ID].sort(),
+  );
+
+  const filteredMovies = await collection.search({
     title: SECOND_TEST_ID.toString(),
     tag: 'yy',
   });
-  t.deepEqual(c[0].id, SECOND_TEST_ID);
+
+  t.is(filteredMovies.length, 1);
+  t.is(filteredMovies[0].id, SECOND_TEST_ID);
 });

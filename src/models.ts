@@ -1,58 +1,61 @@
 import * as jsonfile from 'jsonfile';
-// El siguiente import no se usa pero es necesario
-import './pelis.json';
-// de esta forma Typescript se entera que tiene que incluir
-// el .json y pasarlo a la carpeta /dist
-// si no, solo usandolo desde la libreria jsonfile, no se dá cuenta
 
-// no modificar estas propiedades, agregar todas las que quieras
-class Peli {
+export interface Movie {
   id: number;
   title: string;
   tags: string[];
 }
 
-type SearchOptions = { title?: string; tag?: string };
+interface SearchOptions {
+  title?: string;
+  tag?: string;
+}
 
-class PelisCollection {
-  async getAll(): Promise<Peli[]> {
-    const peliculas = await jsonfile.readFile('./pelis.json');
-    return peliculas;
+const MOVIES_FILE = './movies.json';
+
+export class MoviesCollection {
+  private async readMovies(): Promise<Movie[]> {
+    try {
+      return await jsonfile.readFile(MOVIES_FILE);
+    } catch {
+      return [];
+    }
   }
 
-  async add(pelicula: Peli): Promise<boolean> {
-    const peliculas = await this.getAll();
+  private async writeMovies(movies: Movie[]): Promise<void> {
+    await jsonfile.writeFile(MOVIES_FILE, movies);
+  }
 
-    const peliExists = await this.getById(pelicula.id);
+  async getAll(): Promise<Movie[]> {
+    return this.readMovies();
+  }
 
-    if (peliExists) {
+  async add(movie: Movie): Promise<boolean> {
+    const movies = await this.readMovies();
+
+    const movieExists = await this.getById(movie.id);
+    if (movieExists) {
       return false;
     }
 
-    peliculas.push(pelicula);
-
-    await jsonfile.writeFile('./pelis.json', peliculas);
+    movies.push(movie);
+    await this.writeMovies(movies);
     return true;
   }
 
-  async getById(id: Peli['id']): Promise<Peli> {
-    const peliculas = await this.getAll();
-    return peliculas.find((peli) => peli.id === id);
+  async getById(id: Movie['id']): Promise<Movie | undefined> {
+    const movies = await this.readMovies();
+    return movies.find((movie) => movie.id === id);
   }
 
-  async search(options: SearchOptions): Promise<Peli[]> {
-    const peliculas = await this.getAll();
+  async search(options: SearchOptions): Promise<Movie[]> {
+    const movies = await this.readMovies();
 
-    const peliculasFiltradas = peliculas.filter(function (p) {
+    return movies.filter((movie) => {
       const { tag, title } = options;
-
-      const coincideTag = tag ? p.tags.includes(tag) : true;
-      const coincideTitle = title ? p.title.includes(title) : true;
-
+      const coincideTag = !tag || movie.tags.includes(tag);
+      const coincideTitle = !title || movie.title.includes(title);
       return coincideTag && coincideTitle;
     });
-    return peliculasFiltradas;
   }
 }
-
-export { PelisCollection, Peli };
