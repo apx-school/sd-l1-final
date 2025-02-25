@@ -1,0 +1,48 @@
+[
+  {
+    "id": 1,
+    "title": "El Señor de los Anillos: La Comunidad del Anillo",
+    "tags": ["fantasía", "aventura", "acción"]
+  },
+  { "id": 2, "title": "El Padrino", "tags": ["drama", "crimen"] },
+  {
+    "id": 3,
+    "title": "Pulp Fiction",
+    "tags": ["crimen", "drama", "humor negro"]
+  },
+  {
+    "id": 4,
+    "title": "Origen",
+    "tags": ["ciencia ficción", "action", "thriller"]
+  },
+  { "id": 136130, "title": "title 225932136130", "tags": ["tt", "rr"] },
+  { "id": 192717, "title": "title 225932192717", "tags": ["yy", "uu"] },
+  { "id": 187173, "title": "title 157412187173", "tags": ["tt", "rr"] },
+  { "id": 226906, "title": "title 157412226906", "tags": ["yy", "uu"] },
+  {
+    "id": 215912,
+    "title": "a movie 215912",
+    "tags": ["classic", "tag 215912"]
+  },
+  { "id": 136780, "title": "another more fun movie", "tags": ["tag 215912"] },
+  {
+    "id": 4321865,
+    "title": "movie from terminal 4321865",
+    "tags": ["rr", "ww"]
+  },
+  { "id": 203503, "title": "title 142758203503", "tags": ["tt", "rr"] },
+  { "id": 153427, "title": "title 142758153427", "tags": ["yy", "uu"] },
+  {
+    "id": 143785,
+    "title": "a movie 143785",
+    "tags": ["classic", "tag 143785"]
+  },
+  { "id": 134417, "title": "another more fun movie", "tags": ["tag 143785"] },
+  { "id": 214213, "title": "title 147029214213", "tags": ["tt", "rr"] },
+  { "id": 157262, "title": "title 147029157262", "tags": ["yy", "uu"] },
+  {
+    "id": 4411,
+    "title": "Título de la nueva peli",
+    "tags": ["action", "classic"]
+  }
+]
