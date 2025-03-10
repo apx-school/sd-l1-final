@@ -71,12 +71,12 @@ class PelisController {
 			// verifica si la película ya existe por ID
 			const peliExistente = await this.model.getById(peli.id);
 			if (peliExistente) {
-				console.log("El ID ", peli.id, " ya existe.");
+				// console.log("El ID ", peli.id, " ya existe.");
 				return false; // Si la película ya existe, no la agrega
 			}
 
 			// si la película no existe, la agrega
-			console.log("Se agregó correctamente la película.");
+			// console.log("Se agregó correctamente la película.");
 			await this.model.add(peli);
 			return true;
 		} catch (error) {

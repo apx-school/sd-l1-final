@@ -42,7 +42,7 @@ async function main() {
 			options.search.tag = params.tag;
 		}
 		const peliculas = await pelisController.search(options.search);
-		console.log("Películas encontradas:", peliculas);
+		// console.log("Películas encontradas:", peliculas);
 	} else {
 		const todasLasPelis = await pelisController.get();
 		console.log("Todas las películas: ", todasLasPelis);

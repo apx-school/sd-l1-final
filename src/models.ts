@@ -24,10 +24,18 @@ class PelisCollection {
 
 	async add(peli: Peli): Promise<boolean> {
 		// leemos el archivo actual
-		const data = await jsonfile.readFile("./pelis.json");
-		// agregamos la nueva película
+		const data: Peli[] = await jsonfile.readFile("./pelis.json");
+
+		// Verificamos si el ID ya existe
+		const peliExistente = await this.getById(peli.id);
+		if (peliExistente) {
+			// Si el ID ya existe, devolvemos false sin agregar la película
+			return false;
+		}
+
+		// Agregamos la nueva película
 		data.push(peli);
-		// escribimos el archivo actualizado
+		// Escribimos el archivo actualizado
 		await jsonfile.writeFile("./pelis.json", data);
 		return true;
 	}
@@ -60,7 +68,7 @@ class PelisCollection {
 
 	async search(options: { title?: string; tag?: string }): Promise<Peli[]> {
 		const listaPelis = await this.getAll(); // obtiene todas las películas
-		console.log("Lista completa ", listaPelis);
+		// console.log("Lista completa ", listaPelis);
 		const listaPelisFiltrada = listaPelis.filter((p) => {
 			let peliEncontrada = false;
 			if (options.tag) {
