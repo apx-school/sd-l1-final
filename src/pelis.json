@@ -1,1 +1,9 @@
-[]
+[
+	{ "id": 1, "title": "anaconda", "tags": ["Accion", "Drama", "Suspenso"] },
+	{ "id": 2, "title": "Diario de una Pasión", "tags": ["Decada", "Drama", "Romance"] },
+	{ "id": 3, "title": "El Hombre Araña", "tags": ["Accion", "Drama", "Juvenil"] },
+	{ "id": 4, "title": "Alicia en el País de las Maravillas", "tags": ["Fantasía", "Drama", "Suspenso"] },
+	{ "id": 5, "title": "Titanic", "tags": ["drama", "classic", "romance"] },
+	{ "id": 6, "title": "Buscando a Nemo", "tags": ["animacion", "fantasia"] },
+	{ "id": 44, "title": "Milka sana", "tags": ["suspenso", "sanador"] }
+]
