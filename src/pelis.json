@@ -1,1 +1,47 @@
-[]
+[
+    {
+        "id": 1,
+        "title": "Forest Gump",
+        "tags": ["comedia", "drama", "reflexion"]
+    },
+    {
+        "id": 2,
+        "title": "Matrix",
+        "tags": ["accion", "ficcion", "suspenso", "cyberpunk", "romance", "catastrofe", "clasica", "supervivencia"]
+    },
+    {   
+        "id": 3,
+        "title": "El dia despues de mañana",
+        "tags": ["accion", "ficcion", "supervivencia", "catastrofe", "nueva"]
+    },
+    {
+        "id": 4,
+        "title": "Apollo 13",
+        "tags": ["drama", "historia", "viejita"]
+    },
+    {
+        "id": 5,
+        "title": "El demoledor",
+        "tags": ["accion", "ficcion", "clasica", "violencia", "viejita"]
+    },
+    {
+        "id": 6,
+        "title": "Un lugar en silencio",
+        "tags": ["suspenso", "supervivencia", "terror", "drama", "ficcion", "nueva"]
+    },
+    {
+        "id": 7,
+        "title": "Un principe en NY",
+        "tags": ["comedia", "romance", "clasica", "viejita"]
+    },
+    {
+        "id": 8,
+        "title": "Armagedon",
+        "tags": ["drama", "romance", "accion", "ficcion", "catastrofe"]
+    },
+    {
+        "id": 9,
+        "title": "Sin lugar para los debiles",
+        "tags": ["drama", "thriller", "violencia", "policial"]
+    }
+]
