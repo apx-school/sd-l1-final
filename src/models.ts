@@ -53,22 +53,24 @@ class PelisCollection {
     return peliEncontrada;
   }
   async search(options: SearchOptions): Promise<Peli[]> {
-    this.getAll();
+    this.dataPeliculas = await this.getAll();
     
     const listaFiltrada = this.dataPeliculas.filter(function (p) {
       let esteVa = false;
       if (options.tag) {
-        const tagsDelTituloActual = p["tags"];                                                         // lógica de tags
-        tagsDelTituloActual.forEach((tag) => {if(tag == options.tag){esteVa = true;}});
+        const tagsDelTituloActual = p["tags"];                          // lógica de tags
+        tagsDelTituloActual.forEach((tag) => {if(tag === options.tag){esteVa = true;}});
       }
       if (options.title) {
-        if(options.title == p.title){esteVa = true};            // lógica de title
+        if(options.title === p.title){esteVa = true};            // lógica de title
       }
       return esteVa;
     });
   
     return listaFiltrada;
   }
+
+
   }
   
 
