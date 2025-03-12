@@ -57,15 +57,12 @@ class PelisCollection {
     
     const listaFiltrada = this.dataPeliculas.filter(function (p) {
       let esteVa = false;
-       // lógica de tags
       if (options.tag) {
-        const tagsDelTituloActual = p["tags"];
-        tagsDelTituloActual.forEach((tag) => {tag == options.tag ? esteVa = true : null});
+        const tagsDelTituloActual = p["tags"];                                                         // lógica de tags
+        tagsDelTituloActual.forEach((tag) => {if(tag == options.tag){esteVa = true;}});
       }
-        // lógica de title
       if (options.title) {
-        const tituloActual = p["title"];
-        tituloActual.forEach((title) => {title == options.title ? esteVa = true: null});
+        if(options.title == p.title){esteVa = true};            // lógica de title
       }
       return esteVa;
     });
