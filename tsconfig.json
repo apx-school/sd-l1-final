@@ -1,12 +1,19 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
+    "target": "es6", 
+    "rootDir": "./src",
     "module": "commonjs",
-    "rootDir": "src",
-    "outDir": "dist"
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "types": ["node"],
+    "typeRoots": [
+      "./node_modules/@types",
+      "../node_modules/@types",
+      "../../node_modules/@types"
+    ]
   },
-  "include": ["./src/**/*.ts"]
+  "include": ["src/**/*"], 
+  "exclude": ["node_modules"]
 }
