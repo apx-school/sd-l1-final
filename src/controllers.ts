@@ -9,7 +9,7 @@ type Options = {
 };
 
 class PelisController {
-  model: PelisCollection;
+  private model: PelisCollection;
 
   constructor() {
     this.model = new PelisCollection();
@@ -19,46 +19,27 @@ class PelisController {
     return this.model.getAll();
   }
 
-  async get(options?: Options): Promise<Peli[]> {
-    try {
-      if (!options) {
-        return await this.model.getAll();
-      }
-
-      if (options.id) {
-        const peli = await this.model.getById(options.id);
-        return peli ? [peli] : [];
-      }
-
-      if (options.search) {
-        return await this.model.search(options.search);
-      }
-
-      return [];
-    } catch (error) {
-      console.error("Error al obtener las películas:", error);
-      return [];
+  async get(options?: { id?: number; search?: { title?: string; tag?: string }; }): Promise<Peli[]> {
+    if (options?.id) {
+      const peli = await this.model.getById(options.id);
+      return peli ? [peli] : [];
     }
-  }
-
-  async getOne(options: Options): Promise<Peli | null> {
-    const peliculas = await this.get(options);
-    return peliculas[0] || null;
-  }
-
-  async add(peli: Peli): Promise<string> {
-    try {
-      const resultado = await this.model.add(peli);
-      if (resultado) {
-        return "Película añadida con éxito";
-      } else {
-        return "Error: Ya existe una película con el mismo ID";
-      }
-    } catch (error) {
-      console.error("Error al agregar la película:", error);
-      return "Error al agregar la película";
+    if (options?.search) {
+      return await this.model.search(options.search);
     }
+    return await this.model.getAll();
   }
+
+  
+
+  async getOne(options: { id?: number; search?: { title?: string; tag?: string } }): Promise < Peli | undefined > {
+  const pelis = await this.get(options);
+  return pelis[0];
 }
+
+  async add(peli: Peli): Promise <boolean> {
+    return await this.model.add(peli);
+  }
+}       
 
 export { PelisController };

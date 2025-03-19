@@ -1,42 +1,7 @@
 [
-    {
-        "id": 1,
-        "title": "Inception 2010",
-        "tags": [
-            "sci-fi",
-            "thriller"
-        ]
-    },
-    {
-        "id": 2,
-        "title": "The Dark Knight 2008",
-        "tags": [
-            "action",
-            "crime"
-        ]
-    },
-    {
-        "id": 3,
-        "title": "Interstellar 2014",
-        "tags": [
-            "sci-fi",
-            "adventure"
-        ]
-    },
-    {
-        "id": 4,
-        "title": "Pulp Fiction 1994",
-        "tags": [
-            "crime",
-            "drama"
-        ]
-    },
-    {
-        "id": 5,
-        "title": "The Matrix 1999",
-        "tags": [
-            "sci-fi",
-            "action"
-        ]
-    }
+    {"id": 1,  "title": "Inception 2010", "tags": ["sci-fi","thriller"]},
+    {"id": 2,  "title": "The Dark Knight 2008","tags": ["action","crime"]},
+    {"id": 3,  "title": "Interstellar 2014", "tags": ["sci-fi","adventure"]},
+    {"id": 4,  "title": "Pulp Fiction 1994", "tags": ["crime","drama"]},
+    {"id": 5,  "title": "The Matrix 1999","tags": ["sci-fi","action"]}
 ]

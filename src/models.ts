@@ -1,8 +1,4 @@
 import * as jsonfile from "jsonfile";
-import * as path from 'path';
-
-const filePath = path.resolve(__dirname, 'pelis.json');
-
 
 type Peli = {
   id: number;
@@ -15,8 +11,8 @@ type SearchOptions = { title?: string; tag?: string };
 class PelisCollection {
   // Obtener todas las películas
   getAll(): Promise<Peli[]> {
-    return jsonfile.readFile(filePath).then((pelis: Peli[]) => {
-      return pelis;
+    return jsonfile.readFile("./src/pelis.json").then((data: Peli[]) => {
+      return data;
     });
   }
 
@@ -32,24 +28,20 @@ class PelisCollection {
   }
 
   // Agregar una nueva película
-  async add(peli: Peli): Promise<boolean> {
-    try {
-      const peliExistente = await this.getById(peli.id);
+  add(peli: Peli): Promise<boolean> {
+    return this.getById(peli.id).then((peliExistente) => {
       if (peliExistente) {
         console.log("Error: Ya existe una película con el ID", peli.id);
         return false;
+      } else {
+        return this.getAll().then((pelis) => {
+          const data = [...pelis, peli];
+          return jsonfile.writeFile("./src/pelis.json", data).
+          then(() => true)
+          .catch(() => false)
+        });
       }
-
-      const pelis = await this.getAll();
-      pelis.push(peli);
-
-      await jsonfile.writeFile(filePath, pelis);
-      console.log("Película agregada exitosamente", peli);
-      return true;
-    } catch (error) {
-      console.error("Error al agregar la película:", error);
-      return false;
-    }
+    }).catch(() => false);     
   }
 
   async search(options: SearchOptions): Promise<Peli[]> {
