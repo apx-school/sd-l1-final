@@ -41,7 +41,7 @@ test.serial("Testeo el método getById", async (t) => {
   const all = await collection.getAll();
   const a = all[0];
   const b = await collection.getById(a.id);
-  t.is(a.title, b.title);
+  t.is(a.title, b!.title);
 });
 
 test.serial("Testeo el método search", async (t) => {
