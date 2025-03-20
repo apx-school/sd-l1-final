@@ -1,4 +1,7 @@
-import * as minimist from "minimist";
+import minimist from "minimist";
+import { PelisController } from "./controllers";
+import _ from "lodash";
+
 
 function parseaParams(argv) {
   const resultado = minimist(argv);
