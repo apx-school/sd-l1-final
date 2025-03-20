@@ -1,1 +1,35 @@
-[]
+[
+  { "id": 1, "title": "El Padrino", "tags": ["Crimen", "Drama"] },
+  { "id": 2, "title": "Titanic", "tags": ["Romance", "Drama"] },
+  {
+    "id": 3,
+    "title": "El Caballero de la Noche",
+    "tags": ["Acción", "Crimen", "Drama"]
+  },
+  { "id": 4, "title": "Forrest Gump", "tags": ["Drama", "Romance"] },
+  { "id": 5, "title": "Pulp Fiction", "tags": ["Crimen", "Drama"] },
+  { "id": 6, "title": "Matrix", "tags": ["classic", "Ciencia ficción"] },
+  {
+    "id": 7,
+    "title": "El Señor de los Anillos: El Retorno del Rey",
+    "tags": ["Fantasía", "Aventura"]
+  },
+  {
+    "id": 8,
+    "title": "Star Wars: Episodio IV - Una Nueva Esperanza",
+    "tags": ["Ciencia ficción", "Aventura"]
+  },
+  { "id": 9, "title": "Gladiador", "tags": ["Acción", "Drama"] },
+  {
+    "id": 10,
+    "title": "El silencio de los inocentes",
+    "tags": ["Suspenso", "Crimen"]
+  },
+  { "id": 11, "title": "una peli divertida", "tags": ["tag 1", "classic"] },
+  { "id": 12, "title": "otra peli un poco más divertida", "tags": ["tag 2"] },
+  {
+    "id": 4411,
+    "title": "Título de la nueva peli",
+    "tags": ["action", "classic"]
+  }
+]
