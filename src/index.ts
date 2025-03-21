@@ -33,23 +33,32 @@ function main() {
   const params = parseaParams(process.argv.slice(2));
   const peliController = new PelisController(); // Asegúrate de usar "peliController" en minúsculas
   if (params.command === "add") {
-    peliController.add({
-      id: params.id,
-      title: params.title,
-      tags: params.tags,
-    });
+    peliController
+      .add({
+        id: params.id,
+        title: params.title,
+        tags: params.tags,
+      })
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((error) => {
+        console.error("Error al agregar pelicula:", error);
+      });
   } else if (params.command === "get") {
-      peliController.getOne({ id: params.id }).then((result) => {
+    peliController.getOne({ id: params.id }).then((result) => {
+      console.log(result);
+    });
+  } else if (params.command === "search") {
+    peliController
+      .get({ search: { title: params.title, tag: params.tag } })
+      .then((result) => {
         console.log(result);
       });
-    } else if (params.command === "search") {
-      peliController.get({ search: { title: params.title, tag: params.tag } }).then((result) => {
-        console.log(result);
-      });
-    } else {
-      peliController.get().then((result) => {
-        console.log(result);
-      });
+  } else {
+    peliController.get().then((result) => {
+      console.log(result);
+    });
   }
 }
 main();
