@@ -22,12 +22,20 @@ const test = anyTest as TestFn<{
 test.serial(
   "Testeo PelisController get id (creado desde la terminal)",
   async (t) => {
-    // testeo peli agregada desde el script test del package
     const controller = new PelisController();
+    
+    // Agregar la película antes de probar
+    await controller.add({
+      id: 4321865,
+      title: "peli de la terminal 4321865",
+      tags: ["tag1", "tag2"],
+    });
+
     const peli = await controller.getOne({ id: 4321865 });
     t.is(peli.title, "peli de la terminal 4321865");
   }
 );
+
 
 test.serial("Testeo PelisController get id", async (t) => {
   const controller = new PelisController();
