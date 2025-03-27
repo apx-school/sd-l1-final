@@ -1,1 +1,20 @@
-[]
+[ {"id":1,
+  "title":"Scream",
+  "tags":["Horror","Slasher","Misterio","Suspense"]
+  },
+  
+  {"id":2,
+  "title":"Matrix",
+  "tags":["Ciencia Ficcion","Accion","Cyberpunk"]
+  },
+  
+  {"id":3,
+  "title":"The Lord of the Rings",
+  "tags":["Medieval","Fantasia","Accion"]
+  },
+  
+  {"id":4,
+  "title":"Drive",
+  "tags":["Drama","Suspense","Neo-noir"]
+  }
+]
