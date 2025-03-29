@@ -1,1 +1,100 @@
-[]
+[  {
+    "id": 1,
+    "title": "El Padrino",
+    "tags": ["Crimen", "Drama"]
+  },
+  {
+    "id": 2,
+    "title": "El Padrino: Parte II",
+    "tags": ["Crimen", "Drama"]
+  },
+  {
+    "id": 3,
+    "title": "El Caballero de la Noche",
+    "tags": ["Acción", "Superhéroes"]
+  },
+  {
+    "id": 4,
+    "title": "Pulp Fiction",
+    "tags": ["Crimen", "Suspenso"]
+  },
+  {
+    "id": 5,
+    "title": "Forrest Gump",
+    "tags": ["Drama", "Romance"]
+  },
+  {
+    "id": 6,
+    "title": "La lista de Schindler",
+    "tags": ["Drama", "Histórico"]
+  },
+  {
+    "id": 7,
+    "title": "Cadena Perpetua",
+    "tags": ["Drama", "Crimen"]
+  },
+  {
+    "id": 8,
+    "title": "El Señor de los Anillos: El Retorno del Rey",
+    "tags": ["Fantasía", "Aventura"]
+  },
+  {
+    "id": 9,
+    "title": "Titanic",
+    "tags": ["Romance", "Drama"]
+  },
+  {
+    "id": 10,
+    "title": "Ciudad de Dios",
+    "tags": ["Crimen", "Drama"]
+  },
+  {
+    "id": 11,
+    "title": "Matrix",
+    "tags": ["Ciencia Ficción", "Acción"]
+  },
+  {
+    "id": 12,
+    "title": "Volver al Futuro",
+    "tags": ["Ciencia Ficción", "Comedia"]
+  },
+  {
+    "id": 13,
+    "title": "Inception",
+    "tags": ["Ciencia Ficción", "Suspenso"]
+  },
+  {
+    "id": 14,
+    "title": "Gladiador",
+    "tags": ["Acción", "Drama", "Histórico"]
+  },
+  {
+    "id": 15,
+    "title": "Parasite",
+    "tags": ["Drama", "Suspenso"]
+  },
+  {
+    "id": 16,
+    "title": "Coco",
+    "tags": ["Animación", "Familiar", "Musical"]
+  },
+  {
+    "id": 17,
+    "title": "Toy Story",
+    "tags": ["Animación", "Comedia", "Familiar"]
+  },
+  {
+    "id": 18,
+    "title": "Intocable",
+    "tags": ["Drama", "Comedia"]
+  },
+  {
+    "id": 19,
+    "title": "Whiplash",
+    "tags": ["Drama", "Música"]
+  },
+  {
+    "id": 20,
+    "title": "Blade Runner",
+    "tags": ["Ciencia Ficción", "Neo-noir"]
+  }]
