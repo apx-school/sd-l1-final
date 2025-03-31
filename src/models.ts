@@ -42,8 +42,10 @@ constructor() {
     console.log("peli que se agregará: ", peli);
     const data = await this.getAll();
     data.push(peli);
+    this.lista = data;
     try {
         await jsonfile.writeFile("./src/pelis.json", data, { spaces: 2 });
+        
         return true;
     } catch (error) {
         console.error("Error al escribir en el archivo:", error);
@@ -53,7 +55,7 @@ constructor() {
 
   async getAll(): Promise<Peli[]> {
     try {
-        const peliculas: Peli[] = this.lista;
+        const peliculas: Peli[] = await jsonfile.readFile("./src/pelis.json");
         return peliculas; // Retorna el contenido del archivo directamente
     } catch (error) {
         console.error("Error al leer el archivo:", error);
@@ -86,17 +88,11 @@ constructor() {
             peli.tags.includes(options.tag)
         );
     }
-    if(options.title && options.tag) {
-      //console.log("Options", options);
-      let filtraTitle = []
-      let filtraTag = []; 
-      filtraTitle = listaFiltrada.filter(peli =>
-        peli.title.toLowerCase().includes(options.title.toLowerCase())
-          );
-          filtraTag = listaFiltrada.filter(peli =>
-            peli.tags.includes(options.tag)
-        );
-        listaFiltrada = await _.uniqBy([...filtraTitle, ...filtraTag], 'id');
+    if (options.title && options.tag) {
+      listaFiltrada = listaFiltrada.filter((peli) =>
+        peli.title.toLowerCase().includes(options.title.toLowerCase()) &&
+        peli.tags.includes(options.tag)
+      );
     }
     //console.log("Resultados esperados:", listaFiltrada); // Debugging
     return listaFiltrada;
