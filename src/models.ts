@@ -1,11 +1,7 @@
 import * as jsonfile from "jsonfile";
-// El siguiente import no se usa pero es necesario
+import _ from "lodash";
 import "./pelis.json";
-// de esta forma Typescript se entera que tiene que incluir
-// el .json y pasarlo a la carpeta /dist
-// si no, solo usandolo desde la libreria jsonfile, no se dá cuenta
 
-// no modificar estas propiedades, agregar todas las que quieras
 class Peli {
   id: number;
   title: string;
@@ -17,61 +13,94 @@ export type SearchOptions = {
   tag?: string;
 };
 
+class listaCompleta{
+  lista: Peli[] = [];
+  constructor() {
+    this.lista = jsonfile.readFile("./src/pelis.json");;
+  }
+  getLista(): Peli[] {
+    return this.lista;
+  }
+}
+
 class PelisCollection {
-  dataPeliculas: Peli[] = [];
+  lista: Peli[] = [];
+
+constructor() {
+  const listaInstance = new listaCompleta();
+   this.lista = listaInstance.getLista();
+}
+
+  async add(peli: Peli): Promise<boolean> {
+    const peliExistente = await this.getById(peli.id);
+    if (peliExistente) {
+      //console.log("La película ya existe en el registro.");
+        return false;
+    }else{
+    // Agregar la película al array
+    console.log("peli que se agregará: ", peli);
+    const data = await this.getAll();
+    data.push(peli);
+    try {
+        await jsonfile.writeFile("./src/pelis.json", data, { spaces: 2 });
+        return true;
+    } catch (error) {
+        console.error("Error al escribir en el archivo:", error);
+        return false;
+    }}
+}
+
   async getAll(): Promise<Peli[]> {
     try {
-        const peliculas: Peli[] = await jsonfile.readFile("./pelis.json");
-        return peliculas;
+        const peliculas: Peli[] = this.lista;
+        return peliculas; // Retorna el contenido del archivo directamente
     } catch (error) {
         console.error("Error al leer el archivo:", error);
         return []; // Si hay un error, retorna un array vacío
     }
 }
-  async add(peli: Peli): Promise<boolean> {
-    const promersaUno = this.getById(peli.id).then((peliExistente) => {
-    if (peliExistente) {
-      return false;
-    } else{
-      const data = {...peli};
-      const promesaDos = jsonfile.writeFile("./pelis.json", data);
-        return promesaDos.then(() => {
-          return true;
-      });  
-      }
-  });
-    return promersaUno;
-  }  
-  async getById(id: number): Promise<Peli | undefined> {
+
+  async getById(id: number): Promise<Peli> {
+    //console.log(id);
     const pelis = await this.getAll(); // Obtener todas las películas
-    const peliEncontrada = pelis.find((peli) => peli.id == id);
-
-    if (!peliEncontrada) {
-        console.log("No existe esa película en los registros");
+    const peliEncontrada = pelis.find((peli) => peli.id === id);
+    if (peliEncontrada) {
+      return peliEncontrada;
     }
-    
-    return peliEncontrada;
   }
+
   async search(options: SearchOptions): Promise<Peli[]> {
-    this.dataPeliculas = await this.getAll();
-    
-    const listaFiltrada = this.dataPeliculas.filter(function (p) {
-      let esteVa = false;
-      if (options.tag) {
-        const tagsDelTituloActual = p["tags"];                          // lógica de tags
-        tagsDelTituloActual.forEach((tag) => {if(tag === options.tag){esteVa = true;}});
-      }
-      if (options.title) {
-        if(options.title === p.title){esteVa = true};            // lógica de title
-      }
-      return esteVa;
-    });
-  
+    //console.log("Options", options);
+    const lista = await this.getAll(); // Obtener todas las películas
+    let listaFiltrada = lista;
+    // Filtrar por título si se proporciona
+    if (options.title && !options.tag) {
+        listaFiltrada = listaFiltrada.filter(peli =>
+            peli.title.toLowerCase().includes(options.title.toLowerCase())
+        );
+    }
+    // Filtrar por tag si se proporciona
+    if (options.tag && !options.title) {
+        listaFiltrada = listaFiltrada.filter(peli =>
+            peli.tags.includes(options.tag)
+        );
+    }
+    if(options.title && options.tag) {
+      //console.log("Options", options);
+      let filtraTitle = []
+      let filtraTag = []; 
+      filtraTitle = listaFiltrada.filter(peli =>
+        peli.title.toLowerCase().includes(options.title.toLowerCase())
+          );
+          filtraTag = listaFiltrada.filter(peli =>
+            peli.tags.includes(options.tag)
+        );
+        listaFiltrada = await _.uniqBy([...filtraTitle, ...filtraTag], 'id');
+    }
+    //console.log("Resultados esperados:", listaFiltrada.map(p => p.id)); // Debugging
     return listaFiltrada;
-  }
-
-
-  }
+  } 
+}
   
 
 export { PelisCollection, Peli };

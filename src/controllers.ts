@@ -16,22 +16,32 @@ class PelisController {
   }
 
   async get(options?: Options): Promise<Peli[]> {
+    console.log("Options", options);
     if (options?.id) {
       const peli = await this.model.getById(options.id);
-      return peli ? [peli] : [];
+      //console.log("Option", options.id);
+      
+      return peli ? [peli] : this.model.getAll();
     } else if (options?.search) {
       return await this.model.search(options.search);
     } else {
       return await this.model.getAll();
     }
   } 
+
   async getOne(options: Options): Promise<Peli> {
     const results = await this.get(options);
     return results[0];
   }
 
-  add(peli:Peli){
-    return this.model.add(peli);
+  async add(peli:Peli){
+    console.log("peli a agregar: ",peli);
+    const peliAgregada = await this.model.add(peli);
+    if(!peliAgregada){
+    return console.log("Error al agregar la pelicula")
+    }else{
+      return this.model.getAll();
+    }
   }
 }
 export { PelisController };
