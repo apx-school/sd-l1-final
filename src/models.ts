@@ -1,4 +1,5 @@
 import * as jsonfile from "jsonfile";
+import * as path from 'path';
 import _ from "lodash";
 import "./pelis.json";
 
@@ -97,7 +98,7 @@ constructor() {
         );
         listaFiltrada = await _.uniqBy([...filtraTitle, ...filtraTag], 'id');
     }
-    console.log("Resultados esperados:", listaFiltrada); // Debugging
+    //console.log("Resultados esperados:", listaFiltrada); // Debugging
     return listaFiltrada;
   } 
 }
