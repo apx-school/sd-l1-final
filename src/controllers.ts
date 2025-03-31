@@ -16,7 +16,7 @@ class PelisController {
   }
 
   async get(options?: Options): Promise<Peli[]> {
-    console.log("Options", options);
+    //console.log("Optiones para buscar", options);
     if (options?.id) {
       const peli = await this.model.getById(options.id);
       //console.log("Option", options.id);
@@ -35,7 +35,7 @@ class PelisController {
   }
 
   async add(peli:Peli){
-    console.log("peli a agregar: ",peli);
+    //console.log("peli a agregar: ",peli);
     const peliAgregada = await this.model.add(peli);
     if(!peliAgregada){
     return console.log("Error al agregar la pelicula")

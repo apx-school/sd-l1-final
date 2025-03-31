@@ -12,7 +12,7 @@ const SECOND_TEST_ID = getRandomId();
 const test = anyTest as TestFn<{
   con: PelisController;
 }>;
- /*
+
 test.serial(
   "Testeo PelisController get id (creado desde la terminal)",
   async (t) => {
@@ -47,7 +47,7 @@ test.serial("Testeo PelisController search title", async (t) => {
   t.is(pelis.length, 1);
   t.is(pelis[0].id, TEST_ID);
 });
-*/
+
 test.serial("Testeo PelisController search tag", async (t) => {
   const controller = new PelisController();
   //console.log("id: ", SECOND_TEST_ID, "    title: otra peli un poco más divertida     tags: ", [SOME_TAG] );
@@ -56,12 +56,10 @@ test.serial("Testeo PelisController search tag", async (t) => {
     title: "otra peli un poco más divertida",
     tags: [SOME_TAG],
   });
-  //console.log("tipo de dato TAG:" ,typeof(SOME_TAG));
-  //console.log("tipo de dato ID:" ,typeof(SECOND_TEST_ID));
   const pelis = await controller.get({
     search: { title: "peli", tag: SOME_TAG },
   });
-
+ // console.log("peli encontrada del test: ",pelis);
   const ids = pelis.map((b) => b.id);
   t.deepEqual(ids, [TEST_ID, SECOND_TEST_ID]);
 });

@@ -97,7 +97,7 @@ constructor() {
         );
         listaFiltrada = await _.uniqBy([...filtraTitle, ...filtraTag], 'id');
     }
-    //console.log("Resultados esperados:", listaFiltrada.map(p => p.id)); // Debugging
+    console.log("Resultados esperados:", listaFiltrada); // Debugging
     return listaFiltrada;
   } 
 }
