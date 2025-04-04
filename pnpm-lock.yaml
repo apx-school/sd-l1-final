@@ -19,7 +19,7 @@ importers:
         specifier: ^4.1.0
         version: 4.1.0
       ava:
-        specifier: ^6.0.1
+        specifier: ^6.1.3
         version: 6.1.3(@ava/typescript@4.1.0)
       ts-node:
         specifier: ^10.9.2
