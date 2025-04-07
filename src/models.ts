@@ -12,12 +12,50 @@ class Peli {
   tags: string[];
 }
 
+type SearchOptions = { title?: string; tag?: string };
+
 class PelisCollection {
-  getAll(): Promise<Peli[]> {
-    return jsonfile.readFile("...laRutaDelArchivo").then(() => {
-      // la respuesta de la promesa
-      return [];
+  async getAll(): Promise<Peli[]> {
+    return await jsonfile.readFile(__dirname + "/pelis.json");
+  }
+
+  async getById(id: number): Promise<Peli> {
+    const allMovies = await this.getAll();
+    return allMovies.find((movie) => movie.id === id);
+  }
+
+  async add(peli: Peli): Promise<boolean> {
+    const moviesList = await this.getAll();
+
+    const existingMovie = moviesList.find((movie) => movie.id === peli.id);
+
+    if (existingMovie) {
+      console.error("Ya existe una película con ese ID");
+      return false;
+    } else {
+      moviesList.push(peli);
+      await jsonfile.writeFile(__dirname + "/pelis.json", moviesList);
+      console.log("Película guardada con éxito");
+      return true;
+    }
+  }
+
+  async search(options: SearchOptions): Promise<Peli[]> {
+    const moviesList = await this.getAll();
+
+    const filteredList = moviesList.filter((movie) => {
+      let applyParam = true;
+      if (options.tag && !movie.tags.some((tag) => tag === options.tag)) {
+        applyParam = false;
+      }
+      if (options.title && !movie.title.includes(options.title)) {
+        applyParam = false;
+      }
+      return applyParam;
     });
+
+    return filteredList;
   }
 }
+
 export { PelisCollection, Peli };
