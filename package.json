@@ -25,6 +25,9 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
+    "@types/jsonfile": "^6.1.4",
+    "@types/minimist": "^1.2.5",
+    "@types/node": "^22.14.0",
     "jsonfile": "^6.1.0",
     "minimist": "^1.2.5"
   }
