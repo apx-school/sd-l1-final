@@ -29,50 +29,39 @@ class PelisCollection {
   add(peli: Peli): Promise<boolean> {
     return this.getById(peli.id)
       .then(peliExistente => {
-        if (peliExistente) return false; // Si ya existe, devolver false
+        if (peliExistente) return false; 
   
         return jsonfile.readFile(this.FILE_PATH)
-          .catch(() => []) // Si no existe el archivo, devolver un array vacío
+          .catch(() => []) 
           .then((pelis: Peli[]) => {
-            pelis.push(peli); // Agregar la nueva película
+            pelis.push(peli); 
             return jsonfile.writeFile(this.FILE_PATH, pelis, { spaces: 2 })
-              .then(() => true) // Si se escribió correctamente, devolver true
-              .catch(() => false); // Si hubo un error al escribir, devolver false
+              .then(() => true) 
+              .catch(() => false); 
           });
       })
-      .catch(() => false); // Si hubo un error al buscar la película, devolver false
+      .catch(() => false); 
   }
   
 
   async search(options: { title?: string; tag?: string }): Promise<Peli[]> {
-    const lista = await this.getAll();
+    const pelis = await this.getAll();
+    
+    return pelis.filter(peli => {
+      const matchesTitle = options.title 
+        ? peli.title.toLowerCase().includes(options.title.toLowerCase())
+        : true;
   
-    // Filtrar la lista según los criterios proporcionados
-    const resultado = lista.filter((peli) => {
-      // Si se pasan ambos criterios, deben cumplirse ambos (AND lógico)
-      if (options.title && options.tag) {
-        return (
-          peli.title.toLowerCase().includes(options.title.toLowerCase()) &&
-          peli.tags?.some((t) => t.toLowerCase() === options.tag.toLowerCase())
-        );
-      }
+      const matchesTag = options.tag 
+        ? peli.tags?.some(tag => tag.toLowerCase() === options.tag.toLowerCase()) 
+        : true;
   
-      // Si solo se pasa el criterio de título
-      if (options.title) {
-        return peli.title.toLowerCase().includes(options.title.toLowerCase());
-      }
-  
-      // Si solo se pasa el criterio de tag
-      if (options.tag) {
-        return peli.tags?.some((t) => t.toLowerCase() === options.tag.toLowerCase());
-      }
-  
-      // Si no hay criterios, no incluir la película
-      return false;
+      return matchesTitle && matchesTag;
     });
-  
-    return resultado; // Retornar el array filtrado
   }
+  
+  
+  
   
 }
 
