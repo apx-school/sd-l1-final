@@ -1,25 +1,26 @@
-import { PelisCollection, Peli } from './models';
+import { PelisCollection, Peli } from "./models";
 
 class PelisController {
-  private pelisCollection: PelisCollection;
+  pelis: PelisCollection;
 
   constructor() {
-    this.pelisCollection = new PelisCollection();
+    this.pelis = new PelisCollection();
   }
 
-  async get(options?: { id?: number; search?: { title?: string; tag?: string } }): Promise<Peli[]> {
-    if (options?.id) {
-      const peli = await this.pelisCollection.getById(options.id);
-      return peli ? [peli] : [];
-    } else if (options?.search) {
-      return this.pelisCollection.search(options.search);
-    } else {
-      return this.pelisCollection.getAll();
+  async get(options?: any): Promise<any> {
+    if (options) {
+      if (options.id) {
+        return this.pelis.getById(options.id);
+      }
+      if (options.search) {
+        return this.pelis.search(options.search);
+      }
     }
+    return this.pelis.getAll();
   }
 
   async add(peli: Peli): Promise<boolean> {
-    return this.pelisCollection.add(peli);
+    return this.pelis.add(peli);
   }
 }
 

@@ -1,30 +1,35 @@
-import * as minimist from 'minimist';
-import { PelisController } from './controllers';
+import * as minimist from "minimist";
+import { PelisController } from "./controllers";
+
+function parseaParams(argv) {
+  const resultado = minimist(argv);
+  return resultado;
+}
 
 async function main() {
-  const args = minimist(process.argv.slice(2));
   const controller = new PelisController();
+  const params = parseaParams(process.argv.slice(2));
 
-  if (args._[0] === 'add') {
-    const newPeli = {
-      id: args.id,
-      title: args.title,
-      tags: Array.isArray(args.tags) ? args.tags : [args.tags],
+  if (params._[0] === "add") {
+    const peli = {
+      id: params.id,
+      title: params.title,
+      tags: params.tags instanceof Array ? params.tags : [params.tags],
     };
-    const added = await controller.add(newPeli);
-    console.log(added ? 'Peli agregada con éxito' : 'No se pudo agregar la peli');
-  } else if (args._[0] === 'get' && args._[1]) {
-    const peli = await controller.get({ id: parseInt(args._[1]) });
-    console.log(peli);
-  } else if (args._[0] === 'search') {
-    const searchOptions: { title?: string; tag?: string } = {};
-    if (args.title) searchOptions.title = args.title;
-    if (args.tag) searchOptions.tag = args.tag;
-    const results = await controller.get({ search: searchOptions });
-    console.log(results);
+    const result = await controller.add(peli);
+    console.log(result);
+  } else if (params._[0] === "get" && typeof params._[1] === "number") {
+    const result = await controller.get({ id: params._[1] });
+    console.log(result);
+  } else if (params._[0] === "search") {
+    const searchParams: any = {};
+    if (params.title) searchParams.title = params.title;
+    if (params.tag) searchParams.tag = params.tag;
+    const result = await controller.get({ search: searchParams });
+    console.log(result);
   } else {
-    const allPelis = await controller.get();
-    console.log(allPelis);
+    const result = await controller.get();
+    console.log(result);
   }
 }
 
