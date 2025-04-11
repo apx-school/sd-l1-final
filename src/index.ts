@@ -1,4 +1,4 @@
-/* import * as minimist from "minimist";
+import * as minimist from "minimist";
 
 function parseaParams(argv) {
   const resultado = minimist(argv);
@@ -13,4 +13,4 @@ function main() {
 }
 
 main();
- */
+ 
