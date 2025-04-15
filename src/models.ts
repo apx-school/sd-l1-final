@@ -40,33 +40,31 @@ class PelisCollection {
     this.db = await this.loadFromPath();
     try {
       if (this.db.some((p) => p.id === pelicula.id)) {
-        console.log("La ID ingresada ya existe");
+        throw new Error("La ID ingresada ya existe");
         return false;
       }
       console.log(this.db);
       this.db.push(pelicula);
       await jsonfile.writeFile(this.filePath, this.db, { spaces: 2 });
-      console.log("La Pelicula se guardo con exito");
       return true;
     } catch (err) {
       throw new Error("err" + err);
       return false;
     }
   }
-  async getById(id:number):Promise<Peli>{
+  async getById(id: number): Promise<Peli> {
     this.db = await this.loadFromPath();
-    try{
-      const resultado = this.db.filter((p)=>{
+    try {
+      const resultado = this.db.filter((p) => {
         return p.id === id;
-      })
-      if(resultado.length != 1){
-        console.log("La id ingresada no existe")
+      });
+      if (resultado.length === 0) {
+        throw new Error("La id ingresada no existe");
+      } else {
+        return resultado[0];
       }
-      else{
-        return resultado[0]
-      }
-    }catch(error){
-      throw new Error(error);
+    } catch (error) {
+      throw new Error(error.message);
     }
   }
 
@@ -77,13 +75,13 @@ class PelisCollection {
         let esteVa = false;
         if (options.title && options.tag) {
           if (
-            options.title.toLowerCase() === p.title.toLowerCase() &&
+            p.title.toLowerCase().includes(options.title.toLowerCase()) &&
             p.tags.includes(options.tag)
           ) {
             esteVa = true;
           }
         } else if (options.title) {
-          if (options.title.toLowerCase() === p.title.toLowerCase()) {
+          if (p.title.toLowerCase().includes(options.title.toLowerCase())) {
             esteVa = true;
           }
         } else if (options.tag) {
@@ -111,7 +109,7 @@ export { PelisCollection, Peli };
 //   console.log(resultado);
 // })
 
-// prueba.search({ title: "La aventura",tag:"adventure"}).then((resultado) => {
+// prueba.search({ title: "aventura"}).then((resultado) => {
 //   console.log("Resultado de search: ");
 //   console.log(resultado);
 // });

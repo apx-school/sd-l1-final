@@ -1,11 +1,15 @@
 import { PelisCollection, Peli } from "./models";
 
-type Options = {
+export type Options = {
+  action?: "search" | "add" | "get" | "todos";
   id?: number;
-  search?: {
-    title?: string;
-    tag?: string;
-  };
+  search?:
+    | undefined
+    | {
+        title?: string;
+        tag?: string;
+      };
+  peli?: Peli;
 };
 
 class PelisController {
@@ -14,34 +18,38 @@ class PelisController {
     this.model = new PelisCollection();
   }
 
-  get(options?: Options): Peli[] {
-    const resultado = [];
-    if (options.id) {
-      const conId = this.model.getById(options.id).then((result) => {
-        return result;
-      });
-      resultado.push(conId);
-    } else if (options.search) {
-      const conTitle = this.model.search(options.search).then((result) => {
-        return result;
-      });
-      resultado.push(conTitle);
-    } else {
-      const todas = this.model.getAll().then((result) => {
-        return result;
-      });
-      resultado.push(todas);
+  async get(options?: Options): Promise<Peli[]> {
+    let resultado: Peli[] = [];
+    try {
+      if (options.id) {
+        const peli = await this.model.getById(options.id);
+        resultado.push(peli);
+      } else if (options.action == "todos") {
+        const todas = await this.model.getAll();
+        resultado = todas;
+      } else if (options.search) {
+        const conTitle = await this.model.search(options.search);
+        resultado = conTitle;
+      }
+    } catch (error) {
+      throw new Error("Error al buscar la pelicula");
     }
-
     return resultado;
   }
-  getOne(options:Options):Peli{
-    return this.get[0];
+  async getOne(options: Options): Promise<Peli> {
+    return await this.get(options).then((result) => {
+      return result[0];
+    });
   }
-  add(peli:Peli){
-    this.model.add(peli).then((result)=>{
-      return result
+  async add(peli: Peli) {
+    await this.model.add(peli).then((result) => {
+      return result;
+    }).catch((error)=>{
+      throw new Error("error" + error);      
     })
   }
 }
+
+const controlador = new PelisController();
+
 export { PelisController };
