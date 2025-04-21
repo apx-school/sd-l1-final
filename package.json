@@ -20,6 +20,8 @@
   "license": "ISC",
   "devDependencies": {
     "@ava/typescript": "^4.1.0",
+    "@types/node": "^22.14.1",
+    "add": "^2.0.6",
     "ava": "^6.0.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
