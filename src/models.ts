@@ -14,10 +14,12 @@ class Peli {
 
 class PelisCollection {
   getAll(): Promise<Peli[]> {
-    return jsonfile.readFile("src/pelis.json");
+    return jsonfile.readFile("src/pelis.json").then((pelis) => {
+      return pelis;
+    });
   };
 
-  getById(id: number): Promise<Peli> {
+  getById(id: number): Promise<Peli | undefined> {
     return this.getAll().then((lista) => {
       const peli = lista.find((peli) => {
         return peli.id === id;
@@ -42,7 +44,7 @@ class PelisCollection {
       let peliAceptada = false;
       if (options.tag) {
         const tagOptions = options.tag.trim().toLowerCase();
-        peliAceptada = p.tags.some((tag) => tag.trim().toLowerCase().includes(tagOptions));
+        peliAceptada = p.tags.some((tag) => tag.trim().toLowerCase() == tagOptions);
       }
       if (options.title) {
         const titleOptions = options.title.trim().toLowerCase();
@@ -57,12 +59,4 @@ class PelisCollection {
 }
 type SearchOptions = { title?: string; tag?: string };
 
-async function main() {
-  const a = new PelisCollection();
-  const peli = await a.search({ tag: "a" })
-  console.log(peli);
-
-}
-
-main();
 export { PelisCollection, Peli };

@@ -5,7 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "test": "ava",
-    "start": "ts-node src/index.ts add --id=4321865 --title=\"peli de la terminal 4321865\" --tags=rr --tags=ww"
+    "start": "ts-node src/index.ts"
   },
   "ava": {
     "typescript": {
@@ -20,6 +20,7 @@
   "license": "ISC",
   "devDependencies": {
     "@ava/typescript": "^4.1.0",
+    "@types/jsonfile": "^6.1.4",
     "@types/node": "^22.14.1",
     "add": "^2.0.6",
     "ava": "^6.0.1",
