@@ -1,5 +1,5 @@
-import minimist from 'minimist';
-import { PelisController } from './controllers';
+import * as minimist from "minimist";
+import { PelisController } from "./controllers";
 
 function parseaParams(argv: string[]) {
   return minimist(argv);
