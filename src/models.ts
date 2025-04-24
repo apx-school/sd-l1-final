@@ -1,5 +1,5 @@
 // El siguiente import no se usa pero es necesario
-import { readFile, writeFile } from 'fs/promises';
+import jsonfile from 'jsonfile';
 import './pelis.json';
 // de esta forma Typescript se entera que tiene que incluir
 // el .json y pasarlo a la carpeta /dist
@@ -20,7 +20,7 @@ type SearchOptions = {
 class PelisCollection {
   async getAll(): Promise<Peli[]> {
     try {
-      const data = await readFile('./pelis.json', 'utf-8');
+      const data = await jsonfile.readFile('./pelis.json', 'utf-8');
       return JSON.parse(data);
     } catch (error) {
       console.error('Oops, algo ha salido mal al intentar leer el archivo:', error);
@@ -37,7 +37,7 @@ class PelisCollection {
         return false;
       } else {
         peliculas.push(peli);
-        await writeFile('./pelis.json', JSON.stringify(peliculas, null, 2));
+        await jsonfile.writeFile('./pelis.json', JSON.stringify(peliculas, null, 2));
         return true;
       }
     } catch (error) {
