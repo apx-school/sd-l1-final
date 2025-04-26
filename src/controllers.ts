@@ -17,22 +17,22 @@ class PelisController {
 
   async get(options?: Options): Promise<Peli[]> {
     try {
-      const peliculas = await this.model.getAll();
+      const movies = await this.model.getAll();
 
       if (options?.id) {
-        const pelicula = peliculas.find(pelicula => pelicula.id === options.id);
-        return pelicula ? [pelicula] : [];
+        const movie = movies.find(movie => movie.id === options.id);
+        return movie ? [movie] : [];
       } else if (options?.search?.title && options?.search?.tag) {
-        return peliculas.filter(
-          pelicula => pelicula.title.toLowerCase().includes(options.search.title.toLowerCase()) && pelicula.tags.includes(options.search.tag)
+        return movies.filter(
+          movie => movie.title.toLowerCase().includes(options.search.title.toLowerCase()) && movie.tags.includes(options.search.tag.toLowerCase())
         );
       } else if (options?.search?.title) {
-        return peliculas.filter(pelicula => pelicula.title.toLowerCase().includes(options.search.title.toLowerCase()));
+        return movies.filter(movie => movie.title.toLowerCase().includes(options.search.title.toLowerCase()));
       } else if (options?.search?.tag) {
-        return peliculas.filter(pelicula => pelicula.tags.includes(options.search.tag));
+        return movies.filter(movie => movie.tags.includes(options.search.tag.toLowerCase()));
       }
 
-      return peliculas;
+      return movies;
     } catch (error) {
       console.error('Oops, algo ha salido mal', error);
       return [];

@@ -20,24 +20,25 @@ type SearchOptions = {
 class PelisCollection {
   async getAll(): Promise<Peli[]> {
     try {
-      const data = await jsonfile.readFile('src/pelis.json', 'utf-8');
-      return JSON.parse(data);
+      return await jsonfile.readFile('src/pelis.json');
     } catch (error) {
       console.error('Oops, algo ha salido mal al intentar leer el archivo:', error);
       return [];
     }
   }
 
-  async add(peli: Peli): Promise<boolean> {
-    const peliculas = await this.getAll();
-    const peliExistente = peliculas.find(pelicula => pelicula.id === peli.id);
+  async add(newMovie: Peli): Promise<boolean> {
+    const movies = await this.getAll();
+    const existingMovie = movies.some(movie => movie.id === newMovie.id);
 
     try {
-      if (peliExistente) {
+      if (existingMovie) {
+        console.log(`${newMovie.title} ya existe!`);
         return false;
       } else {
-        peliculas.push(peli);
-        await jsonfile.writeFile('src/pelis.json', JSON.stringify(peliculas, null, 2));
+        movies.push(newMovie);
+        await jsonfile.writeFile('src/pelis.json', movies);
+        console.log(`${newMovie.title} ha sido agregada exitosamente`);
         return true;
       }
     } catch (error) {
@@ -47,17 +48,17 @@ class PelisCollection {
   }
 
   async getById(id: number): Promise<Peli | undefined> {
-    const peliculas = await this.getAll();
-    return peliculas.find(pelicula => pelicula.id === id);
+    const movies = await this.getAll();
+    return movies.find(movie => movie.id === id);
   }
 
   async search(options: SearchOptions): Promise<Peli[]> {
-    const peliculas = await this.getAll();
+    const movies = await this.getAll();
 
     if (options.title) {
-      return peliculas.filter(pelicula => pelicula.title.includes(options.title));
+      return movies.filter(movie => movie.title.includes(options.title));
     } else if (options.tag) {
-      return peliculas.filter(pelicula => pelicula.tags.includes(options.tag));
+      return movies.filter(movie => movie.tags.includes(options.tag));
     }
 
     return [];

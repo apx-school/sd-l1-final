@@ -9,31 +9,31 @@ async function main() {
   const controller = new PelisController();
   const params = parseaParams(process.argv.slice(2));
 
-  const comando = params._[0];
+  const command = params._[0];
 
-  if (comando === 'add') {
-    const peli = {
-      id: Number(params.id),
+  if (command === 'add') {
+    const movie = {
+      id: params.id,
       title: params.title,
-      tags: Array.isArray(params.tags) ? params.tags : [params.tags],
+      tags: params.tags,
     };
 
-    const resultado = await controller.add(peli);
-    console.log(resultado);
-  } else if (comando === 'get') {
-    const id = Number(params._[1]);
-    const resultado = await controller.getOne({ id });
-    console.log(resultado);
-  } else if (comando === 'search') {
+    const result = await controller.add(movie);
+    console.log(result);
+  } else if (command === 'get') {
+    const id = params._[1];
+    const result = await controller.getOne({ id });
+    console.log(result);
+  } else if (command === 'search') {
     const search: any = {};
     if (params.title) search.title = params.title;
     if (params.tag) search.tag = params.tag;
 
-    const resultado = await controller.get({ search });
-    console.log(resultado);
+    const result = await controller.get({ search });
+    console.log(result);
   } else {
-    const resultado = await controller.get();
-    console.log(resultado);
+    const result = await controller.get();
+    console.log(result);
   }
 }
 
