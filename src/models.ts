@@ -1,5 +1,6 @@
 // El siguiente import no se usa pero es necesario
 import jsonfile from 'jsonfile';
+import path from 'path';
 import './pelis.json';
 // de esta forma Typescript se entera que tiene que incluir
 // el .json y pasarlo a la carpeta /dist
@@ -17,10 +18,12 @@ type SearchOptions = {
   tag?: string;
 };
 
+const MOVIES_PATH = path.join(__dirname, 'pelis.json');
+
 class PelisCollection {
   async getAll(): Promise<Peli[]> {
     try {
-      return await jsonfile.readFile('src/pelis.json');
+      return await jsonfile.readFile(MOVIES_PATH);
     } catch (error) {
       console.error('Oops, algo ha salido mal al intentar leer el archivo:', error);
       return [];
@@ -37,7 +40,7 @@ class PelisCollection {
         return false;
       } else {
         movies.push(newMovie);
-        await jsonfile.writeFile('src/pelis.json', movies);
+        jsonfile.writeFileSync(MOVIES_PATH, movies);
         console.log(`${newMovie.title} ha sido agregada exitosamente`);
         return true;
       }
