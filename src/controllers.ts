@@ -1,4 +1,3 @@
-import * as jsonfile from 'jsonfile';
 import { PelisCollection, Peli } from './models';
 
 type Options = {
@@ -40,25 +39,17 @@ class PelisController {
     }
   }
 
-  async getOne(options: Options): Promise<Peli | undefined> {
-    const results = await this.get(options);
-    return results && results.length > 0 ? results[0] : undefined;
+  async getOne(options: Options): Promise<Peli> {
+    const result = await this.get(options);
+    if (result.length === 0) {
+      throw new Error('No hay resultados');
+    }
+
+    return result[0];
   }
 
-  async add(peli: Peli) {
-    try {
-      const result = await this.model.add(peli);
-      if (result) {
-        console.log('Pelicula agregada exitosamente');
-      } else {
-        console.log('No se pudo agregar la película. Puede que ya exista');
-      }
-
-      return result;
-    } catch (error) {
-      console.error('Oops, algo ha salido mal al intentar guardar la película:', error);
-      return false;
-    }
+  async add(peli: Peli): Promise<boolean> {
+    return this.model.add(peli);
   }
 }
 export { PelisController };

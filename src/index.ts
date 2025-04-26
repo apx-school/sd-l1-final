@@ -1,5 +1,5 @@
-import * as minimist from "minimist";
-import { PelisController } from "./controllers";
+import minimist from 'minimist';
+import { PelisController } from './controllers';
 
 function parseaParams(argv: string[]) {
   return minimist(argv);
@@ -32,7 +32,6 @@ async function main() {
     const resultado = await controller.get({ search });
     console.log(resultado);
   } else {
-    // Sin comando: devuelve todas las pelis
     const resultado = await controller.get();
     console.log(resultado);
   }
