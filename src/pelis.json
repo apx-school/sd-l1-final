@@ -1,1 +1,17 @@
-[]
+[
+    {
+      "id": 1,
+      "title": "El señor de los anillos- El retorno del rey",
+      "tags": ["aventura", "sci-ficcion","realizado"]
+    },
+    {
+      "id": 2,
+      "title": "EL Hobbit",
+      "tags": ["aventura", "sci-ficcion", "epico"]
+    },
+    {
+      "id": 3,
+      "title": "Avenger end game",
+      "tags": ["accion", "aventura", "sci-fi"]
+    }
+  ]
