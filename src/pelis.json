@@ -1,1 +1,33 @@
-[]
+[
+  {
+    "id": 4411,
+    "title": "Título de la nueva peli",
+    "tags": [
+      "action",
+      "classic"
+    ]
+  },
+  {
+    "id": 4412,
+    "title": "Otra película",
+    "tags": [
+      "comedy"
+    ]
+  },
+  {
+    "id": 4413,
+    "title": "Película de acción",
+    "tags": [
+      "action",
+      "thriller"
+    ]
+  },
+  {
+    "id": 4418,
+    "title": "titulo nueva peli",
+    "tags": [
+      "action",
+      "classic"
+    ]
+  }
+]
