@@ -12,7 +12,7 @@ importers:
         specifier: ^6.1.0
         version: 6.1.0
       minimist:
-        specifier: ^1.2.5
+        specifier: ^1.2.8
         version: 1.2.8
     devDependencies:
       '@ava/typescript':

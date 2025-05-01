@@ -1,7 +1,7 @@
 {
   "name": "test-ava",
   "version": "1.0.0",
-  "description": "",
+  "description": "- Forkeá este repo (y clonalo)\r - Instalá las dependencias con PNPM (a veces ava tiene problemas cuando lo instalas con NPM)\r - Revisá los tests\r - Agregá tu código y asegurate que los tests pasen\r - Creá un PR y envialo en el formulario correspondiente a este desfío)",
   "main": "index.ts",
   "scripts": {
     "test": "ava",
@@ -28,6 +28,6 @@
   },
   "dependencies": {
     "jsonfile": "^6.1.0",
-    "minimist": "^1.2.5"
+    "minimist": "^1.2.8"
   }
 }
