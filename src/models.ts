@@ -10,9 +10,9 @@ class Peli {
   tags: string[];
 }
 
-type SearchOptions = {
+export type SearchOptions = {
   title?: string;
-  tag?: string
+  tag?: string[] // Cambiado a array de strings
 };
 
 
@@ -48,39 +48,37 @@ class PelisCollection {
   }
 
   search = async (options: SearchOptions): Promise<Peli[]> => {
-
-
     const todasPeliculas = await this.getAll();
-    /// vamos a hacerlo con tre optiones , si hay title, si hay tag o si hay ambos , pero tando priodidad a que se filtre el tag de el titulo filtrado
-    if (typeof options.title === "string" && typeof options.tag === "undefined") {
-      const titulo = lodash.filter(todasPeliculas, objeto =>
-        lodash.includes(lodash.lowerCase(objeto.title), lodash.lowerCase(options.title))
-      )
-      return titulo
+    let resultado = todasPeliculas;
+
+    // Filtrar por título si se proporciona
+    if (typeof options.title === "string" && options.title.trim() !== "") {
+      resultado = lodash.filter(resultado, peli =>
+        lodash.includes(lodash.lowerCase(peli.title), lodash.lowerCase(options.title))
+      );
     }
 
-    if (typeof options.tag === "string" && typeof options.title === "undefined") {
-      const tagsPeli = lodash.filter(todasPeliculas, objeto =>
-        lodash.includes(lodash.lowerCase(objeto.tags), lodash.lowerCase(options.tag))
-      )
-      return tagsPeli
+    // Filtrar por tags si se proporcionan
+    if (Array.isArray(options.tag) && options.tag.length > 0) {
+      // Convertir los tags de búsqueda a minúsculas una sola vez
+      const searchTagsLower = options.tag.map(tag => lodash.lowerCase(tag));
+
+      resultado = lodash.filter(resultado, peli => {
+        // Convertir los tags de la película a minúsculas
+        const peliTagsLower = peli.tags.map(tag => lodash.lowerCase(tag));
+        // Verificar si hay alguna intersección entre los tags de búsqueda y los tags de la película
+        return lodash.intersection(searchTagsLower, peliTagsLower).length > 0;
+      });
     }
 
-    if (typeof options.tag === "string" && typeof options.title === "string") {
-      const titulos = lodash.filter(todasPeliculas, objeto =>
-        lodash.includes(lodash.lowerCase(objeto.title), lodash.lowerCase(options.title))
-      )
+    // Si no se proporcionó ni título ni tags válidos, devolver todas las películas (ya que resultado = todasPeliculas inicialmente)
+    // Opcionalmente, podrías querer devolver un array vacío si no se especifican criterios.
+    // Por ahora, si no hay criterios, devuelve todo.
 
-      const tagsPeli = lodash.filter(titulos, objeto =>
-        lodash.includes(lodash.lowerCase(objeto.tags), lodash.lowerCase(options.tag))
-      )
-
-      return tagsPeli
-    }
+    return resultado;
   }
 
 
 }
 
 export { PelisCollection, Peli };
-

@@ -25,18 +25,42 @@
     },
     {
         "id": 4,
-        "title": "Pulp Fiction jimmy",
+        "title": "Pulp  jimmy",
         "tags": [
             "crime",
-            "drama"
+            "classic"
         ]
     },
     {
         "id": 8,
-        "title": "jimmy",
+        "title": "dark 4",
         "tags": [
             "ola",
             "crimen"
+        ]
+    },
+    {
+        "id": 4411,
+        "title": "Título de Dark nueva peli",
+        "tags": [
+            "action",
+            "classic"
+        ]
+    },
+    {
+        "id": 333,
+        "title": "batman",
+        "tags": [
+            "action",
+            "dark"
+        ]
+    },
+    {
+        "id": 3223,
+        "title": "cueva",
+        "tags": [
+            "dark",
+            "dark"
         ]
     }
 ]
