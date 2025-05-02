@@ -8,13 +8,13 @@ class Peli {
 
   tags: string[];
 
-  constructor(id: number, title: string, tags: string[]) {
+  constructor(id: number, title: string, tags?: string[]) {
     if (id <= 0) {
       throw new Error("El ID debe ser un número positivo.");
     }
 
     if (!title) {
-      throw new Error("El título no puede estar vacío.");
+      throw new Error("Just name your movie you duck");
     }
 
     this.id = id;
@@ -25,37 +25,36 @@ class Peli {
   }
 }
 
-type SearchOptions = { title?: string; tag?: string };
+export type SearchOptions = { title?: string; tag?: string };
 
 class PelisCollection {
   async getAll(): Promise<Peli[]> {
-    const peliculas = await jsonfile.readFile(__dirname + "/pelis.json");
+    const peliculas = await jsonfile.readFile(__dirname + "/../pelis.json");
     return peliculas;
   }
-  async getById(id: number): Promise<Peli> {
+  async getById(id: number): Promise<Peli> | null {
     const peliculas = await this.getAll();
     const peliculaBuscada = peliculas.find((peli) => peli.id === id);
-    if (!peliculaBuscada) {
-      throw new Error(`Película con ID ${id} no encontrada.`);
-    }
-    return peliculaBuscada;
+    return peliculaBuscada || null;
   }
   async add(peli: Peli): Promise<boolean> {
-    const peliculaExistente = await this.getById(peli.id).catch(() => null);
-    if (peliculaExistente) {
+    const peliExistente = await this.getById(peli.id);
+
+    if (peliExistente) {
+      console.error(
+        `No se puede agregar la película. El ID ${peli.id} ya existe.`
+      );
       return false;
-    } else {
-      const peliculas = await this.getAll();
-      peliculas.push(peli);
-      try {
-        await jsonfile.writeFile(__dirname + "/pelis.json", peliculas);
+    }
+    const peliculas = await this.getAll();
+    peliculas.push(peli);
 
-        return true;
-      } catch (error) {
-        console.error("Error al escribir en el archivo:", error);
-
-        throw new Error("No se pudo agregar la película.");
-      }
+    try {
+      await jsonfile.writeFile("./pelis.json", peliculas);
+      return true;
+    } catch (error) {
+      console.error("Error al escribir en el archivo:", error);
+      throw new Error("No se pudo agregar la película.");
     }
   }
   async search(options: SearchOptions): Promise<Peli[]> {

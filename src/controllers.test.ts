@@ -1,4 +1,4 @@
- import anyTest, { TestFn } from "ava";
+import anyTest, { TestFn } from "ava";
 import { PelisController } from "./controllers";
 import { getRandomId } from "./models.test";
 
@@ -18,16 +18,6 @@ const test = anyTest as TestFn<{
 
 // comentalos y descomentá uno a uno a medida
 // que vas avanzando en cada test
-
- /* test.serial(
-  "Testeo PelisController get id (creado desde la terminal)",
-  async (t) => {
-    // testeo peli agregada desde el script test del package
-    const controller = new PelisController();
-    const peli = await controller.getOne({ id: 4321865 });
-    t.is(peli.title, "peli de la terminal 4321865");
-  }
-); */
 
 test.serial("Testeo PelisController get id", async (t) => {
   const controller = new PelisController();
@@ -66,4 +56,3 @@ test.serial("Testeo PelisController search tag", async (t) => {
   const ids = pelis.map((b) => b.id);
   t.deepEqual(ids, [TEST_ID, SECOND_TEST_ID]);
 });
- 

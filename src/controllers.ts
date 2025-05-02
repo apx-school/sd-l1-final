@@ -56,11 +56,28 @@ class PelisController {
     const resultado = await this.model.add(peli);
 
     if (resultado) {
-      console.log("Película agregada con éxito", peli);
+      console.log("Película agregada con éxito:", peli);
     } else {
       console.log("Error al agregar la película, puede que el ID ya exista");
     }
   }
+
+  async processOptions(option): Promise<any> {
+    let resultado;
+    if (option._[0] === "add") {
+      const peli = {
+        id: option.id,
+        title: option.title,
+        tags: Array.isArray(option.tags) ? option.tags : [option.tags],
+      };
+      resultado = await this.add(new Peli(peli.id, peli.title, peli.tags));
+    } else if (option.id) {
+      resultado = await this.getOne({ id: option.id });
+    } else if (option.search) {
+      resultado = await this.get(option);
+    }
+    return resultado;
+  }
 }
 
-export { PelisController };
+export { PelisController, Options };
