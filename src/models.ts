@@ -12,7 +12,7 @@ class Peli {
 
 export type SearchOptions = {
   title?: string;
-  tag?: string[] // Cambiado a array de strings
+  tags?: string[] // Cambiado a array de strings
 };
 
 
@@ -52,16 +52,16 @@ class PelisCollection {
     let resultado = todasPeliculas;
 
     // Filtrar por título si se proporciona
-    if (typeof options.title === "string" && options.title.trim() !== "") {
+    if (typeof options.title === "string") {
       resultado = lodash.filter(resultado, peli =>
         lodash.includes(lodash.lowerCase(peli.title), lodash.lowerCase(options.title))
       );
     }
 
     // Filtrar por tags si se proporcionan
-    if (Array.isArray(options.tag) && options.tag.length > 0) {
+    if (Array.isArray(options.tags) && options.tags.length > 0) {
       // Convertir los tags de búsqueda a minúsculas una sola vez
-      const searchTagsLower = options.tag.map(tag => lodash.lowerCase(tag));
+      const searchTagsLower = options.tags.map(tag => lodash.lowerCase(tag));
 
       resultado = lodash.filter(resultado, peli => {
         // Convertir los tags de la película a minúsculas

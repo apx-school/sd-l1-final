@@ -54,7 +54,7 @@ test.serial("Testeo el método search", async (t) => {
   // El search debe encontrar solo la peli con el title (session) y el tag (yy)
   const c = await collection.search({
     title: SECOND_TEST_ID.toString(),
-    tag: "yy",
+    tags: ["yy"],
   });
   t.deepEqual(c[0].id, SECOND_TEST_ID);
 });
