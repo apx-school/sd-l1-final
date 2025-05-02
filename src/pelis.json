@@ -1,1 +1,19 @@
-[]
+[
+    {
+        "id": 10 ,
+        "title" : "Rapidos y furiosos 8",
+        "tags" : ["acción", "Adrenalina", "favorita"]
+      },
+      {
+        
+            "id": 11 ,
+            "title" : "Son como niños",
+            "tags" :["Comedia", "favorita", "Apta para toda la familia"]
+      },
+      {
+        "id" : 12,
+        "title" : "Rocky",
+        "tags" : ["acción", "deporte" , "Adrenalina" , "boxeo"]
+      }
+
+]
