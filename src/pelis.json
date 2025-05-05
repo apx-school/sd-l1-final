@@ -1,19 +1,42 @@
 [
-    {
-        "id": 10 ,
-        "title" : "Rapidos y furiosos 8",
-        "tags" : ["acción", "Adrenalina", "favorita"]
-      },
-      {
-        
-            "id": 11 ,
-            "title" : "Son como niños",
-            "tags" :["Comedia", "favorita", "Apta para toda la familia"]
-      },
-      {
-        "id" : 12,
-        "title" : "Rocky",
-        "tags" : ["acción", "deporte" , "Adrenalina" , "boxeo"]
-      }
-
+  {
+    "id": 1,
+    "title": "Rápidos y Furiosos 8",
+    "tags": ["accion", "autos", "familia"]
+  },
+  {
+    "id": 2,
+    "title": "El Padrino",
+    "tags": ["drama", "mafia", "clasico"]
+  },
+  {
+    "id": 3,
+    "title": "Los Minions",
+    "tags": ["animacion", "comedia", "familia"]
+  },
+  {
+    "id": 4,
+    "title": "Son como niños",
+    "tags": ["comedia", "amigos", "vacaciones"]
+  },
+  {
+    "id": 5,
+    "title": "Matrix",
+    "tags": ["accion", "ficcion", "clásico"]
+  },
+  {
+    "id": 6,
+    "title": "El Señor de los Anillos",
+    "tags": ["fantasia", "aventura", "epico"]
+  },
+  {
+    "id": 7,
+    "title": "Batman",
+    "tags": ["accion", "oscuro"]
+  },
+  {
+    "id": 8,
+    "title": "Volver al Futuro",
+    "tags": ["ciencia ficción", "aventura", "clasico"]
+  }
 ]

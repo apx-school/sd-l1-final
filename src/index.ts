@@ -20,24 +20,28 @@ async function main() {
 
 switch ( command){
   case 'add':
-  const id = params.id
-  const title = params.title
-  const tags = params.tags
-  if (id && title && tags){
-    const resultado = await pelisController.add(id,title,tags)
-    console.log(resultado? "Pelicula Agregada." : "No se pudo agregar la Pelicula.")
-} else {
-  console.log("Faltan agregar parametros para la pelicula")
-} break;
+    const { id, title } = params; 
+    const tags = (typeof params.tags === "string") ? params.tags.split(",") : params.tags;
+    if (id && title && Array.isArray(tags)) {
+      const nuevaPeli = { id, title, tags }; 
+      const resultado = await pelisController.add(nuevaPeli); 
+      console.log(resultado ? "Película Agregada." : "No se pudo agregar la Película.");
+    } else {
+      console.log("Faltan agregar parámetros para la película o tags no es un array");
+    }
+    break;
 
-case 'get':
+    case 'get':
   const peliId = params._[1];
-  if (peliId){
-    const pelicula= await pelisController.getOne({ id: Number(peliId)})
- console.log (pelicula? pelicula : "Pelicula no encontrada") 
-  }else {
-    console.log("Falta el ID de la Pelicula.");
-  } break;
+  if (peliId) {
+    const pelicula = await pelisController.getOne( {id :Number(peliId)}); 
+    console.log(pelicula ? pelicula : "Película no encontrada");
+  } else {
+    console.log("Falta el ID de la Película.");
+  }
+  break;
+
+    
 
   case 'search':
     const searchOptions : {title?:string,tag?:string}= {}
@@ -54,7 +58,7 @@ case 'get':
     break
 } 
 
-  console.log(params);
+  //console.log(params);
 }
 
 main();

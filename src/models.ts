@@ -8,69 +8,68 @@ import { PelisController } from "./controllers";
 // el .json y pasarlo a la carpeta /dist
 // si no, solo usandolo desde la libreria jsonfile, no se dá cuenta
 
-// no modificar estas propiedades, agregar todas las que quieras
+// no modificar estas propied ades, agregar todas las que quieras
 class Peli {
   id: number;
   title: string;
   tags: string[];
-}
+};
 
-type SearchOptions = { 
+
+export type SearchOptions = { 
   title?: string; 
   tag?: string; 
 };
 
+ class PelisCollection { 
+  private direccion : string
 
-class PelisCollection { 
-  getAll(): Promise<Peli[]> {
-    return jsonfile.readFile("./pelis.json").then((data: Peli[]) => {
-      return data;
-    }) .catch((error)=>{
-      console.error("Error al leer el archivo: ", error);
-      return[];
-    }) ;
-  };
-  getById(id:number): Promise<Peli | null> {
-    return jsonfile.readFile("./pelis.json").then((data:Peli[ ])=> {
-      const PeliEncontrada= data.find(peli => peli.id=== id);
-  return PeliEncontrada || null;
-    }).catch((error)=>{
-      console.error("Error al leer el archivo: ",error)
-      return null;
-    })
+  constructor(filePath: string = "./pelis.json"){
+    this.direccion = filePath
   }
-  add(peli: Peli): Promise<boolean> {
-    const promesaUno = this.getById(peli.id).then((peliExistente) => {  
-      if(peliExistente){
-        return false;
-      }  else {
-        const promesaDos = jsonfile.writeFile("./pelis.json").then((data:Peli[]) =>{
-          data.push(peli)
-          return jsonfile.writeFile("./pelis.son",  data).then(() =>{
-            return true
-          });
-        });
-      }
+
+
+  async getAll(): Promise<Peli[]> {
+    try {
+      return await jsonfile.readFile(this.direccion);
+    } catch (error) {
+      console.error("Error al leer el archivo: ", error);
+      return [];
+    }
+  }
+
+  async getById(id:number): Promise<Peli | null> {
+    const data= await this.getAll()
+    return data.find((p)=> p.id ===id) || null;
+    }
+
+  async add(peli: Peli): Promise<boolean> {
+    const existe = await this.getById(peli.id);
+    if (existe) {
+      return false; // La película ya existe
+    }
+
+    const data = await this.getAll();
+    data.push(peli);
+    await jsonfile.writeFile(this.direccion, data);
+    return true; // Película agregada exitosamente
+  }
+      
+  async search(options: SearchOptions): Promise<Peli[]> {
+    const pelis = await this.getAll();
+  
+    return pelis.filter(peli => {
+      const coincTitle = options.title
+        ? peli.title.toLowerCase().includes(options.title.toLowerCase())
+        : true;
+  
+      const coincTag = options.tag
+        ? peli.tags.includes(options.tag)
+        : true;
+  
+      return coincTitle && coincTag;
     });
-      return promesaUno;
-};
-search(options: SearchOptions): Promise<Peli[]> {
-  return jsonfile.readFile("./pelis.json").then((data:Peli[])=> {
-    const listaFiltrada = data.filter(peli => {
-      let coincide = true;
-      if (options.title) {
-        coincide = coincide && peli.title.includes(options.title)
-      }
-      if (options.tag) { 
-        coincide = coincide && peli.tags.includes(options.tag)
-      }
-      return coincide
-    });
-    return listaFiltrada;
-  }).catch((error)=> {
-    console.error("Error al leer el archivo", error)
-    return [];
-  })
-}}
+  }
+}
 
 export{ PelisCollection, Peli };

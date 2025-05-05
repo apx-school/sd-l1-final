@@ -1,68 +1,58 @@
 import { promises } from "dns";
 import { PelisCollection, Peli } from "./models";
 
-type Options = {
- id?: number;
-  title?:string;
-  tag?: string;
-}
+type searchOptions = {
+  title?: string;
+  tag?: string
+};
+
+type getOptions= 
+| { id : number}
+| { search : searchOptions}
+| undefined
+
+
+
+
 class PelisController {
-  private model : PelisCollection;
+  private collection : PelisCollection;
   private pelis: Peli[]= []
 
   constructor() {
-    this.model = new PelisCollection()
+    this.collection = new PelisCollection()
   };
 
-  getAllPelis():Promise<Peli[]> {
-    return this.model.getAll();
+  async getAllPelis():Promise<Peli[]> {
+    return this.collection.getAll();
   }
-  getOne(options: Options): Peli | undefined {
-    return this.get(options)[0];
-  }
-  async get(options: Options): Promise<Peli[]> {
-    
-    return this.model.search(options); 
-  }
-  async add(id:number, title:string, tags:string[]): Promise<boolean> {
-    
-    const existe = this.pelis.find((p) => p.id === id);
-    if (existe) {
-      return false;
+
+    async getOne(options? : {id: number }) {
+      return this.collection.getById(options.id);  
     }
-
-    const nuevaPeli : Peli ={ id,title, tags}
-    this.pelis.push(nuevaPeli);
-
-    return true; 
+  
+  
+  
+  async get(options?: { id?: number; search?: { title?: string; tag?: string } }): Promise<Peli[]> {
+    if (options?.id) {
+      const peli = await this.collection.getById(options.id);
+      return peli ? [peli] : [];
+    }
+  
+    if (options?.search) {
+      return await this.collection.search(options.search);
+    }
+  
+    return await this.collection.getAll();
   }
   
-  async search(options : Options={}){
-    const lista = await this.getAllPelis() 
-    if (!options.id && !options.title && !options.tag) {
-      return lista; 
-    }
-    if (options.id){
-      const peli = lista.find((p)=> p.id ===options.id)
-      return peli?[peli] : []
-    }
-    const { title, tag} = options;
-    
-    const listaFiltrada = lista.filter((p)=>{
-    let coincide = true;
-    
-    if (title) {
-      coincide = coincide && p.title.includes(title);
-    }
-    if (tag) {
-      coincide = coincide && p.tags.includes(tag);
-    }
-    
-    return coincide;
-  })
-  return listaFiltrada
-};
-}
+
+  async add(peli: Peli): Promise<boolean> {
+    return this.collection.add(peli);
+  }
   
+  async search(options : searchOptions): Promise <Peli[]>{
+    return this.collection.search(options)
+}}
+//Si no se pasa nada (undefined), devuelve todo con getAll.
   
 export { PelisController };
