@@ -50,7 +50,7 @@ class PelisCollection {
     peliculas.push(peli);
 
     try {
-      await jsonfile.writeFile("./pelis.json", peliculas);
+      await jsonfile.writeFile(__dirname + "/../pelis.json", peliculas);
       return true;
     } catch (error) {
       console.error("Error al escribir en el archivo:", error);

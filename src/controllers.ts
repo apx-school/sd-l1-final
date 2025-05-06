@@ -2,6 +2,7 @@ import * as jsonfile from "jsonfile";
 import { PelisCollection, Peli } from "./models";
 
 type Options = {
+  _?: string[];
   id?: number;
   search?: {
     title?: string;
@@ -62,21 +63,16 @@ class PelisController {
     }
   }
 
-  async processOptions(option): Promise<any> {
-    let resultado;
-    if (option._[0] === "add") {
-      const peli = {
-        id: option.id,
-        title: option.title,
-        tags: Array.isArray(option.tags) ? option.tags : [option.tags],
-      };
-      resultado = await this.add(new Peli(peli.id, peli.title, peli.tags));
-    } else if (option.id) {
-      resultado = await this.getOne({ id: option.id });
-    } else if (option.search) {
-      resultado = await this.get(option);
+  async processOptions(params): Promise<any> {
+    if (params._[0] === "add") {
+      const { id, title, tags } = params;
+      return await this.add(new Peli(id, title, tags));
+    } else if (params._[0] === "search") {
+      return await this.model.search(params.search);
+    } else if (params._[0] === "get") {
+      return await this.model.getById(params.id);
     }
-    return resultado;
+    return null;
   }
 }
 

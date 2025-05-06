@@ -21,11 +21,19 @@ function parseaParams(argv): Options {
 async function main() {
   const controller = new PelisController();
   const params = parseaParams(process.argv.slice(2));
-  var resultado = await controller.processOptions(params);
-  if (!resultado) {
-    resultado = await controller.model.getAll();
+  try {
+    if (params._.length === 0) {
+      const resultado = await controller.model.getAll();
+      console.log(resultado);
+    } else {
+      const resultado = await controller.processOptions(params);
+      if (params._[0] !== "add") {
+        console.log(resultado);
+      }
+    }
+  } catch (error) {
+    console.log("Oops error:", error);
   }
-  console.log(resultado);
 }
 
 main();
