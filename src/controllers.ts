@@ -26,7 +26,13 @@ class PelisController {
 
     return await this.collection.getAll();
   }
-
+async getOne(options: Options): Promise<Peli | undefined> {
+  const resultado = await this.get(options);
+  if (Array.isArray(resultado)) {
+    return resultado[0];   // devuelve el primer elemento si es array
+  }
+  return resultado;        // si ya vino como Peli | undefined
+}
   async add(peli: Peli): Promise<boolean> {
     return await this.collection.add(peli);
   }
