@@ -1,1 +1,24 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "Avengers End Game",
+    "tags": ["Superheroes", "acción", "marvel", "efectos especiales"]
+  },
+  {
+    "id": 2,
+    "title": "El Conjuro",
+    "tags": ["terror", "suspenso", "misterio", "historia"]
+  },
+  {
+    "id": 3,
+    "title": "Duro de Matar",
+    "tags": ["acción", "clásico", "disparos"]
+  },
+  {
+    "id": 4,
+    "title": "Moana 2",
+    "tags": ["aventura", "infantil", "dibujo animado", "todo público"]
+  }
+]
+
+
