@@ -1,1 +1,17 @@
-[]
+[
+     {
+        "id": 1,
+        "title": "Titanic",
+        "tags": ["Barco hundido por iceberg","Hechos Reales","Clasico","Drama","Romance"]
+    },
+    {
+        "id": 2,
+        "title": "Terminator",
+        "tags": ["Robot asesino del futuro", "Ficcion", "Clasico","Ciencia Ficcion","Accion"]
+    },
+    {
+        "id": 3,
+        "title": "La bruja",
+        "tags": ["Leyenda de bosque embrujado en 1630", "Ficcion", "Nuevo","Terror","Misterio"]
+    }
+]
