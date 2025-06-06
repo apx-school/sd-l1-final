@@ -1,1 +1,52 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "El Viaje de Chihiro",
+    "tags": ["animacion", "fantasia", "aventura"]
+  },
+  {
+    "id": 2,
+    "title": "Parásitos",
+    "tags": ["drama", "suspenso", "thriller"]
+  },
+  {
+    "id": 3,
+    "title": "Volver al Futuro",
+    "tags": ["sci-fi", "comedia", "aventura"]
+  },
+  {
+    "id": 4,
+    "title": "Titanic",
+    "tags": ["romance", "drama", "historia"]
+  },
+  {
+    "id": 5,
+    "title": "El Señor de los Anillos: La Comunidad del Anillo",
+    "tags": ["fantasia", "accion", "aventura"]
+  },
+  {
+    "id": 6,
+    "title": "Matrix",
+    "tags": ["accion", "sci-fi", "thriller"]
+  },
+  {
+    "id": 7,
+    "title": "La La Land",
+    "tags": ["musical", "romance", "drama"]
+  },
+  {
+    "id": 8,
+    "title": "Coco",
+    "tags": ["animacion", "familiar", "musical"]
+  },
+  {
+    "id": 9,
+    "title": "Gladiador",
+    "tags": ["accion", "drama", "historia"]
+  },
+  {
+    "id": 10,
+    "title": "Intensamente",
+    "tags": ["animacion", "comedia", "familia"]
+  }
+]
