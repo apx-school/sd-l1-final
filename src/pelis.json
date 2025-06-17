@@ -1,1 +1,53 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "La Máscara",
+    "tags": ["comedia", "fantasia", "comic", "Pelicula de cultura", "mafia"]
+  },
+  {
+    "id": 2,
+    "title": "Inception",
+    "tags": ["ciencia ficción", "thriller", "favorita"]
+  },
+  {
+    "id": 3,
+    "title": "The Matrix",
+    "tags": ["acción", "ciencia ficción", "clásico"]
+  },
+  {
+    "id": 4,
+    "title": "Interstellar",
+    "tags": ["drama", "espacio", "favorita"]
+  },
+  {
+    "id": 5,
+    "title": "Toy Story",
+    "tags": ["animación", "familiar", "clásico"]
+  },
+  { "id": 6, "title": "The Godfather", "tags": ["drama", "mafia", "clásico"] },
+  {
+    "id": 7,
+    "title": "Tick, Tick... Boom!",
+    "tags": ["musical", "drama", "favorita"]
+  },
+  {
+    "id": 8,
+    "title": "Retrato de una mujer en llamas",
+    "tags": ["drama", "romance", "cine francés"]
+  },
+  {
+    "id": 9,
+    "title": "El joven manos de tijera",
+    "tags": ["fantasía", "romance", "clásico"]
+  },
+  {
+    "id": 10,
+    "title": "Harry Potter y el prisionero de Azkaban",
+    "tags": ["aventura", "fantasía", "favorita"]
+  },
+  {
+    "id": 11,
+    "title": "The Notebook",
+    "tags": ["romance", "drama", "emocional"]
+  }
+]
