@@ -1,23 +1,68 @@
 import * as jsonfile from "jsonfile";
-// El siguiente import no se usa pero es necesario
-import "./pelis.json";
-// de esta forma Typescript se entera que tiene que incluir
-// el .json y pasarlo a la carpeta /dist
-// si no, solo usandolo desde la libreria jsonfile, no se dá cuenta
+import { join } from "path";
+import pelis from './pelis.json'
 
-// no modificar estas propiedades, agregar todas las que quieras
 class Peli {
   id: number;
   title: string;
   tags: string[];
+
 }
 
+const pelisPath = join(__dirname, "pelis.json");
+
+type SearchOptions = { title?: string; tag?: string };
+
 class PelisCollection {
-  getAll(): Promise<Peli[]> {
-    return jsonfile.readFile("...laRutaDelArchivo").then(() => {
-      // la respuesta de la promesa
-      return [];
+
+  async getAll(): Promise<Peli[]> {
+    var result = await jsonfile.readFile(pelisPath)
+    return result
+  }
+
+  async getById(id:number):Promise<Peli> {
+    var pelis = await this.getAll()
+
+    var thePeli = pelis.find((p) => {
+      return p.id == id
+    })
+
+    return thePeli
+  }
+
+  async add(peli:Peli):Promise<boolean> {
+    const pelis = await this.getAll();
+
+    const thePeli = pelis.find((p) => p.id === peli.id);
+    if (thePeli) {
+      return false;
+    }
+
+    pelis.push(peli);
+
+    try {
+      await jsonfile.writeFile(pelisPath, pelis);
+      return true;
+    } catch (err) {
+      return false;
+    }
+
+  }
+
+  async search(options:SearchOptions):Promise<Peli[]>{
+    const lista = await this.getAll();
+
+
+    const listaFiltrada = lista.filter((p) => {
+      const matchesTitle = options.title ? p.title.toLowerCase().includes(options.title.toLowerCase()) : true;
+      const matchesTag = options.tag ? p.tags.includes(options.tag) : true;
+      return matchesTitle && matchesTag;
+
     });
+
+    return listaFiltrada
   }
 }
-export { PelisCollection, Peli };
+
+
+export { PelisCollection, Peli, SearchOptions };

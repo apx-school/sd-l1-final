@@ -1,6 +1,7 @@
 import anyTest, { TestFn } from "ava";
 import { PelisController } from "./controllers";
 import { getRandomId } from "./models.test";
+import { resetPelis } from "./models.test";
 
 const TEST_ID = getRandomId();
 const SOME_TITLE = "una peli " + TEST_ID;
@@ -11,6 +12,10 @@ const SECOND_TEST_ID = getRandomId();
 const test = anyTest as TestFn<{
   con: PelisController;
 }>;
+
+test.beforeEach(async () => {
+  await resetPelis();
+});
 
 // # IMPORTANTE #
 // apenas te clones este repo

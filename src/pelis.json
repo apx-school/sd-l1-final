@@ -1,1 +1,12 @@
-[]
+[
+  {"id":1,"title":"The Shawshank Redemption","tags":["drama","prison","hope"]},
+  {"id":2,"title":"The Godfather","tags":["crime","mafia","drama"]},
+  {"id":3,"title":"The Dark Knight","tags":["action","superhero","thriller"]},
+  {"id":4,"title":"Pulp Fiction","tags":["crime","dark comedy","nonlinear"]},
+  {"id":5,"title":"Forrest Gump","tags":["drama","romance","history"]},
+  {"id":6,"title":"Inception","tags":["sci-fi","dreams","thriller"]},
+  {"id":7,"title":"Fight Club","tags":["psychological","drama","anti-establishment"]},
+  {"id":8,"title":"The Matrix","tags":["sci-fi","action","cyberpunk"]},
+  {"id":9,"title":"The Lord of the Rings: The Return of the King","tags":["fantasy","epic","adventure"]},
+  {"id":10,"title":"Interstellar","tags":["sci-fi","space","drama"]}
+]

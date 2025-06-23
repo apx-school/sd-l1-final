@@ -1,5 +1,7 @@
 import anyTest, { TestFn } from "ava";
 import { PelisCollection, Peli } from "./models";
+import * as jsonfile from "jsonfile";
+import { join } from "path";
 
 export const getRandomId = () => {
   const randomNumber = Math.floor(Math.random() * 100000);
@@ -18,6 +20,10 @@ const TEST_TITLE = "title " + SESSION_ID + TEST_ID;
 
 const SECOND_TEST_ID = getRandomId();
 const SECOND_TEST_TITLE = "title " + SESSION_ID + SECOND_TEST_ID;
+
+test.beforeEach(async () => {
+  await resetPelis();
+});
 
 // # IMPORTANTE #
 
@@ -70,3 +76,8 @@ test.serial("Testeo el método search", async (t) => {
   });
   t.deepEqual(c[0].id, SECOND_TEST_ID);
 });
+
+export const resetPelis = async () => {
+  const pelisPath = join(__dirname, "../pelis.json");
+  await jsonfile.writeFile(pelisPath, []);
+};
