@@ -1,1 +1,11 @@
-[]
+[
+  { "id": 1, "title": "Land of bad", "tags": ["acción", "suspenso"] },
+  {
+    "id": 2,
+    "title": "Cuando acecha la maldad",
+    "tags": ["terror", "suspenso"]
+  },
+  { "id": 3, "title": "El eternauta", "tags": ["fantasía", "suspenso"] },
+  { "id": 4, "title": "pelicula mock", "tags": ["acción", "aventura"] },
+  { "id": 5, "title": "Naruto", "tags": ["acción", "niños"] }
+]

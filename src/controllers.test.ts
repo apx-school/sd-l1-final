@@ -1,7 +1,6 @@
 import anyTest, { TestFn } from "ava";
 import { PelisController } from "./controllers";
 import { getRandomId } from "./models.test";
-
 const TEST_ID = getRandomId();
 const SOME_TITLE = "una peli " + TEST_ID;
 const SOME_TAG = "tag " + TEST_ID;
@@ -26,7 +25,7 @@ test.serial("Testeo PelisController get id", async (t) => {
     title: SOME_TITLE,
     tags: ["classic", SOME_TAG],
   });
-  const peli = await controller.getOne({ id: TEST_ID });
+  const peli: any = await controller.getOne({ id: TEST_ID });
   t.is(peli.title, SOME_TITLE);
 });
 
