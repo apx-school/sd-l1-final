@@ -1,1 +1,83 @@
-[]
+[
+  {
+    "id": 8,
+    "title": "The Truman show",
+    "tags": ["comedy", "drama"],
+    "rating": 8.2,
+    "year": 1998,
+    "country": "USA",
+    "duration": 103
+  },
+  {
+    "id": 1,
+    "title": "The Terminator",
+    "tags": ["scifi", "action", "thriller"],
+    "rating": 8.1,
+    "year": 1984,
+    "country": "USA",
+    "duration": 107
+  },
+  {
+    "id": 7,
+    "title": "Shichinin no Samurai",
+    "tags": ["action", "drama"],
+    "rating": 8.6,
+    "year": 1954,
+    "country": "Japan",
+    "duration": 207
+  },
+  {
+    "id": 5,
+    "title": "Back to the future",
+    "tags": ["scifi", "comedy", "time travel", "adventure"],
+    "rating": 8.5,
+    "year": 1985,
+    "country": "USA",
+    "duration": 116
+  },
+  {
+    "id": 2,
+    "title": "Shrek",
+    "rating": 7.9,
+    "tags": ["animation", "comedy", "adventure"],
+    "year": 2001,
+    "country": "USA",
+    "duration": 90
+  },
+  {
+    "id": 3,
+    "title": "Cinema Paradiso",
+    "tags": ["drama", "romance"],
+    "rating": 8.5,
+    "year": 1988,
+    "country": "Italy",
+    "duration": 174
+  },
+  {
+    "id": 9,
+    "title": "Nueve reinas",
+    "tags": ["drama", "crime", "thriller"],
+    "rating": 7.9,
+    "year": 2000,
+    "country": "Argentina",
+    "duration": 114
+  },
+  {
+    "id": 6,
+    "title": "Once upon a time in the west",
+    "tags": ["action", "western", "classic"],
+    "rating": 8.5,
+    "year": 1968,
+    "country": "USA",
+    "duration": 166
+  },
+  {
+    "id": 4,
+    "title": "Tonari no Totoro",
+    "tags": ["anime", "fantasy", "adventure"],
+    "rating": 8.1,
+    "year": 1988,
+    "country": "Japan",
+    "duration": 86
+  }
+]
