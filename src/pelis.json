@@ -1,1 +1,24 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "Interstellar",
+    "tags": ["ciencia ficción", "drama", "favorita"]
+  },
+  {
+    "id": 2,
+    "title": "El origen",
+    "tags": ["acción", "ciencia ficción", "favorita"]
+  },
+  { "id": 3, "title": "Forrest Gump", "tags": ["drama", "romance", "clásico"] },
+  {
+    "id": 4,
+    "title": "El señor de los anillos: El retorno del rey",
+    "tags": ["fantasía", "aventura", "favorita"]
+  },
+  {
+    "id": 5,
+    "title": "El silencio de los inocentes",
+    "tags": ["thriller", "crimen", "clásico"]
+  },
+  { "id": 6, "title": "Titanic", "tags": ["romance", "drama", "clásico"] }
+]
