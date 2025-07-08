@@ -1,17 +1,17 @@
 [
     {
-        "id" : 1,
+        "id": 1,
         "title": "odisea en el espacio",
-        "tags": ["ciencia ficcion, suspenso"]
+        "tags": ["ciencia ficcion", "suspenso"]
     },
     {
-        "id":2,
+        "id": 2,
         "title": "batman",
-        "tags" :["accion", "drama"]
+        "tags": ["accion", "drama"]
     },
     {
-        "id":3,
+        "id": 3,
         "title": "tiburon",
-        "tags" :["terror","drama"]
+        "tags": ["terror", "drama"]
     }
 ]

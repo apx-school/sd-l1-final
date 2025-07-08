@@ -1,8 +1,4 @@
-type SearchOptions = { 
-  title?: string; 
-  tag?: string; 
-};
-
+import * as path from "path";
 import * as jsonfile from "jsonfile";
 // El siguiente import no se usa pero es necesario
 import "./pelis.json";
@@ -17,9 +13,15 @@ class Peli {
   tags: string[];
 }
 
+type SearchOptions = {
+  title?: string;
+  tag?: string;
+};
+
 class PelisCollection {
   async getAll(): Promise<Peli[]> {
-    return jsonfile.readFile("./pelis.json").then((pelis) => {
+    const filePath = path.join(__dirname, "pelis.json");
+    return jsonfile.readFile(filePath).then((pelis) => {
       return pelis;
     });
   }
@@ -31,13 +33,14 @@ class PelisCollection {
   }
 
   add(peli: Peli): Promise<boolean> {
+    const filePath = path.join(__dirname, "pelis.json");
     const promesaUno = this.getById(peli.id).then((peliExistente) => {
       if (peliExistente) {
         return false;
       } else {
-        return jsonfile.readFile("./pelis.json").then((pelis) => {
+        return jsonfile.readFile(filePath).then((pelis) => {
           const data = [...pelis, peli];
-          const promesaDos = jsonfile.writeFile("./pelis.json", data);
+          const promesaDos = jsonfile.writeFile(filePath, data);
           return promesaDos.then(() => {
             return true;
           }).catch(() => {
@@ -58,11 +61,15 @@ class PelisCollection {
       let coincide = true;
 
       if (options.title) {
-        coincide = coincide && peli.title.toLowerCase().includes(options.title.toLowerCase());
+        coincide = coincide && peli.title.toLowerCase() === options.title.toLowerCase();
       }
 
       if (options.tag) {
-        coincide = coincide && peli.tags.includes(options.tag);
+        coincide =
+          coincide &&
+          peli.tags.some(
+            (t) => t.toLowerCase() === options.tag.trim().toLowerCase()
+          );
       }
 
       return coincide;
@@ -72,4 +79,4 @@ class PelisCollection {
   }
 }
 
-export { PelisCollection, Peli };
+export { PelisCollection, Peli, SearchOptions };
