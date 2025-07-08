@@ -1,12 +1,7 @@
 import * as path from "path";
 import * as jsonfile from "jsonfile";
-// El siguiente import no se usa pero es necesario
 import "./pelis.json";
-// de esta forma Typescript se entera que tiene que incluir
-// el .json y pasarlo a la carpeta /dist
-// si no, solo usandolo desde la libreria jsonfile, no se dá cuenta
 
-// no modificar estas propiedades, agregar todas las que quieras
 class Peli {
   id: number;
   title: string;
@@ -61,14 +56,14 @@ class PelisCollection {
       let coincide = true;
 
       if (options.title) {
-        coincide = coincide && peli.title.toLowerCase() === options.title.toLowerCase();
+        coincide = coincide && peli.title.toLowerCase().includes(options.title.toLowerCase());
       }
 
       if (options.tag) {
         coincide =
           coincide &&
           peli.tags.some(
-            (t) => t.toLowerCase() === options.tag.trim().toLowerCase()
+            (t) => t.toLowerCase().includes (options.tag.trim().toLowerCase())
           );
       }
 

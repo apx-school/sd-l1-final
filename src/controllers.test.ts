@@ -12,22 +12,15 @@ const test = anyTest as TestFn<{
   con: PelisController;
 }>;
 
-// # IMPORTANTE #
-// apenas te clones este repo
-// todos los test a continuación van a fallar
-
-// comentalos y descomentá uno a uno a medida
-// que vas avanzando en cada test
-
 test.serial("Testeo PelisController get id", async (t) => {
   const controller = new PelisController();
   await controller.add({
     id: TEST_ID,
     title: SOME_TITLE,
-    tags: ["classic", SOME_TAG],
+    tags: ["accion", SOME_TAG],
   });
-  const peli = await controller.getOne({ id: TEST_ID });
-  t.is(peli.title, SOME_TITLE);
+  const pelis = await controller.get({ id: TEST_ID });
+  t.is(pelis[0].title, SOME_TITLE);
 });
 
 test.serial("Testeo PelisController search title", async (t) => {
@@ -35,7 +28,7 @@ test.serial("Testeo PelisController search title", async (t) => {
   await controller.add({
     id: TEST_ID,
     title: SOME_TITLE,
-    tags: ["classic", SOME_TAG],
+    tags: ["accion", SOME_TAG],
   });
 
   const pelis = await controller.get({ search: { title: TEST_ID.toString() } });
@@ -45,6 +38,11 @@ test.serial("Testeo PelisController search title", async (t) => {
 
 test.serial("Testeo PelisController search tag", async (t) => {
   const controller = new PelisController();
+  await controller.add({
+    id: TEST_ID,
+    title: SOME_TITLE,
+    tags: ["accion", SOME_TAG],
+  });
   await controller.add({
     id: SECOND_TEST_ID,
     title: "otra peli un poco más divertida",
