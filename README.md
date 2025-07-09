@@ -1,40 +1,20 @@
-# Desafío final del Nivel 1
+# Sistema de Gestión de Películas
 
-- Forkeá este repo (y clonalo)
-- Instalá las dependencias con PNPM (a veces ava tiene problemas cuando lo instalas con NPM)
-- Revisá los tests
-- Agregá tu código y asegurate que los tests pasen
-- Creá un PR y envialo en el formulario correspondiente a este desfío)
+Una aplicación de terminal para gestionar y buscar películas almacenadas en un archivo JSON.
 
-# Pull de últimos cambios
+Comandos Disponibles
 
-Para traer los últimos cambios a un repositorio local que es un clone de un fork, lo mejor es agregar este repo como otro **remote** y hacer un pull. Un remote es un repositorio en una ubicación remota (github) contra el cual podemos hacer pull y push.
+1. Ver todas las películas
+npx tsx src/index.ts
 
-Para agregar el remoto:
 
-```sh
-git remote add apx git@github.com:apx-school/sd-l1-final.git
-```
+2.Buscar película por ID
+npx tsx src/index.ts get [ID]
 
-Para chequear que el remoto se agregó correctamente correr:
 
-```sh
-git remote -v
-```
+3.Buscar películas por título
+npx tsx src/index.ts search --title=[TITULO]
 
-Esto debería mostrar el nuevo remoto **apx**
+Ejecutar Tests
 
-```sh
-git remote -v
-
-apx	git@github.com:apx-school/sd-l1-final.git (fetch)
-apx	git@github.com:apx-school/sd-l1-final.git (push)
-```
-
-Ahora si queremos traernos cambios de este remoto hacemos un push pero agregando el remoto explicitamente.
-
-```sh
-git pull apx main
-```
-
-En vez de origin usamos apx que es nuestro nuevo **remote**. El remote por defecto es **origin**.
+npm test
