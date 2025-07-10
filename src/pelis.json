@@ -1,1 +1,12 @@
-[]
+[
+  { "id": 1, "title": "Inception", "tags": ["sci-fi", "thriller", "action"] },
+  {
+    "id": 2,
+    "title": "The Shawshank Redemption",
+    "tags": ["drama", "crime", "classic"]
+  },
+  { "id": 3, "title": "The Godfather", "tags": ["crime", "drama", "classic"] },
+  { "id": 4, "title": "Pulp Fiction", "tags": ["crime", "drama", "cult"] },
+  { "id": 5, "title": "The Matrix", "tags": ["sci-fi", "action", "adventure"] }
+
+]
