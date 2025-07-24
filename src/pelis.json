@@ -1,1 +1,21 @@
-[]
+[
+  { "id": 1, "title": "El Padrino", "tags": ["classic", "drama"] },
+  { "id": 2, "title": "Matrix", "tags": ["action", "sci-fi"] },
+  { "id": 3, "title": "Toy Story", "tags": ["animation", "family"] },
+  { "id": 4, "title": "Inception", "tags": ["action", "thriller"] },
+  {
+    "id": 5,
+    "title": "El Señor de los Anillos",
+    "tags": ["fantasy", "adventure"]
+  },
+  { "id": 6, "title": "Pulp Fiction", "tags": ["crime", "drama"] },
+  { "id": 7, "title": "Forrest Gump", "tags": ["drama", "romance"] },
+  { "id": 8, "title": "Gladiador", "tags": ["action", "historical"] },
+  { "id": 9, "title": "Coco", "tags": ["animation", "family"] },
+  { "id": 10, "title": "Jurassic Park", "tags": ["sci-fi", "adventure"] },
+  {
+    "id": 4411,
+    "title": "Título de la nueva peli",
+    "tags": ["action", "classic"]
+  }
+]
