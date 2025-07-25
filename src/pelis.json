@@ -1,1 +1,43 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "Matrix",
+    "tags": [
+      "action",
+      "sci-fi"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Titanic",
+    "tags": [
+      "drama",
+      "romance"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Toy Story",
+    "tags": [
+      "animation",
+      "family",
+      "comedy"
+    ]
+  },
+  {
+    "id": 123,
+    "title": "Matrix",
+    "tags": [
+      "action",
+      "classic"
+    ]
+  },
+  {
+    "id": 4411,
+    "title": "Título de la nueva peli",
+    "tags": [
+      "action",
+      "classic"
+    ]
+  }
+]
