@@ -1,1 +1,34 @@
-[]
+[
+    {
+        "id": 1,
+		"title": "Star Wars: Episodio IV - Una nueva esperanza",
+		"director": "George Lucas",
+		"year": 1977,
+		"tags": ["space opera", "sci-fi", "action", "epic"],
+		"duration_minutes": 121
+	},
+    {
+        "id": 2,
+		"title": "Star Wars: Episodio V - El Imperio contraataca",
+		"director": "Irvin Kershner",
+		"year": 1980,
+		"tags": ["space opera", "sci-fi", "action", "epic"],
+		"duration_minutes": 124
+	},
+    {
+        "id": 3,
+		"title": "Star Wars: Episodio VI - El retorno del Jedi",
+		"director": "Richard Marquand",
+		"year": 1983,
+		"tags": ["space opera", "sci-fi", "action", "epic"],
+		"duration_minutes": 128
+	},
+    {
+        "id": 4,
+		"title": "El Origen",
+		"director": "Christopher Nolan",
+		"year": 2010,
+		"tags": ["sci-fi", "action", "thriller", "dreams"],
+		"duration_minutes": 148
+	}
+]

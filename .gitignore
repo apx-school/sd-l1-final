@@ -2,3 +2,4 @@ node_modules
 response
 dist
 tsconfig.tsbuildinfo
+.DS_Store
