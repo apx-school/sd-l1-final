@@ -7,14 +7,10 @@
     "test": "ava",
     "mock-add": "tsx src/index.ts add --id=4321865 --title=\"peli de la terminal 4321865\" --tags=rr --tags=ww"
   },
-  "ava": {
-    "typescript": {
-      "rewritePaths": {
-        "src/": "dist/"
-      },
-      "compile": "tsc"
-    }
-  },
+"ava": {
+  "extensions": ["ts"],
+  "require": ["ts-node/register"]
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
