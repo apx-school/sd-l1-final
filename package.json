@@ -4,17 +4,14 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
+    "build": "tsc",
     "test": "ava",
     "mock-add": "tsx src/index.ts add --id=4321865 --title=\"peli de la terminal 4321865\" --tags=rr --tags=ww"
   },
   "ava": {
-    "typescript": {
-      "rewritePaths": {
-        "src/": "dist/"
-      },
-      "compile": "tsc"
-    }
-  },
+  "extensions": ["ts","js"],
+  "require": ["ts-node/register"]
+},
   "keywords": [],
   "author": "",
   "license": "ISC",

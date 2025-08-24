@@ -1,0 +1,134 @@
+[
+  {
+    "id": 1,
+    "title": "Parque Jurásico",
+    "tags": [
+      "aventura",
+      "acción",
+      "ciencia ficción",
+      "suspenso"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Rambo",
+    "tags": [
+      "acción",
+      "drama",
+      "guerra",
+      "suspenso"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Interstellar",
+    "tags": [
+      "sci-fi",
+      "aventura",
+      "drama"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Batman: El caballero de la noche",
+    "tags": [
+      "acción",
+      "thriller",
+      "superhéroes"
+    ]
+  },
+  {
+    "id": 147696,
+    "title": "title 198549147696",
+    "tags": [
+      "tt",
+      "rr"
+    ]
+  },
+  {
+    "id": 204825,
+    "title": "title 198549204825",
+    "tags": [
+      "yy",
+      "uu"
+    ]
+  },
+  {
+    "id": 145138,
+    "title": "una peli 145138",
+    "tags": [
+      "classic",
+      "tag 145138"
+    ]
+  },
+  {
+    "id": 130393,
+    "title": "otra peli un poco más divertida",
+    "tags": [
+      "tag 145138"
+    ]
+  },
+  {
+    "id": 189904,
+    "title": "title 158572189904",
+    "tags": [
+      "tt",
+      "rr"
+    ]
+  },
+  {
+    "id": 160817,
+    "title": "title 158572160817",
+    "tags": [
+      "yy",
+      "uu"
+    ]
+  },
+  {
+    "id": 193194,
+    "title": "title 177829193194",
+    "tags": [
+      "tt",
+      "rr"
+    ]
+  },
+  {
+    "id": 206752,
+    "title": "title 177829206752",
+    "tags": [
+      "yy",
+      "uu"
+    ]
+  },
+  {
+    "id": 146808,
+    "title": "title 181634146808",
+    "tags": [
+      "tt",
+      "rr"
+    ]
+  },
+  {
+    "id": 175360,
+    "title": "title 181634175360",
+    "tags": [
+      "yy",
+      "uu"
+    ]
+  },
+  {
+    "id": 216736,
+    "title": "una peli 216736",
+    "tags": [
+      "classic",
+      "tag 216736"
+    ]
+  },
+  {
+    "id": 141929,
+    "title": "otra peli un poco más divertida",
+    "tags": [
+      "tag 216736"
+    ]
+  }
+]
