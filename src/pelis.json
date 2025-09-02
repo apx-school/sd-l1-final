@@ -1,1 +1,78 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "Inception",
+    "tags": ["sci-fi", "action"]
+  },
+  {
+    "id": 2,
+    "title": "The Godfather",
+    "tags": ["crime", "drama"]
+  },
+  {
+    "id": 3,
+    "title": "The Dark Knight",
+    "tags": ["action", "drama"]
+  },
+  {
+    "id": 4,
+    "title": "Pulp Fiction",
+    "tags": ["crime", "thriller"]
+  },
+  {
+    "id": 5,
+    "title": "Forrest Gump",
+    "tags": ["drama", "romance"]
+  },
+  {
+    "id": 6,
+    "title": "The Matrix",
+    "tags": ["sci-fi", "action"]
+  },
+  {
+    "id": 7,
+    "title": "Fight Club",
+    "tags": ["drama", "thriller"]
+  },
+  {
+    "id": 8,
+    "title": "The Shawshank Redemption",
+    "tags": ["drama"]
+  },
+  {
+    "id": 9,
+    "title": "The Lord of the Rings: The Fellowship of the Ring",
+    "tags": ["fantasy", "adventure"]
+  },
+  {
+    "id": 10,
+    "title": "Interstellar",
+    "tags": ["sci-fi", "drama"]
+  },
+  {
+    "id": 11,
+    "title": "Gladiator",
+    "tags": ["action", "drama"]
+  },
+  {
+    "id": 12,
+    "title": "The Silence of the Lambs",
+    "tags": ["thriller", "crime"]
+  },
+  {
+    "id": 13,
+    "title": "The Social Network",
+    "tags": ["biography", "drama"]
+  },
+  {
+    "id": 14,
+    "title": "Parasite",
+    "tags": ["thriller", "drama"]
+  },
+  {
+    "id": 15,
+    "title": "The Avengers",
+    "tags": ["action", "sci-fi"]
+  }
+]
+
