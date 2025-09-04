@@ -54,7 +54,7 @@ test.serial("Testeo el método search", async (t) => {
   await collection.add({
     id: SECOND_TEST_ID,
     title: SECOND_TEST_TITLE,
-    tags: ["yy", "uu"],
+    tags: ["yy", "uu"]
   });
   const all = await collection.getAll();
   const a = all[0];

@@ -48,7 +48,7 @@ test.serial("Testeo PelisController search tag", async (t) => {
   await controller.add({
     id: SECOND_TEST_ID,
     title: "otra peli un poco más divertida",
-    tags: [SOME_TAG],
+    tags: [SOME_TAG]
   });
   const pelis = await controller.get({
     search: { title: "peli", tag: SOME_TAG },

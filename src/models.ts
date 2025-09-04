@@ -12,12 +12,50 @@ class Peli {
   tags: string[];
 }
 
+type SearchOptions = { title?: string; tag?: string };
+
 class PelisCollection {
-  getAll(): Promise<Peli[]> {
-    return jsonfile.readFile("...laRutaDelArchivo").then(() => {
-      // la respuesta de la promesa
-      return [];
+  listaPelis: Peli[] = [];
+
+  async getAll(): Promise<Peli[]> {
+    return await jsonfile.readFile("./src/pelis.json");
+  }
+
+  async getById(id: number): Promise<Peli | undefined>{
+    const pelis= await this.getAll();
+    const peliEncontrada = pelis.find((peli)=> peli.id === id);
+    return peliEncontrada;
+  }
+
+  async add(peli: Peli): Promise<Boolean>{
+    const peliExiste = await this.getById(peli.id);
+    if(peliExiste) return false;
+    const pelis = await this.getAll();
+
+    pelis.push(peli);
+
+    await jsonfile.writeFile("./src/pelis.json", pelis);
+    return true;
+  }
+
+  async search(options: SearchOptions): Promise<Peli[]>{
+    console.log(options);
+    
+    const lista = await this.getAll();
+
+    const listaFiltrada = lista.filter((p)=> {
+      let esteVa = true;
+
+      if(options.tag){
+        esteVa = esteVa && p.tags.includes(options.tag);
+      }
+      if(options.title){
+        esteVa = esteVa && p.title.includes(options.title);
+      }
+      return esteVa;
     });
+
+    return listaFiltrada;
   }
 }
 export { PelisCollection, Peli };
