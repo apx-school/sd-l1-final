@@ -1,1 +1,27 @@
-[]
+[
+  {
+    "id": 101,
+    "title": "Harry Potter y las reliquias de la muerte",
+    "tags": ["Drama", "Misterio", "Magia", "Ficcion", "Comedia"]
+  },
+  {
+    "id": 102,
+    "title": "The Last: Naruto the Movie",
+    "tags": ["Anime", "Drama", "Acción", "Ficcion", "Ninjas"]
+  },
+  {
+    "id": 103,
+    "title": "Game of Thrones",
+    "tags": ["Acción", "Drama", "Medieval", "Ficcion", "Guerra"]
+  },
+  {
+    "id": 104,
+    "title": "Monsters, Inc",
+    "tags": ["Comedia", "Drama", "Aventura", "Ficcion", "Animación"]
+  },
+  {
+    "id": 105,
+    "title": "The Godfather",
+    "tags": ["Acción", "Drama", "Mafia", "Gangster", "Suspenso"]
+  }
+]
