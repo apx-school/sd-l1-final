@@ -1,1 +1,32 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "Rocky V",
+    "tags": ["crack", "superacion", "Genio", "acción"]
+  },
+  {
+    "id": 2,
+    "title": "Inception",
+    "tags": ["acción", "sci-fi"]
+  },
+  {
+    "id": 3,
+    "title": "Titanic",
+    "tags": ["romance", "drama"]
+  },
+  {
+    "id": 4,
+    "title": "The Matrix",
+    "tags": ["acción", "sci-fi"]
+  },
+  {
+    "id": 5,
+    "title": "The Godfather",
+    "tags": ["drama", "clásico"]
+  },
+  {
+    "id": 6,
+    "title": "Hamburguesa Bionica",
+    "tags": ["action", "classic"]
+  }
+]
