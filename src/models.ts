@@ -1,64 +1,60 @@
-import * as Jsonfile from "jsonfile";
-import "./pelis.json";
+import * as jsonfile from "jsonfile";
 
-class Peli{
-  id:number;
-  title:string;
-  tags:string[];
-};
+class Peli {
+  id: number;
+  title: string;
+  tags: string[];
+}
 
-type SearchOptions={title?:string;tags?:string};
+type SearchOptions = { title?: string; tag?: string };
 
-class PelisCollection{
-  add(Ap:Peli):Promise<boolean>{
-    const Promesa1=this.getById(Ap.id).then((IDPEp)=>{
-      if(IDPEp){
-        return false;
-      }else{
-        const TodaLaLista=Jsonfile.readFile("pelis.json");
-        const DatosPeli=Ap;
-        const Promesa2=Jsonfile.writeFile("./pelis.json",DatosPeli);
-        TodaLaLista[TodaLaLista.length+1]=Promesa2;
-        return Promesa2.then(()=>{
-          return true;
-        });
-      };
+class PelisCollection {
+  async add(peli: Peli): Promise<boolean> {
+    try {
+      const peliExistente = await this.getById(peli.id);
+      if (peliExistente) {
+        return false; // id duplicado
+      }
+
+      const lista = await this.getAll();
+      lista.push(peli);
+      await jsonfile.writeFile("./pelis.json", lista);
+      return true;
+    } catch (error) {
+      // si hay error de escritura o lectura devolvemos false
+      return false;
+    }
+  }
+
+  getAll(): Promise<Peli[]> {
+    return jsonfile.readFile("./pelis.json") as Promise<Peli[]>;
+  }
+
+  async getById(id: number): Promise<Peli | null> {
+    const lista = await this.getAll();
+    const found = lista.find((p) => p.id === id);
+    return found || null;
+  }
+
+  async search(options: SearchOptions): Promise<Peli[]> {
+    const lista = await this.getAll();
+
+    return lista.filter((peli) => {
+      let cumple = true;
+
+      if (options.title) {
+        cumple =
+          cumple &&
+          peli.title.toLowerCase().includes(options.title.toLowerCase());
+      }
+
+      if (options.tag) {
+        cumple = cumple && peli.tags.includes(options.tag);
+      }
+
+      return cumple;
     });
-    return Promesa1;
-  };
+  }
+}
 
-  getAll():Promise<Peli[]>{
-    return Jsonfile.readFile("pelis.json").then((GAp)=>{
-      return GAp;
-    });
-  };
-  
-  getById(GBIDp:number):Promise<Peli>{
-    const IDObtenida=this.getAll().then((GBIDGAp)=>{
-      const IDEncontrada=GBIDGAp.find((GBIDGAp2)=>{
-        return GBIDGAp2.id==GBIDp;
-      });
-      return IDEncontrada;
-    });
-    return IDObtenida;
-  };
-  
-  async search(SOp:SearchOptions):Promise<Peli[]>{
-    const ListaPelis=await this.getAll();
-    const LisFil=ListaPelis.filter((SFp)=>{
-      var Val=false;
-      if(SOp.tags){
-        Val=true;
-        return SFp;
-      };
-      if(SOp.title){
-        Val=true;
-        return SFp;
-      };
-      return Val;
-    });
-    return LisFil;
-  };
-};
-
-export {PelisCollection,Peli};
+export { PelisCollection, Peli, SearchOptions };

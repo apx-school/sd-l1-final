@@ -1,32 +1,36 @@
-import {PelisCollection,Peli} from "./models";
+import { PelisCollection, Peli, SearchOptions } from "./models";
 
-type Options={
-  id?:number;
-  search?:{
-    title?:string;
-    tags?:string;
-  };
+export type Options = {
+  id?: number;
+  search?: SearchOptions;
 };
 
-class PelisController {
-  ControladorP:PelisCollection;
-  constructor(){
-    this.ControladorP=new PelisCollection();
-  };
-  get(OPp?:Options):Promise<any>{
-    if(OPp){
-      const N=OPp.id
-      return this.ControladorP.getById(N);
-    }else{
-      return this.ControladorP.getAll();
-    };
-  };
-  getOne(GOOp:Options):Peli{
-    return this.get(GOOp)[0];
-  };
-  add(APp:Peli){
-    return this.ControladorP.add(APp);
-  };
-};
+export class PelisController {
+  private model: PelisCollection;
 
-export {PelisController,Options};
+  constructor() {
+    this.model = new PelisCollection();
+  }
+
+  async get(options?: Options): Promise<Peli[]> {
+    if (options?.id) {
+      const peli = await this.model.getById(options.id);
+      return peli ? [peli] : [];
+    }
+
+    if (options?.search) {
+      return this.model.search(options.search);
+    }
+
+    return this.model.getAll();
+  }
+
+  async getOne(options: Options): Promise<Peli | null> {
+    const lista = await this.get(options);
+    return lista.length > 0 ? lista[0] : null;
+  }
+
+  add(peli: Peli): Promise<boolean> {
+    return this.model.add(peli);
+  }
+}

@@ -1,43 +1,50 @@
-import {PelisCollection,Peli} from "./models";
-import {PelisController,Options} from "./controllers";
+import { PelisController } from "./controllers";
+import { Peli } from "./models";
 import Minimist from "minimist";
 
-function ParseaParams(Argv) {
-  const ArgParMin=Minimist(Argv);
-  return ArgParMin;
-};
+function parseaParams(argv: string[]) {
+  return Minimist(argv);
+}
 
-async function Main(){
-  const ParamsPars=ParseaParams(process.argv.slice(2));
-  const Defi=ParamsPars._[0];
-  const IDP=ParamsPars.id;
-  const TituloP=ParamsPars.title;
-  const TagsP=ParamsPars.tags;
-  const Controlador=new PelisController();
-  const Coleccion=new PelisCollection();
-  const NuevaPeli:Peli={
-    id:IDP,
-    title:TituloP,
-    tags:TagsP
-  };
-  if(Defi=="add"){
-    const Resultado=await Controlador.add(NuevaPeli);
-    console.log(Resultado);
-  };
-  
-  if(Defi=="get"){
-    const Resultado=await Controlador.getOne(IDP);
-    console.log(Resultado);
-  };
-  if(Defi=="search"){
-    if(NuevaPeli.title){
-      const Resultado=Coleccion.search(TituloP);
-      console.log(Resultado);
-    }else if(NuevaPeli.tags){
-      const Resultado=await Coleccion.search(TagsP);
-      console.log(Resultado);
+async function main() {
+  const params = parseaParams(process.argv.slice(2));
+  const command = params._[0];
+
+  const id = params.id;
+  const title = params.title;
+  const tags = params.tags;
+
+  const controller = new PelisController();
+
+  if (command === "add") {
+    const nuevaPeli: Peli = {
+      id,
+      title,
+      tags: Array.isArray(tags) ? tags : [tags]
     };
-  };
-};
 
-Main();
+    const resultado = await controller.add(nuevaPeli);
+    console.log(resultado);
+  }
+
+  if (command === "get") {
+    const resultado = await controller.getOne({ id });
+    console.log(resultado);
+  }
+
+  if (command === "search") {
+    const searchOptions: any = {};
+    if (title) searchOptions.title = title;
+    if (tags) searchOptions.tag = tags;
+
+    const resultado = await controller.get({ search: searchOptions });
+    console.log(resultado);
+  }
+
+  if (!command) {
+    const resultado = await controller.get();
+    console.log(resultado);
+  }
+}
+
+main();
