@@ -21,16 +21,18 @@ class PelisCollection {
   }
   pelis:Peli[]
   async getAll(): Promise<Peli[]> {
-    const data= await jsonfile.readFile("./src/pelis.json")
-      // la respuesta de la promesa
-      
-    //  console.log(data)
-     return data
+  try {
+    const data = await jsonfile.readFile("./src/pelis.json");
+    return data; // devolvés el array de pelis
+  } catch (error) {
+    console.error("Error leyendo pelis.json:", error);
+    return []; // devolvés un array vacío en caso de error
+  }
     
   }
   async getById(id:number):Promise<Peli>{
     const data= await jsonfile.readFile("./src/pelis.json")
-    return find(data, function(o) { return o.id ===id; });
+    return find(data, (o)=> { return o.id ===id; });
     
 
   }
@@ -69,7 +71,8 @@ async  search(options) {
     }
     if (options.title) {
       
-     esteVa = esteVa && p.title.toLowerCase().startsWith(options.title.toLowerCase()), options.title.toLowerCase()
+     esteVa = esteVa && p.title.toLowerCase().includes(options.title.toLowerCase());
+  
     }
     return esteVa;
   });
