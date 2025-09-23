@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "jsonfile": "^6.1.0",
+    "lodash": "^4.17.21",
     "minimist": "^1.2.5"
   }
 }
