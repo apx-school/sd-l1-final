@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "El rey leon",
+    "tags": ["Infantil", "Comedia"]
+  },
+  {
+    "id": 2,
+    "title": "El padrino",
+    "tags": ["Drama", "Mafia"]
+  },
+  {
+    "id": 3,
+    "title": "Inception",
+    "tags": ["Drama", "Ciencia Ficcion"]
+  }
+]

@@ -4,7 +4,7 @@ import { getRandomId } from "./models.test";
 
 const TEST_ID = getRandomId();
 const SOME_TITLE = "una peli " + TEST_ID;
-const SOME_TAG = "tag " + TEST_ID;
+const SOME_TAG = "tags " + TEST_ID;
 
 const SECOND_TEST_ID = getRandomId();
 
@@ -43,7 +43,7 @@ test.serial("Testeo PelisController search title", async (t) => {
   t.is(pelis[0].id, TEST_ID);
 });
 
-test.serial("Testeo PelisController search tag", async (t) => {
+test.serial("Testeo PelisController search tags", async (t) => {
   const controller = new PelisController();
   await controller.add({
     id: SECOND_TEST_ID,
@@ -53,6 +53,7 @@ test.serial("Testeo PelisController search tag", async (t) => {
   const pelis = await controller.get({
     search: { title: "peli", tag: SOME_TAG },
   });
+
   const ids = pelis.map((b) => b.id);
   t.deepEqual(ids, [TEST_ID, SECOND_TEST_ID]);
 });
