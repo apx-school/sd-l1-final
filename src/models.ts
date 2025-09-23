@@ -30,12 +30,10 @@ class PelisCollection {
   }
     
   }
-  async getById(id:number):Promise<Peli>{
-    const data= await jsonfile.readFile("./src/pelis.json")
-    return find(data, (o)=> { return o.id ===id; });
-    
-
-  }
+ async getById(id: number): Promise<Peli | undefined> {
+  const data = await jsonfile.readFile("./src/pelis.json");
+  return data.find(o => o.id === id);
+}
  
    add(peli: Peli): Promise<boolean> {
    
