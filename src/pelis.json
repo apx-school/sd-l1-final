@@ -1,1 +1,21 @@
-[]
+[
+  { "id": 1, "title": "Jurassic Park", "tags": ["Ciencia Ficción"] },
+  { "id": 2, "title": "Rapido y Furioso 1", "tags": ["Autos", "Acción"] },
+  {
+    "id": 3,
+    "title": "Lo que el viento se llevó",
+    "tags": ["Drama", "Romance"]
+  },
+  { "id": 4, "title": "El Protector", "tags": ["Acción", "Pelea"] },
+  { "id": 5, "title": "Busqueda Implacable", "tags": ["Acción", "Pelea"] },
+  { "id": 6, "title": "Rocky 4", "tags": ["Pelea"] },
+  { "id": 7, "title": "El Club de La Pelea", "tags": ["Pelea"] },
+  { "id": 8, "title": "Hambre de Poder", "tags": ["Negocios", "Drama"] },
+  {
+    "id": 9,
+    "title": "Batman: El Caballero de La Noche",
+    "tags": ["Ciencia Ficción"]
+  },
+  { "id": 10, "title": "Alien vs Depredador", "tags": ["Ciencia Ficción"] },
+  { "id": 11, "title": "Rambo 2", "tags": ["Accion"] }
+]
