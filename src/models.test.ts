@@ -1,5 +1,6 @@
 import anyTest, { TestFn } from "ava";
 import { PelisCollection, Peli } from "./models";
+import * as jsonfile from "./jsonfileMock"; // Importa el mock
 
 export const getRandomId = () => {
   const randomNumber = Math.floor(Math.random() * 100000);
