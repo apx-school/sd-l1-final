@@ -1,1 +1,46 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "inception",
+    "tags": [
+      "sci-fi",
+      "thriller",
+      "action"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "The Shawshank Redemption",
+    "tags": [
+      "thriller",
+      "drama",
+      "Crime"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "The Godfather",
+    "tags": [
+      "Crime",
+      "Drama",
+      "Classic"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Jumanji",
+    "tags": [
+      "adventure",
+      "comedy",
+      "family"
+    ]
+  },
+  {
+    "id": 4411,
+    "title": "Título de la nueva peli",
+    "tags": [
+      "action",
+      "classic"
+    ]
+  }
+]
