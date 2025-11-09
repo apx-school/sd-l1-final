@@ -31,7 +31,7 @@ class PelisCollection {
       return null;
     }
   }
-
+ 
   // funcion getById();
   async getById(id: number): Promise<Peli | null>{
     try{
