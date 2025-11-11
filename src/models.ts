@@ -13,6 +13,11 @@ class Peli {
   id: number;
   title: string;
   tags: string[];
+  constructor(id, title, tags){
+    this.id = id;
+    this.title = title;
+    this.tags = tags;
+  }
 }
 
 type searchOptions = {
