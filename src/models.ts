@@ -1,23 +1,38 @@
-import * as jsonfile from "jsonfile";
-// El siguiente import no se usa pero es necesario
-import "./pelis.json";
-// de esta forma Typescript se entera que tiene que incluir
-// el .json y pasarlo a la carpeta /dist
-// si no, solo usandolo desde la libreria jsonfile, no se dá cuenta
+ const jsonfile = require('jsonfile');
 
-// no modificar estas propiedades, agregar todas las que quieras
-class Peli {
+export interface Peli {
   id: number;
   title: string;
   tags: string[];
 }
 
-class PelisCollection {
-  getAll(): Promise<Peli[]> {
-    return jsonfile.readFile("...laRutaDelArchivo").then(() => {
-      // la respuesta de la promesa
+export class PelisCollection {
+  private filePath = './pelis.json';
+
+  async getAll(): Promise<Peli[]> {
+    try {
+      const pelis = await jsonfile.readFile(this.filePath);
+      return pelis;
+    } catch (error) {
+      console.error("Error al leer el archivo:", error);
       return [];
-    });
+    }
+  }
+
+  async getById(id: number): Promise<Peli | null> {
+    const pelis = await this.getAll();
+    const peli = pelis.find(p => p.id === id);
+    return peli || null;
+  }
+
+  async add(peli: Peli): Promise<boolean> {
+    const peliExistente = await this.getById(peli.id);
+    if (peliExistente) {
+      return false;
+    }
+    const pelis = await this.getAll();
+    pelis.push(peli);
+    await jsonfile.writeFile(this.filePath, pelis);
+    return true;
   }
 }
-export { PelisCollection, Peli };

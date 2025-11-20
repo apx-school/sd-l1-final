@@ -1,1 +1,18 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "The Untouchables",
+    "tags": ["Crimen","Ley Seca"]
+  },
+  {
+    "id": 2,
+    "title": "The Godfather",
+    "tags": ["Mafia", "Crimen","Argentina"]
+  },
+  {
+    "id": 3,
+    "title": "El Clan",
+    "tags": ["Crimen", "Argentina"]
+  }
+]
+
