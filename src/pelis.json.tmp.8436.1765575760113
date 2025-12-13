@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "title": "Ghost, la sombra de un amor",
+    "tags": [
+      "amor",
+      "fantasma",
+      "romance",
+      "drama"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Madagascar, la isla de los animales de New York en Africa",
+    "tags": [
+      "animales",
+      "comedia",
+      "aventuras"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Samurai X, la pelicula",
+    "tags": [
+      "samurai",
+      "accion",
+      "drama",
+      "animé"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "El diario de Bridget Jones",
+    "tags": [
+      "romance",
+      "comedia"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "El exorcista",
+    "tags": [
+      "terror",
+      "sobrenatural",
+      "clásico"
+    ]
+  },
+  {
+    "id": 187336,
+    "title": "title 203526187336",
+    "tags": [
+      "tt",
+      "rr"
+    ],
+    "addedAt": 1765575760113
+  }
+]
