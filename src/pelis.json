@@ -1,1 +1,77 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "El hombre araña",
+    "tags": [
+      "accion",
+      "superheroes",
+      "ciencia ficcion",
+      "fantasia",
+      "drama",
+      "sobrenatural",
+      "comedia"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Los 4 fantasticos",
+    "tags": [
+      "accion",
+      "superheroes",
+      "ciencia ficcion",
+      "fantasia",
+      "sobrenatural",
+      "comedia"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Mortal Kombat",
+    "tags": [
+      "accion",
+      "artes marciales",
+      "fantasia",
+      "ciencia ficcion",
+      "suspenso",
+      "thriller"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "La sospecha",
+    "tags": [
+      "policial",
+      "suspenso",
+      "drama",
+      "thriller",
+      "crimen",
+      "misterio",
+      "politica"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "El viaje de chihiro",
+    "tags": [
+      "fantasia",
+      "animacion",
+      "aventura",
+      "infantil",
+      "comedia",
+      "drama",
+      "misterio",
+      "familiar",
+      "clasico"
+    ]
+  },
+  {
+    "id": 6,
+    "title": "El resplandor",
+    "tags": ["terror", "thriller", "misterio", "drama", "suspenso", "clasico"]
+  },
+  {
+    "id": 7,
+    "title": "La La Land",
+    "tags": ["romance", "comedia", "drama", "clasico", "musical"]
+  }
+]
