@@ -12,20 +12,21 @@ class PelisController {
   constructor() {
     this.model = new PelisCollection();
   }
- async get(options?:Options):Promise<Peli[]>{
-    let result: Peli[] = [];
-    if (options.id){
-      const peli = await this.model.getById(options.id);
-      if (peli){
-        result.push(peli);
-      }
-    } else if (options.search) {
-     result = await this.model.search(options.search);
-    } else {
-      result = await this.model.getAll();
-    }
-    return result;
+async get(options?: Options): Promise<Peli[]> {
+  let pelis = await this.model.getAll()
+  if (!options) return pelis
+  if (options.id) {
+    pelis = pelis.filter(p => p.id === options.id)
   }
+  if (options.search?.title) {
+    pelis = pelis.filter(p => p.title.includes(options.search.title!))
+  }
+  if (options.search?.tag) {
+    pelis = pelis.filter(p => p.tags.includes(options.search.tag!))
+  }
+  return pelis
+}
+
   
   async getOne(options:Options):Promise <Peli | undefined>{
    const results = await this.get(options);

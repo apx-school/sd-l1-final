@@ -15,10 +15,13 @@ async function main() {
   const controller = new PelisController;
   switch (action){
   case "add":
+    const tags = params.tags
+    ? (Array.isArray(params.tags) ? params.tags : [params.tags])
+  : [];
     const peli = {
       id: Number(params.id),
       title: params.title,
-      tags: params.tags ? params.tags.split(",") : []
+      tags: tags
     };
      const added = await controller.add(peli);
      console.log("Película agregada, ", added);
@@ -27,8 +30,12 @@ async function main() {
      const got = await controller.get(params);
      console.log("Película encontrada: ", got);
      break;
+     case "search":
+      const resultado = await controller.get({
+        search: {title: params.title, tag: params.tag}});
+        console.log(resultado);
     default:
-      controller.get();
+      console.log(await controller.get());
   }
 }
 

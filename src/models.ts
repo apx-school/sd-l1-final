@@ -13,7 +13,6 @@ class PelisCollection {
   getAll(): Promise<Peli[]> {
     return jsonfile.readFile(filePath).then((data) => {
     const pelis = data;
-    console.log(pelis);
       return pelis;
     });
   }
@@ -34,13 +33,9 @@ class PelisCollection {
   });
 }
 
- getById(id:number):Promise<Peli> {
+ getById(id:number):Promise<Peli | undefined>{
     return this.getAll().then((pelis) => {
-     const ident = pelis.find((peli) => peli.id == id);
-     if (!ident) {
-      console.error(error);
-     }
-     return ident;
+     return pelis.find((peli) => peli.id == id);
      });
   }
   search(options:SearchOptions):Promise<Peli[]> {
