@@ -1,11 +1,6 @@
 import * as jsonfile from "jsonfile";
-// El siguiente import no se usa pero es necesario
 import "./pelis.json";
-// de esta forma Typescript se entera que tiene que incluir
-// el .json y pasarlo a la carpeta /dist
-// si no, solo usandolo desde la libreria jsonfile, no se dá cuenta
 
-// no modificar estas propiedades, agregar todas las que quieras
 class Peli {
   id: number;
   title: string;
@@ -13,11 +8,46 @@ class Peli {
 }
 
 class PelisCollection {
+  // Guardamos la ruta en una constante para no repetirnos
+  private readonly filePath = "./src/pelis.json";
+
   getAll(): Promise<Peli[]> {
-    return jsonfile.readFile("...laRutaDelArchivo").then(() => {
-      // la respuesta de la promesa
-      return [];
-    });
+    return jsonfile.readFile(this.filePath);
+  }
+
+  // Corregido: Agregamos | undefined al retorno
+  async getById(id: number): Promise<Peli | undefined> {
+    const pelis = await this.getAll();
+    return pelis.find((p) => p.id === id);
+  }
+
+  async search(options: any): Promise<Peli[]> {
+  const pelis = await this.getAll();
+  return pelis.filter((peli) => {
+    let cumple = true;
+    if (options.title) {
+      console.log(`Buscando título: ${options.title}, en: ${peli.title}`);
+      cumple = cumple && peli.title.toLowerCase().includes(options.title.toLowerCase());
+    }
+    if (options.tag) {
+      console.log(`Buscando tag: ${options.tag}, en: ${peli.tags}`);
+      cumple = cumple && peli.tags.includes(options.tag);
+    }
+    return cumple;
+  });
+}
+
+  async add(peli: Peli): Promise<boolean> {
+    // Optimización: Leemos una sola vez
+    const pelis = await this.getAll();
+    const existe = pelis.find(p => p.id === peli.id);
+    if (existe) {
+      return false;
+    } else {
+      pelis.push(peli);
+      return jsonfile.writeFile(this.filePath, pelis).then(() => true);
+    }
   }
 }
+
 export { PelisCollection, Peli };
