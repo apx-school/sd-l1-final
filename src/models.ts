@@ -1,23 +1,52 @@
 import * as jsonfile from "jsonfile";
-// El siguiente import no se usa pero es necesario
-import "./pelis.json";
-// de esta forma Typescript se entera que tiene que incluir
-// el .json y pasarlo a la carpeta /dist
-// si no, solo usandolo desde la libreria jsonfile, no se dá cuenta
 
-// no modificar estas propiedades, agregar todas las que quieras
 class Peli {
   id: number;
   title: string;
   tags: string[];
 }
 
+type SearchOptions = { title?: string; tag?: string };
+
 class PelisCollection {
   getAll(): Promise<Peli[]> {
-    return jsonfile.readFile("...laRutaDelArchivo").then(() => {
-      // la respuesta de la promesa
-      return [];
+    return jsonfile
+      .readFile("./pelis.json")
+      .then((pelis) => pelis)
+      .catch(() => []);  // si aún no hay archivo, devolvemos []
+  }
+
+  getById(id: number): Promise<Peli> {
+    return this.getAll().then((pelis) => {
+      return pelis.find((peli) => peli.id === id);
     });
   }
+
+  async search(options: SearchOptions): Promise<Peli[]> {
+    const pelis = await this.getAll();
+    return pelis.filter((peli) => {
+      let coincide = true;
+
+      if (options.title) {
+        coincide = coincide && peli.title.includes(options.title);
+      }
+
+      if (options.tag) {
+        coincide = coincide && peli.tags.includes(options.tag);
+      }
+
+      return coincide;
+    });
+  }
+
+  async add(peli: Peli): Promise<boolean> {
+    const existe = await this.getById(peli.id);
+    if (existe) return false;
+    const pelis = await this.getAll();
+    pelis.push(peli);
+    await jsonfile.writeFile("./pelis.json", pelis);
+    return true;
+  }
 }
+
 export { PelisCollection, Peli };
