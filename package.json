@@ -1,11 +1,37 @@
 {
   "name": "test-ava",
   "version": "1.0.0",
-  "description": "",
+  "description": "- Forkeá este repo (y clonalo)\r - Instalá las dependencias con PNPM (a veces ava tiene problemas cuando lo instalas con NPM)\r - Revisá los tests\r - Agregá tu código y asegurate que los tests pasen\r - Creá un PR y envialo en el formulario correspondiente a este desfío)",
+  "keywords": [],
+  "homepage": "https://github.com/maxibarra/sd-l1-final#readme",
+  "bugs": {
+    "url": "https://github.com/maxibarra/sd-l1-final/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxibarra/sd-l1-final.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
   "main": "index.ts",
   "scripts": {
-    "test": "ava",
+    "test": "ava --serial",
     "mock-add": "tsx src/index.ts add --id=4321865 --title=\"peli de la terminal 4321865\" --tags=rr --tags=ww"
+  },
+  "dependencies": {
+    "jsonfile": "^6.2.0",
+    "minimist": "^1.2.8"
+  },
+  "devDependencies": {
+    "@ava/typescript": "^4.1.0",
+    "@types/jsonfile": "^6.1.4",
+    "@types/minimist": "^1.2.5",
+    "@types/node": "^22.15.0",
+    "ava": "^6.0.1",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.21.0",
+    "typescript": "^5.3.3"
   },
   "ava": {
     "typescript": {
@@ -14,20 +40,5 @@
       },
       "compile": "tsc"
     }
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@ava/typescript": "^4.1.0",
-    "@types/node": "^22.15.0",
-    "ava": "^6.0.1",
-    "ts-node": "^10.9.2",
-    "tsx": "^4.19.3",
-    "typescript": "^5.3.3"
-  },
-  "dependencies": {
-    "jsonfile": "^6.1.0",
-    "minimist": "^1.2.5"
   }
 }
