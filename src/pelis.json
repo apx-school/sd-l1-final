@@ -1,1 +1,66 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "El lobo de Wall Street",
+    "tags": ["Humor negro", "Drama", "Ficción detectivesca", "Policial"]
+  },
+  {
+    "id": 2,
+    "title": "Bastardos sin gloria",
+    "tags": ["Bélico", "Drama", "Acción", "Guerra", "Humor negro"]
+  },
+  {
+    "id": 3,
+    "title": "Avengers Endgame",
+    "tags": [
+      "Acción",
+      "Aventura",
+      "Super héroes",
+      "Viajes en el tiempo",
+      "Ciencia ficción"
+    ]
+  },
+  { "id": 185039, "title": "title 197093185039", "tags": ["tt", "rr"] },
+  { "id": 135076, "title": "title 156248135076", "tags": ["tt", "rr"] },
+  { "id": 185039, "title": "title 197093185039", "tags": ["tt", "rr"] },
+  { "id": 164139, "title": "title 197093164139", "tags": ["yy", "uu"] },
+  { "id": 226127, "title": "title 156248226127", "tags": ["yy", "uu"] },
+  {
+    "id": 225839,
+    "title": "una peli 225839",
+    "tags": ["classic", "tag 225839"]
+  },
+  {
+    "id": 179735,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 225839"]
+  },
+  { "id": 214355, "title": "title 133939214355", "tags": ["tt", "rr"] },
+  { "id": 129882, "title": "title 133939129882", "tags": ["yy", "uu"] },
+  { "id": 227406, "title": "title 178580227406", "tags": ["tt", "rr"] },
+  { "id": 226566, "title": "title 178580226566", "tags": ["yy", "uu"] },
+  {
+    "id": 198172,
+    "title": "una peli 198172",
+    "tags": ["classic", "tag 198172"]
+  },
+  {
+    "id": 130658,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 198172"]
+  },
+  { "id": 136532, "title": "title 213511136532", "tags": ["tt", "rr"] },
+  { "id": 222806, "title": "title 213511222806", "tags": ["yy", "uu"] },
+  { "id": 204718, "title": "title 190285204718", "tags": ["tt", "rr"] },
+  { "id": 227452, "title": "title 190285227452", "tags": ["yy", "uu"] },
+  {
+    "id": 184860,
+    "title": "una peli 184860",
+    "tags": ["classic", "tag 184860"]
+  },
+  {
+    "id": 211714,
+    "title": "otra peli un poco más divertida",
+    "tags": ["tag 184860"]
+  }
+]
