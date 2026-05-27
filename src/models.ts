@@ -1,23 +1,70 @@
 import * as jsonfile from "jsonfile";
-// El siguiente import no se usa pero es necesario
 import "./pelis.json";
-// de esta forma Typescript se entera que tiene que incluir
-// el .json y pasarlo a la carpeta /dist
-// si no, solo usandolo desde la libreria jsonfile, no se dá cuenta
 
-// no modificar estas propiedades, agregar todas las que quieras
 class Peli {
   id: number;
   title: string;
   tags: string[];
 }
 
+type SearchOptions = {
+  title?: string;
+  tag?: string;
+};
+
 class PelisCollection {
   getAll(): Promise<Peli[]> {
-    return jsonfile.readFile("...laRutaDelArchivo").then(() => {
-      // la respuesta de la promesa
-      return [];
+    return jsonfile.readFile(__dirname + "/pelis.json").then((data) => {
+      return data;
+    });
+  }
+
+  getById(id: number): Promise<Peli | undefined> {
+    return this.getAll().then((pelis) => {
+      return pelis.find((peli) => peli.id == id);
+    });
+  }
+
+  add(peli: Peli): Promise<boolean> {
+    return this.getById(peli.id).then((peliExistente) => {
+      if (peliExistente) {
+        return false;
+      }
+
+      return this.getAll().then((pelis) => {
+        pelis.push(peli);
+
+        return jsonfile
+          .writeFile(__dirname + "/pelis.json", pelis, { spaces: 2 })
+          .then(() => {
+            return true;
+          })
+          .catch(() => {
+            return false;
+          });
+      });
+    });
+  }
+
+  search(options: SearchOptions): Promise<Peli[]> {
+    return this.getAll().then((pelis) => {
+      return pelis.filter((peli) => {
+        let esteVa = true;
+
+        if (options.title) {
+          esteVa =
+            esteVa &&
+            peli.title.toLowerCase().includes(options.title.toLowerCase());
+        }
+
+        if (options.tag) {
+          esteVa = esteVa && peli.tags.includes(options.tag);
+        }
+
+        return esteVa;
+      });
     });
   }
 }
-export { PelisCollection, Peli };
+
+export { PelisCollection, Peli, SearchOptions };
