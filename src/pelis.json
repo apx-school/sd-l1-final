@@ -1,1 +1,36 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "MostersInc",
+    "tags": [
+      "animación",
+      "comedia"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Lorax",
+    "tags": [
+      "medioambiente",
+      "comedia",
+      "animación"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Juegos del hambre",
+    "tags": [
+      "politica",
+      "romance",
+      "accion"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Barbie",
+    "tags": [
+      "comedia",
+      "aventura"
+    ]
+  }
+]
