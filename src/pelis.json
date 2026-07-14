@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "Titanic",
+    "tags": ["romance", "drama"]
+  },
+  {
+    "id": 2,
+    "title": "Duro de matar",
+    "tags": ["action", "classic"]
+  },
+  {
+    "id": 3,
+    "title": "Shrek",
+    "tags": ["animation", "family"]
+  }
+]
