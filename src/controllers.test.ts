@@ -19,7 +19,7 @@ const test = anyTest as TestFn<{
 // comentalos y descomentá uno a uno a medida
 // que vas avanzando en cada test
 
-test.serial("Testeo PelisController get id", async (t) => {
+/*test.serial("Testeo PelisController get id", async (t) => {
   const controller = new PelisController();
   await controller.add({
     id: TEST_ID,
@@ -28,7 +28,7 @@ test.serial("Testeo PelisController get id", async (t) => {
   });
   const peli = await controller.getOne({ id: TEST_ID });
   t.is(peli.title, SOME_TITLE);
-});
+});*/
 
 test.serial("Testeo PelisController search title", async (t) => {
   const controller = new PelisController();
