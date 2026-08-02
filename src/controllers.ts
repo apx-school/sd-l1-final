@@ -11,7 +11,7 @@ class PelisController {
      if (options?.id) {
     
       const peli = await this.model.getById(options.id);
-      return [peli]; // Devuelvo un array con la peli 
+      return [peli]; 
     
     } else if (options?.search){
       return await this.model.search(options.search)
