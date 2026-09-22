@@ -1,0 +1,15 @@
+[
+  {
+    "id": 4411,
+    "title": "Título de la nueva peli",
+    "tags": ["action", "classic"]
+  },
+  { "id": 1, "title": "The Matrix", "tags": ["action", "classic"] },
+  { "id": 2, "title": "The Godfather", "tags": ["classic", "drama"] },
+  { "id": 3, "title": "Toy Story", "tags": ["animation", "family"] },
+  {
+    "id": 4311,
+    "title": "Título de la nueva peli1",
+    "tags": ["action", "classic"]
+  }
+]
