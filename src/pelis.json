@@ -1,1 +1,81 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "Matrix",
+    "tags": [
+      "action",
+      "scifi"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Titanic",
+    "tags": [
+      "romance",
+      "drama"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Jurassic Park",
+    "tags": [
+      "action",
+      "adventure"
+    ]
+  },
+  {
+    "id": 141734,
+    "title": "title 188609141734",
+    "tags": [
+      "tt",
+      "rr"
+    ]
+  },
+  {
+    "id": 182659,
+    "title": "title 188609182659",
+    "tags": [
+      "yy",
+      "uu"
+    ]
+  },
+  {
+    "id": 180823,
+    "title": "title 189026180823",
+    "tags": [
+      "tt",
+      "rr"
+    ]
+  },
+  {
+    "id": 145999,
+    "title": "title 189026145999",
+    "tags": [
+      "yy",
+      "uu"
+    ]
+  },
+  {
+    "id": 155834,
+    "title": "una peli 155834",
+    "tags": [
+      "classic",
+      "tag 155834"
+    ]
+  },
+  {
+    "id": 155508,
+    "title": "otra peli un poco más divertida",
+    "tags": [
+      "tag 155834"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Avatar",
+    "tags": [
+      "scifi",
+      "adventure"
+    ]
+  }
+]
