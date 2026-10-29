@@ -1,1 +1,66 @@
-[]
+[
+    {
+        "id": 1,
+        "title": "Inception jimmy",
+        "tags": [
+            "sci-fi",
+            "thriller"
+        ]
+    },
+    {
+        "id": 2,
+        "title": "The Godfather jimmy",
+        "tags": [
+            "crime",
+            "drama"
+        ]
+    },
+    {
+        "id": 3,
+        "title": "The Dark Knight",
+        "tags": [
+            "action",
+            "superhero"
+        ]
+    },
+    {
+        "id": 4,
+        "title": "Pulp  jimmy",
+        "tags": [
+            "crime",
+            "classic"
+        ]
+    },
+    {
+        "id": 8,
+        "title": "dark 4",
+        "tags": [
+            "ola",
+            "crimen"
+        ]
+    },
+    {
+        "id": 4411,
+        "title": "Título de Dark nueva peli",
+        "tags": [
+            "action",
+            "classic"
+        ]
+    },
+    {
+        "id": 333,
+        "title": "batman",
+        "tags": [
+            "action",
+            "dark"
+        ]
+    },
+    {
+        "id": 3223,
+        "title": "jimmy Galarza",
+        "tags": [
+            "action",
+            "dark"
+        ]
+    }
+]

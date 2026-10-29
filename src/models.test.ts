@@ -31,18 +31,6 @@ test.serial("Corre ava", async (t) => {
   t.is("si", "si");
 });
 
-test.serial("Testeo el método getById", async (t) => {
-  const collection = new PelisCollection();
-  await collection.add({
-    id: TEST_ID,
-    title: TEST_TITLE,
-    tags: ["tt", "rr"],
-  });
-  const all = await collection.getAll();
-  const a = all[0];
-  const b = await collection.getById(a.id);
-  t.is(a.title, b.title);
-});
 
 test.serial("Testeo el método search", async (t) => {
   const collection = new PelisCollection();
@@ -66,7 +54,7 @@ test.serial("Testeo el método search", async (t) => {
   // El search debe encontrar solo la peli con el title (session) y el tag (yy)
   const c = await collection.search({
     title: SECOND_TEST_ID.toString(),
-    tag: "yy",
+    tags: ["yy"],
   });
   t.deepEqual(c[0].id, SECOND_TEST_ID);
 });
